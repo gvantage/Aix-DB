@@ -130,7 +130,11 @@
 如果你喜欢这个项目或发现有用，可以点右上角 [`Star`](https://github.com/apconw/sanic-web***REMOVED*** 支持一下，你的支持是我们不断改进的动力，感谢！ ^_^ 
 
 ## QA交流群
-![image](./images/ding.png***REMOVED***
+- 大模型应用交流群欢迎大家进群讨论分享经验
+
+|             钉钉群              |             微信群              |
+|:----------------------------:|:----------------------------:|
+| ![image](./images/ding.png***REMOVED***  | ![image](./images/wchat.png***REMOVED*** |
 
 ## License
 
