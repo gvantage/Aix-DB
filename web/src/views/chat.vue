@@ -8,6 +8,7 @@ import DefaultPage from './DefaultPage.vue'
 const route = useRoute(***REMOVED***
 const router = useRouter(***REMOVED***
 const message = useMessage(***REMOVED***
+import * as GlobalAPI from '@/api'
 
 // 显示默认页面
 const showDefaultPage = ref(true***REMOVED***
@@ -131,9 +132,35 @@ const onRecycleQa = async (index: number***REMOVED*** => {
     // console.log(item.question, item.qa_type***REMOVED***
     //设置当前选中的问答类型
     onAqtiveChange(item.qa_type***REMOVED***
+
     //发送问题重新生成
     handleCreateStylized(item.question***REMOVED***
 ***REMOVED***
+
+//赞 结果反馈
+const onPraiseFeadBack = async (index: number***REMOVED*** => {
+    const item = conversationItems.value[index]
+    const res = await GlobalAPI.fead_back(item.chat_id, 'like'***REMOVED***
+    if (res.ok***REMOVED*** {
+        window.$ModalMessage.destroyAll(***REMOVED***
+        window.$ModalMessage.success('感谢反馈', {
+            duration: 1500
+        ***REMOVED******REMOVED***
+    ***REMOVED***
+***REMOVED***
+
+//踩 结果反馈
+const onBelittleFeedback = async (index: number***REMOVED*** => {
+    const item = conversationItems.value[index]
+    const res = await GlobalAPI.fead_back(item.chat_id, 'dislike'***REMOVED***
+    if (res.ok***REMOVED*** {
+        window.$ModalMessage.destroyAll(***REMOVED***
+        window.$ModalMessage.success('感谢反馈', {
+            duration: 1500
+        ***REMOVED******REMOVED***
+    ***REMOVED***
+***REMOVED***
+
 // 侧边栏对话历史
 interface TableItem {
     index: number
@@ -145,6 +172,7 @@ const tableRef = ref(null***REMOVED***
 //保存对话历史记录
 const conversationItems = ref<
     Array<{
+        chat_id: string
         qa_type: string
         question: string
         role: 'user' | 'assistant'
@@ -159,14 +187,16 @@ const visibleConversationItems = computed((***REMOVED*** => {
 
 //提交对话
 const handleCreateStylized = async (send_text = ''***REMOVED*** => {
+    //设置初始化数据标识为false
     isInit.value = false
+
     // 若正在加载，则点击后恢复初始状态
     if (stylizingLoading.value***REMOVED*** {
         onCompletedReader(conversationItems.value.length - 1***REMOVED***
         return
     ***REMOVED***
 
-    //send_text
+    //如果输入为空，则直接返回
     if (send_text == ''***REMOVED*** {
         if (refInputTextString.value && !inputTextString.value.trim(***REMOVED******REMOVED*** {
             inputTextString.value = ''
@@ -205,11 +235,16 @@ const handleCreateStylized = async (send_text = ''***REMOVED*** => {
         ? inputTextString.value
         : send_text
     inputTextString.value = ''
+    const uuid = uuidv4(***REMOVED***
     const { error, reader, needLogin ***REMOVED*** =
-        await businessStore.createAssistantWriterStylized(currentChatId.value, {
-            text: textContent,
-            writer_oid: currentChatId.value
-        ***REMOVED******REMOVED***
+        await businessStore.createAssistantWriterStylized(
+            uuid,
+            currentChatId.value,
+          ***REMOVED***
+                text: textContent,
+                writer_oid: currentChatId.value
+            ***REMOVED***
+        ***REMOVED***
 
     if (needLogin***REMOVED*** {
         message.error('登录已失效，请重新登录'***REMOVED***
@@ -228,8 +263,9 @@ const handleCreateStylized = async (send_text = ''***REMOVED*** => {
 
     if (reader***REMOVED*** {
         outputTextReader.value = reader
-        // 添加助手的回答
+        // 存储该轮对话消息
         conversationItems.value.push({
+            chat_id: uuid,
             qa_type: qa_type.value,
             question: textContent,
       ***REMOVED***
@@ -310,27 +346,7 @@ watch(
     ***REMOVED***
 ***REMOVED***
 
-// // 监听对话历史表格数据变化滚动条到底部
-// watch(
-//     tableData,
-//     (newData***REMOVED*** => {
-//         nextTick((***REMOVED*** => {
-//             scrollToBottomChatTable(***REMOVED***
-//         ***REMOVED******REMOVED***
-//     ***REMOVED***,
-//   ***REMOVED*** deep: true ***REMOVED***
-// ***REMOVED***
-
-// const scrollToBottomChatTable = (***REMOVED*** => {
-//     if (tableRef.value***REMOVED*** {
-//         //这里获取到的是sidebar div 的dom
-//         const bodyWrapper = document.querySelector('.scrollable-sidebar'***REMOVED***
-//         if (bodyWrapper***REMOVED*** {
-//             bodyWrapper.scrollTop = bodyWrapper.scrollHeight
-//         ***REMOVED***
-//     ***REMOVED***
-// ***REMOVED***
-
+//重置状态
 const handleResetState = (***REMOVED*** => {
     if (isMockDevelopment***REMOVED*** {
         inputTextString.value = ''
@@ -550,6 +566,8 @@ const onAqtiveChange = (val***REMOVED*** => {
                         @completed="(***REMOVED*** => onCompletedReader(index***REMOVED***"
                         @chartready="(***REMOVED*** => onChartReady(index + 1***REMOVED***"
                         @recycleQa="(***REMOVED*** => onRecycleQa(index***REMOVED***"
+                        @praiseFeadBack="(***REMOVED*** => onPraiseFeadBack(index***REMOVED***"
+                        @belittleFeedback="(***REMOVED*** => onBelittleFeedback(index***REMOVED***"
           ***REMOVED***
     ***REMOVED***
 ***REMOVED***

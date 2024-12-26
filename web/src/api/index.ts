@@ -5,7 +5,7 @@ import request from '@/utils/request'
 /**
  * Event Stream 调用大模型接口 Ollama3 (Fetch 调用***REMOVED***
  */
-export async function createOllama3Stylized(text, qa_type***REMOVED*** {
+export async function createOllama3Stylized(text, qa_type, uuid***REMOVED*** {
     const userStore = useUserStore(***REMOVED***
     const token = userStore.getUserToken(***REMOVED***
     const businessStore = useBusinessStore(***REMOVED***
@@ -32,7 +32,8 @@ export async function createOllama3Stylized(text, qa_type***REMOVED*** {
         ***REMOVED***,
   ***REMOVED***
             query: text,
-            qa_type: qa_type
+            qa_type: qa_type,
+            chat_id: uuid
         ***REMOVED******REMOVED***
     ***REMOVED******REMOVED***
     return fetch(req***REMOVED***
@@ -104,6 +105,31 @@ export async function delete_user_record(ids***REMOVED*** {
         ***REMOVED***,
   ***REMOVED***
             record_ids: ids
+        ***REMOVED******REMOVED***
+    ***REMOVED******REMOVED***
+    return fetch(req***REMOVED***
+***REMOVED***
+
+/**
+ * 用户反馈
+ * @param chat_id
+ * @param rating
+ * @returns
+ */
+export async function fead_back(chat_id, rating***REMOVED*** {
+    const userStore = useUserStore(***REMOVED***
+    const token = userStore.getUserToken(***REMOVED***
+    const url = new URL(`${location.origin***REMOVED***/sanic/user/dify_fead_back`***REMOVED***
+    const req = new Request(url, {
+        mode: 'cors',
+        method: 'post',
+  ***REMOVED***
+    ***REMOVED***
+            Authorization: `Bearer ${token***REMOVED***` // 添加 token 到头部
+        ***REMOVED***,
+  ***REMOVED***
+            chat_id,
+            rating
         ***REMOVED******REMOVED***
     ***REMOVED******REMOVED***
     return fetch(req***REMOVED***
