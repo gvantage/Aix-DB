@@ -230,7 +230,7 @@ async def read_excel(file_url: str***REMOVED***:
         traceback.print_exception(e***REMOVED***
 
 
-def read_file_columns(file_url: str***REMOVED***:
+async def read_file_columns(file_url: str***REMOVED***:
     """
     仅读取并返回文件的第一个工作表或CSV文件的列名称（表头）
 
@@ -257,7 +257,7 @@ def read_file_columns(file_url: str***REMOVED***:
         columns = df.columns.tolist(***REMOVED***
 
         # 将列名称转为JSON格式返回
-        return json.dumps({"file_header": columns***REMOVED***, ensure_ascii=False***REMOVED***
+        return json.dumps(columns, ensure_ascii=False***REMOVED***
 
     except Exception as e:
         print(f"An error occurred: {e***REMOVED***"***REMOVED***

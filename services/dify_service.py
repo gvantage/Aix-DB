@@ -68,7 +68,7 @@ class DiFyRequest:
                 token = token.split(" "***REMOVED***[1]
 
             # 封装问答上下文信息
-            qa_context = QaContext(token, query, chat_id***REMOVED***
+            qa_context = QaContext(token, cleaned_query, chat_id***REMOVED***
 
             # 判断请求类别
             app_key = self._get_authorization_token(qa_type***REMOVED***
@@ -95,7 +95,7 @@ class DiFyRequest:
                             if not chunk:
                                 break
                             str_chunk = chunk.decode("utf-8"***REMOVED***
-                            print(str_chunk***REMOVED***
+                            # print(str_chunk***REMOVED***
                             if str_chunk.startswith("data"***REMOVED***:
                                 str_data = str_chunk[5:]
                                 data_json = json.loads(str_data***REMOVED***
