@@ -10,7 +10,6 @@ import {
 ***REMOVED*** from './transform'
 import MarkdownTable from './MarkdownTable.vue'
 import { watch ***REMOVED*** from 'vue'
-import { round ***REMOVED*** from 'lodash-es'
 interface Props {
     isInit: boolean
     chartId: string
@@ -46,6 +45,7 @@ const isCompleted = ref(false***REMOVED***
 const emit = defineEmits([
     'failed',
     'completed',
+    'beginRead',
     'update:reader',
     'chartready',
     'recycleQa',
@@ -288,6 +288,13 @@ watch(
     ***REMOVED***
 ***REMOVED***
 
+// 监听 displayText 变化
+watch(displayText, (newValue***REMOVED*** => {
+    if (newValue !== ''***REMOVED*** {
+        emit('beginRead'***REMOVED***
+    ***REMOVED***
+***REMOVED******REMOVED***
+
 onUnmounted((***REMOVED*** => {
     resetStatus(***REMOVED***
 ***REMOVED******REMOVED***
@@ -381,15 +388,16 @@ const onChartCompletedReader = function (***REMOVED*** {
                 class="w-full h-full overflow-hidden"
                 :class="[!displayText && 'flex items-center justify-center']"
   ***REMOVED***
-                <n-empty v-if="!displayText" size="large" class="font-bold">
+                <!-- <n-empty v-if="!displayText" size="large" class="font-bold">
                     <template #icon>
                         <n-icon>
                   ***REMOVED***class="i-hugeicons:ai-chat-02"></div>
                         </n-icon>
-                    ***REMOVED***
-                </n-empty>
+                    ***REMOVED*** 
+                </n-empty> -->
+
                 <div
-                    v-else
+                    v-if="displayText"
                     ref="refWrapperContent"
                     text-16
                     class="w-full h-full overflow-y-auto"
@@ -459,8 +467,7 @@ const onChartCompletedReader = function (***REMOVED*** {
                             'border-bottom-right-radius': '15px',
                             'border-bottom-left-radius': '15px',
                             'justify-content': 'space-between',
-                            'margin-top':
-                                currentChartType === '' ? '-15px' : '0'
+                            'margin-top': currentChartType === '' ? '-5px' : '0'
                         ***REMOVED***"
           ***REMOVED***
               ***REMOVED***style="display: flex">

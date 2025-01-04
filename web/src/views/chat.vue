@@ -11,7 +11,6 @@ const route = useRoute(***REMOVED***
 const router = useRouter(***REMOVED***
 const message = useMessage(***REMOVED***
 import * as GlobalAPI from '@/api'
-import { text ***REMOVED*** from 'stream/consumers'
 
 // 显示默认页面
 const showDefaultPage = ref(true***REMOVED***
@@ -120,14 +119,16 @@ const onCompletedReader = (index: number***REMOVED*** => {
         ***REMOVED******REMOVED***
     ***REMOVED***
 
+    // 查询是推荐列表
     query_dify_suggested(***REMOVED***
-    // scrollToBottom(***REMOVED***
 ***REMOVED***
 
-//图表子组件渲染完毕
+//当前索引位置
 const currentRenderIndex = ref(0***REMOVED***
+//图表子组件渲染完毕
 const onChartReady = (index***REMOVED*** => {
     if (index < conversationItems.value.length***REMOVED*** {
+        console.log('onChartReady', index***REMOVED***
         currentRenderIndex.value = index
         stylizingLoading.value = false
     ***REMOVED***
@@ -146,6 +147,7 @@ const onRecycleQa = async (index: number***REMOVED*** => {
     suggested_array.value = []
     //发送问题重新生成
     handleCreateStylized(item.question***REMOVED***
+    scrollToBottom(***REMOVED***
 ***REMOVED***
 
 //赞 结果反馈
@@ -158,6 +160,12 @@ const onPraiseFeadBack = async (index: number***REMOVED*** => {
             duration: 1500
         ***REMOVED******REMOVED***
     ***REMOVED***
+***REMOVED***
+
+//开始输出时隐藏加载提示
+const onBeginRead = async (index: number***REMOVED*** => {
+    //设置最上面的滚动提示图标隐藏
+    contentLoadingStates.value[currentRenderIndex.value - 1] = false
 ***REMOVED***
 
 //踩 结果反馈
@@ -194,13 +202,38 @@ const conversationItems = ref<
 
 // 这里子组件 chart渲染慢需要子组件渲染完毕后通知父组件
 const visibleConversationItems = computed((***REMOVED*** => {
-    return conversationItems.value.slice(0, currentRenderIndex.value + 1***REMOVED***
+    return conversationItems.value.slice(0, currentRenderIndex.value + 2***REMOVED***
 ***REMOVED******REMOVED***
+//这里控制内容加载状态
+const contentLoadingStates = ref(
+    visibleConversationItems.value.map((***REMOVED*** => false***REMOVED***
+***REMOVED***
+
+watch(
+    currentRenderIndex,
+    (newValue, oldValue***REMOVED*** => {
+        console.log('currentRenderIndex 新值:', newValue***REMOVED***
+        console.log('currentRenderIndex 旧值:', oldValue***REMOVED***
+    ***REMOVED***,
+  ***REMOVED*** immediate: true ***REMOVED***
+***REMOVED***
+
+watch(
+    conversationItems,
+    (newValue, oldValue***REMOVED*** => {
+        console.log('visibleConversationItems 新值:', newValue***REMOVED***
+        console.log('visibleConversationItems 旧值:', oldValue***REMOVED***
+    ***REMOVED***,
+  ***REMOVED*** immediate: true ***REMOVED***
+***REMOVED***
 
 // chat_id定义
 const uuid = ref(''***REMOVED***
 //提交对话
 const handleCreateStylized = async (send_text = ''***REMOVED*** => {
+    // 滚动到底部
+    scrollToBottom(***REMOVED***
+
     //设置初始化数据标识为false
     isInit.value = false
 
@@ -264,6 +297,7 @@ const handleCreateStylized = async (send_text = ''***REMOVED*** => {
         ***REMOVED******REMOVED***
         // 更新 currentRenderIndex 以包含新添加的项
         currentRenderIndex.value = conversationItems.value.length - 1
+        contentLoadingStates.value[currentRenderIndex.value] = true
     ***REMOVED***
 
     uuid.value = uuidv4(***REMOVED***
@@ -423,7 +457,11 @@ const markdownPreviews = ref<Array<HTMLElement | null>>([]***REMOVED*** // 初�
 const rowProps = (row: any***REMOVED*** => {
 ***REMOVED***
         onClick: (***REMOVED*** => {
-            scrollToItem(row.index***REMOVED***
+            if (row.index == 0***REMOVED*** {
+                scrollToItem(0***REMOVED***
+            ***REMOVED*** else {
+                scrollToItem(row.index + 1***REMOVED***
+            ***REMOVED***
         ***REMOVED***
     ***REMOVED***
 ***REMOVED***
@@ -459,6 +497,7 @@ const scrollToItem = (index: number***REMOVED*** => {
             currentRenderIndex
         ***REMOVED***
     ***REMOVED***
+
     //关闭默认页面
     showDefaultPage.value = false
     if (markdownPreviews.value[index]***REMOVED*** {
@@ -609,41 +648,56 @@ const onSuggested = (index: number***REMOVED*** => {
                     class="mb-4"
                     :ref="(el***REMOVED*** => setMarkdownPreview(index, el***REMOVED***"
       ***REMOVED***
-                    <div
-                        v-if="item.role == 'user'"
-                        whitespace-break-spaces
-                        text-right
-                        style="
-                            margin-left: 10%;
-                            margin-right: 10%;
-                            padding: 15px 15px;
-                          ***REMOVED***
-                            text-align: center;
-                            float: right;
-                        "
-          ***REMOVED***
-                        <n-space>
-                            <n-tag
-                                size="large"
-                                :bordered="false"
-                                :round="true"
-                                :style="{
-                                    fontSize: '14px',
-                                    fontFamily: 'PMingLiU'
-                                ***REMOVED***"
-                                :color="{
-                                    color: '#e0dfff',
-                                    borderColor: '#e0dfff'
-                                ***REMOVED***"
-                  ***REMOVED***
-                              ***REMOVED***{ item.question ***REMOVED******REMOVED***
-                                <template #avatar>
-                                    <n-avatar
-                                        src="https://cdnimg103.lizhi.fm/user/2017/02/04/2583325032200238082_160x160.jpg"
-                          ***REMOVED***
-                                ***REMOVED***
-                            </n-tag>
-                        </n-space>
+          ***REMOVED***v-if="item.role == 'user'">
+                        <div
+                            whitespace-break-spaces
+                            text-right
+                            style="
+                                margin-left: 10%;
+                                margin-right: 10%;
+                                padding: 15px 15px;
+                              ***REMOVED***
+                                text-align: center;
+                                float: right;
+                            "
+              ***REMOVED***
+                            <n-space>
+                                <n-tag
+                                    size="large"
+                                    :bordered="false"
+                                    :round="true"
+                                    :style="{
+                                        fontSize: '14px',
+                                        fontFamily: 'PMingLiU'
+                                    ***REMOVED***"
+                                    :color="{
+                                        color: '#e0dfff',
+                                        borderColor: '#e0dfff'
+                                    ***REMOVED***"
+                      ***REMOVED***
+                                  ***REMOVED***{ item.question ***REMOVED******REMOVED***
+                                    <template #avatar>
+                                        <n-avatar
+                                            src="https://cdnimg103.lizhi.fm/user/2017/02/04/2583325032200238082_160x160.jpg"
+                              ***REMOVED***
+                                    ***REMOVED***
+                                </n-tag>
+                            </n-space>
+            ***REMOVED***
+                        <div
+                            v-if="contentLoadingStates[index]"
+                            class="i-svg-spinners:bars-scale"
+                            style="
+                                width: 24px;
+                                height: 24px;
+                                color: #b1adf3;
+                                border-left-color: #b1adf3;
+                                margin-top: 80px;
+                                animation: spin 1s linear infinite;
+                                margin-left: 12%;
+                                float: left;
+                            "
+              ***REMOVED***
         ***REMOVED***
           ***REMOVED***v-if="item.role == 'assistant'">
                         <MarkdownPreview
@@ -659,6 +713,7 @@ const onSuggested = (index: number***REMOVED*** => {
                             @recycleQa="(***REMOVED*** => onRecycleQa(index***REMOVED***"
                             @praiseFeadBack="(***REMOVED*** => onPraiseFeadBack(index***REMOVED***"
                             @belittleFeedback="(***REMOVED*** => onBelittleFeedback(index***REMOVED***"
+                            @beginRead="(***REMOVED*** => onBeginRead(index***REMOVED***"
               ***REMOVED***
         ***REMOVED***
     ***REMOVED***
@@ -694,8 +749,8 @@ const onSuggested = (index: number***REMOVED*** => {
                         class="mr-2"
                         v-on:finish="finish_upload"
           ***REMOVED***
-                        <n-icon size="35"
-                  ***REMOVED***<svg
+                        <n-icon size="35">
+                            <svg
                                 t="1729566080604"
                                 class="icon"
                                 viewBox="0 0 1024 1024"
@@ -1042,5 +1097,13 @@ const onSuggested = (index: number***REMOVED*** => {
 ***REMOVED***
 .fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
     opacity: 0;
+***REMOVED***
+@keyframes spin {
+    0% {
+        transform: rotate(0deg***REMOVED***;
+    ***REMOVED***
+    100% {
+        transform: rotate(360deg***REMOVED***;
+    ***REMOVED***
 ***REMOVED***
 ***REMOVED***

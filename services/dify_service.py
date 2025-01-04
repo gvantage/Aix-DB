@@ -85,7 +85,7 @@ class DiFyRequest:
                 ***REMOVED*** as response:
                     logging.info(f"dify response status: {response.status***REMOVED***"***REMOVED***
                     if response.status == 200:
-                        await self.res_begin(res, chat_id***REMOVED***
+                        # await self.res_begin(res, chat_id***REMOVED***
                         data_type = ""
                         bus_data = ""
                         while True:

@@ -35,6 +35,7 @@ declare module 'vue' {
     NFloatButton: typeof import('naive-ui'***REMOVED***['NFloatButton']
     NIcon: typeof import('naive-ui'***REMOVED***['NIcon']
     NInput: typeof import('naive-ui'***REMOVED***['NInput']
+    NLoading: typeof import('naive-ui'***REMOVED***['NLoading']
     NLoadingBarProvider: typeof import('naive-ui'***REMOVED***['NLoadingBarProvider']
     NMessageProvider: typeof import('naive-ui'***REMOVED***['NMessageProvider']
     NNotificationProvider: typeof import('naive-ui'***REMOVED***['NNotificationProvider']
