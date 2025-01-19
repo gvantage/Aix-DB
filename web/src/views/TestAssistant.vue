@@ -1,4 +1,4 @@
-<script setup>
+<script lang="tsx" setup>
 ***REMOVED***
 import { Transformer ***REMOVED*** from 'markmap-lib'
 import { Markmap ***REMOVED*** from 'markmap-view'
@@ -18,6 +18,8 @@ const update = (***REMOVED*** => {
 ***REMOVED***
 const container = ref(***REMOVED***
 onMounted((***REMOVED*** => {
+    query_test_assistant_records(***REMOVED***
+
     // 创建 Markmap 实例并传入 opts 参数
     mm.value = Markmap.create(svgRef.value, {
         autoFit: true, // 布尔值，如果为true，则自动调整视图以适应容器大小
@@ -60,6 +62,14 @@ onMounted((***REMOVED*** => {
     // ***REMOVED***
 ***REMOVED******REMOVED***
 
+const query_test_assistant_records = async (***REMOVED*** => {
+    const res = await GlobalAPI.query_test_assistant_records(1, 999999***REMOVED***
+    const json = await res.json(***REMOVED***
+    if (json?.data !== undefined***REMOVED*** {
+        tableData.value = json.data.records
+    ***REMOVED***
+***REMOVED***
+
 onBeforeUnmount((***REMOVED*** => {
     if (mm.value && typeof mm.value.destroy === 'function'***REMOVED*** {
         mm.value.destroy(***REMOVED*** // 确保Markmap实例被正确销毁
@@ -69,6 +79,7 @@ onBeforeUnmount((***REMOVED*** => {
 const collapsed = ref(false***REMOVED***
 const toggleCollapsed = (***REMOVED*** => {
     collapsed.value = !collapsed.value
+    query_test_assistant_records(***REMOVED***
 ***REMOVED***
 
 const loading = ref(false***REMOVED***
@@ -114,6 +125,20 @@ function handleDocClick(***REMOVED*** {
         ***REMOVED***
     ***REMOVED******REMOVED***
 ***REMOVED***
+
+// 侧边栏对话历史
+interface TableItem {
+    id: number
+    file_key: string
+***REMOVED***
+const tableData = ref<TableItem[]>([]***REMOVED***
+const tableRef = ref(null***REMOVED***
+// 表格行点击事件
+const rowProps = (row: any***REMOVED*** => {
+***REMOVED***
+        onClick: (***REMOVED*** => {***REMOVED***
+    ***REMOVED***
+***REMOVED***
 ***REMOVED***
 
 ***REMOVED***
@@ -126,7 +151,7 @@ function handleDocClick(***REMOVED*** {
                 <n-layout-sider
                     collapse-mode="width"
                     :collapsed-width="0"
-                    :width="240"
+                    :width="260"
                     :collapsed="collapsed"
                     show-trigger="arrow-circle"
                     content-style="padding: 24px;"
@@ -157,7 +182,6 @@ function handleDocClick(***REMOVED*** {
                                 height: 36px;
                               ***REMOVED***
                               ***REMOVED***
-                                margin-bottom: 20px;
                                 text-align: center;
                                 font-family: Arial;
                                 font-weight: bold;
@@ -234,6 +258,33 @@ function handleDocClick(***REMOVED*** {
                             </n-icon>
             ***REMOVED***
                     </n-layout-header>
+                    <n-layout-content class="content">
+                        <n-data-table
+                            class="custom-table"
+                            style="
+                                font-size: 14px;
+                                --n-td-color-hover: #d5dcff;
+                                font-family: -apple-system, BlinkMacSystemFont,
+                                    'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+                                    sans-serif;
+                            "
+                            size="small"
+                            :bordered="false"
+                            :bottom-bordered="false"
+                            :single-line="false"
+                            :columns="[
+                              ***REMOVED***
+                                    key: 'file_key',
+                                    align: 'left',
+                                    ellipsis: { tooltip: false ***REMOVED***
+                                ***REMOVED***
+                        ***REMOVED***"
+                            :data="tableData"
+                            ref="tableRef"
+                            :row-props="rowProps"
+              ***REMOVED***
+                        </n-data-table>
+                    </n-layout-content>
                 </n-layout-sider>
                 <n-layout-content>
                     <n-spin
@@ -289,9 +340,9 @@ function handleDocClick(***REMOVED*** {
   ***REMOVED***
     align-items: center;
     justify-content: center;
+  ***REMOVED***
     width: 38px; /* 可根据需要调整 */
     height: 38px; /* 与宽度相同，形成圆形 */
-  ***REMOVED***
     border-radius: 100%; /* 圆形 */
     border: 1px solid #e8eaf3;
     background-color: #ffffff; /* 按钮背景颜色 */
@@ -317,5 +368,14 @@ function handleDocClick(***REMOVED*** {
 
 :deep(.mm-toolbar-item:active***REMOVED*** {
     background-color: #e0e0e0;
+***REMOVED***
+:deep(.custom-table .n-data-table-thead***REMOVED*** {
+    display: none;
+***REMOVED***
+:deep(.custom-table td***REMOVED*** {
+    color: #26244c;
+    font-size: 14px;
+    padding: 10px 6px;
+    margin: 0px 0px 12px;
 ***REMOVED***
 ***REMOVED***

@@ -1,6 +1,6 @@
-import { mockEventStreamText ***REMOVED*** from '@/data'
-import { currentHost ***REMOVED*** from '@/utils/location'
-import request from '@/utils/request'
+// import { mockEventStreamText ***REMOVED*** from '@/data'
+// import { currentHost ***REMOVED*** from '@/utils/location'
+// import request from '@/utils/request'
 
 /**
  * Event Stream 调用大模型接口 Ollama3 (Fetch 调用***REMOVED***
@@ -172,6 +172,33 @@ export async function word_to_md(file_key***REMOVED*** {
         ***REMOVED***,
   ***REMOVED***
             file_key
+        ***REMOVED******REMOVED***
+    ***REMOVED******REMOVED***
+    return fetch(req***REMOVED***
+***REMOVED***
+
+/**
+ * 查询测试助手记录
+ * @param page
+ * @param limit
+ * @returns
+ */
+export async function query_test_assistant_records(page, limit***REMOVED*** {
+    const userStore = useUserStore(***REMOVED***
+    const token = userStore.getUserToken(***REMOVED***
+    const url = new URL(
+  ***REMOVED***${location.origin***REMOVED***/sanic/ta/query_test_assistant_records`
+    ***REMOVED***
+    const req = new Request(url, {
+        mode: 'cors',
+        method: 'post',
+  ***REMOVED***
+    ***REMOVED***
+            Authorization: `Bearer ${token***REMOVED***` // 添加 token 到头部
+        ***REMOVED***,
+  ***REMOVED***
+            page,
+            limit
         ***REMOVED******REMOVED***
     ***REMOVED******REMOVED***
     return fetch(req***REMOVED***

@@ -141,6 +141,44 @@ class MysqlUtil:
         conn.close(***REMOVED***
         return result
 
+    def query_mysql_dict_params(self, sql_query, params=None***REMOVED***:
+        """
+        执行带参数的SQL查询并返回结果字典列表。
+
+        :param sql_query: 查询的SQL语句，可以包含占位符（%s）
+        :param params: SQL语句中的参数列表或元组，默认为None
+        :return: 查询结果的字典列表
+        """
+        conn = None
+        cursor = None
+        try:
+            # 获得链接
+            conn = self._get_connect(***REMOVED***
+            # 获得游标
+            cursor = conn.cursor(***REMOVED***  # 使用dictionary=True以获得字典形式的结果
+            # 执行 SQL 查询语句
+            cursor.execute(sql_query, params or (***REMOVED******REMOVED***
+            # 获取查询结果
+            rows = cursor.fetchall(***REMOVED***
+            index = cursor.description
+
+            result = []
+            for res in rows:
+                row = {***REMOVED***
+                for i in range(len(index***REMOVED******REMOVED***:
+                    if isinstance(res[i], datetime.datetime***REMOVED***:
+                        value = res[i].strftime("%Y-%m-%d %H:%M:%S"***REMOVED***
+                        row[index[i][0]] = value
+                    else:
+                        row[index[i][0]] = res[i]
+
+                result.append(row***REMOVED***
+
+            return result
+        finally:
+            cursor.close(***REMOVED***
+            conn.close(***REMOVED***
+
     def execute_mysql(self, sql***REMOVED***:
         """
         @param: sql_query 查询的sql语句
