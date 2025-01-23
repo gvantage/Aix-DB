@@ -1,6 +1,13 @@
 ***REMOVED***
     <LayoutCenterPanel :loading="loading">
-        <n-layout style="height: 99%; border-radius: 10px; margin-bottom: 10px">
+        <n-layout
+            style="
+                height: 99%;
+              ***REMOVED***
+              ***REMOVED***
+                margin-right: 2px;
+            "
+        >
             <n-layout-header class="header">
       ***REMOVED***class="header-content">
                     <!-- 这里可以放置一些顶部的内容或导航 -->
