@@ -1,150 +1,25 @@
-***REMOVED***
-    <LayoutCenterPanel :loading="loading">
-        <n-layout
-            style="
-                height: 99%;
-              ***REMOVED***
-              ***REMOVED***
-                margin-right: 2px;
-            "
-        >
-            <n-layout-header class="header">
-      ***REMOVED***class="header-content">
-                    <!-- 这里可以放置一些顶部的内容或导航 -->
-    ***REMOVED***
-                <button class="create-project-btn" @click="showModal = true">
-                    + 创建项目
-      ***REMOVED***
-            </n-layout-header>
-            <n-layout-content>
-      ***REMOVED***class="container">
-                    <div
-                        class="card"
-                        v-for="(item, index***REMOVED*** in items"
-                        :key="index"
-          ***REMOVED***
-              ***REMOVED***class="card-header">
-                            <n-icon style="margin-right: 5px" size="18">
-                      ***REMOVED***class="i-formkit:filedoc"></div>
-                            </n-icon>
-                            <span class="card-title">需求</span>
-            ***REMOVED***
-              ***REMOVED***class="card-body">
-                            <p>{{ item.doc_desc ***REMOVED******REMOVED***</p>
-            ***REMOVED***
-              ***REMOVED***class="card-footer">
-                            <span class="card-info"
-                      ***REMOVED***功能点: {{ item.fun_num ***REMOVED******REMOVED***</span
-                  ***REMOVED***
-                            <span class="card-date">{{
-                                item.update_time
-                            ***REMOVED******REMOVED***</span>
-                            <!-- 使用 n-dropdown 组件替换原有的按钮 -->
-                            <n-dropdown
-                                trigger="click"
-                                :options="dropdownOptions"
-                                @select="(key***REMOVED*** => handleSelect(key, item.id***REMOVED***"
-                  ***REMOVED***
-                                <button class="card-button">...</button>
-                            </n-dropdown>
-            ***REMOVED***
-        ***REMOVED***
-    ***REMOVED***
-            </n-layout-content>
-      ***REMOVED***
-
-        <!-- 模态框 -->
-        <n-modal
-            v-model:show="showModal"
-            preset="dialog"
-            title="创建新项目"
-            style="width: 600px"
-            @close="closeModal"
-        >
-            <n-form :model="projectForm">
-                <n-form-item label="项目名称" required>
-                    <n-input
-                        v-model:value="projectForm.doc_name"
-                        placeholder="请输入项目名称"
-          ***REMOVED***
-                </n-form-item>
-                <n-form-item label="项目描述" required>
-                    <n-input
-                        v-model:value="projectForm.doc_desc"
-                        type="textarea"
-                        placeholder="请输入项目描述"
-          ***REMOVED***
-                </n-form-item>
-                <n-form-item label="项目附件" hidden>
-                    <n-input v-model:value="projectForm.file_key" />
-                </n-form-item>
-                <n-upload
-                    multiple
-                    :show-file-list="true"
-                    action="sanic/file/upload_file"
-                    accept=".doc, .docx"
-                    ref="uploadDocRef"
-                    @finish="finish_upload"
-      ***REMOVED***
-                    <n-button>上传附件</n-button>
-                </n-upload>
-            </n-form>
-            <template #action>
-                <n-button @click="submitProject">提交</n-button>
-                <n-button @click="closeModal">取消</n-button>
-            ***REMOVED***
-        </n-modal>
-
-        <n-modal
-            v-model:show="showAbModal"
-            :closable="false"
-            preset="dialog"
-            title="抽取功能"
-            :mask-closable="false"
-            style="width: 800px"
-        >
-  ***REMOVED***v-if="progress !== null">
-                <n-progress type="line" :percentage="progress"></n-progress>
-***REMOVED***
-  ***REMOVED***v-else>正在准备...</div>
-
-            <!-- 实时显示推送的内容 -->
-  ***REMOVED***class="real-time-content" ref="realTimeContent">
-                <p
-                    v-for="(message, index***REMOVED*** in messages"
-                    :key="index"
-                    v-html="marked(message***REMOVED***"
-      ***REMOVED***</p>
-***REMOVED***
-            <div
-                class="i-svg-spinners:pulse-2 c-#26244c"
-                style="width: 30px; height: 30px; margin-left: -8px"
-  ***REMOVED***</div>
-        </n-modal>
-    </LayoutCenterPanel>
-***REMOVED***
-
 <script setup>
 import { ref ***REMOVED*** from 'vue'
-import { NLayout, NLayoutHeader, NLayoutContent ***REMOVED*** from 'naive-ui'
+import { NLayout, NLayoutContent, NLayoutHeader ***REMOVED*** from 'naive-ui'
 import * as GlobalAPI from '@/api'
 import { marked ***REMOVED*** from 'marked' // 引入 marked 库
 const loading = ref(true***REMOVED***
+
+const router = useRouter(***REMOVED***
 
 //文件上传
 const uploadDocRef = ref(***REMOVED***
 const finish_upload = (res***REMOVED*** => {
     if (res.event.target.responseText***REMOVED*** {
-        let json_data = JSON.parse(res.event.target.responseText***REMOVED***
-        let file_key = json_data['data']['object_key']
-        if (json_data['code'] == 200***REMOVED*** {
+        const json_data = JSON.parse(res.event.target.responseText***REMOVED***
+        const file_key = json_data.data.object_key
+        if (json_data.code == 200***REMOVED*** {
             window.$ModalMessage.success(`文件上传成功`***REMOVED***
             projectForm.value.file_key = file_key
             projectForm.value.doc_name = file_key.split('.'***REMOVED***[0]
             projectForm.value.doc_desc = file_key.split('.'***REMOVED***[0]
         ***REMOVED*** else {
             window.$ModalMessage.error(`文件上传失败`***REMOVED***
-            return
         ***REMOVED***
     ***REMOVED***
 ***REMOVED***
@@ -163,7 +38,6 @@ function startExtraction(itemId***REMOVED*** {
     ***REMOVED***
 
     eventSource.onmessage = function (event***REMOVED*** {
-        console.log(event***REMOVED***
         const data = JSON.parse(event.data***REMOVED***
         if (data.type === 'progress'***REMOVED*** {
             // 更新进度条
@@ -286,6 +160,139 @@ const query_demand_records = async (***REMOVED*** => {
 onMounted((***REMOVED*** => {
     query_demand_records(***REMOVED***
 ***REMOVED******REMOVED***
+
+function navigateToDetail(id***REMOVED*** {
+    router.push({ name: 'UaDetail', params: { id: id ***REMOVED*** ***REMOVED******REMOVED***
+***REMOVED***
+***REMOVED***
+
+***REMOVED***
+    <LayoutCenterPanel :loading="loading">
+        <n-layout
+            style="
+                height: 99%;
+              ***REMOVED***
+              ***REMOVED***
+                margin-right: 2px;
+            "
+        >
+            <n-layout-header class="header">
+      ***REMOVED***class="header-content">
+                    <!-- 这里可以放置一些顶部的内容或导航 -->
+    ***REMOVED***
+                <button class="create-project-btn" @click="showModal = true">
+                    + 创建项目
+      ***REMOVED***
+            </n-layout-header>
+            <n-layout-content>
+      ***REMOVED***class="container">
+                    <div
+                        v-for="(item, index***REMOVED*** in items"
+                        :key="index"
+                        class="card"
+                        @click="navigateToDetail(item.id***REMOVED***"
+          ***REMOVED***
+              ***REMOVED***class="card-header">
+                            <n-icon style="margin-right: 5px" size="18">
+                      ***REMOVED***class="i-formkit:filedoc"></div>
+                            </n-icon>
+                            <span class="card-title">需求</span>
+            ***REMOVED***
+              ***REMOVED***class="card-body">
+                            <p>{{ item.doc_desc ***REMOVED******REMOVED***</p>
+            ***REMOVED***
+              ***REMOVED***class="card-footer">
+                            <span class="card-info"
+                      ***REMOVED***功能点: {{ item.fun_num ***REMOVED******REMOVED***</span
+                  ***REMOVED***
+                            <span class="card-date">{{
+                                item.update_time
+                            ***REMOVED******REMOVED***</span>
+                            <!-- 使用 n-dropdown 组件替换原有的按钮 -->
+                            <n-dropdown
+                                trigger="click"
+                                :options="dropdownOptions"
+                                @select="(key***REMOVED*** => handleSelect(key, item.id***REMOVED***"
+                  ***REMOVED***
+                                <button class="card-button" @click.stop>
+                                    ...
+                      ***REMOVED***
+                            </n-dropdown>
+            ***REMOVED***
+        ***REMOVED***
+    ***REMOVED***
+            </n-layout-content>
+      ***REMOVED***
+
+        <!-- 模态框 -->
+        <n-modal
+            v-model:show="showModal"
+            preset="dialog"
+            title="创建新项目"
+            style="width: 600px"
+            @close="closeModal"
+        >
+            <n-form :model="projectForm">
+                <n-form-item label="项目名称" required>
+                    <n-input
+                        v-model:value="projectForm.doc_name"
+                        placeholder="请输入项目名称"
+          ***REMOVED***
+                </n-form-item>
+                <n-form-item label="项目描述" required>
+                    <n-input
+                        v-model:value="projectForm.doc_desc"
+                        type="textarea"
+                        placeholder="请输入项目描述"
+          ***REMOVED***
+                </n-form-item>
+                <n-form-item label="项目附件" hidden>
+                    <n-input v-model:value="projectForm.file_key" />
+                </n-form-item>
+                <n-upload
+                    ref="uploadDocRef"
+                    multiple
+                    :show-file-list="true"
+                    action="sanic/file/upload_file"
+                    accept=".doc, .docx"
+                    @finish="finish_upload"
+      ***REMOVED***
+                    <n-button>上传附件</n-button>
+                </n-upload>
+            </n-form>
+            <template #action>
+                <n-button @click="submitProject">提交</n-button>
+                <n-button @click="closeModal">取消</n-button>
+            ***REMOVED***
+        </n-modal>
+
+        <n-modal
+            v-model:show="showAbModal"
+            :closable="false"
+            preset="dialog"
+            title="抽取功能"
+            :mask-closable="false"
+            style="width: 800px"
+        >
+  ***REMOVED***v-if="progress !== null">
+                <n-progress type="line" :percentage="progress" />
+***REMOVED***
+  ***REMOVED***v-else>正在准备...</div>
+
+            <!-- 实时显示推送的内容 -->
+  ***REMOVED***ref="realTimeContent" class="real-time-content">
+                <p
+                    v-for="(message, index***REMOVED*** in messages"
+                    :key="index"
+                    v-html="marked(message***REMOVED***"
+      ***REMOVED***</p>
+***REMOVED***
+            <div
+                class="i-svg-spinners:pulse-2 c-#26244c"
+                style="width: 30px; height: 30px; margin-left: -8px"
+  ***REMOVED***</div>
+        </n-modal>
+    </LayoutCenterPanel>
 ***REMOVED***
 
 ***REMOVED***
