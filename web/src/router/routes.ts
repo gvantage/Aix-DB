@@ -25,6 +25,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'TestAssitant',
         component: (***REMOVED*** => import('@/views/DemandManager.vue'***REMOVED***,
         meta: { requiresAuth: true ***REMOVED*** // 标记需要认证
+    ***REMOVED***,
+  ***REMOVED***
+        path: '/uaDetail/:id',
+        name: 'UaDetail',
+        component: (***REMOVED*** => import('@/views/usassistant/UsDetail.vue'***REMOVED***,
+        meta: { requiresAuth: true ***REMOVED***
     ***REMOVED***
 ]
 
