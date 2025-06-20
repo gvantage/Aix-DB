@@ -1,12 +1,12 @@
 <script lang="tsx" setup>
 import type { InputInst ***REMOVED*** from 'naive-ui'
+import { init ***REMOVED*** from 'echarts'
 import { UAParser ***REMOVED*** from 'ua-parser-js'
 import * as GlobalAPI from '@/api'
 import { isMockDevelopment ***REMOVED*** from '@/config'
 import DefaultPage from './DefaultPage.vue'
 import SuggestedView from './SuggestedPage.vue'
 import TableModal from './TableModal.vue'
-import { init ***REMOVED*** from 'echarts'
 
 const route = useRoute(***REMOVED***
 const router = useRouter(***REMOVED***
@@ -21,8 +21,8 @@ const businessStore = useBusinessStore(***REMOVED***
 // 是否是刚登录到系统 批量渲染对话记录
 const isInit = ref(false***REMOVED***
 
-//是否查看历史消息标识
-const isView=ref(false***REMOVED***
+// 是否查看历史消息标识
+const isView = ref(false***REMOVED***
 
 // 使用 onMounted 生命周期钩子加载历史对话
 // 新增：加载历史对话的状态
@@ -134,7 +134,7 @@ const onCompletedReader = (index: number***REMOVED*** => {
   ***REMOVED***
 
   // 查询是推荐列表
-  if(isView.value==false***REMOVED***{
+  if (isView.value == false***REMOVED*** {
     query_dify_suggested(***REMOVED***
   ***REMOVED***
 ***REMOVED***
@@ -274,8 +274,8 @@ const handleCreateStylized = async (send_text = ''***REMOVED*** => {
     showDefaultPage.value = false
   ***REMOVED***
 
-    //自定义id
-  const uuid_str= uuidv4(***REMOVED***
+  // 自定义id
+  const uuid_str = uuidv4(***REMOVED***
   // 加入对话历史用于左边表格渲染
   const newItem = {
     uuid: uuid_str, // 或者根据你的需求计算新的索引
@@ -315,14 +315,14 @@ const handleCreateStylized = async (send_text = ''***REMOVED*** => {
 
   const { error, reader, needLogin ***REMOVED***
     = await businessStore.createAssistantWriterStylized(
-          uuid_str,
-          uuids.value[qa_type.value],
-          currentChatId.value,
-        ***REMOVED***
-            text: textContent,
-            writer_oid: currentChatId.value,
-          ***REMOVED***,
-        ***REMOVED***
+      uuid_str,
+      uuids.value[qa_type.value],
+      currentChatId.value,
+    ***REMOVED***
+        text: textContent,
+        writer_oid: currentChatId.value,
+      ***REMOVED***,
+    ***REMOVED***
 
   if (needLogin***REMOVED*** {
     message.error('登录已失效，请重新登录'***REMOVED***
@@ -362,7 +362,7 @@ const handleCreateStylized = async (send_text = ''***REMOVED*** => {
 // 滚动到底部
 const scrollToBottom = (***REMOVED*** => {
   if (isView.value == false***REMOVED*** {
-     nextTick((***REMOVED*** => {
+    nextTick((***REMOVED*** => {
       if (messagesContainer.value***REMOVED*** {
         messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight
       ***REMOVED***
@@ -467,8 +467,8 @@ const finish_upload = (res***REMOVED*** => {
       window.$ModalMessage.error(`文件上传失败`***REMOVED***
       return
     ***REMOVED***
-    const file_name_without_extension = file_name.value.slice(0, file_name.value.lastIndexOf('.'***REMOVED******REMOVED*** || file_name.value;
-    const query_text = '分析'+file_name_without_extension+'表格数据'
+    const file_name_without_extension = file_name.value.slice(0, file_name.value.lastIndexOf('.'***REMOVED******REMOVED*** || file_name.value
+    const query_text = `分析${file_name_without_extension***REMOVED***表格数据`
     handleCreateStylized(query_text***REMOVED***
   ***REMOVED***
 ***REMOVED***
@@ -476,10 +476,10 @@ const finish_upload = (res***REMOVED*** => {
 // 下面方法用于左侧对话列表点击 右侧内容滚动
 // 用于存储每个 MarkdownPreview 容器的引用
 // const markdownPreviews = ref<Array<HTMLElement | null>>([]***REMOVED*** // 初始化为空数组
-  const markdownPreviews = ref<Map<String, HTMLElement | null>>(new Map(***REMOVED******REMOVED***
+const markdownPreviews = ref<Map<string, HTMLElement | null>>(new Map(***REMOVED******REMOVED***
 
 
-  // 表格行点击事件
+// 表格行点击事件
 const currentIndex = ref<number | null>(null***REMOVED***
 const rowProps = (row: any***REMOVED*** => {
   return {
@@ -487,7 +487,7 @@ const rowProps = (row: any***REMOVED*** => {
       'cursor-pointer select-none',
       currentIndex.value === row.uuid && '[&_.n-data-table-td]:bg-#d5dcff',
 ***REMOVED***.join(' '***REMOVED***,
-    onClick: async(***REMOVED*** => {
+    onClick: async (***REMOVED*** => {
       currentIndex.value = row.uuid
       suggested_array.value = []
 
@@ -496,21 +496,21 @@ const rowProps = (row: any***REMOVED*** => {
 
       // 这里根据chat_id 过滤同一轮对话数据
       fetchConversationHistory(
-          isInit,
-          conversationItems,
-          tableData,
-          currentRenderIndex,
-          row,
-          ''
-        ***REMOVED***
+        isInit,
+        conversationItems,
+        tableData,
+        currentRenderIndex,
+        row,
+        '',
+      ***REMOVED***
 
-      //关闭默认页面
+      // 关闭默认页面
       showDefaultPage.value = false
 
-    //   等待 DOM 更新完成
+      //   等待 DOM 更新完成
       await nextTick(***REMOVED***
-    //  滚动到指定位置
-      scrollToItem(row.uuid***REMOVED***;
+      //  滚动到指定位置
+      scrollToItem(row.uuid***REMOVED***
     ***REMOVED***,
   ***REMOVED***
 ***REMOVED***
@@ -518,46 +518,46 @@ const rowProps = (row: any***REMOVED*** => {
 // 递归查找最底层的元素
 const findDeepestElement = (element: HTMLElement***REMOVED***: HTMLElement => {
   if (element.children.length === 0***REMOVED*** {
-    return element;
+    return element
   ***REMOVED***
-  return findDeepestElement(element.lastElementChild as HTMLElement***REMOVED***;
-***REMOVED***;
+  return findDeepestElement(element.lastElementChild as HTMLElement***REMOVED***
+***REMOVED***
 
 // 设置 markdownPreviews 数组中的元素
 const setMarkdownPreview = (uuid: string, role: string, el: any***REMOVED*** => {
   if (role === 'user'***REMOVED*** {
     if (el && el instanceof HTMLElement***REMOVED*** {
       // 查找最下面的元素
-      const deepestElement = findDeepestElement(el***REMOVED***;
+      const deepestElement = findDeepestElement(el***REMOVED***
       markdownPreviews.value.set(uuid, deepestElement***REMOVED***
-    ***REMOVED*** 
+    ***REMOVED***
   ***REMOVED***
 ***REMOVED***
 
-//滚动到指定位置的方法
+// 滚动到指定位置的方法
 const scrollToItem = async (uuid: string***REMOVED*** => {
   // 等待 DOM 更新完成
-  await nextTick(***REMOVED***;
-  await nextTick(***REMOVED***;
+  await nextTick(***REMOVED***
+  await nextTick(***REMOVED***
 
-  const element = markdownPreviews.value.get(uuid***REMOVED***;
+  const element = markdownPreviews.value.get(uuid***REMOVED***
 
   if (element && element instanceof HTMLElement***REMOVED*** {
+  ***REMOVED***
+      // 强制重排，确保元素位置和尺寸正确
+      console.log('UUID:', uuid***REMOVED***
+      console.log('Element:', element***REMOVED***
+      void element.offsetWidth
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'nearest',
+      ***REMOVED******REMOVED***
+    ***REMOVED*** catch (error***REMOVED*** {
+      console.error('滚动到指定元素时出错:', error***REMOVED***
     ***REMOVED***
-        // 强制重排，确保元素位置和尺寸正确
-        console.log('UUID:', uuid***REMOVED***;
-        console.log('Element:', element***REMOVED***;
-        void element.offsetWidth; 
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-          inline: 'nearest',
-        ***REMOVED******REMOVED***
-      ***REMOVED*** catch (error***REMOVED*** {
-        console.error('滚动到指定元素时出错:', error***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-***REMOVED***;
+  ***REMOVED***
+***REMOVED***
 
 // 默认选中的对话类型
 const qa_type = ref('COMMON_QA'***REMOVED***
@@ -700,538 +700,554 @@ const handleClear = (***REMOVED*** => {
     newChat(***REMOVED***
   ***REMOVED***
 ***REMOVED***
+
+const collapsed = useLocalStorage(
+  'collapsed-chat-menu',
+  ref(false***REMOVED***,
+***REMOVED***
 ***REMOVED***
 
 ***REMOVED***
   <div
     class="flex justify-between items-center h-full"
   >
-    <!-- 第一列，宽度为200px -->
-    <div
-      flex="~ col"
-      class="w-260 h-full bg-white"
+    <n-layout
+      ref="scrollableContainer"
+      class="custom-layout h-full"
+      has-sider
+      :native-scrollbar="true"
+      @mouseenter="showScrollbar"
+      @mouseleave="hideScrollbar"
     >
-      <n-layout
-        ref="scrollableContainer"
-        class="custom-layout"
-        :native-scrollbar="true"
-        @mouseenter="showScrollbar"
-        @mouseleave="hideScrollbar"
+      <n-layout-sider
+        v-model:collapsed="collapsed"
+        collapse-mode="width"
+        :collapsed-width="0"
+        :width="260"
+        :show-collapsed-content="false"
+        show-trigger="bar"
+        bordered
       >
-        <n-layout-header
-          class="header p-20"
-          :style="{
-            'display': `flex`, /* 使用Flexbox布局 */
-            'align-items': `center`, /* 垂直居中对齐 */
-            'justify-content': `start`, /* 水平分布空间 */
-            'flex-shrink': `0`,
-            'position': `sticky`,
-            'top': `0`,
-            'z-index': `1`,
-          ***REMOVED***"
+        <div
+          h-full
+          class="content"
+          flex="~ col"
         >
           <div
-            class="create-chat-box"
-            :class="{
-              hide: isFocusSearchChat,
-            ***REMOVED***"
-***REMOVED***
-            <n-button
-              type="primary"
-              icon-placement="left"
-              color="#5e58e7"
-              strong
-              class="create-chat"
-              @click="newChat"
-  ***REMOVED***
-              <template #icon>
-                <n-icon>
-        ***REMOVED***class="i-hugeicons:add-01"></div>
-                </n-icon>
-              ***REMOVED***
-              新建对话
-            </n-button>
-***REMOVED***
-          <n-input
-            ref="searchChatRef"
-            v-model:value="searchText"
-            placeholder="搜索"
-            class="search-chat"
-            clearable
-            :class="{
-              focus: isFocusSearchChat,
-            ***REMOVED***"
-            @click="onFocusSearchChat(***REMOVED***"
-            @blur="onBlurSearchChat(***REMOVED***"
-            @input="handleSearch(***REMOVED***"
-            @keyup.enter="handleSearch(***REMOVED***"
-            @clear="handleClear(***REMOVED***"
-***REMOVED***
-            <template #prefix>
-    ***REMOVED***class="i-hugeicons:search-01"></div>
-            ***REMOVED***
-          </n-input>
-        </n-layout-header>
-        <n-layout-content class="content">
-          <n-data-table
-            ref="tableRef"
-            class="custom-table"
+            class="header p-20"
             :style="{
-              'font-size': `14px`,
-              '--n-td-color-hover': `#d5dcff`,
-              'font-family': `-apple-system, BlinkMacSystemFont,
-                'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-                sans-serif`,
+              'display': `flex`, /* 使用Flexbox布局 */
+              'align-items': `center`, /* 垂直居中对齐 */
+              'justify-content': `start`, /* 水平分布空间 */
+              'flex-shrink': `0`,
+              'position': `sticky`,
+              'top': `0`,
+              'z-index': `1`,
             ***REMOVED***"
-            size="small"
-            :bordered="false"
-            :bottom-bordered="false"
-            :single-line="false"
-            :columns="[
-            ***REMOVED***
-                key: 'key',
-                align: 'left',
-                ellipsis: { tooltip: false ***REMOVED***,
-              ***REMOVED***,
-        ***REMOVED***"
-            :data="tableData"
-            :loading="isLoadingHistory"
-            :row-props="rowProps"
 ***REMOVED***
-          </n-data-table>
-        </n-layout-content>
-    ***REMOVED***
-      <n-layout-footer
-        class="footer"
-        style="flex-shrink: 0; height: 200"
-      >
-        <n-divider style="width: 260px" />
-        <n-button
-          quaternary
-          icon-placement="left"
-          type="primary"
-          strong
-          :style="{
-            'width': `200px`,
-            'height': `38px`,
-            'margin-left': `20px`,
-            'margin-bottom': `10px`,
-            'align-self': `center`,
-            'text-align': `center`,
-            'font-family': `-apple-system, BlinkMacSystemFont,
-              'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-              sans-serif`,
-            'font-size': `14px`,
-          ***REMOVED***"
-          @click="openModal"
-        >
-          <template #icon>
-            <n-icon>
-    ***REMOVED***class="i-hugeicons:voice-id"></div>
-            </n-icon>
-          ***REMOVED***
-          管理对话
-        </n-button>
-
-        <TableModal
-          :show="isModalOpen"
-          @update:show="handleModalClose"
-        />
-      </n-layout-footer>
-***REMOVED***
-
-    <!-- 内容区域 -->
-    <div
-      flex="~ 1 col"
-      min-w-0
-      h-full
-    >
-      <div flex="~ justify-between items-center">
-        <NavigationNavBar />
-***REMOVED***
-
-      <!-- 这里循环渲染即可实现多轮对话 -->
-      <div
-        ref="messagesContainer"
-        flex="1 ~ col"
-        min-h-0
-        pb-20
-        class="scrollable-container"
-        style="background-color: #f6f7fb"
-      >
-        <!-- 默认对话页面 -->
-        <transition name="fade">
-***REMOVED***v-if="showDefaultPage">
-            <DefaultPage />
-***REMOVED***
-        </transition>
-
-        <template
-          v-if="!showDefaultPage"
-        >
-          <div
-            v-for="(item, index***REMOVED*** in visibleConversationItems"
-            :key="index"
-            :ref="(el***REMOVED*** => setMarkdownPreview(item.uuid,item.role, el***REMOVED***"
-            class="mb-4"
-***REMOVED***
-  ***REMOVED***v-if="item.role === 'user'">
-              <div
-                whitespace-break-spaces
-                text-right
-                :style="{
-                  'margin-left': `10%`,
-                  'margin-right': `10%`,
-                  'padding': `15px`,
-                  'border-radius': `5px`,
-                  'text-align': `center`,
-                  'float': `right`,
-                ***REMOVED***"
-    ***REMOVED***
-                <n-space>
-                  <n-tag
-                    size="large"
-                    :bordered="false"
-                    :round="true"
-                    :style="{
-                      'fontSize': '15px',
-                      'fontFamily': 'PMingLiU !important',
-                      'color': '#26244c',
-                      'max-width': '900px',
-                      'text-align': 'left',
-                      'padding': '5px 18px',
-                      'height': 'auto',
-                      // 允许长单词换行到下一行
-                      'word-wrap': 'break-word',
-                      // 允许在单词内换行
-                      'word-break': 'break-all',
-                      // 移除默认的 white-space 属性，确保文本能正常换行
-                      'white-space': 'normal',
-                      // 强制应用样式
-                      'overflow': 'visible !important',
-                    ***REMOVED***"
-                    :color="{
-                      color: '#e0dfff',
-                      borderColor: '#e0dfff',
-                    ***REMOVED***"
-        ***REMOVED***
-                    <template #avatar>
-            ***REMOVED***class="size-25 i-my-svg:user-avatar"></div>
-                    ***REMOVED***
-                  ***REMOVED***{ item.question ***REMOVED******REMOVED***
-                  </n-tag>
-                </n-space>
-  ***REMOVED***
-              <div
-                v-if="contentLoadingStates[index]"
-                class="i-svg-spinners:bars-scale"
-                :style="{
-                  'width': `24px`,
-                  'height': `24px`,
-                  'color': `#b1adf3`,
-                  'border-left-color': `#b1adf3`,
-                  'margin-top': `80px`,
-                  'animation': `spin 1s linear infinite`,
-                  'margin-left': `12%`,
-                  'float': `left`,
-                ***REMOVED***"
-    ***REMOVED***</div>
-***REMOVED***
-  ***REMOVED***v-if="item.role === 'assistant'">
-              <MarkdownPreview
-                :reader="item.reader"
-                :model="defaultLLMTypeName"
-                :isInit="isInit"
-                :isView="isView"
-                :qaType="`${item.qa_type***REMOVED***`"
-                :chart-id="`${index***REMOVED***devID${generateRandomSuffix(***REMOVED******REMOVED***`"
-                :parentScollBottomMethod="scrollToBottom"
-                @failed="(***REMOVED*** => onFailedReader(index***REMOVED***"
-                @completed="(***REMOVED*** => onCompletedReader(index***REMOVED***"
-                @chartready="(***REMOVED*** => onChartReady(index + 1***REMOVED***"
-                @recycleQa="(***REMOVED*** => onRecycleQa(index***REMOVED***"
-                @praiseFeadBack="(***REMOVED*** => onPraiseFeadBack(index***REMOVED***"
-                @belittleFeedback="
-                  (***REMOVED*** => onBelittleFeedback(index***REMOVED***
-                "
-                @beginRead="(***REMOVED*** => onBeginRead(index***REMOVED***"
-    ***REMOVED***
-***REMOVED***
-***REMOVED***
-        ***REMOVED***
-
-        <div
-          v-if="!isInit && !stylizingLoading"
-          class="w-70% ml-11% mt-[-20] bg-#f6f7fb"
-        >
-          <SuggestedView
-            :labels="suggested_array"
-            @suggested="onSuggested"
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
-      <div
-        class="items-center shrink-0 bg-#f6f7fb"
-      >
-        <div
-          relative
-          class="flex-1 w-full p-1em"
-        >
-          <n-space vertical>
             <div
-              flex="~ gap-10"
-              class="h-40 ml-10%"
+              class="create-chat-box"
+              :class="{
+                hide: isFocusSearchChat,
+              ***REMOVED***"
   ***REMOVED***
               <n-button
-                type="default"
-                :class="[
-                  qa_type === 'COMMON_QA' && 'active-tab',
-                  'rounded-100 w-120 h-36 p-15 text-13 c-#585a73',
-            ***REMOVED***"
-                @click="onAqtiveChange('COMMON_QA'***REMOVED***"
+                type="primary"
+                icon-placement="left"
+                color="#5e58e7"
+                strong
+                class="create-chat"
+                @click="newChat"
     ***REMOVED***
                 <template #icon>
-                  <n-icon size="16">
-                    <svg
-                      t="1742194713465"
-                      class="icon"
-                      viewBox="0 0 1024 1024"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      p-id="8188"
-                      width="60"
-                      height="60"
-          ***REMOVED***
-                      <path
-                        d="M80.867881 469.76534l0.916659 0.916659 79.711097-79.711097L160.655367 389.901467a162.210364 162.210364 0 0 1 229.164631-229.164631l236.345122 236.345122L706.028994 317.332667l-236.345123-236.803452a275.112139 275.112139 0 0 0-388.81599 389.27432z m472.690245-388.81599l-0.916658 0.916659 79.711097 79.711097 0.916659-0.916658A162.210364 162.210364 0 0 1 862.663019 389.901467l-236.345122 236.345122 79.711097 79.711098 236.803452-236.345123a275.112139 275.112139 0 0 0-389.27432-388.81599z m-84.027031 861.506236l0.916659-0.916659-79.711098-79.711097-0.916658 0.916658a162.210364 162.210364 0 0 1-229.164631-229.431989l236.345122-236.345123L317.251198 317.332667l-236.803452 236.345122a275.112139 275.112139 0 0 0 389.27432 388.815991z m99.801197-372.736272a81.811773 81.811773 0 0 0 21.197728-78.794439 80.895115 80.895115 0 0 0-57.59671-57.596711 81.620803 81.620803 0 1 0 36.398982 136.352956z m373.156407-15.659583l-0.916659-0.916659-79.711097 79.711097 0.916658 0.916659a162.248559 162.248559 0 0 1-229.431989 229.431989L396.885907 626.704918 317.251198 706.568792l236.345122 236.803452A275.073945 275.073945 0 0 0 942.374117 554.136119z"
-                        fill="#297CE9"
-                        p-id="8189"
-            ***REMOVED***
-                    </svg>
+                  <n-icon>
+          ***REMOVED***class="i-hugeicons:add-01"></div>
                   </n-icon>
                 ***REMOVED***
-                深度思考
-              </n-button>
-              <n-button
-                type="default"
-                :class="[
-                  qa_type === 'DATABASE_QA' && 'active-tab',
-                  'rounded-100 w-120 h-36 p-15 text-13 c-#585a73',
-            ***REMOVED***"
-                @click="onAqtiveChange('DATABASE_QA'***REMOVED***"
-    ***REMOVED***
-                <template #icon>
-                  <n-icon size="20">
-                    <svg
-                      t="1732505379377"
-                      class="icon"
-                      viewBox="0 0 1024 1024"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      p-id="22977"
-                      width="64"
-                      height="64"
-          ***REMOVED***
-                      <path
-                        d="M890.3 755.5C870.7 834.2 704.8 895.6 503 895.6s-367.8-61.4-387.3-140.1h-2V272.8c0-86 174.3-155.7 389.3-155.7s389.3 69.7 389.3 155.7v482.7h-2zM503 148.2c-197.8 0-358.2 55.8-358.2 124.6S305.2 397.4 503 397.4s358.1-55.8 358.1-124.6S700.8 148.2 503 148.2z m358.1 185.6c-59.4 55.6-197.3 94.7-358.1 94.7s-298.8-39-358.2-94.7v94.7c0 68.8 160.4 124.6 358.2 124.6s358.1-55.8 358.1-124.6v-94.7z m0 155.8c-59.4 55.6-197.3 94.7-358.1 94.7s-298.8-39-358.2-94.7v94.7c0 68.8 160.4 124.6 358.2 124.6S861.1 653 861.1 584.2v-94.6z m0 155.7c-59.4 55.6-197.3 94.6-358.1 94.6s-298.8-39-358.2-94.6v94.6c0 68.8 160.4 124.6 358.2 124.6s358.1-55.8 358.1-124.6v-94.6z m-77.8 79.1l31.1-15.6v46.7l-31.1 15.6v-46.7zM175.9 285.9v-18.2c56 48.9 181.3 82.9 327 82.9s271.1-34 327-82.9v18.2c-63.8 47.9-186.3 80.3-327 80.3s-263.2-32.4-327-80.3z"
-                        fill=""
-                        p-id="22978"
-            ***REMOVED***
-                    </svg>
-                  </n-icon>
-                ***REMOVED***
-                数据问答
-              </n-button>
-              <n-button
-                type="default"
-                :class="[
-                  qa_type === 'FILEDATA_QA' && 'active-tab',
-                  'rounded-100 w-120 h-36 p-15 text-13 c-#585a73',
-            ***REMOVED***"
-                @click="onAqtiveChange('FILEDATA_QA'***REMOVED***"
-    ***REMOVED***
-                <template #icon>
-                  <n-icon size="20">
-                    <svg
-                      t="1732505460059"
-                      class="icon"
-                      viewBox="0 0 1024 1024"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      p-id="25828"
-                      width="64"
-                      height="64"
-          ***REMOVED***
-                      <path
-                        d="M858.4 943.9H137.2c-12.7 0-23-10.3-23-23V129c0-12.7 10.3-23 23-23s23 10.3 23 23v768.9h698.2c12.7 0 23 10.3 23 23s-10.3 23-23 23z"
-                        fill=""
-                        p-id="25829"
-            ***REMOVED***
-                      <path
-                        d="M137 66l37 63h-74zM921 921l-63 37v-74zM287 381h66c17.1 0 31 13.9 31 31v354c0 17.1-13.9 31-31 31h-66c-17.1 0-31-13.9-31-31V412c0-17.1 13.9-31 31-31zM491 193h66c17.1 0 31 13.9 31 31v542c0 17.1-13.9 31-31 31h-66c-17.1 0-31-13.9-31-31V224c0-17.1 13.9-31 31-31zM695 469h66c17.1 0 31 13.9 31 31v266c0 17.1-13.9 31-31 31h-66c-17.1 0-31-13.9-31-31V500c0-17.1 13.9-31 31-31z"
-                        fill=""
-                        p-id="25830"
-            ***REMOVED***
-                    </svg>
-                  </n-icon>
-                ***REMOVED***
-                表格问答
-              </n-button>
-              <n-button
-                type="default"
-                :class="[
-                  qa_type === 'REPORT_QA' && 'active-tab',
-                  'rounded-100 w-120 h-36 p-15 text-13 c-#585a73',
-            ***REMOVED***"
-                @click="onAqtiveChange('REPORT_QA'***REMOVED***"
-    ***REMOVED***
-                <template #icon>
-                  <n-icon size="18">
-                    <svg
-                      t="1732528323504"
-                      class="icon"
-                      viewBox="0 0 1024 1024"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      p-id="41739"
-                      width="64"
-                      height="64"
-          ***REMOVED***
-                      <path
-                        d="M96 896c-8 0-15.5-3.1-21.2-8.8C69.1 881.6 66 874 66 866V445c0-5.5 4.5-10 10-10s10 4.5 10 10v421c0 2.7 1 5.2 2.9 7.1 1.9 1.9 4.4 2.9 7.1 2.9h612c5.5 0 10 4.5 10 10s-4.5 10-10 10H96z m748 0v-20c2.7 0 5.2-1 7.1-2.9 1.9-1.9 2.9-4.4 2.9-7.1v-80c0-5.5 4.5-10 10-10s10 4.5 10 10v80c0 8-3.1 15.5-8.8 21.2-5.6 5.7-13.2 8.8-21.2 8.8z m20-450c-5.5 0-10-4.5-10-10V126c0-5.5-4.5-10-10-10H96c-5.5 0-10 4.5-10 10v193c0 5.5-4.5 10-10 10s-10-4.5-10-10V126c0-16.5 13.4-30 30-30h748c16.5 0 30 13.4 30 30v310c0 5.5-4.5 10-10 10z"
-                        fill="#222222"
-                        p-id="41740"
-            ***REMOVED***
-                      <path
-                        d="M781 886m-16 0a16 16 0 1 0 32 0 16 16 0 1 0-32 0Z"
-                        fill="#222222"
-                        p-id="41741"
-            ***REMOVED***
-                      <path
-                        d="M76 383m-16 0a16 16 0 1 0 32 0 16 16 0 1 0-32 0Z"
-                        fill="#222222"
-                        p-id="41742"
-            ***REMOVED***
-                      <path
-                        d="M84 226h775v20H84zM750 826c-57.2 0-110.9-22.3-151.3-62.7C558.3 722.9 536 669.2 536 612s22.3-110.9 62.7-151.3C639.1 420.3 692.8 398 750 398s110.9 22.3 151.3 62.7C941.7 501.1 964 554.8 964 612s-22.3 110.9-62.7 151.3C860.9 803.7 807.2 826 750 826z m0-408c-107 0-194 87-194 194s87 194 194 194 194-87 194-194-87-194-194-194z"
-                        fill="#222222"
-                        p-id="41743"
-            ***REMOVED***
-                      <path
-                        d="M901.7 753.2c-1 0-2.1-0.2-3.1-0.5-4.1-1.3-6.9-5.2-6.9-9.5V478.8c0-4.3 2.8-8.2 6.9-9.5 4.1-1.3 8.6 0.1 11.2 3.6 24.9 34 51.4 75.6 51.4 139.1 0 62-22.3 97.3-51.4 137.1-1.9 2.7-4.9 4.1-8.1 4.1z m10.1-241.9v200c17.9-28 29.5-56.4 29.5-99.3-0.1-40.2-11-70.5-29.5-100.7z"
-                        fill="#222222"
-                        p-id="41744"
-            ***REMOVED***
-                      <path
-                        d="M859 788l93 130"
-                        fill="#358AFE"
-                        p-id="41745"
-            ***REMOVED***
-                      <path
-                        d="M952 928c-3.1 0-6.2-1.5-8.1-4.2l-93-130c-3.2-4.5-2.2-10.7 2.3-14 4.5-3.2 10.7-2.2 14 2.3l93 130c3.2 4.5 2.2 10.7-2.3 14-1.8 1.3-3.9 1.9-5.9 1.9zM482.4 468.4H171.6c-8.8 0-16-7.2-16-16v-89.8c0-8.8 7.2-16 16-16h310.8c8.8 0 16 7.2 16 16v89.8c0 8.8-7.2 16-16 16z m-306.8-20h302.8v-81.8H175.6v81.8z m306.8-81.8zM384 580H165c-5.5 0-10-4.5-10-10s4.5-10 10-10h219c5.5 0 10 4.5 10 10s-4.5 10-10 10zM455 690H165c-5.5 0-10-4.5-10-10s4.5-10 10-10h290c5.5 0 10 4.5 10 10s-4.5 10-10 10zM525 800H165c-5.5 0-10-4.5-10-10s4.5-10 10-10h360c5.5 0 10 4.5 10 10s-4.5 10-10 10zM183 146c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z m94 0c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z m94 0c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
-                        fill="#222222"
-                        p-id="41746"
-            ***REMOVED***
-                    </svg>
-                  </n-icon>
-                ***REMOVED***
-                报告问答
+                新建对话
               </n-button>
 ***REMOVED***
             <n-input
-              ref="refInputTextString"
-              v-model:value="inputTextString"
-              type="textarea"
-              autofocus
-              h-60
-              class="textarea-resize-none text-15"
+              ref="searchChatRef"
+              v-model:value="searchText"
+              placeholder="搜索"
+              class="search-chat"
+              clearable
+              :class="{
+                focus: isFocusSearchChat,
+              ***REMOVED***"
+              @click="onFocusSearchChat(***REMOVED***"
+              @blur="onBlurSearchChat(***REMOVED***"
+              @input="handleSearch(***REMOVED***"
+              @keyup.enter="handleSearch(***REMOVED***"
+              @clear="handleClear(***REMOVED***"
+  ***REMOVED***
+              <template #prefix>
+      ***REMOVED***class="i-hugeicons:search-01"></div>
+              ***REMOVED***
+            </n-input>
+***REMOVED***
+***REMOVED***flex="1 ~ col" overflow-y-auto>
+            <n-data-table
+              ref="tableRef"
+              class="custom-table"
               :style="{
-                '--n-border-radius': '15px',
-                '--n-padding-left': '60px',
-                '--n-padding-right': '20px',
-                '--n-padding-vertical': '18px',
-                'width': '80%',
-                'marginLeft': '10%',
-                'align': 'center',
+                'font-size': `14px`,
+                '--n-td-color-hover': `#d5dcff`,
+                'font-family': `-apple-system, BlinkMacSystemFont,
+              'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+              sans-serif`,
               ***REMOVED***"
-              :placeholder="placeholder"
-              :autosize="{
-                minRows: 1,
-                maxRows: 5,
-              ***REMOVED***"
-  ***REMOVED***
-            <div
-              absolute
-              class="translate-y--50% ml-11% top-62%"
-  ***REMOVED***
-              <n-dropdown
-                :options="options"
-                @select="handleSelect"
-    ***REMOVED***
-                <n-icon size="30">
-                  <svg
-                    t="1729566080604"
-                    class="icon"
-                    viewBox="0 0 1024 1024"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg"
-                    p-id="38910"
-                    width="64"
-                    height="64"
-        ***REMOVED***
-                    <path
-                      d="M856.448 606.72v191.744a31.552 31.552 0 0 1-31.488 31.488H194.624a31.552 31.552 0 0 1-31.488-31.488V606.72a31.488 31.488 0 1 1 62.976 0v160.256h567.36V606.72a31.488 31.488 0 1 1 62.976 0zM359.872 381.248c-8.192 0-10.56-5.184-5.376-11.392L500.48 193.152a11.776 11.776 0 0 1 18.752 0l145.856 176.704c5.184 6.272 2.752 11.392-5.376 11.392H359.872z"
-                      fill="#838384"
-                      p-id="38911"
-          ***REMOVED***
-                    <path
-                      d="M540.288 637.248a30.464 30.464 0 1 1-61.056 0V342.656a30.464 30.464 0 1 1 61.056 0v294.592z"
-                      fill="#838384"
-                      p-id="38912"
-          ***REMOVED***
-                  </svg>
-                </n-icon>
-              </n-dropdown>
-              <!-- 隐藏的文件上传按钮 -->
-              <n-upload
-                ref="uploadRef"
-                type="button"
-                :show-file-list="false"
-                action="sanic/file/upload_file"
-                accept=".xlsx,.xls,.csv"
-                style="display: none"
-                @finish="finish_upload"
-    ***REMOVED***
-                选择文件
-              </n-upload>
-***REMOVED***
-            <n-float-button
-              position="absolute"
-              top="60%"
-              right="11.5%"
-              :type="stylizingLoading ? 'primary' : 'default'"
-              color
-              :class="[
-                stylizingLoading && 'opacity-90',
-                'text-20',
+              size="small"
+              :bordered="false"
+              :bottom-bordered="false"
+              :single-line="false"
+              :columns="[
+              ***REMOVED***
+                  key: 'key',
+                  align: 'left',
+                  ellipsis: { tooltip: false ***REMOVED***,
+                ***REMOVED***,
           ***REMOVED***"
-              style="transform: translateY(-50%***REMOVED***"
-              @click.stop="handleCreateStylized(***REMOVED***"
+              :data="tableData"
+              :loading="isLoadingHistory"
+              :row-props="rowProps"
+  ***REMOVED***
+***REMOVED***
+          <div
+            class="footer"
+            style="flex-shrink: 0; height: 200"
+***REMOVED***
+            <n-divider style="width: 100%" />
+            <n-button
+              quaternary
+              icon-placement="left"
+              type="primary"
+              strong
+              :style="{
+                'width': `200px`,
+                'height': `38px`,
+                'margin-left': `20px`,
+                'margin-bottom': `10px`,
+                'align-self': `center`,
+                'text-align': `center`,
+                'font-family': `-apple-system, BlinkMacSystemFont,
+            'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+            sans-serif`,
+                'font-size': `14px`,
+              ***REMOVED***"
+              @click="openModal"
+  ***REMOVED***
+              <template #icon>
+                <n-icon>
+        ***REMOVED***class="i-hugeicons:voice-id"></div>
+                </n-icon>
+              ***REMOVED***
+              管理对话
+            </n-button>
+
+            <TableModal
+              :show="isModalOpen"
+              @update:show="handleModalClose"
+  ***REMOVED***
+***REMOVED***
+***REMOVED***
+      </n-layout-sider>
+      <n-layout-content class="content">
+        <!-- 内容区域 -->
+        <div
+          flex="~ 1 col"
+          min-w-0
+          h-full
+        >
+***REMOVED***flex="~ justify-between items-center">
+            <NavigationNavBar />
+***REMOVED***
+
+          <!-- 这里循环渲染即可实现多轮对话 -->
+          <div
+            ref="messagesContainer"
+            flex="1 ~ col"
+            min-h-0
+            pb-20
+            class="scrollable-container"
+            style="background-color: #f6f7fb"
+***REMOVED***
+            <!-- 默认对话页面 -->
+            <transition name="fade">
+    ***REMOVED***v-if="showDefaultPage">
+                <DefaultPage />
+  ***REMOVED***
+            </transition>
+
+            <template
+              v-if="!showDefaultPage"
   ***REMOVED***
               <div
-                v-if="stylizingLoading"
-                class="i-svg-spinners:pulse-2 c-#fff"
-    ***REMOVED***</div>
-              <div
-                v-else
-                class="flex items-center justify-center c-#303133/60 i-mingcute:send-fill"
-    ***REMOVED***</div>
-            </n-float-button>
-          </n-space>
+                v-for="(item, index***REMOVED*** in visibleConversationItems"
+                :key="index"
+                :ref="(el***REMOVED*** => setMarkdownPreview(item.uuid, item.role, el***REMOVED***"
+                class="mb-4"
+    ***REMOVED***
+      ***REMOVED***v-if="item.role === 'user'">
+                  <div
+                    whitespace-break-spaces
+                    text-right
+                    :style="{
+                      'margin-left': `10%`,
+                      'margin-right': `10%`,
+                      'padding': `15px`,
+                      'border-radius': `5px`,
+                      'text-align': `center`,
+                      'float': `right`,
+                    ***REMOVED***"
+        ***REMOVED***
+                    <n-space>
+                      <n-tag
+                        size="large"
+                        :bordered="false"
+                        :round="true"
+                        :style="{
+                          'fontSize': '15px',
+                          'fontFamily': 'PMingLiU !important',
+                          'color': '#26244c',
+                          'max-width': '900px',
+                          'text-align': 'left',
+                          'padding': '5px 18px',
+                          'height': 'auto',
+                          // 允许长单词换行到下一行
+                          'word-wrap': 'break-word',
+                          // 允许在单词内换行
+                          'word-break': 'break-all',
+                          // 移除默认的 white-space 属性，确保文本能正常换行
+                          'white-space': 'normal',
+                          // 强制应用样式
+                          'overflow': 'visible !important',
+                        ***REMOVED***"
+                        :color="{
+                          color: '#e0dfff',
+                          borderColor: '#e0dfff',
+                        ***REMOVED***"
+            ***REMOVED***
+                        <template #avatar>
+                ***REMOVED***class="size-25 i-my-svg:user-avatar"></div>
+                        ***REMOVED***
+                      ***REMOVED***{ item.question ***REMOVED******REMOVED***
+                      </n-tag>
+                    </n-space>
+      ***REMOVED***
+                  <div
+                    v-if="contentLoadingStates[index]"
+                    class="i-svg-spinners:bars-scale"
+                    :style="{
+                      'width': `24px`,
+                      'height': `24px`,
+                      'color': `#b1adf3`,
+                      'border-left-color': `#b1adf3`,
+                      'margin-top': `80px`,
+                      'animation': `spin 1s linear infinite`,
+                      'margin-left': `12%`,
+                      'float': `left`,
+                    ***REMOVED***"
+        ***REMOVED***</div>
+    ***REMOVED***
+      ***REMOVED***v-if="item.role === 'assistant'">
+                  <MarkdownPreview
+                    :reader="item.reader"
+                    :model="defaultLLMTypeName"
+                    :isInit="isInit"
+                    :isView="isView"
+                    :qaType="`${item.qa_type***REMOVED***`"
+                    :chart-id="`${index***REMOVED***devID${generateRandomSuffix(***REMOVED******REMOVED***`"
+                    :parentScollBottomMethod="scrollToBottom"
+                    @failed="(***REMOVED*** => onFailedReader(index***REMOVED***"
+                    @completed="(***REMOVED*** => onCompletedReader(index***REMOVED***"
+                    @chartready="(***REMOVED*** => onChartReady(index + 1***REMOVED***"
+                    @recycleQa="(***REMOVED*** => onRecycleQa(index***REMOVED***"
+                    @praiseFeadBack="(***REMOVED*** => onPraiseFeadBack(index***REMOVED***"
+                    @belittleFeedback="
+                      (***REMOVED*** => onBelittleFeedback(index***REMOVED***
+                    "
+                    @beginRead="(***REMOVED*** => onBeginRead(index***REMOVED***"
+        ***REMOVED***
+    ***REMOVED***
+  ***REMOVED***
+            ***REMOVED***
+
+            <div
+              v-if="!isInit && !stylizingLoading"
+              class="w-70% ml-11% mt-[-20] bg-#f6f7fb"
+  ***REMOVED***
+              <SuggestedView
+                :labels="suggested_array"
+                @suggested="onSuggested"
+    ***REMOVED***
+***REMOVED***
+***REMOVED***
+
+          <div
+            class="items-center shrink-0 bg-#f6f7fb"
+***REMOVED***
+            <div
+              relative
+              class="flex-1 w-full p-1em"
+  ***REMOVED***
+              <n-space vertical>
+                <div
+                  flex="~ gap-10"
+                  class="h-40 ml-10%"
+      ***REMOVED***
+                  <n-button
+                    type="default"
+                    :class="[
+                      qa_type === 'COMMON_QA' && 'active-tab',
+                      'rounded-100 w-120 h-36 p-15 text-13 c-#585a73',
+                ***REMOVED***"
+                    @click="onAqtiveChange('COMMON_QA'***REMOVED***"
+        ***REMOVED***
+                    <template #icon>
+                      <n-icon size="16">
+                        <svg
+                          t="1742194713465"
+                          class="icon"
+                          viewBox="0 0 1024 1024"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          p-id="8188"
+                          width="60"
+                          height="60"
+              ***REMOVED***
+                          <path
+                            d="M80.867881 469.76534l0.916659 0.916659 79.711097-79.711097L160.655367 389.901467a162.210364 162.210364 0 0 1 229.164631-229.164631l236.345122 236.345122L706.028994 317.332667l-236.345123-236.803452a275.112139 275.112139 0 0 0-388.81599 389.27432z m472.690245-388.81599l-0.916658 0.916659 79.711097 79.711097 0.916659-0.916658A162.210364 162.210364 0 0 1 862.663019 389.901467l-236.345122 236.345122 79.711097 79.711098 236.803452-236.345123a275.112139 275.112139 0 0 0-389.27432-388.81599z m-84.027031 861.506236l0.916659-0.916659-79.711098-79.711097-0.916658 0.916658a162.210364 162.210364 0 0 1-229.164631-229.431989l236.345122-236.345123L317.251198 317.332667l-236.803452 236.345122a275.112139 275.112139 0 0 0 389.27432 388.815991z m99.801197-372.736272a81.811773 81.811773 0 0 0 21.197728-78.794439 80.895115 80.895115 0 0 0-57.59671-57.596711 81.620803 81.620803 0 1 0 36.398982 136.352956z m373.156407-15.659583l-0.916659-0.916659-79.711097 79.711097 0.916658 0.916659a162.248559 162.248559 0 0 1-229.431989 229.431989L396.885907 626.704918 317.251198 706.568792l236.345122 236.803452A275.073945 275.073945 0 0 0 942.374117 554.136119z"
+                            fill="#297CE9"
+                            p-id="8189"
+                ***REMOVED***
+                        </svg>
+                      </n-icon>
+                    ***REMOVED***
+                    深度思考
+                  </n-button>
+                  <n-button
+                    type="default"
+                    :class="[
+                      qa_type === 'DATABASE_QA' && 'active-tab',
+                      'rounded-100 w-120 h-36 p-15 text-13 c-#585a73',
+                ***REMOVED***"
+                    @click="onAqtiveChange('DATABASE_QA'***REMOVED***"
+        ***REMOVED***
+                    <template #icon>
+                      <n-icon size="20">
+                        <svg
+                          t="1732505379377"
+                          class="icon"
+                          viewBox="0 0 1024 1024"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          p-id="22977"
+                          width="64"
+                          height="64"
+              ***REMOVED***
+                          <path
+                            d="M890.3 755.5C870.7 834.2 704.8 895.6 503 895.6s-367.8-61.4-387.3-140.1h-2V272.8c0-86 174.3-155.7 389.3-155.7s389.3 69.7 389.3 155.7v482.7h-2zM503 148.2c-197.8 0-358.2 55.8-358.2 124.6S305.2 397.4 503 397.4s358.1-55.8 358.1-124.6S700.8 148.2 503 148.2z m358.1 185.6c-59.4 55.6-197.3 94.7-358.1 94.7s-298.8-39-358.2-94.7v94.7c0 68.8 160.4 124.6 358.2 124.6s358.1-55.8 358.1-124.6v-94.7z m0 155.8c-59.4 55.6-197.3 94.7-358.1 94.7s-298.8-39-358.2-94.7v94.7c0 68.8 160.4 124.6 358.2 124.6S861.1 653 861.1 584.2v-94.6z m0 155.7c-59.4 55.6-197.3 94.6-358.1 94.6s-298.8-39-358.2-94.6v94.6c0 68.8 160.4 124.6 358.2 124.6s358.1-55.8 358.1-124.6v-94.6z m-77.8 79.1l31.1-15.6v46.7l-31.1 15.6v-46.7zM175.9 285.9v-18.2c56 48.9 181.3 82.9 327 82.9s271.1-34 327-82.9v18.2c-63.8 47.9-186.3 80.3-327 80.3s-263.2-32.4-327-80.3z"
+                            fill=""
+                            p-id="22978"
+                ***REMOVED***
+                        </svg>
+                      </n-icon>
+                    ***REMOVED***
+                    数据问答
+                  </n-button>
+                  <n-button
+                    type="default"
+                    :class="[
+                      qa_type === 'FILEDATA_QA' && 'active-tab',
+                      'rounded-100 w-120 h-36 p-15 text-13 c-#585a73',
+                ***REMOVED***"
+                    @click="onAqtiveChange('FILEDATA_QA'***REMOVED***"
+        ***REMOVED***
+                    <template #icon>
+                      <n-icon size="20">
+                        <svg
+                          t="1732505460059"
+                          class="icon"
+                          viewBox="0 0 1024 1024"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          p-id="25828"
+                          width="64"
+                          height="64"
+              ***REMOVED***
+                          <path
+                            d="M858.4 943.9H137.2c-12.7 0-23-10.3-23-23V129c0-12.7 10.3-23 23-23s23 10.3 23 23v768.9h698.2c12.7 0 23 10.3 23 23s-10.3 23-23 23z"
+                            fill=""
+                            p-id="25829"
+                ***REMOVED***
+                          <path
+                            d="M137 66l37 63h-74zM921 921l-63 37v-74zM287 381h66c17.1 0 31 13.9 31 31v354c0 17.1-13.9 31-31 31h-66c-17.1 0-31-13.9-31-31V412c0-17.1 13.9-31 31-31zM491 193h66c17.1 0 31 13.9 31 31v542c0 17.1-13.9 31-31 31h-66c-17.1 0-31-13.9-31-31V224c0-17.1 13.9-31 31-31zM695 469h66c17.1 0 31 13.9 31 31v266c0 17.1-13.9 31-31 31h-66c-17.1 0-31-13.9-31-31V500c0-17.1 13.9-31 31-31z"
+                            fill=""
+                            p-id="25830"
+                ***REMOVED***
+                        </svg>
+                      </n-icon>
+                    ***REMOVED***
+                    表格问答
+                  </n-button>
+                  <n-button
+                    type="default"
+                    :class="[
+                      qa_type === 'REPORT_QA' && 'active-tab',
+                      'rounded-100 w-120 h-36 p-15 text-13 c-#585a73',
+                ***REMOVED***"
+                    @click="onAqtiveChange('REPORT_QA'***REMOVED***"
+        ***REMOVED***
+                    <template #icon>
+                      <n-icon size="18">
+                        <svg
+                          t="1732528323504"
+                          class="icon"
+                          viewBox="0 0 1024 1024"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          p-id="41739"
+                          width="64"
+                          height="64"
+              ***REMOVED***
+                          <path
+                            d="M96 896c-8 0-15.5-3.1-21.2-8.8C69.1 881.6 66 874 66 866V445c0-5.5 4.5-10 10-10s10 4.5 10 10v421c0 2.7 1 5.2 2.9 7.1 1.9 1.9 4.4 2.9 7.1 2.9h612c5.5 0 10 4.5 10 10s-4.5 10-10 10H96z m748 0v-20c2.7 0 5.2-1 7.1-2.9 1.9-1.9 2.9-4.4 2.9-7.1v-80c0-5.5 4.5-10 10-10s10 4.5 10 10v80c0 8-3.1 15.5-8.8 21.2-5.6 5.7-13.2 8.8-21.2 8.8z m20-450c-5.5 0-10-4.5-10-10V126c0-5.5-4.5-10-10-10H96c-5.5 0-10 4.5-10 10v193c0 5.5-4.5 10-10 10s-10-4.5-10-10V126c0-16.5 13.4-30 30-30h748c16.5 0 30 13.4 30 30v310c0 5.5-4.5 10-10 10z"
+                            fill="#222222"
+                            p-id="41740"
+                ***REMOVED***
+                          <path
+                            d="M781 886m-16 0a16 16 0 1 0 32 0 16 16 0 1 0-32 0Z"
+                            fill="#222222"
+                            p-id="41741"
+                ***REMOVED***
+                          <path
+                            d="M76 383m-16 0a16 16 0 1 0 32 0 16 16 0 1 0-32 0Z"
+                            fill="#222222"
+                            p-id="41742"
+                ***REMOVED***
+                          <path
+                            d="M84 226h775v20H84zM750 826c-57.2 0-110.9-22.3-151.3-62.7C558.3 722.9 536 669.2 536 612s22.3-110.9 62.7-151.3C639.1 420.3 692.8 398 750 398s110.9 22.3 151.3 62.7C941.7 501.1 964 554.8 964 612s-22.3 110.9-62.7 151.3C860.9 803.7 807.2 826 750 826z m0-408c-107 0-194 87-194 194s87 194 194 194 194-87 194-194-87-194-194-194z"
+                            fill="#222222"
+                            p-id="41743"
+                ***REMOVED***
+                          <path
+                            d="M901.7 753.2c-1 0-2.1-0.2-3.1-0.5-4.1-1.3-6.9-5.2-6.9-9.5V478.8c0-4.3 2.8-8.2 6.9-9.5 4.1-1.3 8.6 0.1 11.2 3.6 24.9 34 51.4 75.6 51.4 139.1 0 62-22.3 97.3-51.4 137.1-1.9 2.7-4.9 4.1-8.1 4.1z m10.1-241.9v200c17.9-28 29.5-56.4 29.5-99.3-0.1-40.2-11-70.5-29.5-100.7z"
+                            fill="#222222"
+                            p-id="41744"
+                ***REMOVED***
+                          <path
+                            d="M859 788l93 130"
+                            fill="#358AFE"
+                            p-id="41745"
+                ***REMOVED***
+                          <path
+                            d="M952 928c-3.1 0-6.2-1.5-8.1-4.2l-93-130c-3.2-4.5-2.2-10.7 2.3-14 4.5-3.2 10.7-2.2 14 2.3l93 130c3.2 4.5 2.2 10.7-2.3 14-1.8 1.3-3.9 1.9-5.9 1.9zM482.4 468.4H171.6c-8.8 0-16-7.2-16-16v-89.8c0-8.8 7.2-16 16-16h310.8c8.8 0 16 7.2 16 16v89.8c0 8.8-7.2 16-16 16z m-306.8-20h302.8v-81.8H175.6v81.8z m306.8-81.8zM384 580H165c-5.5 0-10-4.5-10-10s4.5-10 10-10h219c5.5 0 10 4.5 10 10s-4.5 10-10 10zM455 690H165c-5.5 0-10-4.5-10-10s4.5-10 10-10h290c5.5 0 10 4.5 10 10s-4.5 10-10 10zM525 800H165c-5.5 0-10-4.5-10-10s4.5-10 10-10h360c5.5 0 10 4.5 10 10s-4.5 10-10 10zM183 146c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z m94 0c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z m94 0c15.5 0 28 12.5 28 28s-12.5 28-28 28-28-12.5-28-28 12.5-28 28-28z"
+                            fill="#222222"
+                            p-id="41746"
+                ***REMOVED***
+                        </svg>
+                      </n-icon>
+                    ***REMOVED***
+                    报告问答
+                  </n-button>
+    ***REMOVED***
+                <n-input
+                  ref="refInputTextString"
+                  v-model:value="inputTextString"
+                  type="textarea"
+                  autofocus
+                  h-60
+                  class="textarea-resize-none text-15"
+                  :style="{
+                    '--n-border-radius': '15px',
+                    '--n-padding-left': '60px',
+                    '--n-padding-right': '20px',
+                    '--n-padding-vertical': '18px',
+                    'width': '80%',
+                    'marginLeft': '10%',
+                    'align': 'center',
+                  ***REMOVED***"
+                  :placeholder="placeholder"
+                  :autosize="{
+                    minRows: 1,
+                    maxRows: 5,
+                  ***REMOVED***"
+      ***REMOVED***
+                <div
+                  absolute
+                  class="translate-y--50% ml-11% top-62%"
+      ***REMOVED***
+                  <n-dropdown
+                    :options="options"
+                    @select="handleSelect"
+        ***REMOVED***
+                    <n-icon size="30">
+                      <svg
+                        t="1729566080604"
+                        class="icon"
+                        viewBox="0 0 1024 1024"
+                        version="1.1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        p-id="38910"
+                        width="64"
+                        height="64"
+            ***REMOVED***
+                        <path
+                          d="M856.448 606.72v191.744a31.552 31.552 0 0 1-31.488 31.488H194.624a31.552 31.552 0 0 1-31.488-31.488V606.72a31.488 31.488 0 1 1 62.976 0v160.256h567.36V606.72a31.488 31.488 0 1 1 62.976 0zM359.872 381.248c-8.192 0-10.56-5.184-5.376-11.392L500.48 193.152a11.776 11.776 0 0 1 18.752 0l145.856 176.704c5.184 6.272 2.752 11.392-5.376 11.392H359.872z"
+                          fill="#838384"
+                          p-id="38911"
+              ***REMOVED***
+                        <path
+                          d="M540.288 637.248a30.464 30.464 0 1 1-61.056 0V342.656a30.464 30.464 0 1 1 61.056 0v294.592z"
+                          fill="#838384"
+                          p-id="38912"
+              ***REMOVED***
+                      </svg>
+                    </n-icon>
+                  </n-dropdown>
+                  <!-- 隐藏的文件上传按钮 -->
+                  <n-upload
+                    ref="uploadRef"
+                    type="button"
+                    :show-file-list="false"
+                    action="sanic/file/upload_file"
+                    accept=".xlsx,.xls,.csv"
+                    style="display: none"
+                    @finish="finish_upload"
+        ***REMOVED***
+                    选择文件
+                  </n-upload>
+    ***REMOVED***
+                <n-float-button
+                  position="absolute"
+                  top="60%"
+                  right="11.5%"
+                  :type="stylizingLoading ? 'primary' : 'default'"
+                  color
+                  :class="[
+                    stylizingLoading && 'opacity-90',
+                    'text-20',
+              ***REMOVED***"
+                  style="transform: translateY(-50%***REMOVED***"
+                  @click.stop="handleCreateStylized(***REMOVED***"
+      ***REMOVED***
+                  <div
+                    v-if="stylizingLoading"
+                    class="i-svg-spinners:pulse-2 c-#fff"
+        ***REMOVED***</div>
+                  <div
+                    v-else
+                    class="flex items-center justify-center c-#303133/60 i-mingcute:send-fill"
+        ***REMOVED***</div>
+                </n-float-button>
+              </n-space>
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
+      </n-layout-content>
+  ***REMOVED***
   </div>
 ***REMOVED***
 
@@ -1375,51 +1391,12 @@ const handleClear = (***REMOVED*** => {
 ***REMOVED***
 
 .content {
-  flex-grow: 1; /* 占据剩余空间 */
 ***REMOVED***
   padding: 8px;
 ***REMOVED***
 
 .footer {
   border-bottom-left-radius: 10px;
-***REMOVED***
-
-:deep(.n-layout-scroll-container***REMOVED*** {
-  overflow: hidden;
-
-  /* 滚动条整体部分 */
-
-  &::-webkit-scrollbar {
-    width: 6px; /* 竖向滚动条宽度 */
-    height: 2px; /* 横向滚动条高度 */
-    opacity: 0; /* 初始时隐藏滚动条 */
-    transition: opacity 0.3s; /* 添加过渡效果 */
-  ***REMOVED***
-
-  /* 滚动条的轨道 */
-
-  &::-webkit-scrollbar-track {
-    background: #fff !important; /* 轨道背景色 */
-  ***REMOVED***
-
-  /* 滚动条的滑块 */
-
-  &::-webkit-scrollbar-thumb {
-    background: #dee2ea !important; /* 滑块颜色 */
-  ***REMOVED*** /* 滑块圆角 */
-  ***REMOVED***
-
-  /* 鼠标悬停时显示滚动条 */
-
-  &:hover::-webkit-scrollbar {
-    opacity: 1; /* 显示滚动条 */
-  ***REMOVED***
-
-  /* 滚动条的滑块在悬停状态下的样式 */
-
-  &::-webkit-scrollbar-thumb:hover {
-    background: #a48ef4 !important; /* 悬停时滑块颜色 */
-  ***REMOVED***
 ***REMOVED***
 
 .icon-button {
