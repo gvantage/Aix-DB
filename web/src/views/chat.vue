@@ -795,11 +795,9 @@ const collapsed = useLocalStorage(
               ref="tableRef"
               class="custom-table"
               :style="{
-                'font-size': `14px`,
+                'font-size': `16px`,
                 '--n-td-color-hover': `#d5dcff`,
-                'font-family': `-apple-system, BlinkMacSystemFont,
-              'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-              sans-serif`,
+                'font-family': `-apple-system, BlinkMacSystemFont,'Segoe UI', Roboto, 'Helvetica Neue', Arial,sans-serif`,
               ***REMOVED***"
               size="small"
               :bordered="false"
@@ -1039,25 +1037,10 @@ const collapsed = useLocalStorage(
                     @click="onAqtiveChange('DATABASE_QA'***REMOVED***"
         ***REMOVED***
                     <template #icon>
-                      <n-icon size="20">
-                        <svg
-                          t="1732505379377"
-                          class="icon"
-                          viewBox="0 0 1024 1024"
-                          version="1.1"
-                          xmlns="http://www.w3.org/2000/svg"
-                          p-id="22977"
-                          width="64"
-                          height="64"
-              ***REMOVED***
-                          <path
-                            d="M890.3 755.5C870.7 834.2 704.8 895.6 503 895.6s-367.8-61.4-387.3-140.1h-2V272.8c0-86 174.3-155.7 389.3-155.7s389.3 69.7 389.3 155.7v482.7h-2zM503 148.2c-197.8 0-358.2 55.8-358.2 124.6S305.2 397.4 503 397.4s358.1-55.8 358.1-124.6S700.8 148.2 503 148.2z m358.1 185.6c-59.4 55.6-197.3 94.7-358.1 94.7s-298.8-39-358.2-94.7v94.7c0 68.8 160.4 124.6 358.2 124.6s358.1-55.8 358.1-124.6v-94.7z m0 155.8c-59.4 55.6-197.3 94.7-358.1 94.7s-298.8-39-358.2-94.7v94.7c0 68.8 160.4 124.6 358.2 124.6S861.1 653 861.1 584.2v-94.6z m0 155.7c-59.4 55.6-197.3 94.6-358.1 94.6s-298.8-39-358.2-94.6v94.6c0 68.8 160.4 124.6 358.2 124.6s358.1-55.8 358.1-124.6v-94.6z m-77.8 79.1l31.1-15.6v46.7l-31.1 15.6v-46.7zM175.9 285.9v-18.2c56 48.9 181.3 82.9 327 82.9s271.1-34 327-82.9v18.2c-63.8 47.9-186.3 80.3-327 80.3s-263.2-32.4-327-80.3z"
-                            fill=""
-                            p-id="22978"
+                      <n-icon size="19">
+<svg t="1754035667476" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="50983" width="60" height="60"><path d="M512 102.6c110.7 0 215 12.3 293.9 34.7 35.8 10.2 65 22.1 84.5 34.7 18.6 12 21.3 19.7 21.6 20.6-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.7-293.9 34.7s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6 0.2-0.9 3-8.6 21.6-20.6 19.5-12.5 48.7-24.5 84.5-34.7 78.9-22.4 183.2-34.7 293.9-34.7m0-40c-243 0-440 58.2-440 130s197 130 440 130 440-58.2 440-130-197-130-440-130zM112 190.4H72v641h40v-641z m840-0.3h-40v641h40v-641zM912 831v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.6-293.9 34.6s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.1z m0-210.5v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7C727 698.6 622.7 711 512 711s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.2z m0-221.5v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.7-293.9 34.7s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.2z" fill="" p-id="50984"></path></svg>
+</n-icon>
                 ***REMOVED***
-                        </svg>
-                      </n-icon>
-                    ***REMOVED***
                     数据问答
                   </n-button>
                   <n-button
@@ -1333,13 +1316,9 @@ const collapsed = useLocalStorage(
 ***REMOVED***
 
 :deep(.custom-table td***REMOVED*** {
-  color: #26244c;
+  color: #2C2C36;
   font-size: 14px;
-
-  // border: 0px;
-
-  padding: 10px 6px;
-  margin: 0 0 12px;
+  padding: 10px 24px;
 ***REMOVED***
 
 .default-page {
@@ -1395,7 +1374,7 @@ const collapsed = useLocalStorage(
 
 .content {
 ***REMOVED***
-  padding: 8px;
+  // padding: 8px;
 ***REMOVED***
 
 .footer {
@@ -1439,7 +1418,7 @@ const collapsed = useLocalStorage(
 /* 隐藏滚动条轨道 */
 
 .scrollable-table-container::-webkit-scrollbar {
-  width: 4px; /* 滚动条宽度 */
+  width: 5px; /* 滚动条宽度 */
 ***REMOVED***
 
 .scrollable-table-container::-webkit-scrollbar-track {

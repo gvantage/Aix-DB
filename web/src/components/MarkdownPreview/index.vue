@@ -624,11 +624,10 @@ const onChartCompletedReader = function (***REMOVED*** {
   // background: linear-gradient(to right, #f0effe, #d4eefc***REMOVED***;
 
   padding: 1px 18px;
-  border-top-right-radius: 15px;
-  border-top-left-radius: 15px;
-  color: #26244c;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, sans-serif;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+  color: #2c2c36;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 
   h1 {
   ***REMOVED***
@@ -707,8 +706,7 @@ const onChartCompletedReader = function (***REMOVED*** {
 
   p {
     line-height: 2;
-
-    // padding-left: 15px;
+    margin: 10px 16px;
 
     & > code {
       --at-apply: 'bg-#e5e5e5';

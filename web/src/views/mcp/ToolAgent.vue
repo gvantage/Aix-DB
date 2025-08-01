@@ -185,7 +185,7 @@ const callLLM = async (messages: Message[], tools: Tool[]***REMOVED***: Promise<
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-        'Authorization': 'Bearer ***REMOVED***'
+***REMOVED***
       ***REMOVED***,
 ***REMOVED***
 ***REMOVED***
@@ -226,7 +226,7 @@ const call_llm_format_msg = async (message***REMOVED*** => {
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-        'Authorization': 'Bearer ***REMOVED***'
+***REMOVED***
       ***REMOVED***,
 ***REMOVED***
 ***REMOVED***

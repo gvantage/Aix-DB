@@ -6,8 +6,6 @@ withDefaults(defineProps<Props>(***REMOVED***, {
   loading: false,
 ***REMOVED******REMOVED***
 
-const router = useRouter(***REMOVED***
-const userStore = useUserStore(***REMOVED***
 const appStore = useAppStore(***REMOVED***
 
 appStore.areaLoading = true
@@ -52,8 +50,8 @@ setTimeout((***REMOVED*** => {
             min-w-0
             h-full
             overflow-hidden
-            py-12
-            pr-12
+            py-10
+            pr-10
             style="background: linear-gradient(to bottom, #8874f1, #588af9***REMOVED***"
 ***REMOVED***
             <div
