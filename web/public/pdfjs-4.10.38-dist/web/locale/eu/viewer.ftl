@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Aurreko orria
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Hurrengoa
 pdfjs-page-input =
     .title = Orria
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = / { $pagesCount ***REMOVED***
+pdfjs-of-pages = / { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = { $pagesCount ***REMOVED***/{ $pageNumber ***REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = { $pagesCount }/{ $pageNumber }
 pdfjs-zoom-out-button =
     .title = Urrundu zooma
 pdfjs-zoom-out-button-label = Urrundu zooma
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Inprimatu
 pdfjs-save-button =
     .title = Gorde
 pdfjs-save-button-label = Gorde
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Deskargatu
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Deskargatu
 pdfjs-bookmark-button =
-    .title = Uneko orria (ikusi uneko orriaren URLa***REMOVED***
+    .title = Uneko orria (ikusi uneko orriaren URLa)
 pdfjs-bookmark-button-label = Uneko orria
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Dokumentuaren propietateak…
 pdfjs-document-properties-file-name = Fitxategi-izena:
 pdfjs-document-properties-file-size = Fitxategiaren tamaina:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** byte***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } byte)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** byte***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } byte)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** byte***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } byte)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** byte***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } byte)
 pdfjs-document-properties-title = Izenburua:
 pdfjs-document-properties-author = Egilea:
 pdfjs-document-properties-subject = Gaia:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Gako-hitzak:
 pdfjs-document-properties-creation-date = Sortze-data:
 pdfjs-document-properties-modification-date = Aldatze-data:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Sortzailea:
 pdfjs-document-properties-producer = PDFaren ekoizlea:
 pdfjs-document-properties-version = PDF bertsioa:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Gutuna
 pdfjs-document-properties-page-size-name-legal = Legala
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Itxi
 
 pdfjs-print-progress-message = Dokumentua inprimatzeko prestatzen…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = %{ $progress ***REMOVED***
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = %{ $progress }
 pdfjs-print-progress-close-button = Utzi
 pdfjs-printing-not-supported = Abisua: inprimatzeko euskarria ez da erabatekoa nabigatzaile honetan.
 pdfjs-printing-not-ready = Abisua: PDFa ez dago erabat kargatuta inprimatzeko.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Abisua: PDFa ez dago erabat kargatuta inprimatzeko.
 pdfjs-toggle-sidebar-button =
     .title = Txandakatu alboko barra
 pdfjs-toggle-sidebar-notification-button =
-    .title = Txandakatu alboko barra (dokumentuak eskema/eranskinak/geruzak ditu***REMOVED***
+    .title = Txandakatu alboko barra (dokumentuak eskema/eranskinak/geruzak ditu)
 pdfjs-toggle-sidebar-button-label = Txandakatu alboko barra
 pdfjs-document-outline-button =
-    .title = Erakutsi dokumentuaren eskema (klik bikoitza elementu guztiak zabaltzeko/tolesteko***REMOVED***
+    .title = Erakutsi dokumentuaren eskema (klik bikoitza elementu guztiak zabaltzeko/tolesteko)
 pdfjs-document-outline-button-label = Dokumentuaren eskema
 pdfjs-attachments-button =
     .title = Erakutsi eranskinak
 pdfjs-attachments-button-label = Eranskinak
 pdfjs-layers-button =
-    .title = Erakutsi geruzak (klik bikoitza geruza guztiak egoera lehenetsira berrezartzeko***REMOVED***
+    .title = Erakutsi geruzak (klik bikoitza geruza guztiak egoera lehenetsira berrezartzeko)
 pdfjs-layers-button-label = Geruzak
 pdfjs-thumbs-button =
     .title = Erakutsi koadro txikiak
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Bilatu
 pdfjs-additional-layers = Geruza gehigarriak
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = { $page ***REMOVED***. orria
+    .title = { $page }. orria
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = { $page ***REMOVED***. orriaren koadro txikia
+    .aria-label = { $page }. orriaren koadro txikia
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = Hitz osoak
 pdfjs-find-reached-top = Dokumentuaren hasierara heldu da, bukaeratik jarraitzen
 pdfjs-find-reached-bottom = Dokumentuaren bukaerara heldu da, hasieratik jarraitzen
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $total ***REMOVED***/{ $current ***REMOVED***. bat-etortzea
-       *[other] { $total ***REMOVED***/{ $current ***REMOVED***. bat-etortzea
-    ***REMOVED***
+    { $total ->
+        [one] { $total }/{ $current }. bat-etortzea
+       *[other] { $total }/{ $current }. bat-etortzea
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Bat datorren { $limit ***REMOVED*** baino gehiago
-       *[other] Bat datozen { $limit ***REMOVED*** baino gehiago
-    ***REMOVED***
+    { $limit ->
+        [one] Bat datorren { $limit } baino gehiago
+       *[other] Bat datozen { $limit } baino gehiago
+    }
 pdfjs-find-not-found = Esaldia ez da aurkitu
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Doitu orrira
 pdfjs-page-scale-auto = Zoom automatikoa
 pdfjs-page-scale-actual = Benetako tamaina
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = %{ $scale ***REMOVED***
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = %{ $scale }
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = { $page ***REMOVED***. orria
+    .aria-label = { $page }. orria
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Errorea gertatu da orria errendatzean.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** ohartarazpena]
+    .alt = [{ $type } ohartarazpena]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Opakutasuna
 pdfjs-editor-stamp-add-image-button =
     .title = Gehitu irudia
 pdfjs-editor-stamp-add-image-button-label = Gehitu irudia
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Loditasuna
 pdfjs-editor-free-highlight-thickness-title =
     .title = Aldatu loditasuna testua ez beste elementuak nabarmentzean
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Apaingarri gisa markatuta
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Adibidez, "gizon gaztea mahaian eserita dago bazkaltzeko"
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Testu alternatiboa
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Erakutsi denak
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Editatu testu alternatiboa (irudiaren azalpena***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Editatu testu alternatiboa (irudiaren azalpena)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Gehitu testu alternatiboa (irudiaren azalpena***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Gehitu testu alternatiboa (irudiaren azalpena)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Idatzi zure azalpena hemen…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = Ezin da testu alternatiboa automatikoki 
 pdfjs-editor-new-alt-text-error-description = Idatzi zure testu alternatibo propioa edo saiatu berriro geroago.
 pdfjs-editor-new-alt-text-error-close-button = Itxi
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Testu alternatiboaren AA modeloa deskargatzen ({ $totalSize ***REMOVED***/{ $downloadedSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = Testu alternatiboaren AA modeloa deskargatzen ({ $totalSize ***REMOVED***/{ $downloadedSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Testu alternatiboaren AA modeloa deskargatzen ({ $totalSize }/{ $downloadedSize } MB)
+    .aria-valuetext = Testu alternatiboaren AA modeloa deskargatzen ({ $totalSize }/{ $downloadedSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Testu alternatiboa gehituta
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Berrikusi testu alternatiboa
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Automatikoki sortua: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Automatikoki sortua: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Testu alternatibo automatikoa
 pdfjs-editor-alt-text-settings-create-model-button-label = Sortu testu alternatiboa automatikoki
 pdfjs-editor-alt-text-settings-create-model-description = Azalpenak iradokitzen ditu irudia ikusi ezin duen jendearentzat edo irudia kargatu ezin denerako.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Testu alternatiboaren AA modeloa ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Testu alternatiboaren AA modeloa ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Zure gailuan modu lokalean exekutatzen da eta zure datuak pribatu mantentzen dira. Testu alternatibo automatikorako beharrezkoa.
 pdfjs-editor-alt-text-settings-delete-model-button = Ezabatu
 pdfjs-editor-alt-text-settings-download-model-button = Deskargatu
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = Testua kenduta
 pdfjs-editor-undo-bar-message-ink = Marrazkia kenduta
 pdfjs-editor-undo-bar-message-stamp = Irudia kenduta
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
+    { $count ->
         [one] Esku-ohar bat kenduta
-       *[other] { $count ***REMOVED*** esku-ohar kenduta
-    ***REMOVED***
+       *[other] { $count } esku-ohar kenduta
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Desegin
 pdfjs-editor-undo-bar-undo-button-label = Desegin

@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Piyrwyjszo strōna
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Dalij
 pdfjs-page-input =
     .title = Strōna
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = ze { $pagesCount ***REMOVED***
+pdfjs-of-pages = ze { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** ze { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } ze { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Zmyńsz
 pdfjs-zoom-out-button-label = Zmyńsz
@@ -90,13 +90,13 @@ pdfjs-document-properties-button-label = Włosności dokumyntu…
 pdfjs-document-properties-file-name = Miano zbioru:
 pdfjs-document-properties-file-size = Srogość zbioru:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** B***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } B)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** B***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } B)
 pdfjs-document-properties-title = Tytuł:
 pdfjs-document-properties-author = Autōr:
 pdfjs-document-properties-subject = Tymat:
@@ -104,9 +104,9 @@ pdfjs-document-properties-keywords = Kluczowe słowa:
 pdfjs-document-properties-creation-date = Data zrychtowanio:
 pdfjs-document-properties-modification-date = Data zmiany:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Zrychtowane ôd:
 pdfjs-document-properties-producer = PDF ôd:
 pdfjs-document-properties-version = Wersyjo PDF:
@@ -122,14 +122,14 @@ pdfjs-document-properties-page-size-name-letter = Letter
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -144,8 +144,8 @@ pdfjs-document-properties-close-button = Zawrzij
 
 pdfjs-print-progress-message = Rychtowanie dokumyntu do durku…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Pociep
 pdfjs-printing-not-supported = Pozōr: Ta przeglōndarka niy cołkiym ôbsuguje durk.
 pdfjs-printing-not-ready = Pozōr: Tyn PDF niy ma za tela zaladowany do durku.
@@ -155,16 +155,16 @@ pdfjs-printing-not-ready = Pozōr: Tyn PDF niy ma za tela zaladowany do durku.
 pdfjs-toggle-sidebar-button =
     .title = Przełōncz posek na rancie
 pdfjs-toggle-sidebar-notification-button =
-    .title = Przełōncz posek na rancie (dokumynt mo struktura/przidowki/warstwy***REMOVED***
+    .title = Przełōncz posek na rancie (dokumynt mo struktura/przidowki/warstwy)
 pdfjs-toggle-sidebar-button-label = Przełōncz posek na rancie
 pdfjs-document-outline-button =
-    .title = Pokoż struktura dokumyntu (tuplowane klikniyncie rozszyrzo/swijo wszyskie elymynta***REMOVED***
+    .title = Pokoż struktura dokumyntu (tuplowane klikniyncie rozszyrzo/swijo wszyskie elymynta)
 pdfjs-document-outline-button-label = Struktura dokumyntu
 pdfjs-attachments-button =
     .title = Pokoż przidowki
 pdfjs-attachments-button-label = Przidowki
 pdfjs-layers-button =
-    .title = Pokoż warstwy (tuplowane klikniyncie resetuje wszyskie warstwy do bazowego stanu***REMOVED***
+    .title = Pokoż warstwy (tuplowane klikniyncie resetuje wszyskie warstwy do bazowego stanu)
 pdfjs-layers-button-label = Warstwy
 pdfjs-thumbs-button =
     .title = Pokoż miniatury
@@ -174,16 +174,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Znojdź
 pdfjs-additional-layers = Nadbytnie warstwy
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Strōna { $page ***REMOVED***
+    .title = Strōna { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Miniatura strōny { $page ***REMOVED***
+    .aria-label = Miniatura strōny { $page }
 
 ## Find panel button title and messages
 
@@ -210,8 +210,8 @@ pdfjs-page-scale-fit = Napasowanie strōny
 pdfjs-page-scale-auto = Autōmatyczno srogość
 pdfjs-page-scale-actual = Aktualno srogość
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -227,16 +227,16 @@ pdfjs-rendering-error = Przi renderowaniu strōny pokozoł sie feler.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Anotacyjo typu { $type ***REMOVED***]
+    .alt = [Anotacyjo typu { $type }]
 
 ## Password
 

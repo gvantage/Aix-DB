@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import { dateZhCN, zhCN ***REMOVED*** from 'naive-ui'
+import { dateZhCN, zhCN } from 'naive-ui'
 import NaiveProvider from './NaiveProvider.vue'
 
 defineOptions({
   name: 'App',
-***REMOVED******REMOVED***
+})
 
-const { defaultTheme, themeOverrides ***REMOVED*** = useTheme(***REMOVED***
+const { defaultTheme, themeOverrides } = useTheme()
 
-useCopyCode(***REMOVED***
-***REMOVED***
+useCopyCode()
+</script>
 
-***REMOVED***
+<template>
   <NConfigProvider
     class="h-full"
     :locale="zhCN"
@@ -23,8 +23,8 @@ useCopyCode(***REMOVED***
       <RouterView />
     </NaiveProvider>
   </NConfigProvider>
-***REMOVED***
+</template>
 
 <style lang="scss">
 @use '@/styles/index.scss';
-***REMOVED***
+</style>

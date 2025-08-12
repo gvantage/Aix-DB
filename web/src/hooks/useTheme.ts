@@ -1,95 +1,95 @@
-import type { GlobalThemeOverrides ***REMOVED*** from 'naive-ui'
-import { darkTheme, lightTheme ***REMOVED*** from 'naive-ui'
+import type { GlobalThemeOverrides } from 'naive-ui'
+import { darkTheme, lightTheme } from 'naive-ui'
 
 const baseThemeOverrides: GlobalThemeOverrides = {
   common: {
     borderRadius: '6px',
     heightLarge: '40px',
     fontSizeLarge: '18px',
-  ***REMOVED***,
-***REMOVED***
+  },
+}
 
 const PrimaryColor = '#692ee6'
 
-export function useTheme(***REMOVED*** {
-  const defaultTheme = computed((***REMOVED*** => {
+export function useTheme() {
+  const defaultTheme = computed(() => {
     return lightTheme
-  ***REMOVED******REMOVED***
-  const themeRevert = computed((***REMOVED*** => {
+  })
+  const themeRevert = computed(() => {
     return darkTheme
-  ***REMOVED******REMOVED***
+  })
 
-  const themeOverrides = computed<GlobalThemeOverrides>((***REMOVED*** => {
-***REMOVED***
+  const themeOverrides = computed<GlobalThemeOverrides>(() => {
+    return {
       common: {
         ...baseThemeOverrides.common,
         primaryColor: PrimaryColor,
-        primaryColorHover: lightenDarkenColor(PrimaryColor, 30***REMOVED***,
-        primaryColorPressed: lightenDarkenColor(PrimaryColor, -30***REMOVED***,
-        primaryColorSuppl: getComplementaryColor(PrimaryColor***REMOVED***,
-      ***REMOVED***,
+        primaryColorHover: lightenDarkenColor(PrimaryColor, 30),
+        primaryColorPressed: lightenDarkenColor(PrimaryColor, -30),
+        primaryColorSuppl: getComplementaryColor(PrimaryColor),
+      },
       Input: {
         placeholderColor: '#a8aeb8',
-      ***REMOVED***,
-    ***REMOVED***
-  ***REMOVED******REMOVED***
+      },
+    }
+  })
 
 
   return {
     defaultTheme,
     themeRevert,
     themeOverrides,
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 
-function lightenDarkenColor(col, amt***REMOVED*** {
+function lightenDarkenColor(col, amt) {
   let usePound = false
 
-  if (col[0] === '#'***REMOVED*** {
-    col = col.slice(1***REMOVED***
+  if (col[0] === '#') {
+    col = col.slice(1)
     usePound = true
-  ***REMOVED***
+  }
 
-  const num = Number.parseInt(col, 16***REMOVED***
+  const num = Number.parseInt(col, 16)
 
-  let r = (num >> 16***REMOVED*** + amt
+  let r = (num >> 16) + amt
 
-  if (r > 255***REMOVED*** {
+  if (r > 255) {
     r = 255
-  ***REMOVED*** else if (r < 0***REMOVED*** {
+  } else if (r < 0) {
     r = 0
-  ***REMOVED***
+  }
 
-  let b = ((num >> 8***REMOVED*** & 0x00FF***REMOVED*** + amt
+  let b = ((num >> 8) & 0x00FF) + amt
 
-  if (b > 255***REMOVED*** {
+  if (b > 255) {
     b = 255
-  ***REMOVED*** else if (b < 0***REMOVED*** {
+  } else if (b < 0) {
     b = 0
-  ***REMOVED***
+  }
 
-  let g = (num & 0x0000FF***REMOVED*** + amt
+  let g = (num & 0x0000FF) + amt
 
-  if (g > 255***REMOVED*** {
+  if (g > 255) {
     g = 255
-  ***REMOVED*** else if (g < 0***REMOVED*** {
+  } else if (g < 0) {
     g = 0
-  ***REMOVED***
+  }
 
-  return (usePound ? '#' : ''***REMOVED*** + (g | (b << 8***REMOVED*** | (r << 16***REMOVED******REMOVED***.toString(16***REMOVED***
-***REMOVED***
+  return (usePound ? '#' : '') + (g | (b << 8) | (r << 16)).toString(16)
+}
 
-function getComplementaryColor(hex***REMOVED*** {
-  hex = hex.slice(1***REMOVED*** // remove #
-  const r = Number.parseInt(hex.substring(0, 2***REMOVED***, 16***REMOVED***
-  const g = Number.parseInt(hex.substring(2, 4***REMOVED***, 16***REMOVED***
-  const b = Number.parseInt(hex.substring(4, 6***REMOVED***, 16***REMOVED***
+function getComplementaryColor(hex) {
+  hex = hex.slice(1) // remove #
+  const r = Number.parseInt(hex.substring(0, 2), 16)
+  const g = Number.parseInt(hex.substring(2, 4), 16)
+  const b = Number.parseInt(hex.substring(4, 6), 16)
 
   // get the complementary color
-  const compR = (255 - r***REMOVED***.toString(16***REMOVED***.padStart(2, '0'***REMOVED***
-  const compG = (255 - g***REMOVED***.toString(16***REMOVED***.padStart(2, '0'***REMOVED***
-  const compB = (255 - b***REMOVED***.toString(16***REMOVED***.padStart(2, '0'***REMOVED***
+  const compR = (255 - r).toString(16).padStart(2, '0')
+  const compG = (255 - g).toString(16).padStart(2, '0')
+  const compB = (255 - b).toString(16).padStart(2, '0')
 
-  return `#${compR***REMOVED***${compG***REMOVED***${compB***REMOVED***`
-***REMOVED***
+  return `#${compR}${compG}${compB}`
+}

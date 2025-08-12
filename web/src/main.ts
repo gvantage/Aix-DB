@@ -1,29 +1,29 @@
 import App from '@/App.vue'
 
 import InstallGlobalComponents from '@/components'
-import { setupRouter ***REMOVED*** from '@/router'
+import { setupRouter } from '@/router'
 
-import { setupStore ***REMOVED*** from '@/store'
+import { setupStore } from '@/store'
 
 import 'virtual:uno.css'
 
-const app = createApp(App***REMOVED***
+const app = createApp(App)
 
-function setupPlugins(***REMOVED*** {
-  app.use(InstallGlobalComponents***REMOVED***
-***REMOVED***
+function setupPlugins() {
+  app.use(InstallGlobalComponents)
+}
 
-async function setupApp(***REMOVED*** {
-  setupStore(app***REMOVED***
-  await setupRouter(app***REMOVED***
-  app.mount('#app'***REMOVED***
-***REMOVED***
+async function setupApp() {
+  setupStore(app)
+  await setupRouter(app)
+  app.mount('#app')
+}
 
-setupPlugins(***REMOVED***
-setupApp(***REMOVED***
+setupPlugins()
+setupApp()
 
 // 初始化用户状态
-const userStore = useUserStore(***REMOVED***
-userStore.init(***REMOVED***
+const userStore = useUserStore()
+userStore.init()
 
 export default app

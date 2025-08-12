@@ -84,12 +84,12 @@
 # opensearch.requestTimeout: 30000
 
 # List of OpenSearch Dashboards client-side headers to send to OpenSearch. To send *no* client-side
-# headers, set this value to [] (an empty list***REMOVED***.
+# headers, set this value to [] (an empty list).
 # opensearch.requestHeadersWhitelist: [ authorization ]
 
 # Header names and values that are sent to OpenSearch. Any custom headers cannot be overwritten
 # by client-side headers, regardless of the opensearch.requestHeadersWhitelist configuration.
-# opensearch.customHeaders: {***REMOVED***
+# opensearch.customHeaders: {}
 
 # Time in milliseconds for OpenSearch to wait for responses from shards. Set to 0 to disable.
 # opensearch.shardTimeout: 30000
@@ -136,7 +136,7 @@
 #  '10.0.0.0/8',
 #  '172.16.0.0/12',
 #  '192.168.0.0/16',
-#  //Unique local address (ULA***REMOVED***
+#  //Unique local address (ULA)
 #  'fc00::/7',
 #  //Reserved IP address
 #  '0.0.0.0/8',

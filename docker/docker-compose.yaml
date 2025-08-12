@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   chat-web:
-    image: apconw/chat-vue3-mvp:1.1.4
+    image: apconw/chat-vue3-mvp:1.1.5
     container_name: chat-vue3-mvp
     environment:
       - TZ=Asia/Shanghai
@@ -27,15 +27,20 @@ services:
     command: server /data --console-address ":9001"
 
   chat-service:
-    image: apconw/sanic-web:1.1.4
+    image: apconw/sanic-web:1.1.5
     container_name: sanic-web
     environment:
       - ENV=test
       - DIFY_SERVER_URL=http://host.docker.internal:18000
-      - DIFY_DATABASE_QA_API_KEY=app-wBZqS3Zf5trr453bvtZ7QF7F
+      - DIFY_DATABASE_QA_API_KEY=app-GIz9dM9GPUXVZOkDRaC0TOxh
       - MINIO_ENDPOINT=host.docker.internal:19000
-      - MINIO_ACCESS_KEY=sIR5eeDkiwoo779yNJbw
-      - MiNIO_SECRET_KEY=MreuQ3aC1ymHJeo3QfzSg7aPz7PqlxeOw39nZUdE
+      - MINIO_ACCESS_KEY=QfIx8FgdpgKtmbFMbKVb
+      - MiNIO_SECRET_KEY=DsitWZJT3pecrg020Y2NKCETVpsIc3h2PrKTqONA
+      - MODEL_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+      - MODEL_NAME=openai:qwen-plus
+      - MODEL_TEMPERATURE=0.5
+      - MODEL_API_KEY=sk-xxx
+      - MCP_HUB_URL=http://host.docker.internal:3300/mcp
       - TZ=Asia/Shanghai
     ports:
       - "8088:8088"
@@ -55,3 +60,14 @@ services:
     volumes:
       - ./volume/mysql/data:/var/lib/mysql
       - ./my.cnf:/etc/mysql/conf.d/my.cnf
+
+  mcphub:
+    image: samanhappy/mcphub
+    container_name: mcphub
+    ports:
+      - "3300:3000"
+    volumes:
+      - ./volume/mcp-data/mcp_settings.json:/app/mcp_settings.json
+      - ./volume/mcp-data/data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

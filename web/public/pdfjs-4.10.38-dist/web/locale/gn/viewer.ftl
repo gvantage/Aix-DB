@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Kuatiarogue mboyvegua
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Upeigua
 pdfjs-page-input =
     .title = Kuatiarogue
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = { $pagesCount ***REMOVED*** gui
+pdfjs-of-pages = { $pagesCount } gui
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** of { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } of { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Momichĩ
 pdfjs-zoom-out-button-label = Momichĩ
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Monguatia
 pdfjs-save-button =
     .title = Ñongatu
 pdfjs-save-button-label = Ñongatu
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Mboguejy
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Mboguejy
 pdfjs-bookmark-button =
-    .title = Kuatiarogue ag̃agua (Ehecha URL kuatiarogue ag̃agua***REMOVED***
+    .title = Kuatiarogue ag̃agua (Ehecha URL kuatiarogue ag̃agua)
 pdfjs-bookmark-button-label = Kuatiarogue Ag̃agua
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Kuatia mba’etee…
 pdfjs-document-properties-file-name = Marandurenda réra:
 pdfjs-document-properties-file-size = Marandurenda tuichakue:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } bytes)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } bytes)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = Teratee:
 pdfjs-document-properties-author = Apohára:
 pdfjs-document-properties-subject = Mba’egua:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Jehero:
 pdfjs-document-properties-creation-date = Teñoihague arange:
 pdfjs-document-properties-modification-date = Iñambue hague arange:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Apo’ypyha:
 pdfjs-document-properties-producer = PDF mbosako’iha:
 pdfjs-document-properties-version = PDF mbojuehegua:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Kuatiañe’ẽ
 pdfjs-document-properties-page-size-name-legal = Tee
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Mboty
 
 pdfjs-print-progress-message = Embosako’i kuatia emonguatia hag̃ua…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Heja
 pdfjs-printing-not-supported = Kyhyjerã: Ñembokuatia ndojokupytypái ko kundahára ndive.
 pdfjs-printing-not-ready = Kyhyjerã: Ko PDF nahenyhẽmbái oñembokuatia hag̃uáicha.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Kyhyjerã: Ko PDF nahenyhẽmbái oñembokuatia hag̃
 pdfjs-toggle-sidebar-button =
     .title = Tenda yke moambue
 pdfjs-toggle-sidebar-notification-button =
-    .title = Embojopyru tenda ykegua (kuatia oguereko kuaakaha/moirũha/ñuãha***REMOVED***
+    .title = Embojopyru tenda ykegua (kuatia oguereko kuaakaha/moirũha/ñuãha)
 pdfjs-toggle-sidebar-button-label = Tenda yke moambue
 pdfjs-document-outline-button =
-    .title = Ehechauka kuatia rape (eikutu mokõi jey embotuicha/emomichĩ hag̃ua opavavete mba’eporu***REMOVED***
+    .title = Ehechauka kuatia rape (eikutu mokõi jey embotuicha/emomichĩ hag̃ua opavavete mba’eporu)
 pdfjs-document-outline-button-label = Kuatia apopyre
 pdfjs-attachments-button =
     .title = Moirũha jehechauka
 pdfjs-attachments-button-label = Moirũha
 pdfjs-layers-button =
-    .title = Ehechauka ñuãha (eikutu jo’a emomba’apo hag̃ua opaite ñuãha tekoypýpe***REMOVED***
+    .title = Ehechauka ñuãha (eikutu jo’a emomba’apo hag̃ua opaite ñuãha tekoypýpe)
 pdfjs-layers-button-label = Ñuãha
 pdfjs-thumbs-button =
     .title = Mba’emirĩ jehechauka
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Juhu
 pdfjs-additional-layers = Ñuãha moirũguáva
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Kuatiarogue { $page ***REMOVED***
+    .title = Kuatiarogue { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Kuatiarogue mba’emirĩ { $page ***REMOVED***
+    .aria-label = Kuatiarogue mba’emirĩ { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = Ñe’ẽ oĩmbáva
 pdfjs-find-reached-top = Ojehupyty kuatia ñepyrũ, oku’ejeýta kuatia paha guive
 pdfjs-find-reached-bottom = Ojehupyty kuatia paha, oku’ejeýta kuatia ñepyrũ guive
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** ha { $total ***REMOVED*** ojueheguáva
-       *[other] { $current ***REMOVED*** ha { $total ***REMOVED*** ojueheguáva
-    ***REMOVED***
+    { $total ->
+        [one] { $current } ha { $total } ojueheguáva
+       *[other] { $current } ha { $total } ojueheguáva
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Hetave { $limit ***REMOVED*** ojueheguáva
-       *[other] Hetave { $limit ***REMOVED*** ojueheguáva
-    ***REMOVED***
+    { $limit ->
+        [one] Hetave { $limit } ojueheguáva
+       *[other] Hetave { $limit } ojueheguáva
+    }
 pdfjs-find-not-found = Ñe’ẽrysýi ojejuhu’ỹva
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Kuatiarogue ñemoĩporã
 pdfjs-page-scale-auto = Tuichakue ijeheguíva
 pdfjs-page-scale-actual = Tuichakue ag̃agua
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Kuatiarogue { $page ***REMOVED***
+    .aria-label = Kuatiarogue { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Oiko jejavy ehechaukasévo kuatiarogue.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Jehaipy { $type ***REMOVED***]
+    .alt = [Jehaipy { $type }]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Pytũngy
 pdfjs-editor-stamp-add-image-button =
     .title = Embojuaju ta’ãnga
 pdfjs-editor-stamp-add-image-button-label = Embojuaju ta’ãnga
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Anambusu
 pdfjs-editor-free-highlight-thickness-title =
     .title = Emoambue anambusukue embosa’ývo mba’eporu ha’e’ỹva moñe’ẽrã
@@ -362,7 +362,7 @@ pdfjs-editor-alt-text-edit-button =
     .aria-label = Embojuruja moñe’ẽrã mokõiháva
 pdfjs-editor-alt-text-edit-button-label = Embojuruja moñe’ẽrã mokõiháva
 pdfjs-editor-alt-text-dialog-label = Eiporavo poravorã
-pdfjs-editor-alt-text-dialog-description = Moñe’ẽrã ykepegua (moñe’ẽrã ykepegua***REMOVED*** nepytyvõ nderehecháiramo ta’ãnga térã nahenyhẽiramo.
+pdfjs-editor-alt-text-dialog-description = Moñe’ẽrã ykepegua (moñe’ẽrã ykepegua) nepytyvõ nderehecháiramo ta’ãnga térã nahenyhẽiramo.
 pdfjs-editor-alt-text-add-description-label = Embojuaju ñemoha’ãnga
 pdfjs-editor-alt-text-add-description-description = Ehaimi 1 térã 2 ñe’ẽjuaju oñe’ẽva pe téma rehe, ijere térã mba’eapóre.
 pdfjs-editor-alt-text-mark-decorative-label = Emongurusu jeguakárõ
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Jeguakárõ mongurusupyre
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Techapyrã: “Peteĩ mitãrusu oguapy mesápe okaru hag̃ua”
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Moñe’ẽrã mokõiháva
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Techaukapa
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Embosako’i moñe’ẽrã mokõiha (ta’ãngáre ñeñe’ẽ***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Embosako’i moñe’ẽrã mokõiha (ta’ãngáre ñeñe’ẽ)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Embojuaju moñe’ẽrã mokõiha (ta’ãngáre ñeñe’ẽ***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Embojuaju moñe’ẽrã mokõiha (ta’ãngáre ñeñe’ẽ)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Edescribi ko’ápe…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = Noñemoheñói moñe’ẽrã mokõiha i
 pdfjs-editor-new-alt-text-error-description = Ehai ne moñe’ẽrã mokõiha térã eha’ã jey ag̃amieve.
 pdfjs-editor-new-alt-text-error-close-button = Mboty
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Emboguejyhína IA moñe’ẽrã mokõiháva ({ $downloadedSize ***REMOVED*** { $totalSize ***REMOVED*** MB***REMOVED*** mba’e
-    .aria-valuetext = Emboguejyhína IA moñe’ẽrã mokõiháva ({ $downloadedSize ***REMOVED*** { $totalSize ***REMOVED*** MB***REMOVED*** mba’e
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Emboguejyhína IA moñe’ẽrã mokõiháva ({ $downloadedSize } { $totalSize } MB) mba’e
+    .aria-valuetext = Emboguejyhína IA moñe’ẽrã mokõiháva ({ $downloadedSize } { $totalSize } MB) mba’e
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Moñe’ẽrã mokõiha mbojuajupyre
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Ehechajey moñe’ẽrã mokõiha
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Heñóiva ijeheguiete: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Heñóiva ijeheguiete: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Moñe’ẽrã mokõiha ijehegu
 pdfjs-editor-alt-text-settings-create-model-button-label = Emoheñói moñe’ẽrã mokõiha ijeheguíva
 pdfjs-editor-alt-text-settings-create-model-description = Ñemyesakã mbykymi opavave tapicha ohecha’ỹva upe ta’ãnga térã pe ta’ãnga nahenyhẽiramo.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Peteĩva IA moñe’ẽrã mokõiha ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Peteĩva IA moñe’ẽrã mokõiha ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Oku’e mba’e’okaitépe umi mba’ekuaarã hekoñemi hag̃ua. Tekotevẽva moñe’ẽrã ykegua ijeheguívape.
 pdfjs-editor-alt-text-settings-delete-model-button = Mboguete
 pdfjs-editor-alt-text-settings-download-model-button = Mboguejy
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = Moñe’ẽrã mboguepyre
 pdfjs-editor-undo-bar-message-ink = Ta’ãnga mboguepyre
 pdfjs-editor-undo-bar-message-stamp = Ta’ãnga mboguepyre
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] { $count ***REMOVED*** jehaikue mboguepyre
-       *[other] { $count ***REMOVED*** jehaikue mboguepyre
-    ***REMOVED***
+    { $count ->
+        [one] { $count } jehaikue mboguepyre
+       *[other] { $count } jehaikue mboguepyre
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Mboguevi
 pdfjs-editor-undo-bar-undo-button-label = Mboguevi

@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Páxina anterior
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Siguiente
 pdfjs-page-input =
     .title = Páxina
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = de { $pagesCount ***REMOVED***
+pdfjs-of-pages = de { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** de { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } de { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Alloñar
 pdfjs-zoom-out-button-label = Alloña
@@ -78,21 +78,21 @@ pdfjs-document-properties-button-label = Propiedaes del documentu…
 pdfjs-document-properties-file-name = Nome del ficheru:
 pdfjs-document-properties-file-size = Tamañu del ficheru:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = Títulu:
 pdfjs-document-properties-keywords = Pallabres clave:
 pdfjs-document-properties-creation-date = Data de creación:
 pdfjs-document-properties-modification-date = Data de modificación:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-producer = Productor del PDF:
 pdfjs-document-properties-version = Versión del PDF:
 pdfjs-document-properties-page-count = Númberu de páxines:
@@ -105,14 +105,14 @@ pdfjs-document-properties-page-size-name-a-three = A3
 pdfjs-document-properties-page-size-name-a-four = A4
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -126,8 +126,8 @@ pdfjs-document-properties-close-button = Zarrar
 ## Print
 
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Encaboxar
 
 ## Tooltips and alt text for side panel toolbar buttons
@@ -144,12 +144,12 @@ pdfjs-thumbs-button-label = Miniatures
 pdfjs-findbar-button-label = Atopar
 pdfjs-additional-layers = Capes adicionales
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Páxina { $page ***REMOVED***
+    .title = Páxina { $page }
 
 ## Find panel button title and messages
 
@@ -164,15 +164,15 @@ pdfjs-find-reached-bottom = Algamóse la fin del documentu, síguese dende arrib
 pdfjs-page-scale-auto = Zoom automáticu
 pdfjs-page-scale-actual = Tamañu real
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Páxina { $page ***REMOVED***
+    .aria-label = Páxina { $page }
 
 ## Loading indicator messages
 
@@ -181,9 +181,9 @@ pdfjs-loading-error = Asocedió un fallu mentanto se cargaba'l PDF.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 
 ## Password
 

@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Pot buk mukato
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Malubo
 pdfjs-page-input =
     .title = Pot buk
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = pi { $pagesCount ***REMOVED***
+pdfjs-of-pages = pi { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** me { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } me { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Jwik Matidi
 pdfjs-zoom-out-button-label = Jwik Matidi
@@ -72,13 +72,13 @@ pdfjs-document-properties-button-label = Jami me gin acoya…
 pdfjs-document-properties-file-name = Nying pwail:
 pdfjs-document-properties-file-size = Dit pa pwail:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = Wiye:
 pdfjs-document-properties-author = Ngat mucoyo:
 pdfjs-document-properties-subject = Subjek:
@@ -86,9 +86,9 @@ pdfjs-document-properties-keywords = Lok mapire tek:
 pdfjs-document-properties-creation-date = Nino dwe me cwec:
 pdfjs-document-properties-modification-date = Nino dwe me yub:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Lacwec:
 pdfjs-document-properties-producer = Layub PDF:
 pdfjs-document-properties-version = Kit PDF:
@@ -104,14 +104,14 @@ pdfjs-document-properties-page-size-name-letter = Waraga
 pdfjs-document-properties-page-size-name-legal = Cik
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -123,8 +123,8 @@ pdfjs-document-properties-close-button = Lor
 
 pdfjs-print-progress-message = Yubo coc me agoya…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Juki
 pdfjs-printing-not-supported = Ciko: Layeny ma pe teno goyo liweng.
 pdfjs-printing-not-ready = Ciko: PDF pe ocane weng me agoya.
@@ -135,7 +135,7 @@ pdfjs-toggle-sidebar-button =
     .title = Lok gintic ma inget
 pdfjs-toggle-sidebar-button-label = Lok gintic ma inget
 pdfjs-document-outline-button =
-    .title = Nyut Wiyewiye me Gin acoya (dii-kiryo me yaro/kano jami weng***REMOVED***
+    .title = Nyut Wiyewiye me Gin acoya (dii-kiryo me yaro/kano jami weng)
 pdfjs-document-outline-button-label = Pek pa gin acoya
 pdfjs-attachments-button =
     .title = Nyut twec
@@ -147,16 +147,16 @@ pdfjs-findbar-button =
     .title = Nong iye gin acoya
 pdfjs-findbar-button-label = Nong
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Pot buk { $page ***REMOVED***
+    .title = Pot buk { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Cal me pot buk { $page ***REMOVED***
+    .aria-label = Cal me pot buk { $page }
 
 ## Find panel button title and messages
 
@@ -182,8 +182,8 @@ pdfjs-page-scale-fit = Porre me pot buk
 pdfjs-page-scale-auto = Kwot pire kene
 pdfjs-page-scale-actual = Dite kikome
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -200,11 +200,11 @@ pdfjs-rendering-error = Bal otime i kare me nyuto pot buk.
 
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Lok angea manok]
+    .alt = [{ $type } Lok angea manok]
 
 ## Password
 

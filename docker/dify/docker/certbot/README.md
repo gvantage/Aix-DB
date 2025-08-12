@@ -2,7 +2,7 @@
 
 ## Short description
 
-docker compose certbot configurations with Backward compatibility (without certbot container***REMOVED***.  
+docker compose certbot configurations with Backward compatibility (without certbot container).  
 Use `docker compose --profile certbot up` to use this features.
 
 ## The simplest way for launching new servers with SSL certificates
@@ -35,7 +35,7 @@ Use `docker compose --profile certbot up` to use this features.
    docker compose --profile certbot up -d --no-deps --force-recreate nginx
    ```
    Then you can access your serve with HTTPS.  
-   [https://your_domain.com](https://your_domain.com***REMOVED***
+   [https://your_domain.com](https://your_domain.com)
 
 ## SSL certificates renewal
 

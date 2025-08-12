@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Vorige pagina
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Volgende
 pdfjs-page-input =
     .title = Pagina
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = van { $pagesCount ***REMOVED***
+pdfjs-of-pages = van { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** van { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } van { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Uitzoomen
 pdfjs-zoom-out-button-label = Uitzoomen
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Afdrukken
 pdfjs-save-button =
     .title = Opslaan
 pdfjs-save-button-label = Opslaan
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Downloaden
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Downloaden
 pdfjs-bookmark-button =
-    .title = Huidige pagina (URL van huidige pagina bekijken***REMOVED***
+    .title = Huidige pagina (URL van huidige pagina bekijken)
 pdfjs-bookmark-button-label = Huidige pagina
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Documenteigenschappen…
 pdfjs-document-properties-file-name = Bestandsnaam:
 pdfjs-document-properties-file-size = Bestandsgrootte:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } bytes)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } bytes)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = Titel:
 pdfjs-document-properties-author = Auteur:
 pdfjs-document-properties-subject = Onderwerp:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Sleutelwoorden:
 pdfjs-document-properties-creation-date = Aanmaakdatum:
 pdfjs-document-properties-modification-date = Wijzigingsdatum:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Maker:
 pdfjs-document-properties-producer = PDF-producent:
 pdfjs-document-properties-version = PDF-versie:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Letter
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Sluiten
 
 pdfjs-print-progress-message = Document voorbereiden voor afdrukken…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Annuleren
 pdfjs-printing-not-supported = Waarschuwing: afdrukken wordt niet volledig ondersteund door deze browser.
 pdfjs-printing-not-ready = Waarschuwing: de PDF is niet volledig geladen voor afdrukken.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Waarschuwing: de PDF is niet volledig geladen voor af
 pdfjs-toggle-sidebar-button =
     .title = Zijbalk in-/uitschakelen
 pdfjs-toggle-sidebar-notification-button =
-    .title = Zijbalk in-/uitschakelen (document bevat overzicht/bijlagen/lagen***REMOVED***
+    .title = Zijbalk in-/uitschakelen (document bevat overzicht/bijlagen/lagen)
 pdfjs-toggle-sidebar-button-label = Zijbalk in-/uitschakelen
 pdfjs-document-outline-button =
-    .title = Documentoverzicht tonen (dubbelklik om alle items uit/samen te vouwen***REMOVED***
+    .title = Documentoverzicht tonen (dubbelklik om alle items uit/samen te vouwen)
 pdfjs-document-outline-button-label = Documentoverzicht
 pdfjs-attachments-button =
     .title = Bijlagen tonen
 pdfjs-attachments-button-label = Bijlagen
 pdfjs-layers-button =
-    .title = Lagen tonen (dubbelklik om alle lagen naar de standaardstatus terug te zetten***REMOVED***
+    .title = Lagen tonen (dubbelklik om alle lagen naar de standaardstatus terug te zetten)
 pdfjs-layers-button-label = Lagen
 pdfjs-thumbs-button =
     .title = Miniaturen tonen
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Zoeken
 pdfjs-additional-layers = Aanvullende lagen
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Pagina { $page ***REMOVED***
+    .title = Pagina { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Miniatuur van pagina { $page ***REMOVED***
+    .aria-label = Miniatuur van pagina { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = Hele woorden
 pdfjs-find-reached-top = Bovenkant van document bereikt, doorgegaan vanaf onderkant
 pdfjs-find-reached-bottom = Onderkant van document bereikt, doorgegaan vanaf bovenkant
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** van { $total ***REMOVED*** overeenkomst
-       *[other] { $current ***REMOVED*** van { $total ***REMOVED*** overeenkomsten
-    ***REMOVED***
+    { $total ->
+        [one] { $current } van { $total } overeenkomst
+       *[other] { $current } van { $total } overeenkomsten
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Meer dan { $limit ***REMOVED*** overeenkomst
-       *[other] Meer dan { $limit ***REMOVED*** overeenkomsten
-    ***REMOVED***
+    { $limit ->
+        [one] Meer dan { $limit } overeenkomst
+       *[other] Meer dan { $limit } overeenkomsten
+    }
 pdfjs-find-not-found = Tekst niet gevonden
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Hele pagina
 pdfjs-page-scale-auto = Automatisch zoomen
 pdfjs-page-scale-actual = Werkelijke grootte
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Pagina { $page ***REMOVED***
+    .aria-label = Pagina { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Er is een fout opgetreden bij het weergeven van de pagin
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED***-aantekening]
+    .alt = [{ $type }-aantekening]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Opaciteit
 pdfjs-editor-stamp-add-image-button =
     .title = Afbeelding toevoegen
 pdfjs-editor-stamp-add-image-button-label = Afbeelding toevoegen
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Dikte
 pdfjs-editor-free-highlight-thickness-title =
     .title = Dikte wijzigen bij accentuering van andere items dan tekst
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Als decoratief gemarkeerd
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Bijvoorbeeld: ‘Een jonge man gaat aan een tafel zitten om te eten’
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Alternatieve tekst
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Alles tonen
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Alternatieve tekst (afbeeldingsbeschrijving***REMOVED*** bewerken
+pdfjs-editor-new-alt-text-dialog-edit-label = Alternatieve tekst (afbeeldingsbeschrijving) bewerken
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Alternatieve tekst (afbeeldingsbeschrijving***REMOVED*** toevoegen
+pdfjs-editor-new-alt-text-dialog-add-label = Alternatieve tekst (afbeeldingsbeschrijving) toevoegen
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Schrijf hier uw beschrijving…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = Kan alternatieve tekst niet automatisch 
 pdfjs-editor-new-alt-text-error-description = Schrijf uw eigen alternatieve tekst of probeer het later nog eens.
 pdfjs-editor-new-alt-text-error-close-button = Sluiten
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = AI-model voor alternatieve tekst downloaden ({ $downloadedSize ***REMOVED*** van { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = AI-model voor alternatieve tekst downloaden ({ $downloadedSize ***REMOVED*** van { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = AI-model voor alternatieve tekst downloaden ({ $downloadedSize } van { $totalSize } MB)
+    .aria-valuetext = AI-model voor alternatieve tekst downloaden ({ $downloadedSize } van { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Alternatieve tekst toegevoegd
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Alternatieve tekst beoordelen
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Automatisch aangemaakt: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Automatisch aangemaakt: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Automatische alternatieve tekst
 pdfjs-editor-alt-text-settings-create-model-button-label = Alternatieve tekst automatisch aanmaken
 pdfjs-editor-alt-text-settings-create-model-description = Stelt beschrijvingen voor om mensen te helpen die de afbeelding niet kunnen zien of voor wie de afbeelding niet wordt geladen.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = AI-model voor alternatieve tekst ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = AI-model voor alternatieve tekst ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Wordt lokaal op uw apparaat uitgevoerd, zodat uw gegevens privé blijven. Vereist voor automatische alternatieve tekst.
 pdfjs-editor-alt-text-settings-delete-model-button = Verwijderen
 pdfjs-editor-alt-text-settings-download-model-button = Downloaden
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = Tekst verwijderd
 pdfjs-editor-undo-bar-message-ink = Tekening verwijderd
 pdfjs-editor-undo-bar-message-stamp = Afbeelding verwijderd
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] { $count ***REMOVED*** annotatie verwijderd
-       *[other] { $count ***REMOVED*** annotaties verwijderd
-    ***REMOVED***
+    { $count ->
+        [one] { $count } annotatie verwijderd
+       *[other] { $count } annotaties verwijderd
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Ongedaan maken
 pdfjs-editor-undo-bar-undo-button-label = Ongedaan maken

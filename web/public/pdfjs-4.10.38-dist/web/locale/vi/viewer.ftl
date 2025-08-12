@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Trang trước
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Tiếp
 pdfjs-page-input =
     .title = Trang
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = trên { $pagesCount ***REMOVED***
+pdfjs-of-pages = trên { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** trên { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } trên { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Thu nhỏ
 pdfjs-zoom-out-button-label = Thu nhỏ
@@ -42,14 +42,14 @@ pdfjs-print-button-label = In
 pdfjs-save-button =
     .title = Lưu
 pdfjs-save-button-label = Lưu
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Tải xuống
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Tải xuống
 pdfjs-bookmark-button =
-    .title = Trang hiện tại (xem URL từ trang hiện tại***REMOVED***
+    .title = Trang hiện tại (xem URL từ trang hiện tại)
 pdfjs-bookmark-button-label = Trang hiện tại
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Thuộc tính của tài liệu…
 pdfjs-document-properties-file-name = Tên tập tin:
 pdfjs-document-properties-file-size = Kích thước:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } bytes)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } bytes)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** byte***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } byte)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** byte***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } byte)
 pdfjs-document-properties-title = Tiêu đề:
 pdfjs-document-properties-author = Tác giả:
 pdfjs-document-properties-subject = Chủ đề:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Từ khóa:
 pdfjs-document-properties-creation-date = Ngày tạo:
 pdfjs-document-properties-modification-date = Ngày sửa đổi:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Người tạo:
 pdfjs-document-properties-producer = Phần mềm tạo PDF:
 pdfjs-document-properties-version = Phiên bản PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Thư
 pdfjs-document-properties-page-size-name-legal = Pháp lý
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Ðóng
 
 pdfjs-print-progress-message = Chuẩn bị trang để in…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Hủy bỏ
 pdfjs-printing-not-supported = Cảnh báo: In ấn không được hỗ trợ đầy đủ ở trình duyệt này.
 pdfjs-printing-not-ready = Cảnh báo: PDF chưa được tải hết để in.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Cảnh báo: PDF chưa được tải hết để in.
 pdfjs-toggle-sidebar-button =
     .title = Bật/Tắt thanh lề
 pdfjs-toggle-sidebar-notification-button =
-    .title = Bật tắt thanh lề (tài liệu bao gồm bản phác thảo/tập tin đính kèm/lớp***REMOVED***
+    .title = Bật tắt thanh lề (tài liệu bao gồm bản phác thảo/tập tin đính kèm/lớp)
 pdfjs-toggle-sidebar-button-label = Bật/Tắt thanh lề
 pdfjs-document-outline-button =
-    .title = Hiển thị tài liệu phác thảo (nhấp đúp vào để mở rộng/thu gọn tất cả các mục***REMOVED***
+    .title = Hiển thị tài liệu phác thảo (nhấp đúp vào để mở rộng/thu gọn tất cả các mục)
 pdfjs-document-outline-button-label = Bản phác tài liệu
 pdfjs-attachments-button =
     .title = Hiện nội dung đính kèm
 pdfjs-attachments-button-label = Nội dung đính kèm
 pdfjs-layers-button =
-    .title = Hiển thị các lớp (nhấp đúp để đặt lại tất cả các lớp về trạng thái mặc định***REMOVED***
+    .title = Hiển thị các lớp (nhấp đúp để đặt lại tất cả các lớp về trạng thái mặc định)
 pdfjs-layers-button-label = Lớp
 pdfjs-thumbs-button =
     .title = Hiển thị ảnh thu nhỏ
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Tìm
 pdfjs-additional-layers = Các lớp bổ sung
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Trang { $page ***REMOVED***
+    .title = Trang { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Ảnh thu nhỏ của trang { $page ***REMOVED***
+    .aria-label = Ảnh thu nhỏ của trang { $page }
 
 ## Find panel button title and messages
 
@@ -232,12 +232,12 @@ pdfjs-find-entire-word-checkbox-label = Toàn bộ từ
 pdfjs-find-reached-top = Đã đến phần đầu tài liệu, quay trở lại từ cuối
 pdfjs-find-reached-bottom = Đã đến phần cuối của tài liệu, quay trở lại từ đầu
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
-pdfjs-find-match-count = { $current ***REMOVED*** trên { $total ***REMOVED*** kết quả
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
+pdfjs-find-match-count = { $current } trên { $total } kết quả
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
-pdfjs-find-match-count-limit = Tìm thấy hơn { $limit ***REMOVED*** kết quả
+#   $limit (Number) - the maximum number of matches
+pdfjs-find-match-count-limit = Tìm thấy hơn { $limit } kết quả
 pdfjs-find-not-found = Không tìm thấy cụm từ này
 
 ## Predefined zoom values
@@ -247,15 +247,15 @@ pdfjs-page-scale-fit = Vừa chiều cao
 pdfjs-page-scale-auto = Tự động chọn kích thước
 pdfjs-page-scale-actual = Kích thước thực
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Trang { $page ***REMOVED***
+    .aria-label = Trang { $page }
 
 ## Loading indicator messages
 
@@ -268,19 +268,19 @@ pdfjs-rendering-error = Lỗi khi hiển thị trang.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Chú thích]
+    .alt = [{ $type } Chú thích]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -331,7 +331,7 @@ pdfjs-editor-ink-opacity-input = Độ mờ
 pdfjs-editor-stamp-add-image-button =
     .title = Thêm hình ảnh
 pdfjs-editor-stamp-add-image-button-label = Thêm hình ảnh
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Độ dày
 pdfjs-editor-free-highlight-thickness-title =
     .title = Thay đổi độ dày khi đánh dấu các mục không phải là văn bản
@@ -365,7 +365,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Đã đánh dấu là trang trí
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Ví dụ: “Một thanh niên ngồi xuống bàn để thưởng thức một bữa ăn”
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Văn bản thay thế
 
@@ -424,12 +424,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Hiện tất cả
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Chỉnh sửa văn bản thay thế (mô tả hình ảnh***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Chỉnh sửa văn bản thay thế (mô tả hình ảnh)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Thêm văn bản thay thế (mô tả hình ảnh***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Thêm văn bản thay thế (mô tả hình ảnh)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Viết mô tả của bạn ở đây…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -443,11 +443,11 @@ pdfjs-editor-new-alt-text-error-title = Không thể tạo tự động văn b�
 pdfjs-editor-new-alt-text-error-description = Vui lòng viết văn bản thay thế của riêng bạn hoặc thử lại sau.
 pdfjs-editor-new-alt-text-error-close-button = Đóng
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Đang tải xuống mô hình AI văn bản thay thế ({ $downloadedSize ***REMOVED*** trong số { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = Đang tải xuống mô hình AI văn bản thay thế ({ $downloadedSize ***REMOVED*** trong số { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Đang tải xuống mô hình AI văn bản thay thế ({ $downloadedSize } trong số { $totalSize } MB)
+    .aria-valuetext = Đang tải xuống mô hình AI văn bản thay thế ({ $downloadedSize } trong số { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Đã thêm văn bản thay thế
@@ -462,8 +462,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Xem lại văn bản thay thế
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Được tạo tự động: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Được tạo tự động: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -475,8 +475,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Văn bản thay thế tự đ�
 pdfjs-editor-alt-text-settings-create-model-button-label = Tạo văn bản thay thế tự động
 pdfjs-editor-alt-text-settings-create-model-description = Đề xuất mô tả giúp ích cho những người không xem được ảnh hoặc khi không thể tải ảnh.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Mô hình AI văn bản khác ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Mô hình AI văn bản khác ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Chạy cục bộ trên thiết bị của bạn để dữ liệu của bạn luôn ở chế độ riêng tư. Bắt buộc đối với văn bản thay thế tự động.
 pdfjs-editor-alt-text-settings-delete-model-button = Xóa
 pdfjs-editor-alt-text-settings-download-model-button = Tải xuống
@@ -493,8 +493,8 @@ pdfjs-editor-undo-bar-message-freetext = Đã xóa văn bản
 pdfjs-editor-undo-bar-message-ink = Đã xóa bản vẽ
 pdfjs-editor-undo-bar-message-stamp = Đã xóa hình ảnh
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
-pdfjs-editor-undo-bar-message-multiple = { $count ***REMOVED*** chú thích đã bị xóa
+#   $count (Number) - the number of removed annotations.
+pdfjs-editor-undo-bar-message-multiple = { $count } chú thích đã bị xóa
 pdfjs-editor-undo-bar-undo-button =
     .title = Hoàn tác
 pdfjs-editor-undo-bar-undo-button-label = Hoàn tác

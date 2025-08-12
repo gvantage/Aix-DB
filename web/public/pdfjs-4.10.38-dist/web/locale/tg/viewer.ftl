@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Саҳифаи қаблӣ
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Навбатӣ
 pdfjs-page-input =
     .title = Саҳифа
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = аз { $pagesCount ***REMOVED***
+pdfjs-of-pages = аз { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** аз { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } аз { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Хурд кардан
 pdfjs-zoom-out-button-label = Хурд кардан
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Чоп кардан
 pdfjs-save-button =
     .title = Нигоҳ доштан
 pdfjs-save-button-label = Нигоҳ доштан
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Боргирӣ кардан
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Боргирӣ кардан
 pdfjs-bookmark-button =
-    .title = Саҳифаи ҷорӣ (Дидани нишонии URL аз саҳифаи ҷорӣ***REMOVED***
+    .title = Саҳифаи ҷорӣ (Дидани нишонии URL аз саҳифаи ҷорӣ)
 pdfjs-bookmark-button-label = Саҳифаи ҷорӣ
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Хусусиятҳои ҳуҷҷат…
 pdfjs-document-properties-file-name = Номи файл:
 pdfjs-document-properties-file-size = Андозаи файл:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** КБ ({ $b ***REMOVED*** байт***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } КБ ({ $b } байт)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** МБ ({ $b ***REMOVED*** байт***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } МБ ({ $b } байт)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** КБ ({ $size_b ***REMOVED*** байт***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } КБ ({ $size_b } байт)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** МБ ({ $size_b ***REMOVED*** байт***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } МБ ({ $size_b } байт)
 pdfjs-document-properties-title = Сарлавҳа:
 pdfjs-document-properties-author = Муаллиф:
 pdfjs-document-properties-subject = Мавзуъ:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Калимаҳои калидӣ:
 pdfjs-document-properties-creation-date = Санаи эҷод:
 pdfjs-document-properties-modification-date = Санаи тағйирот:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Эҷодкунанда:
 pdfjs-document-properties-producer = Таҳиякунандаи «PDF»:
 pdfjs-document-properties-version = Версияи «PDF»:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Мактуб
 pdfjs-document-properties-page-size-name-legal = Ҳуқуқӣ
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Пӯшидан
 
 pdfjs-print-progress-message = Омодасозии ҳуҷҷат барои чоп…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Бекор кардан
 pdfjs-printing-not-supported = Диққат: Чопкунӣ аз тарафи ин браузер ба таври пурра дастгирӣ намешавад.
 pdfjs-printing-not-ready = Диққат: Файли «PDF» барои чопкунӣ пурра бор карда нашуд.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Диққат: Файли «PDF» барои чопк�
 pdfjs-toggle-sidebar-button =
     .title = Фаъол кардани навори ҷонибӣ
 pdfjs-toggle-sidebar-notification-button =
-    .title = Фаъол кардани навори ҷонибӣ (ҳуҷҷат дорои сохтор/замимаҳо/қабатҳо мебошад***REMOVED***
+    .title = Фаъол кардани навори ҷонибӣ (ҳуҷҷат дорои сохтор/замимаҳо/қабатҳо мебошад)
 pdfjs-toggle-sidebar-button-label = Фаъол кардани навори ҷонибӣ
 pdfjs-document-outline-button =
-    .title = Намоиш додани сохтори ҳуҷҷат (барои баркушодан/пеҷондани ҳамаи унсурҳо дубора зер кунед***REMOVED***
+    .title = Намоиш додани сохтори ҳуҷҷат (барои баркушодан/пеҷондани ҳамаи унсурҳо дубора зер кунед)
 pdfjs-document-outline-button-label = Сохтори ҳуҷҷат
 pdfjs-attachments-button =
     .title = Намоиш додани замимаҳо
 pdfjs-attachments-button-label = Замимаҳо
 pdfjs-layers-button =
-    .title = Намоиш додани қабатҳо (барои барқарор кардани ҳамаи қабатҳо ба вазъияти пешфарз дубора зер кунед***REMOVED***
+    .title = Намоиш додани қабатҳо (барои барқарор кардани ҳамаи қабатҳо ба вазъияти пешфарз дубора зер кунед)
 pdfjs-layers-button-label = Қабатҳо
 pdfjs-thumbs-button =
     .title = Намоиш додани тасвирчаҳо
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Ёфтан
 pdfjs-additional-layers = Қабатҳои иловагӣ
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Саҳифаи { $page ***REMOVED***
+    .title = Саҳифаи { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Тасвирчаи саҳифаи { $page ***REMOVED***
+    .aria-label = Тасвирчаи саҳифаи { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = Калимаҳои пурра
 pdfjs-find-reached-top = Ба болои ҳуҷҷат расид, аз поён идома ёфт
 pdfjs-find-reached-bottom = Ба поёни ҳуҷҷат расид, аз боло идома ёфт
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** аз { $total ***REMOVED*** мувофиқат
-       *[other] { $current ***REMOVED*** аз { $total ***REMOVED*** мувофиқат
-    ***REMOVED***
+    { $total ->
+        [one] { $current } аз { $total } мувофиқат
+       *[other] { $current } аз { $total } мувофиқат
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Зиёда аз { $limit ***REMOVED*** мувофиқат
-       *[other] Зиёда аз { $limit ***REMOVED*** мувофиқат
-    ***REMOVED***
+    { $limit ->
+        [one] Зиёда аз { $limit } мувофиқат
+       *[other] Зиёда аз { $limit } мувофиқат
+    }
 pdfjs-find-not-found = Ибора ёфт нашуд
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Аз рӯи андозаи саҳифа
 pdfjs-page-scale-auto = Андозаи худкор
 pdfjs-page-scale-actual = Андозаи воқеӣ
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Саҳифаи { $page ***REMOVED***
+    .aria-label = Саҳифаи { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Ҳангоми шаклсозии саҳифа хато 
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Ҳошиянависӣ - { $type ***REMOVED***]
+    .alt = [Ҳошиянависӣ - { $type }]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Шаффофӣ
 pdfjs-editor-stamp-add-image-button =
     .title = Илова кардани тасвир
 pdfjs-editor-stamp-add-image-button-label = Илова кардани тасвир
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Ғафсӣ
 pdfjs-editor-free-highlight-thickness-title =
     .title = Иваз кардани ғафсӣ ҳангоми ҷудокунии унсурҳо ба ғайр аз матн
@@ -362,7 +362,7 @@ pdfjs-editor-alt-text-edit-button =
     .aria-label = Таҳрир кардани матни ивазкунанда
 pdfjs-editor-alt-text-edit-button-label = Таҳрир кардани матни иловагӣ
 pdfjs-editor-alt-text-dialog-label = Имконеро интихоб намоед
-pdfjs-editor-alt-text-dialog-description = Вақте ки одамон тасвирро дида наметавонанд ё вақте ки тасвир бор карда намешавад, матни иловагӣ (Alt text***REMOVED*** кумак мерасонад.
+pdfjs-editor-alt-text-dialog-description = Вақте ки одамон тасвирро дида наметавонанд ё вақте ки тасвир бор карда намешавад, матни иловагӣ (Alt text) кумак мерасонад.
 pdfjs-editor-alt-text-add-description-label = Илова кардани тавсиф
 pdfjs-editor-alt-text-add-description-description = Кӯшиш кунед, ки 1-2 ҷумлаеро нависед, ки ба мавзӯъ, танзим ё амалҳо тавзеҳ медиҳад.
 pdfjs-editor-alt-text-mark-decorative-label = Гузоштан ҳамчун матни ороишӣ
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Ҳамчун матни ороишӣ 
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Барои мисол, «Ман забони тоҷикиро дӯст медорам»
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Матни ивазкунанда
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Ҳамаро намоиш додан
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Таҳрир кардани матни иловагӣ (тафсири тасвир***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Таҳрир кардани матни иловагӣ (тафсири тасвир)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Илова кардани матни иловагӣ (тафсири тасвир***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Илова кардани матни иловагӣ (тафсири тасвир)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Тафсири худро дар ин ҷо нависед…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = Матни иловагӣ ба тавр�
 pdfjs-editor-new-alt-text-error-description = Лутфан, матни иловагии худро ворид кунед ё баъдтар аз нав кӯшиш кунед.
 pdfjs-editor-new-alt-text-error-close-button = Пӯшидан
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Боргирии модели зеҳни сунъӣ (AI***REMOVED*** барои матни ивазкунанда ({ $downloadedSize ***REMOVED*** аз { $totalSize ***REMOVED*** МБ***REMOVED***
-    .aria-valuetext = Боргирии модели зеҳни сунъӣ (AI***REMOVED*** барои матни ивазкунанда ({ $downloadedSize ***REMOVED*** аз { $totalSize ***REMOVED*** МБ***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Боргирии модели зеҳни сунъӣ (AI) барои матни ивазкунанда ({ $downloadedSize } аз { $totalSize } МБ)
+    .aria-valuetext = Боргирии модели зеҳни сунъӣ (AI) барои матни ивазкунанда ({ $downloadedSize } аз { $totalSize } МБ)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Матни иловагӣ илова карда шуд
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Бознигарӣ кардани матни иловагӣ
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Ба таври худкор сохта шудааст: «{ $generatedAltText ***REMOVED***»
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Ба таври худкор сохта шудааст: «{ $generatedAltText }»
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Матни иловагии х�
 pdfjs-editor-alt-text-settings-create-model-button-label = Ба таври худкор эҷод кардани матни иловагӣ
 pdfjs-editor-alt-text-settings-create-model-description = Ин имкон барои расонидани кумак ба одамоне, ки аксҳоро дида наметавонанд ё вақте ки аксҳо кушода намешаванд, тавсифи аксҳоро пешниҳод мекунад.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Модели зеҳни сунъӣ «AI» барои матни ивазкунанда ({ $totalSize ***REMOVED*** МБ***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Модели зеҳни сунъӣ «AI» барои матни ивазкунанда ({ $totalSize } МБ)
 pdfjs-editor-alt-text-settings-ai-model-description = Дар дастгоҳи шумо ба таври маҳаллӣ кор мекунад, бинобар ин махфияти маълумоти шахсии шумо нигоҳ дошта мешавад. Барои матни ивазкунандаи худкор лозим аст.
 pdfjs-editor-alt-text-settings-delete-model-button = Нест кардан
 pdfjs-editor-alt-text-settings-download-model-button = Боргирӣ кардан
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = Матн тоза карда шуд
 pdfjs-editor-undo-bar-message-ink = Расм тоза карда шуд
 pdfjs-editor-undo-bar-message-stamp = Тасвир тоза карда шуд
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] { $count ***REMOVED*** ҳошиянависӣ тоза карда шуд
-       *[other] { $count ***REMOVED*** ҳошиянависӣ тоза карда шуданд
-    ***REMOVED***
+    { $count ->
+        [one] { $count } ҳошиянависӣ тоза карда шуд
+       *[other] { $count } ҳошиянависӣ тоза карда шуданд
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Бекор кардан
 pdfjs-editor-undo-bar-undo-button-label = Бекор кардан

@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Претходна страница
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Следећа
 pdfjs-page-input =
     .title = Страница
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = од { $pagesCount ***REMOVED***
+pdfjs-of-pages = од { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** од { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } од { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Умањи
 pdfjs-zoom-out-button-label = Умањи
@@ -43,7 +43,7 @@ pdfjs-save-button =
     .title = Сачувај
 pdfjs-save-button-label = Сачувај
 pdfjs-bookmark-button =
-    .title = Тренутна страница (погледајте URL са тренутне странице***REMOVED***
+    .title = Тренутна страница (погледајте URL са тренутне странице)
 pdfjs-bookmark-button-label = Тренутна страница
 
 ##  Secondary toolbar and context menu
@@ -99,13 +99,13 @@ pdfjs-document-properties-button-label = Параметри документа�
 pdfjs-document-properties-file-name = Име датотеке:
 pdfjs-document-properties-file-size = Величина датотеке:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** B***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } B)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** B***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } B)
 pdfjs-document-properties-title = Наслов:
 pdfjs-document-properties-author = Аутор:
 pdfjs-document-properties-subject = Тема:
@@ -113,12 +113,12 @@ pdfjs-document-properties-keywords = Кључне речи:
 pdfjs-document-properties-creation-date = Датум креирања:
 pdfjs-document-properties-modification-date = Датум модификације:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Стваралац:
 pdfjs-document-properties-producer = PDF произвођач:
 pdfjs-document-properties-version = PDF верзија:
@@ -134,14 +134,14 @@ pdfjs-document-properties-page-size-name-letter = Слово
 pdfjs-document-properties-page-size-name-legal = Права
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -156,8 +156,8 @@ pdfjs-document-properties-close-button = Затвори
 
 pdfjs-print-progress-message = Припремам документ за штампање…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Откажи
 pdfjs-printing-not-supported = Упозорење: Штампање није у потпуности подржано у овом прегледачу.
 pdfjs-printing-not-ready = Упозорење: PDF није у потпуности учитан за штампу.
@@ -167,16 +167,16 @@ pdfjs-printing-not-ready = Упозорење: PDF није у потпунос�
 pdfjs-toggle-sidebar-button =
     .title = Прикажи/сакриј бочни панел
 pdfjs-toggle-sidebar-notification-button =
-    .title = Прикажи/сакриј бочни панел (документ садржи контуру/прилоге/слојеве***REMOVED***
+    .title = Прикажи/сакриј бочни панел (документ садржи контуру/прилоге/слојеве)
 pdfjs-toggle-sidebar-button-label = Прикажи/сакриј бочни панел
 pdfjs-document-outline-button =
-    .title = Прикажи структуру документа (двоструким кликом проширујете/скупљате све ставке***REMOVED***
+    .title = Прикажи структуру документа (двоструким кликом проширујете/скупљате све ставке)
 pdfjs-document-outline-button-label = Контура документа
 pdfjs-attachments-button =
     .title = Прикажи прилоге
 pdfjs-attachments-button-label = Прилози
 pdfjs-layers-button =
-    .title = Прикажи слојеве (дупли клик за враћање свих слојева у подразумевано стање***REMOVED***
+    .title = Прикажи слојеве (дупли клик за враћање свих слојева у подразумевано стање)
 pdfjs-layers-button-label = Слојеви
 pdfjs-thumbs-button =
     .title = Прикажи сличице
@@ -189,16 +189,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Пронађи
 pdfjs-additional-layers = Додатни слојеви
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Страница { $page ***REMOVED***
+    .title = Страница { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Сличица од странице { $page ***REMOVED***
+    .aria-label = Сличица од странице { $page }
 
 ## Find panel button title and messages
 
@@ -226,15 +226,15 @@ pdfjs-page-scale-fit = Прилагоди страницу
 pdfjs-page-scale-auto = Аутоматско увеличавање
 pdfjs-page-scale-actual = Стварна величина
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Страница { $page ***REMOVED***
+    .aria-label = Страница { $page }
 
 ## Loading indicator messages
 
@@ -247,19 +247,19 @@ pdfjs-rendering-error = Дошло је до грешке приликом ре�
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** коментар]
+    .alt = [{ $type } коментар]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -342,7 +342,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Означено као украсн�
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = На пример: „Младић седа за сто да једе“
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Алтернативни текст
 
@@ -401,12 +401,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Прикажи све
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Уреди алтернативни текст (опис слике***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Уреди алтернативни текст (опис слике)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Додај алтернативни текст (опис слике***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Додај алтернативни текст (опис слике)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Напиши опис овде…
 # This text refers to the alt text box above this description. It offers a definition of alt text.

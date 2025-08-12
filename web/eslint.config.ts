@@ -7,10 +7,10 @@ export default antfu({
     indent: 2,
     quotes: 'single',
     semi: false,
-  ***REMOVED***,
+  },
   vue: {
     vueVersion: 3,
-  ***REMOVED***,
+  },
 
   ignores: [
     'node_modules',
@@ -31,17 +31,17 @@ export default antfu({
         void: 'never',
         normal: 'never',
         component: 'always',
-      ***REMOVED***,
+      },
       svg: 'always',
       math: 'always',
-    ***REMOVED***],
+    }],
     'vue/multi-word-component-names': 'off',
     'vue/block-order': ['error', {
       order: ['script', 'template', 'style'],
-    ***REMOVED***],
+    }],
     'vue/no-mutating-props': ['error', {
       shallowOnly: true,
-    ***REMOVED***],
+    }],
     'vue/eqeqeq': ['error', 'always'],
     'node/prefer-global/process': 'off',
     'no-async-promise-executor': 'off',
@@ -78,7 +78,7 @@ export default antfu({
     'style/no-multiple-empty-lines': ['error', {
       max: 2,
       maxEOF: 0,
-    ***REMOVED***],
+    }],
 
     'antfu/consistent-list-newline': 'off',
     'antfu/top-level-function': 'off',
@@ -87,5 +87,5 @@ export default antfu({
     'eslint-comments/no-aggregating-enable': 'off',
     'eslint-comments/no-duplicate-disable': 'off',
     'eslint-comments/no-unused-enable': 'off',
-  ***REMOVED***,
-***REMOVED******REMOVED***
+  },
+})

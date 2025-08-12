@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Алдыңғы парақ
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Келесі
 pdfjs-page-input =
     .title = Парақ
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = { $pagesCount ***REMOVED*** ішінен
+pdfjs-of-pages = { $pagesCount } ішінен
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = (парақ { $pageNumber ***REMOVED***, { $pagesCount ***REMOVED*** ішінен***REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = (парақ { $pageNumber }, { $pagesCount } ішінен)
 pdfjs-zoom-out-button =
     .title = Кішірейту
 pdfjs-zoom-out-button-label = Кішірейту
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Баспаға шығару
 pdfjs-save-button =
     .title = Сақтау
 pdfjs-save-button-label = Сақтау
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Жүктеп алу
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Жүктеп алу
 pdfjs-bookmark-button =
-    .title = Ағымдағы бет (Ағымдағы беттен URL адресін көру***REMOVED***
+    .title = Ағымдағы бет (Ағымдағы беттен URL адресін көру)
 pdfjs-bookmark-button-label = Ағымдағы бет
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Құжат қасиеттері…
 pdfjs-document-properties-file-name = Файл аты:
 pdfjs-document-properties-file-size = Файл өлшемі:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** КБ ({ $b ***REMOVED*** байт***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } КБ ({ $b } байт)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** МБ ({ $b ***REMOVED*** байт***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } МБ ({ $b } байт)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** КБ ({ $size_b ***REMOVED*** байт***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } КБ ({ $size_b } байт)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** МБ ({ $size_b ***REMOVED*** байт***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } МБ ({ $size_b } байт)
 pdfjs-document-properties-title = Тақырыбы:
 pdfjs-document-properties-author = Авторы:
 pdfjs-document-properties-subject = Тақырыбы:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Кілт сөздер:
 pdfjs-document-properties-creation-date = Жасалған күні:
 pdfjs-document-properties-modification-date = Түзету күні:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Жасаған:
 pdfjs-document-properties-producer = PDF өндірген:
 pdfjs-document-properties-version = PDF нұсқасы:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Letter
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Жабу
 
 pdfjs-print-progress-message = Құжатты баспаға шығару үшін дайындау…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Бас тарту
 pdfjs-printing-not-supported = Ескерту: Баспаға шығаруды бұл браузер толығымен қолдамайды.
 pdfjs-printing-not-ready = Ескерту: Баспаға шығару үшін, бұл PDF толығымен жүктеліп алынбады.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Ескерту: Баспаға шығару үшін,
 pdfjs-toggle-sidebar-button =
     .title = Бүйір панелін көрсету/жасыру
 pdfjs-toggle-sidebar-notification-button =
-    .title = Бүйір панелін көрсету/жасыру (құжатта құрылымы/салынымдар/қабаттар бар***REMOVED***
+    .title = Бүйір панелін көрсету/жасыру (құжатта құрылымы/салынымдар/қабаттар бар)
 pdfjs-toggle-sidebar-button-label = Бүйір панелін көрсету/жасыру
 pdfjs-document-outline-button =
-    .title = Құжат құрылымын көрсету (барлық нәрселерді жазық қылу/жинау үшін қос шерту керек***REMOVED***
+    .title = Құжат құрылымын көрсету (барлық нәрселерді жазық қылу/жинау үшін қос шерту керек)
 pdfjs-document-outline-button-label = Құжат құрамасы
 pdfjs-attachments-button =
     .title = Салынымдарды көрсету
 pdfjs-attachments-button-label = Салынымдар
 pdfjs-layers-button =
-    .title = Қабаттарды көрсету (барлық қабаттарды бастапқы күйге келтіру үшін екі рет шертіңіз***REMOVED***
+    .title = Қабаттарды көрсету (барлық қабаттарды бастапқы күйге келтіру үшін екі рет шертіңіз)
 pdfjs-layers-button-label = Қабаттар
 pdfjs-thumbs-button =
     .title = Кіші көріністерді көрсету
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Табу
 pdfjs-additional-layers = Қосымша қабаттар
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = { $page ***REMOVED*** парағы
+    .title = { $page } парағы
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = { $page ***REMOVED*** парағы үшін кіші көрінісі
+    .aria-label = { $page } парағы үшін кіші көрінісі
 
 ## Find panel button title and messages
 
@@ -232,21 +232,21 @@ pdfjs-find-entire-word-checkbox-label = Сөздер толығымен
 pdfjs-find-reached-top = Құжаттың басына жеттік, соңынан бастап жалғастырамыз
 pdfjs-find-reached-bottom = Құжаттың соңына жеттік, басынан бастап жалғастырамыз
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** сәйкестік, барлығы { $total ***REMOVED***
-       *[other] { $current ***REMOVED*** сәйкестік, барлығы { $total ***REMOVED***
-    ***REMOVED***
+    { $total ->
+        [one] { $current } сәйкестік, барлығы { $total }
+       *[other] { $current } сәйкестік, барлығы { $total }
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] { $limit ***REMOVED*** сәйкестіктен көп
-       *[other] { $limit ***REMOVED*** сәйкестіктен көп
-    ***REMOVED***
-pdfjs-find-not-found = Сөз(дер***REMOVED*** табылмады
+    { $limit ->
+        [one] { $limit } сәйкестіктен көп
+       *[other] { $limit } сәйкестіктен көп
+    }
+pdfjs-find-not-found = Сөз(дер) табылмады
 
 ## Predefined zoom values
 
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Парақты сыйдыру
 pdfjs-page-scale-auto = Автомасштабтау
 pdfjs-page-scale-actual = Нақты өлшемі
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Бет { $page ***REMOVED***
+    .aria-label = Бет { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Парақты өңдеу кезінде қате кет
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** аңдатпасы]
+    .alt = [{ $type } аңдатпасы]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Мөлдірсіздігі
 pdfjs-editor-stamp-add-image-button =
     .title = Суретті қосу
 pdfjs-editor-stamp-add-image-button-label = Суретті қосу
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Қалыңдығы
 pdfjs-editor-free-highlight-thickness-title =
     .title = Мәтіннен басқа элементтерді ерекшелеу кезінде қалыңдықты өзгерту
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Декоративті деп бел�
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Мысалы, "Жас жігіт тамақ ішу үшін үстел басына отырады"
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Балама мәтін
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Барлығын көрсету
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Балама мәтінді өңдеу (сурет сипаттамасы***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Балама мәтінді өңдеу (сурет сипаттамасы)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Балама мәтінді қосу (сурет сипаттамасы***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Балама мәтінді қосу (сурет сипаттамасы)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Сипаттамаңызды осында жазыңыз…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = Балама мәтінді автома
 pdfjs-editor-new-alt-text-error-description = Өзіңіздің балама мәтініңізді жазыңыз немесе кейінірек қайталап көріңіз.
 pdfjs-editor-new-alt-text-error-close-button = Жабу
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Балама мәтін үшін ЖИ моделі жүктеп алынуда ({ $downloadedSize ***REMOVED***/{ $totalSize ***REMOVED*** МБ***REMOVED***
-    .aria-valuetext = Балама мәтін үшін ЖИ моделі жүктеп алынуда ({ $downloadedSize ***REMOVED***/{ $totalSize ***REMOVED*** МБ***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Балама мәтін үшін ЖИ моделі жүктеп алынуда ({ $downloadedSize }/{ $totalSize } МБ)
+    .aria-valuetext = Балама мәтін үшін ЖИ моделі жүктеп алынуда ({ $downloadedSize }/{ $totalSize } МБ)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Балама мәтін қосылды
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Балама мәтінге пікір қалдыру
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Автоматты түрде жасалды: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Автоматты түрде жасалды: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Автоматты балама
 pdfjs-editor-alt-text-settings-create-model-button-label = Балама мәтінді автоматты түрде жасау
 pdfjs-editor-alt-text-settings-create-model-description = Суретті көре алмайтын адамдар үшін немесе сурет жүктелмеген кезіне арналған сипаттамаларды ұсынады.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Баламалы мәтіннің ЖИ моделі ({ $totalSize ***REMOVED*** МБ***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Баламалы мәтіннің ЖИ моделі ({ $totalSize } МБ)
 pdfjs-editor-alt-text-settings-ai-model-description = Деректеріңіз жеке болып қалуы үшін құрылғыңызда жергілікті түрде жұмыс істейді. Автоматты балама мәтін үшін қажет.
 pdfjs-editor-alt-text-settings-delete-model-button = Өшіру
 pdfjs-editor-alt-text-settings-download-model-button = Жүктеп алу
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = Мәтін өшірілді
 pdfjs-editor-undo-bar-message-ink = Сызба өшірілді
 pdfjs-editor-undo-bar-message-stamp = Сурет өшірілді
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] { $count ***REMOVED*** анимация өшірілді
-       *[other] { $count ***REMOVED*** анимация өшірілді
-    ***REMOVED***
+    { $count ->
+        [one] { $count } анимация өшірілді
+       *[other] { $count } анимация өшірілді
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Болдырмау
 pdfjs-editor-undo-bar-undo-button-label = Болдырмау

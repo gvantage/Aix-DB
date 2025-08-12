@@ -11,73 +11,73 @@ from services.user_service import (
     get_user_info,
     delete_user_record,
     send_dify_feedback,
-***REMOVED***
+)
 
-bp = Blueprint("userService", url_prefix="/user"***REMOVED***
+bp = Blueprint("userService", url_prefix="/user")
 
 
-@bp.post("/login"***REMOVED***
+@bp.post("/login")
 @async_json_resp
-async def login(request***REMOVED***:
+async def login(request):
     """
     用户登录
     :param request:
     :return:
     """
-    username = request.json.get("username"***REMOVED***
-    password = request.json.get("password"***REMOVED***
+    username = request.json.get("username")
+    password = request.json.get("password")
 
     # 调用用户服务进行验证
-    user = await authenticate_user(username, password***REMOVED***
+    user = await authenticate_user(username, password)
     if user:
         # 如果验证通过，生成 JWT token
-        token = await generate_jwt_token(user["id"], user["userName"]***REMOVED***
-    ***REMOVED***"token": token***REMOVED***
+        token = await generate_jwt_token(user["id"], user["userName"])
+        return {"token": token}
     else:
         # 如果验证失败，返回错误信息
-        raise MyException(SysCodeEnum.c_401***REMOVED***
+        raise MyException(SysCodeEnum.c_401)
 
 
-@bp.post("/query_user_record", name="query_user_record"***REMOVED***
+@bp.post("/query_user_record", name="query_user_record")
 @check_token
 @async_json_resp
-async def query_user_qa_record(request***REMOVED***:
+async def query_user_qa_record(request):
     """
     查询用户聊天记录
     :param request:
     :return:
     """
-    page = int(request.json.get("page", 1***REMOVED******REMOVED***
-    limit = int(request.json.get("limit", 10***REMOVED******REMOVED***
-    search_text = request.json.get("search_text"***REMOVED***
-    chat_id = request.json.get("chat_id"***REMOVED***
-    user_info = await get_user_info(request***REMOVED***
-    return await query_user_record(user_info["id"], page, limit, search_text, chat_id***REMOVED***
+    page = int(request.json.get("page", 1))
+    limit = int(request.json.get("limit", 10))
+    search_text = request.json.get("search_text")
+    chat_id = request.json.get("chat_id")
+    user_info = await get_user_info(request)
+    return await query_user_record(user_info["id"], page, limit, search_text, chat_id)
 
 
-@bp.post("/delete_user_record"***REMOVED***
+@bp.post("/delete_user_record")
 @check_token
 @async_json_resp
-async def delete_user_qa_record(request***REMOVED***:
+async def delete_user_qa_record(request):
     """
     删除用户聊天记录
     :param request:
     :return:
     """
-    record_ids = request.json.get("record_ids"***REMOVED***
-    user_info = await get_user_info(request***REMOVED***
-    return await delete_user_record(user_info["id"], record_ids***REMOVED***
+    record_ids = request.json.get("record_ids")
+    user_info = await get_user_info(request)
+    return await delete_user_record(user_info["id"], record_ids)
 
 
-@bp.post("/dify_fead_back", name="dify_fead_back"***REMOVED***
+@bp.post("/dify_fead_back", name="dify_fead_back")
 @check_token
 @async_json_resp
-async def fead_back(request***REMOVED***:
+async def fead_back(request):
     """
     用户反馈
     :param request:
     :return:
     """
-    chat_id = request.json.get("chat_id"***REMOVED***
-    rating = request.json.get("rating"***REMOVED***
-    return await send_dify_feedback(chat_id, rating***REMOVED***
+    chat_id = request.json.get("chat_id")
+    rating = request.json.get("rating")
+    return await send_dify_feedback(chat_id, rating)

@@ -10,7 +10,7 @@
   .markdown-code-header {
     --at-apply: flex justify-between items-center;
     --at-apply: 'b-b b-b-solid b-b-#3c3c43:10';
-  ***REMOVED***
+  }
   
   .markdown-code-copy {
     --at-apply: px-14 py-8 rounded-4;
@@ -22,51 +22,51 @@
     .markdown-copy-icon {
       --at-apply: text-16 pointer-events-none mr-4;
       --at-apply: 'i-ci:copy';
-    ***REMOVED***
+    }
     
     .markdown-copy-text {
       --at-apply: pointer-events-none;
 
       &.default {
         display: initial;
-      ***REMOVED***
+      }
 
       &.done {
         display: none;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     
     &.copied {
 
       .markdown-copy-icon {
         --at-apply: 'i-ic:baseline-check';
-      ***REMOVED***
+      }
 
       .markdown-copy-text {
 
         &.default {
           display: none;
-        ***REMOVED***
+        }
   
         &.done {
           display: initial;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
+        }
+      }
+    }
+  }
   
   .markdown-code-lang {
     // --at-apply: absolute right-8 top-2;
 
     --at-apply: pl-14 text-14 font-500 'c-#3c3c43/56';
     --at-apply: transition-all-300 opacity-100 z-0;
-  ***REMOVED***
+  }
 
   pre {
 
     code {
       --at-apply: 'bg-#f6f6f7';
       --at-apply: whitespace-pre py-15;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}

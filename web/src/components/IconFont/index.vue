@@ -5,66 +5,66 @@ export default defineComponent({
     icon: {
       type: String,
       default: '',
-    ***REMOVED***,
+    },
     shadow: {
       type: Boolean,
       default: false,
-    ***REMOVED***,
+    },
     verticalCenter: {
       type: Boolean,
       default: false,
-    ***REMOVED***,
+    },
     cursor: {
       type: Boolean,
       default: false,
-    ***REMOVED***,
+    },
     disabled: {
       type: Boolean,
       default: false,
-    ***REMOVED***,
-  ***REMOVED***,
+    },
+  },
   emits: ['click'],
-  setup(props, { emit ***REMOVED******REMOVED*** {
-    const getClassName = computed((***REMOVED*** => {
+  setup(props, { emit }) {
+    const getClassName = computed(() => {
       const className: string[] = []
-      if (props.verticalCenter***REMOVED*** {
-        className.push('middle'***REMOVED***
-      ***REMOVED***
-      if (props.cursor***REMOVED*** {
-        className.push('cursor'***REMOVED***
-      ***REMOVED***
-      if (props.disabled***REMOVED*** {
-        className.push('disabled'***REMOVED***
-      ***REMOVED***
+      if (props.verticalCenter) {
+        className.push('middle')
+      }
+      if (props.cursor) {
+        className.push('cursor')
+      }
+      if (props.disabled) {
+        className.push('disabled')
+      }
       return className
-    ***REMOVED******REMOVED***
+    })
 
-    const handleClick = (***REMOVED*** => {
-      !props.disabled && emit('click'***REMOVED***
-    ***REMOVED***
+    const handleClick = () => {
+      !props.disabled && emit('click')
+    }
 
-    const getAttrs = (***REMOVED*** => {
-      const attrs: any = {***REMOVED***
+    const getAttrs = () => {
+      const attrs: any = {}
       props.shadow
-      && (attrs.filter = 'url(#drop-shadow***REMOVED***'***REMOVED***
+      && (attrs.filter = 'url(#drop-shadow)')
       return attrs
-    ***REMOVED***
-***REMOVED***
+    }
+    return {
       getClassName,
 
       handleClick,
       getAttrs,
-    ***REMOVED***
-  ***REMOVED***,
-***REMOVED******REMOVED***
-***REMOVED***
+    }
+  },
+})
+</script>
 
-***REMOVED***
+<template>
   <svg
     class="icon-font"
     aria-hidden="true"
     :class="getClassName"
-    @click="handleClick(***REMOVED***"
+    @click="handleClick()"
   >
     <filter
       id="drop-shadow"
@@ -91,12 +91,12 @@ export default defineComponent({
       </feMerge>
     </filter>
     <g
-      v-bind="getAttrs(***REMOVED***"
+      v-bind="getAttrs()"
     >
-      <use :xlink:href="`#${icon***REMOVED***`" />
+      <use :xlink:href="`#${icon}`" />
     </g>
   </svg>
-***REMOVED***
+</template>
 
 <style lang="scss" scoped>
 .icon-font {
@@ -108,15 +108,15 @@ export default defineComponent({
 
   &.middle {
     vertical-align: middle;
-  ***REMOVED***
+  }
 
   &.cursor {
-  ***REMOVED***
-  ***REMOVED***
+    cursor: pointer;
+  }
 
   &.disabled {
     color: #c0c4cc;
-  ***REMOVED***
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+    cursor: not-allowed;
+  }
+}
+</style>

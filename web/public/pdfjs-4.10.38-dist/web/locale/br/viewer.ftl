@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Pajenn a-raok
@@ -15,13 +15,13 @@ pdfjs-next-button-label = War-lerc'h
 pdfjs-page-input =
     .title = Pajenn
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = eus { $pagesCount ***REMOVED***
+pdfjs-of-pages = eus { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** war { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } war { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Zoum bihanaat
 pdfjs-zoom-out-button-label = Zoum bihanaat
@@ -42,10 +42,10 @@ pdfjs-print-button-label = Moullañ
 pdfjs-save-button =
     .title = Enrollañ
 pdfjs-save-button-label = Enrollañ
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Pellgargañ
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Pellgargañ
 pdfjs-bookmark-button-label = Pajenn a-vremañ
@@ -100,13 +100,13 @@ pdfjs-document-properties-button-label = Perzhioù an teul…
 pdfjs-document-properties-file-name = Anv restr:
 pdfjs-document-properties-file-size = Ment ar restr:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** Ke ({ $size_b ***REMOVED*** eizhbit***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } Ke ({ $size_b } eizhbit)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** Me ({ $size_b ***REMOVED*** eizhbit***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } Me ({ $size_b } eizhbit)
 pdfjs-document-properties-title = Titl:
 pdfjs-document-properties-author = Aozer:
 pdfjs-document-properties-subject = Danvez:
@@ -114,9 +114,9 @@ pdfjs-document-properties-keywords = Gerioù-alc'hwez:
 pdfjs-document-properties-creation-date = Deiziad krouiñ:
 pdfjs-document-properties-modification-date = Deiziad kemmañ:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Krouer:
 pdfjs-document-properties-producer = Kenderc'her PDF:
 pdfjs-document-properties-version = Handelv PDF:
@@ -132,14 +132,14 @@ pdfjs-document-properties-page-size-name-letter = Lizher
 pdfjs-document-properties-page-size-name-legal = Lezennel
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -154,8 +154,8 @@ pdfjs-document-properties-close-button = Serriñ
 
 pdfjs-print-progress-message = O prientiñ an teul evit moullañ...
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Nullañ
 pdfjs-printing-not-supported = Kemenn: N'eo ket skoret penn-da-benn ar moullañ gant ar merdeer-mañ.
 pdfjs-printing-not-ready = Kemenn: N'hall ket bezañ moullet ar restr PDF rak n'eo ket karget penn-da-benn.
@@ -165,16 +165,16 @@ pdfjs-printing-not-ready = Kemenn: N'hall ket bezañ moullet ar restr PDF rak n'
 pdfjs-toggle-sidebar-button =
     .title = Diskouez/kuzhat ar varrenn gostez
 pdfjs-toggle-sidebar-notification-button =
-    .title = Trec'haoliñ ar varrenn-gostez (ur steuñv pe stagadennoù a zo en teul***REMOVED***
+    .title = Trec'haoliñ ar varrenn-gostez (ur steuñv pe stagadennoù a zo en teul)
 pdfjs-toggle-sidebar-button-label = Diskouez/kuzhat ar varrenn gostez
 pdfjs-document-outline-button =
-    .title = Diskouez steuñv an teul (daouglikit evit brasaat/bihanaat an holl elfennoù***REMOVED***
+    .title = Diskouez steuñv an teul (daouglikit evit brasaat/bihanaat an holl elfennoù)
 pdfjs-document-outline-button-label = Sinedoù an teuliad
 pdfjs-attachments-button =
     .title = Diskouez ar c'henstagadurioù
 pdfjs-attachments-button-label = Kenstagadurioù
 pdfjs-layers-button =
-    .title = Diskouez ar gwiskadoù (daou-glikañ evit adderaouekaat an holl gwiskadoù d'o stad dre ziouer***REMOVED***
+    .title = Diskouez ar gwiskadoù (daou-glikañ evit adderaouekaat an holl gwiskadoù d'o stad dre ziouer)
 pdfjs-layers-button-label = Gwiskadoù
 pdfjs-thumbs-button =
     .title = Diskouez ar melvennoù
@@ -184,16 +184,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Klask
 pdfjs-additional-layers = Gwiskadoù ouzhpenn
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Pajenn { $page ***REMOVED***
+    .title = Pajenn { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Melvenn ar bajenn { $page ***REMOVED***
+    .aria-label = Melvenn ar bajenn { $page }
 
 ## Find panel button title and messages
 
@@ -221,15 +221,15 @@ pdfjs-page-scale-fit = Pajenn a-bezh
 pdfjs-page-scale-auto = Zoum emgefreek
 pdfjs-page-scale-actual = Ment wir
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Pajenn { $page ***REMOVED***
+    .aria-label = Pajenn { $page }
 
 ## Loading indicator messages
 
@@ -242,16 +242,16 @@ pdfjs-rendering-error = Degouezhet ez eus bet ur fazi e-pad skrammañ ar bajenna
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Notennañ]
+    .alt = [{ $type } Notennañ]
 
 ## Password
 
@@ -287,7 +287,7 @@ pdfjs-editor-ink-opacity-input = Boullder
 pdfjs-editor-stamp-add-image-button =
     .title = Ouzhpennañ ur skeudenn
 pdfjs-editor-stamp-add-image-button-label = Ouzhpennañ ur skeudenn
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tevded
 pdfjs-free-text =
     .aria-label = Aozer testennoù
@@ -327,7 +327,7 @@ pdfjs-editor-highlight-show-all-button =
     .title = Diskouez pep tra
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 pdfjs-editor-new-alt-text-disclaimer-learn-more-url = Gouzout hiroc’h
 pdfjs-editor-new-alt-text-error-close-button = Serriñ

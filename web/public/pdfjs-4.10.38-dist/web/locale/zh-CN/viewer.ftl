@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = 上一页
@@ -15,13 +15,13 @@ pdfjs-next-button-label = 下一页
 pdfjs-page-input =
     .title = 页面
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = / { $pagesCount ***REMOVED***
+pdfjs-of-pages = / { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** / { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } / { $pagesCount })
 pdfjs-zoom-out-button =
     .title = 缩小
 pdfjs-zoom-out-button-label = 缩小
@@ -42,10 +42,10 @@ pdfjs-print-button-label = 打印
 pdfjs-save-button =
     .title = 保存
 pdfjs-save-button-label = 保存
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = 下载
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = 下载
 pdfjs-bookmark-button =
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = 文档属性…
 pdfjs-document-properties-file-name = 文件名:
 pdfjs-document-properties-file-size = 文件大小:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB（{ $b ***REMOVED*** 字节）
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB（{ $b } 字节）
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB（{ $b ***REMOVED*** 字节）
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB（{ $b } 字节）
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** 字节***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } 字节)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** 字节***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } 字节)
 pdfjs-document-properties-title = 标题:
 pdfjs-document-properties-author = 作者:
 pdfjs-document-properties-subject = 主题:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = 关键词:
 pdfjs-document-properties-creation-date = 创建日期:
 pdfjs-document-properties-modification-date = 修改日期:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = 创建者:
 pdfjs-document-properties-producer = PDF 生成器：
 pdfjs-document-properties-version = PDF 版本:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Letter
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED***（{ $orientation ***REMOVED***）
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED***（{ $name ***REMOVED***，{ $orientation ***REMOVED***）
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit }（{ $orientation }）
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit }（{ $name }，{ $orientation }）
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = 关闭
 
 pdfjs-print-progress-message = 正在准备打印文档…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = 取消
 pdfjs-printing-not-supported = 警告：此浏览器尚未完整支持打印功能。
 pdfjs-printing-not-ready = 警告：此 PDF 未完成加载，无法打印。
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = 查找
 pdfjs-additional-layers = 其他图层
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = 第 { $page ***REMOVED*** 页
+    .title = 第 { $page } 页
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = 页面 { $page ***REMOVED*** 的缩略图
+    .aria-label = 页面 { $page } 的缩略图
 
 ## Find panel button title and messages
 
@@ -232,12 +232,12 @@ pdfjs-find-entire-word-checkbox-label = 全词匹配
 pdfjs-find-reached-top = 到达文档开头，从末尾继续
 pdfjs-find-reached-bottom = 到达文档末尾，从开头继续
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
-pdfjs-find-match-count = 第 { $current ***REMOVED*** 项，共找到 { $total ***REMOVED*** 个匹配项
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
+pdfjs-find-match-count = 第 { $current } 项，共找到 { $total } 个匹配项
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
-pdfjs-find-match-count-limit = 匹配超过 { $limit ***REMOVED*** 项
+#   $limit (Number) - the maximum number of matches
+pdfjs-find-match-count-limit = 匹配超过 { $limit } 项
 pdfjs-find-not-found = 找不到指定词语
 
 ## Predefined zoom values
@@ -247,15 +247,15 @@ pdfjs-page-scale-fit = 适合页面
 pdfjs-page-scale-auto = 自动缩放
 pdfjs-page-scale-actual = 实际大小
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = 第 { $page ***REMOVED*** 页
+    .aria-label = 第 { $page } 页
 
 ## Loading indicator messages
 
@@ -268,19 +268,19 @@ pdfjs-rendering-error = 渲染页面时发生错误。
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***，{ $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }，{ $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** 注释]
+    .alt = [{ $type } 注释]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -331,7 +331,7 @@ pdfjs-editor-ink-opacity-input = 不透明度
 pdfjs-editor-stamp-add-image-button =
     .title = 添加图像
 pdfjs-editor-stamp-add-image-button-label = 添加图像
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = 粗细
 pdfjs-editor-free-highlight-thickness-title =
     .title = 更改高亮粗细（用于文本以外项目）
@@ -365,7 +365,7 @@ pdfjs-editor-alt-text-decorative-tooltip = 已标记为装饰
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = 例如：一个少年坐到桌前，准备吃饭
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = 替换文字
 
@@ -424,7 +424,7 @@ pdfjs-editor-highlight-show-all-button =
     .title = 显示全部
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
 pdfjs-editor-new-alt-text-dialog-edit-label = 编辑替换文字（图像描述）
@@ -443,11 +443,11 @@ pdfjs-editor-new-alt-text-error-title = 无法自动创建替换文字
 pdfjs-editor-new-alt-text-error-description = 请自行撰写替换文字，或稍后再试。
 pdfjs-editor-new-alt-text-error-close-button = 关闭
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = 正在下载提供替换文字的 AI 模型（{ $downloadedSize ***REMOVED***/{ $totalSize ***REMOVED*** MB）
-    .aria-valuetext = 正在下载提供替换文字的 AI 模型（{ $downloadedSize ***REMOVED***/{ $totalSize ***REMOVED*** MB）
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = 正在下载提供替换文字的 AI 模型（{ $downloadedSize }/{ $totalSize } MB）
+    .aria-valuetext = 正在下载提供替换文字的 AI 模型（{ $downloadedSize }/{ $totalSize } MB）
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = 已添加替换文字
@@ -462,8 +462,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = 检查替换文字
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = [自动创建] { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = [自动创建] { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -475,8 +475,8 @@ pdfjs-editor-alt-text-settings-automatic-title = 自动创建替换文字
 pdfjs-editor-alt-text-settings-create-model-button-label = 自动创建替换文字
 pdfjs-editor-alt-text-settings-create-model-description = 向无法看到或加载图像的用户提供描述。
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = 提供替换文字的 AI 模型（{ $totalSize ***REMOVED*** MB）
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = 提供替换文字的 AI 模型（{ $totalSize } MB）
 pdfjs-editor-alt-text-settings-ai-model-description = 在您的设备本地运行，可使数据保持私密。自动创建替换文字需要使用此模型。
 pdfjs-editor-alt-text-settings-delete-model-button = 删除
 pdfjs-editor-alt-text-settings-download-model-button = 下载
@@ -493,8 +493,8 @@ pdfjs-editor-undo-bar-message-freetext = 已移除文本
 pdfjs-editor-undo-bar-message-ink = 已移除绘图
 pdfjs-editor-undo-bar-message-stamp = 已移除图像
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
-pdfjs-editor-undo-bar-message-multiple = 已移除 { $count ***REMOVED*** 条注释
+#   $count (Number) - the number of removed annotations.
+pdfjs-editor-undo-bar-message-multiple = 已移除 { $count } 条注释
 pdfjs-editor-undo-bar-undo-button =
     .title = 撤销
 pdfjs-editor-undo-bar-undo-button-label = 撤销

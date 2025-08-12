@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Página anterior
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Siguiente
 pdfjs-page-input =
     .title = Página
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = de { $pagesCount ***REMOVED***
+pdfjs-of-pages = de { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** de { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } de { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Reducir
 pdfjs-zoom-out-button-label = Reducir
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Imprimir
 pdfjs-save-button =
     .title = Guardar
 pdfjs-save-button-label = Guardar
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Descargar
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Descargar
 pdfjs-bookmark-button =
-    .title = Página actual (Ver URL de la página actual***REMOVED***
+    .title = Página actual (Ver URL de la página actual)
 pdfjs-bookmark-button-label = Página actual
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Propiedades del documento…
 pdfjs-document-properties-file-name = Nombre de archivo:
 pdfjs-document-properties-file-size = Tamaño de archivo:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } bytes)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } bytes)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = Título:
 pdfjs-document-properties-author = Autor:
 pdfjs-document-properties-subject = Asunto:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Palabras clave:
 pdfjs-document-properties-creation-date = Fecha de creación:
 pdfjs-document-properties-modification-date = Fecha de modificación:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Creador:
 pdfjs-document-properties-producer = Productor PDF:
 pdfjs-document-properties-version = Versión PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Carta
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Cerrar
 
 pdfjs-print-progress-message = Preparando documento para impresión…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Cancelar
 pdfjs-printing-not-supported = Advertencia: Imprimir no está totalmente soportado por este navegador.
 pdfjs-printing-not-ready = Advertencia: Este PDF no se ha cargado completamente para poder imprimirse.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Advertencia: Este PDF no se ha cargado completamente 
 pdfjs-toggle-sidebar-button =
     .title = Cambiar barra lateral
 pdfjs-toggle-sidebar-notification-button =
-    .title = Alternar barra lateral (el documento contiene esquemas/adjuntos/capas***REMOVED***
+    .title = Alternar barra lateral (el documento contiene esquemas/adjuntos/capas)
 pdfjs-toggle-sidebar-button-label = Cambiar barra lateral
 pdfjs-document-outline-button =
-    .title = Mostrar resumen del documento (doble clic para expandir/contraer todos los elementos***REMOVED***
+    .title = Mostrar resumen del documento (doble clic para expandir/contraer todos los elementos)
 pdfjs-document-outline-button-label = Resumen de documento
 pdfjs-attachments-button =
     .title = Mostrar adjuntos
 pdfjs-attachments-button-label = Adjuntos
 pdfjs-layers-button =
-    .title = Mostrar capas (doble clic para restablecer todas las capas al estado predeterminado***REMOVED***
+    .title = Mostrar capas (doble clic para restablecer todas las capas al estado predeterminado)
 pdfjs-layers-button-label = Capas
 pdfjs-thumbs-button =
     .title = Mostrar miniaturas
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Buscar
 pdfjs-additional-layers = Capas adicionales
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Página { $page ***REMOVED***
+    .title = Página { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Miniatura de la página { $page ***REMOVED***
+    .aria-label = Miniatura de la página { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = Palabras completas
 pdfjs-find-reached-top = Se alcanzó el inicio del documento, se continúa desde el final
 pdfjs-find-reached-bottom = Se alcanzó el final del documento, se continúa desde el inicio
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** de { $total ***REMOVED*** coincidencia
-       *[other] { $current ***REMOVED*** de { $total ***REMOVED*** coincidencias
-    ***REMOVED***
+    { $total ->
+        [one] { $current } de { $total } coincidencia
+       *[other] { $current } de { $total } coincidencias
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Más de { $limit ***REMOVED*** coincidencia
-       *[other] Más de { $limit ***REMOVED*** coincidencias
-    ***REMOVED***
+    { $limit ->
+        [one] Más de { $limit } coincidencia
+       *[other] Más de { $limit } coincidencias
+    }
 pdfjs-find-not-found = Frase no encontrada
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Ajuste de la página
 pdfjs-page-scale-auto = Tamaño automático
 pdfjs-page-scale-actual = Tamaño real
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Página { $page ***REMOVED***
+    .aria-label = Página { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Ocurrió un error al renderizar la página.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Anotación { $type ***REMOVED***]
+    .alt = [Anotación { $type }]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Opacidad
 pdfjs-editor-stamp-add-image-button =
     .title = Añadir imagen
 pdfjs-editor-stamp-add-image-button-label = Añadir imagen
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Grosor
 pdfjs-editor-free-highlight-thickness-title =
     .title = Cambiar el grosor al resaltar elementos que no sean texto
@@ -362,7 +362,7 @@ pdfjs-editor-alt-text-edit-button =
     .aria-label = Editar el texto alternativo
 pdfjs-editor-alt-text-edit-button-label = Editar el texto alternativo
 pdfjs-editor-alt-text-dialog-label = Eligir una opción
-pdfjs-editor-alt-text-dialog-description = El texto alternativo (texto alternativo***REMOVED*** ayuda cuando las personas no pueden ver la imagen o cuando no se carga.
+pdfjs-editor-alt-text-dialog-description = El texto alternativo (texto alternativo) ayuda cuando las personas no pueden ver la imagen o cuando no se carga.
 pdfjs-editor-alt-text-add-description-label = Añadir una descripción
 pdfjs-editor-alt-text-add-description-description = Intente escribir 1 o 2 frases que describan el tema, el entorno o las acciones.
 pdfjs-editor-alt-text-mark-decorative-label = Marcar como decorativa
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Marcada como decorativa
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Por ejemplo: “Un joven se sienta a la mesa a comer”
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Texto alternativo
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Mostrar todo
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Editar texto alternativo (descripción de la imagen***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Editar texto alternativo (descripción de la imagen)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Añadir texto alternativo (descripción de la imagen***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Añadir texto alternativo (descripción de la imagen)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Escribir la descripción aquí…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = No se ha podido crear el texto alternati
 pdfjs-editor-new-alt-text-error-description = Escriba su propio texto alternativo o inténtelo de nuevo más tarde.
 pdfjs-editor-new-alt-text-error-close-button = Cerrar
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Descargando el modelo de IA de texto alternativo ({ $downloadedSize ***REMOVED*** de { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = Descargando el modelo de IA de texto alternativo ({ $downloadedSize ***REMOVED*** de { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Descargando el modelo de IA de texto alternativo ({ $downloadedSize } de { $totalSize } MB)
+    .aria-valuetext = Descargando el modelo de IA de texto alternativo ({ $downloadedSize } de { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Se añadió el texto alternativo
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Revisar el texto alternativo
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Creado automáticamente: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Creado automáticamente: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Texto alternativo automático
 pdfjs-editor-alt-text-settings-create-model-button-label = Crear texto alternativo automáticamente
 pdfjs-editor-alt-text-settings-create-model-description = Sugiere descripciones para ayudar a las personas que no pueden ver la imagen o cuando la imagen no se carga.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Modelo de IA de texto alternativo ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Modelo de IA de texto alternativo ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Se ejecuta localmente en el dispositivo para que los datos se mantengan privados. Requerido para texto alternativo automático.
 pdfjs-editor-alt-text-settings-delete-model-button = Eliminar
 pdfjs-editor-alt-text-settings-download-model-button = Descargar
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = Texto eliminado
 pdfjs-editor-undo-bar-message-ink = Dibujo eliminado
 pdfjs-editor-undo-bar-message-stamp = Imagen eliminada
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] { $count ***REMOVED*** anotación eliminada
-       *[other] { $count ***REMOVED*** anotaciones eliminadas
-    ***REMOVED***
+    { $count ->
+        [one] { $count } anotación eliminada
+       *[other] { $count } anotaciones eliminadas
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Deshacer
 pdfjs-editor-undo-bar-undo-button-label = Deshacer

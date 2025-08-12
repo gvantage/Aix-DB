@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = પહેલાનુ પાનું
@@ -15,13 +15,13 @@ pdfjs-next-button-label = આગળનું
 pdfjs-page-input =
     .title = પાનું
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = નો { $pagesCount ***REMOVED***
+pdfjs-of-pages = નો { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** નો { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } નો { $pagesCount })
 pdfjs-zoom-out-button =
     .title = મોટુ કરો
 pdfjs-zoom-out-button-label = મોટુ કરો
@@ -90,13 +90,13 @@ pdfjs-document-properties-button-label = દસ્તાવેજ ગુણધ�
 pdfjs-document-properties-file-name = ફાઇલ નામ:
 pdfjs-document-properties-file-size = ફાઇલ માપ:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** બાઇટ***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } બાઇટ)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** બાઇટ***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } બાઇટ)
 pdfjs-document-properties-title = શીર્ષક:
 pdfjs-document-properties-author = લેખક:
 pdfjs-document-properties-subject = વિષય:
@@ -104,9 +104,9 @@ pdfjs-document-properties-keywords = કિવર્ડ:
 pdfjs-document-properties-creation-date = નિર્માણ તારીખ:
 pdfjs-document-properties-modification-date = ફેરફાર તારીખ:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = નિર્માતા:
 pdfjs-document-properties-producer = PDF નિર્માતા:
 pdfjs-document-properties-version = PDF આવૃત્તિ:
@@ -122,14 +122,14 @@ pdfjs-document-properties-page-size-name-letter = પત્ર
 pdfjs-document-properties-page-size-name-legal = કાયદાકીય
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -144,8 +144,8 @@ pdfjs-document-properties-close-button = બંધ કરો
 
 pdfjs-print-progress-message = છાપકામ માટે દસ્તાવેજ તૈયાર કરી રહ્યા છે…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = રદ કરો
 pdfjs-printing-not-supported = ચેતવણી: છાપવાનું આ બ્રાઉઝર દ્દારા સંપૂર્ણપણે આધારભૂત નથી.
 pdfjs-printing-not-ready = Warning: PDF એ છાપવા માટે સંપૂર્ણપણે લાવેલ છે.
@@ -156,7 +156,7 @@ pdfjs-toggle-sidebar-button =
     .title = ટૉગલ બાજુપટ્ટી
 pdfjs-toggle-sidebar-button-label = ટૉગલ બાજુપટ્ટી
 pdfjs-document-outline-button =
-    .title = દસ્તાવેજની રૂપરેખા બતાવો(બધી આઇટમ્સને વિસ્તૃત/સંકુચિત કરવા માટે ડબલ-ક્લિક કરો***REMOVED***
+    .title = દસ્તાવેજની રૂપરેખા બતાવો(બધી આઇટમ્સને વિસ્તૃત/સંકુચિત કરવા માટે ડબલ-ક્લિક કરો)
 pdfjs-document-outline-button-label = દસ્તાવેજ રૂપરેખા
 pdfjs-attachments-button =
     .title = જોડાણોને બતાવો
@@ -168,16 +168,16 @@ pdfjs-findbar-button =
     .title = દસ્તાવેજમાં શોધો
 pdfjs-findbar-button-label = શોધો
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = પાનું { $page ***REMOVED***
+    .title = પાનું { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = પાનાં { $page ***REMOVED*** નું થંબનેલ્સ
+    .aria-label = પાનાં { $page } નું થંબનેલ્સ
 
 ## Find panel button title and messages
 
@@ -204,8 +204,8 @@ pdfjs-page-scale-fit = પાનું બંધબેસતુ
 pdfjs-page-scale-auto = આપમેળે નાનુંમોટુ કરો
 pdfjs-page-scale-actual = ચોક્કસ માપ
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -222,11 +222,11 @@ pdfjs-rendering-error = ભૂલ ઉદ્ભવી જ્યારે પા�
 
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Annotation]
+    .alt = [{ $type } Annotation]
 
 ## Password
 

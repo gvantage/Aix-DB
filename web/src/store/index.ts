@@ -1,11 +1,11 @@
-import { createPinia ***REMOVED*** from 'pinia'
-import { pluginPinia ***REMOVED*** from '@/store/plugins'
+import { createPinia } from 'pinia'
+import { pluginPinia } from '@/store/plugins'
 
-const store = createPinia(***REMOVED***
+const store = createPinia()
 
-export function setupStore(app: App<Element>***REMOVED*** {
-  app.use(store***REMOVED***
-***REMOVED***
+export function setupStore(app: App<Element>) {
+  app.use(store)
+}
 
-store.use(pluginPinia***REMOVED***
-export { store ***REMOVED***
+store.use(pluginPinia)
+export { store }

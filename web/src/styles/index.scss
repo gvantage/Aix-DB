@@ -12,30 +12,30 @@ body {
 
   --at-apply: c-#303133;
   --at-apply: bg-#fff;
-***REMOVED***
+}
 
 html {
   font-size: 14px;
   box-sizing: border-box;
   overflow-y: scroll;
-  -webkit-tap-highlight-color: rgb(255 255 255 / 0%***REMOVED***;
-***REMOVED***
+  -webkit-tap-highlight-color: rgb(255 255 255 / 0%);
+}
 
 :root {
   overflow: hidden auto;
-***REMOVED***
+}
 
 :root body {
   margin: 0;
-***REMOVED***
-***REMOVED***
+  padding: 0;
+  height: 100%;
   position: absolute;
-***REMOVED***
+}
 
 #app,
 html {
-***REMOVED***
-***REMOVED***
+  height: 100%;
+}
 
 dl,
 dt,
@@ -72,45 +72,45 @@ menu,
 nav,
 section {
   margin: 0;
-***REMOVED***
-***REMOVED***
+  padding: 0;
+}
 
 a {
   text-decoration: none;
-***REMOVED***
+  background-color: transparent;
   outline: none;
-***REMOVED***
+}
 
 svg {
   box-sizing: content-box;
-***REMOVED***
+}
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
-***REMOVED***
+}
 
 // 滚动条样式
 
 // ::-webkit-scrollbar {
 //   width: 6px;
 //   height: 6px;
-// ***REMOVED***
+// }
 
 // ::-webkit-scrollbar-thumb {
-//   background: rgba(#000, 0.2***REMOVED***;
-// ***REMOVED***
-// ***REMOVED***
+//   background: rgba(#000, 0.2);
+//   border-radius: 3px;
+// }
 
 // ::-webkit-scrollbar-track {
-//   background: rgba(#000, 0.06***REMOVED***;
-// ***REMOVED***
-// ***REMOVED***
+//   background: rgba(#000, 0.06);
+//   border-radius: 3px;
+// }
 
 table {
   width: 100% !important;
-***REMOVED***
+}
 
 // https://stackoverflow.com/questions/43778196/input-background-removed-by-chrome-autofill
 
@@ -118,4 +118,4 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #fff inset;
   -moz-box-shadow: 0 0 0 100px #fff inset;
   box-shadow: 0 0 0 100px #fff inset;
-***REMOVED***
+}

@@ -1,6 +1,6 @@
 # Large Model Data Assistant
 
-[![中文文档](https://img.shields.io/badge/中文文档-点击查看-orange***REMOVED***](README.md***REMOVED***
+[![中文文档](https://img.shields.io/badge/中文文档-点击查看-orange)](README.md)
 
 🌟 **Project Introduction**
 
@@ -13,10 +13,10 @@ This is a one - stop large model application development project built on techno
 As a lightweight large model application development project, Sanic - Web 🛠️ supports rapid iteration and expansion, facilitating the quick implementation of large model projects. 🚀
 
 ## Architecture Diagram
-![image](./images/app-01.png***REMOVED***
+![image](./docker/images/app-01.png)
 
 ## 🎉 **Features**
-- **Core Technology Stack**: Dify + Ollama + RAG + (Qwen2.5/DeepSeek***REMOVED*** + Text2SQL
+- **Core Technology Stack**: Dify + Ollama + RAG + (Qwen2.5/DeepSeek) + Text2SQL
 - **UI Framework**: Vue 3 + TypeScript + Vite 5
 - **Data Q&A**: Integrates ECharts and large models to achieve lightweight graphical data Q&A display via Text2SQL.
 - **Table Q&A**: Supports uploading CSV files and provides table data Q&A based on large model summarization, preprocessing, and Text2SQL.
@@ -25,10 +25,10 @@ As a lightweight large model application development project, Sanic - Web 🛠�
 - **Flexible Deployment**: Supports one - click deployment of all dependent components for large model application development using docker - compose, with zero configuration required.
 
 ## Demo
-![image](./images/chat-04.gif***REMOVED***
-![image](./images/chat-05.png***REMOVED***
-![image](./images/chat-01.png***REMOVED***
-![image](./images/chat-02.png***REMOVED***
+![image](./docker/images/chat-04.gif)
+![image](./docker/images/chat-05.png)
+![image](./docker/images/chat-01.png)
+![image](./docker/images/chat-02.png)
 
 ## 💡 Environment Requirements
 
@@ -47,14 +47,14 @@ Before you start, make sure your development environment meets the following min
 * Pnpm 9.x
 
 ## 📚 **Large Model Deployment**
-- [Refer to Ollama Deployment](https://qwen.readthedocs.io/en/latest/run_locally/ollama.html***REMOVED***
+- [Refer to Ollama Deployment](https://qwen.readthedocs.io/en/latest/run_locally/ollama.html)
 - Models: Qwen2.5 7B model
 - Models: DeepSeek R1 7B model
-- [Alibaba Cloud Public Network API Key](http://aliyun.com/product/bailian***REMOVED***
+- [Alibaba Cloud Public Network API Key](http://aliyun.com/product/bailian)
 
 ## ⚙️ **Dify Environment Configuration**
 1. **Install Dify**
-   - [Official Documentation](https://docs.dify.ai/en***REMOVED***
+   - [Official Documentation](https://docs.dify.ai/en)
    - To assist those new to large model applications, this project provides a one - click solution to start the Dify service for a quick experience.
    - Local access address for Dify: http://localhost:18000. You need to register your own account and password.
    ```bash
@@ -68,10 +68,10 @@ Before you start, make sure your development environment meets the following min
 - Copy the API key corresponding to the canvas for use in the following steps.
 - After importing the canvas, manually select the locally configured large model and save the settings.
   
-![image](./images/llm-setting.png***REMOVED***
-![image](./images/llm-setting-deepseek.png***REMOVED***
-![image](./images/import-convas.png***REMOVED***
-![image](./images/convas-api-key.png***REMOVED***
+![image](./docker/images/llm-setting.png)
+![image](./docker/images/llm-setting-deepseek.png)
+![image](./docker/images/import-convas.png)
+![image](./docker/images/convas-api-key.png)
 
 ## 🚀 Quick Start
 The specific steps are as follows:
@@ -111,7 +111,7 @@ pip install pymysql
 
 # For Mac or Linux users
 cd docker
-./init.sh
+./docker/init.sh
 
 # For Windows users
 cd common
@@ -130,7 +130,7 @@ python initialize_mysql.py
 - Install dependencies and start the services
 
 1. **Back - end dependencies**
-- Install Poetry: [Refer to the official Poetry documentation](https://python - poetry.org/docs/***REMOVED***
+- Install Poetry: [Refer to the official Poetry documentation](https://python - poetry.org/docs/)
 
 ```bash
 # Install Poetry
@@ -157,7 +157,7 @@ docker compose up -d mysql minio
 ```bash
 # For Mac or Linux users
 cd docker
-./init.sh
+./docker/init.sh
 
 # For Windows users
 cd common
@@ -165,7 +165,7 @@ python initialize_mysql.py
 ```
 
 5. **Front - end dependencies**
-- The front - end is based on the open - source project [chatgpt - vue3 - light - mvp](https://github.com/pdsuwwz/chatgpt - vue3 - light - mvp***REMOVED***.
+- The front - end is based on the open - source project [chatgpt - vue3 - light - mvp](https://github.com/pdsuwwz/chatgpt - vue3 - light - mvp).
 
 ```bash 
 # Install front - end dependencies and start the service
@@ -201,11 +201,11 @@ make server - build
 ```
 
 ## 🌹 Support
-If you find this project useful, please give it a star on GitHub by clicking the [`Star`](https://github.com/apconw/sanic-web***REMOVED***  button. Your support is our motivation to keep improving. Thank you! ^_^
+If you find this project useful, please give it a star on GitHub by clicking the [`Star`](https://github.com/apconw/sanic-web)  button. Your support is our motivation to keep improving. Thank you! ^_^
 
 
 ## ⭐ Star History
- [![Star History Chart](https://api.star-history.com/svg?repos=apconw/sanic-web&type=Date***REMOVED***](https://star-history.com/#apconw/sanic-web&Date***REMOVED***
+ [![Star History Chart](https://api.star-history.com/svg?repos=apconw/sanic-web&type=Date)](https://star-history.com/#apconw/sanic-web&Date)
 
 
 ## QA Community
@@ -214,7 +214,7 @@ If you find this project useful, please give it a star on GitHub by clicking the
 
 |               微信群                |
 | :---------------------------------: |
-| ![image](./images/wchat-search.png***REMOVED*** |
+| ![image](./docker/images/wchat-search.png) |
 
 
 ## License

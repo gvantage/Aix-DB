@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Նախորդ էջը
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Հաջորդը
 pdfjs-page-input =
     .title = Էջ.
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = -ը՝ { $pagesCount ***REMOVED***-ից
+pdfjs-of-pages = -ը՝ { $pagesCount }-ից
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED***-ը { $pagesCount ***REMOVED******REMOVED***-ից
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber }-ը { $pagesCount })-ից
 pdfjs-zoom-out-button =
     .title = Փոքրացնել
 pdfjs-zoom-out-button-label = Փոքրացնել
@@ -39,7 +39,7 @@ pdfjs-open-file-button-label = Բացել
 pdfjs-print-button =
     .title = Տպել
 pdfjs-print-button-label = Տպել
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Ներբեռնել
 pdfjs-bookmark-button-label = Ընթացիկ էջ
@@ -94,13 +94,13 @@ pdfjs-document-properties-button-label = Փաստաթղթի հատկությու
 pdfjs-document-properties-file-name = Նիշքի անունը.
 pdfjs-document-properties-file-size = Նիշք չափը.
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** ԿԲ ({ $size_b ***REMOVED*** բայթ***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } ԿԲ ({ $size_b } բայթ)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** ՄԲ ({ $size_b ***REMOVED*** բայթ***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } ՄԲ ({ $size_b } բայթ)
 pdfjs-document-properties-title = Վերնագիր.
 pdfjs-document-properties-author = Հեղինակ․
 pdfjs-document-properties-subject = Վերնագիր.
@@ -108,9 +108,9 @@ pdfjs-document-properties-keywords = Հիմնաբառ.
 pdfjs-document-properties-creation-date = Ստեղծելու ամսաթիվը.
 pdfjs-document-properties-modification-date = Փոփոխելու ամսաթիվը.
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Ստեղծող.
 pdfjs-document-properties-producer = PDF-ի հեղինակը.
 pdfjs-document-properties-version = PDF-ի տարբերակը.
@@ -126,14 +126,14 @@ pdfjs-document-properties-page-size-name-letter = Նամակ
 pdfjs-document-properties-page-size-name-legal = Օրինական
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -148,8 +148,8 @@ pdfjs-document-properties-close-button = Փակել
 
 pdfjs-print-progress-message = Նախապատրաստում է փաստաթուղթը տպելուն...
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Չեղարկել
 pdfjs-printing-not-supported = Զգուշացում. Տպելը ամբողջությամբ չի աջակցվում դիտարկիչի կողմից։
 pdfjs-printing-not-ready = Զգուշացում. PDF-ը ամբողջությամբ չի բեռնավորվել տպելու համար:
@@ -160,7 +160,7 @@ pdfjs-toggle-sidebar-button =
     .title = Բացել/Փակել Կողային վահանակը
 pdfjs-toggle-sidebar-button-label = Բացել/Փակել Կողային վահանակը
 pdfjs-document-outline-button =
-    .title = Ցուցադրել փաստաթղթի ուրվագիծը (կրկնակի սեղմեք՝ միավորները ընդարձակելու/կոծկելու համար***REMOVED***
+    .title = Ցուցադրել փաստաթղթի ուրվագիծը (կրկնակի սեղմեք՝ միավորները ընդարձակելու/կոծկելու համար)
 pdfjs-document-outline-button-label = Փաստաթղթի բովանդակությունը
 pdfjs-attachments-button =
     .title = Ցուցադրել կցորդները
@@ -172,16 +172,16 @@ pdfjs-findbar-button =
     .title = Գտնել փաստաթղթում
 pdfjs-findbar-button-label = Որոնում
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Էջը { $page ***REMOVED***
+    .title = Էջը { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Էջի մանրապատկերը { $page ***REMOVED***
+    .aria-label = Էջի մանրապատկերը { $page }
 
 ## Find panel button title and messages
 
@@ -195,7 +195,7 @@ pdfjs-find-next-button =
     .title = Գտիր արտահայտության հաջորդ հանդիպումը
 pdfjs-find-next-button-label = Հաջորդը
 pdfjs-find-highlight-checkbox = Գունանշել բոլորը
-pdfjs-find-match-case-checkbox-label = Մեծ(փոքր***REMOVED***ատառ հաշվի առնել
+pdfjs-find-match-case-checkbox-label = Մեծ(փոքր)ատառ հաշվի առնել
 pdfjs-find-entire-word-checkbox-label = Ամբողջ բառերը
 pdfjs-find-reached-top = Հասել եք փաստաթղթի վերևին, կշարունակվի ներքևից
 pdfjs-find-reached-bottom = Հասել եք փաստաթղթի վերջին, կշարունակվի վերևից
@@ -208,8 +208,8 @@ pdfjs-page-scale-fit = Ձգել էջը
 pdfjs-page-scale-auto = Ինքնաշխատ
 pdfjs-page-scale-actual = Իրական չափը
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -225,16 +225,16 @@ pdfjs-rendering-error = Սխալ՝ էջը ստեղծելիս:
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Ծանոթություն]
+    .alt = [{ $type } Ծանոթություն]
 
 ## Password
 

@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Pagina primma
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Pròscima
 pdfjs-page-input =
     .title = Pagina
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = de { $pagesCount ***REMOVED***
+pdfjs-of-pages = de { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** de { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } de { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Diminoisci zoom
 pdfjs-zoom-out-button-label = Diminoisci zoom
@@ -90,13 +90,13 @@ pdfjs-document-properties-button-label = Propietæ do documento…
 pdfjs-document-properties-file-name = Nomme schedaio:
 pdfjs-document-properties-file-size = Dimenscion schedaio:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** kB ({ $size_b ***REMOVED*** byte***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } kB ({ $size_b } byte)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** byte***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } byte)
 pdfjs-document-properties-title = Titolo:
 pdfjs-document-properties-author = Aoto:
 pdfjs-document-properties-subject = Ogetto:
@@ -104,9 +104,9 @@ pdfjs-document-properties-keywords = Paròlle ciave:
 pdfjs-document-properties-creation-date = Dæta creaçion:
 pdfjs-document-properties-modification-date = Dæta cangiamento:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Aotô originale:
 pdfjs-document-properties-producer = Produtô PDF:
 pdfjs-document-properties-version = Verscion PDF:
@@ -122,14 +122,14 @@ pdfjs-document-properties-page-size-name-letter = Letia
 pdfjs-document-properties-page-size-name-legal = Lezze
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -144,8 +144,8 @@ pdfjs-document-properties-close-button = Særa
 
 pdfjs-print-progress-message = Praparo o documento pe-a stanpa…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Anulla
 pdfjs-printing-not-supported = Atençion: a stanpa a no l'é conpletamente soportâ da sto navegatô.
 pdfjs-printing-not-ready = Atençion: o PDF o no l'é ancon caregou conpletamente pe-a stanpa.
@@ -156,7 +156,7 @@ pdfjs-toggle-sidebar-button =
     .title = Ativa/dizativa bara de scianco
 pdfjs-toggle-sidebar-button-label = Ativa/dizativa bara de scianco
 pdfjs-document-outline-button =
-    .title = Fanni vedde o contorno do documento (scicca doggio pe espande/ridue tutti i elementi***REMOVED***
+    .title = Fanni vedde o contorno do documento (scicca doggio pe espande/ridue tutti i elementi)
 pdfjs-document-outline-button-label = Contorno do documento
 pdfjs-attachments-button =
     .title = Fanni vedde alegæ
@@ -168,16 +168,16 @@ pdfjs-findbar-button =
     .title = Treuva into documento
 pdfjs-findbar-button-label = Treuva
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Pagina { $page ***REMOVED***
+    .title = Pagina { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Miniatua da pagina { $page ***REMOVED***
+    .aria-label = Miniatua da pagina { $page }
 
 ## Find panel button title and messages
 
@@ -204,8 +204,8 @@ pdfjs-page-scale-fit = Adatta a una pagina
 pdfjs-page-scale-auto = Zoom aotomatico
 pdfjs-page-scale-actual = Dimenscioin efetive
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -222,11 +222,11 @@ pdfjs-rendering-error = Gh'é stæto 'n'erô itno rendering da pagina.
 
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Anotaçion: { $type ***REMOVED***]
+    .alt = [Anotaçion: { $type }]
 
 ## Password
 

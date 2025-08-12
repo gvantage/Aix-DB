@@ -10,33 +10,33 @@ from common.exception import MyException
 from constants.code_enum import SysCodeEnum
 
 
-class CustomJSONEncoder(json.JSONEncoder***REMOVED***:
+class CustomJSONEncoder(json.JSONEncoder):
     """
     自定义的 JSON 编码器，用于处理日期类型
     """
 
-    def default(self, obj***REMOVED***:
+    def default(self, obj):
         """
 
         :param obj:
         :return:
         """
-        if isinstance(obj, date***REMOVED***:
+        if isinstance(obj, date):
             # 处理 date 类型
-            return obj.strftime("%Y-%m-%d"***REMOVED***
-        elif isinstance(obj, datetime***REMOVED***:
+            return obj.strftime("%Y-%m-%d")
+        elif isinstance(obj, datetime):
             # 处理 datetime 类型
-            return obj.strftime("%Y-%m-%d %H:%M:%S"***REMOVED***
-        return super(***REMOVED***.default(obj***REMOVED***
+            return obj.strftime("%Y-%m-%d %H:%M:%S")
+        return super().default(obj)
 
 
-def async_json_resp(func***REMOVED***:
+def async_json_resp(func):
     """
     Decorator for asynchronous json response
     """
 
-    @wraps(func***REMOVED***
-    async def http_res_wrapper(request, *args, **kwargs***REMOVED***:
+    @wraps(func)
+    async def http_res_wrapper(request, *args, **kwargs):
         """
         :param request:
         :param args:
@@ -51,20 +51,20 @@ def async_json_resp(func***REMOVED***:
         content_type = request.content_type
         content_types = ["application/json"]
         if content_type in content_types:
-            json_body = request.json if request.json else {***REMOVED***
+            json_body = request.json if request.json else {}
         else:
             json_body = ""
 
         try:
-            data = await func(request, *args, **kwargs***REMOVED***
+            data = await func(request, *args, **kwargs)
             body = {
                 "code": SysCodeEnum.c_200.value[0],
                 "msg": SysCodeEnum.c_200.value[1],
                 "data": data,
-            ***REMOVED***
-            res = response.json(body, dumps=CustomJSONEncoder(***REMOVED***.encode***REMOVED***
+            }
+            res = response.json(body, dumps=CustomJSONEncoder().encode)
 
-            logging.info(f"Request Path: {path***REMOVED***,Method: {method***REMOVED***, Params: {params***REMOVED***, JSON Body: {json_body***REMOVED***, Response: {body***REMOVED***"***REMOVED***
+            logging.info(f"Request Path: {path},Method: {method}, Params: {params}, JSON Body: {json_body}, Response: {body}")
 
             return res
 
@@ -73,11 +73,11 @@ def async_json_resp(func***REMOVED***:
                 "code": e.code,
                 "msg": e.message,
                 "data": data,
-            ***REMOVED***
+            }
 
-            res = response.json(body, dumps=CustomJSONEncoder(***REMOVED***.encode***REMOVED***
+            res = response.json(body, dumps=CustomJSONEncoder().encode)
 
-            logging.info(f"Request Path: {path***REMOVED***, Method: {method***REMOVED***,Params: {params***REMOVED***, JSON Body: {json_body***REMOVED***, Response: {body***REMOVED***"***REMOVED***
+            logging.info(f"Request Path: {path}, Method: {method},Params: {params}, JSON Body: {json_body}, Response: {body}")
             return res
 
         except Exception as e:
@@ -85,12 +85,12 @@ def async_json_resp(func***REMOVED***:
                 "code": SysCodeEnum.c_9999.value[0],
                 "msg": SysCodeEnum.c_9999.value[1],
                 "data": data,
-            ***REMOVED***
-            res = response.json(body, dumps=CustomJSONEncoder(***REMOVED***.encode***REMOVED***
+            }
+            res = response.json(body, dumps=CustomJSONEncoder().encode)
 
-            logging.info(f"Request Path: {path***REMOVED***, Method: {method***REMOVED***,Params: {params***REMOVED***, JSON Body: {json_body***REMOVED***, Response: {body***REMOVED***"***REMOVED***
+            logging.info(f"Request Path: {path}, Method: {method},Params: {params}, JSON Body: {json_body}, Response: {body}")
 
-            traceback.print_exception(e***REMOVED***
+            traceback.print_exception(e)
             return res
 
     return http_res_wrapper

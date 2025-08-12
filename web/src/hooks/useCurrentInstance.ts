@@ -1,7 +1,7 @@
-export default function useCurrentInstance(***REMOVED*** {
-  const { proxy ***REMOVED*** = getCurrentInstance(***REMOVED*** as ComponentInternalInstance
+export default function useCurrentInstance() {
+  const { proxy } = getCurrentInstance() as ComponentInternalInstance
 
   return {
     proxy: proxy!,
-  ***REMOVED***
-***REMOVED***
+  }
+}

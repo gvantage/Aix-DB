@@ -5,25 +5,25 @@ const props = defineProps({
   chartId: {
     type: String,
     required: true,
-  ***REMOVED***,
-***REMOVED******REMOVED***
+  },
+})
 
 // 自定义事件用于 子父组件传递事件信息
-const emit = defineEmits(['chartRendered']***REMOVED***
+const emit = defineEmits(['chartRendered'])
 
 // 全局存储
-const businessStore = useBusinessStore(***REMOVED***
+const businessStore = useBusinessStore()
 
 // 定义图表类型
-const currentChartType = ref(''***REMOVED***
-const currentChartTypeName = ref(''***REMOVED***
+const currentChartType = ref('')
+const currentChartTypeName = ref('')
 
-const tableHeaders = ref(***REMOVED***
-const tableData = ref([]***REMOVED***
+const tableHeaders = ref()
+const tableData = ref([])
 // echart 示例不能使用vue3定义成响应式的,会影响tips显示
 // 在组件挂载完成后初始化 ECharts
-onMounted((***REMOVED*** => {
-  const chartInstance = echarts.init(document.getElementById(props.chartId***REMOVED******REMOVED***
+onMounted(() => {
+  const chartInstance = echarts.init(document.getElementById(props.chartId))
 
   currentChartType.value = businessStore.writerList.data.template_code
 
@@ -31,40 +31,40 @@ onMounted((***REMOVED*** => {
   const productArray: string[] = []
   const casesArray: number[] = []
   let currentChart = ''
-  if (currentChartType.value === 'temp01'***REMOVED*** {
+  if (currentChartType.value === 'temp01') {
     // 表格
     tableData.value = businessStore.writerList.data.data
-    tableHeaders.value = Object.keys(tableData.value[0]***REMOVED***
+    tableHeaders.value = Object.keys(tableData.value[0])
     currentChartTypeName.value = '表格'
     return
-  ***REMOVED*** else if (currentChartType.value === 'temp02'***REMOVED*** {
+  } else if (currentChartType.value === 'temp02') {
     // 饼图
     currentChart = 'pie'
     currentChartTypeName.value = '饼图'
-  ***REMOVED*** else if (currentChartType.value === 'temp03'***REMOVED*** {
+  } else if (currentChartType.value === 'temp03') {
     // 柱状图
     currentChart = 'bar'
     currentChartTypeName.value = '柱状图'
     // 移除第一行标题
     const data = businessStore.writerList.data.data
-    data.shift(***REMOVED***
+    data.shift()
 
     // 遍历数据
-    data.forEach((item***REMOVED*** => {
+    data.forEach((item) => {
       const product = item[0]
-      const cases = Number.parseInt(item[1], 10***REMOVED***
+      const cases = Number.parseInt(item[1], 10)
 
       // 只当转换为数字成功时才添加到数组中
-      if (!Number.isNaN(cases***REMOVED******REMOVED*** {
-        productArray.push(product***REMOVED***
-        casesArray.push(cases***REMOVED***
-      ***REMOVED***
-    ***REMOVED******REMOVED***
-  ***REMOVED*** else if (currentChartType.value === 'temp04'***REMOVED*** {
+      if (!Number.isNaN(cases)) {
+        productArray.push(product)
+        casesArray.push(cases)
+      }
+    })
+  } else if (currentChartType.value === 'temp04') {
     // 折线图
     currentChart = 'line'
     currentChartTypeName.value = '折线图'
-  ***REMOVED***
+  }
 
   const options = reactive({
     line: {
@@ -81,19 +81,19 @@ onMounted((***REMOVED*** => {
       tateAnimation: {
         duration: 300,
         easing: 'cubicOut',
-      ***REMOVED***,
+      },
       tooltip: {
         axisPointer: {
           type: 'shadow',
-        ***REMOVED***,
-      ***REMOVED***,
+        },
+      },
       grid: {
         left: '3%',
         right: '4%',
         bottom: '3%',
         height: 400,
         containLabel: true,
-      ***REMOVED***,
+      },
       xAxis: {
         type: 'category',
         data: businessStore.writerList.data.data[0],
@@ -101,19 +101,19 @@ onMounted((***REMOVED*** => {
           fontSize: 14,
           fontFamily: 'PMingLiU',
           fontWeight: 400,
-        ***REMOVED***,
-      ***REMOVED***,
+        },
+      },
 
       yAxis: {
         type: 'value',
-      ***REMOVED***,
+      },
       series: [
-      ***REMOVED***
+        {
           data: businessStore.writerList.data.data[1],
           type: 'line',
-        ***REMOVED***,
-  ***REMOVED***,
-    ***REMOVED***,
+        },
+      ],
+    },
     bar: {
       animation: 'auto',
       animationDuration: 1000,
@@ -129,51 +129,51 @@ onMounted((***REMOVED*** => {
       //     data: ['案件数量'],
       //     left: 'left',
       //     padding: [0, 20, 10, 0] //设置图例的内边距，顺序是 [上, 右, 下, 左]
-      // ***REMOVED***,
+      // },
       tateAnimation: {
         duration: 300,
         easing: 'cubicOut',
-      ***REMOVED***,
+      },
       tooltip: {
         axisPointer: {
           type: 'shadow',
-        ***REMOVED***,
-      ***REMOVED***,
+        },
+      },
       grid: {
         left: '3%',
         right: '4%',
         bottom: '3%',
         height: 540,
         containLabel: true,
-      ***REMOVED***,
+      },
       xAxis: {
         type: 'category',
         data: productArray,
         axisLabel: {
           // 展示角度
           rotate: 60,
-        ***REMOVED***,
+        },
         nameTextStyle: {
           fontSize: 20,
           fontFamily: 'PMingLiU',
           fontWeight: 400,
-        ***REMOVED***,
+        },
         axisTick: {
           alignWithLabel: true,
-        ***REMOVED***,
-      ***REMOVED***,
+        },
+      },
       yAxis: {
         type: 'value',
-      ***REMOVED***,
+      },
       series: [
-      ***REMOVED***
+        {
           name: '案件数量',
           type: 'bar',
           barWidth: '60%',
           data: casesArray,
-        ***REMOVED***,
-  ***REMOVED***,
-    ***REMOVED***,
+        },
+      ],
+    },
     pie: {
       legend: {
         top: '1',
@@ -185,10 +185,10 @@ onMounted((***REMOVED*** => {
           fontSize: 14,
           fontFamily: 'PMingLiU',
           fontWeight: 400,
-        ***REMOVED***,
-      ***REMOVED***,
+        },
+      },
       series: [
-      ***REMOVED***
+        {
           name: '',
           type: 'pie',
           radius: ['40%', '70%'],
@@ -196,31 +196,31 @@ onMounted((***REMOVED*** => {
           label: {
             show: true,
             position: 'center',
-          ***REMOVED***,
+          },
           emphasis: {
             label: {
               show: true,
               fontSize: '40',
               fontWeight: 'bold',
-            ***REMOVED***,
-          ***REMOVED***,
+            },
+          },
           labelLine: {
             show: true,
-          ***REMOVED***,
+          },
           data: businessStore.writerList.data.data,
-        ***REMOVED***,
-  ***REMOVED***,
-    ***REMOVED***,
-  ***REMOVED******REMOVED***
+        },
+      ],
+    },
+  })
 
-  chartInstance.setOption(options[currentChart]***REMOVED***
+  chartInstance.setOption(options[currentChart])
 
-  businessStore.clearWriterList(***REMOVED***
-  emit('chartRendered'***REMOVED***
-***REMOVED******REMOVED***
-***REMOVED***
+  businessStore.clearWriterList()
+  emit('chartRendered')
+})
+</script>
 
-***REMOVED***
+<template>
   <div style="background-color: #fff">
     <n-card
       :title="currentChartTypeName"
@@ -229,7 +229,7 @@ onMounted((***REMOVED*** => {
       :content-style="{
         'background-color': '#ffffff',
         'color': '#26244c',
-      ***REMOVED***"
+      }"
       :header-style="{
         'color': '#26244c',
         'height': '10px',
@@ -237,14 +237,14 @@ onMounted((***REMOVED*** => {
         'text-align': 'left',
         'font-size': '14px',
         'font-family': 'PMingLiU',
-      ***REMOVED***"
+      }"
       :footer-style="{
         'color': '#666',
         'background-color': '#ffffff',
         'text-align': 'left',
         'font-size': '14px',
         'font-family': 'PMingLiU',
-      ***REMOVED***"
+      }"
     >
       <div
         :id="chartId"
@@ -253,11 +253,11 @@ onMounted((***REMOVED*** => {
           'height': `500px`,
           'padding': `30px`,
           'background-color': `#fff`,
-        ***REMOVED***"
+        }"
       ></div>
       <template #footer>
         数据来源: 大模型生成的数据, 以上信息仅供参考
-      ***REMOVED***
+      </template>
     </n-card>
   </div>
-***REMOVED***
+</template>

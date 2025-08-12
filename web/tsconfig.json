@@ -13,14 +13,14 @@
     "paths": {
       "@/*": [
         "src/*"
-  ***REMOVED***
-    ***REMOVED***,
+      ]
+    },
     "resolveJsonModule": true,
     "types": [
       "vite/client",
       "node",
       "naive-ui/volar"
-***REMOVED***,
+    ],
     "strict": true,
     "noImplicitAny": false,
     "declaration": false,
@@ -30,7 +30,7 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
-  ***REMOVED***,
+  },
   "include": [
     "src/**/*.ts",
     "src/**/*.md",
@@ -44,4 +44,4 @@
     "./components-instance.d.ts"
   ],
   "exclude": ["node_modules"]
-***REMOVED***
+}

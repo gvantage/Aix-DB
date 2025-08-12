@@ -19,24 +19,24 @@ class DiFyRestApi:
     DIFY_REST_STOP = "/v1/chat-messages/:task_id/stop"
 
     @classmethod
-    def _get_env(cls, name***REMOVED***:
-        value = os.getenv(name***REMOVED***
+    def _get_env(cls, name):
+        value = os.getenv(name)
         if not value:
-            raise Exception(f"{name***REMOVED*** is not set"***REMOVED***
+            raise Exception(f"{name} is not set")
         return value
 
     @classmethod
-    def build_url(cls, api_path***REMOVED***:
+    def build_url(cls, api_path):
         """
         构建请求地址
         :param api_path:
         :return:
         """
-        base_url = cls._get_env("DIFY_SERVER_URL"***REMOVED***
-        return f"{base_url***REMOVED***{api_path***REMOVED***"
+        base_url = cls._get_env("DIFY_SERVER_URL")
+        return f"{base_url}{api_path}"
 
     @classmethod
-    def replace_path_params(cls, api_path, path_params***REMOVED***:
+    def replace_path_params(cls, api_path, path_params):
         """
         替换API路径中的占位符为实际的路径参数值
         :param cls
@@ -44,9 +44,9 @@ class DiFyRestApi:
         :param path_params: 一个字典，键是占位符名称（不包含前缀冒号），值是要替换的路径参数值
         :return: 替换后的API路径
         """
-        for key, value in path_params.items(***REMOVED***:
+        for key, value in path_params.items():
             # 使用 :key 格式的占位符以匹配路径参数
-            placeholder = ":{***REMOVED***".format(key***REMOVED***
+            placeholder = ":{}".format(key)
             if placeholder in api_path:
-                api_path = api_path.replace(placeholder, str(value***REMOVED******REMOVED***
-        return cls.build_url(api_path***REMOVED***
+                api_path = api_path.replace(placeholder, str(value))
+        return cls.build_url(api_path)

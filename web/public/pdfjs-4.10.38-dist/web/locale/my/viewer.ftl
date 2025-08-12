@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = အရင် စာမျက်နှာ
@@ -15,13 +15,13 @@ pdfjs-next-button-label = နောက်တခု
 pdfjs-page-input =
     .title = စာမျက်နှာ
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = { $pagesCount ***REMOVED*** ၏
+pdfjs-of-pages = { $pagesCount } ၏
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pagesCount ***REMOVED*** ၏ { $pageNumber ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pagesCount } ၏ { $pageNumber })
 pdfjs-zoom-out-button =
     .title = ချုံ့ပါ
 pdfjs-zoom-out-button-label = ချုံ့ပါ
@@ -66,13 +66,13 @@ pdfjs-document-properties-button-label = မှတ်တမ်းမှတ်ရ
 pdfjs-document-properties-file-name = ဖိုင် :
 pdfjs-document-properties-file-size = ဖိုင်ဆိုဒ် :
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** ကီလိုဘိုတ် ({ $size_b ***REMOVED***ဘိုတ်***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } ကီလိုဘိုတ် ({ $size_b }ဘိုတ်)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = ခေါင်းစဉ်‌ -
 pdfjs-document-properties-author = ရေးသားသူ:
 pdfjs-document-properties-subject = အကြောင်းအရာ:
@@ -80,20 +80,20 @@ pdfjs-document-properties-keywords = သော့ချက် စာလုံး
 pdfjs-document-properties-creation-date = ထုတ်လုပ်ရက်စွဲ:
 pdfjs-document-properties-modification-date = ပြင်ဆင်ရက်စွဲ:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = ဖန်တီးသူ:
 pdfjs-document-properties-producer = PDF ထုတ်လုပ်သူ:
 pdfjs-document-properties-version = PDF ဗားရှင်း:
 pdfjs-document-properties-page-count = စာမျက်နှာအရေအတွက်:
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
 
 ##
@@ -104,8 +104,8 @@ pdfjs-document-properties-close-button = ပိတ်
 
 pdfjs-print-progress-message = Preparing document for printing…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = ပယ်​ဖျက်ပါ
 pdfjs-printing-not-supported = သတိပေးချက်၊ပရင့်ထုတ်ခြင်းကိုဤဘယောက်ဆာသည် ပြည့်ဝစွာထောက်ပံ့မထားပါ ။
 pdfjs-printing-not-ready = သတိပေးချက်: ယခု PDF ဖိုင်သည် ပုံနှိပ်ရန် မပြည့်စုံပါ
@@ -116,7 +116,7 @@ pdfjs-toggle-sidebar-button =
     .title = ဘေးတန်းဖွင့်ပိတ်
 pdfjs-toggle-sidebar-button-label = ဖွင့်ပိတ် ဆလိုက်ဒါ
 pdfjs-document-outline-button =
-    .title = စာတမ်းအကျဉ်းချုပ်ကို ပြပါ (စာရင်းအားလုံးကို ချုံ့/ချဲ့ရန် ကလစ်နှစ်ချက်နှိပ်ပါ***REMOVED***
+    .title = စာတမ်းအကျဉ်းချုပ်ကို ပြပါ (စာရင်းအားလုံးကို ချုံ့/ချဲ့ရန် ကလစ်နှစ်ချက်နှိပ်ပါ)
 pdfjs-document-outline-button-label = စာတမ်းအကျဉ်းချုပ်
 pdfjs-attachments-button =
     .title = တွဲချက်များ ပြပါ
@@ -128,16 +128,16 @@ pdfjs-findbar-button =
     .title = Find in Document
 pdfjs-findbar-button-label = ရှာဖွေပါ
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = စာမျက်နှာ { $page ***REMOVED***
+    .title = စာမျက်နှာ { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = စာမျက်နှာရဲ့ ပုံရိပ်ငယ် { $page ***REMOVED***
+    .aria-label = စာမျက်နှာရဲ့ ပုံရိပ်ငယ် { $page }
 
 ## Find panel button title and messages
 
@@ -163,8 +163,8 @@ pdfjs-page-scale-fit = စာမျက်နှာ ကွက်တိ
 pdfjs-page-scale-auto = အလိုအလျောက် ချုံ့ချဲ့
 pdfjs-page-scale-actual = အမှန်တကယ်ရှိတဲ့ အရွယ်
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -181,11 +181,11 @@ pdfjs-rendering-error = စာမျက်နှာကို ပုံဖော�
 
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** အဓိပ္ပာယ်ဖွင့်ဆိုချက်]
+    .alt = [{ $type } အဓိပ္ပာယ်ဖွင့်ဆိုချက်]
 
 ## Password
 

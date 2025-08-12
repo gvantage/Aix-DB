@@ -4,7 +4,7 @@
  *
  * Copyright 2024 Mozilla Foundation
  *
- * Licensed under the Apache License, Version 2.0 (the "License"***REMOVED***;
+ * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
@@ -21,40 +21,40 @@
  */
 
 /******/ // The require scope
-/******/ var __webpack_require__ = {***REMOVED***;
+/******/ var __webpack_require__ = {};
 /******/
 /************************************************************************/
 /******/ /* webpack/runtime/define property getters */
-/******/ ((***REMOVED*** => {
+/******/ (() => {
 /******/ 	// define getter functions for harmony exports
-/******/ 	__webpack_require__.d = (exports, definition***REMOVED*** => {
-/******/ 		for (var key in definition***REMOVED*** {
-/******/ 			if (__webpack_require__.o(definition, key***REMOVED*** && !__webpack_require__.o(exports, key***REMOVED******REMOVED*** {
-/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] ***REMOVED******REMOVED***;
+/******/ 	__webpack_require__.d = (exports, definition) => {
+/******/ 		for (var key in definition) {
+/******/ 			if (__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
         /******/
-***REMOVED***
+}
       /******/
-***REMOVED***
+}
     /******/
-***REMOVED***;
+};
   /******/
-***REMOVED******REMOVED***(***REMOVED***;
+})();
 /******/
 /******/ /* webpack/runtime/hasOwnProperty shorthand */
-/******/ ((***REMOVED*** => {
-/******/ 	__webpack_require__.o = (obj, prop***REMOVED*** => (Object.prototype.hasOwnProperty.call(obj, prop***REMOVED******REMOVED***
+/******/ (() => {
+/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
   /******/
-***REMOVED******REMOVED***(***REMOVED***;
+})();
 /******/
 /************************************************************************/
-var __webpack_exports__ = {***REMOVED***;
+var __webpack_exports__ = {};
 
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, {
-  PDFViewerApplication: (***REMOVED*** => (/* reexport */ PDFViewerApplication***REMOVED***,
-  PDFViewerApplicationConstants: (***REMOVED*** => (/* binding */ AppConstants***REMOVED***,
-  PDFViewerApplicationOptions: (***REMOVED*** => (/* reexport */ AppOptions***REMOVED***
-***REMOVED******REMOVED***;
+  PDFViewerApplication: () => (/* reexport */ PDFViewerApplication),
+  PDFViewerApplicationConstants: () => (/* binding */ AppConstants),
+  PDFViewerApplicationOptions: () => (/* reexport */ AppOptions)
+});
 
 ;// ./web/ui_utils.js
 const DEFAULT_SCALE_VALUE = "auto";
@@ -71,13 +71,13 @@ const RenderingStates = {
   RUNNING: 1,
   PAUSED: 2,
   FINISHED: 3
-***REMOVED***;
+};
 const PresentationModeState = {
   UNKNOWN: 0,
   NORMAL: 1,
   CHANGING: 2,
   FULLSCREEN: 3
-***REMOVED***;
+};
 const SidebarView = {
   UNKNOWN: -1,
   NONE: 0,
@@ -85,239 +85,239 @@ const SidebarView = {
   OUTLINE: 2,
   ATTACHMENTS: 3,
   LAYERS: 4
-***REMOVED***;
+};
 const TextLayerMode = {
   DISABLE: 0,
   ENABLE: 1,
   ENABLE_PERMISSIONS: 2
-***REMOVED***;
+};
 const ScrollMode = {
   UNKNOWN: -1,
   VERTICAL: 0,
   HORIZONTAL: 1,
   WRAPPED: 2,
   PAGE: 3
-***REMOVED***;
+};
 const SpreadMode = {
   UNKNOWN: -1,
   NONE: 0,
   ODD: 1,
   EVEN: 2
-***REMOVED***;
+};
 const CursorTool = {
   SELECT: 0,
   HAND: 1,
   ZOOM: 2
-***REMOVED***;
+};
 const AutoPrintRegExp = /\bprint\s*\(/;
-function scrollIntoView(element, spot, scrollMatches = false***REMOVED*** {
+function scrollIntoView(element, spot, scrollMatches = false) {
   let parent = element.offsetParent;
-  if (!parent***REMOVED*** {
-    console.error("offsetParent is not set -- cannot scroll"***REMOVED***;
+  if (!parent) {
+    console.error("offsetParent is not set -- cannot scroll");
     return;
-  ***REMOVED***
+  }
   let offsetY = element.offsetTop + element.clientTop;
   let offsetX = element.offsetLeft + element.clientLeft;
-  while (parent.clientHeight === parent.scrollHeight && parent.clientWidth === parent.scrollWidth || scrollMatches && (parent.classList.contains("markedContent"***REMOVED*** || getComputedStyle(parent***REMOVED***.overflow === "hidden"***REMOVED******REMOVED*** {
+  while (parent.clientHeight === parent.scrollHeight && parent.clientWidth === parent.scrollWidth || scrollMatches && (parent.classList.contains("markedContent") || getComputedStyle(parent).overflow === "hidden")) {
     offsetY += parent.offsetTop;
     offsetX += parent.offsetLeft;
     parent = parent.offsetParent;
-    if (!parent***REMOVED*** {
+    if (!parent) {
       return;
-    ***REMOVED***
-  ***REMOVED***
-  if (spot***REMOVED*** {
-    if (spot.top !== undefined***REMOVED*** {
+    }
+  }
+  if (spot) {
+    if (spot.top !== undefined) {
       offsetY += spot.top;
-    ***REMOVED***
-    if (spot.left !== undefined***REMOVED*** {
+    }
+    if (spot.left !== undefined) {
       offsetX += spot.left;
       parent.scrollLeft = offsetX;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   parent.scrollTop = offsetY;
-***REMOVED***
-function watchScroll(viewAreaElement, callback, abortSignal = undefined***REMOVED*** {
-  const debounceScroll = function (evt***REMOVED*** {
-    if (rAF***REMOVED*** {
+}
+function watchScroll(viewAreaElement, callback, abortSignal = undefined) {
+  const debounceScroll = function (evt) {
+    if (rAF) {
       return;
-    ***REMOVED***
-    rAF = window.requestAnimationFrame(function viewAreaElementScrolled(***REMOVED*** {
+    }
+    rAF = window.requestAnimationFrame(function viewAreaElementScrolled() {
       rAF = null;
       const currentX = viewAreaElement.scrollLeft;
       const lastX = state.lastX;
-      if (currentX !== lastX***REMOVED*** {
+      if (currentX !== lastX) {
         state.right = currentX > lastX;
-      ***REMOVED***
+      }
       state.lastX = currentX;
       const currentY = viewAreaElement.scrollTop;
       const lastY = state.lastY;
-      if (currentY !== lastY***REMOVED*** {
+      if (currentY !== lastY) {
         state.down = currentY > lastY;
-      ***REMOVED***
+      }
       state.lastY = currentY;
-      callback(state***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***;
+      callback(state);
+    });
+  };
   const state = {
     right: true,
     down: true,
     lastX: viewAreaElement.scrollLeft,
     lastY: viewAreaElement.scrollTop,
     _eventHandler: debounceScroll
-  ***REMOVED***;
+  };
   let rAF = null;
   viewAreaElement.addEventListener("scroll", debounceScroll, {
     useCapture: true,
     signal: abortSignal
-  ***REMOVED******REMOVED***;
-  abortSignal?.addEventListener("abort", (***REMOVED*** => window.cancelAnimationFrame(rAF***REMOVED***, {
+  });
+  abortSignal?.addEventListener("abort", () => window.cancelAnimationFrame(rAF), {
     once: true
-  ***REMOVED******REMOVED***;
+  });
   return state;
-***REMOVED***
-function parseQueryString(query***REMOVED*** {
-  const params = new Map(***REMOVED***;
-  for (const [key, value] of new URLSearchParams(query***REMOVED******REMOVED*** {
-    params.set(key.toLowerCase(***REMOVED***, value***REMOVED***;
-  ***REMOVED***
+}
+function parseQueryString(query) {
+  const params = new Map();
+  for (const [key, value] of new URLSearchParams(query)) {
+    params.set(key.toLowerCase(), value);
+  }
   return params;
-***REMOVED***
+}
 const InvisibleCharsRegExp = /[\x00-\x1F]/g;
-function removeNullCharacters(str, replaceInvisible = false***REMOVED*** {
-  if (!InvisibleCharsRegExp.test(str***REMOVED******REMOVED*** {
+function removeNullCharacters(str, replaceInvisible = false) {
+  if (!InvisibleCharsRegExp.test(str)) {
     return str;
-  ***REMOVED***
-  if (replaceInvisible***REMOVED*** {
-    return str.replaceAll(InvisibleCharsRegExp, m => m === "\x00" ? "" : " "***REMOVED***;
-  ***REMOVED***
-  return str.replaceAll("\x00", ""***REMOVED***;
-***REMOVED***
-function binarySearchFirstItem(items, condition, start = 0***REMOVED*** {
+  }
+  if (replaceInvisible) {
+    return str.replaceAll(InvisibleCharsRegExp, m => m === "\x00" ? "" : " ");
+  }
+  return str.replaceAll("\x00", "");
+}
+function binarySearchFirstItem(items, condition, start = 0) {
   let minIndex = start;
   let maxIndex = items.length - 1;
-  if (maxIndex < 0 || !condition(items[maxIndex]***REMOVED******REMOVED*** {
+  if (maxIndex < 0 || !condition(items[maxIndex])) {
     return items.length;
-  ***REMOVED***
-  if (condition(items[minIndex]***REMOVED******REMOVED*** {
+  }
+  if (condition(items[minIndex])) {
     return minIndex;
-  ***REMOVED***
-  while (minIndex < maxIndex***REMOVED*** {
+  }
+  while (minIndex < maxIndex) {
     const currentIndex = minIndex + maxIndex >> 1;
     const currentItem = items[currentIndex];
-    if (condition(currentItem***REMOVED******REMOVED*** {
+    if (condition(currentItem)) {
       maxIndex = currentIndex;
-    ***REMOVED*** else {
+    } else {
       minIndex = currentIndex + 1;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   return minIndex;
-***REMOVED***
-function approximateFraction(x***REMOVED*** {
-  if (Math.floor(x***REMOVED*** === x***REMOVED*** {
+}
+function approximateFraction(x) {
+  if (Math.floor(x) === x) {
     return [x, 1];
-  ***REMOVED***
+  }
   const xinv = 1 / x;
   const limit = 8;
-  if (xinv > limit***REMOVED*** {
+  if (xinv > limit) {
     return [1, limit];
-  ***REMOVED*** else if (Math.floor(xinv***REMOVED*** === xinv***REMOVED*** {
+  } else if (Math.floor(xinv) === xinv) {
     return [1, xinv];
-  ***REMOVED***
+  }
   const x_ = x > 1 ? xinv : x;
   let a = 0,
     b = 1,
     c = 1,
     d = 1;
-  while (true***REMOVED*** {
+  while (true) {
     const p = a + c,
       q = b + d;
-    if (q > limit***REMOVED*** {
+    if (q > limit) {
       break;
-    ***REMOVED***
-    if (x_ <= p / q***REMOVED*** {
+    }
+    if (x_ <= p / q) {
       c = p;
       d = q;
-    ***REMOVED*** else {
+    } else {
       a = p;
       b = q;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   let result;
-  if (x_ - a / b < c / d - x_***REMOVED*** {
+  if (x_ - a / b < c / d - x_) {
     result = x_ === x ? [a, b] : [b, a];
-  ***REMOVED*** else {
+  } else {
     result = x_ === x ? [c, d] : [d, c];
-  ***REMOVED***
+  }
   return result;
-***REMOVED***
-function floorToDivide(x, div***REMOVED*** {
+}
+function floorToDivide(x, div) {
   return x - x % div;
-***REMOVED***
+}
 function getPageSizeInches({
   view,
   userUnit,
   rotate
-***REMOVED******REMOVED*** {
+}) {
   const [x1, y1, x2, y2] = view;
   const changeOrientation = rotate % 180 !== 0;
-  const width = (x2 - x1***REMOVED*** / 72 * userUnit;
-  const height = (y2 - y1***REMOVED*** / 72 * userUnit;
+  const width = (x2 - x1) / 72 * userUnit;
+  const height = (y2 - y1) / 72 * userUnit;
   return {
     width: changeOrientation ? height : width,
     height: changeOrientation ? width : height
-  ***REMOVED***;
-***REMOVED***
-function backtrackBeforeAllVisibleElements(index, views, top***REMOVED*** {
-  if (index < 2***REMOVED*** {
+  };
+}
+function backtrackBeforeAllVisibleElements(index, views, top) {
+  if (index < 2) {
     return index;
-  ***REMOVED***
+  }
   let elt = views[index].div;
   let pageTop = elt.offsetTop + elt.clientTop;
-  if (pageTop >= top***REMOVED*** {
+  if (pageTop >= top) {
     elt = views[index - 1].div;
     pageTop = elt.offsetTop + elt.clientTop;
-  ***REMOVED***
-  for (let i = index - 2; i >= 0; --i***REMOVED*** {
+  }
+  for (let i = index - 2; i >= 0; --i) {
     elt = views[i].div;
-    if (elt.offsetTop + elt.clientTop + elt.clientHeight <= pageTop***REMOVED*** {
+    if (elt.offsetTop + elt.clientTop + elt.clientHeight <= pageTop) {
       break;
-    ***REMOVED***
+    }
     index = i;
-  ***REMOVED***
+  }
   return index;
-***REMOVED***
+}
 function getVisibleElements({
   scrollEl,
   views,
   sortByVisibility = false,
   horizontal = false,
   rtl = false
-***REMOVED******REMOVED*** {
+}) {
   const top = scrollEl.scrollTop,
     bottom = top + scrollEl.clientHeight;
   const left = scrollEl.scrollLeft,
     right = left + scrollEl.clientWidth;
-  function isElementBottomAfterViewTop(view***REMOVED*** {
+  function isElementBottomAfterViewTop(view) {
     const element = view.div;
     const elementBottom = element.offsetTop + element.clientTop + element.clientHeight;
     return elementBottom > top;
-  ***REMOVED***
-  function isElementNextAfterViewHorizontally(view***REMOVED*** {
+  }
+  function isElementNextAfterViewHorizontally(view) {
     const element = view.div;
     const elementLeft = element.offsetLeft + element.clientLeft;
     const elementRight = elementLeft + element.clientWidth;
     return rtl ? elementLeft < right : elementRight > left;
-  ***REMOVED***
+  }
   const visible = [],
-    ids = new Set(***REMOVED***,
+    ids = new Set(),
     numViews = views.length;
-  let firstVisibleElementInd = binarySearchFirstItem(views, horizontal ? isElementNextAfterViewHorizontally : isElementBottomAfterViewTop***REMOVED***;
-  if (firstVisibleElementInd > 0 && firstVisibleElementInd < numViews && !horizontal***REMOVED*** {
-    firstVisibleElementInd = backtrackBeforeAllVisibleElements(firstVisibleElementInd, views, top***REMOVED***;
-  ***REMOVED***
+  let firstVisibleElementInd = binarySearchFirstItem(views, horizontal ? isElementNextAfterViewHorizontally : isElementBottomAfterViewTop);
+  if (firstVisibleElementInd > 0 && firstVisibleElementInd < numViews && !horizontal) {
+    firstVisibleElementInd = backtrackBeforeAllVisibleElements(firstVisibleElementInd, views, top);
+  }
   let lastEdge = horizontal ? right : -1;
-  for (let i = firstVisibleElementInd; i < numViews; i++***REMOVED*** {
+  for (let i = firstVisibleElementInd; i < numViews; i++) {
     const view = views[i],
       element = view.div;
     const currentWidth = element.offsetLeft + element.clientLeft;
@@ -326,20 +326,20 @@ function getVisibleElements({
       viewHeight = element.clientHeight;
     const viewRight = currentWidth + viewWidth;
     const viewBottom = currentHeight + viewHeight;
-    if (lastEdge === -1***REMOVED*** {
-      if (viewBottom >= bottom***REMOVED*** {
+    if (lastEdge === -1) {
+      if (viewBottom >= bottom) {
         lastEdge = viewBottom;
-      ***REMOVED***
-    ***REMOVED*** else if ((horizontal ? currentWidth : currentHeight***REMOVED*** > lastEdge***REMOVED*** {
+      }
+    } else if ((horizontal ? currentWidth : currentHeight) > lastEdge) {
       break;
-    ***REMOVED***
-    if (viewBottom <= top || currentHeight >= bottom || viewRight <= left || currentWidth >= right***REMOVED*** {
+    }
+    if (viewBottom <= top || currentHeight >= bottom || viewRight <= left || currentWidth >= right) {
       continue;
-    ***REMOVED***
-    const hiddenHeight = Math.max(0, top - currentHeight***REMOVED*** + Math.max(0, viewBottom - bottom***REMOVED***;
-    const hiddenWidth = Math.max(0, left - currentWidth***REMOVED*** + Math.max(0, viewRight - right***REMOVED***;
-    const fractionHeight = (viewHeight - hiddenHeight***REMOVED*** / viewHeight,
-      fractionWidth = (viewWidth - hiddenWidth***REMOVED*** / viewWidth;
+    }
+    const hiddenHeight = Math.max(0, top - currentHeight) + Math.max(0, viewBottom - bottom);
+    const hiddenWidth = Math.max(0, left - currentWidth) + Math.max(0, viewRight - right);
+    const fractionHeight = (viewHeight - hiddenHeight) / viewHeight,
+      fractionWidth = (viewWidth - hiddenWidth) / viewWidth;
     const percent = fractionHeight * fractionWidth * 100 | 0;
     visible.push({
       id: view.id,
@@ -348,139 +348,139 @@ function getVisibleElements({
       view,
       percent,
       widthPercent: fractionWidth * 100 | 0
-    ***REMOVED******REMOVED***;
-    ids.add(view.id***REMOVED***;
-  ***REMOVED***
+    });
+    ids.add(view.id);
+  }
   const first = visible[0],
-    last = visible.at(-1***REMOVED***;
-  if (sortByVisibility***REMOVED*** {
-    visible.sort(function (a, b***REMOVED*** {
+    last = visible.at(-1);
+  if (sortByVisibility) {
+    visible.sort(function (a, b) {
       const pc = a.percent - b.percent;
-      if (Math.abs(pc***REMOVED*** > 0.001***REMOVED*** {
+      if (Math.abs(pc) > 0.001) {
         return -pc;
-      ***REMOVED***
+      }
       return a.id - b.id;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+    });
+  }
   return {
     first,
     last,
     views: visible,
     ids
-  ***REMOVED***;
-***REMOVED***
-function normalizeWheelEventDirection(evt***REMOVED*** {
-  let delta = Math.hypot(evt.deltaX, evt.deltaY***REMOVED***;
-  const angle = Math.atan2(evt.deltaY, evt.deltaX***REMOVED***;
-  if (-0.25 * Math.PI < angle && angle < 0.75 * Math.PI***REMOVED*** {
+  };
+}
+function normalizeWheelEventDirection(evt) {
+  let delta = Math.hypot(evt.deltaX, evt.deltaY);
+  const angle = Math.atan2(evt.deltaY, evt.deltaX);
+  if (-0.25 * Math.PI < angle && angle < 0.75 * Math.PI) {
     delta = -delta;
-  ***REMOVED***
+  }
   return delta;
-***REMOVED***
-function normalizeWheelEventDelta(evt***REMOVED*** {
+}
+function normalizeWheelEventDelta(evt) {
   const deltaMode = evt.deltaMode;
-  let delta = normalizeWheelEventDirection(evt***REMOVED***;
+  let delta = normalizeWheelEventDirection(evt);
   const MOUSE_PIXELS_PER_LINE = 30;
   const MOUSE_LINES_PER_PAGE = 30;
-  if (deltaMode === WheelEvent.DOM_DELTA_PIXEL***REMOVED*** {
+  if (deltaMode === WheelEvent.DOM_DELTA_PIXEL) {
     delta /= MOUSE_PIXELS_PER_LINE * MOUSE_LINES_PER_PAGE;
-  ***REMOVED*** else if (deltaMode === WheelEvent.DOM_DELTA_LINE***REMOVED*** {
+  } else if (deltaMode === WheelEvent.DOM_DELTA_LINE) {
     delta /= MOUSE_LINES_PER_PAGE;
-  ***REMOVED***
+  }
   return delta;
-***REMOVED***
-function isValidRotation(angle***REMOVED*** {
-  return Number.isInteger(angle***REMOVED*** && angle % 90 === 0;
-***REMOVED***
-function isValidScrollMode(mode***REMOVED*** {
-  return Number.isInteger(mode***REMOVED*** && Object.values(ScrollMode***REMOVED***.includes(mode***REMOVED*** && mode !== ScrollMode.UNKNOWN;
-***REMOVED***
-function isValidSpreadMode(mode***REMOVED*** {
-  return Number.isInteger(mode***REMOVED*** && Object.values(SpreadMode***REMOVED***.includes(mode***REMOVED*** && mode !== SpreadMode.UNKNOWN;
-***REMOVED***
-function isPortraitOrientation(size***REMOVED*** {
+}
+function isValidRotation(angle) {
+  return Number.isInteger(angle) && angle % 90 === 0;
+}
+function isValidScrollMode(mode) {
+  return Number.isInteger(mode) && Object.values(ScrollMode).includes(mode) && mode !== ScrollMode.UNKNOWN;
+}
+function isValidSpreadMode(mode) {
+  return Number.isInteger(mode) && Object.values(SpreadMode).includes(mode) && mode !== SpreadMode.UNKNOWN;
+}
+function isPortraitOrientation(size) {
   return size.width <= size.height;
-***REMOVED***
-const animationStarted = new Promise(function (resolve***REMOVED*** {
-  window.requestAnimationFrame(resolve***REMOVED***;
-***REMOVED******REMOVED***;
+}
+const animationStarted = new Promise(function (resolve) {
+  window.requestAnimationFrame(resolve);
+});
 const docStyle = document.documentElement.style;
-function clamp(v, min, max***REMOVED*** {
-  return Math.min(Math.max(v, min***REMOVED***, max***REMOVED***;
-***REMOVED***
+function clamp(v, min, max) {
+  return Math.min(Math.max(v, min), max);
+}
 class ProgressBar {
   #classList = null;
   #disableAutoFetchTimeout = null;
   #percent = 0;
   #style = null;
   #visible = true;
-  constructor(bar***REMOVED*** {
+  constructor(bar) {
     this.#classList = bar.classList;
     this.#style = bar.style;
-  ***REMOVED***
-  get percent(***REMOVED*** {
+  }
+  get percent() {
     return this.#percent;
-  ***REMOVED***
-  set percent(val***REMOVED*** {
-    this.#percent = clamp(val, 0, 100***REMOVED***;
-    if (isNaN(val***REMOVED******REMOVED*** {
-      this.#classList.add("indeterminate"***REMOVED***;
+  }
+  set percent(val) {
+    this.#percent = clamp(val, 0, 100);
+    if (isNaN(val)) {
+      this.#classList.add("indeterminate");
       return;
-    ***REMOVED***
-    this.#classList.remove("indeterminate"***REMOVED***;
-    this.#style.setProperty("--progressBar-percent", `${this.#percent***REMOVED***%`***REMOVED***;
-  ***REMOVED***
-  setWidth(viewer***REMOVED*** {
-    if (!viewer***REMOVED*** {
+    }
+    this.#classList.remove("indeterminate");
+    this.#style.setProperty("--progressBar-percent", `${this.#percent}%`);
+  }
+  setWidth(viewer) {
+    if (!viewer) {
       return;
-    ***REMOVED***
+    }
     const container = viewer.parentNode;
     const scrollbarWidth = container.offsetWidth - viewer.offsetWidth;
-    if (scrollbarWidth > 0***REMOVED*** {
-      this.#style.setProperty("--progressBar-end-offset", `${scrollbarWidth***REMOVED***px`***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  setDisableAutoFetch(delay = 5000***REMOVED*** {
-    if (this.#percent === 100 || isNaN(this.#percent***REMOVED******REMOVED*** {
+    if (scrollbarWidth > 0) {
+      this.#style.setProperty("--progressBar-end-offset", `${scrollbarWidth}px`);
+    }
+  }
+  setDisableAutoFetch(delay = 5000) {
+    if (this.#percent === 100 || isNaN(this.#percent)) {
       return;
-    ***REMOVED***
-    if (this.#disableAutoFetchTimeout***REMOVED*** {
-      clearTimeout(this.#disableAutoFetchTimeout***REMOVED***;
-    ***REMOVED***
-    this.show(***REMOVED***;
-    this.#disableAutoFetchTimeout = setTimeout((***REMOVED*** => {
+    }
+    if (this.#disableAutoFetchTimeout) {
+      clearTimeout(this.#disableAutoFetchTimeout);
+    }
+    this.show();
+    this.#disableAutoFetchTimeout = setTimeout(() => {
       this.#disableAutoFetchTimeout = null;
-      this.hide(***REMOVED***;
-    ***REMOVED***, delay***REMOVED***;
-  ***REMOVED***
-  hide(***REMOVED*** {
-    if (!this.#visible***REMOVED*** {
+      this.hide();
+    }, delay);
+  }
+  hide() {
+    if (!this.#visible) {
       return;
-    ***REMOVED***
+    }
     this.#visible = false;
-    this.#classList.add("hidden"***REMOVED***;
-  ***REMOVED***
-  show(***REMOVED*** {
-    if (this.#visible***REMOVED*** {
+    this.#classList.add("hidden");
+  }
+  show() {
+    if (this.#visible) {
       return;
-    ***REMOVED***
+    }
     this.#visible = true;
-    this.#classList.remove("hidden"***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function getActiveOrFocusedElement(***REMOVED*** {
+    this.#classList.remove("hidden");
+  }
+}
+function getActiveOrFocusedElement() {
   let curRoot = document;
-  let curActiveOrFocused = curRoot.activeElement || curRoot.querySelector(":focus"***REMOVED***;
-  while (curActiveOrFocused?.shadowRoot***REMOVED*** {
+  let curActiveOrFocused = curRoot.activeElement || curRoot.querySelector(":focus");
+  while (curActiveOrFocused?.shadowRoot) {
     curRoot = curActiveOrFocused.shadowRoot;
-    curActiveOrFocused = curRoot.activeElement || curRoot.querySelector(":focus"***REMOVED***;
-  ***REMOVED***
+    curActiveOrFocused = curRoot.activeElement || curRoot.querySelector(":focus");
+  }
   return curActiveOrFocused;
-***REMOVED***
-function apiPageLayoutToViewerModes(layout***REMOVED*** {
+}
+function apiPageLayoutToViewerModes(layout) {
   let scrollMode = ScrollMode.VERTICAL,
     spreadMode = SpreadMode.NONE;
-  switch (layout***REMOVED*** {
+  switch (layout) {
     case "SinglePage":
       scrollMode = ScrollMode.PAGE;
       break;
@@ -496,14 +496,14 @@ function apiPageLayoutToViewerModes(layout***REMOVED*** {
     case "TwoColumnRight":
       spreadMode = SpreadMode.EVEN;
       break;
-  ***REMOVED***
+  }
   return {
     scrollMode,
     spreadMode
-  ***REMOVED***;
-***REMOVED***
-function apiPageModeToSidebarView(mode***REMOVED*** {
-  switch (mode***REMOVED*** {
+  };
+}
+function apiPageModeToSidebarView(mode) {
+  switch (mode) {
     case "UseNone":
       return SidebarView.NONE;
     case "UseThumbs":
@@ -514,44 +514,44 @@ function apiPageModeToSidebarView(mode***REMOVED*** {
       return SidebarView.ATTACHMENTS;
     case "UseOC":
       return SidebarView.LAYERS;
-  ***REMOVED***
+  }
   return SidebarView.NONE;
-***REMOVED***
-function toggleCheckedBtn(button, toggle, view = null***REMOVED*** {
-  button.classList.toggle("toggled", toggle***REMOVED***;
-  button.setAttribute("aria-checked", toggle***REMOVED***;
-  view?.classList.toggle("hidden", !toggle***REMOVED***;
-***REMOVED***
-function toggleExpandedBtn(button, toggle, view = null***REMOVED*** {
-  button.classList.toggle("toggled", toggle***REMOVED***;
-  button.setAttribute("aria-expanded", toggle***REMOVED***;
-  view?.classList.toggle("hidden", !toggle***REMOVED***;
-***REMOVED***
-const calcRound = function (***REMOVED*** {
-  const e = document.createElement("div"***REMOVED***;
-  e.style.width = "round(down, calc(1.6666666666666665 * 792px***REMOVED***, 1px***REMOVED***";
-  return e.style.width === "calc(1320px***REMOVED***" ? Math.fround : x => x;
-***REMOVED***(***REMOVED***;
+}
+function toggleCheckedBtn(button, toggle, view = null) {
+  button.classList.toggle("toggled", toggle);
+  button.setAttribute("aria-checked", toggle);
+  view?.classList.toggle("hidden", !toggle);
+}
+function toggleExpandedBtn(button, toggle, view = null) {
+  button.classList.toggle("toggled", toggle);
+  button.setAttribute("aria-expanded", toggle);
+  view?.classList.toggle("hidden", !toggle);
+}
+const calcRound = function () {
+  const e = document.createElement("div");
+  e.style.width = "round(down, calc(1.6666666666666665 * 792px), 1px)";
+  return e.style.width === "calc(1320px)" ? Math.fround : x => x;
+}();
 
 ;// ./web/app_options.js
 {
-  var compatParams = new Map(***REMOVED***;
+  var compatParams = new Map();
   const userAgent = navigator.userAgent || "";
   const platform = navigator.platform || "";
   const maxTouchPoints = navigator.maxTouchPoints || 1;
-  const isAndroid = /Android/.test(userAgent***REMOVED***;
-  const isIOS = /\b(iPad|iPhone|iPod***REMOVED***(?=;***REMOVED***/.test(userAgent***REMOVED*** || platform === "MacIntel" && maxTouchPoints > 1;
-  (function (***REMOVED*** {
-    if (isIOS || isAndroid***REMOVED*** {
-      compatParams.set("maxCanvasPixels", 5242880***REMOVED***;
-    ***REMOVED***
-  ***REMOVED******REMOVED***(***REMOVED***;
-  (function (***REMOVED*** {
-    if (isAndroid***REMOVED*** {
-      compatParams.set("useSystemFonts", false***REMOVED***;
-    ***REMOVED***
-  ***REMOVED******REMOVED***(***REMOVED***;
-***REMOVED***
+  const isAndroid = /Android/.test(userAgent);
+  const isIOS = /\b(iPad|iPhone|iPod)(?=;)/.test(userAgent) || platform === "MacIntel" && maxTouchPoints > 1;
+  (function () {
+    if (isIOS || isAndroid) {
+      compatParams.set("maxCanvasPixels", 5242880);
+    }
+  })();
+  (function () {
+    if (isAndroid) {
+      compatParams.set("useSystemFonts", false);
+    }
+  })();
+}
 const OptionKind = {
   BROWSER: 0x01,
   VIEWER: 0x02,
@@ -559,377 +559,377 @@ const OptionKind = {
   WORKER: 0x08,
   EVENT_DISPATCH: 0x10,
   PREFERENCE: 0x80
-***REMOVED***;
+};
 const Type = {
   BOOLEAN: 0x01,
   NUMBER: 0x02,
   OBJECT: 0x04,
   STRING: 0x08,
   UNDEFINED: 0x10
-***REMOVED***;
+};
 const defaultOptions = {
   allowedGlobalEvents: {
     value: null,
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   canvasMaxAreaInBytes: {
     value: -1,
     kind: OptionKind.BROWSER + OptionKind.API
-  ***REMOVED***,
+  },
   isInAutomation: {
     value: false,
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   localeProperties: {
     value: {
       lang: navigator.language || "en-US"
-    ***REMOVED***,
+    },
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   nimbusDataStr: {
     value: "",
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   supportsCaretBrowsingMode: {
     value: false,
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   supportsDocumentFonts: {
     value: true,
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   supportsIntegratedFind: {
     value: false,
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   supportsMouseWheelZoomCtrlKey: {
     value: true,
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   supportsMouseWheelZoomMetaKey: {
     value: true,
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   supportsPinchToZoom: {
     value: true,
     kind: OptionKind.BROWSER
-  ***REMOVED***,
+  },
   toolbarDensity: {
     value: 0,
     kind: OptionKind.BROWSER + OptionKind.EVENT_DISPATCH
-  ***REMOVED***,
+  },
   altTextLearnMoreUrl: {
     value: "",
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   annotationEditorMode: {
     value: 0,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   annotationMode: {
     value: 2,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   cursorToolOnLoad: {
     value: 0,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   debuggerSrc: {
     value: "./debugger.mjs",
     kind: OptionKind.VIEWER
-  ***REMOVED***,
+  },
   defaultZoomDelay: {
     value: 400,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   defaultZoomValue: {
     value: "",
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   disableHistory: {
     value: false,
     kind: OptionKind.VIEWER
-  ***REMOVED***,
+  },
   disablePageLabels: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   enableAltText: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   enableAltTextModelDownload: {
     value: true,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE + OptionKind.EVENT_DISPATCH
-  ***REMOVED***,
+  },
   enableGuessAltText: {
     value: true,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE + OptionKind.EVENT_DISPATCH
-  ***REMOVED***,
+  },
   enableHighlightFloatingButton: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   enableNewAltTextWhenAddingImage: {
     value: true,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   enablePermissions: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   enablePrintAutoRotate: {
     value: true,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   enableScripting: {
     value: true,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   enableUpdatedAddImage: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   externalLinkRel: {
     value: "noopener noreferrer nofollow",
     kind: OptionKind.VIEWER
-  ***REMOVED***,
+  },
   externalLinkTarget: {
     value: 0,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   highlightEditorColors: {
     value: "yellow=#FFFF98,green=#53FFBC,blue=#80EBFF,pink=#FFCBE6,red=#FF4F5F",
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   historyUpdateUrl: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   ignoreDestinationZoom: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   imageResourcesPath: {
     value: "./images/",
     kind: OptionKind.VIEWER
-  ***REMOVED***,
+  },
   maxCanvasPixels: {
     value: 2 ** 25,
     kind: OptionKind.VIEWER
-  ***REMOVED***,
+  },
   forcePageColors: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   pageColorsBackground: {
     value: "Canvas",
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   pageColorsForeground: {
     value: "CanvasText",
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   pdfBugEnabled: {
     value: false,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   printResolution: {
     value: 150,
     kind: OptionKind.VIEWER
-  ***REMOVED***,
+  },
   sidebarViewOnLoad: {
     value: -1,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   scrollModeOnLoad: {
     value: -1,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   spreadModeOnLoad: {
     value: -1,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   textLayerMode: {
     value: 1,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   viewOnLoad: {
     value: 0,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   cMapPacked: {
     value: true,
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   cMapUrl: {
     value: "../web/cmaps/",
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   disableAutoFetch: {
     value: false,
     kind: OptionKind.API + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   disableFontFace: {
     value: false,
     kind: OptionKind.API + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   disableRange: {
     value: false,
     kind: OptionKind.API + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   disableStream: {
     value: false,
     kind: OptionKind.API + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   docBaseUrl: {
     value: "",
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   enableHWA: {
     value: true,
     kind: OptionKind.API + OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   enableXfa: {
     value: true,
     kind: OptionKind.API + OptionKind.PREFERENCE
-  ***REMOVED***,
+  },
   fontExtraProperties: {
     value: false,
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   isEvalSupported: {
     value: true,
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   isOffscreenCanvasSupported: {
     value: true,
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   maxImageSize: {
     value: -1,
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   pdfBug: {
     value: false,
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   standardFontDataUrl: {
     value: "../web/standard_fonts/",
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   useSystemFonts: {
     value: undefined,
     kind: OptionKind.API,
     type: Type.BOOLEAN + Type.UNDEFINED
-  ***REMOVED***,
+  },
   verbosity: {
     value: 1,
     kind: OptionKind.API
-  ***REMOVED***,
+  },
   workerPort: {
     value: null,
     kind: OptionKind.WORKER
-  ***REMOVED***,
+  },
   workerSrc: {
     value: "../build/pdf.worker.mjs",
     kind: OptionKind.WORKER
-  ***REMOVED***
-***REMOVED***;
+  }
+};
 {
   defaultOptions.defaultUrl = {
     value: "compressed.tracemonkey-pldi-09.pdf",
     kind: OptionKind.VIEWER
-  ***REMOVED***;
+  };
   defaultOptions.sandboxBundleSrc = {
     value: "../build/pdf.sandbox.mjs",
     kind: OptionKind.VIEWER
-  ***REMOVED***;
+  };
   defaultOptions.viewerCssTheme = {
     value: 0,
     kind: OptionKind.VIEWER + OptionKind.PREFERENCE
-  ***REMOVED***;
+  };
   defaultOptions.enableFakeMLManager = {
     value: true,
     kind: OptionKind.VIEWER
-  ***REMOVED***;
-***REMOVED***
+  };
+}
 {
   defaultOptions.disablePreferences = {
     value: false,
     kind: OptionKind.VIEWER
-  ***REMOVED***;
-***REMOVED***
+  };
+}
 class AppOptions {
   static eventBus;
-  static #opts = new Map(***REMOVED***;
+  static #opts = new Map();
   static {
-    for (const name in defaultOptions***REMOVED*** {
-      this.#opts.set(name, defaultOptions[name].value***REMOVED***;
-    ***REMOVED***
-    for (const [name, value] of compatParams***REMOVED*** {
-      this.#opts.set(name, value***REMOVED***;
-    ***REMOVED***
+    for (const name in defaultOptions) {
+      this.#opts.set(name, defaultOptions[name].value);
+    }
+    for (const [name, value] of compatParams) {
+      this.#opts.set(name, value);
+    }
     this._hasInvokedSet = false;
-    this._checkDisablePreferences = (***REMOVED*** => {
-      if (this.get("disablePreferences"***REMOVED******REMOVED*** {
+    this._checkDisablePreferences = () => {
+      if (this.get("disablePreferences")) {
         return true;
-      ***REMOVED***
-      if (this._hasInvokedSet***REMOVED*** {
-        console.warn("The Preferences may override manually set AppOptions; " + 'please use the "disablePreferences"-option to prevent that.'***REMOVED***;
-      ***REMOVED***
+      }
+      if (this._hasInvokedSet) {
+        console.warn("The Preferences may override manually set AppOptions; " + 'please use the "disablePreferences"-option to prevent that.');
+      }
       return false;
-    ***REMOVED***;
-  ***REMOVED***
-  static get(name***REMOVED*** {
-    return this.#opts.get(name***REMOVED***;
-  ***REMOVED***
-  static getAll(kind = null, defaultOnly = false***REMOVED*** {
-    const options = Object.create(null***REMOVED***;
-    for (const name in defaultOptions***REMOVED*** {
+    };
+  }
+  static get(name) {
+    return this.#opts.get(name);
+  }
+  static getAll(kind = null, defaultOnly = false) {
+    const options = Object.create(null);
+    for (const name in defaultOptions) {
       const defaultOpt = defaultOptions[name];
-      if (kind && !(kind & defaultOpt.kind***REMOVED******REMOVED*** {
+      if (kind && !(kind & defaultOpt.kind)) {
         continue;
-      ***REMOVED***
-      options[name] = !defaultOnly ? this.#opts.get(name***REMOVED*** : defaultOpt.value;
-    ***REMOVED***
+      }
+      options[name] = !defaultOnly ? this.#opts.get(name) : defaultOpt.value;
+    }
     return options;
-  ***REMOVED***
-  static set(name, value***REMOVED*** {
+  }
+  static set(name, value) {
     this.setAll({
       [name]: value
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  static setAll(options, prefs = false***REMOVED*** {
+    });
+  }
+  static setAll(options, prefs = false) {
     this._hasInvokedSet ||= true;
     let events;
-    for (const name in options***REMOVED*** {
+    for (const name in options) {
       const defaultOpt = defaultOptions[name],
         userOpt = options[name];
-      if (!defaultOpt || !(typeof userOpt === typeof defaultOpt.value || Type[(typeof userOpt***REMOVED***.toUpperCase(***REMOVED***] & defaultOpt.type***REMOVED******REMOVED*** {
+      if (!defaultOpt || !(typeof userOpt === typeof defaultOpt.value || Type[(typeof userOpt).toUpperCase()] & defaultOpt.type)) {
         continue;
-      ***REMOVED***
+      }
       const {
         kind
-      ***REMOVED*** = defaultOpt;
-      if (prefs && !(kind & OptionKind.BROWSER || kind & OptionKind.PREFERENCE***REMOVED******REMOVED*** {
+      } = defaultOpt;
+      if (prefs && !(kind & OptionKind.BROWSER || kind & OptionKind.PREFERENCE)) {
         continue;
-      ***REMOVED***
-      if (this.eventBus && kind & OptionKind.EVENT_DISPATCH***REMOVED*** {
-        (events ||= new Map(***REMOVED******REMOVED***.set(name, userOpt***REMOVED***;
-      ***REMOVED***
-      this.#opts.set(name, userOpt***REMOVED***;
-    ***REMOVED***
-    if (events***REMOVED*** {
-      for (const [name, value] of events***REMOVED*** {
-        this.eventBus.dispatch(name.toLowerCase(***REMOVED***, {
+      }
+      if (this.eventBus && kind & OptionKind.EVENT_DISPATCH) {
+        (events ||= new Map()).set(name, userOpt);
+      }
+      this.#opts.set(name, userOpt);
+    }
+    if (events) {
+      for (const [name, value] of events) {
+        this.eventBus.dispatch(name.toLowerCase(), {
           source: this,
           value
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+        });
+      }
+    }
+  }
+}
 
 ;// ./web/pdf_link_service.js
 
@@ -940,7 +940,7 @@ const LinkTarget = {
   BLANK: 2,
   PARENT: 3,
   TOP: 4
-***REMOVED***;
+};
 class PDFLinkService {
   externalLinkEnabled = true;
   constructor({
@@ -948,7 +948,7 @@ class PDFLinkService {
     externalLinkTarget = null,
     externalLinkRel = null,
     ignoreDestinationZoom = false
-  ***REMOVED*** = {***REMOVED******REMOVED*** {
+  } = {}) {
     this.eventBus = eventBus;
     this.externalLinkTarget = externalLinkTarget;
     this.externalLinkRel = externalLinkRel;
@@ -957,119 +957,119 @@ class PDFLinkService {
     this.pdfDocument = null;
     this.pdfViewer = null;
     this.pdfHistory = null;
-  ***REMOVED***
-  setDocument(pdfDocument, baseUrl = null***REMOVED*** {
+  }
+  setDocument(pdfDocument, baseUrl = null) {
     this.baseUrl = baseUrl;
     this.pdfDocument = pdfDocument;
-  ***REMOVED***
-  setViewer(pdfViewer***REMOVED*** {
+  }
+  setViewer(pdfViewer) {
     this.pdfViewer = pdfViewer;
-  ***REMOVED***
-  setHistory(pdfHistory***REMOVED*** {
+  }
+  setHistory(pdfHistory) {
     this.pdfHistory = pdfHistory;
-  ***REMOVED***
-  get pagesCount(***REMOVED*** {
+  }
+  get pagesCount() {
     return this.pdfDocument ? this.pdfDocument.numPages : 0;
-  ***REMOVED***
-  get page(***REMOVED*** {
+  }
+  get page() {
     return this.pdfDocument ? this.pdfViewer.currentPageNumber : 1;
-  ***REMOVED***
-  set page(value***REMOVED*** {
-    if (this.pdfDocument***REMOVED*** {
+  }
+  set page(value) {
+    if (this.pdfDocument) {
       this.pdfViewer.currentPageNumber = value;
-    ***REMOVED***
-  ***REMOVED***
-  get rotation(***REMOVED*** {
+    }
+  }
+  get rotation() {
     return this.pdfDocument ? this.pdfViewer.pagesRotation : 0;
-  ***REMOVED***
-  set rotation(value***REMOVED*** {
-    if (this.pdfDocument***REMOVED*** {
+  }
+  set rotation(value) {
+    if (this.pdfDocument) {
       this.pdfViewer.pagesRotation = value;
-    ***REMOVED***
-  ***REMOVED***
-  get isInPresentationMode(***REMOVED*** {
+    }
+  }
+  get isInPresentationMode() {
     return this.pdfDocument ? this.pdfViewer.isInPresentationMode : false;
-  ***REMOVED***
-  async goToDestination(dest***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  async goToDestination(dest) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     let namedDest, explicitDest, pageNumber;
-    if (typeof dest === "string"***REMOVED*** {
+    if (typeof dest === "string") {
       namedDest = dest;
-      explicitDest = await this.pdfDocument.getDestination(dest***REMOVED***;
-    ***REMOVED*** else {
+      explicitDest = await this.pdfDocument.getDestination(dest);
+    } else {
       namedDest = null;
       explicitDest = await dest;
-    ***REMOVED***
-    if (!Array.isArray(explicitDest***REMOVED******REMOVED*** {
-      console.error(`goToDestination: "${explicitDest***REMOVED***" is not a valid destination array, for dest="${dest***REMOVED***".`***REMOVED***;
+    }
+    if (!Array.isArray(explicitDest)) {
+      console.error(`goToDestination: "${explicitDest}" is not a valid destination array, for dest="${dest}".`);
       return;
-    ***REMOVED***
+    }
     const [destRef] = explicitDest;
-    if (destRef && typeof destRef === "object"***REMOVED*** {
-      pageNumber = this.pdfDocument.cachedPageNumber(destRef***REMOVED***;
-      if (!pageNumber***REMOVED*** {
-      ***REMOVED***
-          pageNumber = (await this.pdfDocument.getPageIndex(destRef***REMOVED******REMOVED*** + 1;
-        ***REMOVED*** catch {
-          console.error(`goToDestination: "${destRef***REMOVED***" is not a valid page reference, for dest="${dest***REMOVED***".`***REMOVED***;
+    if (destRef && typeof destRef === "object") {
+      pageNumber = this.pdfDocument.cachedPageNumber(destRef);
+      if (!pageNumber) {
+        try {
+          pageNumber = (await this.pdfDocument.getPageIndex(destRef)) + 1;
+        } catch {
+          console.error(`goToDestination: "${destRef}" is not a valid page reference, for dest="${dest}".`);
           return;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED*** else if (Number.isInteger(destRef***REMOVED******REMOVED*** {
+        }
+      }
+    } else if (Number.isInteger(destRef)) {
       pageNumber = destRef + 1;
-    ***REMOVED***
-    if (!pageNumber || pageNumber < 1 || pageNumber > this.pagesCount***REMOVED*** {
-      console.error(`goToDestination: "${pageNumber***REMOVED***" is not a valid page number, for dest="${dest***REMOVED***".`***REMOVED***;
+    }
+    if (!pageNumber || pageNumber < 1 || pageNumber > this.pagesCount) {
+      console.error(`goToDestination: "${pageNumber}" is not a valid page number, for dest="${dest}".`);
       return;
-    ***REMOVED***
-    if (this.pdfHistory***REMOVED*** {
-      this.pdfHistory.pushCurrentPosition(***REMOVED***;
+    }
+    if (this.pdfHistory) {
+      this.pdfHistory.pushCurrentPosition();
       this.pdfHistory.push({
         namedDest,
         explicitDest,
         pageNumber
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+      });
+    }
     this.pdfViewer.scrollPageIntoView({
       pageNumber,
       destArray: explicitDest,
       ignoreDestinationZoom: this._ignoreDestinationZoom
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  goToPage(val***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+    });
+  }
+  goToPage(val) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    const pageNumber = typeof val === "string" && this.pdfViewer.pageLabelToPageNumber(val***REMOVED*** || val | 0;
-    if (!(Number.isInteger(pageNumber***REMOVED*** && pageNumber > 0 && pageNumber <= this.pagesCount***REMOVED******REMOVED*** {
-      console.error(`PDFLinkService.goToPage: "${val***REMOVED***" is not a valid page.`***REMOVED***;
+    }
+    const pageNumber = typeof val === "string" && this.pdfViewer.pageLabelToPageNumber(val) || val | 0;
+    if (!(Number.isInteger(pageNumber) && pageNumber > 0 && pageNumber <= this.pagesCount)) {
+      console.error(`PDFLinkService.goToPage: "${val}" is not a valid page.`);
       return;
-    ***REMOVED***
-    if (this.pdfHistory***REMOVED*** {
-      this.pdfHistory.pushCurrentPosition(***REMOVED***;
-      this.pdfHistory.pushPage(pageNumber***REMOVED***;
-    ***REMOVED***
+    }
+    if (this.pdfHistory) {
+      this.pdfHistory.pushCurrentPosition();
+      this.pdfHistory.pushPage(pageNumber);
+    }
     this.pdfViewer.scrollPageIntoView({
       pageNumber
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  addLinkAttributes(link, url, newWindow = false***REMOVED*** {
-    if (!url || typeof url !== "string"***REMOVED*** {
-      throw new Error('A valid "url" parameter must provided.'***REMOVED***;
-    ***REMOVED***
+    });
+  }
+  addLinkAttributes(link, url, newWindow = false) {
+    if (!url || typeof url !== "string") {
+      throw new Error('A valid "url" parameter must provided.');
+    }
     const target = newWindow ? LinkTarget.BLANK : this.externalLinkTarget,
       rel = this.externalLinkRel;
-    if (this.externalLinkEnabled***REMOVED*** {
+    if (this.externalLinkEnabled) {
       link.href = link.title = url;
-    ***REMOVED*** else {
+    } else {
       link.href = "";
-      link.title = `Disabled: ${url***REMOVED***`;
-      link.onclick = (***REMOVED*** => false;
-    ***REMOVED***
+      link.title = `Disabled: ${url}`;
+      link.onclick = () => false;
+    }
     let targetStr = "";
-    switch (target***REMOVED*** {
+    switch (target) {
       case LinkTarget.NONE:
         break;
       case LinkTarget.SELF:
@@ -1084,121 +1084,121 @@ class PDFLinkService {
       case LinkTarget.TOP:
         targetStr = "_top";
         break;
-    ***REMOVED***
+    }
     link.target = targetStr;
     link.rel = typeof rel === "string" ? rel : DEFAULT_LINK_REL;
-  ***REMOVED***
-  getDestinationHash(dest***REMOVED*** {
-    if (typeof dest === "string"***REMOVED*** {
-      if (dest.length > 0***REMOVED*** {
-        return this.getAnchorUrl("#" + escape(dest***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED*** else if (Array.isArray(dest***REMOVED******REMOVED*** {
-      const str = JSON.stringify(dest***REMOVED***;
-      if (str.length > 0***REMOVED*** {
-        return this.getAnchorUrl("#" + escape(str***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    return this.getAnchorUrl(""***REMOVED***;
-  ***REMOVED***
-  getAnchorUrl(anchor***REMOVED*** {
+  }
+  getDestinationHash(dest) {
+    if (typeof dest === "string") {
+      if (dest.length > 0) {
+        return this.getAnchorUrl("#" + escape(dest));
+      }
+    } else if (Array.isArray(dest)) {
+      const str = JSON.stringify(dest);
+      if (str.length > 0) {
+        return this.getAnchorUrl("#" + escape(str));
+      }
+    }
+    return this.getAnchorUrl("");
+  }
+  getAnchorUrl(anchor) {
     return this.baseUrl ? this.baseUrl + anchor : anchor;
-  ***REMOVED***
-  setHash(hash***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  setHash(hash) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     let pageNumber, dest;
-    if (hash.includes("="***REMOVED******REMOVED*** {
-      const params = parseQueryString(hash***REMOVED***;
-      if (params.has("search"***REMOVED******REMOVED*** {
-        const query = params.get("search"***REMOVED***.replaceAll('"', ""***REMOVED***,
-          phrase = params.get("phrase"***REMOVED*** === "true";
+    if (hash.includes("=")) {
+      const params = parseQueryString(hash);
+      if (params.has("search")) {
+        const query = params.get("search").replaceAll('"', ""),
+          phrase = params.get("phrase") === "true";
         this.eventBus.dispatch("findfromurlhash", {
           source: this,
-          query: phrase ? query : query.match(/\S+/g***REMOVED***
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-      if (params.has("page"***REMOVED******REMOVED*** {
-        pageNumber = params.get("page"***REMOVED*** | 0 || 1;
-      ***REMOVED***
-      if (params.has("zoom"***REMOVED******REMOVED*** {
-        const zoomArgs = params.get("zoom"***REMOVED***.split(","***REMOVED***;
+          query: phrase ? query : query.match(/\S+/g)
+        });
+      }
+      if (params.has("page")) {
+        pageNumber = params.get("page") | 0 || 1;
+      }
+      if (params.has("zoom")) {
+        const zoomArgs = params.get("zoom").split(",");
         const zoomArg = zoomArgs[0];
-        const zoomArgNumber = parseFloat(zoomArg***REMOVED***;
-        if (!zoomArg.includes("Fit"***REMOVED******REMOVED*** {
+        const zoomArgNumber = parseFloat(zoomArg);
+        if (!zoomArg.includes("Fit")) {
           dest = [null, {
             name: "XYZ"
-          ***REMOVED***, zoomArgs.length > 1 ? zoomArgs[1] | 0 : null, zoomArgs.length > 2 ? zoomArgs[2] | 0 : null, zoomArgNumber ? zoomArgNumber / 100 : zoomArg];
-        ***REMOVED*** else if (zoomArg === "Fit" || zoomArg === "FitB"***REMOVED*** {
+          }, zoomArgs.length > 1 ? zoomArgs[1] | 0 : null, zoomArgs.length > 2 ? zoomArgs[2] | 0 : null, zoomArgNumber ? zoomArgNumber / 100 : zoomArg];
+        } else if (zoomArg === "Fit" || zoomArg === "FitB") {
           dest = [null, {
             name: zoomArg
-          ***REMOVED***];
-        ***REMOVED*** else if (zoomArg === "FitH" || zoomArg === "FitBH" || zoomArg === "FitV" || zoomArg === "FitBV"***REMOVED*** {
+          }];
+        } else if (zoomArg === "FitH" || zoomArg === "FitBH" || zoomArg === "FitV" || zoomArg === "FitBV") {
           dest = [null, {
             name: zoomArg
-          ***REMOVED***, zoomArgs.length > 1 ? zoomArgs[1] | 0 : null];
-        ***REMOVED*** else if (zoomArg === "FitR"***REMOVED*** {
-          if (zoomArgs.length !== 5***REMOVED*** {
-            console.error('PDFLinkService.setHash: Not enough parameters for "FitR".'***REMOVED***;
-          ***REMOVED*** else {
+          }, zoomArgs.length > 1 ? zoomArgs[1] | 0 : null];
+        } else if (zoomArg === "FitR") {
+          if (zoomArgs.length !== 5) {
+            console.error('PDFLinkService.setHash: Not enough parameters for "FitR".');
+          } else {
             dest = [null, {
               name: zoomArg
-            ***REMOVED***, zoomArgs[1] | 0, zoomArgs[2] | 0, zoomArgs[3] | 0, zoomArgs[4] | 0];
-          ***REMOVED***
-        ***REMOVED*** else {
-          console.error(`PDFLinkService.setHash: "${zoomArg***REMOVED***" is not a valid zoom value.`***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-      if (dest***REMOVED*** {
+            }, zoomArgs[1] | 0, zoomArgs[2] | 0, zoomArgs[3] | 0, zoomArgs[4] | 0];
+          }
+        } else {
+          console.error(`PDFLinkService.setHash: "${zoomArg}" is not a valid zoom value.`);
+        }
+      }
+      if (dest) {
         this.pdfViewer.scrollPageIntoView({
           pageNumber: pageNumber || this.page,
           destArray: dest,
           allowNegativeOffset: true
-        ***REMOVED******REMOVED***;
-      ***REMOVED*** else if (pageNumber***REMOVED*** {
+        });
+      } else if (pageNumber) {
         this.page = pageNumber;
-      ***REMOVED***
-      if (params.has("pagemode"***REMOVED******REMOVED*** {
+      }
+      if (params.has("pagemode")) {
         this.eventBus.dispatch("pagemode", {
           source: this,
-          mode: params.get("pagemode"***REMOVED***
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-      if (params.has("nameddest"***REMOVED******REMOVED*** {
-        this.goToDestination(params.get("nameddest"***REMOVED******REMOVED***;
-      ***REMOVED***
+          mode: params.get("pagemode")
+        });
+      }
+      if (params.has("nameddest")) {
+        this.goToDestination(params.get("nameddest"));
+      }
       return;
-    ***REMOVED***
-    dest = unescape(hash***REMOVED***;
-  ***REMOVED***
-      dest = JSON.parse(dest***REMOVED***;
-      if (!Array.isArray(dest***REMOVED******REMOVED*** {
-        dest = dest.toString(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED*** catch { ***REMOVED***
-    if (typeof dest === "string" || PDFLinkService.#isValidExplicitDest(dest***REMOVED******REMOVED*** {
-      this.goToDestination(dest***REMOVED***;
+    }
+    dest = unescape(hash);
+    try {
+      dest = JSON.parse(dest);
+      if (!Array.isArray(dest)) {
+        dest = dest.toString();
+      }
+    } catch { }
+    if (typeof dest === "string" || PDFLinkService.#isValidExplicitDest(dest)) {
+      this.goToDestination(dest);
       return;
-    ***REMOVED***
-    console.error(`PDFLinkService.setHash: "${unescape(hash***REMOVED******REMOVED***" is not a valid destination.`***REMOVED***;
-  ***REMOVED***
-  executeNamedAction(action***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+    }
+    console.error(`PDFLinkService.setHash: "${unescape(hash)}" is not a valid destination.`);
+  }
+  executeNamedAction(action) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    switch (action***REMOVED*** {
+    }
+    switch (action) {
       case "GoBack":
-        this.pdfHistory?.back(***REMOVED***;
+        this.pdfHistory?.back();
         break;
       case "GoForward":
-        this.pdfHistory?.forward(***REMOVED***;
+        this.pdfHistory?.forward();
         break;
       case "NextPage":
-        this.pdfViewer.nextPage(***REMOVED***;
+        this.pdfViewer.nextPage();
         break;
       case "PrevPage":
-        this.pdfViewer.previousPage(***REMOVED***;
+        this.pdfViewer.previousPage();
         break;
       case "LastPage":
         this.page = this.pagesCount;
@@ -1208,42 +1208,42 @@ class PDFLinkService {
         break;
       default:
         break;
-    ***REMOVED***
+    }
     this.eventBus.dispatch("namedaction", {
       source: this,
       action
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async executeSetOCGState(action***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+    });
+  }
+  async executeSetOCGState(action) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     const pdfDocument = this.pdfDocument,
       optionalContentConfig = await this.pdfViewer.optionalContentConfigPromise;
-    if (pdfDocument !== this.pdfDocument***REMOVED*** {
+    if (pdfDocument !== this.pdfDocument) {
       return;
-    ***REMOVED***
-    optionalContentConfig.setOCGState(action***REMOVED***;
-    this.pdfViewer.optionalContentConfigPromise = Promise.resolve(optionalContentConfig***REMOVED***;
-  ***REMOVED***
-  static #isValidExplicitDest(dest***REMOVED*** {
-    if (!Array.isArray(dest***REMOVED*** || dest.length < 2***REMOVED*** {
+    }
+    optionalContentConfig.setOCGState(action);
+    this.pdfViewer.optionalContentConfigPromise = Promise.resolve(optionalContentConfig);
+  }
+  static #isValidExplicitDest(dest) {
+    if (!Array.isArray(dest) || dest.length < 2) {
       return false;
-    ***REMOVED***
+    }
     const [page, zoom, ...args] = dest;
-    if (!(typeof page === "object" && Number.isInteger(page?.num***REMOVED*** && Number.isInteger(page?.gen***REMOVED******REMOVED*** && !Number.isInteger(page***REMOVED******REMOVED*** {
+    if (!(typeof page === "object" && Number.isInteger(page?.num) && Number.isInteger(page?.gen)) && !Number.isInteger(page)) {
       return false;
-    ***REMOVED***
-    if (!(typeof zoom === "object" && typeof zoom?.name === "string"***REMOVED******REMOVED*** {
+    }
+    if (!(typeof zoom === "object" && typeof zoom?.name === "string")) {
       return false;
-    ***REMOVED***
+    }
     const argsLen = args.length;
     let allowNull = true;
-    switch (zoom.name***REMOVED*** {
+    switch (zoom.name) {
       case "XYZ":
-        if (argsLen < 2 || argsLen > 3***REMOVED*** {
+        if (argsLen < 2 || argsLen > 3) {
           return false;
-        ***REMOVED***
+        }
         break;
       case "Fit":
       case "FitB":
@@ -1252,30 +1252,30 @@ class PDFLinkService {
       case "FitBH":
       case "FitV":
       case "FitBV":
-        if (argsLen > 1***REMOVED*** {
+        if (argsLen > 1) {
           return false;
-        ***REMOVED***
+        }
         break;
       case "FitR":
-        if (argsLen !== 4***REMOVED*** {
+        if (argsLen !== 4) {
           return false;
-        ***REMOVED***
+        }
         allowNull = false;
         break;
       default:
         return false;
-    ***REMOVED***
-    for (const arg of args***REMOVED*** {
-      if (!(typeof arg === "number" || allowNull && arg === null***REMOVED******REMOVED*** {
+    }
+    for (const arg of args) {
+      if (!(typeof arg === "number" || allowNull && arg === null)) {
         return false;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     return true;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 class SimpleLinkService extends PDFLinkService {
-  setDocument(pdfDocument, baseUrl = null***REMOVED*** { ***REMOVED***
-***REMOVED***
+  setDocument(pdfDocument, baseUrl = null) { }
+}
 
 ;// ./web/pdfjs.js
 const {
@@ -1324,146 +1324,146 @@ const {
   VerbosityLevel,
   version,
   XfaLayer
-***REMOVED*** = globalThis.pdfjsLib;
+} = globalThis.pdfjsLib;
 
 ;// ./web/event_utils.js
 const WaitOnType = {
   EVENT: "event",
   TIMEOUT: "timeout"
-***REMOVED***;
+};
 async function waitOnEventOrTimeout({
   target,
   name,
   delay = 0
-***REMOVED******REMOVED*** {
-  if (typeof target !== "object" || !(name && typeof name === "string"***REMOVED*** || !(Number.isInteger(delay***REMOVED*** && delay >= 0***REMOVED******REMOVED*** {
-    throw new Error("waitOnEventOrTimeout - invalid parameters."***REMOVED***;
-  ***REMOVED***
+}) {
+  if (typeof target !== "object" || !(name && typeof name === "string") || !(Number.isInteger(delay) && delay >= 0)) {
+    throw new Error("waitOnEventOrTimeout - invalid parameters.");
+  }
   const {
     promise,
     resolve
-  ***REMOVED*** = Promise.withResolvers(***REMOVED***;
-  const ac = new AbortController(***REMOVED***;
-  function handler(type***REMOVED*** {
-    ac.abort(***REMOVED***;
-    clearTimeout(timeout***REMOVED***;
-    resolve(type***REMOVED***;
-  ***REMOVED***
+  } = Promise.withResolvers();
+  const ac = new AbortController();
+  function handler(type) {
+    ac.abort();
+    clearTimeout(timeout);
+    resolve(type);
+  }
   const evtMethod = target instanceof EventBus ? "_on" : "addEventListener";
-  target[evtMethod](name, handler.bind(null, WaitOnType.EVENT***REMOVED***, {
+  target[evtMethod](name, handler.bind(null, WaitOnType.EVENT), {
     signal: ac.signal
-  ***REMOVED******REMOVED***;
-  const timeout = setTimeout(handler.bind(null, WaitOnType.TIMEOUT***REMOVED***, delay***REMOVED***;
+  });
+  const timeout = setTimeout(handler.bind(null, WaitOnType.TIMEOUT), delay);
   return promise;
-***REMOVED***
+}
 class EventBus {
-  #listeners = Object.create(null***REMOVED***;
-  on(eventName, listener, options = null***REMOVED*** {
+  #listeners = Object.create(null);
+  on(eventName, listener, options = null) {
     this._on(eventName, listener, {
       external: true,
       once: options?.once,
       signal: options?.signal
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  off(eventName, listener, options = null***REMOVED*** {
-    this._off(eventName, listener***REMOVED***;
-  ***REMOVED***
-  dispatch(eventName, data***REMOVED*** {
+    });
+  }
+  off(eventName, listener, options = null) {
+    this._off(eventName, listener);
+  }
+  dispatch(eventName, data) {
     const eventListeners = this.#listeners[eventName];
-    if (!eventListeners || eventListeners.length === 0***REMOVED*** {
+    if (!eventListeners || eventListeners.length === 0) {
       return;
-    ***REMOVED***
+    }
     let externalListeners;
     for (const {
       listener,
       external,
       once
-    ***REMOVED*** of eventListeners.slice(0***REMOVED******REMOVED*** {
-      if (once***REMOVED*** {
-        this._off(eventName, listener***REMOVED***;
-      ***REMOVED***
-      if (external***REMOVED*** {
-        (externalListeners ||= []***REMOVED***.push(listener***REMOVED***;
+    } of eventListeners.slice(0)) {
+      if (once) {
+        this._off(eventName, listener);
+      }
+      if (external) {
+        (externalListeners ||= []).push(listener);
         continue;
-      ***REMOVED***
-      listener(data***REMOVED***;
-    ***REMOVED***
-    if (externalListeners***REMOVED*** {
-      for (const listener of externalListeners***REMOVED*** {
-        listener(data***REMOVED***;
-      ***REMOVED***
+      }
+      listener(data);
+    }
+    if (externalListeners) {
+      for (const listener of externalListeners) {
+        listener(data);
+      }
       externalListeners = null;
-    ***REMOVED***
-  ***REMOVED***
-  _on(eventName, listener, options = null***REMOVED*** {
+    }
+  }
+  _on(eventName, listener, options = null) {
     let rmAbort = null;
-    if (options?.signal instanceof AbortSignal***REMOVED*** {
+    if (options?.signal instanceof AbortSignal) {
       const {
         signal
-      ***REMOVED*** = options;
-      if (signal.aborted***REMOVED*** {
-        console.error("Cannot use an `aborted` signal."***REMOVED***;
+      } = options;
+      if (signal.aborted) {
+        console.error("Cannot use an `aborted` signal.");
         return;
-      ***REMOVED***
-      const onAbort = (***REMOVED*** => this._off(eventName, listener***REMOVED***;
-      rmAbort = (***REMOVED*** => signal.removeEventListener("abort", onAbort***REMOVED***;
-      signal.addEventListener("abort", onAbort***REMOVED***;
-    ***REMOVED***
+      }
+      const onAbort = () => this._off(eventName, listener);
+      rmAbort = () => signal.removeEventListener("abort", onAbort);
+      signal.addEventListener("abort", onAbort);
+    }
     const eventListeners = this.#listeners[eventName] ||= [];
     eventListeners.push({
       listener,
       external: options?.external === true,
       once: options?.once === true,
       rmAbort
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  _off(eventName, listener, options = null***REMOVED*** {
+    });
+  }
+  _off(eventName, listener, options = null) {
     const eventListeners = this.#listeners[eventName];
-    if (!eventListeners***REMOVED*** {
+    if (!eventListeners) {
       return;
-    ***REMOVED***
-    for (let i = 0, ii = eventListeners.length; i < ii; i++***REMOVED*** {
+    }
+    for (let i = 0, ii = eventListeners.length; i < ii; i++) {
       const evt = eventListeners[i];
-      if (evt.listener === listener***REMOVED*** {
-        evt.rmAbort?.(***REMOVED***;
-        eventListeners.splice(i, 1***REMOVED***;
+      if (evt.listener === listener) {
+        evt.rmAbort?.();
+        eventListeners.splice(i, 1);
         return;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+      }
+    }
+  }
+}
 class FirefoxEventBus extends EventBus {
   #externalServices;
   #globalEventNames;
   #isInAutomation;
-  constructor(globalEventNames, externalServices, isInAutomation***REMOVED*** {
-    super(***REMOVED***;
+  constructor(globalEventNames, externalServices, isInAutomation) {
+    super();
     this.#globalEventNames = globalEventNames;
     this.#externalServices = externalServices;
     this.#isInAutomation = isInAutomation;
-  ***REMOVED***
-  dispatch(eventName, data***REMOVED*** {
-    throw new Error("Not implemented: FirefoxEventBus.dispatch"***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  }
+  dispatch(eventName, data) {
+    throw new Error("Not implemented: FirefoxEventBus.dispatch");
+  }
+}
 
 ;// ./web/external_services.js
 class BaseExternalServices {
-  updateFindControlState(data***REMOVED*** { ***REMOVED***
-  updateFindMatchesCount(data***REMOVED*** { ***REMOVED***
-  initPassiveLoading(***REMOVED*** { ***REMOVED***
-  reportTelemetry(data***REMOVED*** { ***REMOVED***
-  async createL10n(***REMOVED*** {
-    throw new Error("Not implemented: createL10n"***REMOVED***;
-  ***REMOVED***
-  createScripting(***REMOVED*** {
-    throw new Error("Not implemented: createScripting"***REMOVED***;
-  ***REMOVED***
-  updateEditorStates(data***REMOVED*** {
-    throw new Error("Not implemented: updateEditorStates"***REMOVED***;
-  ***REMOVED***
-  dispatchGlobalEvent(_event***REMOVED*** { ***REMOVED***
-***REMOVED***
+  updateFindControlState(data) { }
+  updateFindMatchesCount(data) { }
+  initPassiveLoading() { }
+  reportTelemetry(data) { }
+  async createL10n() {
+    throw new Error("Not implemented: createL10n");
+  }
+  createScripting() {
+    throw new Error("Not implemented: createScripting");
+  }
+  updateEditorStates(data) {
+    throw new Error("Not implemented: updateEditorStates");
+  }
+  dispatchGlobalEvent(_event) { }
+}
 
 ;// ./web/preferences.js
 
@@ -1505,405 +1505,405 @@ class BasePreferences {
     enableHWA: true,
     enableXfa: true,
     viewerCssTheme: 0
-  ***REMOVED******REMOVED***;
+  });
   #initializedPromise = null;
-  constructor(***REMOVED*** {
-    this.#initializedPromise = this._readFromStorage(this.#defaults***REMOVED***.then(({
+  constructor() {
+    this.#initializedPromise = this._readFromStorage(this.#defaults).then(({
       browserPrefs,
       prefs
-    ***REMOVED******REMOVED*** => {
-      if (AppOptions._checkDisablePreferences(***REMOVED******REMOVED*** {
+    }) => {
+      if (AppOptions._checkDisablePreferences()) {
         return;
-      ***REMOVED***
+      }
       AppOptions.setAll({
         ...browserPrefs,
         ...prefs
-      ***REMOVED***, true***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async _writeToStorage(prefObj***REMOVED*** {
-    throw new Error("Not implemented: _writeToStorage"***REMOVED***;
-  ***REMOVED***
-  async _readFromStorage(prefObj***REMOVED*** {
-    throw new Error("Not implemented: _readFromStorage"***REMOVED***;
-  ***REMOVED***
-  async reset(***REMOVED*** {
+      }, true);
+    });
+  }
+  async _writeToStorage(prefObj) {
+    throw new Error("Not implemented: _writeToStorage");
+  }
+  async _readFromStorage(prefObj) {
+    throw new Error("Not implemented: _readFromStorage");
+  }
+  async reset() {
     await this.#initializedPromise;
-    AppOptions.setAll(this.#defaults, true***REMOVED***;
-    await this._writeToStorage(this.#defaults***REMOVED***;
-  ***REMOVED***
-  async set(name, value***REMOVED*** {
+    AppOptions.setAll(this.#defaults, true);
+    await this._writeToStorage(this.#defaults);
+  }
+  async set(name, value) {
     await this.#initializedPromise;
     AppOptions.setAll({
       [name]: value
-    ***REMOVED***, true***REMOVED***;
-    await this._writeToStorage(AppOptions.getAll(OptionKind.PREFERENCE***REMOVED******REMOVED***;
-  ***REMOVED***
-  async get(name***REMOVED*** {
+    }, true);
+    await this._writeToStorage(AppOptions.getAll(OptionKind.PREFERENCE));
+  }
+  async get(name) {
     await this.#initializedPromise;
-    return AppOptions.get(name***REMOVED***;
-  ***REMOVED***
-  get initializedPromise(***REMOVED*** {
+    return AppOptions.get(name);
+  }
+  get initializedPromise() {
     return this.#initializedPromise;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./node_modules/@fluent/bundle/esm/types.js
 class FluentType {
-  constructor(value***REMOVED*** {
+  constructor(value) {
     this.value = value;
-  ***REMOVED***
-  valueOf(***REMOVED*** {
+  }
+  valueOf() {
     return this.value;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 class FluentNone extends FluentType {
-  constructor(value = "???"***REMOVED*** {
-    super(value***REMOVED***;
-  ***REMOVED***
-  toString(scope***REMOVED*** {
-    return `{${this.value***REMOVED******REMOVED***`;
-  ***REMOVED***
-***REMOVED***
+  constructor(value = "???") {
+    super(value);
+  }
+  toString(scope) {
+    return `{${this.value}}`;
+  }
+}
 class FluentNumber extends FluentType {
-  constructor(value, opts = {***REMOVED******REMOVED*** {
-    super(value***REMOVED***;
+  constructor(value, opts = {}) {
+    super(value);
     this.opts = opts;
-  ***REMOVED***
-  toString(scope***REMOVED*** {
-  ***REMOVED***
-      const nf = scope.memoizeIntlObject(Intl.NumberFormat, this.opts***REMOVED***;
-      return nf.format(this.value***REMOVED***;
-    ***REMOVED*** catch (err***REMOVED*** {
-      scope.reportError(err***REMOVED***;
-      return this.value.toString(10***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  }
+  toString(scope) {
+    try {
+      const nf = scope.memoizeIntlObject(Intl.NumberFormat, this.opts);
+      return nf.format(this.value);
+    } catch (err) {
+      scope.reportError(err);
+      return this.value.toString(10);
+    }
+  }
+}
 class FluentDateTime extends FluentType {
-  constructor(value, opts = {***REMOVED******REMOVED*** {
-    super(value***REMOVED***;
+  constructor(value, opts = {}) {
+    super(value);
     this.opts = opts;
-  ***REMOVED***
-  toString(scope***REMOVED*** {
-  ***REMOVED***
-      const dtf = scope.memoizeIntlObject(Intl.DateTimeFormat, this.opts***REMOVED***;
-      return dtf.format(this.value***REMOVED***;
-    ***REMOVED*** catch (err***REMOVED*** {
-      scope.reportError(err***REMOVED***;
-      return new Date(this.value***REMOVED***.toISOString(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  }
+  toString(scope) {
+    try {
+      const dtf = scope.memoizeIntlObject(Intl.DateTimeFormat, this.opts);
+      return dtf.format(this.value);
+    } catch (err) {
+      scope.reportError(err);
+      return new Date(this.value).toISOString();
+    }
+  }
+}
 ;// ./node_modules/@fluent/bundle/esm/resolver.js
 
 const MAX_PLACEABLES = 100;
 const FSI = "\u2068";
 const PDI = "\u2069";
-function match(scope, selector, key***REMOVED*** {
-  if (key === selector***REMOVED*** {
+function match(scope, selector, key) {
+  if (key === selector) {
     return true;
-  ***REMOVED***
-  if (key instanceof FluentNumber && selector instanceof FluentNumber && key.value === selector.value***REMOVED*** {
+  }
+  if (key instanceof FluentNumber && selector instanceof FluentNumber && key.value === selector.value) {
     return true;
-  ***REMOVED***
-  if (selector instanceof FluentNumber && typeof key === "string"***REMOVED*** {
-    let category = scope.memoizeIntlObject(Intl.PluralRules, selector.opts***REMOVED***.select(selector.value***REMOVED***;
-    if (key === category***REMOVED*** {
+  }
+  if (selector instanceof FluentNumber && typeof key === "string") {
+    let category = scope.memoizeIntlObject(Intl.PluralRules, selector.opts).select(selector.value);
+    if (key === category) {
       return true;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   return false;
-***REMOVED***
-function getDefault(scope, variants, star***REMOVED*** {
-  if (variants[star]***REMOVED*** {
-    return resolvePattern(scope, variants[star].value***REMOVED***;
-  ***REMOVED***
-  scope.reportError(new RangeError("No default"***REMOVED******REMOVED***;
-  return new FluentNone(***REMOVED***;
-***REMOVED***
-function getArguments(scope, args***REMOVED*** {
+}
+function getDefault(scope, variants, star) {
+  if (variants[star]) {
+    return resolvePattern(scope, variants[star].value);
+  }
+  scope.reportError(new RangeError("No default"));
+  return new FluentNone();
+}
+function getArguments(scope, args) {
   const positional = [];
-  const named = Object.create(null***REMOVED***;
-  for (const arg of args***REMOVED*** {
-    if (arg.type === "narg"***REMOVED*** {
-      named[arg.name] = resolveExpression(scope, arg.value***REMOVED***;
-    ***REMOVED*** else {
-      positional.push(resolveExpression(scope, arg***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+  const named = Object.create(null);
+  for (const arg of args) {
+    if (arg.type === "narg") {
+      named[arg.name] = resolveExpression(scope, arg.value);
+    } else {
+      positional.push(resolveExpression(scope, arg));
+    }
+  }
   return {
     positional,
     named
-  ***REMOVED***;
-***REMOVED***
-function resolveExpression(scope, expr***REMOVED*** {
-  switch (expr.type***REMOVED*** {
+  };
+}
+function resolveExpression(scope, expr) {
+  switch (expr.type) {
     case "str":
       return expr.value;
     case "num":
       return new FluentNumber(expr.value, {
         minimumFractionDigits: expr.precision
-      ***REMOVED******REMOVED***;
+      });
     case "var":
-      return resolveVariableReference(scope, expr***REMOVED***;
+      return resolveVariableReference(scope, expr);
     case "mesg":
-      return resolveMessageReference(scope, expr***REMOVED***;
+      return resolveMessageReference(scope, expr);
     case "term":
-      return resolveTermReference(scope, expr***REMOVED***;
+      return resolveTermReference(scope, expr);
     case "func":
-      return resolveFunctionReference(scope, expr***REMOVED***;
+      return resolveFunctionReference(scope, expr);
     case "select":
-      return resolveSelectExpression(scope, expr***REMOVED***;
+      return resolveSelectExpression(scope, expr);
     default:
-      return new FluentNone(***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      return new FluentNone();
+  }
+}
 function resolveVariableReference(scope, {
   name
-***REMOVED******REMOVED*** {
+}) {
   let arg;
-  if (scope.params***REMOVED*** {
-    if (Object.prototype.hasOwnProperty.call(scope.params, name***REMOVED******REMOVED*** {
+  if (scope.params) {
+    if (Object.prototype.hasOwnProperty.call(scope.params, name)) {
       arg = scope.params[name];
-    ***REMOVED*** else {
-      return new FluentNone(`$${name***REMOVED***`***REMOVED***;
-    ***REMOVED***
-  ***REMOVED*** else if (scope.args && Object.prototype.hasOwnProperty.call(scope.args, name***REMOVED******REMOVED*** {
+    } else {
+      return new FluentNone(`$${name}`);
+    }
+  } else if (scope.args && Object.prototype.hasOwnProperty.call(scope.args, name)) {
     arg = scope.args[name];
-  ***REMOVED*** else {
-    scope.reportError(new ReferenceError(`Unknown variable: $${name***REMOVED***`***REMOVED******REMOVED***;
-    return new FluentNone(`$${name***REMOVED***`***REMOVED***;
-  ***REMOVED***
-  if (arg instanceof FluentType***REMOVED*** {
+  } else {
+    scope.reportError(new ReferenceError(`Unknown variable: $${name}`));
+    return new FluentNone(`$${name}`);
+  }
+  if (arg instanceof FluentType) {
     return arg;
-  ***REMOVED***
-  switch (typeof arg***REMOVED*** {
+  }
+  switch (typeof arg) {
     case "string":
       return arg;
     case "number":
-      return new FluentNumber(arg***REMOVED***;
+      return new FluentNumber(arg);
     case "object":
-      if (arg instanceof Date***REMOVED*** {
-        return new FluentDateTime(arg.getTime(***REMOVED******REMOVED***;
-      ***REMOVED***
+      if (arg instanceof Date) {
+        return new FluentDateTime(arg.getTime());
+      }
     default:
-      scope.reportError(new TypeError(`Variable type not supported: $${name***REMOVED***, ${typeof arg***REMOVED***`***REMOVED******REMOVED***;
-      return new FluentNone(`$${name***REMOVED***`***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      scope.reportError(new TypeError(`Variable type not supported: $${name}, ${typeof arg}`));
+      return new FluentNone(`$${name}`);
+  }
+}
 function resolveMessageReference(scope, {
   name,
   attr
-***REMOVED******REMOVED*** {
-  const message = scope.bundle._messages.get(name***REMOVED***;
-  if (!message***REMOVED*** {
-    scope.reportError(new ReferenceError(`Unknown message: ${name***REMOVED***`***REMOVED******REMOVED***;
-    return new FluentNone(name***REMOVED***;
-  ***REMOVED***
-  if (attr***REMOVED*** {
+}) {
+  const message = scope.bundle._messages.get(name);
+  if (!message) {
+    scope.reportError(new ReferenceError(`Unknown message: ${name}`));
+    return new FluentNone(name);
+  }
+  if (attr) {
     const attribute = message.attributes[attr];
-    if (attribute***REMOVED*** {
-      return resolvePattern(scope, attribute***REMOVED***;
-    ***REMOVED***
-    scope.reportError(new ReferenceError(`Unknown attribute: ${attr***REMOVED***`***REMOVED******REMOVED***;
-    return new FluentNone(`${name***REMOVED***.${attr***REMOVED***`***REMOVED***;
-  ***REMOVED***
-  if (message.value***REMOVED*** {
-    return resolvePattern(scope, message.value***REMOVED***;
-  ***REMOVED***
-  scope.reportError(new ReferenceError(`No value: ${name***REMOVED***`***REMOVED******REMOVED***;
-  return new FluentNone(name***REMOVED***;
-***REMOVED***
+    if (attribute) {
+      return resolvePattern(scope, attribute);
+    }
+    scope.reportError(new ReferenceError(`Unknown attribute: ${attr}`));
+    return new FluentNone(`${name}.${attr}`);
+  }
+  if (message.value) {
+    return resolvePattern(scope, message.value);
+  }
+  scope.reportError(new ReferenceError(`No value: ${name}`));
+  return new FluentNone(name);
+}
 function resolveTermReference(scope, {
   name,
   attr,
   args
-***REMOVED******REMOVED*** {
-  const id = `-${name***REMOVED***`;
-  const term = scope.bundle._terms.get(id***REMOVED***;
-  if (!term***REMOVED*** {
-    scope.reportError(new ReferenceError(`Unknown term: ${id***REMOVED***`***REMOVED******REMOVED***;
-    return new FluentNone(id***REMOVED***;
-  ***REMOVED***
-  if (attr***REMOVED*** {
+}) {
+  const id = `-${name}`;
+  const term = scope.bundle._terms.get(id);
+  if (!term) {
+    scope.reportError(new ReferenceError(`Unknown term: ${id}`));
+    return new FluentNone(id);
+  }
+  if (attr) {
     const attribute = term.attributes[attr];
-    if (attribute***REMOVED*** {
-      scope.params = getArguments(scope, args***REMOVED***.named;
-      const resolved = resolvePattern(scope, attribute***REMOVED***;
+    if (attribute) {
+      scope.params = getArguments(scope, args).named;
+      const resolved = resolvePattern(scope, attribute);
       scope.params = null;
       return resolved;
-    ***REMOVED***
-    scope.reportError(new ReferenceError(`Unknown attribute: ${attr***REMOVED***`***REMOVED******REMOVED***;
-    return new FluentNone(`${id***REMOVED***.${attr***REMOVED***`***REMOVED***;
-  ***REMOVED***
-  scope.params = getArguments(scope, args***REMOVED***.named;
-  const resolved = resolvePattern(scope, term.value***REMOVED***;
+    }
+    scope.reportError(new ReferenceError(`Unknown attribute: ${attr}`));
+    return new FluentNone(`${id}.${attr}`);
+  }
+  scope.params = getArguments(scope, args).named;
+  const resolved = resolvePattern(scope, term.value);
   scope.params = null;
   return resolved;
-***REMOVED***
+}
 function resolveFunctionReference(scope, {
   name,
   args
-***REMOVED******REMOVED*** {
+}) {
   let func = scope.bundle._functions[name];
-  if (!func***REMOVED*** {
-    scope.reportError(new ReferenceError(`Unknown function: ${name***REMOVED***(***REMOVED***`***REMOVED******REMOVED***;
-    return new FluentNone(`${name***REMOVED***(***REMOVED***`***REMOVED***;
-  ***REMOVED***
-  if (typeof func !== "function"***REMOVED*** {
-    scope.reportError(new TypeError(`Function ${name***REMOVED***(***REMOVED*** is not callable`***REMOVED******REMOVED***;
-    return new FluentNone(`${name***REMOVED***(***REMOVED***`***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-    let resolved = getArguments(scope, args***REMOVED***;
-    return func(resolved.positional, resolved.named***REMOVED***;
-  ***REMOVED*** catch (err***REMOVED*** {
-    scope.reportError(err***REMOVED***;
-    return new FluentNone(`${name***REMOVED***(***REMOVED***`***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  if (!func) {
+    scope.reportError(new ReferenceError(`Unknown function: ${name}()`));
+    return new FluentNone(`${name}()`);
+  }
+  if (typeof func !== "function") {
+    scope.reportError(new TypeError(`Function ${name}() is not callable`));
+    return new FluentNone(`${name}()`);
+  }
+  try {
+    let resolved = getArguments(scope, args);
+    return func(resolved.positional, resolved.named);
+  } catch (err) {
+    scope.reportError(err);
+    return new FluentNone(`${name}()`);
+  }
+}
 function resolveSelectExpression(scope, {
   selector,
   variants,
   star
-***REMOVED******REMOVED*** {
-  let sel = resolveExpression(scope, selector***REMOVED***;
-  if (sel instanceof FluentNone***REMOVED*** {
-    return getDefault(scope, variants, star***REMOVED***;
-  ***REMOVED***
-  for (const variant of variants***REMOVED*** {
-    const key = resolveExpression(scope, variant.key***REMOVED***;
-    if (match(scope, sel, key***REMOVED******REMOVED*** {
-      return resolvePattern(scope, variant.value***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  return getDefault(scope, variants, star***REMOVED***;
-***REMOVED***
-function resolveComplexPattern(scope, ptn***REMOVED*** {
-  if (scope.dirty.has(ptn***REMOVED******REMOVED*** {
-    scope.reportError(new RangeError("Cyclic reference"***REMOVED******REMOVED***;
-    return new FluentNone(***REMOVED***;
-  ***REMOVED***
-  scope.dirty.add(ptn***REMOVED***;
+}) {
+  let sel = resolveExpression(scope, selector);
+  if (sel instanceof FluentNone) {
+    return getDefault(scope, variants, star);
+  }
+  for (const variant of variants) {
+    const key = resolveExpression(scope, variant.key);
+    if (match(scope, sel, key)) {
+      return resolvePattern(scope, variant.value);
+    }
+  }
+  return getDefault(scope, variants, star);
+}
+function resolveComplexPattern(scope, ptn) {
+  if (scope.dirty.has(ptn)) {
+    scope.reportError(new RangeError("Cyclic reference"));
+    return new FluentNone();
+  }
+  scope.dirty.add(ptn);
   const result = [];
   const useIsolating = scope.bundle._useIsolating && ptn.length > 1;
-  for (const elem of ptn***REMOVED*** {
-    if (typeof elem === "string"***REMOVED*** {
-      result.push(scope.bundle._transform(elem***REMOVED******REMOVED***;
+  for (const elem of ptn) {
+    if (typeof elem === "string") {
+      result.push(scope.bundle._transform(elem));
       continue;
-    ***REMOVED***
+    }
     scope.placeables++;
-    if (scope.placeables > MAX_PLACEABLES***REMOVED*** {
-      scope.dirty.delete(ptn***REMOVED***;
-      throw new RangeError(`Too many placeables expanded: ${scope.placeables***REMOVED***, ` + `max allowed is ${MAX_PLACEABLES***REMOVED***`***REMOVED***;
-    ***REMOVED***
-    if (useIsolating***REMOVED*** {
-      result.push(FSI***REMOVED***;
-    ***REMOVED***
-    result.push(resolveExpression(scope, elem***REMOVED***.toString(scope***REMOVED******REMOVED***;
-    if (useIsolating***REMOVED*** {
-      result.push(PDI***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  scope.dirty.delete(ptn***REMOVED***;
-  return result.join(""***REMOVED***;
-***REMOVED***
-function resolvePattern(scope, value***REMOVED*** {
-  if (typeof value === "string"***REMOVED*** {
-    return scope.bundle._transform(value***REMOVED***;
-  ***REMOVED***
-  return resolveComplexPattern(scope, value***REMOVED***;
-***REMOVED***
+    if (scope.placeables > MAX_PLACEABLES) {
+      scope.dirty.delete(ptn);
+      throw new RangeError(`Too many placeables expanded: ${scope.placeables}, ` + `max allowed is ${MAX_PLACEABLES}`);
+    }
+    if (useIsolating) {
+      result.push(FSI);
+    }
+    result.push(resolveExpression(scope, elem).toString(scope));
+    if (useIsolating) {
+      result.push(PDI);
+    }
+  }
+  scope.dirty.delete(ptn);
+  return result.join("");
+}
+function resolvePattern(scope, value) {
+  if (typeof value === "string") {
+    return scope.bundle._transform(value);
+  }
+  return resolveComplexPattern(scope, value);
+}
 ;// ./node_modules/@fluent/bundle/esm/scope.js
 class Scope {
-  constructor(bundle, errors, args***REMOVED*** {
-    this.dirty = new WeakSet(***REMOVED***;
+  constructor(bundle, errors, args) {
+    this.dirty = new WeakSet();
     this.params = null;
     this.placeables = 0;
     this.bundle = bundle;
     this.errors = errors;
     this.args = args;
-  ***REMOVED***
-  reportError(error***REMOVED*** {
-    if (!this.errors || !(error instanceof Error***REMOVED******REMOVED*** {
-  ***REMOVED***;
-    ***REMOVED***
-    this.errors.push(error***REMOVED***;
-  ***REMOVED***
-  memoizeIntlObject(ctor, opts***REMOVED*** {
-    let cache = this.bundle._intls.get(ctor***REMOVED***;
-    if (!cache***REMOVED*** {
-      cache = {***REMOVED***;
-      this.bundle._intls.set(ctor, cache***REMOVED***;
-    ***REMOVED***
-    let id = JSON.stringify(opts***REMOVED***;
-    if (!cache[id]***REMOVED*** {
-      cache[id] = new ctor(this.bundle.locales, opts***REMOVED***;
-    ***REMOVED***
+  }
+  reportError(error) {
+    if (!this.errors || !(error instanceof Error)) {
+      throw error;
+    }
+    this.errors.push(error);
+  }
+  memoizeIntlObject(ctor, opts) {
+    let cache = this.bundle._intls.get(ctor);
+    if (!cache) {
+      cache = {};
+      this.bundle._intls.set(ctor, cache);
+    }
+    let id = JSON.stringify(opts);
+    if (!cache[id]) {
+      cache[id] = new ctor(this.bundle.locales, opts);
+    }
     return cache[id];
-  ***REMOVED***
-***REMOVED***
+  }
+}
 ;// ./node_modules/@fluent/bundle/esm/builtins.js
 
-function values(opts, allowed***REMOVED*** {
-  const unwrapped = Object.create(null***REMOVED***;
-  for (const [name, opt] of Object.entries(opts***REMOVED******REMOVED*** {
-    if (allowed.includes(name***REMOVED******REMOVED*** {
-      unwrapped[name] = opt.valueOf(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+function values(opts, allowed) {
+  const unwrapped = Object.create(null);
+  for (const [name, opt] of Object.entries(opts)) {
+    if (allowed.includes(name)) {
+      unwrapped[name] = opt.valueOf();
+    }
+  }
   return unwrapped;
-***REMOVED***
+}
 const NUMBER_ALLOWED = ["unitDisplay", "currencyDisplay", "useGrouping", "minimumIntegerDigits", "minimumFractionDigits", "maximumFractionDigits", "minimumSignificantDigits", "maximumSignificantDigits"];
-function NUMBER(args, opts***REMOVED*** {
+function NUMBER(args, opts) {
   let arg = args[0];
-  if (arg instanceof FluentNone***REMOVED*** {
-    return new FluentNone(`NUMBER(${arg.valueOf(***REMOVED******REMOVED******REMOVED***`***REMOVED***;
-  ***REMOVED***
-  if (arg instanceof FluentNumber***REMOVED*** {
-    return new FluentNumber(arg.valueOf(***REMOVED***, {
+  if (arg instanceof FluentNone) {
+    return new FluentNone(`NUMBER(${arg.valueOf()})`);
+  }
+  if (arg instanceof FluentNumber) {
+    return new FluentNumber(arg.valueOf(), {
       ...arg.opts,
-      ...values(opts, NUMBER_ALLOWED***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  if (arg instanceof FluentDateTime***REMOVED*** {
-    return new FluentNumber(arg.valueOf(***REMOVED***, {
-      ...values(opts, NUMBER_ALLOWED***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  throw new TypeError("Invalid argument to NUMBER"***REMOVED***;
-***REMOVED***
+      ...values(opts, NUMBER_ALLOWED)
+    });
+  }
+  if (arg instanceof FluentDateTime) {
+    return new FluentNumber(arg.valueOf(), {
+      ...values(opts, NUMBER_ALLOWED)
+    });
+  }
+  throw new TypeError("Invalid argument to NUMBER");
+}
 const DATETIME_ALLOWED = ["dateStyle", "timeStyle", "fractionalSecondDigits", "dayPeriod", "hour12", "weekday", "era", "year", "month", "day", "hour", "minute", "second", "timeZoneName"];
-function DATETIME(args, opts***REMOVED*** {
+function DATETIME(args, opts) {
   let arg = args[0];
-  if (arg instanceof FluentNone***REMOVED*** {
-    return new FluentNone(`DATETIME(${arg.valueOf(***REMOVED******REMOVED******REMOVED***`***REMOVED***;
-  ***REMOVED***
-  if (arg instanceof FluentDateTime***REMOVED*** {
-    return new FluentDateTime(arg.valueOf(***REMOVED***, {
+  if (arg instanceof FluentNone) {
+    return new FluentNone(`DATETIME(${arg.valueOf()})`);
+  }
+  if (arg instanceof FluentDateTime) {
+    return new FluentDateTime(arg.valueOf(), {
       ...arg.opts,
-      ...values(opts, DATETIME_ALLOWED***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  if (arg instanceof FluentNumber***REMOVED*** {
-    return new FluentDateTime(arg.valueOf(***REMOVED***, {
-      ...values(opts, DATETIME_ALLOWED***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  throw new TypeError("Invalid argument to DATETIME"***REMOVED***;
-***REMOVED***
+      ...values(opts, DATETIME_ALLOWED)
+    });
+  }
+  if (arg instanceof FluentNumber) {
+    return new FluentDateTime(arg.valueOf(), {
+      ...values(opts, DATETIME_ALLOWED)
+    });
+  }
+  throw new TypeError("Invalid argument to DATETIME");
+}
 ;// ./node_modules/@fluent/bundle/esm/memoizer.js
-const cache = new Map(***REMOVED***;
-function getMemoizerForLocale(locales***REMOVED*** {
-  const stringLocale = Array.isArray(locales***REMOVED*** ? locales.join(" "***REMOVED*** : locales;
-  let memoizer = cache.get(stringLocale***REMOVED***;
-  if (memoizer === undefined***REMOVED*** {
-    memoizer = new Map(***REMOVED***;
-    cache.set(stringLocale, memoizer***REMOVED***;
-  ***REMOVED***
+const cache = new Map();
+function getMemoizerForLocale(locales) {
+  const stringLocale = Array.isArray(locales) ? locales.join(" ") : locales;
+  let memoizer = cache.get(stringLocale);
+  if (memoizer === undefined) {
+    memoizer = new Map();
+    cache.set(stringLocale, memoizer);
+  }
   return memoizer;
-***REMOVED***
+}
 ;// ./node_modules/@fluent/bundle/esm/bundle.js
 
 
@@ -1915,82 +1915,82 @@ class FluentBundle {
     functions,
     useIsolating = true,
     transform = v => v
-  ***REMOVED*** = {***REMOVED******REMOVED*** {
-    this._terms = new Map(***REMOVED***;
-    this._messages = new Map(***REMOVED***;
-    this.locales = Array.isArray(locales***REMOVED*** ? locales : [locales];
+  } = {}) {
+    this._terms = new Map();
+    this._messages = new Map();
+    this.locales = Array.isArray(locales) ? locales : [locales];
     this._functions = {
       NUMBER: NUMBER,
       DATETIME: DATETIME,
       ...functions
-    ***REMOVED***;
+    };
     this._useIsolating = useIsolating;
     this._transform = transform;
-    this._intls = getMemoizerForLocale(locales***REMOVED***;
-  ***REMOVED***
-  hasMessage(id***REMOVED*** {
-    return this._messages.has(id***REMOVED***;
-  ***REMOVED***
-  getMessage(id***REMOVED*** {
-    return this._messages.get(id***REMOVED***;
-  ***REMOVED***
+    this._intls = getMemoizerForLocale(locales);
+  }
+  hasMessage(id) {
+    return this._messages.has(id);
+  }
+  getMessage(id) {
+    return this._messages.get(id);
+  }
   addResource(res, {
     allowOverrides = false
-  ***REMOVED*** = {***REMOVED******REMOVED*** {
+  } = {}) {
     const errors = [];
-    for (let i = 0; i < res.body.length; i++***REMOVED*** {
+    for (let i = 0; i < res.body.length; i++) {
       let entry = res.body[i];
-      if (entry.id.startsWith("-"***REMOVED******REMOVED*** {
-        if (allowOverrides === false && this._terms.has(entry.id***REMOVED******REMOVED*** {
-          errors.push(new Error(`Attempt to override an existing term: "${entry.id***REMOVED***"`***REMOVED******REMOVED***;
+      if (entry.id.startsWith("-")) {
+        if (allowOverrides === false && this._terms.has(entry.id)) {
+          errors.push(new Error(`Attempt to override an existing term: "${entry.id}"`));
           continue;
-        ***REMOVED***
-        this._terms.set(entry.id, entry***REMOVED***;
-      ***REMOVED*** else {
-        if (allowOverrides === false && this._messages.has(entry.id***REMOVED******REMOVED*** {
-          errors.push(new Error(`Attempt to override an existing message: "${entry.id***REMOVED***"`***REMOVED******REMOVED***;
+        }
+        this._terms.set(entry.id, entry);
+      } else {
+        if (allowOverrides === false && this._messages.has(entry.id)) {
+          errors.push(new Error(`Attempt to override an existing message: "${entry.id}"`));
           continue;
-        ***REMOVED***
-        this._messages.set(entry.id, entry***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
+        }
+        this._messages.set(entry.id, entry);
+      }
+    }
     return errors;
-  ***REMOVED***
-  formatPattern(pattern, args = null, errors = null***REMOVED*** {
-    if (typeof pattern === "string"***REMOVED*** {
-      return this._transform(pattern***REMOVED***;
-    ***REMOVED***
-    let scope = new Scope(this, errors, args***REMOVED***;
-  ***REMOVED***
-      let value = resolveComplexPattern(scope, pattern***REMOVED***;
-      return value.toString(scope***REMOVED***;
-    ***REMOVED*** catch (err***REMOVED*** {
-      if (scope.errors && err instanceof Error***REMOVED*** {
-        scope.errors.push(err***REMOVED***;
-        return new FluentNone(***REMOVED***.toString(scope***REMOVED***;
-      ***REMOVED***
+  }
+  formatPattern(pattern, args = null, errors = null) {
+    if (typeof pattern === "string") {
+      return this._transform(pattern);
+    }
+    let scope = new Scope(this, errors, args);
+    try {
+      let value = resolveComplexPattern(scope, pattern);
+      return value.toString(scope);
+    } catch (err) {
+      if (scope.errors && err instanceof Error) {
+        scope.errors.push(err);
+        return new FluentNone().toString(scope);
+      }
       throw err;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 ;// ./node_modules/@fluent/bundle/esm/resource.js
-const RE_MESSAGE_START = /^(-?[a-zA-Z][\w-]****REMOVED*** *= */gm;
-const RE_ATTRIBUTE_START = /\.([a-zA-Z][\w-]****REMOVED*** *= */y;
+const RE_MESSAGE_START = /^(-?[a-zA-Z][\w-]*) *= */gm;
+const RE_ATTRIBUTE_START = /\.([a-zA-Z][\w-]*) *= */y;
 const RE_VARIANT_START = /\*?\[/y;
-const RE_NUMBER_LITERAL = /(-?[0-9]+(?:\.([0-9]+***REMOVED******REMOVED***?***REMOVED***/y;
-const RE_IDENTIFIER = /([a-zA-Z][\w-]****REMOVED***/y;
-const RE_REFERENCE = /([$-]***REMOVED***?([a-zA-Z][\w-]****REMOVED***(?:\.([a-zA-Z][\w-]****REMOVED******REMOVED***?/y;
+const RE_NUMBER_LITERAL = /(-?[0-9]+(?:\.([0-9]+))?)/y;
+const RE_IDENTIFIER = /([a-zA-Z][\w-]*)/y;
+const RE_REFERENCE = /([$-])?([a-zA-Z][\w-]*)(?:\.([a-zA-Z][\w-]*))?/y;
 const RE_FUNCTION_NAME = /^[A-Z][A-Z0-9_-]*$/;
-const RE_TEXT_RUN = /([^{***REMOVED***\n\r]+***REMOVED***/y;
-const RE_STRING_RUN = /([^\\"\n\r]****REMOVED***/y;
-const RE_STRING_ESCAPE = /\\([\\"]***REMOVED***/y;
-const RE_UNICODE_ESCAPE = /\\u([a-fA-F0-9]{4***REMOVED******REMOVED***|\\U([a-fA-F0-9]{6***REMOVED******REMOVED***/y;
+const RE_TEXT_RUN = /([^{}\n\r]+)/y;
+const RE_STRING_RUN = /([^\\"\n\r]*)/y;
+const RE_STRING_ESCAPE = /\\([\\"])/y;
+const RE_UNICODE_ESCAPE = /\\u([a-fA-F0-9]{4})|\\U([a-fA-F0-9]{6})/y;
 const RE_LEADING_NEWLINES = /^\n+/;
 const RE_TRAILING_SPACES = / +$/;
 const RE_BLANK_LINES = / *\r?\n/g;
-const RE_INDENT = /( ****REMOVED***$/;
+const RE_INDENT = /( *)$/;
 const TOKEN_BRACE_OPEN = /{\s*/y;
-const TOKEN_BRACE_CLOSE = /\s****REMOVED***/y;
+const TOKEN_BRACE_CLOSE = /\s*}/y;
 const TOKEN_BRACKET_OPEN = /\[\s*/y;
 const TOKEN_BRACKET_CLOSE = /\s*] */y;
 const TOKEN_PAREN_OPEN = /\s*\(\s*/y;
@@ -1999,359 +1999,359 @@ const TOKEN_COLON = /\s*:\s*/y;
 const TOKEN_COMMA = /\s*,?\s*/y;
 const TOKEN_BLANK = /\s+/y;
 class FluentResource {
-  constructor(source***REMOVED*** {
+  constructor(source) {
     this.body = [];
     RE_MESSAGE_START.lastIndex = 0;
     let cursor = 0;
-    while (true***REMOVED*** {
-      let next = RE_MESSAGE_START.exec(source***REMOVED***;
-      if (next === null***REMOVED*** {
+    while (true) {
+      let next = RE_MESSAGE_START.exec(source);
+      if (next === null) {
         break;
-      ***REMOVED***
+      }
       cursor = RE_MESSAGE_START.lastIndex;
-    ***REMOVED***
-        this.body.push(parseMessage(next[1]***REMOVED******REMOVED***;
-      ***REMOVED*** catch (err***REMOVED*** {
-        if (err instanceof SyntaxError***REMOVED*** {
+      try {
+        this.body.push(parseMessage(next[1]));
+      } catch (err) {
+        if (err instanceof SyntaxError) {
           continue;
-        ***REMOVED***
+        }
         throw err;
-      ***REMOVED***
-    ***REMOVED***
-    function test(re***REMOVED*** {
+      }
+    }
+    function test(re) {
       re.lastIndex = cursor;
-      return re.test(source***REMOVED***;
-    ***REMOVED***
-    function consumeChar(char, errorClass***REMOVED*** {
-      if (source[cursor] === char***REMOVED*** {
+      return re.test(source);
+    }
+    function consumeChar(char, errorClass) {
+      if (source[cursor] === char) {
         cursor++;
         return true;
-      ***REMOVED***
-      if (errorClass***REMOVED*** {
-        throw new errorClass(`Expected ${char***REMOVED***`***REMOVED***;
-      ***REMOVED***
+      }
+      if (errorClass) {
+        throw new errorClass(`Expected ${char}`);
+      }
       return false;
-    ***REMOVED***
-    function consumeToken(re, errorClass***REMOVED*** {
-      if (test(re***REMOVED******REMOVED*** {
+    }
+    function consumeToken(re, errorClass) {
+      if (test(re)) {
         cursor = re.lastIndex;
         return true;
-      ***REMOVED***
-      if (errorClass***REMOVED*** {
-        throw new errorClass(`Expected ${re.toString(***REMOVED******REMOVED***`***REMOVED***;
-      ***REMOVED***
+      }
+      if (errorClass) {
+        throw new errorClass(`Expected ${re.toString()}`);
+      }
       return false;
-    ***REMOVED***
-    function match(re***REMOVED*** {
+    }
+    function match(re) {
       re.lastIndex = cursor;
-      let result = re.exec(source***REMOVED***;
-      if (result === null***REMOVED*** {
-        throw new SyntaxError(`Expected ${re.toString(***REMOVED******REMOVED***`***REMOVED***;
-      ***REMOVED***
+      let result = re.exec(source);
+      if (result === null) {
+        throw new SyntaxError(`Expected ${re.toString()}`);
+      }
       cursor = re.lastIndex;
       return result;
-    ***REMOVED***
-    function match1(re***REMOVED*** {
-      return match(re***REMOVED***[1];
-    ***REMOVED***
-    function parseMessage(id***REMOVED*** {
-      let value = parsePattern(***REMOVED***;
-      let attributes = parseAttributes(***REMOVED***;
-      if (value === null && Object.keys(attributes***REMOVED***.length === 0***REMOVED*** {
-        throw new SyntaxError("Expected message value or attributes"***REMOVED***;
-      ***REMOVED***
-  ***REMOVED***
+    }
+    function match1(re) {
+      return match(re)[1];
+    }
+    function parseMessage(id) {
+      let value = parsePattern();
+      let attributes = parseAttributes();
+      if (value === null && Object.keys(attributes).length === 0) {
+        throw new SyntaxError("Expected message value or attributes");
+      }
+      return {
         id,
         value,
         attributes
-      ***REMOVED***;
-    ***REMOVED***
-    function parseAttributes(***REMOVED*** {
-      let attrs = Object.create(null***REMOVED***;
-      while (test(RE_ATTRIBUTE_START***REMOVED******REMOVED*** {
-        let name = match1(RE_ATTRIBUTE_START***REMOVED***;
-        let value = parsePattern(***REMOVED***;
-        if (value === null***REMOVED*** {
-          throw new SyntaxError("Expected attribute value"***REMOVED***;
-        ***REMOVED***
+      };
+    }
+    function parseAttributes() {
+      let attrs = Object.create(null);
+      while (test(RE_ATTRIBUTE_START)) {
+        let name = match1(RE_ATTRIBUTE_START);
+        let value = parsePattern();
+        if (value === null) {
+          throw new SyntaxError("Expected attribute value");
+        }
         attrs[name] = value;
-      ***REMOVED***
+      }
       return attrs;
-    ***REMOVED***
-    function parsePattern(***REMOVED*** {
+    }
+    function parsePattern() {
       let first;
-      if (test(RE_TEXT_RUN***REMOVED******REMOVED*** {
-        first = match1(RE_TEXT_RUN***REMOVED***;
-      ***REMOVED***
-      if (source[cursor] === "{" || source[cursor] === "***REMOVED***"***REMOVED*** {
-        return parsePatternElements(first ? [first] : [], Infinity***REMOVED***;
-      ***REMOVED***
-      let indent = parseIndent(***REMOVED***;
-      if (indent***REMOVED*** {
-        if (first***REMOVED*** {
-          return parsePatternElements([first, indent], indent.length***REMOVED***;
-        ***REMOVED***
-        indent.value = trim(indent.value, RE_LEADING_NEWLINES***REMOVED***;
-        return parsePatternElements([indent], indent.length***REMOVED***;
-      ***REMOVED***
-      if (first***REMOVED*** {
-        return trim(first, RE_TRAILING_SPACES***REMOVED***;
-      ***REMOVED***
+      if (test(RE_TEXT_RUN)) {
+        first = match1(RE_TEXT_RUN);
+      }
+      if (source[cursor] === "{" || source[cursor] === "}") {
+        return parsePatternElements(first ? [first] : [], Infinity);
+      }
+      let indent = parseIndent();
+      if (indent) {
+        if (first) {
+          return parsePatternElements([first, indent], indent.length);
+        }
+        indent.value = trim(indent.value, RE_LEADING_NEWLINES);
+        return parsePatternElements([indent], indent.length);
+      }
+      if (first) {
+        return trim(first, RE_TRAILING_SPACES);
+      }
       return null;
-    ***REMOVED***
-    function parsePatternElements(elements = [], commonIndent***REMOVED*** {
-      while (true***REMOVED*** {
-        if (test(RE_TEXT_RUN***REMOVED******REMOVED*** {
-          elements.push(match1(RE_TEXT_RUN***REMOVED******REMOVED***;
+    }
+    function parsePatternElements(elements = [], commonIndent) {
+      while (true) {
+        if (test(RE_TEXT_RUN)) {
+          elements.push(match1(RE_TEXT_RUN));
           continue;
-        ***REMOVED***
-        if (source[cursor] === "{"***REMOVED*** {
-          elements.push(parsePlaceable(***REMOVED******REMOVED***;
+        }
+        if (source[cursor] === "{") {
+          elements.push(parsePlaceable());
           continue;
-        ***REMOVED***
-        if (source[cursor] === "***REMOVED***"***REMOVED*** {
-          throw new SyntaxError("Unbalanced closing brace"***REMOVED***;
-        ***REMOVED***
-        let indent = parseIndent(***REMOVED***;
-        if (indent***REMOVED*** {
-          elements.push(indent***REMOVED***;
-          commonIndent = Math.min(commonIndent, indent.length***REMOVED***;
+        }
+        if (source[cursor] === "}") {
+          throw new SyntaxError("Unbalanced closing brace");
+        }
+        let indent = parseIndent();
+        if (indent) {
+          elements.push(indent);
+          commonIndent = Math.min(commonIndent, indent.length);
           continue;
-        ***REMOVED***
+        }
         break;
-      ***REMOVED***
+      }
       let lastIndex = elements.length - 1;
       let lastElement = elements[lastIndex];
-      if (typeof lastElement === "string"***REMOVED*** {
-        elements[lastIndex] = trim(lastElement, RE_TRAILING_SPACES***REMOVED***;
-      ***REMOVED***
+      if (typeof lastElement === "string") {
+        elements[lastIndex] = trim(lastElement, RE_TRAILING_SPACES);
+      }
       let baked = [];
-      for (let element of elements***REMOVED*** {
-        if (element instanceof Indent***REMOVED*** {
-          element = element.value.slice(0, element.value.length - commonIndent***REMOVED***;
-        ***REMOVED***
-        if (element***REMOVED*** {
-          baked.push(element***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
+      for (let element of elements) {
+        if (element instanceof Indent) {
+          element = element.value.slice(0, element.value.length - commonIndent);
+        }
+        if (element) {
+          baked.push(element);
+        }
+      }
       return baked;
-    ***REMOVED***
-    function parsePlaceable(***REMOVED*** {
-      consumeToken(TOKEN_BRACE_OPEN, SyntaxError***REMOVED***;
-      let selector = parseInlineExpression(***REMOVED***;
-      if (consumeToken(TOKEN_BRACE_CLOSE***REMOVED******REMOVED*** {
+    }
+    function parsePlaceable() {
+      consumeToken(TOKEN_BRACE_OPEN, SyntaxError);
+      let selector = parseInlineExpression();
+      if (consumeToken(TOKEN_BRACE_CLOSE)) {
         return selector;
-      ***REMOVED***
-      if (consumeToken(TOKEN_ARROW***REMOVED******REMOVED*** {
-        let variants = parseVariants(***REMOVED***;
-        consumeToken(TOKEN_BRACE_CLOSE, SyntaxError***REMOVED***;
-    ***REMOVED***
+      }
+      if (consumeToken(TOKEN_ARROW)) {
+        let variants = parseVariants();
+        consumeToken(TOKEN_BRACE_CLOSE, SyntaxError);
+        return {
           type: "select",
           selector,
           ...variants
-        ***REMOVED***;
-      ***REMOVED***
-      throw new SyntaxError("Unclosed placeable"***REMOVED***;
-    ***REMOVED***
-    function parseInlineExpression(***REMOVED*** {
-      if (source[cursor] === "{"***REMOVED*** {
-        return parsePlaceable(***REMOVED***;
-      ***REMOVED***
-      if (test(RE_REFERENCE***REMOVED******REMOVED*** {
-        let [, sigil, name, attr = null] = match(RE_REFERENCE***REMOVED***;
-        if (sigil === "$"***REMOVED*** {
-      ***REMOVED***
+        };
+      }
+      throw new SyntaxError("Unclosed placeable");
+    }
+    function parseInlineExpression() {
+      if (source[cursor] === "{") {
+        return parsePlaceable();
+      }
+      if (test(RE_REFERENCE)) {
+        let [, sigil, name, attr = null] = match(RE_REFERENCE);
+        if (sigil === "$") {
+          return {
             type: "var",
             name
-          ***REMOVED***;
-        ***REMOVED***
-        if (consumeToken(TOKEN_PAREN_OPEN***REMOVED******REMOVED*** {
-          let args = parseArguments(***REMOVED***;
-          if (sigil === "-"***REMOVED*** {
-        ***REMOVED***
+          };
+        }
+        if (consumeToken(TOKEN_PAREN_OPEN)) {
+          let args = parseArguments();
+          if (sigil === "-") {
+            return {
               type: "term",
               name,
               attr,
               args
-            ***REMOVED***;
-          ***REMOVED***
-          if (RE_FUNCTION_NAME.test(name***REMOVED******REMOVED*** {
-        ***REMOVED***
+            };
+          }
+          if (RE_FUNCTION_NAME.test(name)) {
+            return {
               type: "func",
               name,
               args
-            ***REMOVED***;
-          ***REMOVED***
-          throw new SyntaxError("Function names must be all upper-case"***REMOVED***;
-        ***REMOVED***
-        if (sigil === "-"***REMOVED*** {
-      ***REMOVED***
+            };
+          }
+          throw new SyntaxError("Function names must be all upper-case");
+        }
+        if (sigil === "-") {
+          return {
             type: "term",
             name,
             attr,
             args: []
-          ***REMOVED***;
-        ***REMOVED***
-    ***REMOVED***
+          };
+        }
+        return {
           type: "mesg",
           name,
           attr
-        ***REMOVED***;
-      ***REMOVED***
-      return parseLiteral(***REMOVED***;
-    ***REMOVED***
-    function parseArguments(***REMOVED*** {
+        };
+      }
+      return parseLiteral();
+    }
+    function parseArguments() {
       let args = [];
-      while (true***REMOVED*** {
-        switch (source[cursor]***REMOVED*** {
-          case "***REMOVED***":
+      while (true) {
+        switch (source[cursor]) {
+          case ")":
             cursor++;
             return args;
           case undefined:
-            throw new SyntaxError("Unclosed argument list"***REMOVED***;
-        ***REMOVED***
-        args.push(parseArgument(***REMOVED******REMOVED***;
-        consumeToken(TOKEN_COMMA***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    function parseArgument(***REMOVED*** {
-      let expr = parseInlineExpression(***REMOVED***;
-      if (expr.type !== "mesg"***REMOVED*** {
+            throw new SyntaxError("Unclosed argument list");
+        }
+        args.push(parseArgument());
+        consumeToken(TOKEN_COMMA);
+      }
+    }
+    function parseArgument() {
+      let expr = parseInlineExpression();
+      if (expr.type !== "mesg") {
         return expr;
-      ***REMOVED***
-      if (consumeToken(TOKEN_COLON***REMOVED******REMOVED*** {
-    ***REMOVED***
+      }
+      if (consumeToken(TOKEN_COLON)) {
+        return {
           type: "narg",
           name: expr.name,
-          value: parseLiteral(***REMOVED***
-        ***REMOVED***;
-      ***REMOVED***
+          value: parseLiteral()
+        };
+      }
       return expr;
-    ***REMOVED***
-    function parseVariants(***REMOVED*** {
+    }
+    function parseVariants() {
       let variants = [];
       let count = 0;
       let star;
-      while (test(RE_VARIANT_START***REMOVED******REMOVED*** {
-        if (consumeChar("*"***REMOVED******REMOVED*** {
+      while (test(RE_VARIANT_START)) {
+        if (consumeChar("*")) {
           star = count;
-        ***REMOVED***
-        let key = parseVariantKey(***REMOVED***;
-        let value = parsePattern(***REMOVED***;
-        if (value === null***REMOVED*** {
-          throw new SyntaxError("Expected variant value"***REMOVED***;
-        ***REMOVED***
+        }
+        let key = parseVariantKey();
+        let value = parsePattern();
+        if (value === null) {
+          throw new SyntaxError("Expected variant value");
+        }
         variants[count++] = {
           key,
           value
-        ***REMOVED***;
-      ***REMOVED***
-      if (count === 0***REMOVED*** {
+        };
+      }
+      if (count === 0) {
         return null;
-      ***REMOVED***
-      if (star === undefined***REMOVED*** {
-        throw new SyntaxError("Expected default variant"***REMOVED***;
-      ***REMOVED***
-  ***REMOVED***
+      }
+      if (star === undefined) {
+        throw new SyntaxError("Expected default variant");
+      }
+      return {
         variants,
         star
-      ***REMOVED***;
-    ***REMOVED***
-    function parseVariantKey(***REMOVED*** {
-      consumeToken(TOKEN_BRACKET_OPEN, SyntaxError***REMOVED***;
+      };
+    }
+    function parseVariantKey() {
+      consumeToken(TOKEN_BRACKET_OPEN, SyntaxError);
       let key;
-      if (test(RE_NUMBER_LITERAL***REMOVED******REMOVED*** {
-        key = parseNumberLiteral(***REMOVED***;
-      ***REMOVED*** else {
+      if (test(RE_NUMBER_LITERAL)) {
+        key = parseNumberLiteral();
+      } else {
         key = {
           type: "str",
-          value: match1(RE_IDENTIFIER***REMOVED***
-        ***REMOVED***;
-      ***REMOVED***
-      consumeToken(TOKEN_BRACKET_CLOSE, SyntaxError***REMOVED***;
+          value: match1(RE_IDENTIFIER)
+        };
+      }
+      consumeToken(TOKEN_BRACKET_CLOSE, SyntaxError);
       return key;
-    ***REMOVED***
-    function parseLiteral(***REMOVED*** {
-      if (test(RE_NUMBER_LITERAL***REMOVED******REMOVED*** {
-        return parseNumberLiteral(***REMOVED***;
-      ***REMOVED***
-      if (source[cursor] === '"'***REMOVED*** {
-        return parseStringLiteral(***REMOVED***;
-      ***REMOVED***
-      throw new SyntaxError("Invalid expression"***REMOVED***;
-    ***REMOVED***
-    function parseNumberLiteral(***REMOVED*** {
-      let [, value, fraction = ""] = match(RE_NUMBER_LITERAL***REMOVED***;
+    }
+    function parseLiteral() {
+      if (test(RE_NUMBER_LITERAL)) {
+        return parseNumberLiteral();
+      }
+      if (source[cursor] === '"') {
+        return parseStringLiteral();
+      }
+      throw new SyntaxError("Invalid expression");
+    }
+    function parseNumberLiteral() {
+      let [, value, fraction = ""] = match(RE_NUMBER_LITERAL);
       let precision = fraction.length;
-  ***REMOVED***
+      return {
         type: "num",
-        value: parseFloat(value***REMOVED***,
+        value: parseFloat(value),
         precision
-      ***REMOVED***;
-    ***REMOVED***
-    function parseStringLiteral(***REMOVED*** {
-      consumeChar('"', SyntaxError***REMOVED***;
+      };
+    }
+    function parseStringLiteral() {
+      consumeChar('"', SyntaxError);
       let value = "";
-      while (true***REMOVED*** {
-        value += match1(RE_STRING_RUN***REMOVED***;
-        if (source[cursor] === "\\"***REMOVED*** {
-          value += parseEscapeSequence(***REMOVED***;
+      while (true) {
+        value += match1(RE_STRING_RUN);
+        if (source[cursor] === "\\") {
+          value += parseEscapeSequence();
           continue;
-        ***REMOVED***
-        if (consumeChar('"'***REMOVED******REMOVED*** {
-      ***REMOVED***
+        }
+        if (consumeChar('"')) {
+          return {
             type: "str",
             value
-          ***REMOVED***;
-        ***REMOVED***
-        throw new SyntaxError("Unclosed string literal"***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    function parseEscapeSequence(***REMOVED*** {
-      if (test(RE_STRING_ESCAPE***REMOVED******REMOVED*** {
-        return match1(RE_STRING_ESCAPE***REMOVED***;
-      ***REMOVED***
-      if (test(RE_UNICODE_ESCAPE***REMOVED******REMOVED*** {
-        let [, codepoint4, codepoint6] = match(RE_UNICODE_ESCAPE***REMOVED***;
-        let codepoint = parseInt(codepoint4 || codepoint6, 16***REMOVED***;
-        return codepoint <= 0xd7ff || 0xe000 <= codepoint ? String.fromCodePoint(codepoint***REMOVED*** : "�";
-      ***REMOVED***
-      throw new SyntaxError("Unknown escape sequence"***REMOVED***;
-    ***REMOVED***
-    function parseIndent(***REMOVED*** {
+          };
+        }
+        throw new SyntaxError("Unclosed string literal");
+      }
+    }
+    function parseEscapeSequence() {
+      if (test(RE_STRING_ESCAPE)) {
+        return match1(RE_STRING_ESCAPE);
+      }
+      if (test(RE_UNICODE_ESCAPE)) {
+        let [, codepoint4, codepoint6] = match(RE_UNICODE_ESCAPE);
+        let codepoint = parseInt(codepoint4 || codepoint6, 16);
+        return codepoint <= 0xd7ff || 0xe000 <= codepoint ? String.fromCodePoint(codepoint) : "�";
+      }
+      throw new SyntaxError("Unknown escape sequence");
+    }
+    function parseIndent() {
       let start = cursor;
-      consumeToken(TOKEN_BLANK***REMOVED***;
-      switch (source[cursor]***REMOVED*** {
+      consumeToken(TOKEN_BLANK);
+      switch (source[cursor]) {
         case ".":
         case "[":
         case "*":
-        case "***REMOVED***":
+        case "}":
         case undefined:
           return false;
         case "{":
-          return makeIndent(source.slice(start, cursor***REMOVED******REMOVED***;
-      ***REMOVED***
-      if (source[cursor - 1] === " "***REMOVED*** {
-        return makeIndent(source.slice(start, cursor***REMOVED******REMOVED***;
-      ***REMOVED***
+          return makeIndent(source.slice(start, cursor));
+      }
+      if (source[cursor - 1] === " ") {
+        return makeIndent(source.slice(start, cursor));
+      }
       return false;
-    ***REMOVED***
-    function trim(text, re***REMOVED*** {
-      return text.replace(re, ""***REMOVED***;
-    ***REMOVED***
-    function makeIndent(blank***REMOVED*** {
-      let value = blank.replace(RE_BLANK_LINES, "\n"***REMOVED***;
-      let length = RE_INDENT.exec(blank***REMOVED***[1].length;
-      return new Indent(value, length***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+    function trim(text, re) {
+      return text.replace(re, "");
+    }
+    function makeIndent(blank) {
+      let value = blank.replace(RE_BLANK_LINES, "\n");
+      let length = RE_INDENT.exec(blank)[1].length;
+      return new Indent(value, length);
+    }
+  }
+}
 class Indent {
-  constructor(value, length***REMOVED*** {
+  constructor(value, length) {
     this.value = value;
     this.length = length;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 ;// ./node_modules/@fluent/bundle/esm/index.js
 
 
@@ -2360,7 +2360,7 @@ class Indent {
 const reOverlay = /<|&#?\w+;/;
 const TEXT_LEVEL_ELEMENTS = {
   "http://www.w3.org/1999/xhtml": ["em", "strong", "small", "s", "cite", "q", "dfn", "abbr", "data", "time", "code", "var", "samp", "kbd", "sub", "sup", "i", "b", "u", "mark", "bdi", "bdo", "span", "br", "wbr"]
-***REMOVED***;
+};
 const LOCALIZABLE_ATTRIBUTES = {
   "http://www.w3.org/1999/xhtml": {
     global: ["title", "aria-label", "aria-valuetext"],
@@ -2375,349 +2375,349 @@ const LOCALIZABLE_ATTRIBUTES = {
     img: ["alt"],
     textarea: ["placeholder"],
     th: ["abbr"]
-  ***REMOVED***,
+  },
   "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul": {
     global: ["accesskey", "aria-label", "aria-valuetext", "label", "title", "tooltiptext"],
     description: ["value"],
     key: ["key", "keycode"],
     label: ["value"],
     textbox: ["placeholder", "value"]
-  ***REMOVED***
-***REMOVED***;
-function translateElement(element, translation***REMOVED*** {
+  }
+};
+function translateElement(element, translation) {
   const {
     value
-  ***REMOVED*** = translation;
-  if (typeof value === "string"***REMOVED*** {
-    if (element.localName === "title" && element.namespaceURI === "http://www.w3.org/1999/xhtml"***REMOVED*** {
+  } = translation;
+  if (typeof value === "string") {
+    if (element.localName === "title" && element.namespaceURI === "http://www.w3.org/1999/xhtml") {
       element.textContent = value;
-    ***REMOVED*** else if (!reOverlay.test(value***REMOVED******REMOVED*** {
+    } else if (!reOverlay.test(value)) {
       element.textContent = value;
-    ***REMOVED*** else {
-      const templateElement = element.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "template"***REMOVED***;
+    } else {
+      const templateElement = element.ownerDocument.createElementNS("http://www.w3.org/1999/xhtml", "template");
       templateElement.innerHTML = value;
-      overlayChildNodes(templateElement.content, element***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  overlayAttributes(translation, element***REMOVED***;
-***REMOVED***
-function overlayChildNodes(fromFragment, toElement***REMOVED*** {
-  for (const childNode of fromFragment.childNodes***REMOVED*** {
-    if (childNode.nodeType === childNode.TEXT_NODE***REMOVED*** {
+      overlayChildNodes(templateElement.content, element);
+    }
+  }
+  overlayAttributes(translation, element);
+}
+function overlayChildNodes(fromFragment, toElement) {
+  for (const childNode of fromFragment.childNodes) {
+    if (childNode.nodeType === childNode.TEXT_NODE) {
       continue;
-    ***REMOVED***
-    if (childNode.hasAttribute("data-l10n-name"***REMOVED******REMOVED*** {
-      const sanitized = getNodeForNamedElement(toElement, childNode***REMOVED***;
-      fromFragment.replaceChild(sanitized, childNode***REMOVED***;
+    }
+    if (childNode.hasAttribute("data-l10n-name")) {
+      const sanitized = getNodeForNamedElement(toElement, childNode);
+      fromFragment.replaceChild(sanitized, childNode);
       continue;
-    ***REMOVED***
-    if (isElementAllowed(childNode***REMOVED******REMOVED*** {
-      const sanitized = createSanitizedElement(childNode***REMOVED***;
-      fromFragment.replaceChild(sanitized, childNode***REMOVED***;
+    }
+    if (isElementAllowed(childNode)) {
+      const sanitized = createSanitizedElement(childNode);
+      fromFragment.replaceChild(sanitized, childNode);
       continue;
-    ***REMOVED***
-    console.warn(`An element of forbidden type "${childNode.localName***REMOVED***" was found in ` + "the translation. Only safe text-level elements and elements with " + "data-l10n-name are allowed."***REMOVED***;
-    fromFragment.replaceChild(createTextNodeFromTextContent(childNode***REMOVED***, childNode***REMOVED***;
-  ***REMOVED***
+    }
+    console.warn(`An element of forbidden type "${childNode.localName}" was found in ` + "the translation. Only safe text-level elements and elements with " + "data-l10n-name are allowed.");
+    fromFragment.replaceChild(createTextNodeFromTextContent(childNode), childNode);
+  }
   toElement.textContent = "";
-  toElement.appendChild(fromFragment***REMOVED***;
-***REMOVED***
-function hasAttribute(attributes, name***REMOVED*** {
-  if (!attributes***REMOVED*** {
+  toElement.appendChild(fromFragment);
+}
+function hasAttribute(attributes, name) {
+  if (!attributes) {
     return false;
-  ***REMOVED***
-  for (let attr of attributes***REMOVED*** {
-    if (attr.name === name***REMOVED*** {
+  }
+  for (let attr of attributes) {
+    if (attr.name === name) {
       return true;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   return false;
-***REMOVED***
-function overlayAttributes(fromElement, toElement***REMOVED*** {
-  const explicitlyAllowed = toElement.hasAttribute("data-l10n-attrs"***REMOVED*** ? toElement.getAttribute("data-l10n-attrs"***REMOVED***.split(","***REMOVED***.map(i => i.trim(***REMOVED******REMOVED*** : null;
-  for (const attr of Array.from(toElement.attributes***REMOVED******REMOVED*** {
-    if (isAttrNameLocalizable(attr.name, toElement, explicitlyAllowed***REMOVED*** && !hasAttribute(fromElement.attributes, attr.name***REMOVED******REMOVED*** {
-      toElement.removeAttribute(attr.name***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  if (!fromElement.attributes***REMOVED*** {
+}
+function overlayAttributes(fromElement, toElement) {
+  const explicitlyAllowed = toElement.hasAttribute("data-l10n-attrs") ? toElement.getAttribute("data-l10n-attrs").split(",").map(i => i.trim()) : null;
+  for (const attr of Array.from(toElement.attributes)) {
+    if (isAttrNameLocalizable(attr.name, toElement, explicitlyAllowed) && !hasAttribute(fromElement.attributes, attr.name)) {
+      toElement.removeAttribute(attr.name);
+    }
+  }
+  if (!fromElement.attributes) {
     return;
-  ***REMOVED***
-  for (const attr of Array.from(fromElement.attributes***REMOVED******REMOVED*** {
-    if (isAttrNameLocalizable(attr.name, toElement, explicitlyAllowed***REMOVED*** && toElement.getAttribute(attr.name***REMOVED*** !== attr.value***REMOVED*** {
-      toElement.setAttribute(attr.name, attr.value***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
-function getNodeForNamedElement(sourceElement, translatedChild***REMOVED*** {
-  const childName = translatedChild.getAttribute("data-l10n-name"***REMOVED***;
-  const sourceChild = sourceElement.querySelector(`[data-l10n-name="${childName***REMOVED***"]`***REMOVED***;
-  if (!sourceChild***REMOVED*** {
-    console.warn(`An element named "${childName***REMOVED***" wasn't found in the source.`***REMOVED***;
-    return createTextNodeFromTextContent(translatedChild***REMOVED***;
-  ***REMOVED***
-  if (sourceChild.localName !== translatedChild.localName***REMOVED*** {
-    console.warn(`An element named "${childName***REMOVED***" was found in the translation ` + `but its type ${translatedChild.localName***REMOVED*** didn't match the ` + `element found in the source (${sourceChild.localName***REMOVED******REMOVED***.`***REMOVED***;
-    return createTextNodeFromTextContent(translatedChild***REMOVED***;
-  ***REMOVED***
-  sourceElement.removeChild(sourceChild***REMOVED***;
-  const clone = sourceChild.cloneNode(false***REMOVED***;
-  return shallowPopulateUsing(translatedChild, clone***REMOVED***;
-***REMOVED***
-function createSanitizedElement(element***REMOVED*** {
-  const clone = element.ownerDocument.createElement(element.localName***REMOVED***;
-  return shallowPopulateUsing(element, clone***REMOVED***;
-***REMOVED***
-function createTextNodeFromTextContent(element***REMOVED*** {
-  return element.ownerDocument.createTextNode(element.textContent***REMOVED***;
-***REMOVED***
-function isElementAllowed(element***REMOVED*** {
+  }
+  for (const attr of Array.from(fromElement.attributes)) {
+    if (isAttrNameLocalizable(attr.name, toElement, explicitlyAllowed) && toElement.getAttribute(attr.name) !== attr.value) {
+      toElement.setAttribute(attr.name, attr.value);
+    }
+  }
+}
+function getNodeForNamedElement(sourceElement, translatedChild) {
+  const childName = translatedChild.getAttribute("data-l10n-name");
+  const sourceChild = sourceElement.querySelector(`[data-l10n-name="${childName}"]`);
+  if (!sourceChild) {
+    console.warn(`An element named "${childName}" wasn't found in the source.`);
+    return createTextNodeFromTextContent(translatedChild);
+  }
+  if (sourceChild.localName !== translatedChild.localName) {
+    console.warn(`An element named "${childName}" was found in the translation ` + `but its type ${translatedChild.localName} didn't match the ` + `element found in the source (${sourceChild.localName}).`);
+    return createTextNodeFromTextContent(translatedChild);
+  }
+  sourceElement.removeChild(sourceChild);
+  const clone = sourceChild.cloneNode(false);
+  return shallowPopulateUsing(translatedChild, clone);
+}
+function createSanitizedElement(element) {
+  const clone = element.ownerDocument.createElement(element.localName);
+  return shallowPopulateUsing(element, clone);
+}
+function createTextNodeFromTextContent(element) {
+  return element.ownerDocument.createTextNode(element.textContent);
+}
+function isElementAllowed(element) {
   const allowed = TEXT_LEVEL_ELEMENTS[element.namespaceURI];
-  return allowed && allowed.includes(element.localName***REMOVED***;
-***REMOVED***
-function isAttrNameLocalizable(name, element, explicitlyAllowed = null***REMOVED*** {
-  if (explicitlyAllowed && explicitlyAllowed.includes(name***REMOVED******REMOVED*** {
+  return allowed && allowed.includes(element.localName);
+}
+function isAttrNameLocalizable(name, element, explicitlyAllowed = null) {
+  if (explicitlyAllowed && explicitlyAllowed.includes(name)) {
     return true;
-  ***REMOVED***
+  }
   const allowed = LOCALIZABLE_ATTRIBUTES[element.namespaceURI];
-  if (!allowed***REMOVED*** {
+  if (!allowed) {
     return false;
-  ***REMOVED***
-  const attrName = name.toLowerCase(***REMOVED***;
+  }
+  const attrName = name.toLowerCase();
   const elemName = element.localName;
-  if (allowed.global.includes(attrName***REMOVED******REMOVED*** {
+  if (allowed.global.includes(attrName)) {
     return true;
-  ***REMOVED***
-  if (!allowed[elemName]***REMOVED*** {
+  }
+  if (!allowed[elemName]) {
     return false;
-  ***REMOVED***
-  if (allowed[elemName].includes(attrName***REMOVED******REMOVED*** {
+  }
+  if (allowed[elemName].includes(attrName)) {
     return true;
-  ***REMOVED***
-  if (element.namespaceURI === "http://www.w3.org/1999/xhtml" && elemName === "input" && attrName === "value"***REMOVED*** {
-    const type = element.type.toLowerCase(***REMOVED***;
-    if (type === "submit" || type === "button" || type === "reset"***REMOVED*** {
+  }
+  if (element.namespaceURI === "http://www.w3.org/1999/xhtml" && elemName === "input" && attrName === "value") {
+    const type = element.type.toLowerCase();
+    if (type === "submit" || type === "button" || type === "reset") {
       return true;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   return false;
-***REMOVED***
-function shallowPopulateUsing(fromElement, toElement***REMOVED*** {
+}
+function shallowPopulateUsing(fromElement, toElement) {
   toElement.textContent = fromElement.textContent;
-  overlayAttributes(fromElement, toElement***REMOVED***;
+  overlayAttributes(fromElement, toElement);
   return toElement;
-***REMOVED***
+}
 ;// ./node_modules/cached-iterable/src/cached_iterable.mjs
 class CachedIterable extends Array {
-  static from(iterable***REMOVED*** {
-    if (iterable instanceof this***REMOVED*** {
+  static from(iterable) {
+    if (iterable instanceof this) {
       return iterable;
-    ***REMOVED***
-    return new this(iterable***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    }
+    return new this(iterable);
+  }
+}
 ;// ./node_modules/cached-iterable/src/cached_sync_iterable.mjs
 
 class CachedSyncIterable extends CachedIterable {
-  constructor(iterable***REMOVED*** {
-    super(***REMOVED***;
-    if (Symbol.iterator in Object(iterable***REMOVED******REMOVED*** {
-      this.iterator = iterable[Symbol.iterator](***REMOVED***;
-    ***REMOVED*** else {
-      throw new TypeError("Argument must implement the iteration protocol."***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  [Symbol.iterator](***REMOVED*** {
+  constructor(iterable) {
+    super();
+    if (Symbol.iterator in Object(iterable)) {
+      this.iterator = iterable[Symbol.iterator]();
+    } else {
+      throw new TypeError("Argument must implement the iteration protocol.");
+    }
+  }
+  [Symbol.iterator]() {
     const cached = this;
     let cur = 0;
-***REMOVED***
-      next(***REMOVED*** {
-        if (cached.length <= cur***REMOVED*** {
-          cached.push(cached.iterator.next(***REMOVED******REMOVED***;
-        ***REMOVED***
+    return {
+      next() {
+        if (cached.length <= cur) {
+          cached.push(cached.iterator.next());
+        }
         return cached[cur++];
-      ***REMOVED***
-    ***REMOVED***;
-  ***REMOVED***
-  touchNext(count = 1***REMOVED*** {
+      }
+    };
+  }
+  touchNext(count = 1) {
     let idx = 0;
-    while (idx++ < count***REMOVED*** {
+    while (idx++ < count) {
       const last = this[this.length - 1];
-      if (last && last.done***REMOVED*** {
+      if (last && last.done) {
         break;
-      ***REMOVED***
-      this.push(this.iterator.next(***REMOVED******REMOVED***;
-    ***REMOVED***
+      }
+      this.push(this.iterator.next());
+    }
     return this[this.length - 1];
-  ***REMOVED***
-***REMOVED***
+  }
+}
 ;// ./node_modules/cached-iterable/src/cached_async_iterable.mjs
 
 class CachedAsyncIterable extends CachedIterable {
-  constructor(iterable***REMOVED*** {
-    super(***REMOVED***;
-    if (Symbol.asyncIterator in Object(iterable***REMOVED******REMOVED*** {
-      this.iterator = iterable[Symbol.asyncIterator](***REMOVED***;
-    ***REMOVED*** else if (Symbol.iterator in Object(iterable***REMOVED******REMOVED*** {
-      this.iterator = iterable[Symbol.iterator](***REMOVED***;
-    ***REMOVED*** else {
-      throw new TypeError("Argument must implement the iteration protocol."***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  [Symbol.asyncIterator](***REMOVED*** {
+  constructor(iterable) {
+    super();
+    if (Symbol.asyncIterator in Object(iterable)) {
+      this.iterator = iterable[Symbol.asyncIterator]();
+    } else if (Symbol.iterator in Object(iterable)) {
+      this.iterator = iterable[Symbol.iterator]();
+    } else {
+      throw new TypeError("Argument must implement the iteration protocol.");
+    }
+  }
+  [Symbol.asyncIterator]() {
     const cached = this;
     let cur = 0;
-***REMOVED***
-      async next(***REMOVED*** {
-        if (cached.length <= cur***REMOVED*** {
-          cached.push(cached.iterator.next(***REMOVED******REMOVED***;
-        ***REMOVED***
+    return {
+      async next() {
+        if (cached.length <= cur) {
+          cached.push(cached.iterator.next());
+        }
         return cached[cur++];
-      ***REMOVED***
-    ***REMOVED***;
-  ***REMOVED***
-  async touchNext(count = 1***REMOVED*** {
+      }
+    };
+  }
+  async touchNext(count = 1) {
     let idx = 0;
-    while (idx++ < count***REMOVED*** {
+    while (idx++ < count) {
       const last = this[this.length - 1];
-      if (last && (await last***REMOVED***.done***REMOVED*** {
+      if (last && (await last).done) {
         break;
-      ***REMOVED***
-      this.push(this.iterator.next(***REMOVED******REMOVED***;
-    ***REMOVED***
+      }
+      this.push(this.iterator.next());
+    }
     return this[this.length - 1];
-  ***REMOVED***
-***REMOVED***
+  }
+}
 ;// ./node_modules/cached-iterable/src/index.mjs
 
 
 ;// ./node_modules/@fluent/dom/esm/localization.js
 
 class Localization {
-  constructor(resourceIds = [], generateBundles***REMOVED*** {
+  constructor(resourceIds = [], generateBundles) {
     this.resourceIds = resourceIds;
     this.generateBundles = generateBundles;
-    this.onChange(true***REMOVED***;
-  ***REMOVED***
-  addResourceIds(resourceIds, eager = false***REMOVED*** {
-    this.resourceIds.push(...resourceIds***REMOVED***;
-    this.onChange(eager***REMOVED***;
+    this.onChange(true);
+  }
+  addResourceIds(resourceIds, eager = false) {
+    this.resourceIds.push(...resourceIds);
+    this.onChange(eager);
     return this.resourceIds.length;
-  ***REMOVED***
-  removeResourceIds(resourceIds***REMOVED*** {
-    this.resourceIds = this.resourceIds.filter(r => !resourceIds.includes(r***REMOVED******REMOVED***;
-    this.onChange(***REMOVED***;
+  }
+  removeResourceIds(resourceIds) {
+    this.resourceIds = this.resourceIds.filter(r => !resourceIds.includes(r));
+    this.onChange();
     return this.resourceIds.length;
-  ***REMOVED***
-  async formatWithFallback(keys, method***REMOVED*** {
+  }
+  async formatWithFallback(keys, method) {
     const translations = [];
     let hasAtLeastOneBundle = false;
-    for await (const bundle of this.bundles***REMOVED*** {
+    for await (const bundle of this.bundles) {
       hasAtLeastOneBundle = true;
-      const missingIds = keysFromBundle(method, bundle, keys, translations***REMOVED***;
-      if (missingIds.size === 0***REMOVED*** {
+      const missingIds = keysFromBundle(method, bundle, keys, translations);
+      if (missingIds.size === 0) {
         break;
-      ***REMOVED***
-      if (typeof console !== "undefined"***REMOVED*** {
+      }
+      if (typeof console !== "undefined") {
         const locale = bundle.locales[0];
-        const ids = Array.from(missingIds***REMOVED***.join(", "***REMOVED***;
-        console.warn(`[fluent] Missing translations in ${locale***REMOVED***: ${ids***REMOVED***`***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    if (!hasAtLeastOneBundle && typeof console !== "undefined"***REMOVED*** {
+        const ids = Array.from(missingIds).join(", ");
+        console.warn(`[fluent] Missing translations in ${locale}: ${ids}`);
+      }
+    }
+    if (!hasAtLeastOneBundle && typeof console !== "undefined") {
       console.warn(`[fluent] Request for keys failed because no resource bundles got generated.
-  keys: ${JSON.stringify(keys***REMOVED******REMOVED***.
-  resourceIds: ${JSON.stringify(this.resourceIds***REMOVED******REMOVED***.`***REMOVED***;
-    ***REMOVED***
+  keys: ${JSON.stringify(keys)}.
+  resourceIds: ${JSON.stringify(this.resourceIds)}.`);
+    }
     return translations;
-  ***REMOVED***
-  formatMessages(keys***REMOVED*** {
-    return this.formatWithFallback(keys, messageFromBundle***REMOVED***;
-  ***REMOVED***
-  formatValues(keys***REMOVED*** {
-    return this.formatWithFallback(keys, valueFromBundle***REMOVED***;
-  ***REMOVED***
-  async formatValue(id, args***REMOVED*** {
+  }
+  formatMessages(keys) {
+    return this.formatWithFallback(keys, messageFromBundle);
+  }
+  formatValues(keys) {
+    return this.formatWithFallback(keys, valueFromBundle);
+  }
+  async formatValue(id, args) {
     const [val] = await this.formatValues([{
       id,
       args
-    ***REMOVED***]***REMOVED***;
+    }]);
     return val;
-  ***REMOVED***
-  handleEvent(***REMOVED*** {
-    this.onChange(***REMOVED***;
-  ***REMOVED***
-  onChange(eager = false***REMOVED*** {
-    this.bundles = CachedAsyncIterable.from(this.generateBundles(this.resourceIds***REMOVED******REMOVED***;
-    if (eager***REMOVED*** {
-      this.bundles.touchNext(2***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
-function valueFromBundle(bundle, errors, message, args***REMOVED*** {
-  if (message.value***REMOVED*** {
-    return bundle.formatPattern(message.value, args, errors***REMOVED***;
-  ***REMOVED***
+  }
+  handleEvent() {
+    this.onChange();
+  }
+  onChange(eager = false) {
+    this.bundles = CachedAsyncIterable.from(this.generateBundles(this.resourceIds));
+    if (eager) {
+      this.bundles.touchNext(2);
+    }
+  }
+}
+function valueFromBundle(bundle, errors, message, args) {
+  if (message.value) {
+    return bundle.formatPattern(message.value, args, errors);
+  }
   return null;
-***REMOVED***
-function messageFromBundle(bundle, errors, message, args***REMOVED*** {
+}
+function messageFromBundle(bundle, errors, message, args) {
   const formatted = {
     value: null,
     attributes: null
-  ***REMOVED***;
-  if (message.value***REMOVED*** {
-    formatted.value = bundle.formatPattern(message.value, args, errors***REMOVED***;
-  ***REMOVED***
-  let attrNames = Object.keys(message.attributes***REMOVED***;
-  if (attrNames.length > 0***REMOVED*** {
-    formatted.attributes = new Array(attrNames.length***REMOVED***;
-    for (let [i, name] of attrNames.entries(***REMOVED******REMOVED*** {
-      let value = bundle.formatPattern(message.attributes[name], args, errors***REMOVED***;
+  };
+  if (message.value) {
+    formatted.value = bundle.formatPattern(message.value, args, errors);
+  }
+  let attrNames = Object.keys(message.attributes);
+  if (attrNames.length > 0) {
+    formatted.attributes = new Array(attrNames.length);
+    for (let [i, name] of attrNames.entries()) {
+      let value = bundle.formatPattern(message.attributes[name], args, errors);
       formatted.attributes[i] = {
         name,
         value
-      ***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+      };
+    }
+  }
   return formatted;
-***REMOVED***
-function keysFromBundle(method, bundle, keys, translations***REMOVED*** {
+}
+function keysFromBundle(method, bundle, keys, translations) {
   const messageErrors = [];
-  const missingIds = new Set(***REMOVED***;
+  const missingIds = new Set();
   keys.forEach(({
     id,
     args
-  ***REMOVED***, i***REMOVED*** => {
-    if (translations[i] !== undefined***REMOVED*** {
+  }, i) => {
+    if (translations[i] !== undefined) {
       return;
-    ***REMOVED***
-    let message = bundle.getMessage(id***REMOVED***;
-    if (message***REMOVED*** {
+    }
+    let message = bundle.getMessage(id);
+    if (message) {
       messageErrors.length = 0;
-      translations[i] = method(bundle, messageErrors, message, args***REMOVED***;
-      if (messageErrors.length > 0 && typeof console !== "undefined"***REMOVED*** {
+      translations[i] = method(bundle, messageErrors, message, args);
+      if (messageErrors.length > 0 && typeof console !== "undefined") {
         const locale = bundle.locales[0];
-        const errors = messageErrors.join(", "***REMOVED***;
-        console.warn(`[fluent][resolver] errors in ${locale***REMOVED***/${id***REMOVED***: ${errors***REMOVED***.`***REMOVED***;
-      ***REMOVED***
-    ***REMOVED*** else {
-      missingIds.add(id***REMOVED***;
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
+        const errors = messageErrors.join(", ");
+        console.warn(`[fluent][resolver] errors in ${locale}/${id}: ${errors}.`);
+      }
+    } else {
+      missingIds.add(id);
+    }
+  });
   return missingIds;
-***REMOVED***
+}
 ;// ./node_modules/@fluent/dom/esm/dom_localization.js
 
 
 const L10NID_ATTR_NAME = "data-l10n-id";
 const L10NARGS_ATTR_NAME = "data-l10n-args";
-const L10N_ELEMENT_QUERY = `[${L10NID_ATTR_NAME***REMOVED***]`;
+const L10N_ELEMENT_QUERY = `[${L10NID_ATTR_NAME}]`;
 class DOMLocalization extends Localization {
-  constructor(resourceIds, generateBundles***REMOVED*** {
-    super(resourceIds, generateBundles***REMOVED***;
-    this.roots = new Set(***REMOVED***;
+  constructor(resourceIds, generateBundles) {
+    super(resourceIds, generateBundles);
+    this.roots = new Set();
     this.pendingrAF = null;
-    this.pendingElements = new Set(***REMOVED***;
+    this.pendingElements = new Set();
     this.windowElement = null;
     this.mutationObserver = null;
     this.observerConfig = {
@@ -2726,149 +2726,149 @@ class DOMLocalization extends Localization {
       childList: true,
       subtree: true,
       attributeFilter: [L10NID_ATTR_NAME, L10NARGS_ATTR_NAME]
-    ***REMOVED***;
-  ***REMOVED***
-  onChange(eager = false***REMOVED*** {
-    super.onChange(eager***REMOVED***;
-    if (this.roots***REMOVED*** {
-      this.translateRoots(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  setAttributes(element, id, args***REMOVED*** {
-    element.setAttribute(L10NID_ATTR_NAME, id***REMOVED***;
-    if (args***REMOVED*** {
-      element.setAttribute(L10NARGS_ATTR_NAME, JSON.stringify(args***REMOVED******REMOVED***;
-    ***REMOVED*** else {
-      element.removeAttribute(L10NARGS_ATTR_NAME***REMOVED***;
-    ***REMOVED***
+    };
+  }
+  onChange(eager = false) {
+    super.onChange(eager);
+    if (this.roots) {
+      this.translateRoots();
+    }
+  }
+  setAttributes(element, id, args) {
+    element.setAttribute(L10NID_ATTR_NAME, id);
+    if (args) {
+      element.setAttribute(L10NARGS_ATTR_NAME, JSON.stringify(args));
+    } else {
+      element.removeAttribute(L10NARGS_ATTR_NAME);
+    }
     return element;
-  ***REMOVED***
-  getAttributes(element***REMOVED*** {
-***REMOVED***
-      id: element.getAttribute(L10NID_ATTR_NAME***REMOVED***,
-      args: JSON.parse(element.getAttribute(L10NARGS_ATTR_NAME***REMOVED*** || null***REMOVED***
-    ***REMOVED***;
-  ***REMOVED***
-  connectRoot(newRoot***REMOVED*** {
-    for (const root of this.roots***REMOVED*** {
-      if (root === newRoot || root.contains(newRoot***REMOVED*** || newRoot.contains(root***REMOVED******REMOVED*** {
-        throw new Error("Cannot add a root that overlaps with existing root."***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    if (this.windowElement***REMOVED*** {
-      if (this.windowElement !== newRoot.ownerDocument.defaultView***REMOVED*** {
+  }
+  getAttributes(element) {
+    return {
+      id: element.getAttribute(L10NID_ATTR_NAME),
+      args: JSON.parse(element.getAttribute(L10NARGS_ATTR_NAME) || null)
+    };
+  }
+  connectRoot(newRoot) {
+    for (const root of this.roots) {
+      if (root === newRoot || root.contains(newRoot) || newRoot.contains(root)) {
+        throw new Error("Cannot add a root that overlaps with existing root.");
+      }
+    }
+    if (this.windowElement) {
+      if (this.windowElement !== newRoot.ownerDocument.defaultView) {
         throw new Error(`Cannot connect a root:
-          DOMLocalization already has a root from a different window.`***REMOVED***;
-      ***REMOVED***
-    ***REMOVED*** else {
+          DOMLocalization already has a root from a different window.`);
+      }
+    } else {
       this.windowElement = newRoot.ownerDocument.defaultView;
-      this.mutationObserver = new this.windowElement.MutationObserver(mutations => this.translateMutations(mutations***REMOVED******REMOVED***;
-    ***REMOVED***
-    this.roots.add(newRoot***REMOVED***;
-    this.mutationObserver.observe(newRoot, this.observerConfig***REMOVED***;
-  ***REMOVED***
-  disconnectRoot(root***REMOVED*** {
-    this.roots.delete(root***REMOVED***;
-    this.pauseObserving(***REMOVED***;
-    if (this.roots.size === 0***REMOVED*** {
+      this.mutationObserver = new this.windowElement.MutationObserver(mutations => this.translateMutations(mutations));
+    }
+    this.roots.add(newRoot);
+    this.mutationObserver.observe(newRoot, this.observerConfig);
+  }
+  disconnectRoot(root) {
+    this.roots.delete(root);
+    this.pauseObserving();
+    if (this.roots.size === 0) {
       this.mutationObserver = null;
-      if (this.windowElement && this.pendingrAF***REMOVED*** {
-        this.windowElement.cancelAnimationFrame(this.pendingrAF***REMOVED***;
-      ***REMOVED***
+      if (this.windowElement && this.pendingrAF) {
+        this.windowElement.cancelAnimationFrame(this.pendingrAF);
+      }
       this.windowElement = null;
       this.pendingrAF = null;
-      this.pendingElements.clear(***REMOVED***;
+      this.pendingElements.clear();
       return true;
-    ***REMOVED***
-    this.resumeObserving(***REMOVED***;
+    }
+    this.resumeObserving();
     return false;
-  ***REMOVED***
-  translateRoots(***REMOVED*** {
-    const roots = Array.from(this.roots***REMOVED***;
-    return Promise.all(roots.map(root => this.translateFragment(root***REMOVED******REMOVED******REMOVED***;
-  ***REMOVED***
-  pauseObserving(***REMOVED*** {
-    if (!this.mutationObserver***REMOVED*** {
+  }
+  translateRoots() {
+    const roots = Array.from(this.roots);
+    return Promise.all(roots.map(root => this.translateFragment(root)));
+  }
+  pauseObserving() {
+    if (!this.mutationObserver) {
       return;
-    ***REMOVED***
-    this.translateMutations(this.mutationObserver.takeRecords(***REMOVED******REMOVED***;
-    this.mutationObserver.disconnect(***REMOVED***;
-  ***REMOVED***
-  resumeObserving(***REMOVED*** {
-    if (!this.mutationObserver***REMOVED*** {
+    }
+    this.translateMutations(this.mutationObserver.takeRecords());
+    this.mutationObserver.disconnect();
+  }
+  resumeObserving() {
+    if (!this.mutationObserver) {
       return;
-    ***REMOVED***
-    for (const root of this.roots***REMOVED*** {
-      this.mutationObserver.observe(root, this.observerConfig***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  translateMutations(mutations***REMOVED*** {
-    for (const mutation of mutations***REMOVED*** {
-      switch (mutation.type***REMOVED*** {
+    }
+    for (const root of this.roots) {
+      this.mutationObserver.observe(root, this.observerConfig);
+    }
+  }
+  translateMutations(mutations) {
+    for (const mutation of mutations) {
+      switch (mutation.type) {
         case "attributes":
-          if (mutation.target.hasAttribute("data-l10n-id"***REMOVED******REMOVED*** {
-            this.pendingElements.add(mutation.target***REMOVED***;
-          ***REMOVED***
+          if (mutation.target.hasAttribute("data-l10n-id")) {
+            this.pendingElements.add(mutation.target);
+          }
           break;
         case "childList":
-          for (const addedNode of mutation.addedNodes***REMOVED*** {
-            if (addedNode.nodeType === addedNode.ELEMENT_NODE***REMOVED*** {
-              if (addedNode.childElementCount***REMOVED*** {
-                for (const element of this.getTranslatables(addedNode***REMOVED******REMOVED*** {
-                  this.pendingElements.add(element***REMOVED***;
-                ***REMOVED***
-              ***REMOVED*** else if (addedNode.hasAttribute(L10NID_ATTR_NAME***REMOVED******REMOVED*** {
-                this.pendingElements.add(addedNode***REMOVED***;
-              ***REMOVED***
-            ***REMOVED***
-          ***REMOVED***
+          for (const addedNode of mutation.addedNodes) {
+            if (addedNode.nodeType === addedNode.ELEMENT_NODE) {
+              if (addedNode.childElementCount) {
+                for (const element of this.getTranslatables(addedNode)) {
+                  this.pendingElements.add(element);
+                }
+              } else if (addedNode.hasAttribute(L10NID_ATTR_NAME)) {
+                this.pendingElements.add(addedNode);
+              }
+            }
+          }
           break;
-      ***REMOVED***
-    ***REMOVED***
-    if (this.pendingElements.size > 0***REMOVED*** {
-      if (this.pendingrAF === null***REMOVED*** {
-        this.pendingrAF = this.windowElement.requestAnimationFrame((***REMOVED*** => {
-          this.translateElements(Array.from(this.pendingElements***REMOVED******REMOVED***;
-          this.pendingElements.clear(***REMOVED***;
+      }
+    }
+    if (this.pendingElements.size > 0) {
+      if (this.pendingrAF === null) {
+        this.pendingrAF = this.windowElement.requestAnimationFrame(() => {
+          this.translateElements(Array.from(this.pendingElements));
+          this.pendingElements.clear();
           this.pendingrAF = null;
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  translateFragment(frag***REMOVED*** {
-    return this.translateElements(this.getTranslatables(frag***REMOVED******REMOVED***;
-  ***REMOVED***
-  async translateElements(elements***REMOVED*** {
-    if (!elements.length***REMOVED*** {
+        });
+      }
+    }
+  }
+  translateFragment(frag) {
+    return this.translateElements(this.getTranslatables(frag));
+  }
+  async translateElements(elements) {
+    if (!elements.length) {
       return undefined;
-    ***REMOVED***
-    const keys = elements.map(this.getKeysForElement***REMOVED***;
-    const translations = await this.formatMessages(keys***REMOVED***;
-    return this.applyTranslations(elements, translations***REMOVED***;
-  ***REMOVED***
-  applyTranslations(elements, translations***REMOVED*** {
-    this.pauseObserving(***REMOVED***;
-    for (let i = 0; i < elements.length; i++***REMOVED*** {
-      if (translations[i] !== undefined***REMOVED*** {
-        translateElement(elements[i], translations[i]***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    this.resumeObserving(***REMOVED***;
-  ***REMOVED***
-  getTranslatables(element***REMOVED*** {
-    const nodes = Array.from(element.querySelectorAll(L10N_ELEMENT_QUERY***REMOVED******REMOVED***;
-    if (typeof element.hasAttribute === "function" && element.hasAttribute(L10NID_ATTR_NAME***REMOVED******REMOVED*** {
-      nodes.push(element***REMOVED***;
-    ***REMOVED***
+    }
+    const keys = elements.map(this.getKeysForElement);
+    const translations = await this.formatMessages(keys);
+    return this.applyTranslations(elements, translations);
+  }
+  applyTranslations(elements, translations) {
+    this.pauseObserving();
+    for (let i = 0; i < elements.length; i++) {
+      if (translations[i] !== undefined) {
+        translateElement(elements[i], translations[i]);
+      }
+    }
+    this.resumeObserving();
+  }
+  getTranslatables(element) {
+    const nodes = Array.from(element.querySelectorAll(L10N_ELEMENT_QUERY));
+    if (typeof element.hasAttribute === "function" && element.hasAttribute(L10NID_ATTR_NAME)) {
+      nodes.push(element);
+    }
     return nodes;
-  ***REMOVED***
-  getKeysForElement(element***REMOVED*** {
-***REMOVED***
-      id: element.getAttribute(L10NID_ATTR_NAME***REMOVED***,
-      args: JSON.parse(element.getAttribute(L10NARGS_ATTR_NAME***REMOVED*** || null***REMOVED***
-    ***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  }
+  getKeysForElement(element) {
+    return {
+      id: element.getAttribute(L10NID_ATTR_NAME),
+      args: JSON.parse(element.getAttribute(L10NARGS_ATTR_NAME) || null)
+    };
+  }
+}
 ;// ./node_modules/@fluent/dom/esm/index.js
 
 
@@ -2881,66 +2881,66 @@ class L10n {
   constructor({
     lang,
     isRTL
-  ***REMOVED***, l10n = null***REMOVED*** {
-    this.#lang = L10n.#fixupLangCode(lang***REMOVED***;
+  }, l10n = null) {
+    this.#lang = L10n.#fixupLangCode(lang);
     this.#l10n = l10n;
-    this.#dir = isRTL ?? L10n.#isRTL(this.#lang***REMOVED*** ? "rtl" : "ltr";
-  ***REMOVED***
-  _setL10n(l10n***REMOVED*** {
+    this.#dir = isRTL ?? L10n.#isRTL(this.#lang) ? "rtl" : "ltr";
+  }
+  _setL10n(l10n) {
     this.#l10n = l10n;
-  ***REMOVED***
-  getLanguage(***REMOVED*** {
+  }
+  getLanguage() {
     return this.#lang;
-  ***REMOVED***
-  getDirection(***REMOVED*** {
+  }
+  getDirection() {
     return this.#dir;
-  ***REMOVED***
-  async get(ids, args = null, fallback***REMOVED*** {
-    if (Array.isArray(ids***REMOVED******REMOVED*** {
+  }
+  async get(ids, args = null, fallback) {
+    if (Array.isArray(ids)) {
       ids = ids.map(id => ({
         id
-      ***REMOVED******REMOVED******REMOVED***;
-      const messages = await this.#l10n.formatMessages(ids***REMOVED***;
-      return messages.map(message => message.value***REMOVED***;
-    ***REMOVED***
+      }));
+      const messages = await this.#l10n.formatMessages(ids);
+      return messages.map(message => message.value);
+    }
     const messages = await this.#l10n.formatMessages([{
       id: ids,
       args
-    ***REMOVED***]***REMOVED***;
+    }]);
     return messages[0]?.value || fallback;
-  ***REMOVED***
-  async translate(element***REMOVED*** {
-    (this.#elements ||= new Set(***REMOVED******REMOVED***.add(element***REMOVED***;
-  ***REMOVED***
-      this.#l10n.connectRoot(element***REMOVED***;
-      await this.#l10n.translateRoots(***REMOVED***;
-    ***REMOVED*** catch { ***REMOVED***
-  ***REMOVED***
-  async translateOnce(element***REMOVED*** {
-  ***REMOVED***
-      await this.#l10n.translateElements([element]***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      console.error("translateOnce:", ex***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async destroy(***REMOVED*** {
-    if (this.#elements***REMOVED*** {
-      for (const element of this.#elements***REMOVED*** {
-        this.#l10n.disconnectRoot(element***REMOVED***;
-      ***REMOVED***
-      this.#elements.clear(***REMOVED***;
+  }
+  async translate(element) {
+    (this.#elements ||= new Set()).add(element);
+    try {
+      this.#l10n.connectRoot(element);
+      await this.#l10n.translateRoots();
+    } catch { }
+  }
+  async translateOnce(element) {
+    try {
+      await this.#l10n.translateElements([element]);
+    } catch (ex) {
+      console.error("translateOnce:", ex);
+    }
+  }
+  async destroy() {
+    if (this.#elements) {
+      for (const element of this.#elements) {
+        this.#l10n.disconnectRoot(element);
+      }
+      this.#elements.clear();
       this.#elements = null;
-    ***REMOVED***
-    this.#l10n.pauseObserving(***REMOVED***;
-  ***REMOVED***
-  pause(***REMOVED*** {
-    this.#l10n.pauseObserving(***REMOVED***;
-  ***REMOVED***
-  resume(***REMOVED*** {
-    this.#l10n.resumeObserving(***REMOVED***;
-  ***REMOVED***
-  static #fixupLangCode(langCode***REMOVED*** {
-    langCode = langCode?.toLowerCase(***REMOVED*** || "en-us";
+    }
+    this.#l10n.pauseObserving();
+  }
+  pause() {
+    this.#l10n.pauseObserving();
+  }
+  resume() {
+    this.#l10n.resumeObserving();
+  }
+  static #fixupLangCode(langCode) {
+    langCode = langCode?.toLowerCase() || "en-us";
     const PARTIAL_LANG_CODES = {
       en: "en-us",
       es: "es-es",
@@ -2956,14 +2956,14 @@ class L10n {
       pt: "pt-pt",
       sv: "sv-se",
       zh: "zh-cn"
-    ***REMOVED***;
+    };
     return PARTIAL_LANG_CODES[langCode] || langCode;
-  ***REMOVED***
-  static #isRTL(lang***REMOVED*** {
-    const shortCode = lang.split("-", 1***REMOVED***[0];
-    return ["ar", "he", "fa", "ps", "ur"].includes(shortCode***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  }
+  static #isRTL(lang) {
+    const shortCode = lang.split("-", 1)[0];
+    return ["ar", "he", "fa", "ps", "ur"].includes(shortCode);
+  }
+}
 const GenericL10n = null;
 
 ;// ./web/genericl10n.js
@@ -2971,129 +2971,129 @@ const GenericL10n = null;
 
 
 
-function createBundle(lang, text***REMOVED*** {
-  const resource = new FluentResource(text***REMOVED***;
-  const bundle = new FluentBundle(lang***REMOVED***;
-  const errors = bundle.addResource(resource***REMOVED***;
-  if (errors.length***REMOVED*** {
-    console.error("L10n errors", errors***REMOVED***;
-  ***REMOVED***
+function createBundle(lang, text) {
+  const resource = new FluentResource(text);
+  const bundle = new FluentBundle(lang);
+  const errors = bundle.addResource(resource);
+  if (errors.length) {
+    console.error("L10n errors", errors);
+  }
   return bundle;
-***REMOVED***
+}
 class genericl10n_GenericL10n extends L10n {
-  constructor(lang***REMOVED*** {
+  constructor(lang) {
     super({
       lang
-    ***REMOVED******REMOVED***;
-    const generateBundles = !lang ? genericl10n_GenericL10n.#generateBundlesFallback.bind(genericl10n_GenericL10n, this.getLanguage(***REMOVED******REMOVED*** : genericl10n_GenericL10n.#generateBundles.bind(genericl10n_GenericL10n, "en-us", this.getLanguage(***REMOVED******REMOVED***;
-    this._setL10n(new DOMLocalization([], generateBundles***REMOVED******REMOVED***;
-  ***REMOVED***
-  static async *#generateBundles(defaultLang, baseLang***REMOVED*** {
+    });
+    const generateBundles = !lang ? genericl10n_GenericL10n.#generateBundlesFallback.bind(genericl10n_GenericL10n, this.getLanguage()) : genericl10n_GenericL10n.#generateBundles.bind(genericl10n_GenericL10n, "en-us", this.getLanguage());
+    this._setL10n(new DOMLocalization([], generateBundles));
+  }
+  static async *#generateBundles(defaultLang, baseLang) {
     const {
       baseURL,
       paths
-    ***REMOVED*** = await this.#getPaths(***REMOVED***;
+    } = await this.#getPaths();
     const langs = [baseLang];
-    if (defaultLang !== baseLang***REMOVED*** {
-      const shortLang = baseLang.split("-", 1***REMOVED***[0];
-      if (shortLang !== baseLang***REMOVED*** {
-        langs.push(shortLang***REMOVED***;
-      ***REMOVED***
-      langs.push(defaultLang***REMOVED***;
-    ***REMOVED***
-    for (const lang of langs***REMOVED*** {
-      const bundle = await this.#createBundle(lang, baseURL, paths***REMOVED***;
-      if (bundle***REMOVED*** {
+    if (defaultLang !== baseLang) {
+      const shortLang = baseLang.split("-", 1)[0];
+      if (shortLang !== baseLang) {
+        langs.push(shortLang);
+      }
+      langs.push(defaultLang);
+    }
+    for (const lang of langs) {
+      const bundle = await this.#createBundle(lang, baseURL, paths);
+      if (bundle) {
         yield bundle;
-      ***REMOVED*** else if (lang === "en-us"***REMOVED*** {
-        yield this.#createBundleFallback(lang***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  static async #createBundle(lang, baseURL, paths***REMOVED*** {
+      } else if (lang === "en-us") {
+        yield this.#createBundleFallback(lang);
+      }
+    }
+  }
+  static async #createBundle(lang, baseURL, paths) {
     const path = paths[lang];
-    if (!path***REMOVED*** {
+    if (!path) {
       return null;
-    ***REMOVED***
-    const url = new URL(path, baseURL***REMOVED***;
-    const text = await fetchData(url, "text"***REMOVED***;
-    return createBundle(lang, text***REMOVED***;
-  ***REMOVED***
-  static async #getPaths(***REMOVED*** {
-  ***REMOVED***
+    }
+    const url = new URL(path, baseURL);
+    const text = await fetchData(url, "text");
+    return createBundle(lang, text);
+  }
+  static async #getPaths() {
+    try {
       const {
         href
-      ***REMOVED*** = document.querySelector(`link[type="application/l10n"]`***REMOVED***;
-      const paths = await fetchData(href, "json"***REMOVED***;
-  ***REMOVED***
-        baseURL: href.replace(/[^/]*$/, ""***REMOVED*** || "./",
+      } = document.querySelector(`link[type="application/l10n"]`);
+      const paths = await fetchData(href, "json");
+      return {
+        baseURL: href.replace(/[^/]*$/, "") || "./",
         paths
-      ***REMOVED***;
-    ***REMOVED*** catch { ***REMOVED***
-***REMOVED***
+      };
+    } catch { }
+    return {
       baseURL: "./",
-      paths: Object.create(null***REMOVED***
-    ***REMOVED***;
-  ***REMOVED***
-  static async *#generateBundlesFallback(lang***REMOVED*** {
-    yield this.#createBundleFallback(lang***REMOVED***;
-  ***REMOVED***
-  static async #createBundleFallback(lang***REMOVED*** {
-    const text = "pdfjs-previous-button =\n    .title = Previous Page\npdfjs-previous-button-label = Previous\npdfjs-next-button =\n    .title = Next Page\npdfjs-next-button-label = Next\npdfjs-page-input =\n    .title = Page\npdfjs-of-pages = of { $pagesCount ***REMOVED***\npdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** of { $pagesCount ***REMOVED******REMOVED***\npdfjs-zoom-out-button =\n    .title = Zoom Out\npdfjs-zoom-out-button-label = Zoom Out\npdfjs-zoom-in-button =\n    .title = Zoom In\npdfjs-zoom-in-button-label = Zoom In\npdfjs-zoom-select =\n    .title = Zoom\npdfjs-presentation-mode-button =\n    .title = Switch to Presentation Mode\npdfjs-presentation-mode-button-label = Presentation Mode\npdfjs-open-file-button =\n    .title = Open File\npdfjs-open-file-button-label = Open\npdfjs-print-button =\n    .title = Print\npdfjs-print-button-label = Print\npdfjs-save-button =\n    .title = Save\npdfjs-save-button-label = Save\npdfjs-download-button =\n    .title = Download\npdfjs-download-button-label = Download\npdfjs-bookmark-button =\n    .title = Current Page (View URL from Current Page***REMOVED***\npdfjs-bookmark-button-label = Current Page\npdfjs-tools-button =\n    .title = Tools\npdfjs-tools-button-label = Tools\npdfjs-first-page-button =\n    .title = Go to First Page\npdfjs-first-page-button-label = Go to First Page\npdfjs-last-page-button =\n    .title = Go to Last Page\npdfjs-last-page-button-label = Go to Last Page\npdfjs-page-rotate-cw-button =\n    .title = Rotate Clockwise\npdfjs-page-rotate-cw-button-label = Rotate Clockwise\npdfjs-page-rotate-ccw-button =\n    .title = Rotate Counterclockwise\npdfjs-page-rotate-ccw-button-label = Rotate Counterclockwise\npdfjs-cursor-text-select-tool-button =\n    .title = Enable Text Selection Tool\npdfjs-cursor-text-select-tool-button-label = Text Selection Tool\npdfjs-cursor-hand-tool-button =\n    .title = Enable Hand Tool\npdfjs-cursor-hand-tool-button-label = Hand Tool\npdfjs-scroll-page-button =\n    .title = Use Page Scrolling\npdfjs-scroll-page-button-label = Page Scrolling\npdfjs-scroll-vertical-button =\n    .title = Use Vertical Scrolling\npdfjs-scroll-vertical-button-label = Vertical Scrolling\npdfjs-scroll-horizontal-button =\n    .title = Use Horizontal Scrolling\npdfjs-scroll-horizontal-button-label = Horizontal Scrolling\npdfjs-scroll-wrapped-button =\n    .title = Use Wrapped Scrolling\npdfjs-scroll-wrapped-button-label = Wrapped Scrolling\npdfjs-spread-none-button =\n    .title = Do not join page spreads\npdfjs-spread-none-button-label = No Spreads\npdfjs-spread-odd-button =\n    .title = Join page spreads starting with odd-numbered pages\npdfjs-spread-odd-button-label = Odd Spreads\npdfjs-spread-even-button =\n    .title = Join page spreads starting with even-numbered pages\npdfjs-spread-even-button-label = Even Spreads\npdfjs-document-properties-button =\n    .title = Document Properties\u2026\npdfjs-document-properties-button-label = Document Properties\u2026\npdfjs-document-properties-file-name = File name:\npdfjs-document-properties-file-size = File size:\npdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** bytes***REMOVED***\npdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** bytes***REMOVED***\npdfjs-document-properties-title = Title:\npdfjs-document-properties-author = Author:\npdfjs-document-properties-subject = Subject:\npdfjs-document-properties-keywords = Keywords:\npdfjs-document-properties-creation-date = Creation Date:\npdfjs-document-properties-modification-date = Modification Date:\npdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: \"short\", timeStyle: \"medium\"***REMOVED*** ***REMOVED***\npdfjs-document-properties-creator = Creator:\npdfjs-document-properties-producer = PDF Producer:\npdfjs-document-properties-version = PDF Version:\npdfjs-document-properties-page-count = Page Count:\npdfjs-document-properties-page-size = Page Size:\npdfjs-document-properties-page-size-unit-inches = in\npdfjs-document-properties-page-size-unit-millimeters = mm\npdfjs-document-properties-page-size-orientation-portrait = portrait\npdfjs-document-properties-page-size-orientation-landscape = landscape\npdfjs-document-properties-page-size-name-a-three = A3\npdfjs-document-properties-page-size-name-a-four = A4\npdfjs-document-properties-page-size-name-letter = Letter\npdfjs-document-properties-page-size-name-legal = Legal\npdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** \xD7 { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***\npdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** \xD7 { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***\npdfjs-document-properties-linearized = Fast Web View:\npdfjs-document-properties-linearized-yes = Yes\npdfjs-document-properties-linearized-no = No\npdfjs-document-properties-close-button = Close\npdfjs-print-progress-message = Preparing document for printing\u2026\npdfjs-print-progress-percent = { $progress ***REMOVED***%\npdfjs-print-progress-close-button = Cancel\npdfjs-printing-not-supported = Warning: Printing is not fully supported by this browser.\npdfjs-printing-not-ready = Warning: The PDF is not fully loaded for printing.\npdfjs-toggle-sidebar-button =\n    .title = Toggle Sidebar\npdfjs-toggle-sidebar-notification-button =\n    .title = Toggle Sidebar (document contains outline/attachments/layers***REMOVED***\npdfjs-toggle-sidebar-button-label = Toggle Sidebar\npdfjs-document-outline-button =\n    .title = Show Document Outline (double-click to expand/collapse all items***REMOVED***\npdfjs-document-outline-button-label = Document Outline\npdfjs-attachments-button =\n    .title = Show Attachments\npdfjs-attachments-button-label = Attachments\npdfjs-layers-button =\n    .title = Show Layers (double-click to reset all layers to the default state***REMOVED***\npdfjs-layers-button-label = Layers\npdfjs-thumbs-button =\n    .title = Show Thumbnails\npdfjs-thumbs-button-label = Thumbnails\npdfjs-current-outline-item-button =\n    .title = Find Current Outline Item\npdfjs-current-outline-item-button-label = Current Outline Item\npdfjs-findbar-button =\n    .title = Find in Document\npdfjs-findbar-button-label = Find\npdfjs-additional-layers = Additional Layers\npdfjs-thumb-page-title =\n    .title = Page { $page ***REMOVED***\npdfjs-thumb-page-canvas =\n    .aria-label = Thumbnail of Page { $page ***REMOVED***\npdfjs-find-input =\n    .title = Find\n    .placeholder = Find in document\u2026\npdfjs-find-previous-button =\n    .title = Find the previous occurrence of the phrase\npdfjs-find-previous-button-label = Previous\npdfjs-find-next-button =\n    .title = Find the next occurrence of the phrase\npdfjs-find-next-button-label = Next\npdfjs-find-highlight-checkbox = Highlight All\npdfjs-find-match-case-checkbox-label = Match Case\npdfjs-find-match-diacritics-checkbox-label = Match Diacritics\npdfjs-find-entire-word-checkbox-label = Whole Words\npdfjs-find-reached-top = Reached top of document, continued from bottom\npdfjs-find-reached-bottom = Reached end of document, continued from top\npdfjs-find-match-count =\n  ***REMOVED*** $total ->\n        [one] { $current ***REMOVED*** of { $total ***REMOVED*** match\n       *[other] { $current ***REMOVED*** of { $total ***REMOVED*** matches\n    ***REMOVED***\npdfjs-find-match-count-limit =\n  ***REMOVED*** $limit ->\n        [one] More than { $limit ***REMOVED*** match\n       *[other] More than { $limit ***REMOVED*** matches\n    ***REMOVED***\npdfjs-find-not-found = Phrase not found\npdfjs-page-scale-width = Page Width\npdfjs-page-scale-fit = Page Fit\npdfjs-page-scale-auto = Automatic Zoom\npdfjs-page-scale-actual = Actual Size\npdfjs-page-scale-percent = { $scale ***REMOVED***%\npdfjs-page-landmark =\n    .aria-label = Page { $page ***REMOVED***\npdfjs-loading-error = An error occurred while loading the PDF.\npdfjs-invalid-file-error = Invalid or corrupted PDF file.\npdfjs-missing-file-error = Missing PDF file.\npdfjs-unexpected-response-error = Unexpected server response.\npdfjs-rendering-error = An error occurred while rendering the page.\npdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: \"short\", timeStyle: \"medium\"***REMOVED*** ***REMOVED***\npdfjs-text-annotation-type =\n    .alt = [{ $type ***REMOVED*** Annotation]\npdfjs-password-label = Enter the password to open this PDF file.\npdfjs-password-invalid = Invalid password. Please try again.\npdfjs-password-ok-button = OK\npdfjs-password-cancel-button = Cancel\npdfjs-web-fonts-disabled = Web fonts are disabled: unable to use embedded PDF fonts.\npdfjs-editor-free-text-button =\n    .title = Text\npdfjs-editor-free-text-button-label = Text\npdfjs-editor-ink-button =\n    .title = Draw\npdfjs-editor-ink-button-label = Draw\npdfjs-editor-stamp-button =\n    .title = Add or edit images\npdfjs-editor-stamp-button-label = Add or edit images\npdfjs-editor-highlight-button =\n    .title = Highlight\npdfjs-editor-highlight-button-label = Highlight\npdfjs-highlight-floating-button1 =\n    .title = Highlight\n    .aria-label = Highlight\npdfjs-highlight-floating-button-label = Highlight\npdfjs-editor-remove-ink-button =\n    .title = Remove drawing\npdfjs-editor-remove-freetext-button =\n    .title = Remove text\npdfjs-editor-remove-stamp-button =\n    .title = Remove image\npdfjs-editor-remove-highlight-button =\n    .title = Remove highlight\npdfjs-editor-free-text-color-input = Color\npdfjs-editor-free-text-size-input = Size\npdfjs-editor-ink-color-input = Color\npdfjs-editor-ink-thickness-input = Thickness\npdfjs-editor-ink-opacity-input = Opacity\npdfjs-editor-stamp-add-image-button =\n    .title = Add image\npdfjs-editor-stamp-add-image-button-label = Add image\npdfjs-editor-free-highlight-thickness-input = Thickness\npdfjs-editor-free-highlight-thickness-title =\n    .title = Change thickness when highlighting items other than text\npdfjs-free-text2 =\n    .aria-label = Text Editor\n    .default-content = Start typing\u2026\npdfjs-ink =\n    .aria-label = Draw Editor\npdfjs-ink-canvas =\n    .aria-label = User-created image\npdfjs-editor-alt-text-button =\n    .aria-label = Alt text\npdfjs-editor-alt-text-button-label = Alt text\npdfjs-editor-alt-text-edit-button =\n    .aria-label = Edit alt text\npdfjs-editor-alt-text-dialog-label = Choose an option\npdfjs-editor-alt-text-dialog-description = Alt text (alternative text***REMOVED*** helps when people can\u2019t see the image or when it doesn\u2019t load.\npdfjs-editor-alt-text-add-description-label = Add a description\npdfjs-editor-alt-text-add-description-description = Aim for 1-2 sentences that describe the subject, setting, or actions.\npdfjs-editor-alt-text-mark-decorative-label = Mark as decorative\npdfjs-editor-alt-text-mark-decorative-description = This is used for ornamental images, like borders or watermarks.\npdfjs-editor-alt-text-cancel-button = Cancel\npdfjs-editor-alt-text-save-button = Save\npdfjs-editor-alt-text-decorative-tooltip = Marked as decorative\npdfjs-editor-alt-text-textarea =\n    .placeholder = For example, \u201CA young man sits down at a table to eat a meal\u201D\npdfjs-editor-resizer-top-left =\n    .aria-label = Top left corner \u2014 resize\npdfjs-editor-resizer-top-middle =\n    .aria-label = Top middle \u2014 resize\npdfjs-editor-resizer-top-right =\n    .aria-label = Top right corner \u2014 resize\npdfjs-editor-resizer-middle-right =\n    .aria-label = Middle right \u2014 resize\npdfjs-editor-resizer-bottom-right =\n    .aria-label = Bottom right corner \u2014 resize\npdfjs-editor-resizer-bottom-middle =\n    .aria-label = Bottom middle \u2014 resize\npdfjs-editor-resizer-bottom-left =\n    .aria-label = Bottom left corner \u2014 resize\npdfjs-editor-resizer-middle-left =\n    .aria-label = Middle left \u2014 resize\npdfjs-editor-highlight-colorpicker-label = Highlight color\npdfjs-editor-colorpicker-button =\n    .title = Change color\npdfjs-editor-colorpicker-dropdown =\n    .aria-label = Color choices\npdfjs-editor-colorpicker-yellow =\n    .title = Yellow\npdfjs-editor-colorpicker-green =\n    .title = Green\npdfjs-editor-colorpicker-blue =\n    .title = Blue\npdfjs-editor-colorpicker-pink =\n    .title = Pink\npdfjs-editor-colorpicker-red =\n    .title = Red\npdfjs-editor-highlight-show-all-button-label = Show all\npdfjs-editor-highlight-show-all-button =\n    .title = Show all\npdfjs-editor-new-alt-text-dialog-edit-label = Edit alt text (image description***REMOVED***\npdfjs-editor-new-alt-text-dialog-add-label = Add alt text (image description***REMOVED***\npdfjs-editor-new-alt-text-textarea =\n    .placeholder = Write your description here\u2026\npdfjs-editor-new-alt-text-description = Short description for people who can\u2019t see the image or when the image doesn\u2019t load.\npdfjs-editor-new-alt-text-disclaimer1 = This alt text was created automatically and may be inaccurate.\npdfjs-editor-new-alt-text-disclaimer-learn-more-url = Learn more\npdfjs-editor-new-alt-text-create-automatically-button-label = Create alt text automatically\npdfjs-editor-new-alt-text-not-now-button = Not now\npdfjs-editor-new-alt-text-error-title = Couldn\u2019t create alt text automatically\npdfjs-editor-new-alt-text-error-description = Please write your own alt text or try again later.\npdfjs-editor-new-alt-text-error-close-button = Close\npdfjs-editor-new-alt-text-ai-model-downloading-progress = Downloading alt text AI model ({ $downloadedSize ***REMOVED*** of { $totalSize ***REMOVED*** MB***REMOVED***\n    .aria-valuetext = Downloading alt text AI model ({ $downloadedSize ***REMOVED*** of { $totalSize ***REMOVED*** MB***REMOVED***\npdfjs-editor-new-alt-text-added-button =\n    .aria-label = Alt text added\npdfjs-editor-new-alt-text-added-button-label = Alt text added\npdfjs-editor-new-alt-text-missing-button =\n    .aria-label = Missing alt text\npdfjs-editor-new-alt-text-missing-button-label = Missing alt text\npdfjs-editor-new-alt-text-to-review-button =\n    .aria-label = Review alt text\npdfjs-editor-new-alt-text-to-review-button-label = Review alt text\npdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Created automatically: { $generatedAltText ***REMOVED***\npdfjs-image-alt-text-settings-button =\n    .title = Image alt text settings\npdfjs-image-alt-text-settings-button-label = Image alt text settings\npdfjs-editor-alt-text-settings-dialog-label = Image alt text settings\npdfjs-editor-alt-text-settings-automatic-title = Automatic alt text\npdfjs-editor-alt-text-settings-create-model-button-label = Create alt text automatically\npdfjs-editor-alt-text-settings-create-model-description = Suggests descriptions to help people who can\u2019t see the image or when the image doesn\u2019t load.\npdfjs-editor-alt-text-settings-download-model-label = Alt text AI model ({ $totalSize ***REMOVED*** MB***REMOVED***\npdfjs-editor-alt-text-settings-ai-model-description = Runs locally on your device so your data stays private. Required for automatic alt text.\npdfjs-editor-alt-text-settings-delete-model-button = Delete\npdfjs-editor-alt-text-settings-download-model-button = Download\npdfjs-editor-alt-text-settings-downloading-model-button = Downloading\u2026\npdfjs-editor-alt-text-settings-editor-title = Alt text editor\npdfjs-editor-alt-text-settings-show-dialog-button-label = Show alt text editor right away when adding an image\npdfjs-editor-alt-text-settings-show-dialog-description = Helps you make sure all your images have alt text.\npdfjs-editor-alt-text-settings-close-button = Close\npdfjs-editor-undo-bar-message-highlight = Highlight removed\npdfjs-editor-undo-bar-message-freetext = Text removed\npdfjs-editor-undo-bar-message-ink = Drawing removed\npdfjs-editor-undo-bar-message-stamp = Image removed\npdfjs-editor-undo-bar-message-multiple =\n  ***REMOVED*** $count ->\n        [one] { $count ***REMOVED*** annotation removed\n       *[other] { $count ***REMOVED*** annotations removed\n    ***REMOVED***\npdfjs-editor-undo-bar-undo-button =\n    .title = Undo\npdfjs-editor-undo-bar-undo-button-label = Undo\npdfjs-editor-undo-bar-close-button =\n    .title = Close\npdfjs-editor-undo-bar-close-button-label = Close";
-    return createBundle(lang, text***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      paths: Object.create(null)
+    };
+  }
+  static async *#generateBundlesFallback(lang) {
+    yield this.#createBundleFallback(lang);
+  }
+  static async #createBundleFallback(lang) {
+    const text = "pdfjs-previous-button =\n    .title = Previous Page\npdfjs-previous-button-label = Previous\npdfjs-next-button =\n    .title = Next Page\npdfjs-next-button-label = Next\npdfjs-page-input =\n    .title = Page\npdfjs-of-pages = of { $pagesCount }\npdfjs-page-of-pages = ({ $pageNumber } of { $pagesCount })\npdfjs-zoom-out-button =\n    .title = Zoom Out\npdfjs-zoom-out-button-label = Zoom Out\npdfjs-zoom-in-button =\n    .title = Zoom In\npdfjs-zoom-in-button-label = Zoom In\npdfjs-zoom-select =\n    .title = Zoom\npdfjs-presentation-mode-button =\n    .title = Switch to Presentation Mode\npdfjs-presentation-mode-button-label = Presentation Mode\npdfjs-open-file-button =\n    .title = Open File\npdfjs-open-file-button-label = Open\npdfjs-print-button =\n    .title = Print\npdfjs-print-button-label = Print\npdfjs-save-button =\n    .title = Save\npdfjs-save-button-label = Save\npdfjs-download-button =\n    .title = Download\npdfjs-download-button-label = Download\npdfjs-bookmark-button =\n    .title = Current Page (View URL from Current Page)\npdfjs-bookmark-button-label = Current Page\npdfjs-tools-button =\n    .title = Tools\npdfjs-tools-button-label = Tools\npdfjs-first-page-button =\n    .title = Go to First Page\npdfjs-first-page-button-label = Go to First Page\npdfjs-last-page-button =\n    .title = Go to Last Page\npdfjs-last-page-button-label = Go to Last Page\npdfjs-page-rotate-cw-button =\n    .title = Rotate Clockwise\npdfjs-page-rotate-cw-button-label = Rotate Clockwise\npdfjs-page-rotate-ccw-button =\n    .title = Rotate Counterclockwise\npdfjs-page-rotate-ccw-button-label = Rotate Counterclockwise\npdfjs-cursor-text-select-tool-button =\n    .title = Enable Text Selection Tool\npdfjs-cursor-text-select-tool-button-label = Text Selection Tool\npdfjs-cursor-hand-tool-button =\n    .title = Enable Hand Tool\npdfjs-cursor-hand-tool-button-label = Hand Tool\npdfjs-scroll-page-button =\n    .title = Use Page Scrolling\npdfjs-scroll-page-button-label = Page Scrolling\npdfjs-scroll-vertical-button =\n    .title = Use Vertical Scrolling\npdfjs-scroll-vertical-button-label = Vertical Scrolling\npdfjs-scroll-horizontal-button =\n    .title = Use Horizontal Scrolling\npdfjs-scroll-horizontal-button-label = Horizontal Scrolling\npdfjs-scroll-wrapped-button =\n    .title = Use Wrapped Scrolling\npdfjs-scroll-wrapped-button-label = Wrapped Scrolling\npdfjs-spread-none-button =\n    .title = Do not join page spreads\npdfjs-spread-none-button-label = No Spreads\npdfjs-spread-odd-button =\n    .title = Join page spreads starting with odd-numbered pages\npdfjs-spread-odd-button-label = Odd Spreads\npdfjs-spread-even-button =\n    .title = Join page spreads starting with even-numbered pages\npdfjs-spread-even-button-label = Even Spreads\npdfjs-document-properties-button =\n    .title = Document Properties\u2026\npdfjs-document-properties-button-label = Document Properties\u2026\npdfjs-document-properties-file-name = File name:\npdfjs-document-properties-file-size = File size:\npdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } bytes)\npdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } bytes)\npdfjs-document-properties-title = Title:\npdfjs-document-properties-author = Author:\npdfjs-document-properties-subject = Subject:\npdfjs-document-properties-keywords = Keywords:\npdfjs-document-properties-creation-date = Creation Date:\npdfjs-document-properties-modification-date = Modification Date:\npdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: \"short\", timeStyle: \"medium\") }\npdfjs-document-properties-creator = Creator:\npdfjs-document-properties-producer = PDF Producer:\npdfjs-document-properties-version = PDF Version:\npdfjs-document-properties-page-count = Page Count:\npdfjs-document-properties-page-size = Page Size:\npdfjs-document-properties-page-size-unit-inches = in\npdfjs-document-properties-page-size-unit-millimeters = mm\npdfjs-document-properties-page-size-orientation-portrait = portrait\npdfjs-document-properties-page-size-orientation-landscape = landscape\npdfjs-document-properties-page-size-name-a-three = A3\npdfjs-document-properties-page-size-name-a-four = A4\npdfjs-document-properties-page-size-name-letter = Letter\npdfjs-document-properties-page-size-name-legal = Legal\npdfjs-document-properties-page-size-dimension-string = { $width } \xD7 { $height } { $unit } ({ $orientation })\npdfjs-document-properties-page-size-dimension-name-string = { $width } \xD7 { $height } { $unit } ({ $name }, { $orientation })\npdfjs-document-properties-linearized = Fast Web View:\npdfjs-document-properties-linearized-yes = Yes\npdfjs-document-properties-linearized-no = No\npdfjs-document-properties-close-button = Close\npdfjs-print-progress-message = Preparing document for printing\u2026\npdfjs-print-progress-percent = { $progress }%\npdfjs-print-progress-close-button = Cancel\npdfjs-printing-not-supported = Warning: Printing is not fully supported by this browser.\npdfjs-printing-not-ready = Warning: The PDF is not fully loaded for printing.\npdfjs-toggle-sidebar-button =\n    .title = Toggle Sidebar\npdfjs-toggle-sidebar-notification-button =\n    .title = Toggle Sidebar (document contains outline/attachments/layers)\npdfjs-toggle-sidebar-button-label = Toggle Sidebar\npdfjs-document-outline-button =\n    .title = Show Document Outline (double-click to expand/collapse all items)\npdfjs-document-outline-button-label = Document Outline\npdfjs-attachments-button =\n    .title = Show Attachments\npdfjs-attachments-button-label = Attachments\npdfjs-layers-button =\n    .title = Show Layers (double-click to reset all layers to the default state)\npdfjs-layers-button-label = Layers\npdfjs-thumbs-button =\n    .title = Show Thumbnails\npdfjs-thumbs-button-label = Thumbnails\npdfjs-current-outline-item-button =\n    .title = Find Current Outline Item\npdfjs-current-outline-item-button-label = Current Outline Item\npdfjs-findbar-button =\n    .title = Find in Document\npdfjs-findbar-button-label = Find\npdfjs-additional-layers = Additional Layers\npdfjs-thumb-page-title =\n    .title = Page { $page }\npdfjs-thumb-page-canvas =\n    .aria-label = Thumbnail of Page { $page }\npdfjs-find-input =\n    .title = Find\n    .placeholder = Find in document\u2026\npdfjs-find-previous-button =\n    .title = Find the previous occurrence of the phrase\npdfjs-find-previous-button-label = Previous\npdfjs-find-next-button =\n    .title = Find the next occurrence of the phrase\npdfjs-find-next-button-label = Next\npdfjs-find-highlight-checkbox = Highlight All\npdfjs-find-match-case-checkbox-label = Match Case\npdfjs-find-match-diacritics-checkbox-label = Match Diacritics\npdfjs-find-entire-word-checkbox-label = Whole Words\npdfjs-find-reached-top = Reached top of document, continued from bottom\npdfjs-find-reached-bottom = Reached end of document, continued from top\npdfjs-find-match-count =\n    { $total ->\n        [one] { $current } of { $total } match\n       *[other] { $current } of { $total } matches\n    }\npdfjs-find-match-count-limit =\n    { $limit ->\n        [one] More than { $limit } match\n       *[other] More than { $limit } matches\n    }\npdfjs-find-not-found = Phrase not found\npdfjs-page-scale-width = Page Width\npdfjs-page-scale-fit = Page Fit\npdfjs-page-scale-auto = Automatic Zoom\npdfjs-page-scale-actual = Actual Size\npdfjs-page-scale-percent = { $scale }%\npdfjs-page-landmark =\n    .aria-label = Page { $page }\npdfjs-loading-error = An error occurred while loading the PDF.\npdfjs-invalid-file-error = Invalid or corrupted PDF file.\npdfjs-missing-file-error = Missing PDF file.\npdfjs-unexpected-response-error = Unexpected server response.\npdfjs-rendering-error = An error occurred while rendering the page.\npdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: \"short\", timeStyle: \"medium\") }\npdfjs-text-annotation-type =\n    .alt = [{ $type } Annotation]\npdfjs-password-label = Enter the password to open this PDF file.\npdfjs-password-invalid = Invalid password. Please try again.\npdfjs-password-ok-button = OK\npdfjs-password-cancel-button = Cancel\npdfjs-web-fonts-disabled = Web fonts are disabled: unable to use embedded PDF fonts.\npdfjs-editor-free-text-button =\n    .title = Text\npdfjs-editor-free-text-button-label = Text\npdfjs-editor-ink-button =\n    .title = Draw\npdfjs-editor-ink-button-label = Draw\npdfjs-editor-stamp-button =\n    .title = Add or edit images\npdfjs-editor-stamp-button-label = Add or edit images\npdfjs-editor-highlight-button =\n    .title = Highlight\npdfjs-editor-highlight-button-label = Highlight\npdfjs-highlight-floating-button1 =\n    .title = Highlight\n    .aria-label = Highlight\npdfjs-highlight-floating-button-label = Highlight\npdfjs-editor-remove-ink-button =\n    .title = Remove drawing\npdfjs-editor-remove-freetext-button =\n    .title = Remove text\npdfjs-editor-remove-stamp-button =\n    .title = Remove image\npdfjs-editor-remove-highlight-button =\n    .title = Remove highlight\npdfjs-editor-free-text-color-input = Color\npdfjs-editor-free-text-size-input = Size\npdfjs-editor-ink-color-input = Color\npdfjs-editor-ink-thickness-input = Thickness\npdfjs-editor-ink-opacity-input = Opacity\npdfjs-editor-stamp-add-image-button =\n    .title = Add image\npdfjs-editor-stamp-add-image-button-label = Add image\npdfjs-editor-free-highlight-thickness-input = Thickness\npdfjs-editor-free-highlight-thickness-title =\n    .title = Change thickness when highlighting items other than text\npdfjs-free-text2 =\n    .aria-label = Text Editor\n    .default-content = Start typing\u2026\npdfjs-ink =\n    .aria-label = Draw Editor\npdfjs-ink-canvas =\n    .aria-label = User-created image\npdfjs-editor-alt-text-button =\n    .aria-label = Alt text\npdfjs-editor-alt-text-button-label = Alt text\npdfjs-editor-alt-text-edit-button =\n    .aria-label = Edit alt text\npdfjs-editor-alt-text-dialog-label = Choose an option\npdfjs-editor-alt-text-dialog-description = Alt text (alternative text) helps when people can\u2019t see the image or when it doesn\u2019t load.\npdfjs-editor-alt-text-add-description-label = Add a description\npdfjs-editor-alt-text-add-description-description = Aim for 1-2 sentences that describe the subject, setting, or actions.\npdfjs-editor-alt-text-mark-decorative-label = Mark as decorative\npdfjs-editor-alt-text-mark-decorative-description = This is used for ornamental images, like borders or watermarks.\npdfjs-editor-alt-text-cancel-button = Cancel\npdfjs-editor-alt-text-save-button = Save\npdfjs-editor-alt-text-decorative-tooltip = Marked as decorative\npdfjs-editor-alt-text-textarea =\n    .placeholder = For example, \u201CA young man sits down at a table to eat a meal\u201D\npdfjs-editor-resizer-top-left =\n    .aria-label = Top left corner \u2014 resize\npdfjs-editor-resizer-top-middle =\n    .aria-label = Top middle \u2014 resize\npdfjs-editor-resizer-top-right =\n    .aria-label = Top right corner \u2014 resize\npdfjs-editor-resizer-middle-right =\n    .aria-label = Middle right \u2014 resize\npdfjs-editor-resizer-bottom-right =\n    .aria-label = Bottom right corner \u2014 resize\npdfjs-editor-resizer-bottom-middle =\n    .aria-label = Bottom middle \u2014 resize\npdfjs-editor-resizer-bottom-left =\n    .aria-label = Bottom left corner \u2014 resize\npdfjs-editor-resizer-middle-left =\n    .aria-label = Middle left \u2014 resize\npdfjs-editor-highlight-colorpicker-label = Highlight color\npdfjs-editor-colorpicker-button =\n    .title = Change color\npdfjs-editor-colorpicker-dropdown =\n    .aria-label = Color choices\npdfjs-editor-colorpicker-yellow =\n    .title = Yellow\npdfjs-editor-colorpicker-green =\n    .title = Green\npdfjs-editor-colorpicker-blue =\n    .title = Blue\npdfjs-editor-colorpicker-pink =\n    .title = Pink\npdfjs-editor-colorpicker-red =\n    .title = Red\npdfjs-editor-highlight-show-all-button-label = Show all\npdfjs-editor-highlight-show-all-button =\n    .title = Show all\npdfjs-editor-new-alt-text-dialog-edit-label = Edit alt text (image description)\npdfjs-editor-new-alt-text-dialog-add-label = Add alt text (image description)\npdfjs-editor-new-alt-text-textarea =\n    .placeholder = Write your description here\u2026\npdfjs-editor-new-alt-text-description = Short description for people who can\u2019t see the image or when the image doesn\u2019t load.\npdfjs-editor-new-alt-text-disclaimer1 = This alt text was created automatically and may be inaccurate.\npdfjs-editor-new-alt-text-disclaimer-learn-more-url = Learn more\npdfjs-editor-new-alt-text-create-automatically-button-label = Create alt text automatically\npdfjs-editor-new-alt-text-not-now-button = Not now\npdfjs-editor-new-alt-text-error-title = Couldn\u2019t create alt text automatically\npdfjs-editor-new-alt-text-error-description = Please write your own alt text or try again later.\npdfjs-editor-new-alt-text-error-close-button = Close\npdfjs-editor-new-alt-text-ai-model-downloading-progress = Downloading alt text AI model ({ $downloadedSize } of { $totalSize } MB)\n    .aria-valuetext = Downloading alt text AI model ({ $downloadedSize } of { $totalSize } MB)\npdfjs-editor-new-alt-text-added-button =\n    .aria-label = Alt text added\npdfjs-editor-new-alt-text-added-button-label = Alt text added\npdfjs-editor-new-alt-text-missing-button =\n    .aria-label = Missing alt text\npdfjs-editor-new-alt-text-missing-button-label = Missing alt text\npdfjs-editor-new-alt-text-to-review-button =\n    .aria-label = Review alt text\npdfjs-editor-new-alt-text-to-review-button-label = Review alt text\npdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Created automatically: { $generatedAltText }\npdfjs-image-alt-text-settings-button =\n    .title = Image alt text settings\npdfjs-image-alt-text-settings-button-label = Image alt text settings\npdfjs-editor-alt-text-settings-dialog-label = Image alt text settings\npdfjs-editor-alt-text-settings-automatic-title = Automatic alt text\npdfjs-editor-alt-text-settings-create-model-button-label = Create alt text automatically\npdfjs-editor-alt-text-settings-create-model-description = Suggests descriptions to help people who can\u2019t see the image or when the image doesn\u2019t load.\npdfjs-editor-alt-text-settings-download-model-label = Alt text AI model ({ $totalSize } MB)\npdfjs-editor-alt-text-settings-ai-model-description = Runs locally on your device so your data stays private. Required for automatic alt text.\npdfjs-editor-alt-text-settings-delete-model-button = Delete\npdfjs-editor-alt-text-settings-download-model-button = Download\npdfjs-editor-alt-text-settings-downloading-model-button = Downloading\u2026\npdfjs-editor-alt-text-settings-editor-title = Alt text editor\npdfjs-editor-alt-text-settings-show-dialog-button-label = Show alt text editor right away when adding an image\npdfjs-editor-alt-text-settings-show-dialog-description = Helps you make sure all your images have alt text.\npdfjs-editor-alt-text-settings-close-button = Close\npdfjs-editor-undo-bar-message-highlight = Highlight removed\npdfjs-editor-undo-bar-message-freetext = Text removed\npdfjs-editor-undo-bar-message-ink = Drawing removed\npdfjs-editor-undo-bar-message-stamp = Image removed\npdfjs-editor-undo-bar-message-multiple =\n    { $count ->\n        [one] { $count } annotation removed\n       *[other] { $count } annotations removed\n    }\npdfjs-editor-undo-bar-undo-button =\n    .title = Undo\npdfjs-editor-undo-bar-undo-button-label = Undo\npdfjs-editor-undo-bar-close-button =\n    .title = Close\npdfjs-editor-undo-bar-close-button-label = Close";
+    return createBundle(lang, text);
+  }
+}
 
 ;// ./web/generic_scripting.js
 
-async function docProperties(pdfDocument***REMOVED*** {
+async function docProperties(pdfDocument) {
   const url = "",
-    baseUrl = url.split("#", 1***REMOVED***[0];
+    baseUrl = url.split("#", 1)[0];
   let {
     info,
     metadata,
     contentDispositionFilename,
     contentLength
-  ***REMOVED*** = await pdfDocument.getMetadata(***REMOVED***;
-  if (!contentLength***REMOVED*** {
+  } = await pdfDocument.getMetadata();
+  if (!contentLength) {
     const {
       length
-    ***REMOVED*** = await pdfDocument.getDownloadInfo(***REMOVED***;
+    } = await pdfDocument.getDownloadInfo();
     contentLength = length;
-  ***REMOVED***
+  }
   return {
     ...info,
     baseURL: baseUrl,
     filesize: contentLength,
-    filename: contentDispositionFilename || getPdfFilenameFromUrl(url***REMOVED***,
-    metadata: metadata?.getRaw(***REMOVED***,
-    authors: metadata?.get("dc:creator"***REMOVED***,
+    filename: contentDispositionFilename || getPdfFilenameFromUrl(url),
+    metadata: metadata?.getRaw(),
+    authors: metadata?.get("dc:creator"),
     numPages: pdfDocument.numPages,
     URL: url
-  ***REMOVED***;
-***REMOVED***
+  };
+}
 class GenericScripting {
-  constructor(sandboxBundleSrc***REMOVED*** {
-    this._ready = new Promise((resolve, reject***REMOVED*** => {
-      const sandbox = import(/*webpackIgnore: true*/sandboxBundleSrc***REMOVED***;
+  constructor(sandboxBundleSrc) {
+    this._ready = new Promise((resolve, reject) => {
+      const sandbox = import(/*webpackIgnore: true*/sandboxBundleSrc);
       sandbox.then(pdfjsSandbox => {
-        resolve(pdfjsSandbox.QuickJSSandbox(***REMOVED******REMOVED***;
-      ***REMOVED******REMOVED***.catch(reject***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async createSandbox(data***REMOVED*** {
+        resolve(pdfjsSandbox.QuickJSSandbox());
+      }).catch(reject);
+    });
+  }
+  async createSandbox(data) {
     const sandbox = await this._ready;
-    sandbox.create(data***REMOVED***;
-  ***REMOVED***
-  async dispatchEventInSandbox(event***REMOVED*** {
+    sandbox.create(data);
+  }
+  async dispatchEventInSandbox(event) {
     const sandbox = await this._ready;
-    setTimeout((***REMOVED*** => sandbox.dispatchEvent(event***REMOVED***, 0***REMOVED***;
-  ***REMOVED***
-  async destroySandbox(***REMOVED*** {
+    setTimeout(() => sandbox.dispatchEvent(event), 0);
+  }
+  async destroySandbox() {
     const sandbox = await this._ready;
-    sandbox.nukeSandbox(***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    sandbox.nukeSandbox();
+  }
+}
 
 ;// ./web/genericcom.js
 
@@ -3101,119 +3101,119 @@ class GenericScripting {
 
 
 
-function initCom(app***REMOVED*** { ***REMOVED***
+function initCom(app) { }
 class Preferences extends BasePreferences {
-  async _writeToStorage(prefObj***REMOVED*** {
-    localStorage.setItem("pdfjs.preferences", JSON.stringify(prefObj***REMOVED******REMOVED***;
-  ***REMOVED***
-  async _readFromStorage(prefObj***REMOVED*** {
-***REMOVED***
-      prefs: JSON.parse(localStorage.getItem("pdfjs.preferences"***REMOVED******REMOVED***
-    ***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  async _writeToStorage(prefObj) {
+    localStorage.setItem("pdfjs.preferences", JSON.stringify(prefObj));
+  }
+  async _readFromStorage(prefObj) {
+    return {
+      prefs: JSON.parse(localStorage.getItem("pdfjs.preferences"))
+    };
+  }
+}
 class ExternalServices extends BaseExternalServices {
-  async createL10n(***REMOVED*** {
-    return new genericl10n_GenericL10n(AppOptions.get("localeProperties"***REMOVED***?.lang***REMOVED***;
-  ***REMOVED***
-  createScripting(***REMOVED*** {
-    return new GenericScripting(AppOptions.get("sandboxBundleSrc"***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  async createL10n() {
+    return new genericl10n_GenericL10n(AppOptions.get("localeProperties")?.lang);
+  }
+  createScripting() {
+    return new GenericScripting(AppOptions.get("sandboxBundleSrc"));
+  }
+}
 class MLManager {
-  async isEnabledFor(_name***REMOVED*** {
+  async isEnabledFor(_name) {
     return false;
-  ***REMOVED***
-  async deleteModel(_service***REMOVED*** {
+  }
+  async deleteModel(_service) {
     return null;
-  ***REMOVED***
-  isReady(_name***REMOVED*** {
+  }
+  isReady(_name) {
     return false;
-  ***REMOVED***
-  guess(_data***REMOVED*** { ***REMOVED***
-  toggleService(_name, _enabled***REMOVED*** { ***REMOVED***
-  static getFakeMLManager(options***REMOVED*** {
-    return new FakeMLManager(options***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  }
+  guess(_data) { }
+  toggleService(_name, _enabled) { }
+  static getFakeMLManager(options) {
+    return new FakeMLManager(options);
+  }
+}
 class FakeMLManager {
   eventBus = null;
   hasProgress = false;
   constructor({
     enableGuessAltText,
     enableAltTextModelDownload
-  ***REMOVED******REMOVED*** {
+  }) {
     this.enableGuessAltText = enableGuessAltText;
     this.enableAltTextModelDownload = enableAltTextModelDownload;
-  ***REMOVED***
-  setEventBus(eventBus, abortSignal***REMOVED*** {
+  }
+  setEventBus(eventBus, abortSignal) {
     this.eventBus = eventBus;
-  ***REMOVED***
-  async isEnabledFor(_name***REMOVED*** {
+  }
+  async isEnabledFor(_name) {
     return this.enableGuessAltText;
-  ***REMOVED***
-  async deleteModel(_name***REMOVED*** {
+  }
+  async deleteModel(_name) {
     this.enableAltTextModelDownload = false;
     return null;
-  ***REMOVED***
-  async loadModel(_name***REMOVED*** { ***REMOVED***
-  async downloadModel(_name***REMOVED*** {
+  }
+  async loadModel(_name) { }
+  async downloadModel(_name) {
     this.hasProgress = true;
     const {
       promise,
       resolve
-    ***REMOVED*** = Promise.withResolvers(***REMOVED***;
+    } = Promise.withResolvers();
     const total = 1e8;
     const end = 1.5 * total;
     const increment = 5e6;
     let loaded = 0;
-    const id = setInterval((***REMOVED*** => {
+    const id = setInterval(() => {
       loaded += increment;
-      if (loaded <= end***REMOVED*** {
+      if (loaded <= end) {
         this.eventBus.dispatch("loadaiengineprogress", {
           source: this,
           detail: {
             total,
             totalLoaded: loaded,
             finished: loaded + increment >= end
-          ***REMOVED***
-        ***REMOVED******REMOVED***;
+          }
+        });
         return;
-      ***REMOVED***
-      clearInterval(id***REMOVED***;
+      }
+      clearInterval(id);
       this.hasProgress = false;
       this.enableAltTextModelDownload = true;
-      resolve(true***REMOVED***;
-    ***REMOVED***, 900***REMOVED***;
+      resolve(true);
+    }, 900);
     return promise;
-  ***REMOVED***
-  isReady(_name***REMOVED*** {
+  }
+  isReady(_name) {
     return this.enableAltTextModelDownload;
-  ***REMOVED***
+  }
   guess({
     request: {
       data
-    ***REMOVED***
-  ***REMOVED******REMOVED*** {
+    }
+  }) {
     return new Promise(resolve => {
-      setTimeout((***REMOVED*** => {
+      setTimeout(() => {
         resolve(data ? {
           output: "Fake alt text."
-        ***REMOVED*** : {
+        } : {
           error: true
-        ***REMOVED******REMOVED***;
-      ***REMOVED***, 3000***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  toggleService(_name, enabled***REMOVED*** {
+        });
+      }, 3000);
+    });
+  }
+  toggleService(_name, enabled) {
     this.enableGuessAltText = enabled;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/new_alt_text_manager.js
 
 class NewAltTextManager {
-  #boundCancel = this.#cancel.bind(this***REMOVED***;
+  #boundCancel = this.#cancel.bind(this);
   #createAutomaticallyButton;
   #currentEditor = null;
   #cancelButton;
@@ -3253,7 +3253,7 @@ class NewAltTextManager {
     downloadModel,
     downloadModelDescription,
     title
-  ***REMOVED***, overlayManager, eventBus***REMOVED*** {
+  }, overlayManager, eventBus) {
     this.#cancelButton = cancelButton;
     this.#createAutomaticallyButton = createAutomaticallyButton;
     this.#descriptionContainer = descriptionContainer;
@@ -3268,344 +3268,344 @@ class NewAltTextManager {
     this.#downloadModelDescription = downloadModelDescription;
     this.#overlayManager = overlayManager;
     this.#eventBus = eventBus;
-    dialog.addEventListener("close", this.#close.bind(this***REMOVED******REMOVED***;
+    dialog.addEventListener("close", this.#close.bind(this));
     dialog.addEventListener("contextmenu", event => {
-      if (event.target !== this.#textarea***REMOVED*** {
-        event.preventDefault(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    cancelButton.addEventListener("click", this.#boundCancel***REMOVED***;
-    notNowButton.addEventListener("click", this.#boundCancel***REMOVED***;
-    saveButton.addEventListener("click", this.#save.bind(this***REMOVED******REMOVED***;
-    errorCloseButton.addEventListener("click", (***REMOVED*** => {
-      this.#toggleError(false***REMOVED***;
-    ***REMOVED******REMOVED***;
-    createAutomaticallyButton.addEventListener("click", async (***REMOVED*** => {
-      const checked = createAutomaticallyButton.getAttribute("aria-pressed"***REMOVED*** !== "true";
+      if (event.target !== this.#textarea) {
+        event.preventDefault();
+      }
+    });
+    cancelButton.addEventListener("click", this.#boundCancel);
+    notNowButton.addEventListener("click", this.#boundCancel);
+    saveButton.addEventListener("click", this.#save.bind(this));
+    errorCloseButton.addEventListener("click", () => {
+      this.#toggleError(false);
+    });
+    createAutomaticallyButton.addEventListener("click", async () => {
+      const checked = createAutomaticallyButton.getAttribute("aria-pressed") !== "true";
       this.#currentEditor._reportTelemetry({
         action: "pdfjs.image.alt_text.ai_generation_check",
         data: {
           status: checked
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-      if (this.#uiManager***REMOVED*** {
-        this.#uiManager.setPreference("enableGuessAltText", checked***REMOVED***;
-        await this.#uiManager.mlManager.toggleService("altText", checked***REMOVED***;
-      ***REMOVED***
-      this.#toggleGuessAltText(checked, false***REMOVED***;
-    ***REMOVED******REMOVED***;
-    textarea.addEventListener("focus", (***REMOVED*** => {
+        }
+      });
+      if (this.#uiManager) {
+        this.#uiManager.setPreference("enableGuessAltText", checked);
+        await this.#uiManager.mlManager.toggleService("altText", checked);
+      }
+      this.#toggleGuessAltText(checked, false);
+    });
+    textarea.addEventListener("focus", () => {
       this.#wasAILoading = this.#isAILoading;
-      this.#toggleLoading(false***REMOVED***;
-      this.#toggleTitleAndDisclaimer(***REMOVED***;
-    ***REMOVED******REMOVED***;
-    textarea.addEventListener("blur", (***REMOVED*** => {
-      if (!textarea.value***REMOVED*** {
-        this.#toggleLoading(this.#wasAILoading***REMOVED***;
-      ***REMOVED***
-      this.#toggleTitleAndDisclaimer(***REMOVED***;
-    ***REMOVED******REMOVED***;
-    textarea.addEventListener("input", (***REMOVED*** => {
-      this.#toggleTitleAndDisclaimer(***REMOVED***;
-    ***REMOVED******REMOVED***;
+      this.#toggleLoading(false);
+      this.#toggleTitleAndDisclaimer();
+    });
+    textarea.addEventListener("blur", () => {
+      if (!textarea.value) {
+        this.#toggleLoading(this.#wasAILoading);
+      }
+      this.#toggleTitleAndDisclaimer();
+    });
+    textarea.addEventListener("input", () => {
+      this.#toggleTitleAndDisclaimer();
+    });
     eventBus._on("enableguessalttext", ({
       value
-    ***REMOVED******REMOVED*** => {
-      this.#toggleGuessAltText(value, false***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.#overlayManager.register(dialog***REMOVED***;
-    this.#learnMore.addEventListener("click", (***REMOVED*** => {
+    }) => {
+      this.#toggleGuessAltText(value, false);
+    });
+    this.#overlayManager.register(dialog);
+    this.#learnMore.addEventListener("click", () => {
       this.#currentEditor._reportTelemetry({
         action: "pdfjs.image.alt_text.info",
         data: {
           topic: "alt_text"
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #toggleLoading(value***REMOVED*** {
-    if (!this.#uiManager || this.#isAILoading === value***REMOVED*** {
+        }
+      });
+    });
+  }
+  #toggleLoading(value) {
+    if (!this.#uiManager || this.#isAILoading === value) {
       return;
-    ***REMOVED***
+    }
     this.#isAILoading = value;
-    this.#descriptionContainer.classList.toggle("loading", value***REMOVED***;
-  ***REMOVED***
-  #toggleError(value***REMOVED*** {
-    if (!this.#uiManager***REMOVED*** {
+    this.#descriptionContainer.classList.toggle("loading", value);
+  }
+  #toggleError(value) {
+    if (!this.#uiManager) {
       return;
-    ***REMOVED***
-    this.#dialog.classList.toggle("error", value***REMOVED***;
-  ***REMOVED***
-  async #toggleGuessAltText(value, isInitial = false***REMOVED*** {
-    if (!this.#uiManager***REMOVED*** {
+    }
+    this.#dialog.classList.toggle("error", value);
+  }
+  async #toggleGuessAltText(value, isInitial = false) {
+    if (!this.#uiManager) {
       return;
-    ***REMOVED***
-    this.#dialog.classList.toggle("aiDisabled", !value***REMOVED***;
-    this.#createAutomaticallyButton.setAttribute("aria-pressed", value***REMOVED***;
-    if (value***REMOVED*** {
+    }
+    this.#dialog.classList.toggle("aiDisabled", !value);
+    this.#createAutomaticallyButton.setAttribute("aria-pressed", value);
+    if (value) {
       const {
         altTextLearnMoreUrl
-      ***REMOVED*** = this.#uiManager.mlManager;
-      if (altTextLearnMoreUrl***REMOVED*** {
+      } = this.#uiManager.mlManager;
+      if (altTextLearnMoreUrl) {
         this.#learnMore.href = altTextLearnMoreUrl;
-      ***REMOVED***
-      this.#mlGuessAltText(isInitial***REMOVED***;
-    ***REMOVED*** else {
-      this.#toggleLoading(false***REMOVED***;
+      }
+      this.#mlGuessAltText(isInitial);
+    } else {
+      this.#toggleLoading(false);
       this.#isAILoading = false;
-      this.#toggleTitleAndDisclaimer(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #toggleNotNow(***REMOVED*** {
-    this.#notNowButton.classList.toggle("hidden", !this.#firstTime***REMOVED***;
-    this.#cancelButton.classList.toggle("hidden", this.#firstTime***REMOVED***;
-  ***REMOVED***
-  #toggleAI(value***REMOVED*** {
-    if (!this.#uiManager || this.#hasAI === value***REMOVED*** {
+      this.#toggleTitleAndDisclaimer();
+    }
+  }
+  #toggleNotNow() {
+    this.#notNowButton.classList.toggle("hidden", !this.#firstTime);
+    this.#cancelButton.classList.toggle("hidden", this.#firstTime);
+  }
+  #toggleAI(value) {
+    if (!this.#uiManager || this.#hasAI === value) {
       return;
-    ***REMOVED***
+    }
     this.#hasAI = value;
-    this.#dialog.classList.toggle("noAi", !value***REMOVED***;
-    this.#toggleTitleAndDisclaimer(***REMOVED***;
-  ***REMOVED***
-  #toggleTitleAndDisclaimer(***REMOVED*** {
+    this.#dialog.classList.toggle("noAi", !value);
+    this.#toggleTitleAndDisclaimer();
+  }
+  #toggleTitleAndDisclaimer() {
     const visible = this.#isAILoading || this.#guessedAltText && this.#guessedAltText === this.#textarea.value;
     this.#disclaimer.hidden = !visible;
     const isEditing = this.#isAILoading || !!this.#textarea.value;
-    if (this.#isEditing === isEditing***REMOVED*** {
+    if (this.#isEditing === isEditing) {
       return;
-    ***REMOVED***
+    }
     this.#isEditing = isEditing;
-    this.#title.setAttribute("data-l10n-id", isEditing ? "pdfjs-editor-new-alt-text-dialog-edit-label" : "pdfjs-editor-new-alt-text-dialog-add-label"***REMOVED***;
-  ***REMOVED***
-  async #mlGuessAltText(isInitial***REMOVED*** {
-    if (this.#isAILoading***REMOVED*** {
+    this.#title.setAttribute("data-l10n-id", isEditing ? "pdfjs-editor-new-alt-text-dialog-edit-label" : "pdfjs-editor-new-alt-text-dialog-add-label");
+  }
+  async #mlGuessAltText(isInitial) {
+    if (this.#isAILoading) {
       return;
-    ***REMOVED***
-    if (this.#textarea.value***REMOVED*** {
+    }
+    if (this.#textarea.value) {
       return;
-    ***REMOVED***
-    if (isInitial && this.#previousAltText !== null***REMOVED*** {
+    }
+    if (isInitial && this.#previousAltText !== null) {
       return;
-    ***REMOVED***
+    }
     this.#guessedAltText = this.#currentEditor.guessedAltText;
-    if (this.#previousAltText === null && this.#guessedAltText***REMOVED*** {
-      this.#addAltText(this.#guessedAltText***REMOVED***;
+    if (this.#previousAltText === null && this.#guessedAltText) {
+      this.#addAltText(this.#guessedAltText);
       return;
-    ***REMOVED***
-    this.#toggleLoading(true***REMOVED***;
-    this.#toggleTitleAndDisclaimer(***REMOVED***;
+    }
+    this.#toggleLoading(true);
+    this.#toggleTitleAndDisclaimer();
     let hasError = false;
-  ***REMOVED***
-      const altText = await this.#currentEditor.mlGuessAltText(this.#imageData, false***REMOVED***;
-      if (altText***REMOVED*** {
+    try {
+      const altText = await this.#currentEditor.mlGuessAltText(this.#imageData, false);
+      if (altText) {
         this.#guessedAltText = altText;
         this.#wasAILoading = this.#isAILoading;
-        if (this.#isAILoading***REMOVED*** {
-          this.#addAltText(altText***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED*** catch (e***REMOVED*** {
-      console.error(e***REMOVED***;
+        if (this.#isAILoading) {
+          this.#addAltText(altText);
+        }
+      }
+    } catch (e) {
+      console.error(e);
       hasError = true;
-    ***REMOVED***
-    this.#toggleLoading(false***REMOVED***;
-    this.#toggleTitleAndDisclaimer(***REMOVED***;
-    if (hasError && this.#uiManager***REMOVED*** {
-      this.#toggleError(true***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #addAltText(altText***REMOVED*** {
-    if (!this.#uiManager || this.#textarea.value***REMOVED*** {
+    }
+    this.#toggleLoading(false);
+    this.#toggleTitleAndDisclaimer();
+    if (hasError && this.#uiManager) {
+      this.#toggleError(true);
+    }
+  }
+  #addAltText(altText) {
+    if (!this.#uiManager || this.#textarea.value) {
       return;
-    ***REMOVED***
+    }
     this.#textarea.value = altText;
-    this.#toggleTitleAndDisclaimer(***REMOVED***;
-  ***REMOVED***
-  #setProgress(***REMOVED*** {
-    this.#downloadModel.classList.toggle("hidden", false***REMOVED***;
+    this.#toggleTitleAndDisclaimer();
+  }
+  #setProgress() {
+    this.#downloadModel.classList.toggle("hidden", false);
     const callback = async ({
       detail: {
         finished,
         total,
         totalLoaded
-      ***REMOVED***
-    ***REMOVED******REMOVED*** => {
+      }
+    }) => {
       const ONE_MEGA_BYTES = 1e6;
-      totalLoaded = Math.min(0.99 * total, totalLoaded***REMOVED***;
-      const totalSize = this.#downloadModelDescription.ariaValueMax = Math.round(total / ONE_MEGA_BYTES***REMOVED***;
-      const downloadedSize = this.#downloadModelDescription.ariaValueNow = Math.round(totalLoaded / ONE_MEGA_BYTES***REMOVED***;
+      totalLoaded = Math.min(0.99 * total, totalLoaded);
+      const totalSize = this.#downloadModelDescription.ariaValueMax = Math.round(total / ONE_MEGA_BYTES);
+      const downloadedSize = this.#downloadModelDescription.ariaValueNow = Math.round(totalLoaded / ONE_MEGA_BYTES);
       this.#downloadModelDescription.setAttribute("data-l10n-args", JSON.stringify({
         totalSize,
         downloadedSize
-      ***REMOVED******REMOVED******REMOVED***;
-      if (!finished***REMOVED*** {
+      }));
+      if (!finished) {
         return;
-      ***REMOVED***
-      this.#eventBus._off("loadaiengineprogress", callback***REMOVED***;
-      this.#downloadModel.classList.toggle("hidden", true***REMOVED***;
-      this.#toggleAI(true***REMOVED***;
-      if (!this.#uiManager***REMOVED*** {
+      }
+      this.#eventBus._off("loadaiengineprogress", callback);
+      this.#downloadModel.classList.toggle("hidden", true);
+      this.#toggleAI(true);
+      if (!this.#uiManager) {
         return;
-      ***REMOVED***
+      }
       const {
         mlManager
-      ***REMOVED*** = this.#uiManager;
-      mlManager.toggleService("altText", true***REMOVED***;
-      this.#toggleGuessAltText(await mlManager.isEnabledFor("altText"***REMOVED***, true***REMOVED***;
-    ***REMOVED***;
-    this.#eventBus._on("loadaiengineprogress", callback***REMOVED***;
-  ***REMOVED***
-  async editAltText(uiManager, editor, firstTime***REMOVED*** {
-    if (this.#currentEditor || !editor***REMOVED*** {
+      } = this.#uiManager;
+      mlManager.toggleService("altText", true);
+      this.#toggleGuessAltText(await mlManager.isEnabledFor("altText"), true);
+    };
+    this.#eventBus._on("loadaiengineprogress", callback);
+  }
+  async editAltText(uiManager, editor, firstTime) {
+    if (this.#currentEditor || !editor) {
       return;
-    ***REMOVED***
-    if (firstTime && editor.hasAltTextData(***REMOVED******REMOVED*** {
-      editor.altTextFinish(***REMOVED***;
+    }
+    if (firstTime && editor.hasAltTextData()) {
+      editor.altTextFinish();
       return;
-    ***REMOVED***
+    }
     this.#firstTime = firstTime;
     let {
       mlManager
-    ***REMOVED*** = uiManager;
+    } = uiManager;
     let hasAI = !!mlManager;
-    this.#toggleTitleAndDisclaimer(***REMOVED***;
-    if (mlManager && !mlManager.isReady("altText"***REMOVED******REMOVED*** {
+    this.#toggleTitleAndDisclaimer();
+    if (mlManager && !mlManager.isReady("altText")) {
       hasAI = false;
-      if (mlManager.hasProgress***REMOVED*** {
-        this.#setProgress(***REMOVED***;
-      ***REMOVED*** else {
+      if (mlManager.hasProgress) {
+        this.#setProgress();
+      } else {
         mlManager = null;
-      ***REMOVED***
-    ***REMOVED*** else {
-      this.#downloadModel.classList.toggle("hidden", true***REMOVED***;
-    ***REMOVED***
-    const isAltTextEnabledPromise = mlManager?.isEnabledFor("altText"***REMOVED***;
+      }
+    } else {
+      this.#downloadModel.classList.toggle("hidden", true);
+    }
+    const isAltTextEnabledPromise = mlManager?.isEnabledFor("altText");
     this.#currentEditor = editor;
     this.#uiManager = uiManager;
-    this.#uiManager.removeEditListeners(***REMOVED***;
+    this.#uiManager.removeEditListeners();
     ({
       altText: this.#previousAltText
-    ***REMOVED*** = editor.altTextData***REMOVED***;
+    } = editor.altTextData);
     this.#textarea.value = this.#previousAltText ?? "";
     const AI_MAX_IMAGE_DIMENSION = 224;
     const MAX_PREVIEW_DIMENSION = 180;
     let canvas, width, height;
-    if (mlManager***REMOVED*** {
+    if (mlManager) {
       ({
         canvas,
         width,
         height,
         imageData: this.#imageData
-      ***REMOVED*** = editor.copyCanvas(AI_MAX_IMAGE_DIMENSION, MAX_PREVIEW_DIMENSION, true***REMOVED******REMOVED***;
-      if (hasAI***REMOVED*** {
-        this.#toggleGuessAltText(await isAltTextEnabledPromise, true***REMOVED***;
-      ***REMOVED***
-    ***REMOVED*** else {
+      } = editor.copyCanvas(AI_MAX_IMAGE_DIMENSION, MAX_PREVIEW_DIMENSION, true));
+      if (hasAI) {
+        this.#toggleGuessAltText(await isAltTextEnabledPromise, true);
+      }
+    } else {
       ({
         canvas,
         width,
         height
-      ***REMOVED*** = editor.copyCanvas(AI_MAX_IMAGE_DIMENSION, MAX_PREVIEW_DIMENSION, false***REMOVED******REMOVED***;
-    ***REMOVED***
-    canvas.setAttribute("role", "presentation"***REMOVED***;
+      } = editor.copyCanvas(AI_MAX_IMAGE_DIMENSION, MAX_PREVIEW_DIMENSION, false));
+    }
+    canvas.setAttribute("role", "presentation");
     const {
       style
-    ***REMOVED*** = canvas;
-    style.width = `${width***REMOVED***px`;
-    style.height = `${height***REMOVED***px`;
-    this.#imagePreview.append(canvas***REMOVED***;
-    this.#toggleNotNow(***REMOVED***;
-    this.#toggleAI(hasAI***REMOVED***;
-    this.#toggleError(false***REMOVED***;
-  ***REMOVED***
-      await this.#overlayManager.open(this.#dialog***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      this.#close(***REMOVED***;
+    } = canvas;
+    style.width = `${width}px`;
+    style.height = `${height}px`;
+    this.#imagePreview.append(canvas);
+    this.#toggleNotNow();
+    this.#toggleAI(hasAI);
+    this.#toggleError(false);
+    try {
+      await this.#overlayManager.open(this.#dialog);
+    } catch (ex) {
+      this.#close();
       throw ex;
-    ***REMOVED***
-  ***REMOVED***
-  #cancel(***REMOVED*** {
+    }
+  }
+  #cancel() {
     this.#currentEditor.altTextData = {
       cancel: true
-    ***REMOVED***;
-    const altText = this.#textarea.value.trim(***REMOVED***;
+    };
+    const altText = this.#textarea.value.trim();
     this.#currentEditor._reportTelemetry({
       action: "pdfjs.image.alt_text.dismiss",
       data: {
         alt_text_type: altText ? "present" : "empty",
         flow: this.#firstTime ? "image_add" : "alt_text_edit"
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
+      }
+    });
     this.#currentEditor._reportTelemetry({
       action: "pdfjs.image.image_added",
       data: {
         alt_text_modal: true,
         alt_text_type: "skipped"
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    this.#finish(***REMOVED***;
-  ***REMOVED***
-  #finish(***REMOVED*** {
-    if (this.#overlayManager.active === this.#dialog***REMOVED*** {
-      this.#overlayManager.close(this.#dialog***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #close(***REMOVED*** {
+      }
+    });
+    this.#finish();
+  }
+  #finish() {
+    if (this.#overlayManager.active === this.#dialog) {
+      this.#overlayManager.close(this.#dialog);
+    }
+  }
+  #close() {
     const canvas = this.#imagePreview.firstChild;
-    canvas.remove(***REMOVED***;
+    canvas.remove();
     canvas.width = canvas.height = 0;
     this.#imageData = null;
-    this.#toggleLoading(false***REMOVED***;
-    this.#uiManager?.addEditListeners(***REMOVED***;
-    this.#currentEditor.altTextFinish(***REMOVED***;
-    this.#uiManager?.setSelected(this.#currentEditor***REMOVED***;
+    this.#toggleLoading(false);
+    this.#uiManager?.addEditListeners();
+    this.#currentEditor.altTextFinish();
+    this.#uiManager?.setSelected(this.#currentEditor);
     this.#currentEditor = null;
     this.#uiManager = null;
-  ***REMOVED***
-  #extractWords(text***REMOVED*** {
-    return new Set(text.toLowerCase(***REMOVED***.split(/[^\p{L***REMOVED***\p{N***REMOVED***]+/gu***REMOVED***.filter(x => !!x***REMOVED******REMOVED***;
-  ***REMOVED***
-  #save(***REMOVED*** {
-    const altText = this.#textarea.value.trim(***REMOVED***;
+  }
+  #extractWords(text) {
+    return new Set(text.toLowerCase().split(/[^\p{L}\p{N}]+/gu).filter(x => !!x));
+  }
+  #save() {
+    const altText = this.#textarea.value.trim();
     this.#currentEditor.altTextData = {
       altText,
       decorative: false
-    ***REMOVED***;
+    };
     this.#currentEditor.altTextData.guessedAltText = this.#guessedAltText;
-    if (this.#guessedAltText && this.#guessedAltText !== altText***REMOVED*** {
-      const guessedWords = this.#extractWords(this.#guessedAltText***REMOVED***;
-      const words = this.#extractWords(altText***REMOVED***;
+    if (this.#guessedAltText && this.#guessedAltText !== altText) {
+      const guessedWords = this.#extractWords(this.#guessedAltText);
+      const words = this.#extractWords(altText);
       this.#currentEditor._reportTelemetry({
         action: "pdfjs.image.alt_text.user_edit",
         data: {
           total_words: guessedWords.size,
-          words_removed: guessedWords.difference(words***REMOVED***.size,
-          words_added: words.difference(guessedWords***REMOVED***.size
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+          words_removed: guessedWords.difference(words).size,
+          words_added: words.difference(guessedWords).size
+        }
+      });
+    }
     this.#currentEditor._reportTelemetry({
       action: "pdfjs.image.image_added",
       data: {
         alt_text_modal: true,
         alt_text_type: altText ? "present" : "empty"
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
+      }
+    });
     this.#currentEditor._reportTelemetry({
       action: "pdfjs.image.alt_text.save",
       data: {
         alt_text_type: altText ? "present" : "empty",
         flow: this.#firstTime ? "image_add" : "alt_text_edit"
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    this.#finish(***REMOVED***;
-  ***REMOVED***
-  destroy(***REMOVED*** {
+      }
+    });
+    this.#finish();
+  }
+  destroy() {
     this.#uiManager = null;
-    this.#finish(***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    this.#finish();
+  }
+}
 class ImageAltTextSettings {
   #aiModelSettings;
   #createModelButton;
@@ -3624,7 +3624,7 @@ class ImageAltTextSettings {
     deleteModelButton,
     downloadModelButton,
     showAltTextDialogButton
-  ***REMOVED***, overlayManager, eventBus, mlManager***REMOVED*** {
+  }, overlayManager, eventBus, mlManager) {
     this.#dialog = dialog;
     this.#aiModelSettings = aiModelSettings;
     this.#createModelButton = createModelButton;
@@ -3635,128 +3635,128 @@ class ImageAltTextSettings {
     this.#mlManager = mlManager;
     const {
       altTextLearnMoreUrl
-    ***REMOVED*** = mlManager;
-    if (altTextLearnMoreUrl***REMOVED*** {
+    } = mlManager;
+    if (altTextLearnMoreUrl) {
       learnMore.href = altTextLearnMoreUrl;
-    ***REMOVED***
-    dialog.addEventListener("contextmenu", noContextMenu***REMOVED***;
+    }
+    dialog.addEventListener("contextmenu", noContextMenu);
     createModelButton.addEventListener("click", async e => {
-      const checked = this.#togglePref("enableGuessAltText", e***REMOVED***;
-      await mlManager.toggleService("altText", checked***REMOVED***;
+      const checked = this.#togglePref("enableGuessAltText", e);
+      await mlManager.toggleService("altText", checked);
       this.#reportTelemetry({
         type: "stamp",
         action: "pdfjs.image.alt_text.settings_ai_generation_check",
         data: {
           status: checked
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
+        }
+      });
+    });
     showAltTextDialogButton.addEventListener("click", e => {
-      const checked = this.#togglePref("enableNewAltTextWhenAddingImage", e***REMOVED***;
+      const checked = this.#togglePref("enableNewAltTextWhenAddingImage", e);
       this.#reportTelemetry({
         type: "stamp",
         action: "pdfjs.image.alt_text.settings_edit_alt_text_check",
         data: {
           status: checked
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    deleteModelButton.addEventListener("click", this.#delete.bind(this, true***REMOVED******REMOVED***;
-    downloadModelButton.addEventListener("click", this.#download.bind(this, true***REMOVED******REMOVED***;
-    closeButton.addEventListener("click", this.#finish.bind(this***REMOVED******REMOVED***;
-    learnMore.addEventListener("click", (***REMOVED*** => {
+        }
+      });
+    });
+    deleteModelButton.addEventListener("click", this.#delete.bind(this, true));
+    downloadModelButton.addEventListener("click", this.#download.bind(this, true));
+    closeButton.addEventListener("click", this.#finish.bind(this));
+    learnMore.addEventListener("click", () => {
       this.#reportTelemetry({
         type: "stamp",
         action: "pdfjs.image.alt_text.info",
         data: {
           topic: "ai_generation"
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
+        }
+      });
+    });
     eventBus._on("enablealttextmodeldownload", ({
       value
-    ***REMOVED******REMOVED*** => {
-      if (value***REMOVED*** {
-        this.#download(false***REMOVED***;
-      ***REMOVED*** else {
-        this.#delete(false***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    this.#overlayManager.register(dialog***REMOVED***;
-  ***REMOVED***
-  #reportTelemetry(data***REMOVED*** {
+    }) => {
+      if (value) {
+        this.#download(false);
+      } else {
+        this.#delete(false);
+      }
+    });
+    this.#overlayManager.register(dialog);
+  }
+  #reportTelemetry(data) {
     this.#eventBus.dispatch("reporttelemetry", {
       source: this,
       details: {
         type: "editing",
         data
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async #download(isFromUI = false***REMOVED*** {
-    if (isFromUI***REMOVED*** {
+      }
+    });
+  }
+  async #download(isFromUI = false) {
+    if (isFromUI) {
       this.#downloadModelButton.disabled = true;
       const span = this.#downloadModelButton.firstChild;
-      span.setAttribute("data-l10n-id", "pdfjs-editor-alt-text-settings-downloading-model-button"***REMOVED***;
-      await this.#mlManager.downloadModel("altText"***REMOVED***;
-      span.setAttribute("data-l10n-id", "pdfjs-editor-alt-text-settings-download-model-button"***REMOVED***;
+      span.setAttribute("data-l10n-id", "pdfjs-editor-alt-text-settings-downloading-model-button");
+      await this.#mlManager.downloadModel("altText");
+      span.setAttribute("data-l10n-id", "pdfjs-editor-alt-text-settings-download-model-button");
       this.#createModelButton.disabled = false;
-      this.#setPref("enableGuessAltText", true***REMOVED***;
-      this.#mlManager.toggleService("altText", true***REMOVED***;
-      this.#setPref("enableAltTextModelDownload", true***REMOVED***;
+      this.#setPref("enableGuessAltText", true);
+      this.#mlManager.toggleService("altText", true);
+      this.#setPref("enableAltTextModelDownload", true);
       this.#downloadModelButton.disabled = false;
-    ***REMOVED***
-    this.#aiModelSettings.classList.toggle("download", false***REMOVED***;
-    this.#createModelButton.setAttribute("aria-pressed", true***REMOVED***;
-  ***REMOVED***
-  async #delete(isFromUI = false***REMOVED*** {
-    if (isFromUI***REMOVED*** {
-      await this.#mlManager.deleteModel("altText"***REMOVED***;
-      this.#setPref("enableGuessAltText", false***REMOVED***;
-      this.#setPref("enableAltTextModelDownload", false***REMOVED***;
-    ***REMOVED***
-    this.#aiModelSettings.classList.toggle("download", true***REMOVED***;
+    }
+    this.#aiModelSettings.classList.toggle("download", false);
+    this.#createModelButton.setAttribute("aria-pressed", true);
+  }
+  async #delete(isFromUI = false) {
+    if (isFromUI) {
+      await this.#mlManager.deleteModel("altText");
+      this.#setPref("enableGuessAltText", false);
+      this.#setPref("enableAltTextModelDownload", false);
+    }
+    this.#aiModelSettings.classList.toggle("download", true);
     this.#createModelButton.disabled = true;
-    this.#createModelButton.setAttribute("aria-pressed", false***REMOVED***;
-  ***REMOVED***
+    this.#createModelButton.setAttribute("aria-pressed", false);
+  }
   async open({
     enableGuessAltText,
     enableNewAltTextWhenAddingImage
-  ***REMOVED******REMOVED*** {
+  }) {
     const {
       enableAltTextModelDownload
-    ***REMOVED*** = this.#mlManager;
+    } = this.#mlManager;
     this.#createModelButton.disabled = !enableAltTextModelDownload;
-    this.#createModelButton.setAttribute("aria-pressed", enableAltTextModelDownload && enableGuessAltText***REMOVED***;
-    this.#showAltTextDialogButton.setAttribute("aria-pressed", enableNewAltTextWhenAddingImage***REMOVED***;
-    this.#aiModelSettings.classList.toggle("download", !enableAltTextModelDownload***REMOVED***;
-    await this.#overlayManager.open(this.#dialog***REMOVED***;
+    this.#createModelButton.setAttribute("aria-pressed", enableAltTextModelDownload && enableGuessAltText);
+    this.#showAltTextDialogButton.setAttribute("aria-pressed", enableNewAltTextWhenAddingImage);
+    this.#aiModelSettings.classList.toggle("download", !enableAltTextModelDownload);
+    await this.#overlayManager.open(this.#dialog);
     this.#reportTelemetry({
       type: "stamp",
       action: "pdfjs.image.alt_text.settings_displayed"
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+    });
+  }
   #togglePref(name, {
     target
-  ***REMOVED******REMOVED*** {
-    const checked = target.getAttribute("aria-pressed"***REMOVED*** !== "true";
-    this.#setPref(name, checked***REMOVED***;
-    target.setAttribute("aria-pressed", checked***REMOVED***;
+  }) {
+    const checked = target.getAttribute("aria-pressed") !== "true";
+    this.#setPref(name, checked);
+    target.setAttribute("aria-pressed", checked);
     return checked;
-  ***REMOVED***
-  #setPref(name, value***REMOVED*** {
+  }
+  #setPref(name, value) {
     this.#eventBus.dispatch("setpreference", {
       source: this,
       name,
       value
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #finish(***REMOVED*** {
-    if (this.#overlayManager.active === this.#dialog***REMOVED*** {
-      this.#overlayManager.close(this.#dialog***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    });
+  }
+  #finish() {
+    if (this.#overlayManager.active === this.#dialog) {
+      this.#overlayManager.close(this.#dialog);
+    }
+  }
+}
 
 ;// ./web/alt_text_manager.js
 
@@ -3786,7 +3786,7 @@ class AltTextManager {
     textarea,
     cancelButton,
     saveButton
-  ***REMOVED***, container, overlayManager, eventBus***REMOVED*** {
+  }, container, overlayManager, eventBus) {
     this.#dialog = dialog;
     this.#optionDescription = optionDescription;
     this.#optionDecorative = optionDecorative;
@@ -3796,227 +3796,227 @@ class AltTextManager {
     this.#overlayManager = overlayManager;
     this.#eventBus = eventBus;
     this.#container = container;
-    const onUpdateUIState = this.#updateUIState.bind(this***REMOVED***;
-    dialog.addEventListener("close", this.#close.bind(this***REMOVED******REMOVED***;
+    const onUpdateUIState = this.#updateUIState.bind(this);
+    dialog.addEventListener("close", this.#close.bind(this));
     dialog.addEventListener("contextmenu", event => {
-      if (event.target !== this.#textarea***REMOVED*** {
-        event.preventDefault(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    cancelButton.addEventListener("click", this.#finish.bind(this***REMOVED******REMOVED***;
-    saveButton.addEventListener("click", this.#save.bind(this***REMOVED******REMOVED***;
-    optionDescription.addEventListener("change", onUpdateUIState***REMOVED***;
-    optionDecorative.addEventListener("change", onUpdateUIState***REMOVED***;
-    this.#overlayManager.register(dialog***REMOVED***;
-  ***REMOVED***
-  #createSVGElement(***REMOVED*** {
-    if (this.#svgElement***REMOVED*** {
+      if (event.target !== this.#textarea) {
+        event.preventDefault();
+      }
+    });
+    cancelButton.addEventListener("click", this.#finish.bind(this));
+    saveButton.addEventListener("click", this.#save.bind(this));
+    optionDescription.addEventListener("change", onUpdateUIState);
+    optionDecorative.addEventListener("change", onUpdateUIState);
+    this.#overlayManager.register(dialog);
+  }
+  #createSVGElement() {
+    if (this.#svgElement) {
       return;
-    ***REMOVED***
-    const svgFactory = new DOMSVGFactory(***REMOVED***;
-    const svg = this.#svgElement = svgFactory.createElement("svg"***REMOVED***;
-    svg.setAttribute("width", "0"***REMOVED***;
-    svg.setAttribute("height", "0"***REMOVED***;
-    const defs = svgFactory.createElement("defs"***REMOVED***;
-    svg.append(defs***REMOVED***;
-    const mask = svgFactory.createElement("mask"***REMOVED***;
-    defs.append(mask***REMOVED***;
-    mask.setAttribute("id", "alttext-manager-mask"***REMOVED***;
-    mask.setAttribute("maskContentUnits", "objectBoundingBox"***REMOVED***;
-    let rect = svgFactory.createElement("rect"***REMOVED***;
-    mask.append(rect***REMOVED***;
-    rect.setAttribute("fill", "white"***REMOVED***;
-    rect.setAttribute("width", "1"***REMOVED***;
-    rect.setAttribute("height", "1"***REMOVED***;
-    rect.setAttribute("x", "0"***REMOVED***;
-    rect.setAttribute("y", "0"***REMOVED***;
-    rect = this.#rectElement = svgFactory.createElement("rect"***REMOVED***;
-    mask.append(rect***REMOVED***;
-    rect.setAttribute("fill", "black"***REMOVED***;
-    this.#dialog.append(svg***REMOVED***;
-  ***REMOVED***
-  async editAltText(uiManager, editor***REMOVED*** {
-    if (this.#currentEditor || !editor***REMOVED*** {
+    }
+    const svgFactory = new DOMSVGFactory();
+    const svg = this.#svgElement = svgFactory.createElement("svg");
+    svg.setAttribute("width", "0");
+    svg.setAttribute("height", "0");
+    const defs = svgFactory.createElement("defs");
+    svg.append(defs);
+    const mask = svgFactory.createElement("mask");
+    defs.append(mask);
+    mask.setAttribute("id", "alttext-manager-mask");
+    mask.setAttribute("maskContentUnits", "objectBoundingBox");
+    let rect = svgFactory.createElement("rect");
+    mask.append(rect);
+    rect.setAttribute("fill", "white");
+    rect.setAttribute("width", "1");
+    rect.setAttribute("height", "1");
+    rect.setAttribute("x", "0");
+    rect.setAttribute("y", "0");
+    rect = this.#rectElement = svgFactory.createElement("rect");
+    mask.append(rect);
+    rect.setAttribute("fill", "black");
+    this.#dialog.append(svg);
+  }
+  async editAltText(uiManager, editor) {
+    if (this.#currentEditor || !editor) {
       return;
-    ***REMOVED***
-    this.#createSVGElement(***REMOVED***;
+    }
+    this.#createSVGElement();
     this.#hasUsedPointer = false;
-    this.#clickAC = new AbortController(***REMOVED***;
+    this.#clickAC = new AbortController();
     const clickOpts = {
       signal: this.#clickAC.signal
-    ***REMOVED***,
-      onClick = this.#onClick.bind(this***REMOVED***;
-    for (const element of [this.#optionDescription, this.#optionDecorative, this.#textarea, this.#saveButton, this.#cancelButton]***REMOVED*** {
-      element.addEventListener("click", onClick, clickOpts***REMOVED***;
-    ***REMOVED***
+    },
+      onClick = this.#onClick.bind(this);
+    for (const element of [this.#optionDescription, this.#optionDecorative, this.#textarea, this.#saveButton, this.#cancelButton]) {
+      element.addEventListener("click", onClick, clickOpts);
+    }
     const {
       altText,
       decorative
-    ***REMOVED*** = editor.altTextData;
-    if (decorative === true***REMOVED*** {
+    } = editor.altTextData;
+    if (decorative === true) {
       this.#optionDecorative.checked = true;
       this.#optionDescription.checked = false;
-    ***REMOVED*** else {
+    } else {
       this.#optionDecorative.checked = false;
       this.#optionDescription.checked = true;
-    ***REMOVED***
-    this.#previousAltText = this.#textarea.value = altText?.trim(***REMOVED*** || "";
-    this.#updateUIState(***REMOVED***;
+    }
+    this.#previousAltText = this.#textarea.value = altText?.trim() || "";
+    this.#updateUIState();
     this.#currentEditor = editor;
     this.#uiManager = uiManager;
-    this.#uiManager.removeEditListeners(***REMOVED***;
-    this.#resizeAC = new AbortController(***REMOVED***;
-    this.#eventBus._on("resize", this.#setPosition.bind(this***REMOVED***, {
+    this.#uiManager.removeEditListeners();
+    this.#resizeAC = new AbortController();
+    this.#eventBus._on("resize", this.#setPosition.bind(this), {
       signal: this.#resizeAC.signal
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-      await this.#overlayManager.open(this.#dialog***REMOVED***;
-      this.#setPosition(***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      this.#close(***REMOVED***;
+    });
+    try {
+      await this.#overlayManager.open(this.#dialog);
+      this.#setPosition();
+    } catch (ex) {
+      this.#close();
       throw ex;
-    ***REMOVED***
-  ***REMOVED***
-  #setPosition(***REMOVED*** {
-    if (!this.#currentEditor***REMOVED*** {
+    }
+  }
+  #setPosition() {
+    if (!this.#currentEditor) {
       return;
-    ***REMOVED***
+    }
     const dialog = this.#dialog;
     const {
       style
-    ***REMOVED*** = dialog;
+    } = dialog;
     const {
       x: containerX,
       y: containerY,
       width: containerW,
       height: containerH
-    ***REMOVED*** = this.#container.getBoundingClientRect(***REMOVED***;
+    } = this.#container.getBoundingClientRect();
     const {
       innerWidth: windowW,
       innerHeight: windowH
-    ***REMOVED*** = window;
+    } = window;
     const {
       width: dialogW,
       height: dialogH
-    ***REMOVED*** = dialog.getBoundingClientRect(***REMOVED***;
+    } = dialog.getBoundingClientRect();
     const {
       x,
       y,
       width,
       height
-    ***REMOVED*** = this.#currentEditor.getClientDimensions(***REMOVED***;
+    } = this.#currentEditor.getClientDimensions();
     const MARGIN = 10;
     const isLTR = this.#uiManager.direction === "ltr";
-    const xs = Math.max(x, containerX***REMOVED***;
-    const xe = Math.min(x + width, containerX + containerW***REMOVED***;
-    const ys = Math.max(y, containerY***REMOVED***;
-    const ye = Math.min(y + height, containerY + containerH***REMOVED***;
-    this.#rectElement.setAttribute("width", `${(xe - xs***REMOVED*** / windowW***REMOVED***`***REMOVED***;
-    this.#rectElement.setAttribute("height", `${(ye - ys***REMOVED*** / windowH***REMOVED***`***REMOVED***;
-    this.#rectElement.setAttribute("x", `${xs / windowW***REMOVED***`***REMOVED***;
-    this.#rectElement.setAttribute("y", `${ys / windowH***REMOVED***`***REMOVED***;
+    const xs = Math.max(x, containerX);
+    const xe = Math.min(x + width, containerX + containerW);
+    const ys = Math.max(y, containerY);
+    const ye = Math.min(y + height, containerY + containerH);
+    this.#rectElement.setAttribute("width", `${(xe - xs) / windowW}`);
+    this.#rectElement.setAttribute("height", `${(ye - ys) / windowH}`);
+    this.#rectElement.setAttribute("x", `${xs / windowW}`);
+    this.#rectElement.setAttribute("y", `${ys / windowH}`);
     let left = null;
-    let top = Math.max(y, 0***REMOVED***;
-    top += Math.min(windowH - (top + dialogH***REMOVED***, 0***REMOVED***;
-    if (isLTR***REMOVED*** {
-      if (x + width + MARGIN + dialogW < windowW***REMOVED*** {
+    let top = Math.max(y, 0);
+    top += Math.min(windowH - (top + dialogH), 0);
+    if (isLTR) {
+      if (x + width + MARGIN + dialogW < windowW) {
         left = x + width + MARGIN;
-      ***REMOVED*** else if (x > dialogW + MARGIN***REMOVED*** {
+      } else if (x > dialogW + MARGIN) {
         left = x - dialogW - MARGIN;
-      ***REMOVED***
-    ***REMOVED*** else if (x > dialogW + MARGIN***REMOVED*** {
+      }
+    } else if (x > dialogW + MARGIN) {
       left = x - dialogW - MARGIN;
-    ***REMOVED*** else if (x + width + MARGIN + dialogW < windowW***REMOVED*** {
+    } else if (x + width + MARGIN + dialogW < windowW) {
       left = x + width + MARGIN;
-    ***REMOVED***
-    if (left === null***REMOVED*** {
+    }
+    if (left === null) {
       top = null;
-      left = Math.max(x, 0***REMOVED***;
-      left += Math.min(windowW - (left + dialogW***REMOVED***, 0***REMOVED***;
-      if (y > dialogH + MARGIN***REMOVED*** {
+      left = Math.max(x, 0);
+      left += Math.min(windowW - (left + dialogW), 0);
+      if (y > dialogH + MARGIN) {
         top = y - dialogH - MARGIN;
-      ***REMOVED*** else if (y + height + MARGIN + dialogH < windowH***REMOVED*** {
+      } else if (y + height + MARGIN + dialogH < windowH) {
         top = y + height + MARGIN;
-      ***REMOVED***
-    ***REMOVED***
-    if (top !== null***REMOVED*** {
-      dialog.classList.add("positioned"***REMOVED***;
-      if (isLTR***REMOVED*** {
-        style.left = `${left***REMOVED***px`;
-      ***REMOVED*** else {
-        style.right = `${windowW - left - dialogW***REMOVED***px`;
-      ***REMOVED***
-      style.top = `${top***REMOVED***px`;
-    ***REMOVED*** else {
-      dialog.classList.remove("positioned"***REMOVED***;
+      }
+    }
+    if (top !== null) {
+      dialog.classList.add("positioned");
+      if (isLTR) {
+        style.left = `${left}px`;
+      } else {
+        style.right = `${windowW - left - dialogW}px`;
+      }
+      style.top = `${top}px`;
+    } else {
+      dialog.classList.remove("positioned");
       style.left = "";
       style.top = "";
-    ***REMOVED***
-  ***REMOVED***
-  #finish(***REMOVED*** {
-    if (this.#overlayManager.active === this.#dialog***REMOVED*** {
-      this.#overlayManager.close(this.#dialog***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #close(***REMOVED*** {
+    }
+  }
+  #finish() {
+    if (this.#overlayManager.active === this.#dialog) {
+      this.#overlayManager.close(this.#dialog);
+    }
+  }
+  #close() {
     this.#currentEditor._reportTelemetry(this.#telemetryData || {
       action: "alt_text_cancel",
       alt_text_keyboard: !this.#hasUsedPointer
-    ***REMOVED******REMOVED***;
+    });
     this.#telemetryData = null;
-    this.#removeOnClickListeners(***REMOVED***;
-    this.#uiManager?.addEditListeners(***REMOVED***;
-    this.#resizeAC?.abort(***REMOVED***;
+    this.#removeOnClickListeners();
+    this.#uiManager?.addEditListeners();
+    this.#resizeAC?.abort();
     this.#resizeAC = null;
-    this.#currentEditor.altTextFinish(***REMOVED***;
+    this.#currentEditor.altTextFinish();
     this.#currentEditor = null;
     this.#uiManager = null;
-  ***REMOVED***
-  #updateUIState(***REMOVED*** {
+  }
+  #updateUIState() {
     this.#textarea.disabled = this.#optionDecorative.checked;
-  ***REMOVED***
-  #save(***REMOVED*** {
-    const altText = this.#textarea.value.trim(***REMOVED***;
+  }
+  #save() {
+    const altText = this.#textarea.value.trim();
     const decorative = this.#optionDecorative.checked;
     this.#currentEditor.altTextData = {
       altText,
       decorative
-    ***REMOVED***;
+    };
     this.#telemetryData = {
       action: "alt_text_save",
       alt_text_description: !!altText,
       alt_text_edit: !!this.#previousAltText && this.#previousAltText !== altText,
       alt_text_decorative: decorative,
       alt_text_keyboard: !this.#hasUsedPointer
-    ***REMOVED***;
-    this.#finish(***REMOVED***;
-  ***REMOVED***
-  #onClick(evt***REMOVED*** {
-    if (evt.detail === 0***REMOVED*** {
+    };
+    this.#finish();
+  }
+  #onClick(evt) {
+    if (evt.detail === 0) {
       return;
-    ***REMOVED***
+    }
     this.#hasUsedPointer = true;
-    this.#removeOnClickListeners(***REMOVED***;
-  ***REMOVED***
-  #removeOnClickListeners(***REMOVED*** {
-    this.#clickAC?.abort(***REMOVED***;
+    this.#removeOnClickListeners();
+  }
+  #removeOnClickListeners() {
+    this.#clickAC?.abort();
     this.#clickAC = null;
-  ***REMOVED***
-  destroy(***REMOVED*** {
+  }
+  destroy() {
     this.#uiManager = null;
-    this.#finish(***REMOVED***;
-    this.#svgElement?.remove(***REMOVED***;
+    this.#finish();
+    this.#svgElement?.remove();
     this.#svgElement = this.#rectElement = null;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/annotation_editor_params.js
 
 class AnnotationEditorParams {
-  constructor(options, eventBus***REMOVED*** {
+  constructor(options, eventBus) {
     this.eventBus = eventBus;
-    this.#bindListeners(options***REMOVED***;
-  ***REMOVED***
+    this.#bindListeners(options);
+  }
   #bindListeners({
     editorFreeTextFontSize,
     editorFreeTextColor,
@@ -4026,52 +4026,52 @@ class AnnotationEditorParams {
     editorStampAddImage,
     editorFreeHighlightThickness,
     editorHighlightShowAll
-  ***REMOVED******REMOVED*** {
-    const dispatchEvent = (typeStr, value***REMOVED*** => {
+  }) {
+    const dispatchEvent = (typeStr, value) => {
       this.eventBus.dispatch("switchannotationeditorparams", {
         source: this,
         type: AnnotationEditorParamsType[typeStr],
         value
-      ***REMOVED******REMOVED***;
-    ***REMOVED***;
-    editorFreeTextFontSize.addEventListener("input", function (***REMOVED*** {
-      dispatchEvent("FREETEXT_SIZE", this.valueAsNumber***REMOVED***;
-    ***REMOVED******REMOVED***;
-    editorFreeTextColor.addEventListener("input", function (***REMOVED*** {
-      dispatchEvent("FREETEXT_COLOR", this.value***REMOVED***;
-    ***REMOVED******REMOVED***;
-    editorInkColor.addEventListener("input", function (***REMOVED*** {
-      dispatchEvent("INK_COLOR", this.value***REMOVED***;
-    ***REMOVED******REMOVED***;
-    editorInkThickness.addEventListener("input", function (***REMOVED*** {
-      dispatchEvent("INK_THICKNESS", this.valueAsNumber***REMOVED***;
-    ***REMOVED******REMOVED***;
-    editorInkOpacity.addEventListener("input", function (***REMOVED*** {
-      dispatchEvent("INK_OPACITY", this.valueAsNumber***REMOVED***;
-    ***REMOVED******REMOVED***;
-    editorStampAddImage.addEventListener("click", (***REMOVED*** => {
+      });
+    };
+    editorFreeTextFontSize.addEventListener("input", function () {
+      dispatchEvent("FREETEXT_SIZE", this.valueAsNumber);
+    });
+    editorFreeTextColor.addEventListener("input", function () {
+      dispatchEvent("FREETEXT_COLOR", this.value);
+    });
+    editorInkColor.addEventListener("input", function () {
+      dispatchEvent("INK_COLOR", this.value);
+    });
+    editorInkThickness.addEventListener("input", function () {
+      dispatchEvent("INK_THICKNESS", this.valueAsNumber);
+    });
+    editorInkOpacity.addEventListener("input", function () {
+      dispatchEvent("INK_OPACITY", this.valueAsNumber);
+    });
+    editorStampAddImage.addEventListener("click", () => {
       this.eventBus.dispatch("reporttelemetry", {
         source: this,
         details: {
           type: "editing",
           data: {
             action: "pdfjs.image.add_image_click"
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-      dispatchEvent("CREATE"***REMOVED***;
-    ***REMOVED******REMOVED***;
-    editorFreeHighlightThickness.addEventListener("input", function (***REMOVED*** {
-      dispatchEvent("HIGHLIGHT_THICKNESS", this.valueAsNumber***REMOVED***;
-    ***REMOVED******REMOVED***;
-    editorHighlightShowAll.addEventListener("click", function (***REMOVED*** {
-      const checked = this.getAttribute("aria-pressed"***REMOVED*** === "true";
-      this.setAttribute("aria-pressed", !checked***REMOVED***;
-      dispatchEvent("HIGHLIGHT_SHOW_ALL", !checked***REMOVED***;
-    ***REMOVED******REMOVED***;
+          }
+        }
+      });
+      dispatchEvent("CREATE");
+    });
+    editorFreeHighlightThickness.addEventListener("input", function () {
+      dispatchEvent("HIGHLIGHT_THICKNESS", this.valueAsNumber);
+    });
+    editorHighlightShowAll.addEventListener("click", function () {
+      const checked = this.getAttribute("aria-pressed") === "true";
+      this.setAttribute("aria-pressed", !checked);
+      dispatchEvent("HIGHLIGHT_SHOW_ALL", !checked);
+    });
     this.eventBus._on("annotationeditorparamschanged", evt => {
-      for (const [type, value] of evt.details***REMOVED*** {
-        switch (type***REMOVED*** {
+      for (const [type, value] of evt.details) {
+        switch (type) {
           case AnnotationEditorParamsType.FREETEXT_SIZE:
             editorFreeTextFontSize.value = value;
             break;
@@ -4094,13 +4094,13 @@ class AnnotationEditorParams {
             editorFreeHighlightThickness.disabled = !value;
             break;
           case AnnotationEditorParamsType.HIGHLIGHT_SHOW_ALL:
-            editorHighlightShowAll.setAttribute("aria-pressed", value***REMOVED***;
+            editorHighlightShowAll.setAttribute("aria-pressed", value);
             break;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
+        }
+      }
+    });
+  }
+}
 
 ;// ./web/caret_browsing.js
 const PRECISION = 1e-1;
@@ -4108,27 +4108,27 @@ class CaretBrowsingMode {
   #mainContainer;
   #toolBarHeight = 0;
   #viewerContainer;
-  constructor(abortSignal, mainContainer, viewerContainer, toolbarContainer***REMOVED*** {
+  constructor(abortSignal, mainContainer, viewerContainer, toolbarContainer) {
     this.#mainContainer = mainContainer;
     this.#viewerContainer = viewerContainer;
-    if (!toolbarContainer***REMOVED*** {
+    if (!toolbarContainer) {
       return;
-    ***REMOVED***
-    this.#toolBarHeight = toolbarContainer.getBoundingClientRect(***REMOVED***.height;
+    }
+    this.#toolBarHeight = toolbarContainer.getBoundingClientRect().height;
     const toolbarObserver = new ResizeObserver(entries => {
-      for (const entry of entries***REMOVED*** {
-        if (entry.target === toolbarContainer***REMOVED*** {
-          this.#toolBarHeight = Math.floor(entry.borderBoxSize[0].blockSize***REMOVED***;
+      for (const entry of entries) {
+        if (entry.target === toolbarContainer) {
+          this.#toolBarHeight = Math.floor(entry.borderBoxSize[0].blockSize);
           break;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    toolbarObserver.observe(toolbarContainer***REMOVED***;
-    abortSignal.addEventListener("abort", (***REMOVED*** => toolbarObserver.disconnect(***REMOVED***, {
+        }
+      }
+    });
+    toolbarObserver.observe(toolbarContainer);
+    abortSignal.addEventListener("abort", () => toolbarObserver.disconnect(), {
       once: true
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #isOnSameLine(rect1, rect2***REMOVED*** {
+    });
+  }
+  #isOnSameLine(rect1, rect2) {
     const top1 = rect1.y;
     const bot1 = rect1.bottom;
     const mid1 = rect1.y + rect1.height / 2;
@@ -4136,256 +4136,256 @@ class CaretBrowsingMode {
     const bot2 = rect2.bottom;
     const mid2 = rect2.y + rect2.height / 2;
     return top1 <= mid2 && mid2 <= bot1 || top2 <= mid1 && mid1 <= bot2;
-  ***REMOVED***
-  #isUnderOver(rect, x, y, isUp***REMOVED*** {
+  }
+  #isUnderOver(rect, x, y, isUp) {
     const midY = rect.y + rect.height / 2;
-    return (isUp ? y >= midY : y <= midY***REMOVED*** && rect.x - PRECISION <= x && x <= rect.right + PRECISION;
-  ***REMOVED***
-  #isVisible(rect***REMOVED*** {
-    return rect.top >= this.#toolBarHeight && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight***REMOVED*** && rect.right <= (window.innerWidth || document.documentElement.clientWidth***REMOVED***;
-  ***REMOVED***
-  #getCaretPosition(selection, isUp***REMOVED*** {
+    return (isUp ? y >= midY : y <= midY) && rect.x - PRECISION <= x && x <= rect.right + PRECISION;
+  }
+  #isVisible(rect) {
+    return rect.top >= this.#toolBarHeight && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+  }
+  #getCaretPosition(selection, isUp) {
     const {
       focusNode,
       focusOffset
-    ***REMOVED*** = selection;
-    const range = document.createRange(***REMOVED***;
-    range.setStart(focusNode, focusOffset***REMOVED***;
-    range.setEnd(focusNode, focusOffset***REMOVED***;
-    const rect = range.getBoundingClientRect(***REMOVED***;
+    } = selection;
+    const range = document.createRange();
+    range.setStart(focusNode, focusOffset);
+    range.setEnd(focusNode, focusOffset);
+    const rect = range.getBoundingClientRect();
     return [rect.x, isUp ? rect.top : rect.bottom];
-  ***REMOVED***
-  static #caretPositionFromPoint(x, y***REMOVED*** {
-    if (!document.caretPositionFromPoint***REMOVED*** {
+  }
+  static #caretPositionFromPoint(x, y) {
+    if (!document.caretPositionFromPoint) {
       const {
         startContainer: offsetNode,
         startOffset: offset
-      ***REMOVED*** = document.caretRangeFromPoint(x, y***REMOVED***;
-  ***REMOVED***
+      } = document.caretRangeFromPoint(x, y);
+      return {
         offsetNode,
         offset
-      ***REMOVED***;
-    ***REMOVED***
-    return document.caretPositionFromPoint(x, y***REMOVED***;
-  ***REMOVED***
-  #setCaretPositionHelper(selection, caretX, select, element, rect***REMOVED*** {
-    rect ||= element.getBoundingClientRect(***REMOVED***;
-    if (caretX <= rect.x + PRECISION***REMOVED*** {
-      if (select***REMOVED*** {
-        selection.extend(element.firstChild, 0***REMOVED***;
-      ***REMOVED*** else {
-        selection.setPosition(element.firstChild, 0***REMOVED***;
-      ***REMOVED***
+      };
+    }
+    return document.caretPositionFromPoint(x, y);
+  }
+  #setCaretPositionHelper(selection, caretX, select, element, rect) {
+    rect ||= element.getBoundingClientRect();
+    if (caretX <= rect.x + PRECISION) {
+      if (select) {
+        selection.extend(element.firstChild, 0);
+      } else {
+        selection.setPosition(element.firstChild, 0);
+      }
       return;
-    ***REMOVED***
-    if (rect.right - PRECISION <= caretX***REMOVED*** {
+    }
+    if (rect.right - PRECISION <= caretX) {
       const {
         lastChild
-      ***REMOVED*** = element;
-      if (select***REMOVED*** {
-        selection.extend(lastChild, lastChild.length***REMOVED***;
-      ***REMOVED*** else {
-        selection.setPosition(lastChild, lastChild.length***REMOVED***;
-      ***REMOVED***
+      } = element;
+      if (select) {
+        selection.extend(lastChild, lastChild.length);
+      } else {
+        selection.setPosition(lastChild, lastChild.length);
+      }
       return;
-    ***REMOVED***
+    }
     const midY = rect.y + rect.height / 2;
-    let caretPosition = CaretBrowsingMode.#caretPositionFromPoint(caretX, midY***REMOVED***;
+    let caretPosition = CaretBrowsingMode.#caretPositionFromPoint(caretX, midY);
     let parentElement = caretPosition.offsetNode?.parentElement;
-    if (parentElement && parentElement !== element***REMOVED*** {
-      const elementsAtPoint = document.elementsFromPoint(caretX, midY***REMOVED***;
+    if (parentElement && parentElement !== element) {
+      const elementsAtPoint = document.elementsFromPoint(caretX, midY);
       const savedVisibilities = [];
-      for (const el of elementsAtPoint***REMOVED*** {
-        if (el === element***REMOVED*** {
+      for (const el of elementsAtPoint) {
+        if (el === element) {
           break;
-        ***REMOVED***
+        }
         const {
           style
-        ***REMOVED*** = el;
-        savedVisibilities.push([el, style.visibility]***REMOVED***;
+        } = el;
+        savedVisibilities.push([el, style.visibility]);
         style.visibility = "hidden";
-      ***REMOVED***
-      caretPosition = CaretBrowsingMode.#caretPositionFromPoint(caretX, midY***REMOVED***;
+      }
+      caretPosition = CaretBrowsingMode.#caretPositionFromPoint(caretX, midY);
       parentElement = caretPosition.offsetNode?.parentElement;
-      for (const [el, visibility] of savedVisibilities***REMOVED*** {
+      for (const [el, visibility] of savedVisibilities) {
         el.style.visibility = visibility;
-      ***REMOVED***
-    ***REMOVED***
-    if (parentElement !== element***REMOVED*** {
-      if (select***REMOVED*** {
-        selection.extend(element.firstChild, 0***REMOVED***;
-      ***REMOVED*** else {
-        selection.setPosition(element.firstChild, 0***REMOVED***;
-      ***REMOVED***
+      }
+    }
+    if (parentElement !== element) {
+      if (select) {
+        selection.extend(element.firstChild, 0);
+      } else {
+        selection.setPosition(element.firstChild, 0);
+      }
       return;
-    ***REMOVED***
-    if (select***REMOVED*** {
-      selection.extend(caretPosition.offsetNode, caretPosition.offset***REMOVED***;
-    ***REMOVED*** else {
-      selection.setPosition(caretPosition.offsetNode, caretPosition.offset***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #setCaretPosition(select, selection, newLineElement, newLineElementRect, caretX***REMOVED*** {
-    if (this.#isVisible(newLineElementRect***REMOVED******REMOVED*** {
-      this.#setCaretPositionHelper(selection, caretX, select, newLineElement, newLineElementRect***REMOVED***;
+    }
+    if (select) {
+      selection.extend(caretPosition.offsetNode, caretPosition.offset);
+    } else {
+      selection.setPosition(caretPosition.offsetNode, caretPosition.offset);
+    }
+  }
+  #setCaretPosition(select, selection, newLineElement, newLineElementRect, caretX) {
+    if (this.#isVisible(newLineElementRect)) {
+      this.#setCaretPositionHelper(selection, caretX, select, newLineElement, newLineElementRect);
       return;
-    ***REMOVED***
-    this.#mainContainer.addEventListener("scrollend", this.#setCaretPositionHelper.bind(this, selection, caretX, select, newLineElement, null***REMOVED***, {
+    }
+    this.#mainContainer.addEventListener("scrollend", this.#setCaretPositionHelper.bind(this, selection, caretX, select, newLineElement, null), {
       once: true
-    ***REMOVED******REMOVED***;
-    newLineElement.scrollIntoView(***REMOVED***;
-  ***REMOVED***
-  #getNodeOnNextPage(textLayer, isUp***REMOVED*** {
-    while (true***REMOVED*** {
-      const page = textLayer.closest(".page"***REMOVED***;
-      const pageNumber = parseInt(page.getAttribute("data-page-number"***REMOVED******REMOVED***;
+    });
+    newLineElement.scrollIntoView();
+  }
+  #getNodeOnNextPage(textLayer, isUp) {
+    while (true) {
+      const page = textLayer.closest(".page");
+      const pageNumber = parseInt(page.getAttribute("data-page-number"));
       const nextPage = isUp ? pageNumber - 1 : pageNumber + 1;
-      textLayer = this.#viewerContainer.querySelector(`.page[data-page-number="${nextPage***REMOVED***"] .textLayer`***REMOVED***;
-      if (!textLayer***REMOVED*** {
+      textLayer = this.#viewerContainer.querySelector(`.page[data-page-number="${nextPage}"] .textLayer`);
+      if (!textLayer) {
         return null;
-      ***REMOVED***
-      const walker = document.createTreeWalker(textLayer, NodeFilter.SHOW_TEXT***REMOVED***;
-      const node = isUp ? walker.lastChild(***REMOVED*** : walker.firstChild(***REMOVED***;
-      if (node***REMOVED*** {
+      }
+      const walker = document.createTreeWalker(textLayer, NodeFilter.SHOW_TEXT);
+      const node = isUp ? walker.lastChild() : walker.firstChild();
+      if (node) {
         return node;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  moveCaret(isUp, select***REMOVED*** {
-    const selection = document.getSelection(***REMOVED***;
-    if (selection.rangeCount === 0***REMOVED*** {
+      }
+    }
+  }
+  moveCaret(isUp, select) {
+    const selection = document.getSelection();
+    if (selection.rangeCount === 0) {
       return;
-    ***REMOVED***
+    }
     const {
       focusNode
-    ***REMOVED*** = selection;
+    } = selection;
     const focusElement = focusNode.nodeType !== Node.ELEMENT_NODE ? focusNode.parentElement : focusNode;
-    const root = focusElement.closest(".textLayer"***REMOVED***;
-    if (!root***REMOVED*** {
+    const root = focusElement.closest(".textLayer");
+    if (!root) {
       return;
-    ***REMOVED***
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT***REMOVED***;
+    }
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     walker.currentNode = focusNode;
-    const focusRect = focusElement.getBoundingClientRect(***REMOVED***;
+    const focusRect = focusElement.getBoundingClientRect();
     let newLineElement = null;
-    const nodeIterator = (isUp ? walker.previousSibling : walker.nextSibling***REMOVED***.bind(walker***REMOVED***;
-    while (nodeIterator(***REMOVED******REMOVED*** {
+    const nodeIterator = (isUp ? walker.previousSibling : walker.nextSibling).bind(walker);
+    while (nodeIterator()) {
       const element = walker.currentNode.parentElement;
-      if (!this.#isOnSameLine(focusRect, element.getBoundingClientRect(***REMOVED******REMOVED******REMOVED*** {
+      if (!this.#isOnSameLine(focusRect, element.getBoundingClientRect())) {
         newLineElement = element;
         break;
-      ***REMOVED***
-    ***REMOVED***
-    if (!newLineElement***REMOVED*** {
-      const node = this.#getNodeOnNextPage(root, isUp***REMOVED***;
-      if (!node***REMOVED*** {
+      }
+    }
+    if (!newLineElement) {
+      const node = this.#getNodeOnNextPage(root, isUp);
+      if (!node) {
         return;
-      ***REMOVED***
-      if (select***REMOVED*** {
-        const lastNode = (isUp ? walker.firstChild(***REMOVED*** : walker.lastChild(***REMOVED******REMOVED*** || focusNode;
-        selection.extend(lastNode, isUp ? 0 : lastNode.length***REMOVED***;
-        const range = document.createRange(***REMOVED***;
-        range.setStart(node, isUp ? node.length : 0***REMOVED***;
-        range.setEnd(node, isUp ? node.length : 0***REMOVED***;
-        selection.addRange(range***REMOVED***;
+      }
+      if (select) {
+        const lastNode = (isUp ? walker.firstChild() : walker.lastChild()) || focusNode;
+        selection.extend(lastNode, isUp ? 0 : lastNode.length);
+        const range = document.createRange();
+        range.setStart(node, isUp ? node.length : 0);
+        range.setEnd(node, isUp ? node.length : 0);
+        selection.addRange(range);
         return;
-      ***REMOVED***
-      const [caretX] = this.#getCaretPosition(selection, isUp***REMOVED***;
+      }
+      const [caretX] = this.#getCaretPosition(selection, isUp);
       const {
         parentElement
-      ***REMOVED*** = node;
-      this.#setCaretPosition(select, selection, parentElement, parentElement.getBoundingClientRect(***REMOVED***, caretX***REMOVED***;
+      } = node;
+      this.#setCaretPosition(select, selection, parentElement, parentElement.getBoundingClientRect(), caretX);
       return;
-    ***REMOVED***
-    const [caretX, caretY] = this.#getCaretPosition(selection, isUp***REMOVED***;
-    const newLineElementRect = newLineElement.getBoundingClientRect(***REMOVED***;
-    if (this.#isUnderOver(newLineElementRect, caretX, caretY, isUp***REMOVED******REMOVED*** {
-      this.#setCaretPosition(select, selection, newLineElement, newLineElementRect, caretX***REMOVED***;
+    }
+    const [caretX, caretY] = this.#getCaretPosition(selection, isUp);
+    const newLineElementRect = newLineElement.getBoundingClientRect();
+    if (this.#isUnderOver(newLineElementRect, caretX, caretY, isUp)) {
+      this.#setCaretPosition(select, selection, newLineElement, newLineElementRect, caretX);
       return;
-    ***REMOVED***
-    while (nodeIterator(***REMOVED******REMOVED*** {
+    }
+    while (nodeIterator()) {
       const element = walker.currentNode.parentElement;
-      const elementRect = element.getBoundingClientRect(***REMOVED***;
-      if (!this.#isOnSameLine(newLineElementRect, elementRect***REMOVED******REMOVED*** {
+      const elementRect = element.getBoundingClientRect();
+      if (!this.#isOnSameLine(newLineElementRect, elementRect)) {
         break;
-      ***REMOVED***
-      if (this.#isUnderOver(elementRect, caretX, caretY, isUp***REMOVED******REMOVED*** {
-        this.#setCaretPosition(select, selection, element, elementRect, caretX***REMOVED***;
+      }
+      if (this.#isUnderOver(elementRect, caretX, caretY, isUp)) {
+        this.#setCaretPosition(select, selection, element, elementRect, caretX);
         return;
-      ***REMOVED***
-    ***REMOVED***
-    this.#setCaretPosition(select, selection, newLineElement, newLineElementRect, caretX***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      }
+    }
+    this.#setCaretPosition(select, selection, newLineElement, newLineElementRect, caretX);
+  }
+}
 
 ;// ./web/download_manager.js
 
-function download(blobUrl, filename***REMOVED*** {
-  const a = document.createElement("a"***REMOVED***;
-  if (!a.click***REMOVED*** {
-    throw new Error('DownloadManager: "a.click(***REMOVED***" is not supported.'***REMOVED***;
-  ***REMOVED***
+function download(blobUrl, filename) {
+  const a = document.createElement("a");
+  if (!a.click) {
+    throw new Error('DownloadManager: "a.click()" is not supported.');
+  }
   a.href = blobUrl;
   a.target = "_parent";
-  if ("download" in a***REMOVED*** {
+  if ("download" in a) {
     a.download = filename;
-  ***REMOVED***
-  (document.body || document.documentElement***REMOVED***.append(a***REMOVED***;
-  a.click(***REMOVED***;
-  a.remove(***REMOVED***;
-***REMOVED***
+  }
+  (document.body || document.documentElement).append(a);
+  a.click();
+  a.remove();
+}
 class DownloadManager {
-  #openBlobUrls = new WeakMap(***REMOVED***;
-  downloadData(data, filename, contentType***REMOVED*** {
+  #openBlobUrls = new WeakMap();
+  downloadData(data, filename, contentType) {
     const blobUrl = URL.createObjectURL(new Blob([data], {
       type: contentType
-    ***REMOVED******REMOVED******REMOVED***;
-    download(blobUrl, filename***REMOVED***;
-  ***REMOVED***
-  openOrDownloadData(data, filename, dest = null***REMOVED*** {
-    const isPdfData = isPdfFile(filename***REMOVED***;
+    }));
+    download(blobUrl, filename);
+  }
+  openOrDownloadData(data, filename, dest = null) {
+    const isPdfData = isPdfFile(filename);
     const contentType = isPdfData ? "application/pdf" : "";
-    if (isPdfData***REMOVED*** {
-      let blobUrl = this.#openBlobUrls.get(data***REMOVED***;
-      if (!blobUrl***REMOVED*** {
+    if (isPdfData) {
+      let blobUrl = this.#openBlobUrls.get(data);
+      if (!blobUrl) {
         blobUrl = URL.createObjectURL(new Blob([data], {
           type: contentType
-        ***REMOVED******REMOVED******REMOVED***;
-        this.#openBlobUrls.set(data, blobUrl***REMOVED***;
-      ***REMOVED***
+        }));
+        this.#openBlobUrls.set(data, blobUrl);
+      }
       let viewerUrl;
-      viewerUrl = "?file=" + encodeURIComponent(blobUrl + "#" + filename***REMOVED***;
-      if (dest***REMOVED*** {
-        viewerUrl += `#${escape(dest***REMOVED******REMOVED***`;
-      ***REMOVED***
-    ***REMOVED***
-        window.open(viewerUrl***REMOVED***;
+      viewerUrl = "?file=" + encodeURIComponent(blobUrl + "#" + filename);
+      if (dest) {
+        viewerUrl += `#${escape(dest)}`;
+      }
+      try {
+        window.open(viewerUrl);
         return true;
-      ***REMOVED*** catch (ex***REMOVED*** {
-        console.error("openOrDownloadData:", ex***REMOVED***;
-        URL.revokeObjectURL(blobUrl***REMOVED***;
-        this.#openBlobUrls.delete(data***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    this.downloadData(data, filename, contentType***REMOVED***;
+      } catch (ex) {
+        console.error("openOrDownloadData:", ex);
+        URL.revokeObjectURL(blobUrl);
+        this.#openBlobUrls.delete(data);
+      }
+    }
+    this.downloadData(data, filename, contentType);
     return false;
-  ***REMOVED***
-  download(data, url, filename***REMOVED*** {
+  }
+  download(data, url, filename) {
     let blobUrl;
-    if (data***REMOVED*** {
+    if (data) {
       blobUrl = URL.createObjectURL(new Blob([data], {
         type: "application/pdf"
-      ***REMOVED******REMOVED******REMOVED***;
-    ***REMOVED*** else {
-      if (!createValidAbsoluteUrl(url, "http://example.com"***REMOVED******REMOVED*** {
-        console.error(`download - not a valid URL: ${url***REMOVED***`***REMOVED***;
+      }));
+    } else {
+      if (!createValidAbsoluteUrl(url, "http://example.com")) {
+        console.error(`download - not a valid URL: ${url}`);
         return;
-      ***REMOVED***
+      }
       blobUrl = url + "#pdfjs.action=download";
-    ***REMOVED***
-    download(blobUrl, filename***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    }
+    download(blobUrl, filename);
+  }
+}
 
 ;// ./web/editor_undo_bar.js
 
@@ -4405,121 +4405,121 @@ class EditorUndoBar {
     stamp: "pdfjs-editor-undo-bar-message-stamp",
     ink: "pdfjs-editor-undo-bar-message-ink",
     _multiple: "pdfjs-editor-undo-bar-message-multiple"
-  ***REMOVED******REMOVED***;
+  });
   constructor({
     container,
     message,
     undoButton,
     closeButton
-  ***REMOVED***, eventBus***REMOVED*** {
+  }, eventBus) {
     this.#container = container;
     this.#message = message;
     this.#undoButton = undoButton;
     this.#closeButton = closeButton;
     this.#eventBus = eventBus;
-  ***REMOVED***
-  destroy(***REMOVED*** {
-    this.#initController?.abort(***REMOVED***;
+  }
+  destroy() {
+    this.#initController?.abort();
     this.#initController = null;
-    this.hide(***REMOVED***;
-  ***REMOVED***
-  show(undoAction, messageData***REMOVED*** {
-    if (!this.#initController***REMOVED*** {
-      this.#initController = new AbortController(***REMOVED***;
+    this.hide();
+  }
+  show(undoAction, messageData) {
+    if (!this.#initController) {
+      this.#initController = new AbortController();
       const opts = {
         signal: this.#initController.signal
-      ***REMOVED***;
-      const boundHide = this.hide.bind(this***REMOVED***;
-      this.#container.addEventListener("contextmenu", noContextMenu, opts***REMOVED***;
-      this.#closeButton.addEventListener("click", boundHide, opts***REMOVED***;
-      this.#eventBus._on("beforeprint", boundHide, opts***REMOVED***;
-      this.#eventBus._on("download", boundHide, opts***REMOVED***;
-    ***REMOVED***
-    this.hide(***REMOVED***;
-    if (typeof messageData === "string"***REMOVED*** {
-      this.#message.setAttribute("data-l10n-id", EditorUndoBar.#l10nMessages[messageData]***REMOVED***;
-    ***REMOVED*** else {
-      this.#message.setAttribute("data-l10n-id", EditorUndoBar.#l10nMessages._multiple***REMOVED***;
+      };
+      const boundHide = this.hide.bind(this);
+      this.#container.addEventListener("contextmenu", noContextMenu, opts);
+      this.#closeButton.addEventListener("click", boundHide, opts);
+      this.#eventBus._on("beforeprint", boundHide, opts);
+      this.#eventBus._on("download", boundHide, opts);
+    }
+    this.hide();
+    if (typeof messageData === "string") {
+      this.#message.setAttribute("data-l10n-id", EditorUndoBar.#l10nMessages[messageData]);
+    } else {
+      this.#message.setAttribute("data-l10n-id", EditorUndoBar.#l10nMessages._multiple);
       this.#message.setAttribute("data-l10n-args", JSON.stringify({
         count: messageData
-      ***REMOVED******REMOVED******REMOVED***;
-    ***REMOVED***
+      }));
+    }
     this.isOpen = true;
     this.#container.hidden = false;
-    this.#showController = new AbortController(***REMOVED***;
-    this.#undoButton.addEventListener("click", (***REMOVED*** => {
-      undoAction(***REMOVED***;
-      this.hide(***REMOVED***;
-    ***REMOVED***, {
+    this.#showController = new AbortController();
+    this.#undoButton.addEventListener("click", () => {
+      undoAction();
+      this.hide();
+    }, {
       signal: this.#showController.signal
-    ***REMOVED******REMOVED***;
-    this.#focusTimeout = setTimeout((***REMOVED*** => {
-      this.#container.focus(***REMOVED***;
+    });
+    this.#focusTimeout = setTimeout(() => {
+      this.#container.focus();
       this.#focusTimeout = null;
-    ***REMOVED***, 100***REMOVED***;
-  ***REMOVED***
-  hide(***REMOVED*** {
-    if (!this.isOpen***REMOVED*** {
+    }, 100);
+  }
+  hide() {
+    if (!this.isOpen) {
       return;
-    ***REMOVED***
+    }
     this.isOpen = false;
     this.#container.hidden = true;
-    this.#showController?.abort(***REMOVED***;
+    this.#showController?.abort();
     this.#showController = null;
-    if (this.#focusTimeout***REMOVED*** {
-      clearTimeout(this.#focusTimeout***REMOVED***;
+    if (this.#focusTimeout) {
+      clearTimeout(this.#focusTimeout);
       this.#focusTimeout = null;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 ;// ./web/overlay_manager.js
 class OverlayManager {
-  #overlays = new WeakMap(***REMOVED***;
+  #overlays = new WeakMap();
   #active = null;
-  get active(***REMOVED*** {
+  get active() {
     return this.#active;
-  ***REMOVED***
-  async register(dialog, canForceClose = false***REMOVED*** {
-    if (typeof dialog !== "object"***REMOVED*** {
-      throw new Error("Not enough parameters."***REMOVED***;
-    ***REMOVED*** else if (this.#overlays.has(dialog***REMOVED******REMOVED*** {
-      throw new Error("The overlay is already registered."***REMOVED***;
-    ***REMOVED***
+  }
+  async register(dialog, canForceClose = false) {
+    if (typeof dialog !== "object") {
+      throw new Error("Not enough parameters.");
+    } else if (this.#overlays.has(dialog)) {
+      throw new Error("The overlay is already registered.");
+    }
     this.#overlays.set(dialog, {
       canForceClose
-    ***REMOVED******REMOVED***;
+    });
     dialog.addEventListener("cancel", evt => {
       this.#active = null;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async open(dialog***REMOVED*** {
-    if (!this.#overlays.has(dialog***REMOVED******REMOVED*** {
-      throw new Error("The overlay does not exist."***REMOVED***;
-    ***REMOVED*** else if (this.#active***REMOVED*** {
-      if (this.#active === dialog***REMOVED*** {
-        throw new Error("The overlay is already active."***REMOVED***;
-      ***REMOVED*** else if (this.#overlays.get(dialog***REMOVED***.canForceClose***REMOVED*** {
-        await this.close(***REMOVED***;
-      ***REMOVED*** else {
-        throw new Error("Another overlay is currently active."***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
+    });
+  }
+  async open(dialog) {
+    if (!this.#overlays.has(dialog)) {
+      throw new Error("The overlay does not exist.");
+    } else if (this.#active) {
+      if (this.#active === dialog) {
+        throw new Error("The overlay is already active.");
+      } else if (this.#overlays.get(dialog).canForceClose) {
+        await this.close();
+      } else {
+        throw new Error("Another overlay is currently active.");
+      }
+    }
     this.#active = dialog;
-    dialog.showModal(***REMOVED***;
-  ***REMOVED***
-  async close(dialog = this.#active***REMOVED*** {
-    if (!this.#overlays.has(dialog***REMOVED******REMOVED*** {
-      throw new Error("The overlay does not exist."***REMOVED***;
-    ***REMOVED*** else if (!this.#active***REMOVED*** {
-      throw new Error("The overlay is currently not active."***REMOVED***;
-    ***REMOVED*** else if (this.#active !== dialog***REMOVED*** {
-      throw new Error("Another overlay is currently active."***REMOVED***;
-    ***REMOVED***
-    dialog.close(***REMOVED***;
+    dialog.showModal();
+  }
+  async close(dialog = this.#active) {
+    if (!this.#overlays.has(dialog)) {
+      throw new Error("The overlay does not exist.");
+    } else if (!this.#active) {
+      throw new Error("The overlay is currently not active.");
+    } else if (this.#active !== dialog) {
+      throw new Error("Another overlay is currently active.");
+    }
+    dialog.close();
     this.#active = null;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/password_prompt.js
 
@@ -4527,7 +4527,7 @@ class PasswordPrompt {
   #activeCapability = null;
   #updateCallback = null;
   #reason = null;
-  constructor(options, overlayManager, isViewerEmbedded = false***REMOVED*** {
+  constructor(options, overlayManager, isViewerEmbedded = false) {
     this.dialog = options.dialog;
     this.label = options.label;
     this.input = options.input;
@@ -4535,256 +4535,256 @@ class PasswordPrompt {
     this.cancelButton = options.cancelButton;
     this.overlayManager = overlayManager;
     this._isViewerEmbedded = isViewerEmbedded;
-    this.submitButton.addEventListener("click", this.#verify.bind(this***REMOVED******REMOVED***;
-    this.cancelButton.addEventListener("click", this.close.bind(this***REMOVED******REMOVED***;
+    this.submitButton.addEventListener("click", this.#verify.bind(this));
+    this.cancelButton.addEventListener("click", this.close.bind(this));
     this.input.addEventListener("keydown", e => {
-      if (e.keyCode === 13***REMOVED*** {
-        this.#verify(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    this.overlayManager.register(this.dialog, true***REMOVED***;
-    this.dialog.addEventListener("close", this.#cancel.bind(this***REMOVED******REMOVED***;
-  ***REMOVED***
-  async open(***REMOVED*** {
+      if (e.keyCode === 13) {
+        this.#verify();
+      }
+    });
+    this.overlayManager.register(this.dialog, true);
+    this.dialog.addEventListener("close", this.#cancel.bind(this));
+  }
+  async open() {
     await this.#activeCapability?.promise;
-    this.#activeCapability = Promise.withResolvers(***REMOVED***;
-  ***REMOVED***
-      await this.overlayManager.open(this.dialog***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      this.#activeCapability.resolve(***REMOVED***;
+    this.#activeCapability = Promise.withResolvers();
+    try {
+      await this.overlayManager.open(this.dialog);
+    } catch (ex) {
+      this.#activeCapability.resolve();
       throw ex;
-    ***REMOVED***
+    }
     const passwordIncorrect = this.#reason === PasswordResponses.INCORRECT_PASSWORD;
-    if (!this._isViewerEmbedded || passwordIncorrect***REMOVED*** {
-      this.input.focus(***REMOVED***;
-    ***REMOVED***
-    this.label.setAttribute("data-l10n-id", passwordIncorrect ? "pdfjs-password-invalid" : "pdfjs-password-label"***REMOVED***;
-  ***REMOVED***
-  async close(***REMOVED*** {
-    if (this.overlayManager.active === this.dialog***REMOVED*** {
-      this.overlayManager.close(this.dialog***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #verify(***REMOVED*** {
+    if (!this._isViewerEmbedded || passwordIncorrect) {
+      this.input.focus();
+    }
+    this.label.setAttribute("data-l10n-id", passwordIncorrect ? "pdfjs-password-invalid" : "pdfjs-password-label");
+  }
+  async close() {
+    if (this.overlayManager.active === this.dialog) {
+      this.overlayManager.close(this.dialog);
+    }
+  }
+  #verify() {
     const password = this.input.value;
-    if (password?.length > 0***REMOVED*** {
-      this.#invokeCallback(password***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #cancel(***REMOVED*** {
-    this.#invokeCallback(new Error("PasswordPrompt cancelled."***REMOVED******REMOVED***;
-    this.#activeCapability.resolve(***REMOVED***;
-  ***REMOVED***
-  #invokeCallback(password***REMOVED*** {
-    if (!this.#updateCallback***REMOVED*** {
+    if (password?.length > 0) {
+      this.#invokeCallback(password);
+    }
+  }
+  #cancel() {
+    this.#invokeCallback(new Error("PasswordPrompt cancelled."));
+    this.#activeCapability.resolve();
+  }
+  #invokeCallback(password) {
+    if (!this.#updateCallback) {
       return;
-    ***REMOVED***
-    this.close(***REMOVED***;
+    }
+    this.close();
     this.input.value = "";
-    this.#updateCallback(password***REMOVED***;
+    this.#updateCallback(password);
     this.#updateCallback = null;
-  ***REMOVED***
-  async setUpdateCallback(updateCallback, reason***REMOVED*** {
-    if (this.#activeCapability***REMOVED*** {
+  }
+  async setUpdateCallback(updateCallback, reason) {
+    if (this.#activeCapability) {
       await this.#activeCapability.promise;
-    ***REMOVED***
+    }
     this.#updateCallback = updateCallback;
     this.#reason = reason;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/base_tree_viewer.js
 
 const TREEITEM_OFFSET_TOP = -100;
 const TREEITEM_SELECTED_CLASS = "selected";
 class BaseTreeViewer {
-  constructor(options***REMOVED*** {
+  constructor(options) {
     this.container = options.container;
     this.eventBus = options.eventBus;
     this._l10n = options.l10n;
-    this.reset(***REMOVED***;
-  ***REMOVED***
-  reset(***REMOVED*** {
+    this.reset();
+  }
+  reset() {
     this._pdfDocument = null;
     this._lastToggleIsShow = true;
     this._currentTreeItem = null;
     this.container.textContent = "";
-    this.container.classList.remove("treeWithDeepNesting"***REMOVED***;
-  ***REMOVED***
-  _dispatchEvent(count***REMOVED*** {
-    throw new Error("Not implemented: _dispatchEvent"***REMOVED***;
-  ***REMOVED***
-  _bindLink(element, params***REMOVED*** {
-    throw new Error("Not implemented: _bindLink"***REMOVED***;
-  ***REMOVED***
-  _normalizeTextContent(str***REMOVED*** {
-    return removeNullCharacters(str, true***REMOVED*** || "\u2013";
-  ***REMOVED***
-  _addToggleButton(div, hidden = false***REMOVED*** {
-    const toggler = document.createElement("div"***REMOVED***;
+    this.container.classList.remove("treeWithDeepNesting");
+  }
+  _dispatchEvent(count) {
+    throw new Error("Not implemented: _dispatchEvent");
+  }
+  _bindLink(element, params) {
+    throw new Error("Not implemented: _bindLink");
+  }
+  _normalizeTextContent(str) {
+    return removeNullCharacters(str, true) || "\u2013";
+  }
+  _addToggleButton(div, hidden = false) {
+    const toggler = document.createElement("div");
     toggler.className = "treeItemToggler";
-    if (hidden***REMOVED*** {
-      toggler.classList.add("treeItemsHidden"***REMOVED***;
-    ***REMOVED***
+    if (hidden) {
+      toggler.classList.add("treeItemsHidden");
+    }
     toggler.onclick = evt => {
-      evt.stopPropagation(***REMOVED***;
-      toggler.classList.toggle("treeItemsHidden"***REMOVED***;
-      if (evt.shiftKey***REMOVED*** {
-        const shouldShowAll = !toggler.classList.contains("treeItemsHidden"***REMOVED***;
-        this._toggleTreeItem(div, shouldShowAll***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***;
-    div.prepend(toggler***REMOVED***;
-  ***REMOVED***
-  _toggleTreeItem(root, show = false***REMOVED*** {
-    this._l10n.pause(***REMOVED***;
+      evt.stopPropagation();
+      toggler.classList.toggle("treeItemsHidden");
+      if (evt.shiftKey) {
+        const shouldShowAll = !toggler.classList.contains("treeItemsHidden");
+        this._toggleTreeItem(div, shouldShowAll);
+      }
+    };
+    div.prepend(toggler);
+  }
+  _toggleTreeItem(root, show = false) {
+    this._l10n.pause();
     this._lastToggleIsShow = show;
-    for (const toggler of root.querySelectorAll(".treeItemToggler"***REMOVED******REMOVED*** {
-      toggler.classList.toggle("treeItemsHidden", !show***REMOVED***;
-    ***REMOVED***
-    this._l10n.resume(***REMOVED***;
-  ***REMOVED***
-  _toggleAllTreeItems(***REMOVED*** {
-    this._toggleTreeItem(this.container, !this._lastToggleIsShow***REMOVED***;
-  ***REMOVED***
-  _finishRendering(fragment, count, hasAnyNesting = false***REMOVED*** {
-    if (hasAnyNesting***REMOVED*** {
-      this.container.classList.add("treeWithDeepNesting"***REMOVED***;
-      this._lastToggleIsShow = !fragment.querySelector(".treeItemsHidden"***REMOVED***;
-    ***REMOVED***
-    this._l10n.pause(***REMOVED***;
-    this.container.append(fragment***REMOVED***;
-    this._l10n.resume(***REMOVED***;
-    this._dispatchEvent(count***REMOVED***;
-  ***REMOVED***
-  render(params***REMOVED*** {
-    throw new Error("Not implemented: render"***REMOVED***;
-  ***REMOVED***
-  _updateCurrentTreeItem(treeItem = null***REMOVED*** {
-    if (this._currentTreeItem***REMOVED*** {
-      this._currentTreeItem.classList.remove(TREEITEM_SELECTED_CLASS***REMOVED***;
+    for (const toggler of root.querySelectorAll(".treeItemToggler")) {
+      toggler.classList.toggle("treeItemsHidden", !show);
+    }
+    this._l10n.resume();
+  }
+  _toggleAllTreeItems() {
+    this._toggleTreeItem(this.container, !this._lastToggleIsShow);
+  }
+  _finishRendering(fragment, count, hasAnyNesting = false) {
+    if (hasAnyNesting) {
+      this.container.classList.add("treeWithDeepNesting");
+      this._lastToggleIsShow = !fragment.querySelector(".treeItemsHidden");
+    }
+    this._l10n.pause();
+    this.container.append(fragment);
+    this._l10n.resume();
+    this._dispatchEvent(count);
+  }
+  render(params) {
+    throw new Error("Not implemented: render");
+  }
+  _updateCurrentTreeItem(treeItem = null) {
+    if (this._currentTreeItem) {
+      this._currentTreeItem.classList.remove(TREEITEM_SELECTED_CLASS);
       this._currentTreeItem = null;
-    ***REMOVED***
-    if (treeItem***REMOVED*** {
-      treeItem.classList.add(TREEITEM_SELECTED_CLASS***REMOVED***;
+    }
+    if (treeItem) {
+      treeItem.classList.add(TREEITEM_SELECTED_CLASS);
       this._currentTreeItem = treeItem;
-    ***REMOVED***
-  ***REMOVED***
-  _scrollToCurrentTreeItem(treeItem***REMOVED*** {
-    if (!treeItem***REMOVED*** {
+    }
+  }
+  _scrollToCurrentTreeItem(treeItem) {
+    if (!treeItem) {
       return;
-    ***REMOVED***
-    this._l10n.pause(***REMOVED***;
+    }
+    this._l10n.pause();
     let currentNode = treeItem.parentNode;
-    while (currentNode && currentNode !== this.container***REMOVED*** {
-      if (currentNode.classList.contains("treeItem"***REMOVED******REMOVED*** {
+    while (currentNode && currentNode !== this.container) {
+      if (currentNode.classList.contains("treeItem")) {
         const toggler = currentNode.firstElementChild;
-        toggler?.classList.remove("treeItemsHidden"***REMOVED***;
-      ***REMOVED***
+        toggler?.classList.remove("treeItemsHidden");
+      }
       currentNode = currentNode.parentNode;
-    ***REMOVED***
-    this._l10n.resume(***REMOVED***;
-    this._updateCurrentTreeItem(treeItem***REMOVED***;
-    this.container.scrollTo(treeItem.offsetLeft, treeItem.offsetTop + TREEITEM_OFFSET_TOP***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    }
+    this._l10n.resume();
+    this._updateCurrentTreeItem(treeItem);
+    this.container.scrollTo(treeItem.offsetLeft, treeItem.offsetTop + TREEITEM_OFFSET_TOP);
+  }
+}
 
 ;// ./web/pdf_attachment_viewer.js
 
 
 class PDFAttachmentViewer extends BaseTreeViewer {
-  constructor(options***REMOVED*** {
-    super(options***REMOVED***;
+  constructor(options) {
+    super(options);
     this.downloadManager = options.downloadManager;
-    this.eventBus._on("fileattachmentannotation", this.#appendAttachment.bind(this***REMOVED******REMOVED***;
-  ***REMOVED***
-  reset(keepRenderedCapability = false***REMOVED*** {
-    super.reset(***REMOVED***;
+    this.eventBus._on("fileattachmentannotation", this.#appendAttachment.bind(this));
+  }
+  reset(keepRenderedCapability = false) {
+    super.reset();
     this._attachments = null;
-    if (!keepRenderedCapability***REMOVED*** {
-      this._renderedCapability = Promise.withResolvers(***REMOVED***;
-    ***REMOVED***
+    if (!keepRenderedCapability) {
+      this._renderedCapability = Promise.withResolvers();
+    }
     this._pendingDispatchEvent = false;
-  ***REMOVED***
-  async _dispatchEvent(attachmentsCount***REMOVED*** {
-    this._renderedCapability.resolve(***REMOVED***;
-    if (attachmentsCount === 0 && !this._pendingDispatchEvent***REMOVED*** {
+  }
+  async _dispatchEvent(attachmentsCount) {
+    this._renderedCapability.resolve();
+    if (attachmentsCount === 0 && !this._pendingDispatchEvent) {
       this._pendingDispatchEvent = true;
       await waitOnEventOrTimeout({
         target: this.eventBus,
         name: "annotationlayerrendered",
         delay: 1000
-      ***REMOVED******REMOVED***;
-      if (!this._pendingDispatchEvent***REMOVED*** {
+      });
+      if (!this._pendingDispatchEvent) {
         return;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     this._pendingDispatchEvent = false;
     this.eventBus.dispatch("attachmentsloaded", {
       source: this,
       attachmentsCount
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+    });
+  }
   _bindLink(element, {
     content,
     description,
     filename
-  ***REMOVED******REMOVED*** {
-    if (description***REMOVED*** {
+  }) {
+    if (description) {
       element.title = description;
-    ***REMOVED***
-    element.onclick = (***REMOVED*** => {
-      this.downloadManager.openOrDownloadData(content, filename***REMOVED***;
+    }
+    element.onclick = () => {
+      this.downloadManager.openOrDownloadData(content, filename);
       return false;
-    ***REMOVED***;
-  ***REMOVED***
+    };
+  }
   render({
     attachments,
     keepRenderedCapability = false
-  ***REMOVED******REMOVED*** {
-    if (this._attachments***REMOVED*** {
-      this.reset(keepRenderedCapability***REMOVED***;
-    ***REMOVED***
+  }) {
+    if (this._attachments) {
+      this.reset(keepRenderedCapability);
+    }
     this._attachments = attachments || null;
-    if (!attachments***REMOVED*** {
-      this._dispatchEvent(0***REMOVED***;
+    if (!attachments) {
+      this._dispatchEvent(0);
       return;
-    ***REMOVED***
-    const fragment = document.createDocumentFragment(***REMOVED***;
+    }
+    const fragment = document.createDocumentFragment();
     let attachmentsCount = 0;
-    for (const name in attachments***REMOVED*** {
+    for (const name in attachments) {
       const item = attachments[name];
-      const div = document.createElement("div"***REMOVED***;
+      const div = document.createElement("div");
       div.className = "treeItem";
-      const element = document.createElement("a"***REMOVED***;
-      this._bindLink(element, item***REMOVED***;
-      element.textContent = this._normalizeTextContent(item.filename***REMOVED***;
-      div.append(element***REMOVED***;
-      fragment.append(div***REMOVED***;
+      const element = document.createElement("a");
+      this._bindLink(element, item);
+      element.textContent = this._normalizeTextContent(item.filename);
+      div.append(element);
+      fragment.append(div);
       attachmentsCount++;
-    ***REMOVED***
-    this._finishRendering(fragment, attachmentsCount***REMOVED***;
-  ***REMOVED***
-  #appendAttachment(item***REMOVED*** {
+    }
+    this._finishRendering(fragment, attachmentsCount);
+  }
+  #appendAttachment(item) {
     const renderedPromise = this._renderedCapability.promise;
-    renderedPromise.then((***REMOVED*** => {
-      if (renderedPromise !== this._renderedCapability.promise***REMOVED*** {
+    renderedPromise.then(() => {
+      if (renderedPromise !== this._renderedCapability.promise) {
         return;
-      ***REMOVED***
-      const attachments = this._attachments || Object.create(null***REMOVED***;
-      for (const name in attachments***REMOVED*** {
-        if (item.filename === name***REMOVED*** {
+      }
+      const attachments = this._attachments || Object.create(null);
+      for (const name in attachments) {
+        if (item.filename === name) {
           return;
-        ***REMOVED***
-      ***REMOVED***
+        }
+      }
       attachments[item.filename] = item;
       this.render({
         attachments,
         keepRenderedCapability: true
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      });
+    });
+  }
+}
 
 ;// ./web/grab_to_pan.js
 
@@ -4795,100 +4795,100 @@ class GrabToPan {
   #scrollAC = null;
   constructor({
     element
-  ***REMOVED******REMOVED*** {
+  }) {
     this.element = element;
     this.document = element.ownerDocument;
-    const overlay = this.overlay = document.createElement("div"***REMOVED***;
+    const overlay = this.overlay = document.createElement("div");
     overlay.className = "grab-to-pan-grabbing";
-  ***REMOVED***
-  activate(***REMOVED*** {
-    if (!this.#activateAC***REMOVED*** {
-      this.#activateAC = new AbortController(***REMOVED***;
-      this.element.addEventListener("mousedown", this.#onMouseDown.bind(this***REMOVED***, {
+  }
+  activate() {
+    if (!this.#activateAC) {
+      this.#activateAC = new AbortController();
+      this.element.addEventListener("mousedown", this.#onMouseDown.bind(this), {
         capture: true,
         signal: this.#activateAC.signal
-      ***REMOVED******REMOVED***;
-      this.element.classList.add(CSS_CLASS_GRAB***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  deactivate(***REMOVED*** {
-    if (this.#activateAC***REMOVED*** {
-      this.#activateAC.abort(***REMOVED***;
+      });
+      this.element.classList.add(CSS_CLASS_GRAB);
+    }
+  }
+  deactivate() {
+    if (this.#activateAC) {
+      this.#activateAC.abort();
       this.#activateAC = null;
-      this.#endPan(***REMOVED***;
-      this.element.classList.remove(CSS_CLASS_GRAB***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  toggle(***REMOVED*** {
-    if (this.#activateAC***REMOVED*** {
-      this.deactivate(***REMOVED***;
-    ***REMOVED*** else {
-      this.activate(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  ignoreTarget(node***REMOVED*** {
-    return node.matches("a[href], a[href] *, input, textarea, button, button *, select, option"***REMOVED***;
-  ***REMOVED***
-  #onMouseDown(event***REMOVED*** {
-    if (event.button !== 0 || this.ignoreTarget(event.target***REMOVED******REMOVED*** {
+      this.#endPan();
+      this.element.classList.remove(CSS_CLASS_GRAB);
+    }
+  }
+  toggle() {
+    if (this.#activateAC) {
+      this.deactivate();
+    } else {
+      this.activate();
+    }
+  }
+  ignoreTarget(node) {
+    return node.matches("a[href], a[href] *, input, textarea, button, button *, select, option");
+  }
+  #onMouseDown(event) {
+    if (event.button !== 0 || this.ignoreTarget(event.target)) {
       return;
-    ***REMOVED***
-    if (event.originalTarget***REMOVED*** {
-    ***REMOVED***
+    }
+    if (event.originalTarget) {
+      try {
         event.originalTarget.tagName;
-      ***REMOVED*** catch {
+      } catch {
         return;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     this.scrollLeftStart = this.element.scrollLeft;
     this.scrollTopStart = this.element.scrollTop;
     this.clientXStart = event.clientX;
     this.clientYStart = event.clientY;
-    this.#mouseDownAC = new AbortController(***REMOVED***;
-    const boundEndPan = this.#endPan.bind(this***REMOVED***,
+    this.#mouseDownAC = new AbortController();
+    const boundEndPan = this.#endPan.bind(this),
       mouseOpts = {
         capture: true,
         signal: this.#mouseDownAC.signal
-      ***REMOVED***;
-    this.document.addEventListener("mousemove", this.#onMouseMove.bind(this***REMOVED***, mouseOpts***REMOVED***;
-    this.document.addEventListener("mouseup", boundEndPan, mouseOpts***REMOVED***;
-    this.#scrollAC = new AbortController(***REMOVED***;
+      };
+    this.document.addEventListener("mousemove", this.#onMouseMove.bind(this), mouseOpts);
+    this.document.addEventListener("mouseup", boundEndPan, mouseOpts);
+    this.#scrollAC = new AbortController();
     this.element.addEventListener("scroll", boundEndPan, {
       capture: true,
       signal: this.#scrollAC.signal
-    ***REMOVED******REMOVED***;
-    stopEvent(event***REMOVED***;
+    });
+    stopEvent(event);
     const focusedElement = document.activeElement;
-    if (focusedElement && !focusedElement.contains(event.target***REMOVED******REMOVED*** {
-      focusedElement.blur(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #onMouseMove(event***REMOVED*** {
-    this.#scrollAC?.abort(***REMOVED***;
+    if (focusedElement && !focusedElement.contains(event.target)) {
+      focusedElement.blur();
+    }
+  }
+  #onMouseMove(event) {
+    this.#scrollAC?.abort();
     this.#scrollAC = null;
-    if (!(event.buttons & 1***REMOVED******REMOVED*** {
-      this.#endPan(***REMOVED***;
+    if (!(event.buttons & 1)) {
+      this.#endPan();
       return;
-    ***REMOVED***
+    }
     const xDiff = event.clientX - this.clientXStart;
     const yDiff = event.clientY - this.clientYStart;
     this.element.scrollTo({
       top: this.scrollTopStart - yDiff,
       left: this.scrollLeftStart - xDiff,
       behavior: "instant"
-    ***REMOVED******REMOVED***;
-    if (!this.overlay.parentNode***REMOVED*** {
-      document.body.append(this.overlay***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #endPan(***REMOVED*** {
-    this.#mouseDownAC?.abort(***REMOVED***;
+    });
+    if (!this.overlay.parentNode) {
+      document.body.append(this.overlay);
+    }
+  }
+  #endPan() {
+    this.#mouseDownAC?.abort();
     this.#mouseDownAC = null;
-    this.#scrollAC?.abort(***REMOVED***;
+    this.#scrollAC?.abort();
     this.#scrollAC = null;
-    this.overlay.remove(***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    this.overlay.remove();
+  }
+}
 
 ;// ./web/pdf_cursor_tools.js
 
@@ -4901,113 +4901,113 @@ class PDFCursorTools {
     container,
     eventBus,
     cursorToolOnLoad = CursorTool.SELECT
-  ***REMOVED******REMOVED*** {
+  }) {
     this.container = container;
     this.eventBus = eventBus;
-    this.#addEventListeners(***REMOVED***;
-    Promise.resolve(***REMOVED***.then((***REMOVED*** => {
-      this.switchTool(cursorToolOnLoad***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get activeTool(***REMOVED*** {
+    this.#addEventListeners();
+    Promise.resolve().then(() => {
+      this.switchTool(cursorToolOnLoad);
+    });
+  }
+  get activeTool() {
     return this.#active;
-  ***REMOVED***
-  switchTool(tool***REMOVED*** {
-    if (this.#prevActive !== null***REMOVED*** {
+  }
+  switchTool(tool) {
+    if (this.#prevActive !== null) {
       return;
-    ***REMOVED***
-    this.#switchTool(tool***REMOVED***;
-  ***REMOVED***
-  #switchTool(tool, disabled = false***REMOVED*** {
-    if (tool === this.#active***REMOVED*** {
-      if (this.#prevActive !== null***REMOVED*** {
+    }
+    this.#switchTool(tool);
+  }
+  #switchTool(tool, disabled = false) {
+    if (tool === this.#active) {
+      if (this.#prevActive !== null) {
         this.eventBus.dispatch("cursortoolchanged", {
           source: this,
           tool,
           disabled
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
+        });
+      }
       return;
-    ***REMOVED***
-    const disableActiveTool = (***REMOVED*** => {
-      switch (this.#active***REMOVED*** {
+    }
+    const disableActiveTool = () => {
+      switch (this.#active) {
         case CursorTool.SELECT:
           break;
         case CursorTool.HAND:
-          this._handTool.deactivate(***REMOVED***;
+          this._handTool.deactivate();
           break;
         case CursorTool.ZOOM:
-      ***REMOVED***
-    ***REMOVED***;
-    switch (tool***REMOVED*** {
+      }
+    };
+    switch (tool) {
       case CursorTool.SELECT:
-        disableActiveTool(***REMOVED***;
+        disableActiveTool();
         break;
       case CursorTool.HAND:
-        disableActiveTool(***REMOVED***;
-        this._handTool.activate(***REMOVED***;
+        disableActiveTool();
+        this._handTool.activate();
         break;
       case CursorTool.ZOOM:
       default:
-        console.error(`switchTool: "${tool***REMOVED***" is an unsupported value.`***REMOVED***;
+        console.error(`switchTool: "${tool}" is an unsupported value.`);
         return;
-    ***REMOVED***
+    }
     this.#active = tool;
     this.eventBus.dispatch("cursortoolchanged", {
       source: this,
       tool,
       disabled
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #addEventListeners(***REMOVED*** {
+    });
+  }
+  #addEventListeners() {
     this.eventBus._on("switchcursortool", evt => {
-      if (!evt.reset***REMOVED*** {
-        this.switchTool(evt.tool***REMOVED***;
-      ***REMOVED*** else if (this.#prevActive !== null***REMOVED*** {
+      if (!evt.reset) {
+        this.switchTool(evt.tool);
+      } else if (this.#prevActive !== null) {
         annotationEditorMode = AnnotationEditorType.NONE;
         presentationModeState = PresentationModeState.NORMAL;
-        enableActive(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
+        enableActive();
+      }
+    });
     let annotationEditorMode = AnnotationEditorType.NONE,
       presentationModeState = PresentationModeState.NORMAL;
-    const disableActive = (***REMOVED*** => {
+    const disableActive = () => {
       this.#prevActive ??= this.#active;
-      this.#switchTool(CursorTool.SELECT, true***REMOVED***;
-    ***REMOVED***;
-    const enableActive = (***REMOVED*** => {
-      if (this.#prevActive !== null && annotationEditorMode === AnnotationEditorType.NONE && presentationModeState === PresentationModeState.NORMAL***REMOVED*** {
-        this.#switchTool(this.#prevActive***REMOVED***;
+      this.#switchTool(CursorTool.SELECT, true);
+    };
+    const enableActive = () => {
+      if (this.#prevActive !== null && annotationEditorMode === AnnotationEditorType.NONE && presentationModeState === PresentationModeState.NORMAL) {
+        this.#switchTool(this.#prevActive);
         this.#prevActive = null;
-      ***REMOVED***
-    ***REMOVED***;
+      }
+    };
     this.eventBus._on("annotationeditormodechanged", ({
       mode
-    ***REMOVED******REMOVED*** => {
+    }) => {
       annotationEditorMode = mode;
-      if (mode === AnnotationEditorType.NONE***REMOVED*** {
-        enableActive(***REMOVED***;
-      ***REMOVED*** else {
-        disableActive(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
+      if (mode === AnnotationEditorType.NONE) {
+        enableActive();
+      } else {
+        disableActive();
+      }
+    });
     this.eventBus._on("presentationmodechanged", ({
       state
-    ***REMOVED******REMOVED*** => {
+    }) => {
       presentationModeState = state;
-      if (state === PresentationModeState.NORMAL***REMOVED*** {
-        enableActive(***REMOVED***;
-      ***REMOVED*** else if (state === PresentationModeState.FULLSCREEN***REMOVED*** {
-        disableActive(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get _handTool(***REMOVED*** {
+      if (state === PresentationModeState.NORMAL) {
+        enableActive();
+      } else if (state === PresentationModeState.FULLSCREEN) {
+        disableActive();
+      }
+    });
+  }
+  get _handTool() {
     return shadow(this, "_handTool", new GrabToPan({
       element: this.container
-    ***REMOVED******REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    }));
+  }
+}
 
 ;// ./web/pdf_document_properties.js
 
@@ -5016,51 +5016,51 @@ const NON_METRIC_LOCALES = ["en-us", "en-lr", "my"];
 const US_PAGE_NAMES = {
   "8.5x11": "pdfjs-document-properties-page-size-name-letter",
   "8.5x14": "pdfjs-document-properties-page-size-name-legal"
-***REMOVED***;
+};
 const METRIC_PAGE_NAMES = {
   "297x420": "pdfjs-document-properties-page-size-name-a-three",
   "210x297": "pdfjs-document-properties-page-size-name-a-four"
-***REMOVED***;
-function getPageName(size, isPortrait, pageNames***REMOVED*** {
+};
+function getPageName(size, isPortrait, pageNames) {
   const width = isPortrait ? size.width : size.height;
   const height = isPortrait ? size.height : size.width;
-  return pageNames[`${width***REMOVED***x${height***REMOVED***`];
-***REMOVED***
+  return pageNames[`${width}x${height}`];
+}
 class PDFDocumentProperties {
   #fieldData = null;
   constructor({
     dialog,
     fields,
     closeButton
-  ***REMOVED***, overlayManager, eventBus, l10n, fileNameLookup***REMOVED*** {
+  }, overlayManager, eventBus, l10n, fileNameLookup) {
     this.dialog = dialog;
     this.fields = fields;
     this.overlayManager = overlayManager;
     this.l10n = l10n;
     this._fileNameLookup = fileNameLookup;
-    this.#reset(***REMOVED***;
-    closeButton.addEventListener("click", this.close.bind(this***REMOVED******REMOVED***;
-    this.overlayManager.register(this.dialog***REMOVED***;
+    this.#reset();
+    closeButton.addEventListener("click", this.close.bind(this));
+    this.overlayManager.register(this.dialog);
     eventBus._on("pagechanging", evt => {
       this._currentPageNumber = evt.pageNumber;
-    ***REMOVED******REMOVED***;
+    });
     eventBus._on("rotationchanging", evt => {
       this._pagesRotation = evt.pagesRotation;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async open(***REMOVED*** {
-    await Promise.all([this.overlayManager.open(this.dialog***REMOVED***, this._dataAvailableCapability.promise]***REMOVED***;
+    });
+  }
+  async open() {
+    await Promise.all([this.overlayManager.open(this.dialog), this._dataAvailableCapability.promise]);
     const currentPageNumber = this._currentPageNumber;
     const pagesRotation = this._pagesRotation;
-    if (this.#fieldData && currentPageNumber === this.#fieldData._currentPageNumber && pagesRotation === this.#fieldData._pagesRotation***REMOVED*** {
-      this.#updateUI(***REMOVED***;
+    if (this.#fieldData && currentPageNumber === this.#fieldData._currentPageNumber && pagesRotation === this.#fieldData._pagesRotation) {
+      this.#updateUI();
       return;
-    ***REMOVED***
+    }
     const [{
       info,
       contentLength
-    ***REMOVED***, pdfPage] = await Promise.all([this.pdfDocument.getMetadata(***REMOVED***, this.pdfDocument.getPage(currentPageNumber***REMOVED***]***REMOVED***;
-    const [fileName, fileSize, creationDate, modificationDate, pageSize, isLinearized] = await Promise.all([this._fileNameLookup(***REMOVED***, this.#parseFileSize(contentLength***REMOVED***, this.#parseDate(info.CreationDate***REMOVED***, this.#parseDate(info.ModDate***REMOVED***, this.#parsePageSize(getPageSizeInches(pdfPage***REMOVED***, pagesRotation***REMOVED***, this.#parseLinearization(info.IsLinearized***REMOVED***]***REMOVED***;
+    }, pdfPage] = await Promise.all([this.pdfDocument.getMetadata(), this.pdfDocument.getPage(currentPageNumber)]);
+    const [fileName, fileSize, creationDate, modificationDate, pageSize, isLinearized] = await Promise.all([this._fileNameLookup(), this.#parseFileSize(contentLength), this.#parseDate(info.CreationDate), this.#parseDate(info.ModDate), this.#parsePageSize(getPageSizeInches(pdfPage), pagesRotation), this.#parseLinearization(info.IsLinearized)]);
     this.#fieldData = Object.freeze({
       fileName,
       fileSize,
@@ -5078,121 +5078,121 @@ class PDFDocumentProperties {
       linearized: isLinearized,
       _currentPageNumber: currentPageNumber,
       _pagesRotation: pagesRotation
-    ***REMOVED******REMOVED***;
-    this.#updateUI(***REMOVED***;
+    });
+    this.#updateUI();
     const {
       length
-    ***REMOVED*** = await this.pdfDocument.getDownloadInfo(***REMOVED***;
-    if (contentLength === length***REMOVED*** {
+    } = await this.pdfDocument.getDownloadInfo();
+    if (contentLength === length) {
       return;
-    ***REMOVED***
-    const data = Object.assign(Object.create(null***REMOVED***, this.#fieldData***REMOVED***;
-    data.fileSize = await this.#parseFileSize(length***REMOVED***;
-    this.#fieldData = Object.freeze(data***REMOVED***;
-    this.#updateUI(***REMOVED***;
-  ***REMOVED***
-  async close(***REMOVED*** {
-    this.overlayManager.close(this.dialog***REMOVED***;
-  ***REMOVED***
-  setDocument(pdfDocument***REMOVED*** {
-    if (this.pdfDocument***REMOVED*** {
-      this.#reset(***REMOVED***;
-      this.#updateUI(***REMOVED***;
-    ***REMOVED***
-    if (!pdfDocument***REMOVED*** {
+    }
+    const data = Object.assign(Object.create(null), this.#fieldData);
+    data.fileSize = await this.#parseFileSize(length);
+    this.#fieldData = Object.freeze(data);
+    this.#updateUI();
+  }
+  async close() {
+    this.overlayManager.close(this.dialog);
+  }
+  setDocument(pdfDocument) {
+    if (this.pdfDocument) {
+      this.#reset();
+      this.#updateUI();
+    }
+    if (!pdfDocument) {
       return;
-    ***REMOVED***
+    }
     this.pdfDocument = pdfDocument;
-    this._dataAvailableCapability.resolve(***REMOVED***;
-  ***REMOVED***
-  #reset(***REMOVED*** {
+    this._dataAvailableCapability.resolve();
+  }
+  #reset() {
     this.pdfDocument = null;
     this.#fieldData = null;
-    this._dataAvailableCapability = Promise.withResolvers(***REMOVED***;
+    this._dataAvailableCapability = Promise.withResolvers();
     this._currentPageNumber = 1;
     this._pagesRotation = 0;
-  ***REMOVED***
-  #updateUI(***REMOVED*** {
-    if (this.#fieldData && this.overlayManager.active !== this.dialog***REMOVED*** {
+  }
+  #updateUI() {
+    if (this.#fieldData && this.overlayManager.active !== this.dialog) {
       return;
-    ***REMOVED***
-    for (const id in this.fields***REMOVED*** {
+    }
+    for (const id in this.fields) {
       const content = this.#fieldData?.[id];
       this.fields[id].textContent = content || content === 0 ? content : "-";
-    ***REMOVED***
-  ***REMOVED***
-  async #parseFileSize(b = 0***REMOVED*** {
+    }
+  }
+  async #parseFileSize(b = 0) {
     const kb = b / 1024,
       mb = kb / 1024;
     return kb ? this.l10n.get(mb >= 1 ? "pdfjs-document-properties-size-mb" : "pdfjs-document-properties-size-kb", {
       mb,
       kb,
       b
-    ***REMOVED******REMOVED*** : undefined;
-  ***REMOVED***
-  async #parsePageSize(pageSizeInches, pagesRotation***REMOVED*** {
-    if (!pageSizeInches***REMOVED*** {
+    }) : undefined;
+  }
+  async #parsePageSize(pageSizeInches, pagesRotation) {
+    if (!pageSizeInches) {
       return undefined;
-    ***REMOVED***
-    if (pagesRotation % 180 !== 0***REMOVED*** {
+    }
+    if (pagesRotation % 180 !== 0) {
       pageSizeInches = {
         width: pageSizeInches.height,
         height: pageSizeInches.width
-      ***REMOVED***;
-    ***REMOVED***
-    const isPortrait = isPortraitOrientation(pageSizeInches***REMOVED***,
-      nonMetric = NON_METRIC_LOCALES.includes(this.l10n.getLanguage(***REMOVED******REMOVED***;
+      };
+    }
+    const isPortrait = isPortraitOrientation(pageSizeInches),
+      nonMetric = NON_METRIC_LOCALES.includes(this.l10n.getLanguage());
     let sizeInches = {
-      width: Math.round(pageSizeInches.width * 100***REMOVED*** / 100,
-      height: Math.round(pageSizeInches.height * 100***REMOVED*** / 100
-    ***REMOVED***;
+      width: Math.round(pageSizeInches.width * 100) / 100,
+      height: Math.round(pageSizeInches.height * 100) / 100
+    };
     let sizeMillimeters = {
-      width: Math.round(pageSizeInches.width * 25.4 * 10***REMOVED*** / 10,
-      height: Math.round(pageSizeInches.height * 25.4 * 10***REMOVED*** / 10
-    ***REMOVED***;
-    let nameId = getPageName(sizeInches, isPortrait, US_PAGE_NAMES***REMOVED*** || getPageName(sizeMillimeters, isPortrait, METRIC_PAGE_NAMES***REMOVED***;
-    if (!nameId && !(Number.isInteger(sizeMillimeters.width***REMOVED*** && Number.isInteger(sizeMillimeters.height***REMOVED******REMOVED******REMOVED*** {
+      width: Math.round(pageSizeInches.width * 25.4 * 10) / 10,
+      height: Math.round(pageSizeInches.height * 25.4 * 10) / 10
+    };
+    let nameId = getPageName(sizeInches, isPortrait, US_PAGE_NAMES) || getPageName(sizeMillimeters, isPortrait, METRIC_PAGE_NAMES);
+    if (!nameId && !(Number.isInteger(sizeMillimeters.width) && Number.isInteger(sizeMillimeters.height))) {
       const exactMillimeters = {
         width: pageSizeInches.width * 25.4,
         height: pageSizeInches.height * 25.4
-      ***REMOVED***;
+      };
       const intMillimeters = {
-        width: Math.round(sizeMillimeters.width***REMOVED***,
-        height: Math.round(sizeMillimeters.height***REMOVED***
-      ***REMOVED***;
-      if (Math.abs(exactMillimeters.width - intMillimeters.width***REMOVED*** < 0.1 && Math.abs(exactMillimeters.height - intMillimeters.height***REMOVED*** < 0.1***REMOVED*** {
-        nameId = getPageName(intMillimeters, isPortrait, METRIC_PAGE_NAMES***REMOVED***;
-        if (nameId***REMOVED*** {
+        width: Math.round(sizeMillimeters.width),
+        height: Math.round(sizeMillimeters.height)
+      };
+      if (Math.abs(exactMillimeters.width - intMillimeters.width) < 0.1 && Math.abs(exactMillimeters.height - intMillimeters.height) < 0.1) {
+        nameId = getPageName(intMillimeters, isPortrait, METRIC_PAGE_NAMES);
+        if (nameId) {
           sizeInches = {
-            width: Math.round(intMillimeters.width / 25.4 * 100***REMOVED*** / 100,
-            height: Math.round(intMillimeters.height / 25.4 * 100***REMOVED*** / 100
-          ***REMOVED***;
+            width: Math.round(intMillimeters.width / 25.4 * 100) / 100,
+            height: Math.round(intMillimeters.height / 25.4 * 100) / 100
+          };
           sizeMillimeters = intMillimeters;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
+        }
+      }
+    }
     const [{
       width,
       height
-    ***REMOVED***, unit, name, orientation] = await Promise.all([nonMetric ? sizeInches : sizeMillimeters, this.l10n.get(nonMetric ? "pdfjs-document-properties-page-size-unit-inches" : "pdfjs-document-properties-page-size-unit-millimeters"***REMOVED***, nameId && this.l10n.get(nameId***REMOVED***, this.l10n.get(isPortrait ? "pdfjs-document-properties-page-size-orientation-portrait" : "pdfjs-document-properties-page-size-orientation-landscape"***REMOVED***]***REMOVED***;
+    }, unit, name, orientation] = await Promise.all([nonMetric ? sizeInches : sizeMillimeters, this.l10n.get(nonMetric ? "pdfjs-document-properties-page-size-unit-inches" : "pdfjs-document-properties-page-size-unit-millimeters"), nameId && this.l10n.get(nameId), this.l10n.get(isPortrait ? "pdfjs-document-properties-page-size-orientation-portrait" : "pdfjs-document-properties-page-size-orientation-landscape")]);
     return this.l10n.get(name ? "pdfjs-document-properties-page-size-dimension-name-string" : "pdfjs-document-properties-page-size-dimension-string", {
       width,
       height,
       unit,
       name,
       orientation
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async #parseDate(inputDate***REMOVED*** {
-    const dateObj = PDFDateString.toDateObject(inputDate***REMOVED***;
+    });
+  }
+  async #parseDate(inputDate) {
+    const dateObj = PDFDateString.toDateObject(inputDate);
     return dateObj ? this.l10n.get("pdfjs-document-properties-date-time-string", {
-      dateObj: dateObj.valueOf(***REMOVED***
-    ***REMOVED******REMOVED*** : undefined;
-  ***REMOVED***
-  #parseLinearization(isLinearized***REMOVED*** {
-    return this.l10n.get(isLinearized ? "pdfjs-document-properties-linearized-yes" : "pdfjs-document-properties-linearized-no"***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+      dateObj: dateObj.valueOf()
+    }) : undefined;
+  }
+  #parseLinearization(isLinearized) {
+    return this.l10n.get(isLinearized ? "pdfjs-document-properties-linearized-yes" : "pdfjs-document-properties-linearized-no");
+  }
+}
 
 ;// ./web/pdf_find_utils.js
 const CharacterType = {
@@ -5204,69 +5204,69 @@ const CharacterType = {
   HIRAGANA_LETTER: 5,
   HALFWIDTH_KATAKANA_LETTER: 6,
   THAI_LETTER: 7
-***REMOVED***;
-function isAlphabeticalScript(charCode***REMOVED*** {
+};
+function isAlphabeticalScript(charCode) {
   return charCode < 0x2e80;
-***REMOVED***
-function isAscii(charCode***REMOVED*** {
-  return (charCode & 0xff80***REMOVED*** === 0;
-***REMOVED***
-function isAsciiAlpha(charCode***REMOVED*** {
+}
+function isAscii(charCode) {
+  return (charCode & 0xff80) === 0;
+}
+function isAsciiAlpha(charCode) {
   return charCode >= 0x61 && charCode <= 0x7a || charCode >= 0x41 && charCode <= 0x5a;
-***REMOVED***
-function isAsciiDigit(charCode***REMOVED*** {
+}
+function isAsciiDigit(charCode) {
   return charCode >= 0x30 && charCode <= 0x39;
-***REMOVED***
-function isAsciiSpace(charCode***REMOVED*** {
+}
+function isAsciiSpace(charCode) {
   return charCode === 0x20 || charCode === 0x09 || charCode === 0x0d || charCode === 0x0a;
-***REMOVED***
-function isHan(charCode***REMOVED*** {
+}
+function isHan(charCode) {
   return charCode >= 0x3400 && charCode <= 0x9fff || charCode >= 0xf900 && charCode <= 0xfaff;
-***REMOVED***
-function isKatakana(charCode***REMOVED*** {
+}
+function isKatakana(charCode) {
   return charCode >= 0x30a0 && charCode <= 0x30ff;
-***REMOVED***
-function isHiragana(charCode***REMOVED*** {
+}
+function isHiragana(charCode) {
   return charCode >= 0x3040 && charCode <= 0x309f;
-***REMOVED***
-function isHalfwidthKatakana(charCode***REMOVED*** {
+}
+function isHalfwidthKatakana(charCode) {
   return charCode >= 0xff60 && charCode <= 0xff9f;
-***REMOVED***
-function isThai(charCode***REMOVED*** {
-  return (charCode & 0xff80***REMOVED*** === 0x0e00;
-***REMOVED***
-function getCharacterType(charCode***REMOVED*** {
-  if (isAlphabeticalScript(charCode***REMOVED******REMOVED*** {
-    if (isAscii(charCode***REMOVED******REMOVED*** {
-      if (isAsciiSpace(charCode***REMOVED******REMOVED*** {
+}
+function isThai(charCode) {
+  return (charCode & 0xff80) === 0x0e00;
+}
+function getCharacterType(charCode) {
+  if (isAlphabeticalScript(charCode)) {
+    if (isAscii(charCode)) {
+      if (isAsciiSpace(charCode)) {
         return CharacterType.SPACE;
-      ***REMOVED*** else if (isAsciiAlpha(charCode***REMOVED*** || isAsciiDigit(charCode***REMOVED*** || charCode === 0x5f***REMOVED*** {
+      } else if (isAsciiAlpha(charCode) || isAsciiDigit(charCode) || charCode === 0x5f) {
         return CharacterType.ALPHA_LETTER;
-      ***REMOVED***
+      }
       return CharacterType.PUNCT;
-    ***REMOVED*** else if (isThai(charCode***REMOVED******REMOVED*** {
+    } else if (isThai(charCode)) {
       return CharacterType.THAI_LETTER;
-    ***REMOVED*** else if (charCode === 0xa0***REMOVED*** {
+    } else if (charCode === 0xa0) {
       return CharacterType.SPACE;
-    ***REMOVED***
+    }
     return CharacterType.ALPHA_LETTER;
-  ***REMOVED***
-  if (isHan(charCode***REMOVED******REMOVED*** {
+  }
+  if (isHan(charCode)) {
     return CharacterType.HAN_LETTER;
-  ***REMOVED*** else if (isKatakana(charCode***REMOVED******REMOVED*** {
+  } else if (isKatakana(charCode)) {
     return CharacterType.KATAKANA_LETTER;
-  ***REMOVED*** else if (isHiragana(charCode***REMOVED******REMOVED*** {
+  } else if (isHiragana(charCode)) {
     return CharacterType.HIRAGANA_LETTER;
-  ***REMOVED*** else if (isHalfwidthKatakana(charCode***REMOVED******REMOVED*** {
+  } else if (isHalfwidthKatakana(charCode)) {
     return CharacterType.HALFWIDTH_KATAKANA_LETTER;
-  ***REMOVED***
+  }
   return CharacterType.ALPHA_LETTER;
-***REMOVED***
+}
 let NormalizeWithNFKC;
-function getNormalizeWithNFKC(***REMOVED*** {
+function getNormalizeWithNFKC() {
   NormalizeWithNFKC ||= ` ¨ª¯²-µ¸-º¼-¾Ĳ-ĳĿ-ŀŉſǄ-ǌǱ-ǳʰ-ʸ˘-˝ˠ-ˤʹͺ;΄-΅·ϐ-ϖϰ-ϲϴ-ϵϹևٵ-ٸक़-य़ড়-ঢ়য়ਲ਼ਸ਼ਖ਼-ਜ਼ਫ਼ଡ଼-ଢ଼ำຳໜ-ໝ༌གྷཌྷདྷབྷཛྷཀྵჼᴬ-ᴮᴰ-ᴺᴼ-ᵍᵏ-ᵪᵸᶛ-ᶿẚ-ẛάέήίόύώΆ᾽-῁ΈΉ῍-῏ΐΊ῝-῟ΰΎ῭-`ΌΏ´-῾ - ‑‗․-… ″-‴‶-‷‼‾⁇-⁉⁗ ⁰-ⁱ⁴-₎ₐ-ₜ₨℀-℃℅-ℇ℉-ℓℕ-№ℙ-ℝ℠-™ℤΩℨK-ℭℯ-ℱℳ-ℹ℻-⅀ⅅ-ⅉ⅐-ⅿ↉∬-∭∯-∰〈-〉①-⓪⨌⩴-⩶⫝̸ⱼ-ⱽⵯ⺟⻳⼀-⿕　〶〸-〺゛-゜ゟヿㄱ-ㆎ㆒-㆟㈀-㈞㈠-㉇㉐-㉾㊀-㏿ꚜ-ꚝꝰꟲ-ꟴꟸ-ꟹꭜ-ꭟꭩ豈-嗀塚晴凞-羽蘒諸逸-都飯-舘並-龎ﬀ-ﬆﬓ-ﬗיִײַ-זּטּ-לּמּנּ-סּףּ-פּצּ-ﮱﯓ-ﴽﵐ-ﶏﶒ-ﷇﷰ-﷼︐-︙︰-﹄﹇-﹒﹔-﹦﹨-﹫ﹰ-ﹲﹴﹶ-ﻼ！-ﾾￂ-ￇￊ-ￏￒ-ￗￚ-ￜ￠-￦`;
   return NormalizeWithNFKC;
-***REMOVED***
+}
 
 ;// ./web/pdf_find_controller.js
 
@@ -5276,7 +5276,7 @@ const FindState = {
   NOT_FOUND: 1,
   WRAPPED: 2,
   PENDING: 3
-***REMOVED***;
+};
 const FIND_TIMEOUT = 250;
 const MATCH_SCROLL_OFFSET_TOP = -50;
 const MATCH_SCROLL_OFFSET_LEFT = -400;
@@ -5293,58 +5293,58 @@ const CHARACTERS_TO_NORMALIZE = {
   "\u00BC": "1/4",
   "\u00BD": "1/2",
   "\u00BE": "3/4"
-***REMOVED***;
-const DIACRITICS_EXCEPTION = new Set([0x3099, 0x309a, 0x094d, 0x09cd, 0x0a4d, 0x0acd, 0x0b4d, 0x0bcd, 0x0c4d, 0x0ccd, 0x0d3b, 0x0d3c, 0x0d4d, 0x0dca, 0x0e3a, 0x0eba, 0x0f84, 0x1039, 0x103a, 0x1714, 0x1734, 0x17d2, 0x1a60, 0x1b44, 0x1baa, 0x1bab, 0x1bf2, 0x1bf3, 0x2d7f, 0xa806, 0xa82c, 0xa8c4, 0xa953, 0xa9c0, 0xaaf6, 0xabed, 0x0c56, 0x0f71, 0x0f72, 0x0f7a, 0x0f7b, 0x0f7c, 0x0f7d, 0x0f80, 0x0f74]***REMOVED***;
+};
+const DIACRITICS_EXCEPTION = new Set([0x3099, 0x309a, 0x094d, 0x09cd, 0x0a4d, 0x0acd, 0x0b4d, 0x0bcd, 0x0c4d, 0x0ccd, 0x0d3b, 0x0d3c, 0x0d4d, 0x0dca, 0x0e3a, 0x0eba, 0x0f84, 0x1039, 0x103a, 0x1714, 0x1734, 0x17d2, 0x1a60, 0x1b44, 0x1baa, 0x1bab, 0x1bf2, 0x1bf3, 0x2d7f, 0xa806, 0xa82c, 0xa8c4, 0xa953, 0xa9c0, 0xaaf6, 0xabed, 0x0c56, 0x0f71, 0x0f72, 0x0f7a, 0x0f7b, 0x0f7c, 0x0f7d, 0x0f80, 0x0f74]);
 let DIACRITICS_EXCEPTION_STR;
-const DIACRITICS_REG_EXP = /\p{M***REMOVED***+/gu;
-const SPECIAL_CHARS_REG_EXP = /([.*+?^${***REMOVED***(***REMOVED***|[\]\\]***REMOVED***|(\p{P***REMOVED******REMOVED***|(\s+***REMOVED***|(\p{M***REMOVED******REMOVED***|(\p{L***REMOVED******REMOVED***/gu;
-const NOT_DIACRITIC_FROM_END_REG_EXP = /([^\p{M***REMOVED***]***REMOVED***\p{M***REMOVED****$/u;
-const NOT_DIACRITIC_FROM_START_REG_EXP = /^\p{M***REMOVED****([^\p{M***REMOVED***]***REMOVED***/u;
+const DIACRITICS_REG_EXP = /\p{M}+/gu;
+const SPECIAL_CHARS_REG_EXP = /([.*+?^${}()|[\]\\])|(\p{P})|(\s+)|(\p{M})|(\p{L})/gu;
+const NOT_DIACRITIC_FROM_END_REG_EXP = /([^\p{M}])\p{M}*$/u;
+const NOT_DIACRITIC_FROM_START_REG_EXP = /^\p{M}*([^\p{M}])/u;
 const SYLLABLES_REG_EXP = /[\uAC00-\uD7AF\uFA6C\uFACF-\uFAD1\uFAD5-\uFAD7]+/g;
-const SYLLABLES_LENGTHS = new Map(***REMOVED***;
+const SYLLABLES_LENGTHS = new Map();
 const FIRST_CHAR_SYLLABLES_REG_EXP = "[\\u1100-\\u1112\\ud7a4-\\ud7af\\ud84a\\ud84c\\ud850\\ud854\\ud857\\ud85f]";
-const NFKC_CHARS_TO_NORMALIZE = new Map(***REMOVED***;
+const NFKC_CHARS_TO_NORMALIZE = new Map();
 let noSyllablesRegExp = null;
 let withSyllablesRegExp = null;
-function normalize(text***REMOVED*** {
+function normalize(text) {
   const syllablePositions = [];
   let m;
-  while ((m = SYLLABLES_REG_EXP.exec(text***REMOVED******REMOVED*** !== null***REMOVED*** {
+  while ((m = SYLLABLES_REG_EXP.exec(text)) !== null) {
     let {
       index
-    ***REMOVED*** = m;
-    for (const char of m[0]***REMOVED*** {
-      let len = SYLLABLES_LENGTHS.get(char***REMOVED***;
-      if (!len***REMOVED*** {
-        len = char.normalize("NFD"***REMOVED***.length;
-        SYLLABLES_LENGTHS.set(char, len***REMOVED***;
-      ***REMOVED***
-      syllablePositions.push([len, index++]***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+    } = m;
+    for (const char of m[0]) {
+      let len = SYLLABLES_LENGTHS.get(char);
+      if (!len) {
+        len = char.normalize("NFD").length;
+        SYLLABLES_LENGTHS.set(char, len);
+      }
+      syllablePositions.push([len, index++]);
+    }
+  }
   let normalizationRegex;
-  if (syllablePositions.length === 0 && noSyllablesRegExp***REMOVED*** {
+  if (syllablePositions.length === 0 && noSyllablesRegExp) {
     normalizationRegex = noSyllablesRegExp;
-  ***REMOVED*** else if (syllablePositions.length > 0 && withSyllablesRegExp***REMOVED*** {
+  } else if (syllablePositions.length > 0 && withSyllablesRegExp) {
     normalizationRegex = withSyllablesRegExp;
-  ***REMOVED*** else {
-    const replace = Object.keys(CHARACTERS_TO_NORMALIZE***REMOVED***.join(""***REMOVED***;
-    const toNormalizeWithNFKC = getNormalizeWithNFKC(***REMOVED***;
-    const CJK = "(?:\\p{Ideographic***REMOVED***|[\u3040-\u30FF]***REMOVED***";
-    const HKDiacritics = "(?:\u3099|\u309A***REMOVED***";
-    const CompoundWord = "\\p{Ll***REMOVED***-\\n\\p{Lu***REMOVED***";
-    const regexp = `([${replace***REMOVED***]***REMOVED***|([${toNormalizeWithNFKC***REMOVED***]***REMOVED***|(${HKDiacritics***REMOVED***\\n***REMOVED***|(\\p{M***REMOVED***+(?:-\\n***REMOVED***?***REMOVED***|(${CompoundWord***REMOVED******REMOVED***|(\\S-\\n***REMOVED***|(${CJK***REMOVED***\\n***REMOVED***|(\\n***REMOVED***`;
-    if (syllablePositions.length === 0***REMOVED*** {
-      normalizationRegex = noSyllablesRegExp = new RegExp(regexp + "|(\\u0000***REMOVED***", "gum"***REMOVED***;
-    ***REMOVED*** else {
-      normalizationRegex = withSyllablesRegExp = new RegExp(regexp + `|(${FIRST_CHAR_SYLLABLES_REG_EXP***REMOVED******REMOVED***`, "gum"***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+  } else {
+    const replace = Object.keys(CHARACTERS_TO_NORMALIZE).join("");
+    const toNormalizeWithNFKC = getNormalizeWithNFKC();
+    const CJK = "(?:\\p{Ideographic}|[\u3040-\u30FF])";
+    const HKDiacritics = "(?:\u3099|\u309A)";
+    const CompoundWord = "\\p{Ll}-\\n\\p{Lu}";
+    const regexp = `([${replace}])|([${toNormalizeWithNFKC}])|(${HKDiacritics}\\n)|(\\p{M}+(?:-\\n)?)|(${CompoundWord})|(\\S-\\n)|(${CJK}\\n)|(\\n)`;
+    if (syllablePositions.length === 0) {
+      normalizationRegex = noSyllablesRegExp = new RegExp(regexp + "|(\\u0000)", "gum");
+    } else {
+      normalizationRegex = withSyllablesRegExp = new RegExp(regexp + `|(${FIRST_CHAR_SYLLABLES_REG_EXP})`, "gum");
+    }
+  }
   const rawDiacriticsPositions = [];
-  while ((m = DIACRITICS_REG_EXP.exec(text***REMOVED******REMOVED*** !== null***REMOVED*** {
-    rawDiacriticsPositions.push([m[0].length, m.index]***REMOVED***;
-  ***REMOVED***
-  let normalized = text.normalize("NFD"***REMOVED***;
+  while ((m = DIACRITICS_REG_EXP.exec(text)) !== null) {
+    rawDiacriticsPositions.push([m[0].length, m.index]);
+  }
+  let normalized = text.normalize("NFD");
   const positions = [0, 0];
   let rawDiacriticsIndex = 0;
   let syllableIndex = 0;
@@ -5352,135 +5352,135 @@ function normalize(text***REMOVED*** {
   let shiftOrigin = 0;
   let eol = 0;
   let hasDiacritics = false;
-  normalized = normalized.replace(normalizationRegex, (match, p1, p2, p3, p4, p5, p6, p7, p8, p9, i***REMOVED*** => {
+  normalized = normalized.replace(normalizationRegex, (match, p1, p2, p3, p4, p5, p6, p7, p8, p9, i) => {
     i -= shiftOrigin;
-    if (p1***REMOVED*** {
+    if (p1) {
       const replacement = CHARACTERS_TO_NORMALIZE[p1];
       const jj = replacement.length;
-      for (let j = 1; j < jj; j++***REMOVED*** {
-        positions.push(i - shift + j, shift - j***REMOVED***;
-      ***REMOVED***
+      for (let j = 1; j < jj; j++) {
+        positions.push(i - shift + j, shift - j);
+      }
       shift -= jj - 1;
       return replacement;
-    ***REMOVED***
-    if (p2***REMOVED*** {
-      let replacement = NFKC_CHARS_TO_NORMALIZE.get(p2***REMOVED***;
-      if (!replacement***REMOVED*** {
-        replacement = p2.normalize("NFKC"***REMOVED***;
-        NFKC_CHARS_TO_NORMALIZE.set(p2, replacement***REMOVED***;
-      ***REMOVED***
+    }
+    if (p2) {
+      let replacement = NFKC_CHARS_TO_NORMALIZE.get(p2);
+      if (!replacement) {
+        replacement = p2.normalize("NFKC");
+        NFKC_CHARS_TO_NORMALIZE.set(p2, replacement);
+      }
       const jj = replacement.length;
-      for (let j = 1; j < jj; j++***REMOVED*** {
-        positions.push(i - shift + j, shift - j***REMOVED***;
-      ***REMOVED***
+      for (let j = 1; j < jj; j++) {
+        positions.push(i - shift + j, shift - j);
+      }
       shift -= jj - 1;
       return replacement;
-    ***REMOVED***
-    if (p3***REMOVED*** {
+    }
+    if (p3) {
       hasDiacritics = true;
-      if (i + eol === rawDiacriticsPositions[rawDiacriticsIndex]?.[1]***REMOVED*** {
+      if (i + eol === rawDiacriticsPositions[rawDiacriticsIndex]?.[1]) {
         ++rawDiacriticsIndex;
-      ***REMOVED*** else {
-        positions.push(i - 1 - shift + 1, shift - 1***REMOVED***;
+      } else {
+        positions.push(i - 1 - shift + 1, shift - 1);
         shift -= 1;
         shiftOrigin += 1;
-      ***REMOVED***
-      positions.push(i - shift + 1, shift***REMOVED***;
+      }
+      positions.push(i - shift + 1, shift);
       shiftOrigin += 1;
       eol += 1;
-      return p3.charAt(0***REMOVED***;
-    ***REMOVED***
-    if (p4***REMOVED*** {
-      const hasTrailingDashEOL = p4.endsWith("\n"***REMOVED***;
+      return p3.charAt(0);
+    }
+    if (p4) {
+      const hasTrailingDashEOL = p4.endsWith("\n");
       const len = hasTrailingDashEOL ? p4.length - 2 : p4.length;
       hasDiacritics = true;
       let jj = len;
-      if (i + eol === rawDiacriticsPositions[rawDiacriticsIndex]?.[1]***REMOVED*** {
+      if (i + eol === rawDiacriticsPositions[rawDiacriticsIndex]?.[1]) {
         jj -= rawDiacriticsPositions[rawDiacriticsIndex][0];
         ++rawDiacriticsIndex;
-      ***REMOVED***
-      for (let j = 1; j <= jj; j++***REMOVED*** {
-        positions.push(i - 1 - shift + j, shift - j***REMOVED***;
-      ***REMOVED***
+      }
+      for (let j = 1; j <= jj; j++) {
+        positions.push(i - 1 - shift + j, shift - j);
+      }
       shift -= jj;
       shiftOrigin += jj;
-      if (hasTrailingDashEOL***REMOVED*** {
+      if (hasTrailingDashEOL) {
         i += len - 1;
-        positions.push(i - shift + 1, 1 + shift***REMOVED***;
+        positions.push(i - shift + 1, 1 + shift);
         shift += 1;
         shiftOrigin += 1;
         eol += 1;
-        return p4.slice(0, len***REMOVED***;
-      ***REMOVED***
+        return p4.slice(0, len);
+      }
       return p4;
-    ***REMOVED***
-    if (p5***REMOVED*** {
+    }
+    if (p5) {
       shiftOrigin += 1;
       eol += 1;
-      return p5.replace("\n", ""***REMOVED***;
-    ***REMOVED***
-    if (p6***REMOVED*** {
+      return p5.replace("\n", "");
+    }
+    if (p6) {
       const len = p6.length - 2;
-      positions.push(i - shift + len, 1 + shift***REMOVED***;
+      positions.push(i - shift + len, 1 + shift);
       shift += 1;
       shiftOrigin += 1;
       eol += 1;
-      return p6.slice(0, -2***REMOVED***;
-    ***REMOVED***
-    if (p7***REMOVED*** {
+      return p6.slice(0, -2);
+    }
+    if (p7) {
       const len = p7.length - 1;
-      positions.push(i - shift + len, shift***REMOVED***;
+      positions.push(i - shift + len, shift);
       shiftOrigin += 1;
       eol += 1;
-      return p7.slice(0, -1***REMOVED***;
-    ***REMOVED***
-    if (p8***REMOVED*** {
-      positions.push(i - shift + 1, shift - 1***REMOVED***;
+      return p7.slice(0, -1);
+    }
+    if (p8) {
+      positions.push(i - shift + 1, shift - 1);
       shift -= 1;
       shiftOrigin += 1;
       eol += 1;
       return " ";
-    ***REMOVED***
-    if (i + eol === syllablePositions[syllableIndex]?.[1]***REMOVED*** {
+    }
+    if (i + eol === syllablePositions[syllableIndex]?.[1]) {
       const newCharLen = syllablePositions[syllableIndex][0] - 1;
       ++syllableIndex;
-      for (let j = 1; j <= newCharLen; j++***REMOVED*** {
-        positions.push(i - (shift - j***REMOVED***, shift - j***REMOVED***;
-      ***REMOVED***
+      for (let j = 1; j <= newCharLen; j++) {
+        positions.push(i - (shift - j), shift - j);
+      }
       shift -= newCharLen;
       shiftOrigin += newCharLen;
-    ***REMOVED***
+    }
     return p9;
-  ***REMOVED******REMOVED***;
-  positions.push(normalized.length, shift***REMOVED***;
-  const starts = new Uint32Array(positions.length >> 1***REMOVED***;
-  const shifts = new Int32Array(positions.length >> 1***REMOVED***;
-  for (let i = 0, ii = positions.length; i < ii; i += 2***REMOVED*** {
+  });
+  positions.push(normalized.length, shift);
+  const starts = new Uint32Array(positions.length >> 1);
+  const shifts = new Int32Array(positions.length >> 1);
+  for (let i = 0, ii = positions.length; i < ii; i += 2) {
     starts[i >> 1] = positions[i];
     shifts[i >> 1] = positions[i + 1];
-  ***REMOVED***
+  }
   return [normalized, [starts, shifts], hasDiacritics];
-***REMOVED***
-function getOriginalIndex(diffs, pos, len***REMOVED*** {
-  if (!diffs***REMOVED*** {
+}
+function getOriginalIndex(diffs, pos, len) {
+  if (!diffs) {
     return [pos, len];
-  ***REMOVED***
+  }
   const [starts, shifts] = diffs;
   const start = pos;
   const end = pos + len - 1;
-  let i = binarySearchFirstItem(starts, x => x >= start***REMOVED***;
-  if (starts[i] > start***REMOVED*** {
+  let i = binarySearchFirstItem(starts, x => x >= start);
+  if (starts[i] > start) {
     --i;
-  ***REMOVED***
-  let j = binarySearchFirstItem(starts, x => x >= end, i***REMOVED***;
-  if (starts[j] > end***REMOVED*** {
+  }
+  let j = binarySearchFirstItem(starts, x => x >= end, i);
+  if (starts[j] > end) {
     --j;
-  ***REMOVED***
+  }
   const oldStart = start + shifts[i];
   const oldEnd = end + shifts[j];
   const oldLen = oldEnd + 1 - oldStart;
   return [oldStart, oldLen];
-***REMOVED***
+}
 class PDFFindController {
   #state = null;
   #updateMatchesCountOnProgress = true;
@@ -5489,111 +5489,111 @@ class PDFFindController {
     linkService,
     eventBus,
     updateMatchesCountOnProgress = true
-  ***REMOVED******REMOVED*** {
+  }) {
     this._linkService = linkService;
     this._eventBus = eventBus;
     this.#updateMatchesCountOnProgress = updateMatchesCountOnProgress;
     this.onIsPageVisible = null;
-    this.#reset(***REMOVED***;
-    eventBus._on("find", this.#onFind.bind(this***REMOVED******REMOVED***;
-    eventBus._on("findbarclose", this.#onFindBarClose.bind(this***REMOVED******REMOVED***;
-  ***REMOVED***
-  get highlightMatches(***REMOVED*** {
+    this.#reset();
+    eventBus._on("find", this.#onFind.bind(this));
+    eventBus._on("findbarclose", this.#onFindBarClose.bind(this));
+  }
+  get highlightMatches() {
     return this._highlightMatches;
-  ***REMOVED***
-  get pageMatches(***REMOVED*** {
+  }
+  get pageMatches() {
     return this._pageMatches;
-  ***REMOVED***
-  get pageMatchesLength(***REMOVED*** {
+  }
+  get pageMatchesLength() {
     return this._pageMatchesLength;
-  ***REMOVED***
-  get selected(***REMOVED*** {
+  }
+  get selected() {
     return this._selected;
-  ***REMOVED***
-  get state(***REMOVED*** {
+  }
+  get state() {
     return this.#state;
-  ***REMOVED***
-  setDocument(pdfDocument***REMOVED*** {
-    if (this._pdfDocument***REMOVED*** {
-      this.#reset(***REMOVED***;
-    ***REMOVED***
-    if (!pdfDocument***REMOVED*** {
+  }
+  setDocument(pdfDocument) {
+    if (this._pdfDocument) {
+      this.#reset();
+    }
+    if (!pdfDocument) {
       return;
-    ***REMOVED***
+    }
     this._pdfDocument = pdfDocument;
-    this._firstPageCapability.resolve(***REMOVED***;
-  ***REMOVED***
-  #onFind(state***REMOVED*** {
-    if (!state***REMOVED*** {
+    this._firstPageCapability.resolve();
+  }
+  #onFind(state) {
+    if (!state) {
       return;
-    ***REMOVED***
+    }
     const pdfDocument = this._pdfDocument;
     const {
       type
-    ***REMOVED*** = state;
-    if (this.#state === null || this.#shouldDirtyMatch(state***REMOVED******REMOVED*** {
+    } = state;
+    if (this.#state === null || this.#shouldDirtyMatch(state)) {
       this._dirtyMatch = true;
-    ***REMOVED***
+    }
     this.#state = state;
-    if (type !== "highlightallchange"***REMOVED*** {
-      this.#updateUIState(FindState.PENDING***REMOVED***;
-    ***REMOVED***
-    this._firstPageCapability.promise.then((***REMOVED*** => {
-      if (!this._pdfDocument || pdfDocument && this._pdfDocument !== pdfDocument***REMOVED*** {
+    if (type !== "highlightallchange") {
+      this.#updateUIState(FindState.PENDING);
+    }
+    this._firstPageCapability.promise.then(() => {
+      if (!this._pdfDocument || pdfDocument && this._pdfDocument !== pdfDocument) {
         return;
-      ***REMOVED***
-      this.#extractText(***REMOVED***;
+      }
+      this.#extractText();
       const findbarClosed = !this._highlightMatches;
       const pendingTimeout = !!this._findTimeout;
-      if (this._findTimeout***REMOVED*** {
-        clearTimeout(this._findTimeout***REMOVED***;
+      if (this._findTimeout) {
+        clearTimeout(this._findTimeout);
         this._findTimeout = null;
-      ***REMOVED***
-      if (!type***REMOVED*** {
-        this._findTimeout = setTimeout((***REMOVED*** => {
-          this.#nextMatch(***REMOVED***;
+      }
+      if (!type) {
+        this._findTimeout = setTimeout(() => {
+          this.#nextMatch();
           this._findTimeout = null;
-        ***REMOVED***, FIND_TIMEOUT***REMOVED***;
-      ***REMOVED*** else if (this._dirtyMatch***REMOVED*** {
-        this.#nextMatch(***REMOVED***;
-      ***REMOVED*** else if (type === "again"***REMOVED*** {
-        this.#nextMatch(***REMOVED***;
-        if (findbarClosed && this.#state.highlightAll***REMOVED*** {
-          this.#updateAllPages(***REMOVED***;
-        ***REMOVED***
-      ***REMOVED*** else if (type === "highlightallchange"***REMOVED*** {
-        if (pendingTimeout***REMOVED*** {
-          this.#nextMatch(***REMOVED***;
-        ***REMOVED*** else {
+        }, FIND_TIMEOUT);
+      } else if (this._dirtyMatch) {
+        this.#nextMatch();
+      } else if (type === "again") {
+        this.#nextMatch();
+        if (findbarClosed && this.#state.highlightAll) {
+          this.#updateAllPages();
+        }
+      } else if (type === "highlightallchange") {
+        if (pendingTimeout) {
+          this.#nextMatch();
+        } else {
           this._highlightMatches = true;
-        ***REMOVED***
-        this.#updateAllPages(***REMOVED***;
-      ***REMOVED*** else {
-        this.#nextMatch(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+        }
+        this.#updateAllPages();
+      } else {
+        this.#nextMatch();
+      }
+    });
+  }
   scrollMatchIntoView({
     element = null,
     selectedLeft = 0,
     pageIndex = -1,
     matchIndex = -1
-  ***REMOVED******REMOVED*** {
-    if (!this._scrollMatches || !element***REMOVED*** {
+  }) {
+    if (!this._scrollMatches || !element) {
       return;
-    ***REMOVED*** else if (matchIndex === -1 || matchIndex !== this._selected.matchIdx***REMOVED*** {
+    } else if (matchIndex === -1 || matchIndex !== this._selected.matchIdx) {
       return;
-    ***REMOVED*** else if (pageIndex === -1 || pageIndex !== this._selected.pageIdx***REMOVED*** {
+    } else if (pageIndex === -1 || pageIndex !== this._selected.pageIdx) {
       return;
-    ***REMOVED***
+    }
     this._scrollMatches = false;
     const spot = {
       top: MATCH_SCROLL_OFFSET_TOP,
       left: selectedLeft + MATCH_SCROLL_OFFSET_LEFT
-    ***REMOVED***;
-    scrollIntoView(element, spot, true***REMOVED***;
-  ***REMOVED***
-  #reset(***REMOVED*** {
+    };
+    scrollIntoView(element, spot, true);
+  }
+  #reset() {
     this._highlightMatches = false;
     this._scrollMatches = false;
     this._pdfDocument = null;
@@ -5604,249 +5604,249 @@ class PDFFindController {
     this._selected = {
       pageIdx: -1,
       matchIdx: -1
-    ***REMOVED***;
+    };
     this._offset = {
       pageIdx: null,
       matchIdx: null,
       wrapped: false
-    ***REMOVED***;
+    };
     this._extractTextPromises = [];
     this._pageContents = [];
     this._pageDiffs = [];
     this._hasDiacritics = [];
     this._matchesCountTotal = 0;
     this._pagesToSearch = null;
-    this._pendingFindMatches = new Set(***REMOVED***;
+    this._pendingFindMatches = new Set();
     this._resumePageIdx = null;
     this._dirtyMatch = false;
-    clearTimeout(this._findTimeout***REMOVED***;
+    clearTimeout(this._findTimeout);
     this._findTimeout = null;
-    this._firstPageCapability = Promise.withResolvers(***REMOVED***;
-  ***REMOVED***
-  get #query(***REMOVED*** {
+    this._firstPageCapability = Promise.withResolvers();
+  }
+  get #query() {
     const {
       query
-    ***REMOVED*** = this.#state;
-    if (typeof query === "string"***REMOVED*** {
-      if (query !== this._rawQuery***REMOVED*** {
+    } = this.#state;
+    if (typeof query === "string") {
+      if (query !== this._rawQuery) {
         this._rawQuery = query;
-        [this._normalizedQuery] = normalize(query***REMOVED***;
-      ***REMOVED***
+        [this._normalizedQuery] = normalize(query);
+      }
       return this._normalizedQuery;
-    ***REMOVED***
-    return (query || []***REMOVED***.filter(q => !!q***REMOVED***.map(q => normalize(q***REMOVED***[0]***REMOVED***;
-  ***REMOVED***
-  #shouldDirtyMatch(state***REMOVED*** {
+    }
+    return (query || []).filter(q => !!q).map(q => normalize(q)[0]);
+  }
+  #shouldDirtyMatch(state) {
     const newQuery = state.query,
       prevQuery = this.#state.query;
     const newType = typeof newQuery,
       prevType = typeof prevQuery;
-    if (newType !== prevType***REMOVED*** {
+    if (newType !== prevType) {
       return true;
-    ***REMOVED***
-    if (newType === "string"***REMOVED*** {
-      if (newQuery !== prevQuery***REMOVED*** {
+    }
+    if (newType === "string") {
+      if (newQuery !== prevQuery) {
         return true;
-      ***REMOVED***
-    ***REMOVED*** else if (JSON.stringify(newQuery***REMOVED*** !== JSON.stringify(prevQuery***REMOVED******REMOVED*** {
+      }
+    } else if (JSON.stringify(newQuery) !== JSON.stringify(prevQuery)) {
       return true;
-    ***REMOVED***
-    switch (state.type***REMOVED*** {
+    }
+    switch (state.type) {
       case "again":
         const pageNumber = this._selected.pageIdx + 1;
         const linkService = this._linkService;
-        return pageNumber >= 1 && pageNumber <= linkService.pagesCount && pageNumber !== linkService.page && !(this.onIsPageVisible?.(pageNumber***REMOVED*** ?? true***REMOVED***;
+        return pageNumber >= 1 && pageNumber <= linkService.pagesCount && pageNumber !== linkService.page && !(this.onIsPageVisible?.(pageNumber) ?? true);
       case "highlightallchange":
         return false;
-    ***REMOVED***
+    }
     return true;
-  ***REMOVED***
-  #isEntireWord(content, startIdx, length***REMOVED*** {
-    let match = content.slice(0, startIdx***REMOVED***.match(NOT_DIACRITIC_FROM_END_REG_EXP***REMOVED***;
-    if (match***REMOVED*** {
-      const first = content.charCodeAt(startIdx***REMOVED***;
-      const limit = match[1].charCodeAt(0***REMOVED***;
-      if (getCharacterType(first***REMOVED*** === getCharacterType(limit***REMOVED******REMOVED*** {
+  }
+  #isEntireWord(content, startIdx, length) {
+    let match = content.slice(0, startIdx).match(NOT_DIACRITIC_FROM_END_REG_EXP);
+    if (match) {
+      const first = content.charCodeAt(startIdx);
+      const limit = match[1].charCodeAt(0);
+      if (getCharacterType(first) === getCharacterType(limit)) {
         return false;
-      ***REMOVED***
-    ***REMOVED***
-    match = content.slice(startIdx + length***REMOVED***.match(NOT_DIACRITIC_FROM_START_REG_EXP***REMOVED***;
-    if (match***REMOVED*** {
-      const last = content.charCodeAt(startIdx + length - 1***REMOVED***;
-      const limit = match[1].charCodeAt(0***REMOVED***;
-      if (getCharacterType(last***REMOVED*** === getCharacterType(limit***REMOVED******REMOVED*** {
+      }
+    }
+    match = content.slice(startIdx + length).match(NOT_DIACRITIC_FROM_START_REG_EXP);
+    if (match) {
+      const last = content.charCodeAt(startIdx + length - 1);
+      const limit = match[1].charCodeAt(0);
+      if (getCharacterType(last) === getCharacterType(limit)) {
         return false;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     return true;
-  ***REMOVED***
-  #convertToRegExpString(query, hasDiacritics***REMOVED*** {
+  }
+  #convertToRegExpString(query, hasDiacritics) {
     const {
       matchDiacritics
-    ***REMOVED*** = this.#state;
+    } = this.#state;
     let isUnicode = false;
-    query = query.replaceAll(SPECIAL_CHARS_REG_EXP, (match, p1, p2, p3, p4, p5***REMOVED*** => {
-      if (p1***REMOVED*** {
-        return `[ ]*\\${p1***REMOVED***[ ]*`;
-      ***REMOVED***
-      if (p2***REMOVED*** {
-        return `[ ]*${p2***REMOVED***[ ]*`;
-      ***REMOVED***
-      if (p3***REMOVED*** {
+    query = query.replaceAll(SPECIAL_CHARS_REG_EXP, (match, p1, p2, p3, p4, p5) => {
+      if (p1) {
+        return `[ ]*\\${p1}[ ]*`;
+      }
+      if (p2) {
+        return `[ ]*${p2}[ ]*`;
+      }
+      if (p3) {
         return "[ ]+";
-      ***REMOVED***
-      if (matchDiacritics***REMOVED*** {
+      }
+      if (matchDiacritics) {
         return p4 || p5;
-      ***REMOVED***
-      if (p4***REMOVED*** {
-        return DIACRITICS_EXCEPTION.has(p4.charCodeAt(0***REMOVED******REMOVED*** ? p4 : "";
-      ***REMOVED***
-      if (hasDiacritics***REMOVED*** {
+      }
+      if (p4) {
+        return DIACRITICS_EXCEPTION.has(p4.charCodeAt(0)) ? p4 : "";
+      }
+      if (hasDiacritics) {
         isUnicode = true;
-        return `${p5***REMOVED***\\p{M***REMOVED****`;
-      ***REMOVED***
+        return `${p5}\\p{M}*`;
+      }
       return p5;
-    ***REMOVED******REMOVED***;
+    });
     const trailingSpaces = "[ ]*";
-    if (query.endsWith(trailingSpaces***REMOVED******REMOVED*** {
-      query = query.slice(0, query.length - trailingSpaces.length***REMOVED***;
-    ***REMOVED***
-    if (matchDiacritics***REMOVED*** {
-      if (hasDiacritics***REMOVED*** {
-        DIACRITICS_EXCEPTION_STR ||= String.fromCharCode(...DIACRITICS_EXCEPTION***REMOVED***;
+    if (query.endsWith(trailingSpaces)) {
+      query = query.slice(0, query.length - trailingSpaces.length);
+    }
+    if (matchDiacritics) {
+      if (hasDiacritics) {
+        DIACRITICS_EXCEPTION_STR ||= String.fromCharCode(...DIACRITICS_EXCEPTION);
         isUnicode = true;
-        query = `${query***REMOVED***(?=[${DIACRITICS_EXCEPTION_STR***REMOVED***]|[^\\p{M***REMOVED***]|$***REMOVED***`;
-      ***REMOVED***
-    ***REMOVED***
+        query = `${query}(?=[${DIACRITICS_EXCEPTION_STR}]|[^\\p{M}]|$)`;
+      }
+    }
     return [isUnicode, query];
-  ***REMOVED***
-  #calculateMatch(pageIndex***REMOVED*** {
+  }
+  #calculateMatch(pageIndex) {
     const query = this.#query;
-    if (query.length === 0***REMOVED*** {
+    if (query.length === 0) {
       return;
-    ***REMOVED***
+    }
     const pageContent = this._pageContents[pageIndex];
-    const matcherResult = this.match(query, pageContent, pageIndex***REMOVED***;
+    const matcherResult = this.match(query, pageContent, pageIndex);
     const matches = this._pageMatches[pageIndex] = [];
     const matchesLength = this._pageMatchesLength[pageIndex] = [];
     const diffs = this._pageDiffs[pageIndex];
     matcherResult?.forEach(({
       index,
       length
-    ***REMOVED******REMOVED*** => {
-      const [matchPos, matchLen] = getOriginalIndex(diffs, index, length***REMOVED***;
-      if (matchLen***REMOVED*** {
-        matches.push(matchPos***REMOVED***;
-        matchesLength.push(matchLen***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    if (this.#state.highlightAll***REMOVED*** {
-      this.#updatePage(pageIndex***REMOVED***;
-    ***REMOVED***
-    if (this._resumePageIdx === pageIndex***REMOVED*** {
+    }) => {
+      const [matchPos, matchLen] = getOriginalIndex(diffs, index, length);
+      if (matchLen) {
+        matches.push(matchPos);
+        matchesLength.push(matchLen);
+      }
+    });
+    if (this.#state.highlightAll) {
+      this.#updatePage(pageIndex);
+    }
+    if (this._resumePageIdx === pageIndex) {
       this._resumePageIdx = null;
-      this.#nextPageMatch(***REMOVED***;
-    ***REMOVED***
+      this.#nextPageMatch();
+    }
     const pageMatchesCount = matches.length;
     this._matchesCountTotal += pageMatchesCount;
-    if (this.#updateMatchesCountOnProgress***REMOVED*** {
-      if (pageMatchesCount > 0***REMOVED*** {
-        this.#updateUIResultsCount(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED*** else if (++this.#visitedPagesCount === this._linkService.pagesCount***REMOVED*** {
-      this.#updateUIResultsCount(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  match(query, pageContent, pageIndex***REMOVED*** {
+    if (this.#updateMatchesCountOnProgress) {
+      if (pageMatchesCount > 0) {
+        this.#updateUIResultsCount();
+      }
+    } else if (++this.#visitedPagesCount === this._linkService.pagesCount) {
+      this.#updateUIResultsCount();
+    }
+  }
+  match(query, pageContent, pageIndex) {
     const hasDiacritics = this._hasDiacritics[pageIndex];
     let isUnicode = false;
-    if (typeof query === "string"***REMOVED*** {
-      [isUnicode, query] = this.#convertToRegExpString(query, hasDiacritics***REMOVED***;
-    ***REMOVED*** else {
-      query = query.sort(***REMOVED***.reverse(***REMOVED***.map(q => {
-        const [isUnicodePart, queryPart] = this.#convertToRegExpString(q, hasDiacritics***REMOVED***;
+    if (typeof query === "string") {
+      [isUnicode, query] = this.#convertToRegExpString(query, hasDiacritics);
+    } else {
+      query = query.sort().reverse().map(q => {
+        const [isUnicodePart, queryPart] = this.#convertToRegExpString(q, hasDiacritics);
         isUnicode ||= isUnicodePart;
-        return `(${queryPart***REMOVED******REMOVED***`;
-      ***REMOVED******REMOVED***.join("|"***REMOVED***;
-    ***REMOVED***
-    if (!query***REMOVED*** {
+        return `(${queryPart})`;
+      }).join("|");
+    }
+    if (!query) {
       return undefined;
-    ***REMOVED***
+    }
     const {
       caseSensitive,
       entireWord
-    ***REMOVED*** = this.#state;
-    const flags = `g${isUnicode ? "u" : ""***REMOVED***${caseSensitive ? "" : "i"***REMOVED***`;
-    query = new RegExp(query, flags***REMOVED***;
+    } = this.#state;
+    const flags = `g${isUnicode ? "u" : ""}${caseSensitive ? "" : "i"}`;
+    query = new RegExp(query, flags);
     const matches = [];
     let match;
-    while ((match = query.exec(pageContent***REMOVED******REMOVED*** !== null***REMOVED*** {
-      if (entireWord && !this.#isEntireWord(pageContent, match.index, match[0].length***REMOVED******REMOVED*** {
+    while ((match = query.exec(pageContent)) !== null) {
+      if (entireWord && !this.#isEntireWord(pageContent, match.index, match[0].length)) {
         continue;
-      ***REMOVED***
+      }
       matches.push({
         index: match.index,
         length: match[0].length
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+      });
+    }
     return matches;
-  ***REMOVED***
-  #extractText(***REMOVED*** {
-    if (this._extractTextPromises.length > 0***REMOVED*** {
+  }
+  #extractText() {
+    if (this._extractTextPromises.length > 0) {
       return;
-    ***REMOVED***
-    let deferred = Promise.resolve(***REMOVED***;
+    }
+    let deferred = Promise.resolve();
     const textOptions = {
       disableNormalization: true
-    ***REMOVED***;
-    for (let i = 0, ii = this._linkService.pagesCount; i < ii; i++***REMOVED*** {
+    };
+    for (let i = 0, ii = this._linkService.pagesCount; i < ii; i++) {
       const {
         promise,
         resolve
-      ***REMOVED*** = Promise.withResolvers(***REMOVED***;
+      } = Promise.withResolvers();
       this._extractTextPromises[i] = promise;
-      deferred = deferred.then((***REMOVED*** => {
-        return this._pdfDocument.getPage(i + 1***REMOVED***.then(pdfPage => pdfPage.getTextContent(textOptions***REMOVED******REMOVED***.then(textContent => {
+      deferred = deferred.then(() => {
+        return this._pdfDocument.getPage(i + 1).then(pdfPage => pdfPage.getTextContent(textOptions)).then(textContent => {
           const strBuf = [];
-          for (const textItem of textContent.items***REMOVED*** {
-            strBuf.push(textItem.str***REMOVED***;
-            if (textItem.hasEOL***REMOVED*** {
-              strBuf.push("\n"***REMOVED***;
-            ***REMOVED***
-          ***REMOVED***
-          [this._pageContents[i], this._pageDiffs[i], this._hasDiacritics[i]] = normalize(strBuf.join(""***REMOVED******REMOVED***;
-          resolve(***REMOVED***;
-        ***REMOVED***, reason => {
-          console.error(`Unable to get text content for page ${i + 1***REMOVED***`, reason***REMOVED***;
+          for (const textItem of textContent.items) {
+            strBuf.push(textItem.str);
+            if (textItem.hasEOL) {
+              strBuf.push("\n");
+            }
+          }
+          [this._pageContents[i], this._pageDiffs[i], this._hasDiacritics[i]] = normalize(strBuf.join(""));
+          resolve();
+        }, reason => {
+          console.error(`Unable to get text content for page ${i + 1}`, reason);
           this._pageContents[i] = "";
           this._pageDiffs[i] = null;
           this._hasDiacritics[i] = false;
-          resolve(***REMOVED***;
-        ***REMOVED******REMOVED***;
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #updatePage(index***REMOVED*** {
-    if (this._scrollMatches && this._selected.pageIdx === index***REMOVED*** {
+          resolve();
+        });
+      });
+    }
+  }
+  #updatePage(index) {
+    if (this._scrollMatches && this._selected.pageIdx === index) {
       this._linkService.page = index + 1;
-    ***REMOVED***
+    }
     this._eventBus.dispatch("updatetextlayermatches", {
       source: this,
       pageIndex: index
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #updateAllPages(***REMOVED*** {
+    });
+  }
+  #updateAllPages() {
     this._eventBus.dispatch("updatetextlayermatches", {
       source: this,
       pageIndex: -1
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #nextMatch(***REMOVED*** {
+    });
+  }
+  #nextMatch() {
     const previous = this.#state.findPrevious;
     const currentPageIndex = this._linkService.page - 1;
     const numPages = this._linkService.pagesCount;
     this._highlightMatches = true;
-    if (this._dirtyMatch***REMOVED*** {
+    if (this._dirtyMatch) {
       this._dirtyMatch = false;
       this._selected.pageIdx = this._selected.matchIdx = -1;
       this._offset.pageIdx = currentPageIndex;
@@ -5857,162 +5857,162 @@ class PDFFindController {
       this._pageMatchesLength.length = 0;
       this.#visitedPagesCount = 0;
       this._matchesCountTotal = 0;
-      this.#updateAllPages(***REMOVED***;
-      for (let i = 0; i < numPages; i++***REMOVED*** {
-        if (this._pendingFindMatches.has(i***REMOVED******REMOVED*** {
+      this.#updateAllPages();
+      for (let i = 0; i < numPages; i++) {
+        if (this._pendingFindMatches.has(i)) {
           continue;
-        ***REMOVED***
-        this._pendingFindMatches.add(i***REMOVED***;
-        this._extractTextPromises[i].then((***REMOVED*** => {
-          this._pendingFindMatches.delete(i***REMOVED***;
-          this.#calculateMatch(i***REMOVED***;
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
+        }
+        this._pendingFindMatches.add(i);
+        this._extractTextPromises[i].then(() => {
+          this._pendingFindMatches.delete(i);
+          this.#calculateMatch(i);
+        });
+      }
+    }
     const query = this.#query;
-    if (query.length === 0***REMOVED*** {
-      this.#updateUIState(FindState.FOUND***REMOVED***;
+    if (query.length === 0) {
+      this.#updateUIState(FindState.FOUND);
       return;
-    ***REMOVED***
-    if (this._resumePageIdx***REMOVED*** {
+    }
+    if (this._resumePageIdx) {
       return;
-    ***REMOVED***
+    }
     const offset = this._offset;
     this._pagesToSearch = numPages;
-    if (offset.matchIdx !== null***REMOVED*** {
+    if (offset.matchIdx !== null) {
       const numPageMatches = this._pageMatches[offset.pageIdx].length;
-      if (!previous && offset.matchIdx + 1 < numPageMatches || previous && offset.matchIdx > 0***REMOVED*** {
+      if (!previous && offset.matchIdx + 1 < numPageMatches || previous && offset.matchIdx > 0) {
         offset.matchIdx = previous ? offset.matchIdx - 1 : offset.matchIdx + 1;
-        this.#updateMatch(true***REMOVED***;
+        this.#updateMatch(true);
         return;
-      ***REMOVED***
-      this.#advanceOffsetPage(previous***REMOVED***;
-    ***REMOVED***
-    this.#nextPageMatch(***REMOVED***;
-  ***REMOVED***
-  #matchesReady(matches***REMOVED*** {
+      }
+      this.#advanceOffsetPage(previous);
+    }
+    this.#nextPageMatch();
+  }
+  #matchesReady(matches) {
     const offset = this._offset;
     const numMatches = matches.length;
     const previous = this.#state.findPrevious;
-    if (numMatches***REMOVED*** {
+    if (numMatches) {
       offset.matchIdx = previous ? numMatches - 1 : 0;
-      this.#updateMatch(true***REMOVED***;
+      this.#updateMatch(true);
       return true;
-    ***REMOVED***
-    this.#advanceOffsetPage(previous***REMOVED***;
-    if (offset.wrapped***REMOVED*** {
+    }
+    this.#advanceOffsetPage(previous);
+    if (offset.wrapped) {
       offset.matchIdx = null;
-      if (this._pagesToSearch < 0***REMOVED*** {
-        this.#updateMatch(false***REMOVED***;
+      if (this._pagesToSearch < 0) {
+        this.#updateMatch(false);
         return true;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     return false;
-  ***REMOVED***
-  #nextPageMatch(***REMOVED*** {
-    if (this._resumePageIdx !== null***REMOVED*** {
-      console.error("There can only be one pending page."***REMOVED***;
-    ***REMOVED***
+  }
+  #nextPageMatch() {
+    if (this._resumePageIdx !== null) {
+      console.error("There can only be one pending page.");
+    }
     let matches = null;
     do {
       const pageIdx = this._offset.pageIdx;
       matches = this._pageMatches[pageIdx];
-      if (!matches***REMOVED*** {
+      if (!matches) {
         this._resumePageIdx = pageIdx;
         break;
-      ***REMOVED***
-    ***REMOVED*** while (!this.#matchesReady(matches***REMOVED******REMOVED***;
-  ***REMOVED***
-  #advanceOffsetPage(previous***REMOVED*** {
+      }
+    } while (!this.#matchesReady(matches));
+  }
+  #advanceOffsetPage(previous) {
     const offset = this._offset;
     const numPages = this._linkService.pagesCount;
     offset.pageIdx = previous ? offset.pageIdx - 1 : offset.pageIdx + 1;
     offset.matchIdx = null;
     this._pagesToSearch--;
-    if (offset.pageIdx >= numPages || offset.pageIdx < 0***REMOVED*** {
+    if (offset.pageIdx >= numPages || offset.pageIdx < 0) {
       offset.pageIdx = previous ? numPages - 1 : 0;
       offset.wrapped = true;
-    ***REMOVED***
-  ***REMOVED***
-  #updateMatch(found = false***REMOVED*** {
+    }
+  }
+  #updateMatch(found = false) {
     let state = FindState.NOT_FOUND;
     const wrapped = this._offset.wrapped;
     this._offset.wrapped = false;
-    if (found***REMOVED*** {
+    if (found) {
       const previousPage = this._selected.pageIdx;
       this._selected.pageIdx = this._offset.pageIdx;
       this._selected.matchIdx = this._offset.matchIdx;
       state = wrapped ? FindState.WRAPPED : FindState.FOUND;
-      if (previousPage !== -1 && previousPage !== this._selected.pageIdx***REMOVED*** {
-        this.#updatePage(previousPage***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    this.#updateUIState(state, this.#state.findPrevious***REMOVED***;
-    if (this._selected.pageIdx !== -1***REMOVED*** {
+      if (previousPage !== -1 && previousPage !== this._selected.pageIdx) {
+        this.#updatePage(previousPage);
+      }
+    }
+    this.#updateUIState(state, this.#state.findPrevious);
+    if (this._selected.pageIdx !== -1) {
       this._scrollMatches = true;
-      this.#updatePage(this._selected.pageIdx***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #onFindBarClose(evt***REMOVED*** {
+      this.#updatePage(this._selected.pageIdx);
+    }
+  }
+  #onFindBarClose(evt) {
     const pdfDocument = this._pdfDocument;
-    this._firstPageCapability.promise.then((***REMOVED*** => {
-      if (!this._pdfDocument || pdfDocument && this._pdfDocument !== pdfDocument***REMOVED*** {
+    this._firstPageCapability.promise.then(() => {
+      if (!this._pdfDocument || pdfDocument && this._pdfDocument !== pdfDocument) {
         return;
-      ***REMOVED***
-      if (this._findTimeout***REMOVED*** {
-        clearTimeout(this._findTimeout***REMOVED***;
+      }
+      if (this._findTimeout) {
+        clearTimeout(this._findTimeout);
         this._findTimeout = null;
-      ***REMOVED***
-      if (this._resumePageIdx***REMOVED*** {
+      }
+      if (this._resumePageIdx) {
         this._resumePageIdx = null;
         this._dirtyMatch = true;
-      ***REMOVED***
-      this.#updateUIState(FindState.FOUND***REMOVED***;
+      }
+      this.#updateUIState(FindState.FOUND);
       this._highlightMatches = false;
-      this.#updateAllPages(***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #requestMatchesCount(***REMOVED*** {
+      this.#updateAllPages();
+    });
+  }
+  #requestMatchesCount() {
     const {
       pageIdx,
       matchIdx
-    ***REMOVED*** = this._selected;
+    } = this._selected;
     let current = 0,
       total = this._matchesCountTotal;
-    if (matchIdx !== -1***REMOVED*** {
-      for (let i = 0; i < pageIdx; i++***REMOVED*** {
+    if (matchIdx !== -1) {
+      for (let i = 0; i < pageIdx; i++) {
         current += this._pageMatches[i]?.length || 0;
-      ***REMOVED***
+      }
       current += matchIdx + 1;
-    ***REMOVED***
-    if (current < 1 || current > total***REMOVED*** {
+    }
+    if (current < 1 || current > total) {
       current = total = 0;
-    ***REMOVED***
-***REMOVED***
+    }
+    return {
       current,
       total
-    ***REMOVED***;
-  ***REMOVED***
-  #updateUIResultsCount(***REMOVED*** {
+    };
+  }
+  #updateUIResultsCount() {
     this._eventBus.dispatch("updatefindmatchescount", {
       source: this,
-      matchesCount: this.#requestMatchesCount(***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #updateUIState(state, previous = false***REMOVED*** {
-    if (!this.#updateMatchesCountOnProgress && (this.#visitedPagesCount !== this._linkService.pagesCount || state === FindState.PENDING***REMOVED******REMOVED*** {
+      matchesCount: this.#requestMatchesCount()
+    });
+  }
+  #updateUIState(state, previous = false) {
+    if (!this.#updateMatchesCountOnProgress && (this.#visitedPagesCount !== this._linkService.pagesCount || state === FindState.PENDING)) {
       return;
-    ***REMOVED***
+    }
     this._eventBus.dispatch("updatefindcontrolstate", {
       source: this,
       state,
       previous,
       entireWord: this.#state?.entireWord ?? null,
-      matchesCount: this.#requestMatchesCount(***REMOVED***,
+      matchesCount: this.#requestMatchesCount(),
       rawQuery: this.#state?.query ?? null
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    });
+  }
+}
 
 ;// ./web/pdf_find_bar.js
 
@@ -6020,8 +6020,8 @@ class PDFFindController {
 const MATCHES_COUNT_LIMIT = 1000;
 class PDFFindBar {
   #mainContainer;
-  #resizeObserver = new ResizeObserver(this.#resizeObserverCallback.bind(this***REMOVED******REMOVED***;
-  constructor(options, mainContainer, eventBus***REMOVED*** {
+  #resizeObserver = new ResizeObserver(this.#resizeObserverCallback.bind(this));
+  constructor(options, mainContainer, eventBus) {
     this.opened = false;
     this.bar = options.bar;
     this.toggleButton = options.toggleButton;
@@ -6036,48 +6036,48 @@ class PDFFindBar {
     this.findNextButton = options.findNextButton;
     this.eventBus = eventBus;
     this.#mainContainer = mainContainer;
-    const checkedInputs = new Map([[this.highlightAll, "highlightallchange"], [this.caseSensitive, "casesensitivitychange"], [this.entireWord, "entirewordchange"], [this.matchDiacritics, "diacriticmatchingchange"]]***REMOVED***;
-    this.toggleButton.addEventListener("click", (***REMOVED*** => {
-      this.toggle(***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.findField.addEventListener("input", (***REMOVED*** => {
-      this.dispatchEvent(""***REMOVED***;
-    ***REMOVED******REMOVED***;
+    const checkedInputs = new Map([[this.highlightAll, "highlightallchange"], [this.caseSensitive, "casesensitivitychange"], [this.entireWord, "entirewordchange"], [this.matchDiacritics, "diacriticmatchingchange"]]);
+    this.toggleButton.addEventListener("click", () => {
+      this.toggle();
+    });
+    this.findField.addEventListener("input", () => {
+      this.dispatchEvent("");
+    });
     this.bar.addEventListener("keydown", ({
       keyCode,
       shiftKey,
       target
-    ***REMOVED******REMOVED*** => {
-      switch (keyCode***REMOVED*** {
+    }) => {
+      switch (keyCode) {
         case 13:
-          if (target === this.findField***REMOVED*** {
-            this.dispatchEvent("again", shiftKey***REMOVED***;
-          ***REMOVED*** else if (checkedInputs.has(target***REMOVED******REMOVED*** {
+          if (target === this.findField) {
+            this.dispatchEvent("again", shiftKey);
+          } else if (checkedInputs.has(target)) {
             target.checked = !target.checked;
-            this.dispatchEvent(checkedInputs.get(target***REMOVED******REMOVED***;
-          ***REMOVED***
+            this.dispatchEvent(checkedInputs.get(target));
+          }
           break;
         case 27:
-          this.close(***REMOVED***;
+          this.close();
           break;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    this.findPreviousButton.addEventListener("click", (***REMOVED*** => {
-      this.dispatchEvent("again", true***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.findNextButton.addEventListener("click", (***REMOVED*** => {
-      this.dispatchEvent("again", false***REMOVED***;
-    ***REMOVED******REMOVED***;
-    for (const [elem, evtName] of checkedInputs***REMOVED*** {
-      elem.addEventListener("click", (***REMOVED*** => {
-        this.dispatchEvent(evtName***REMOVED***;
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  reset(***REMOVED*** {
-    this.updateUIState(***REMOVED***;
-  ***REMOVED***
-  dispatchEvent(type, findPrev = false***REMOVED*** {
+      }
+    });
+    this.findPreviousButton.addEventListener("click", () => {
+      this.dispatchEvent("again", true);
+    });
+    this.findNextButton.addEventListener("click", () => {
+      this.dispatchEvent("again", false);
+    });
+    for (const [elem, evtName] of checkedInputs) {
+      elem.addEventListener("click", () => {
+        this.dispatchEvent(evtName);
+      });
+    }
+  }
+  reset() {
+    this.updateUIState();
+  }
+  dispatchEvent(type, findPrev = false) {
     this.eventBus.dispatch("find", {
       source: this,
       type,
@@ -6087,16 +6087,16 @@ class PDFFindBar {
       highlightAll: this.highlightAll.checked,
       findPrevious: findPrev,
       matchDiacritics: this.matchDiacritics.checked
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  updateUIState(state, previous, matchesCount***REMOVED*** {
+    });
+  }
+  updateUIState(state, previous, matchesCount) {
     const {
       findField,
       findMsg
-    ***REMOVED*** = this;
+    } = this;
     let findMsgId = "",
       status = "";
-    switch (state***REMOVED*** {
+    switch (state) {
       case FindState.FOUND:
         break;
       case FindState.PENDING:
@@ -6109,78 +6109,78 @@ class PDFFindBar {
       case FindState.WRAPPED:
         findMsgId = previous ? "pdfjs-find-reached-top" : "pdfjs-find-reached-bottom";
         break;
-    ***REMOVED***
-    findField.setAttribute("data-status", status***REMOVED***;
-    findField.setAttribute("aria-invalid", state === FindState.NOT_FOUND***REMOVED***;
-    findMsg.setAttribute("data-status", status***REMOVED***;
-    if (findMsgId***REMOVED*** {
-      findMsg.setAttribute("data-l10n-id", findMsgId***REMOVED***;
-    ***REMOVED*** else {
-      findMsg.removeAttribute("data-l10n-id"***REMOVED***;
+    }
+    findField.setAttribute("data-status", status);
+    findField.setAttribute("aria-invalid", state === FindState.NOT_FOUND);
+    findMsg.setAttribute("data-status", status);
+    if (findMsgId) {
+      findMsg.setAttribute("data-l10n-id", findMsgId);
+    } else {
+      findMsg.removeAttribute("data-l10n-id");
       findMsg.textContent = "";
-    ***REMOVED***
-    this.updateResultsCount(matchesCount***REMOVED***;
-  ***REMOVED***
+    }
+    this.updateResultsCount(matchesCount);
+  }
   updateResultsCount({
     current = 0,
     total = 0
-  ***REMOVED*** = {***REMOVED******REMOVED*** {
+  } = {}) {
     const {
       findResultsCount
-    ***REMOVED*** = this;
-    if (total > 0***REMOVED*** {
+    } = this;
+    if (total > 0) {
       const limit = MATCHES_COUNT_LIMIT;
-      findResultsCount.setAttribute("data-l10n-id", total > limit ? "pdfjs-find-match-count-limit" : "pdfjs-find-match-count"***REMOVED***;
+      findResultsCount.setAttribute("data-l10n-id", total > limit ? "pdfjs-find-match-count-limit" : "pdfjs-find-match-count");
       findResultsCount.setAttribute("data-l10n-args", JSON.stringify({
         limit,
         current,
         total
-      ***REMOVED******REMOVED******REMOVED***;
-    ***REMOVED*** else {
-      findResultsCount.removeAttribute("data-l10n-id"***REMOVED***;
+      }));
+    } else {
+      findResultsCount.removeAttribute("data-l10n-id");
       findResultsCount.textContent = "";
-    ***REMOVED***
-  ***REMOVED***
-  open(***REMOVED*** {
-    if (!this.opened***REMOVED*** {
-      this.#resizeObserver.observe(this.#mainContainer***REMOVED***;
-      this.#resizeObserver.observe(this.bar***REMOVED***;
+    }
+  }
+  open() {
+    if (!this.opened) {
+      this.#resizeObserver.observe(this.#mainContainer);
+      this.#resizeObserver.observe(this.bar);
       this.opened = true;
-      toggleExpandedBtn(this.toggleButton, true, this.bar***REMOVED***;
-    ***REMOVED***
-    this.findField.select(***REMOVED***;
-    this.findField.focus(***REMOVED***;
-  ***REMOVED***
-  close(***REMOVED*** {
-    if (!this.opened***REMOVED*** {
+      toggleExpandedBtn(this.toggleButton, true, this.bar);
+    }
+    this.findField.select();
+    this.findField.focus();
+  }
+  close() {
+    if (!this.opened) {
       return;
-    ***REMOVED***
-    this.#resizeObserver.disconnect(***REMOVED***;
+    }
+    this.#resizeObserver.disconnect();
     this.opened = false;
-    toggleExpandedBtn(this.toggleButton, false, this.bar***REMOVED***;
+    toggleExpandedBtn(this.toggleButton, false, this.bar);
     this.eventBus.dispatch("findbarclose", {
       source: this
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  toggle(***REMOVED*** {
-    if (this.opened***REMOVED*** {
-      this.close(***REMOVED***;
-    ***REMOVED*** else {
-      this.open(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #resizeObserverCallback(***REMOVED*** {
+    });
+  }
+  toggle() {
+    if (this.opened) {
+      this.close();
+    } else {
+      this.open();
+    }
+  }
+  #resizeObserverCallback() {
     const {
       bar
-    ***REMOVED*** = this;
-    bar.classList.remove("wrapContainers"***REMOVED***;
+    } = this;
+    bar.classList.remove("wrapContainers");
     const findbarHeight = bar.clientHeight;
     const inputContainerHeight = bar.firstElementChild.clientHeight;
-    if (findbarHeight > inputContainerHeight***REMOVED*** {
-      bar.classList.add("wrapContainers"***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    if (findbarHeight > inputContainerHeight) {
+      bar.classList.add("wrapContainers");
+    }
+  }
+}
 
 ;// ./web/pdf_history.js
 
@@ -6188,680 +6188,680 @@ class PDFFindBar {
 const HASH_CHANGE_TIMEOUT = 1000;
 const POSITION_UPDATED_THRESHOLD = 50;
 const UPDATE_VIEWAREA_TIMEOUT = 1000;
-function getCurrentHash(***REMOVED*** {
+function getCurrentHash() {
   return document.location.hash;
-***REMOVED***
+}
 class PDFHistory {
   #eventAbortController = null;
   constructor({
     linkService,
     eventBus
-  ***REMOVED******REMOVED*** {
+  }) {
     this.linkService = linkService;
     this.eventBus = eventBus;
     this._initialized = false;
     this._fingerprint = "";
-    this.reset(***REMOVED***;
-    this.eventBus._on("pagesinit", (***REMOVED*** => {
+    this.reset();
+    this.eventBus._on("pagesinit", () => {
       this._isPagesLoaded = false;
       this.eventBus._on("pagesloaded", evt => {
         this._isPagesLoaded = !!evt.pagesCount;
-      ***REMOVED***, {
+      }, {
         once: true
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+      });
+    });
+  }
   initialize({
     fingerprint,
     resetHistory = false,
     updateUrl = false
-  ***REMOVED******REMOVED*** {
-    if (!fingerprint || typeof fingerprint !== "string"***REMOVED*** {
-      console.error('PDFHistory.initialize: The "fingerprint" must be a non-empty string.'***REMOVED***;
+  }) {
+    if (!fingerprint || typeof fingerprint !== "string") {
+      console.error('PDFHistory.initialize: The "fingerprint" must be a non-empty string.');
       return;
-    ***REMOVED***
-    if (this._initialized***REMOVED*** {
-      this.reset(***REMOVED***;
-    ***REMOVED***
+    }
+    if (this._initialized) {
+      this.reset();
+    }
     const reInitialized = this._fingerprint !== "" && this._fingerprint !== fingerprint;
     this._fingerprint = fingerprint;
     this._updateUrl = updateUrl === true;
     this._initialized = true;
-    this.#bindEvents(***REMOVED***;
+    this.#bindEvents();
     const state = window.history.state;
     this._popStateInProgress = false;
     this._blockHashChange = 0;
-    this._currentHash = getCurrentHash(***REMOVED***;
+    this._currentHash = getCurrentHash();
     this._numPositionUpdates = 0;
     this._uid = this._maxUid = 0;
     this._destination = null;
     this._position = null;
-    if (!this.#isValidState(state, true***REMOVED*** || resetHistory***REMOVED*** {
+    if (!this.#isValidState(state, true) || resetHistory) {
       const {
         hash,
         page,
         rotation
-      ***REMOVED*** = this.#parseCurrentHash(true***REMOVED***;
-      if (!hash || reInitialized || resetHistory***REMOVED*** {
-        this.#pushOrReplaceState(null, true***REMOVED***;
+      } = this.#parseCurrentHash(true);
+      if (!hash || reInitialized || resetHistory) {
+        this.#pushOrReplaceState(null, true);
         return;
-      ***REMOVED***
+      }
       this.#pushOrReplaceState({
         hash,
         page,
         rotation
-      ***REMOVED***, true***REMOVED***;
+      }, true);
       return;
-    ***REMOVED***
+    }
     const destination = state.destination;
-    this.#updateInternalState(destination, state.uid, true***REMOVED***;
-    if (destination.rotation !== undefined***REMOVED*** {
+    this.#updateInternalState(destination, state.uid, true);
+    if (destination.rotation !== undefined) {
       this._initialRotation = destination.rotation;
-    ***REMOVED***
-    if (destination.dest***REMOVED*** {
-      this._initialBookmark = JSON.stringify(destination.dest***REMOVED***;
+    }
+    if (destination.dest) {
+      this._initialBookmark = JSON.stringify(destination.dest);
       this._destination.page = null;
-    ***REMOVED*** else if (destination.hash***REMOVED*** {
+    } else if (destination.hash) {
       this._initialBookmark = destination.hash;
-    ***REMOVED*** else if (destination.page***REMOVED*** {
-      this._initialBookmark = `page=${destination.page***REMOVED***`;
-    ***REMOVED***
-  ***REMOVED***
-  reset(***REMOVED*** {
-    if (this._initialized***REMOVED*** {
-      this.#pageHide(***REMOVED***;
+    } else if (destination.page) {
+      this._initialBookmark = `page=${destination.page}`;
+    }
+  }
+  reset() {
+    if (this._initialized) {
+      this.#pageHide();
       this._initialized = false;
-      this.#unbindEvents(***REMOVED***;
-    ***REMOVED***
-    if (this._updateViewareaTimeout***REMOVED*** {
-      clearTimeout(this._updateViewareaTimeout***REMOVED***;
+      this.#unbindEvents();
+    }
+    if (this._updateViewareaTimeout) {
+      clearTimeout(this._updateViewareaTimeout);
       this._updateViewareaTimeout = null;
-    ***REMOVED***
+    }
     this._initialBookmark = null;
     this._initialRotation = null;
-  ***REMOVED***
+  }
   push({
     namedDest = null,
     explicitDest,
     pageNumber
-  ***REMOVED******REMOVED*** {
-    if (!this._initialized***REMOVED*** {
+  }) {
+    if (!this._initialized) {
       return;
-    ***REMOVED***
-    if (namedDest && typeof namedDest !== "string"***REMOVED*** {
-      console.error("PDFHistory.push: " + `"${namedDest***REMOVED***" is not a valid namedDest parameter.`***REMOVED***;
+    }
+    if (namedDest && typeof namedDest !== "string") {
+      console.error("PDFHistory.push: " + `"${namedDest}" is not a valid namedDest parameter.`);
       return;
-    ***REMOVED*** else if (!Array.isArray(explicitDest***REMOVED******REMOVED*** {
-      console.error("PDFHistory.push: " + `"${explicitDest***REMOVED***" is not a valid explicitDest parameter.`***REMOVED***;
+    } else if (!Array.isArray(explicitDest)) {
+      console.error("PDFHistory.push: " + `"${explicitDest}" is not a valid explicitDest parameter.`);
       return;
-    ***REMOVED*** else if (!this.#isValidPage(pageNumber***REMOVED******REMOVED*** {
-      if (pageNumber !== null || this._destination***REMOVED*** {
-        console.error("PDFHistory.push: " + `"${pageNumber***REMOVED***" is not a valid pageNumber parameter.`***REMOVED***;
+    } else if (!this.#isValidPage(pageNumber)) {
+      if (pageNumber !== null || this._destination) {
+        console.error("PDFHistory.push: " + `"${pageNumber}" is not a valid pageNumber parameter.`);
         return;
-      ***REMOVED***
-    ***REMOVED***
-    const hash = namedDest || JSON.stringify(explicitDest***REMOVED***;
-    if (!hash***REMOVED*** {
+      }
+    }
+    const hash = namedDest || JSON.stringify(explicitDest);
+    if (!hash) {
       return;
-    ***REMOVED***
+    }
     let forceReplace = false;
-    if (this._destination && (isDestHashesEqual(this._destination.hash, hash***REMOVED*** || isDestArraysEqual(this._destination.dest, explicitDest***REMOVED******REMOVED******REMOVED*** {
-      if (this._destination.page***REMOVED*** {
+    if (this._destination && (isDestHashesEqual(this._destination.hash, hash) || isDestArraysEqual(this._destination.dest, explicitDest))) {
+      if (this._destination.page) {
         return;
-      ***REMOVED***
+      }
       forceReplace = true;
-    ***REMOVED***
-    if (this._popStateInProgress && !forceReplace***REMOVED*** {
+    }
+    if (this._popStateInProgress && !forceReplace) {
       return;
-    ***REMOVED***
+    }
     this.#pushOrReplaceState({
       dest: explicitDest,
       hash,
       page: pageNumber,
       rotation: this.linkService.rotation
-    ***REMOVED***, forceReplace***REMOVED***;
-    if (!this._popStateInProgress***REMOVED*** {
+    }, forceReplace);
+    if (!this._popStateInProgress) {
       this._popStateInProgress = true;
-      Promise.resolve(***REMOVED***.then((***REMOVED*** => {
+      Promise.resolve().then(() => {
         this._popStateInProgress = false;
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  pushPage(pageNumber***REMOVED*** {
-    if (!this._initialized***REMOVED*** {
+      });
+    }
+  }
+  pushPage(pageNumber) {
+    if (!this._initialized) {
       return;
-    ***REMOVED***
-    if (!this.#isValidPage(pageNumber***REMOVED******REMOVED*** {
-      console.error(`PDFHistory.pushPage: "${pageNumber***REMOVED***" is not a valid page number.`***REMOVED***;
+    }
+    if (!this.#isValidPage(pageNumber)) {
+      console.error(`PDFHistory.pushPage: "${pageNumber}" is not a valid page number.`);
       return;
-    ***REMOVED***
-    if (this._destination?.page === pageNumber***REMOVED*** {
+    }
+    if (this._destination?.page === pageNumber) {
       return;
-    ***REMOVED***
-    if (this._popStateInProgress***REMOVED*** {
+    }
+    if (this._popStateInProgress) {
       return;
-    ***REMOVED***
+    }
     this.#pushOrReplaceState({
       dest: null,
-      hash: `page=${pageNumber***REMOVED***`,
+      hash: `page=${pageNumber}`,
       page: pageNumber,
       rotation: this.linkService.rotation
-    ***REMOVED******REMOVED***;
-    if (!this._popStateInProgress***REMOVED*** {
+    });
+    if (!this._popStateInProgress) {
       this._popStateInProgress = true;
-      Promise.resolve(***REMOVED***.then((***REMOVED*** => {
+      Promise.resolve().then(() => {
         this._popStateInProgress = false;
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  pushCurrentPosition(***REMOVED*** {
-    if (!this._initialized || this._popStateInProgress***REMOVED*** {
+      });
+    }
+  }
+  pushCurrentPosition() {
+    if (!this._initialized || this._popStateInProgress) {
       return;
-    ***REMOVED***
-    this.#tryPushCurrentPosition(***REMOVED***;
-  ***REMOVED***
-  back(***REMOVED*** {
-    if (!this._initialized || this._popStateInProgress***REMOVED*** {
+    }
+    this.#tryPushCurrentPosition();
+  }
+  back() {
+    if (!this._initialized || this._popStateInProgress) {
       return;
-    ***REMOVED***
+    }
     const state = window.history.state;
-    if (this.#isValidState(state***REMOVED*** && state.uid > 0***REMOVED*** {
-      window.history.back(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  forward(***REMOVED*** {
-    if (!this._initialized || this._popStateInProgress***REMOVED*** {
+    if (this.#isValidState(state) && state.uid > 0) {
+      window.history.back();
+    }
+  }
+  forward() {
+    if (!this._initialized || this._popStateInProgress) {
       return;
-    ***REMOVED***
+    }
     const state = window.history.state;
-    if (this.#isValidState(state***REMOVED*** && state.uid < this._maxUid***REMOVED*** {
-      window.history.forward(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  get popStateInProgress(***REMOVED*** {
-    return this._initialized && (this._popStateInProgress || this._blockHashChange > 0***REMOVED***;
-  ***REMOVED***
-  get initialBookmark(***REMOVED*** {
+    if (this.#isValidState(state) && state.uid < this._maxUid) {
+      window.history.forward();
+    }
+  }
+  get popStateInProgress() {
+    return this._initialized && (this._popStateInProgress || this._blockHashChange > 0);
+  }
+  get initialBookmark() {
     return this._initialized ? this._initialBookmark : null;
-  ***REMOVED***
-  get initialRotation(***REMOVED*** {
+  }
+  get initialRotation() {
     return this._initialized ? this._initialRotation : null;
-  ***REMOVED***
-  #pushOrReplaceState(destination, forceReplace = false***REMOVED*** {
+  }
+  #pushOrReplaceState(destination, forceReplace = false) {
     const shouldReplace = forceReplace || !this._destination;
     const newState = {
       fingerprint: this._fingerprint,
       uid: shouldReplace ? this._uid : this._uid + 1,
       destination
-    ***REMOVED***;
-    this.#updateInternalState(destination, newState.uid***REMOVED***;
+    };
+    this.#updateInternalState(destination, newState.uid);
     let newUrl;
-    if (this._updateUrl && destination?.hash***REMOVED*** {
-      const baseUrl = document.location.href.split("#", 1***REMOVED***[0];
-      if (!baseUrl.startsWith("file://"***REMOVED******REMOVED*** {
-        newUrl = `${baseUrl***REMOVED***#${destination.hash***REMOVED***`;
-      ***REMOVED***
-    ***REMOVED***
-    if (shouldReplace***REMOVED*** {
-      window.history.replaceState(newState, "", newUrl***REMOVED***;
-    ***REMOVED*** else {
-      window.history.pushState(newState, "", newUrl***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #tryPushCurrentPosition(temporary = false***REMOVED*** {
-    if (!this._position***REMOVED*** {
+    if (this._updateUrl && destination?.hash) {
+      const baseUrl = document.location.href.split("#", 1)[0];
+      if (!baseUrl.startsWith("file://")) {
+        newUrl = `${baseUrl}#${destination.hash}`;
+      }
+    }
+    if (shouldReplace) {
+      window.history.replaceState(newState, "", newUrl);
+    } else {
+      window.history.pushState(newState, "", newUrl);
+    }
+  }
+  #tryPushCurrentPosition(temporary = false) {
+    if (!this._position) {
       return;
-    ***REMOVED***
+    }
     let position = this._position;
-    if (temporary***REMOVED*** {
-      position = Object.assign(Object.create(null***REMOVED***, this._position***REMOVED***;
+    if (temporary) {
+      position = Object.assign(Object.create(null), this._position);
       position.temporary = true;
-    ***REMOVED***
-    if (!this._destination***REMOVED*** {
-      this.#pushOrReplaceState(position***REMOVED***;
+    }
+    if (!this._destination) {
+      this.#pushOrReplaceState(position);
       return;
-    ***REMOVED***
-    if (this._destination.temporary***REMOVED*** {
-      this.#pushOrReplaceState(position, true***REMOVED***;
+    }
+    if (this._destination.temporary) {
+      this.#pushOrReplaceState(position, true);
       return;
-    ***REMOVED***
-    if (this._destination.hash === position.hash***REMOVED*** {
+    }
+    if (this._destination.hash === position.hash) {
       return;
-    ***REMOVED***
-    if (!this._destination.page && (POSITION_UPDATED_THRESHOLD <= 0 || this._numPositionUpdates <= POSITION_UPDATED_THRESHOLD***REMOVED******REMOVED*** {
+    }
+    if (!this._destination.page && (POSITION_UPDATED_THRESHOLD <= 0 || this._numPositionUpdates <= POSITION_UPDATED_THRESHOLD)) {
       return;
-    ***REMOVED***
+    }
     let forceReplace = false;
-    if (this._destination.page >= position.first && this._destination.page <= position.page***REMOVED*** {
-      if (this._destination.dest !== undefined || !this._destination.first***REMOVED*** {
+    if (this._destination.page >= position.first && this._destination.page <= position.page) {
+      if (this._destination.dest !== undefined || !this._destination.first) {
         return;
-      ***REMOVED***
+      }
       forceReplace = true;
-    ***REMOVED***
-    this.#pushOrReplaceState(position, forceReplace***REMOVED***;
-  ***REMOVED***
-  #isValidPage(val***REMOVED*** {
-    return Number.isInteger(val***REMOVED*** && val > 0 && val <= this.linkService.pagesCount;
-  ***REMOVED***
-  #isValidState(state, checkReload = false***REMOVED*** {
-    if (!state***REMOVED*** {
+    }
+    this.#pushOrReplaceState(position, forceReplace);
+  }
+  #isValidPage(val) {
+    return Number.isInteger(val) && val > 0 && val <= this.linkService.pagesCount;
+  }
+  #isValidState(state, checkReload = false) {
+    if (!state) {
       return false;
-    ***REMOVED***
-    if (state.fingerprint !== this._fingerprint***REMOVED*** {
-      if (checkReload***REMOVED*** {
-        if (typeof state.fingerprint !== "string" || state.fingerprint.length !== this._fingerprint.length***REMOVED*** {
+    }
+    if (state.fingerprint !== this._fingerprint) {
+      if (checkReload) {
+        if (typeof state.fingerprint !== "string" || state.fingerprint.length !== this._fingerprint.length) {
           return false;
-        ***REMOVED***
-        const [perfEntry] = performance.getEntriesByType("navigation"***REMOVED***;
-        if (perfEntry?.type !== "reload"***REMOVED*** {
+        }
+        const [perfEntry] = performance.getEntriesByType("navigation");
+        if (perfEntry?.type !== "reload") {
           return false;
-        ***REMOVED***
-      ***REMOVED*** else {
+        }
+      } else {
         return false;
-      ***REMOVED***
-    ***REMOVED***
-    if (!Number.isInteger(state.uid***REMOVED*** || state.uid < 0***REMOVED*** {
+      }
+    }
+    if (!Number.isInteger(state.uid) || state.uid < 0) {
       return false;
-    ***REMOVED***
-    if (state.destination === null || typeof state.destination !== "object"***REMOVED*** {
+    }
+    if (state.destination === null || typeof state.destination !== "object") {
       return false;
-    ***REMOVED***
+    }
     return true;
-  ***REMOVED***
-  #updateInternalState(destination, uid, removeTemporary = false***REMOVED*** {
-    if (this._updateViewareaTimeout***REMOVED*** {
-      clearTimeout(this._updateViewareaTimeout***REMOVED***;
+  }
+  #updateInternalState(destination, uid, removeTemporary = false) {
+    if (this._updateViewareaTimeout) {
+      clearTimeout(this._updateViewareaTimeout);
       this._updateViewareaTimeout = null;
-    ***REMOVED***
-    if (removeTemporary && destination?.temporary***REMOVED*** {
+    }
+    if (removeTemporary && destination?.temporary) {
       delete destination.temporary;
-    ***REMOVED***
+    }
     this._destination = destination;
     this._uid = uid;
-    this._maxUid = Math.max(this._maxUid, uid***REMOVED***;
+    this._maxUid = Math.max(this._maxUid, uid);
     this._numPositionUpdates = 0;
-  ***REMOVED***
-  #parseCurrentHash(checkNameddest = false***REMOVED*** {
-    const hash = unescape(getCurrentHash(***REMOVED******REMOVED***.substring(1***REMOVED***;
-    const params = parseQueryString(hash***REMOVED***;
-    const nameddest = params.get("nameddest"***REMOVED*** || "";
-    let page = params.get("page"***REMOVED*** | 0;
-    if (!this.#isValidPage(page***REMOVED*** || checkNameddest && nameddest.length > 0***REMOVED*** {
+  }
+  #parseCurrentHash(checkNameddest = false) {
+    const hash = unescape(getCurrentHash()).substring(1);
+    const params = parseQueryString(hash);
+    const nameddest = params.get("nameddest") || "";
+    let page = params.get("page") | 0;
+    if (!this.#isValidPage(page) || checkNameddest && nameddest.length > 0) {
       page = null;
-    ***REMOVED***
-***REMOVED***
+    }
+    return {
       hash,
       page,
       rotation: this.linkService.rotation
-    ***REMOVED***;
-  ***REMOVED***
+    };
+  }
   #updateViewarea({
     location
-  ***REMOVED******REMOVED*** {
-    if (this._updateViewareaTimeout***REMOVED*** {
-      clearTimeout(this._updateViewareaTimeout***REMOVED***;
+  }) {
+    if (this._updateViewareaTimeout) {
+      clearTimeout(this._updateViewareaTimeout);
       this._updateViewareaTimeout = null;
-    ***REMOVED***
+    }
     this._position = {
-      hash: location.pdfOpenParams.substring(1***REMOVED***,
+      hash: location.pdfOpenParams.substring(1),
       page: this.linkService.page,
       first: location.pageNumber,
       rotation: location.rotation
-    ***REMOVED***;
-    if (this._popStateInProgress***REMOVED*** {
+    };
+    if (this._popStateInProgress) {
       return;
-    ***REMOVED***
-    if (POSITION_UPDATED_THRESHOLD > 0 && this._isPagesLoaded && this._destination && !this._destination.page***REMOVED*** {
+    }
+    if (POSITION_UPDATED_THRESHOLD > 0 && this._isPagesLoaded && this._destination && !this._destination.page) {
       this._numPositionUpdates++;
-    ***REMOVED***
-    if (UPDATE_VIEWAREA_TIMEOUT > 0***REMOVED*** {
-      this._updateViewareaTimeout = setTimeout((***REMOVED*** => {
-        if (!this._popStateInProgress***REMOVED*** {
-          this.#tryPushCurrentPosition(true***REMOVED***;
-        ***REMOVED***
+    }
+    if (UPDATE_VIEWAREA_TIMEOUT > 0) {
+      this._updateViewareaTimeout = setTimeout(() => {
+        if (!this._popStateInProgress) {
+          this.#tryPushCurrentPosition(true);
+        }
         this._updateViewareaTimeout = null;
-      ***REMOVED***, UPDATE_VIEWAREA_TIMEOUT***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+      }, UPDATE_VIEWAREA_TIMEOUT);
+    }
+  }
   #popState({
     state
-  ***REMOVED******REMOVED*** {
-    const newHash = getCurrentHash(***REMOVED***,
+  }) {
+    const newHash = getCurrentHash(),
       hashChanged = this._currentHash !== newHash;
     this._currentHash = newHash;
-    if (!state***REMOVED*** {
+    if (!state) {
       this._uid++;
       const {
         hash,
         page,
         rotation
-      ***REMOVED*** = this.#parseCurrentHash(***REMOVED***;
+      } = this.#parseCurrentHash();
       this.#pushOrReplaceState({
         hash,
         page,
         rotation
-      ***REMOVED***, true***REMOVED***;
+      }, true);
       return;
-    ***REMOVED***
-    if (!this.#isValidState(state***REMOVED******REMOVED*** {
+    }
+    if (!this.#isValidState(state)) {
       return;
-    ***REMOVED***
+    }
     this._popStateInProgress = true;
-    if (hashChanged***REMOVED*** {
+    if (hashChanged) {
       this._blockHashChange++;
       waitOnEventOrTimeout({
         target: window,
         name: "hashchange",
         delay: HASH_CHANGE_TIMEOUT
-      ***REMOVED******REMOVED***.then((***REMOVED*** => {
+      }).then(() => {
         this._blockHashChange--;
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+      });
+    }
     const destination = state.destination;
-    this.#updateInternalState(destination, state.uid, true***REMOVED***;
-    if (isValidRotation(destination.rotation***REMOVED******REMOVED*** {
+    this.#updateInternalState(destination, state.uid, true);
+    if (isValidRotation(destination.rotation)) {
       this.linkService.rotation = destination.rotation;
-    ***REMOVED***
-    if (destination.dest***REMOVED*** {
-      this.linkService.goToDestination(destination.dest***REMOVED***;
-    ***REMOVED*** else if (destination.hash***REMOVED*** {
-      this.linkService.setHash(destination.hash***REMOVED***;
-    ***REMOVED*** else if (destination.page***REMOVED*** {
+    }
+    if (destination.dest) {
+      this.linkService.goToDestination(destination.dest);
+    } else if (destination.hash) {
+      this.linkService.setHash(destination.hash);
+    } else if (destination.page) {
       this.linkService.page = destination.page;
-    ***REMOVED***
-    Promise.resolve(***REMOVED***.then((***REMOVED*** => {
+    }
+    Promise.resolve().then(() => {
       this._popStateInProgress = false;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #pageHide(***REMOVED*** {
-    if (!this._destination || this._destination.temporary***REMOVED*** {
-      this.#tryPushCurrentPosition(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #bindEvents(***REMOVED*** {
-    if (this.#eventAbortController***REMOVED*** {
+    });
+  }
+  #pageHide() {
+    if (!this._destination || this._destination.temporary) {
+      this.#tryPushCurrentPosition();
+    }
+  }
+  #bindEvents() {
+    if (this.#eventAbortController) {
       return;
-    ***REMOVED***
-    this.#eventAbortController = new AbortController(***REMOVED***;
+    }
+    this.#eventAbortController = new AbortController();
     const {
       signal
-    ***REMOVED*** = this.#eventAbortController;
-    this.eventBus._on("updateviewarea", this.#updateViewarea.bind(this***REMOVED***, {
+    } = this.#eventAbortController;
+    this.eventBus._on("updateviewarea", this.#updateViewarea.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("popstate", this.#popState.bind(this***REMOVED***, {
+    });
+    window.addEventListener("popstate", this.#popState.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("pagehide", this.#pageHide.bind(this***REMOVED***, {
+    });
+    window.addEventListener("pagehide", this.#pageHide.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #unbindEvents(***REMOVED*** {
-    this.#eventAbortController?.abort(***REMOVED***;
+    });
+  }
+  #unbindEvents() {
+    this.#eventAbortController?.abort();
     this.#eventAbortController = null;
-  ***REMOVED***
-***REMOVED***
-function isDestHashesEqual(destHash, pushHash***REMOVED*** {
-  if (typeof destHash !== "string" || typeof pushHash !== "string"***REMOVED*** {
+  }
+}
+function isDestHashesEqual(destHash, pushHash) {
+  if (typeof destHash !== "string" || typeof pushHash !== "string") {
     return false;
-  ***REMOVED***
-  if (destHash === pushHash***REMOVED*** {
+  }
+  if (destHash === pushHash) {
     return true;
-  ***REMOVED***
-  const nameddest = parseQueryString(destHash***REMOVED***.get("nameddest"***REMOVED***;
-  if (nameddest === pushHash***REMOVED*** {
+  }
+  const nameddest = parseQueryString(destHash).get("nameddest");
+  if (nameddest === pushHash) {
     return true;
-  ***REMOVED***
+  }
   return false;
-***REMOVED***
-function isDestArraysEqual(firstDest, secondDest***REMOVED*** {
-  function isEntryEqual(first, second***REMOVED*** {
-    if (typeof first !== typeof second***REMOVED*** {
+}
+function isDestArraysEqual(firstDest, secondDest) {
+  function isEntryEqual(first, second) {
+    if (typeof first !== typeof second) {
       return false;
-    ***REMOVED***
-    if (Array.isArray(first***REMOVED*** || Array.isArray(second***REMOVED******REMOVED*** {
+    }
+    if (Array.isArray(first) || Array.isArray(second)) {
       return false;
-    ***REMOVED***
-    if (first !== null && typeof first === "object" && second !== null***REMOVED*** {
-      if (Object.keys(first***REMOVED***.length !== Object.keys(second***REMOVED***.length***REMOVED*** {
+    }
+    if (first !== null && typeof first === "object" && second !== null) {
+      if (Object.keys(first).length !== Object.keys(second).length) {
         return false;
-      ***REMOVED***
-      for (const key in first***REMOVED*** {
-        if (!isEntryEqual(first[key], second[key]***REMOVED******REMOVED*** {
+      }
+      for (const key in first) {
+        if (!isEntryEqual(first[key], second[key])) {
           return false;
-        ***REMOVED***
-      ***REMOVED***
+        }
+      }
       return true;
-    ***REMOVED***
-    return first === second || Number.isNaN(first***REMOVED*** && Number.isNaN(second***REMOVED***;
-  ***REMOVED***
-  if (!(Array.isArray(firstDest***REMOVED*** && Array.isArray(secondDest***REMOVED******REMOVED******REMOVED*** {
+    }
+    return first === second || Number.isNaN(first) && Number.isNaN(second);
+  }
+  if (!(Array.isArray(firstDest) && Array.isArray(secondDest))) {
     return false;
-  ***REMOVED***
-  if (firstDest.length !== secondDest.length***REMOVED*** {
+  }
+  if (firstDest.length !== secondDest.length) {
     return false;
-  ***REMOVED***
-  for (let i = 0, ii = firstDest.length; i < ii; i++***REMOVED*** {
-    if (!isEntryEqual(firstDest[i], secondDest[i]***REMOVED******REMOVED*** {
+  }
+  for (let i = 0, ii = firstDest.length; i < ii; i++) {
+    if (!isEntryEqual(firstDest[i], secondDest[i])) {
       return false;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   return true;
-***REMOVED***
+}
 
 ;// ./web/pdf_layer_viewer.js
 
 class PDFLayerViewer extends BaseTreeViewer {
-  constructor(options***REMOVED*** {
-    super(options***REMOVED***;
+  constructor(options) {
+    super(options);
     this.eventBus._on("optionalcontentconfigchanged", evt => {
-      this.#updateLayers(evt.promise***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.eventBus._on("resetlayers", (***REMOVED*** => {
-      this.#updateLayers(***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.eventBus._on("togglelayerstree", this._toggleAllTreeItems.bind(this***REMOVED******REMOVED***;
-  ***REMOVED***
-  reset(***REMOVED*** {
-    super.reset(***REMOVED***;
+      this.#updateLayers(evt.promise);
+    });
+    this.eventBus._on("resetlayers", () => {
+      this.#updateLayers();
+    });
+    this.eventBus._on("togglelayerstree", this._toggleAllTreeItems.bind(this));
+  }
+  reset() {
+    super.reset();
     this._optionalContentConfig = null;
-    this._optionalContentVisibility?.clear(***REMOVED***;
+    this._optionalContentVisibility?.clear();
     this._optionalContentVisibility = null;
-  ***REMOVED***
-  _dispatchEvent(layersCount***REMOVED*** {
+  }
+  _dispatchEvent(layersCount) {
     this.eventBus.dispatch("layersloaded", {
       source: this,
       layersCount
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+    });
+  }
   _bindLink(element, {
     groupId,
     input
-  ***REMOVED******REMOVED*** {
-    const setVisibility = (***REMOVED*** => {
+  }) {
+    const setVisibility = () => {
       const visible = input.checked;
-      this._optionalContentConfig.setVisibility(groupId, visible***REMOVED***;
-      const cached = this._optionalContentVisibility.get(groupId***REMOVED***;
-      if (cached***REMOVED*** {
+      this._optionalContentConfig.setVisibility(groupId, visible);
+      const cached = this._optionalContentVisibility.get(groupId);
+      if (cached) {
         cached.visible = visible;
-      ***REMOVED***
+      }
       this.eventBus.dispatch("optionalcontentconfig", {
         source: this,
-        promise: Promise.resolve(this._optionalContentConfig***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***;
+        promise: Promise.resolve(this._optionalContentConfig)
+      });
+    };
     element.onclick = evt => {
-      if (evt.target === input***REMOVED*** {
-        setVisibility(***REMOVED***;
+      if (evt.target === input) {
+        setVisibility();
         return true;
-      ***REMOVED*** else if (evt.target !== element***REMOVED*** {
+      } else if (evt.target !== element) {
         return true;
-      ***REMOVED***
+      }
       input.checked = !input.checked;
-      setVisibility(***REMOVED***;
+      setVisibility();
       return false;
-    ***REMOVED***;
-  ***REMOVED***
+    };
+  }
   _setNestedName(element, {
     name = null
-  ***REMOVED******REMOVED*** {
-    if (typeof name === "string"***REMOVED*** {
-      element.textContent = this._normalizeTextContent(name***REMOVED***;
+  }) {
+    if (typeof name === "string") {
+      element.textContent = this._normalizeTextContent(name);
       return;
-    ***REMOVED***
-    element.setAttribute("data-l10n-id", "pdfjs-additional-layers"***REMOVED***;
+    }
+    element.setAttribute("data-l10n-id", "pdfjs-additional-layers");
     element.style.fontStyle = "italic";
-    this._l10n.translateOnce(element***REMOVED***;
-  ***REMOVED***
+    this._l10n.translateOnce(element);
+  }
   _addToggleButton(div, {
     name = null
-  ***REMOVED******REMOVED*** {
-    super._addToggleButton(div, name === null***REMOVED***;
-  ***REMOVED***
-  _toggleAllTreeItems(***REMOVED*** {
-    if (!this._optionalContentConfig***REMOVED*** {
+  }) {
+    super._addToggleButton(div, name === null);
+  }
+  _toggleAllTreeItems() {
+    if (!this._optionalContentConfig) {
       return;
-    ***REMOVED***
-    super._toggleAllTreeItems(***REMOVED***;
-  ***REMOVED***
+    }
+    super._toggleAllTreeItems();
+  }
   render({
     optionalContentConfig,
     pdfDocument
-  ***REMOVED******REMOVED*** {
-    if (this._optionalContentConfig***REMOVED*** {
-      this.reset(***REMOVED***;
-    ***REMOVED***
+  }) {
+    if (this._optionalContentConfig) {
+      this.reset();
+    }
     this._optionalContentConfig = optionalContentConfig || null;
     this._pdfDocument = pdfDocument || null;
-    const groups = optionalContentConfig?.getOrder(***REMOVED***;
-    if (!groups***REMOVED*** {
-      this._dispatchEvent(0***REMOVED***;
+    const groups = optionalContentConfig?.getOrder();
+    if (!groups) {
+      this._dispatchEvent(0);
       return;
-    ***REMOVED***
-    this._optionalContentVisibility = new Map(***REMOVED***;
-    const fragment = document.createDocumentFragment(***REMOVED***,
+    }
+    this._optionalContentVisibility = new Map();
+    const fragment = document.createDocumentFragment(),
       queue = [{
         parent: fragment,
         groups
-      ***REMOVED***];
+      }];
     let layersCount = 0,
       hasAnyNesting = false;
-    while (queue.length > 0***REMOVED*** {
-      const levelData = queue.shift(***REMOVED***;
-      for (const groupId of levelData.groups***REMOVED*** {
-        const div = document.createElement("div"***REMOVED***;
+    while (queue.length > 0) {
+      const levelData = queue.shift();
+      for (const groupId of levelData.groups) {
+        const div = document.createElement("div");
         div.className = "treeItem";
-        const element = document.createElement("a"***REMOVED***;
-        div.append(element***REMOVED***;
-        if (typeof groupId === "object"***REMOVED*** {
+        const element = document.createElement("a");
+        div.append(element);
+        if (typeof groupId === "object") {
           hasAnyNesting = true;
-          this._addToggleButton(div, groupId***REMOVED***;
-          this._setNestedName(element, groupId***REMOVED***;
-          const itemsDiv = document.createElement("div"***REMOVED***;
+          this._addToggleButton(div, groupId);
+          this._setNestedName(element, groupId);
+          const itemsDiv = document.createElement("div");
           itemsDiv.className = "treeItems";
-          div.append(itemsDiv***REMOVED***;
+          div.append(itemsDiv);
           queue.push({
             parent: itemsDiv,
             groups: groupId.order
-          ***REMOVED******REMOVED***;
-        ***REMOVED*** else {
-          const group = optionalContentConfig.getGroup(groupId***REMOVED***;
-          const input = document.createElement("input"***REMOVED***;
+          });
+        } else {
+          const group = optionalContentConfig.getGroup(groupId);
+          const input = document.createElement("input");
           this._bindLink(element, {
             groupId,
             input
-          ***REMOVED******REMOVED***;
+          });
           input.type = "checkbox";
           input.checked = group.visible;
           this._optionalContentVisibility.set(groupId, {
             input,
             visible: input.checked
-          ***REMOVED******REMOVED***;
-          const label = document.createElement("label"***REMOVED***;
-          label.textContent = this._normalizeTextContent(group.name***REMOVED***;
-          label.append(input***REMOVED***;
-          element.append(label***REMOVED***;
+          });
+          const label = document.createElement("label");
+          label.textContent = this._normalizeTextContent(group.name);
+          label.append(input);
+          element.append(label);
           layersCount++;
-        ***REMOVED***
-        levelData.parent.append(div***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    this._finishRendering(fragment, layersCount, hasAnyNesting***REMOVED***;
-  ***REMOVED***
-  async #updateLayers(promise = null***REMOVED*** {
-    if (!this._optionalContentConfig***REMOVED*** {
+        }
+        levelData.parent.append(div);
+      }
+    }
+    this._finishRendering(fragment, layersCount, hasAnyNesting);
+  }
+  async #updateLayers(promise = null) {
+    if (!this._optionalContentConfig) {
       return;
-    ***REMOVED***
+    }
     const pdfDocument = this._pdfDocument;
     const optionalContentConfig = await (promise || pdfDocument.getOptionalContentConfig({
       intent: "display"
-    ***REMOVED******REMOVED******REMOVED***;
-    if (pdfDocument !== this._pdfDocument***REMOVED*** {
+    }));
+    if (pdfDocument !== this._pdfDocument) {
       return;
-    ***REMOVED***
-    if (promise***REMOVED*** {
-      for (const [groupId, cached] of this._optionalContentVisibility***REMOVED*** {
-        const group = optionalContentConfig.getGroup(groupId***REMOVED***;
-        if (group && cached.visible !== group.visible***REMOVED*** {
+    }
+    if (promise) {
+      for (const [groupId, cached] of this._optionalContentVisibility) {
+        const group = optionalContentConfig.getGroup(groupId);
+        if (group && cached.visible !== group.visible) {
           cached.input.checked = cached.visible = !cached.visible;
-        ***REMOVED***
-      ***REMOVED***
+        }
+      }
       return;
-    ***REMOVED***
+    }
     this.eventBus.dispatch("optionalcontentconfig", {
       source: this,
-      promise: Promise.resolve(optionalContentConfig***REMOVED***
-    ***REMOVED******REMOVED***;
+      promise: Promise.resolve(optionalContentConfig)
+    });
     this.render({
       optionalContentConfig,
       pdfDocument: this._pdfDocument
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    });
+  }
+}
 
 ;// ./web/pdf_outline_viewer.js
 
 
 class PDFOutlineViewer extends BaseTreeViewer {
-  constructor(options***REMOVED*** {
-    super(options***REMOVED***;
+  constructor(options) {
+    super(options);
     this.linkService = options.linkService;
     this.downloadManager = options.downloadManager;
-    this.eventBus._on("toggleoutlinetree", this._toggleAllTreeItems.bind(this***REMOVED******REMOVED***;
-    this.eventBus._on("currentoutlineitem", this._currentOutlineItem.bind(this***REMOVED******REMOVED***;
+    this.eventBus._on("toggleoutlinetree", this._toggleAllTreeItems.bind(this));
+    this.eventBus._on("currentoutlineitem", this._currentOutlineItem.bind(this));
     this.eventBus._on("pagechanging", evt => {
       this._currentPageNumber = evt.pageNumber;
-    ***REMOVED******REMOVED***;
+    });
     this.eventBus._on("pagesloaded", evt => {
       this._isPagesLoaded = !!evt.pagesCount;
-      this._currentOutlineItemCapability?.resolve(this._isPagesLoaded***REMOVED***;
-    ***REMOVED******REMOVED***;
+      this._currentOutlineItemCapability?.resolve(this._isPagesLoaded);
+    });
     this.eventBus._on("sidebarviewchanged", evt => {
       this._sidebarView = evt.view;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  reset(***REMOVED*** {
-    super.reset(***REMOVED***;
+    });
+  }
+  reset() {
+    super.reset();
     this._outline = null;
     this._pageNumberToDestHashCapability = null;
     this._currentPageNumber = 1;
     this._isPagesLoaded = null;
-    this._currentOutlineItemCapability?.resolve(false***REMOVED***;
+    this._currentOutlineItemCapability?.resolve(false);
     this._currentOutlineItemCapability = null;
-  ***REMOVED***
-  _dispatchEvent(outlineCount***REMOVED*** {
-    this._currentOutlineItemCapability = Promise.withResolvers(***REMOVED***;
-    if (outlineCount === 0 || this._pdfDocument?.loadingParams.disableAutoFetch***REMOVED*** {
-      this._currentOutlineItemCapability.resolve(false***REMOVED***;
-    ***REMOVED*** else if (this._isPagesLoaded !== null***REMOVED*** {
-      this._currentOutlineItemCapability.resolve(this._isPagesLoaded***REMOVED***;
-    ***REMOVED***
+  }
+  _dispatchEvent(outlineCount) {
+    this._currentOutlineItemCapability = Promise.withResolvers();
+    if (outlineCount === 0 || this._pdfDocument?.loadingParams.disableAutoFetch) {
+      this._currentOutlineItemCapability.resolve(false);
+    } else if (this._isPagesLoaded !== null) {
+      this._currentOutlineItemCapability.resolve(this._isPagesLoaded);
+    }
     this.eventBus.dispatch("outlineloaded", {
       source: this,
       outlineCount,
       currentOutlineItemPromise: this._currentOutlineItemCapability.promise
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+    });
+  }
   _bindLink(element, {
     url,
     newWindow,
@@ -6869,217 +6869,217 @@ class PDFOutlineViewer extends BaseTreeViewer {
     attachment,
     dest,
     setOCGState
-  ***REMOVED******REMOVED*** {
+  }) {
     const {
       linkService
-    ***REMOVED*** = this;
-    if (url***REMOVED*** {
-      linkService.addLinkAttributes(element, url, newWindow***REMOVED***;
+    } = this;
+    if (url) {
+      linkService.addLinkAttributes(element, url, newWindow);
       return;
-    ***REMOVED***
-    if (action***REMOVED*** {
-      element.href = linkService.getAnchorUrl(""***REMOVED***;
-      element.onclick = (***REMOVED*** => {
-        linkService.executeNamedAction(action***REMOVED***;
+    }
+    if (action) {
+      element.href = linkService.getAnchorUrl("");
+      element.onclick = () => {
+        linkService.executeNamedAction(action);
         return false;
-      ***REMOVED***;
+      };
       return;
-    ***REMOVED***
-    if (attachment***REMOVED*** {
-      element.href = linkService.getAnchorUrl(""***REMOVED***;
-      element.onclick = (***REMOVED*** => {
-        this.downloadManager.openOrDownloadData(attachment.content, attachment.filename***REMOVED***;
+    }
+    if (attachment) {
+      element.href = linkService.getAnchorUrl("");
+      element.onclick = () => {
+        this.downloadManager.openOrDownloadData(attachment.content, attachment.filename);
         return false;
-      ***REMOVED***;
+      };
       return;
-    ***REMOVED***
-    if (setOCGState***REMOVED*** {
-      element.href = linkService.getAnchorUrl(""***REMOVED***;
-      element.onclick = (***REMOVED*** => {
-        linkService.executeSetOCGState(setOCGState***REMOVED***;
+    }
+    if (setOCGState) {
+      element.href = linkService.getAnchorUrl("");
+      element.onclick = () => {
+        linkService.executeSetOCGState(setOCGState);
         return false;
-      ***REMOVED***;
+      };
       return;
-    ***REMOVED***
-    element.href = linkService.getDestinationHash(dest***REMOVED***;
+    }
+    element.href = linkService.getDestinationHash(dest);
     element.onclick = evt => {
-      this._updateCurrentTreeItem(evt.target.parentNode***REMOVED***;
-      if (dest***REMOVED*** {
-        linkService.goToDestination(dest***REMOVED***;
-      ***REMOVED***
+      this._updateCurrentTreeItem(evt.target.parentNode);
+      if (dest) {
+        linkService.goToDestination(dest);
+      }
       return false;
-    ***REMOVED***;
-  ***REMOVED***
+    };
+  }
   _setStyles(element, {
     bold,
     italic
-  ***REMOVED******REMOVED*** {
-    if (bold***REMOVED*** {
+  }) {
+    if (bold) {
       element.style.fontWeight = "bold";
-    ***REMOVED***
-    if (italic***REMOVED*** {
+    }
+    if (italic) {
       element.style.fontStyle = "italic";
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   _addToggleButton(div, {
     count,
     items
-  ***REMOVED******REMOVED*** {
+  }) {
     let hidden = false;
-    if (count < 0***REMOVED*** {
+    if (count < 0) {
       let totalCount = items.length;
-      if (totalCount > 0***REMOVED*** {
+      if (totalCount > 0) {
         const queue = [...items];
-        while (queue.length > 0***REMOVED*** {
+        while (queue.length > 0) {
           const {
             count: nestedCount,
             items: nestedItems
-          ***REMOVED*** = queue.shift(***REMOVED***;
-          if (nestedCount > 0 && nestedItems.length > 0***REMOVED*** {
+          } = queue.shift();
+          if (nestedCount > 0 && nestedItems.length > 0) {
             totalCount += nestedItems.length;
-            queue.push(...nestedItems***REMOVED***;
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED***
-      if (Math.abs(count***REMOVED*** === totalCount***REMOVED*** {
+            queue.push(...nestedItems);
+          }
+        }
+      }
+      if (Math.abs(count) === totalCount) {
         hidden = true;
-      ***REMOVED***
-    ***REMOVED***
-    super._addToggleButton(div, hidden***REMOVED***;
-  ***REMOVED***
-  _toggleAllTreeItems(***REMOVED*** {
-    if (!this._outline***REMOVED*** {
+      }
+    }
+    super._addToggleButton(div, hidden);
+  }
+  _toggleAllTreeItems() {
+    if (!this._outline) {
       return;
-    ***REMOVED***
-    super._toggleAllTreeItems(***REMOVED***;
-  ***REMOVED***
+    }
+    super._toggleAllTreeItems();
+  }
   render({
     outline,
     pdfDocument
-  ***REMOVED******REMOVED*** {
-    if (this._outline***REMOVED*** {
-      this.reset(***REMOVED***;
-    ***REMOVED***
+  }) {
+    if (this._outline) {
+      this.reset();
+    }
     this._outline = outline || null;
     this._pdfDocument = pdfDocument || null;
-    if (!outline***REMOVED*** {
-      this._dispatchEvent(0***REMOVED***;
+    if (!outline) {
+      this._dispatchEvent(0);
       return;
-    ***REMOVED***
-    const fragment = document.createDocumentFragment(***REMOVED***;
+    }
+    const fragment = document.createDocumentFragment();
     const queue = [{
       parent: fragment,
       items: outline
-    ***REMOVED***];
+    }];
     let outlineCount = 0,
       hasAnyNesting = false;
-    while (queue.length > 0***REMOVED*** {
-      const levelData = queue.shift(***REMOVED***;
-      for (const item of levelData.items***REMOVED*** {
-        const div = document.createElement("div"***REMOVED***;
+    while (queue.length > 0) {
+      const levelData = queue.shift();
+      for (const item of levelData.items) {
+        const div = document.createElement("div");
         div.className = "treeItem";
-        const element = document.createElement("a"***REMOVED***;
-        this._bindLink(element, item***REMOVED***;
-        this._setStyles(element, item***REMOVED***;
-        element.textContent = this._normalizeTextContent(item.title***REMOVED***;
-        div.append(element***REMOVED***;
-        if (item.items.length > 0***REMOVED*** {
+        const element = document.createElement("a");
+        this._bindLink(element, item);
+        this._setStyles(element, item);
+        element.textContent = this._normalizeTextContent(item.title);
+        div.append(element);
+        if (item.items.length > 0) {
           hasAnyNesting = true;
-          this._addToggleButton(div, item***REMOVED***;
-          const itemsDiv = document.createElement("div"***REMOVED***;
+          this._addToggleButton(div, item);
+          const itemsDiv = document.createElement("div");
           itemsDiv.className = "treeItems";
-          div.append(itemsDiv***REMOVED***;
+          div.append(itemsDiv);
           queue.push({
             parent: itemsDiv,
             items: item.items
-          ***REMOVED******REMOVED***;
-        ***REMOVED***
-        levelData.parent.append(div***REMOVED***;
+          });
+        }
+        levelData.parent.append(div);
         outlineCount++;
-      ***REMOVED***
-    ***REMOVED***
-    this._finishRendering(fragment, outlineCount, hasAnyNesting***REMOVED***;
-  ***REMOVED***
-  async _currentOutlineItem(***REMOVED*** {
-    if (!this._isPagesLoaded***REMOVED*** {
-      throw new Error("_currentOutlineItem: All pages have not been loaded."***REMOVED***;
-    ***REMOVED***
-    if (!this._outline || !this._pdfDocument***REMOVED*** {
+      }
+    }
+    this._finishRendering(fragment, outlineCount, hasAnyNesting);
+  }
+  async _currentOutlineItem() {
+    if (!this._isPagesLoaded) {
+      throw new Error("_currentOutlineItem: All pages have not been loaded.");
+    }
+    if (!this._outline || !this._pdfDocument) {
       return;
-    ***REMOVED***
-    const pageNumberToDestHash = await this._getPageNumberToDestHash(this._pdfDocument***REMOVED***;
-    if (!pageNumberToDestHash***REMOVED*** {
+    }
+    const pageNumberToDestHash = await this._getPageNumberToDestHash(this._pdfDocument);
+    if (!pageNumberToDestHash) {
       return;
-    ***REMOVED***
-    this._updateCurrentTreeItem(null***REMOVED***;
-    if (this._sidebarView !== SidebarView.OUTLINE***REMOVED*** {
+    }
+    this._updateCurrentTreeItem(null);
+    if (this._sidebarView !== SidebarView.OUTLINE) {
       return;
-    ***REMOVED***
-    for (let i = this._currentPageNumber; i > 0; i--***REMOVED*** {
-      const destHash = pageNumberToDestHash.get(i***REMOVED***;
-      if (!destHash***REMOVED*** {
+    }
+    for (let i = this._currentPageNumber; i > 0; i--) {
+      const destHash = pageNumberToDestHash.get(i);
+      if (!destHash) {
         continue;
-      ***REMOVED***
-      const linkElement = this.container.querySelector(`a[href="${destHash***REMOVED***"]`***REMOVED***;
-      if (!linkElement***REMOVED*** {
+      }
+      const linkElement = this.container.querySelector(`a[href="${destHash}"]`);
+      if (!linkElement) {
         continue;
-      ***REMOVED***
-      this._scrollToCurrentTreeItem(linkElement.parentNode***REMOVED***;
+      }
+      this._scrollToCurrentTreeItem(linkElement.parentNode);
       break;
-    ***REMOVED***
-  ***REMOVED***
-  async _getPageNumberToDestHash(pdfDocument***REMOVED*** {
-    if (this._pageNumberToDestHashCapability***REMOVED*** {
+    }
+  }
+  async _getPageNumberToDestHash(pdfDocument) {
+    if (this._pageNumberToDestHashCapability) {
       return this._pageNumberToDestHashCapability.promise;
-    ***REMOVED***
-    this._pageNumberToDestHashCapability = Promise.withResolvers(***REMOVED***;
-    const pageNumberToDestHash = new Map(***REMOVED***,
-      pageNumberNesting = new Map(***REMOVED***;
+    }
+    this._pageNumberToDestHashCapability = Promise.withResolvers();
+    const pageNumberToDestHash = new Map(),
+      pageNumberNesting = new Map();
     const queue = [{
       nesting: 0,
       items: this._outline
-    ***REMOVED***];
-    while (queue.length > 0***REMOVED*** {
-      const levelData = queue.shift(***REMOVED***,
+    }];
+    while (queue.length > 0) {
+      const levelData = queue.shift(),
         currentNesting = levelData.nesting;
       for (const {
         dest,
         items
-      ***REMOVED*** of levelData.items***REMOVED*** {
+      } of levelData.items) {
         let explicitDest, pageNumber;
-        if (typeof dest === "string"***REMOVED*** {
-          explicitDest = await pdfDocument.getDestination(dest***REMOVED***;
-          if (pdfDocument !== this._pdfDocument***REMOVED*** {
+        if (typeof dest === "string") {
+          explicitDest = await pdfDocument.getDestination(dest);
+          if (pdfDocument !== this._pdfDocument) {
             return null;
-          ***REMOVED***
-        ***REMOVED*** else {
+          }
+        } else {
           explicitDest = dest;
-        ***REMOVED***
-        if (Array.isArray(explicitDest***REMOVED******REMOVED*** {
+        }
+        if (Array.isArray(explicitDest)) {
           const [destRef] = explicitDest;
-          if (destRef && typeof destRef === "object"***REMOVED*** {
-            pageNumber = pdfDocument.cachedPageNumber(destRef***REMOVED***;
-          ***REMOVED*** else if (Number.isInteger(destRef***REMOVED******REMOVED*** {
+          if (destRef && typeof destRef === "object") {
+            pageNumber = pdfDocument.cachedPageNumber(destRef);
+          } else if (Number.isInteger(destRef)) {
             pageNumber = destRef + 1;
-          ***REMOVED***
-          if (Number.isInteger(pageNumber***REMOVED*** && (!pageNumberToDestHash.has(pageNumber***REMOVED*** || currentNesting > pageNumberNesting.get(pageNumber***REMOVED******REMOVED******REMOVED*** {
-            const destHash = this.linkService.getDestinationHash(dest***REMOVED***;
-            pageNumberToDestHash.set(pageNumber, destHash***REMOVED***;
-            pageNumberNesting.set(pageNumber, currentNesting***REMOVED***;
-          ***REMOVED***
-        ***REMOVED***
-        if (items.length > 0***REMOVED*** {
+          }
+          if (Number.isInteger(pageNumber) && (!pageNumberToDestHash.has(pageNumber) || currentNesting > pageNumberNesting.get(pageNumber))) {
+            const destHash = this.linkService.getDestinationHash(dest);
+            pageNumberToDestHash.set(pageNumber, destHash);
+            pageNumberNesting.set(pageNumber, currentNesting);
+          }
+        }
+        if (items.length > 0) {
           queue.push({
             nesting: currentNesting + 1,
             items
-          ***REMOVED******REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
-    this._pageNumberToDestHashCapability.resolve(pageNumberToDestHash.size > 0 ? pageNumberToDestHash : null***REMOVED***;
+          });
+        }
+      }
+    }
+    this._pageNumberToDestHashCapability.resolve(pageNumberToDestHash.size > 0 ? pageNumberToDestHash : null);
     return this._pageNumberToDestHashCapability.promise;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/pdf_presentation_mode.js
 
@@ -7100,7 +7100,7 @@ class PDFPresentationMode {
     container,
     pdfViewer,
     eventBus
-  ***REMOVED******REMOVED*** {
+  }) {
     this.container = container;
     this.pdfViewer = pdfViewer;
     this.eventBus = eventBus;
@@ -7108,271 +7108,271 @@ class PDFPresentationMode {
     this.mouseScrollTimeStamp = 0;
     this.mouseScrollDelta = 0;
     this.touchSwipeState = null;
-  ***REMOVED***
-  async request(***REMOVED*** {
+  }
+  async request() {
     const {
       container,
       pdfViewer
-    ***REMOVED*** = this;
-    if (this.active || !pdfViewer.pagesCount || !container.requestFullscreen***REMOVED*** {
+    } = this;
+    if (this.active || !pdfViewer.pagesCount || !container.requestFullscreen) {
       return false;
-    ***REMOVED***
-    this.#addFullscreenChangeListeners(***REMOVED***;
-    this.#notifyStateChange(PresentationModeState.CHANGING***REMOVED***;
-    const promise = container.requestFullscreen(***REMOVED***;
+    }
+    this.#addFullscreenChangeListeners();
+    this.#notifyStateChange(PresentationModeState.CHANGING);
+    const promise = container.requestFullscreen();
     this.#args = {
       pageNumber: pdfViewer.currentPageNumber,
       scaleValue: pdfViewer.currentScaleValue,
       scrollMode: pdfViewer.scrollMode,
       spreadMode: null,
       annotationEditorMode: null
-    ***REMOVED***;
-    if (pdfViewer.spreadMode !== SpreadMode.NONE && !(pdfViewer.pageViewsReady && pdfViewer.hasEqualPageSizes***REMOVED******REMOVED*** {
-      console.warn("Ignoring Spread modes when entering PresentationMode, " + "since the document may contain varying page sizes."***REMOVED***;
+    };
+    if (pdfViewer.spreadMode !== SpreadMode.NONE && !(pdfViewer.pageViewsReady && pdfViewer.hasEqualPageSizes)) {
+      console.warn("Ignoring Spread modes when entering PresentationMode, " + "since the document may contain varying page sizes.");
       this.#args.spreadMode = pdfViewer.spreadMode;
-    ***REMOVED***
-    if (pdfViewer.annotationEditorMode !== AnnotationEditorType.DISABLE***REMOVED*** {
+    }
+    if (pdfViewer.annotationEditorMode !== AnnotationEditorType.DISABLE) {
       this.#args.annotationEditorMode = pdfViewer.annotationEditorMode;
-    ***REMOVED***
-  ***REMOVED***
+    }
+    try {
       await promise;
-      pdfViewer.focus(***REMOVED***;
+      pdfViewer.focus();
       return true;
-    ***REMOVED*** catch {
-      this.#removeFullscreenChangeListeners(***REMOVED***;
-      this.#notifyStateChange(PresentationModeState.NORMAL***REMOVED***;
-    ***REMOVED***
+    } catch {
+      this.#removeFullscreenChangeListeners();
+      this.#notifyStateChange(PresentationModeState.NORMAL);
+    }
     return false;
-  ***REMOVED***
-  get active(***REMOVED*** {
+  }
+  get active() {
     return this.#state === PresentationModeState.CHANGING || this.#state === PresentationModeState.FULLSCREEN;
-  ***REMOVED***
-  #mouseWheel(evt***REMOVED*** {
-    if (!this.active***REMOVED*** {
+  }
+  #mouseWheel(evt) {
+    if (!this.active) {
       return;
-    ***REMOVED***
-    evt.preventDefault(***REMOVED***;
-    const delta = normalizeWheelEventDelta(evt***REMOVED***;
-    const currentTime = Date.now(***REMOVED***;
+    }
+    evt.preventDefault();
+    const delta = normalizeWheelEventDelta(evt);
+    const currentTime = Date.now();
     const storedTime = this.mouseScrollTimeStamp;
-    if (currentTime > storedTime && currentTime - storedTime < MOUSE_SCROLL_COOLDOWN_TIME***REMOVED*** {
+    if (currentTime > storedTime && currentTime - storedTime < MOUSE_SCROLL_COOLDOWN_TIME) {
       return;
-    ***REMOVED***
-    if (this.mouseScrollDelta > 0 && delta < 0 || this.mouseScrollDelta < 0 && delta > 0***REMOVED*** {
-      this.#resetMouseScrollState(***REMOVED***;
-    ***REMOVED***
+    }
+    if (this.mouseScrollDelta > 0 && delta < 0 || this.mouseScrollDelta < 0 && delta > 0) {
+      this.#resetMouseScrollState();
+    }
     this.mouseScrollDelta += delta;
-    if (Math.abs(this.mouseScrollDelta***REMOVED*** >= PAGE_SWITCH_THRESHOLD***REMOVED*** {
+    if (Math.abs(this.mouseScrollDelta) >= PAGE_SWITCH_THRESHOLD) {
       const totalDelta = this.mouseScrollDelta;
-      this.#resetMouseScrollState(***REMOVED***;
-      const success = totalDelta > 0 ? this.pdfViewer.previousPage(***REMOVED*** : this.pdfViewer.nextPage(***REMOVED***;
-      if (success***REMOVED*** {
+      this.#resetMouseScrollState();
+      const success = totalDelta > 0 ? this.pdfViewer.previousPage() : this.pdfViewer.nextPage();
+      if (success) {
         this.mouseScrollTimeStamp = currentTime;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  #notifyStateChange(state***REMOVED*** {
+      }
+    }
+  }
+  #notifyStateChange(state) {
     this.#state = state;
     this.eventBus.dispatch("presentationmodechanged", {
       source: this,
       state
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #enter(***REMOVED*** {
-    this.#notifyStateChange(PresentationModeState.FULLSCREEN***REMOVED***;
-    this.container.classList.add(ACTIVE_SELECTOR***REMOVED***;
-    setTimeout((***REMOVED*** => {
+    });
+  }
+  #enter() {
+    this.#notifyStateChange(PresentationModeState.FULLSCREEN);
+    this.container.classList.add(ACTIVE_SELECTOR);
+    setTimeout(() => {
       this.pdfViewer.scrollMode = ScrollMode.PAGE;
-      if (this.#args.spreadMode !== null***REMOVED*** {
+      if (this.#args.spreadMode !== null) {
         this.pdfViewer.spreadMode = SpreadMode.NONE;
-      ***REMOVED***
+      }
       this.pdfViewer.currentPageNumber = this.#args.pageNumber;
       this.pdfViewer.currentScaleValue = "page-fit";
-      if (this.#args.annotationEditorMode !== null***REMOVED*** {
+      if (this.#args.annotationEditorMode !== null) {
         this.pdfViewer.annotationEditorMode = {
           mode: AnnotationEditorType.NONE
-        ***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***, 0***REMOVED***;
-    this.#addWindowListeners(***REMOVED***;
-    this.#showControls(***REMOVED***;
+        };
+      }
+    }, 0);
+    this.#addWindowListeners();
+    this.#showControls();
     this.contextMenuOpen = false;
-    document.getSelection(***REMOVED***.empty(***REMOVED***;
-  ***REMOVED***
-  #exit(***REMOVED*** {
+    document.getSelection().empty();
+  }
+  #exit() {
     const pageNumber = this.pdfViewer.currentPageNumber;
-    this.container.classList.remove(ACTIVE_SELECTOR***REMOVED***;
-    setTimeout((***REMOVED*** => {
-      this.#removeFullscreenChangeListeners(***REMOVED***;
-      this.#notifyStateChange(PresentationModeState.NORMAL***REMOVED***;
+    this.container.classList.remove(ACTIVE_SELECTOR);
+    setTimeout(() => {
+      this.#removeFullscreenChangeListeners();
+      this.#notifyStateChange(PresentationModeState.NORMAL);
       this.pdfViewer.scrollMode = this.#args.scrollMode;
-      if (this.#args.spreadMode !== null***REMOVED*** {
+      if (this.#args.spreadMode !== null) {
         this.pdfViewer.spreadMode = this.#args.spreadMode;
-      ***REMOVED***
+      }
       this.pdfViewer.currentScaleValue = this.#args.scaleValue;
       this.pdfViewer.currentPageNumber = pageNumber;
-      if (this.#args.annotationEditorMode !== null***REMOVED*** {
+      if (this.#args.annotationEditorMode !== null) {
         this.pdfViewer.annotationEditorMode = {
           mode: this.#args.annotationEditorMode
-        ***REMOVED***;
-      ***REMOVED***
+        };
+      }
       this.#args = null;
-    ***REMOVED***, 0***REMOVED***;
-    this.#removeWindowListeners(***REMOVED***;
-    this.#hideControls(***REMOVED***;
-    this.#resetMouseScrollState(***REMOVED***;
+    }, 0);
+    this.#removeWindowListeners();
+    this.#hideControls();
+    this.#resetMouseScrollState();
     this.contextMenuOpen = false;
-  ***REMOVED***
-  #mouseDown(evt***REMOVED*** {
-    if (this.contextMenuOpen***REMOVED*** {
+  }
+  #mouseDown(evt) {
+    if (this.contextMenuOpen) {
       this.contextMenuOpen = false;
-      evt.preventDefault(***REMOVED***;
+      evt.preventDefault();
       return;
-    ***REMOVED***
-    if (evt.button !== 0***REMOVED*** {
+    }
+    if (evt.button !== 0) {
       return;
-    ***REMOVED***
-    if (evt.target.href && evt.target.parentNode?.hasAttribute("data-internal-link"***REMOVED******REMOVED*** {
+    }
+    if (evt.target.href && evt.target.parentNode?.hasAttribute("data-internal-link")) {
       return;
-    ***REMOVED***
-    evt.preventDefault(***REMOVED***;
-    if (evt.shiftKey***REMOVED*** {
-      this.pdfViewer.previousPage(***REMOVED***;
-    ***REMOVED*** else {
-      this.pdfViewer.nextPage(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #contextMenu(***REMOVED*** {
+    }
+    evt.preventDefault();
+    if (evt.shiftKey) {
+      this.pdfViewer.previousPage();
+    } else {
+      this.pdfViewer.nextPage();
+    }
+  }
+  #contextMenu() {
     this.contextMenuOpen = true;
-  ***REMOVED***
-  #showControls(***REMOVED*** {
-    if (this.controlsTimeout***REMOVED*** {
-      clearTimeout(this.controlsTimeout***REMOVED***;
-    ***REMOVED*** else {
-      this.container.classList.add(CONTROLS_SELECTOR***REMOVED***;
-    ***REMOVED***
-    this.controlsTimeout = setTimeout((***REMOVED*** => {
-      this.container.classList.remove(CONTROLS_SELECTOR***REMOVED***;
+  }
+  #showControls() {
+    if (this.controlsTimeout) {
+      clearTimeout(this.controlsTimeout);
+    } else {
+      this.container.classList.add(CONTROLS_SELECTOR);
+    }
+    this.controlsTimeout = setTimeout(() => {
+      this.container.classList.remove(CONTROLS_SELECTOR);
       delete this.controlsTimeout;
-    ***REMOVED***, DELAY_BEFORE_HIDING_CONTROLS***REMOVED***;
-  ***REMOVED***
-  #hideControls(***REMOVED*** {
-    if (!this.controlsTimeout***REMOVED*** {
+    }, DELAY_BEFORE_HIDING_CONTROLS);
+  }
+  #hideControls() {
+    if (!this.controlsTimeout) {
       return;
-    ***REMOVED***
-    clearTimeout(this.controlsTimeout***REMOVED***;
-    this.container.classList.remove(CONTROLS_SELECTOR***REMOVED***;
+    }
+    clearTimeout(this.controlsTimeout);
+    this.container.classList.remove(CONTROLS_SELECTOR);
     delete this.controlsTimeout;
-  ***REMOVED***
-  #resetMouseScrollState(***REMOVED*** {
+  }
+  #resetMouseScrollState() {
     this.mouseScrollTimeStamp = 0;
     this.mouseScrollDelta = 0;
-  ***REMOVED***
-  #touchSwipe(evt***REMOVED*** {
-    if (!this.active***REMOVED*** {
+  }
+  #touchSwipe(evt) {
+    if (!this.active) {
       return;
-    ***REMOVED***
-    if (evt.touches.length > 1***REMOVED*** {
+    }
+    if (evt.touches.length > 1) {
       this.touchSwipeState = null;
       return;
-    ***REMOVED***
-    switch (evt.type***REMOVED*** {
+    }
+    switch (evt.type) {
       case "touchstart":
         this.touchSwipeState = {
           startX: evt.touches[0].pageX,
           startY: evt.touches[0].pageY,
           endX: evt.touches[0].pageX,
           endY: evt.touches[0].pageY
-        ***REMOVED***;
+        };
         break;
       case "touchmove":
-        if (this.touchSwipeState === null***REMOVED*** {
+        if (this.touchSwipeState === null) {
           return;
-        ***REMOVED***
+        }
         this.touchSwipeState.endX = evt.touches[0].pageX;
         this.touchSwipeState.endY = evt.touches[0].pageY;
-        evt.preventDefault(***REMOVED***;
+        evt.preventDefault();
         break;
       case "touchend":
-        if (this.touchSwipeState === null***REMOVED*** {
+        if (this.touchSwipeState === null) {
           return;
-        ***REMOVED***
+        }
         let delta = 0;
         const dx = this.touchSwipeState.endX - this.touchSwipeState.startX;
         const dy = this.touchSwipeState.endY - this.touchSwipeState.startY;
-        const absAngle = Math.abs(Math.atan2(dy, dx***REMOVED******REMOVED***;
-        if (Math.abs(dx***REMOVED*** > SWIPE_MIN_DISTANCE_THRESHOLD && (absAngle <= SWIPE_ANGLE_THRESHOLD || absAngle >= Math.PI - SWIPE_ANGLE_THRESHOLD***REMOVED******REMOVED*** {
+        const absAngle = Math.abs(Math.atan2(dy, dx));
+        if (Math.abs(dx) > SWIPE_MIN_DISTANCE_THRESHOLD && (absAngle <= SWIPE_ANGLE_THRESHOLD || absAngle >= Math.PI - SWIPE_ANGLE_THRESHOLD)) {
           delta = dx;
-        ***REMOVED*** else if (Math.abs(dy***REMOVED*** > SWIPE_MIN_DISTANCE_THRESHOLD && Math.abs(absAngle - Math.PI / 2***REMOVED*** <= SWIPE_ANGLE_THRESHOLD***REMOVED*** {
+        } else if (Math.abs(dy) > SWIPE_MIN_DISTANCE_THRESHOLD && Math.abs(absAngle - Math.PI / 2) <= SWIPE_ANGLE_THRESHOLD) {
           delta = dy;
-        ***REMOVED***
-        if (delta > 0***REMOVED*** {
-          this.pdfViewer.previousPage(***REMOVED***;
-        ***REMOVED*** else if (delta < 0***REMOVED*** {
-          this.pdfViewer.nextPage(***REMOVED***;
-        ***REMOVED***
+        }
+        if (delta > 0) {
+          this.pdfViewer.previousPage();
+        } else if (delta < 0) {
+          this.pdfViewer.nextPage();
+        }
         break;
-    ***REMOVED***
-  ***REMOVED***
-  #addWindowListeners(***REMOVED*** {
-    if (this.#windowAbortController***REMOVED*** {
+    }
+  }
+  #addWindowListeners() {
+    if (this.#windowAbortController) {
       return;
-    ***REMOVED***
-    this.#windowAbortController = new AbortController(***REMOVED***;
+    }
+    this.#windowAbortController = new AbortController();
     const {
       signal
-    ***REMOVED*** = this.#windowAbortController;
-    const touchSwipeBind = this.#touchSwipe.bind(this***REMOVED***;
-    window.addEventListener("mousemove", this.#showControls.bind(this***REMOVED***, {
+    } = this.#windowAbortController;
+    const touchSwipeBind = this.#touchSwipe.bind(this);
+    window.addEventListener("mousemove", this.#showControls.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("mousedown", this.#mouseDown.bind(this***REMOVED***, {
+    });
+    window.addEventListener("mousedown", this.#mouseDown.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("wheel", this.#mouseWheel.bind(this***REMOVED***, {
+    });
+    window.addEventListener("wheel", this.#mouseWheel.bind(this), {
       passive: false,
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("keydown", this.#resetMouseScrollState.bind(this***REMOVED***, {
+    });
+    window.addEventListener("keydown", this.#resetMouseScrollState.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("contextmenu", this.#contextMenu.bind(this***REMOVED***, {
+    });
+    window.addEventListener("contextmenu", this.#contextMenu.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
+    });
     window.addEventListener("touchstart", touchSwipeBind, {
       signal
-    ***REMOVED******REMOVED***;
+    });
     window.addEventListener("touchmove", touchSwipeBind, {
       signal
-    ***REMOVED******REMOVED***;
+    });
     window.addEventListener("touchend", touchSwipeBind, {
       signal
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #removeWindowListeners(***REMOVED*** {
-    this.#windowAbortController?.abort(***REMOVED***;
+    });
+  }
+  #removeWindowListeners() {
+    this.#windowAbortController?.abort();
     this.#windowAbortController = null;
-  ***REMOVED***
-  #addFullscreenChangeListeners(***REMOVED*** {
-    if (this.#fullscreenChangeAbortController***REMOVED*** {
+  }
+  #addFullscreenChangeListeners() {
+    if (this.#fullscreenChangeAbortController) {
       return;
-    ***REMOVED***
-    this.#fullscreenChangeAbortController = new AbortController(***REMOVED***;
-    window.addEventListener("fullscreenchange", (***REMOVED*** => {
-      if (document.fullscreenElement***REMOVED*** {
-        this.#enter(***REMOVED***;
-      ***REMOVED*** else {
-        this.#exit(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***, {
+    }
+    this.#fullscreenChangeAbortController = new AbortController();
+    window.addEventListener("fullscreenchange", () => {
+      if (document.fullscreenElement) {
+        this.#enter();
+      } else {
+        this.#exit();
+      }
+    }, {
       signal: this.#fullscreenChangeAbortController.signal
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #removeFullscreenChangeListeners(***REMOVED*** {
-    this.#fullscreenChangeAbortController?.abort(***REMOVED***;
+    });
+  }
+  #removeFullscreenChangeListeners() {
+    this.#fullscreenChangeAbortController?.abort();
     this.#fullscreenChangeAbortController = null;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/xfa_layer_builder.js
 
@@ -7382,89 +7382,89 @@ class XfaLayerBuilder {
     annotationStorage = null,
     linkService,
     xfaHtml = null
-  ***REMOVED******REMOVED*** {
+  }) {
     this.pdfPage = pdfPage;
     this.annotationStorage = annotationStorage;
     this.linkService = linkService;
     this.xfaHtml = xfaHtml;
     this.div = null;
     this._cancelled = false;
-  ***REMOVED***
-  async render(viewport, intent = "display"***REMOVED*** {
-    if (intent === "print"***REMOVED*** {
+  }
+  async render(viewport, intent = "display") {
+    if (intent === "print") {
       const parameters = {
         viewport: viewport.clone({
           dontFlip: true
-        ***REMOVED******REMOVED***,
+        }),
         div: this.div,
         xfaHtml: this.xfaHtml,
         annotationStorage: this.annotationStorage,
         linkService: this.linkService,
         intent
-      ***REMOVED***;
-      this.div = document.createElement("div"***REMOVED***;
+      };
+      this.div = document.createElement("div");
       parameters.div = this.div;
-      return XfaLayer.render(parameters***REMOVED***;
-    ***REMOVED***
-    const xfaHtml = await this.pdfPage.getXfa(***REMOVED***;
-    if (this._cancelled || !xfaHtml***REMOVED*** {
-  ***REMOVED***
+      return XfaLayer.render(parameters);
+    }
+    const xfaHtml = await this.pdfPage.getXfa();
+    if (this._cancelled || !xfaHtml) {
+      return {
         textDivs: []
-      ***REMOVED***;
-    ***REMOVED***
+      };
+    }
     const parameters = {
       viewport: viewport.clone({
         dontFlip: true
-      ***REMOVED******REMOVED***,
+      }),
       div: this.div,
       xfaHtml,
       annotationStorage: this.annotationStorage,
       linkService: this.linkService,
       intent
-    ***REMOVED***;
-    if (this.div***REMOVED*** {
-      return XfaLayer.update(parameters***REMOVED***;
-    ***REMOVED***
-    this.div = document.createElement("div"***REMOVED***;
+    };
+    if (this.div) {
+      return XfaLayer.update(parameters);
+    }
+    this.div = document.createElement("div");
     parameters.div = this.div;
-    return XfaLayer.render(parameters***REMOVED***;
-  ***REMOVED***
-  cancel(***REMOVED*** {
+    return XfaLayer.render(parameters);
+  }
+  cancel() {
     this._cancelled = true;
-  ***REMOVED***
-  hide(***REMOVED*** {
-    if (!this.div***REMOVED*** {
+  }
+  hide() {
+    if (!this.div) {
       return;
-    ***REMOVED***
+    }
     this.div.hidden = true;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/print_utils.js
 
 
 
-function getXfaHtmlForPrinting(printContainer, pdfDocument***REMOVED*** {
+function getXfaHtmlForPrinting(printContainer, pdfDocument) {
   const xfaHtml = pdfDocument.allXfaHtml;
-  const linkService = new SimpleLinkService(***REMOVED***;
-  const scale = Math.round(PixelsPerInch.PDF_TO_CSS_UNITS * 100***REMOVED*** / 100;
-  for (const xfaPage of xfaHtml.children***REMOVED*** {
-    const page = document.createElement("div"***REMOVED***;
+  const linkService = new SimpleLinkService();
+  const scale = Math.round(PixelsPerInch.PDF_TO_CSS_UNITS * 100) / 100;
+  for (const xfaPage of xfaHtml.children) {
+    const page = document.createElement("div");
     page.className = "xfaPrintedPage";
-    printContainer.append(page***REMOVED***;
+    printContainer.append(page);
     const builder = new XfaLayerBuilder({
       pdfPage: null,
       annotationStorage: pdfDocument.annotationStorage,
       linkService,
       xfaHtml: xfaPage
-    ***REMOVED******REMOVED***;
+    });
     const viewport = getXfaPageViewport(xfaPage, {
       scale
-    ***REMOVED******REMOVED***;
-    builder.render(viewport, "print"***REMOVED***;
-    page.append(builder.div***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    });
+    builder.render(viewport, "print");
+    page.append(builder.div);
+  }
+}
 
 ;// ./web/pdf_print_service.js
 
@@ -7474,39 +7474,39 @@ let dialog = null;
 let overlayManager = null;
 let viewerApp = {
   initialized: false
-***REMOVED***;
-function renderPage(activeServiceOnEntry, pdfDocument, pageNumber, size, printResolution, optionalContentConfigPromise, printAnnotationStoragePromise***REMOVED*** {
+};
+function renderPage(activeServiceOnEntry, pdfDocument, pageNumber, size, printResolution, optionalContentConfigPromise, printAnnotationStoragePromise) {
   const scratchCanvas = activeService.scratchCanvas;
   const PRINT_UNITS = printResolution / PixelsPerInch.PDF;
-  scratchCanvas.width = Math.floor(size.width * PRINT_UNITS***REMOVED***;
-  scratchCanvas.height = Math.floor(size.height * PRINT_UNITS***REMOVED***;
-  const ctx = scratchCanvas.getContext("2d"***REMOVED***;
-  ctx.save(***REMOVED***;
-  ctx.fillStyle = "rgb(255, 255, 255***REMOVED***";
-  ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height***REMOVED***;
-  ctx.restore(***REMOVED***;
-  return Promise.all([pdfDocument.getPage(pageNumber***REMOVED***, printAnnotationStoragePromise]***REMOVED***.then(function ([pdfPage, printAnnotationStorage]***REMOVED*** {
+  scratchCanvas.width = Math.floor(size.width * PRINT_UNITS);
+  scratchCanvas.height = Math.floor(size.height * PRINT_UNITS);
+  const ctx = scratchCanvas.getContext("2d");
+  ctx.save();
+  ctx.fillStyle = "rgb(255, 255, 255)";
+  ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
+  ctx.restore();
+  return Promise.all([pdfDocument.getPage(pageNumber), printAnnotationStoragePromise]).then(function ([pdfPage, printAnnotationStorage]) {
     const renderContext = {
       canvasContext: ctx,
       transform: [PRINT_UNITS, 0, 0, PRINT_UNITS, 0, 0],
       viewport: pdfPage.getViewport({
         scale: 1,
         rotation: size.rotation
-      ***REMOVED******REMOVED***,
+      }),
       intent: "print",
       annotationMode: AnnotationMode.ENABLE_STORAGE,
       optionalContentConfigPromise,
       printAnnotationStorage
-    ***REMOVED***;
-    const renderTask = pdfPage.render(renderContext***REMOVED***;
+    };
+    const renderTask = pdfPage.render(renderContext);
     return renderTask.promise.catch(reason => {
-      if (!(reason instanceof RenderingCancelledException***REMOVED******REMOVED*** {
-        console.error(reason***REMOVED***;
-      ***REMOVED***
+      if (!(reason instanceof RenderingCancelledException)) {
+        console.error(reason);
+      }
       throw reason;
-    ***REMOVED******REMOVED***;
-  ***REMOVED******REMOVED***;
-***REMOVED***
+    });
+  });
+}
 class PDFPrintService {
   constructor({
     pdfDocument,
@@ -7514,227 +7514,227 @@ class PDFPrintService {
     printContainer,
     printResolution,
     printAnnotationStoragePromise = null
-  ***REMOVED******REMOVED*** {
+  }) {
     this.pdfDocument = pdfDocument;
     this.pagesOverview = pagesOverview;
     this.printContainer = printContainer;
     this._printResolution = printResolution || 150;
     this._optionalContentConfigPromise = pdfDocument.getOptionalContentConfig({
       intent: "print"
-    ***REMOVED******REMOVED***;
-    this._printAnnotationStoragePromise = printAnnotationStoragePromise || Promise.resolve(***REMOVED***;
+    });
+    this._printAnnotationStoragePromise = printAnnotationStoragePromise || Promise.resolve();
     this.currentPage = -1;
-    this.scratchCanvas = document.createElement("canvas"***REMOVED***;
-  ***REMOVED***
-  layout(***REMOVED*** {
-    this.throwIfInactive(***REMOVED***;
-    const body = document.querySelector("body"***REMOVED***;
-    body.setAttribute("data-pdfjsprinting", true***REMOVED***;
+    this.scratchCanvas = document.createElement("canvas");
+  }
+  layout() {
+    this.throwIfInactive();
+    const body = document.querySelector("body");
+    body.setAttribute("data-pdfjsprinting", true);
     const {
       width,
       height
-    ***REMOVED*** = this.pagesOverview[0];
-    const hasEqualPageSizes = this.pagesOverview.every(size => size.width === width && size.height === height***REMOVED***;
-    if (!hasEqualPageSizes***REMOVED*** {
-      console.warn("Not all pages have the same size. The printed result may be incorrect!"***REMOVED***;
-    ***REMOVED***
-    this.pageStyleSheet = document.createElement("style"***REMOVED***;
-    this.pageStyleSheet.textContent = `@page { size: ${width***REMOVED***pt ${height***REMOVED***pt;***REMOVED***`;
-    body.append(this.pageStyleSheet***REMOVED***;
-  ***REMOVED***
-  destroy(***REMOVED*** {
-    if (activeService !== this***REMOVED*** {
+    } = this.pagesOverview[0];
+    const hasEqualPageSizes = this.pagesOverview.every(size => size.width === width && size.height === height);
+    if (!hasEqualPageSizes) {
+      console.warn("Not all pages have the same size. The printed result may be incorrect!");
+    }
+    this.pageStyleSheet = document.createElement("style");
+    this.pageStyleSheet.textContent = `@page { size: ${width}pt ${height}pt;}`;
+    body.append(this.pageStyleSheet);
+  }
+  destroy() {
+    if (activeService !== this) {
       return;
-    ***REMOVED***
+    }
     this.printContainer.textContent = "";
-    const body = document.querySelector("body"***REMOVED***;
-    body.removeAttribute("data-pdfjsprinting"***REMOVED***;
-    if (this.pageStyleSheet***REMOVED*** {
-      this.pageStyleSheet.remove(***REMOVED***;
+    const body = document.querySelector("body");
+    body.removeAttribute("data-pdfjsprinting");
+    if (this.pageStyleSheet) {
+      this.pageStyleSheet.remove();
       this.pageStyleSheet = null;
-    ***REMOVED***
+    }
     this.scratchCanvas.width = this.scratchCanvas.height = 0;
     this.scratchCanvas = null;
     activeService = null;
-    ensureOverlay(***REMOVED***.then(function (***REMOVED*** {
-      if (overlayManager.active === dialog***REMOVED*** {
-        overlayManager.close(dialog***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  renderPages(***REMOVED*** {
-    if (this.pdfDocument.isPureXfa***REMOVED*** {
-      getXfaHtmlForPrinting(this.printContainer, this.pdfDocument***REMOVED***;
-      return Promise.resolve(***REMOVED***;
-    ***REMOVED***
+    ensureOverlay().then(function () {
+      if (overlayManager.active === dialog) {
+        overlayManager.close(dialog);
+      }
+    });
+  }
+  renderPages() {
+    if (this.pdfDocument.isPureXfa) {
+      getXfaHtmlForPrinting(this.printContainer, this.pdfDocument);
+      return Promise.resolve();
+    }
     const pageCount = this.pagesOverview.length;
-    const renderNextPage = (resolve, reject***REMOVED*** => {
-      this.throwIfInactive(***REMOVED***;
-      if (++this.currentPage >= pageCount***REMOVED*** {
-        renderProgress(pageCount, pageCount***REMOVED***;
-        resolve(***REMOVED***;
+    const renderNextPage = (resolve, reject) => {
+      this.throwIfInactive();
+      if (++this.currentPage >= pageCount) {
+        renderProgress(pageCount, pageCount);
+        resolve();
         return;
-      ***REMOVED***
+      }
       const index = this.currentPage;
-      renderProgress(index, pageCount***REMOVED***;
-      renderPage(this, this.pdfDocument, index + 1, this.pagesOverview[index], this._printResolution, this._optionalContentConfigPromise, this._printAnnotationStoragePromise***REMOVED***.then(this.useRenderedPage.bind(this***REMOVED******REMOVED***.then(function (***REMOVED*** {
-        renderNextPage(resolve, reject***REMOVED***;
-      ***REMOVED***, reject***REMOVED***;
-    ***REMOVED***;
-    return new Promise(renderNextPage***REMOVED***;
-  ***REMOVED***
-  useRenderedPage(***REMOVED*** {
-    this.throwIfInactive(***REMOVED***;
-    const img = document.createElement("img"***REMOVED***;
+      renderProgress(index, pageCount);
+      renderPage(this, this.pdfDocument, index + 1, this.pagesOverview[index], this._printResolution, this._optionalContentConfigPromise, this._printAnnotationStoragePromise).then(this.useRenderedPage.bind(this)).then(function () {
+        renderNextPage(resolve, reject);
+      }, reject);
+    };
+    return new Promise(renderNextPage);
+  }
+  useRenderedPage() {
+    this.throwIfInactive();
+    const img = document.createElement("img");
     this.scratchCanvas.toBlob(blob => {
-      img.src = URL.createObjectURL(blob***REMOVED***;
-    ***REMOVED******REMOVED***;
-    const wrapper = document.createElement("div"***REMOVED***;
+      img.src = URL.createObjectURL(blob);
+    });
+    const wrapper = document.createElement("div");
     wrapper.className = "printedPage";
-    wrapper.append(img***REMOVED***;
-    this.printContainer.append(wrapper***REMOVED***;
+    wrapper.append(img);
+    this.printContainer.append(wrapper);
     const {
       promise,
       resolve,
       reject
-    ***REMOVED*** = Promise.withResolvers(***REMOVED***;
+    } = Promise.withResolvers();
     img.onload = resolve;
     img.onerror = reject;
-    promise.catch((***REMOVED*** => { ***REMOVED******REMOVED***.then((***REMOVED*** => {
-      URL.revokeObjectURL(img.src***REMOVED***;
-    ***REMOVED******REMOVED***;
+    promise.catch(() => { }).then(() => {
+      URL.revokeObjectURL(img.src);
+    });
     return promise;
-  ***REMOVED***
-  performPrint(***REMOVED*** {
-    this.throwIfInactive(***REMOVED***;
+  }
+  performPrint() {
+    this.throwIfInactive();
     return new Promise(resolve => {
-      setTimeout((***REMOVED*** => {
-        if (!this.active***REMOVED*** {
-          resolve(***REMOVED***;
+      setTimeout(() => {
+        if (!this.active) {
+          resolve();
           return;
-        ***REMOVED***
-        print.call(window***REMOVED***;
-        setTimeout(resolve, 20***REMOVED***;
-      ***REMOVED***, 0***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get active(***REMOVED*** {
+        }
+        print.call(window);
+        setTimeout(resolve, 20);
+      }, 0);
+    });
+  }
+  get active() {
     return this === activeService;
-  ***REMOVED***
-  throwIfInactive(***REMOVED*** {
-    if (!this.active***REMOVED*** {
-      throw new Error("This print request was cancelled or completed."***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  }
+  throwIfInactive() {
+    if (!this.active) {
+      throw new Error("This print request was cancelled or completed.");
+    }
+  }
+}
 const print = window.print;
-window.print = function (***REMOVED*** {
-  if (activeService***REMOVED*** {
-    console.warn("Ignored window.print(***REMOVED*** because of a pending print job."***REMOVED***;
+window.print = function () {
+  if (activeService) {
+    console.warn("Ignored window.print() because of a pending print job.");
     return;
-  ***REMOVED***
-  ensureOverlay(***REMOVED***.then(function (***REMOVED*** {
-    if (activeService***REMOVED*** {
-      overlayManager.open(dialog***REMOVED***;
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
-***REMOVED***
-    dispatchEvent("beforeprint"***REMOVED***;
-  ***REMOVED*** finally {
-    if (!activeService***REMOVED*** {
-      console.error("Expected print service to be initialized."***REMOVED***;
-      ensureOverlay(***REMOVED***.then(function (***REMOVED*** {
-        if (overlayManager.active === dialog***REMOVED*** {
-          overlayManager.close(dialog***REMOVED***;
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
+  }
+  ensureOverlay().then(function () {
+    if (activeService) {
+      overlayManager.open(dialog);
+    }
+  });
+  try {
+    dispatchEvent("beforeprint");
+  } finally {
+    if (!activeService) {
+      console.error("Expected print service to be initialized.");
+      ensureOverlay().then(function () {
+        if (overlayManager.active === dialog) {
+          overlayManager.close(dialog);
+        }
+      });
       return;
-    ***REMOVED***
+    }
     const activeServiceOnEntry = activeService;
-    activeService.renderPages(***REMOVED***.then(function (***REMOVED*** {
-      return activeServiceOnEntry.performPrint(***REMOVED***;
-    ***REMOVED******REMOVED***.catch(function (***REMOVED*** { ***REMOVED******REMOVED***.then(function (***REMOVED*** {
-      if (activeServiceOnEntry.active***REMOVED*** {
-        abort(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***;
-function dispatchEvent(eventType***REMOVED*** {
+    activeService.renderPages().then(function () {
+      return activeServiceOnEntry.performPrint();
+    }).catch(function () { }).then(function () {
+      if (activeServiceOnEntry.active) {
+        abort();
+      }
+    });
+  }
+};
+function dispatchEvent(eventType) {
   const event = new CustomEvent(eventType, {
     bubbles: false,
     cancelable: false,
     detail: "custom"
-  ***REMOVED******REMOVED***;
-  window.dispatchEvent(event***REMOVED***;
-***REMOVED***
-function abort(***REMOVED*** {
-  if (activeService***REMOVED*** {
-    activeService.destroy(***REMOVED***;
-    dispatchEvent("afterprint"***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function renderProgress(index, total***REMOVED*** {
-  dialog ||= document.getElementById("printServiceDialog"***REMOVED***;
-  const progress = Math.round(100 * index / total***REMOVED***;
-  const progressBar = dialog.querySelector("progress"***REMOVED***;
-  const progressPerc = dialog.querySelector(".relative-progress"***REMOVED***;
+  });
+  window.dispatchEvent(event);
+}
+function abort() {
+  if (activeService) {
+    activeService.destroy();
+    dispatchEvent("afterprint");
+  }
+}
+function renderProgress(index, total) {
+  dialog ||= document.getElementById("printServiceDialog");
+  const progress = Math.round(100 * index / total);
+  const progressBar = dialog.querySelector("progress");
+  const progressPerc = dialog.querySelector(".relative-progress");
   progressBar.value = progress;
   progressPerc.setAttribute("data-l10n-args", JSON.stringify({
     progress
-  ***REMOVED******REMOVED******REMOVED***;
-***REMOVED***
-window.addEventListener("keydown", function (event***REMOVED*** {
-  if (event.keyCode === 80 && (event.ctrlKey || event.metaKey***REMOVED*** && !event.altKey && (!event.shiftKey || window.chrome || window.opera***REMOVED******REMOVED*** {
-    window.print(***REMOVED***;
-    event.preventDefault(***REMOVED***;
-    event.stopImmediatePropagation(***REMOVED***;
-  ***REMOVED***
-***REMOVED***, true***REMOVED***;
-if ("onbeforeprint" in window***REMOVED*** {
-  const stopPropagationIfNeeded = function (event***REMOVED*** {
-    if (event.detail !== "custom"***REMOVED*** {
-      event.stopImmediatePropagation(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***;
-  window.addEventListener("beforeprint", stopPropagationIfNeeded***REMOVED***;
-  window.addEventListener("afterprint", stopPropagationIfNeeded***REMOVED***;
-***REMOVED***
+  }));
+}
+window.addEventListener("keydown", function (event) {
+  if (event.keyCode === 80 && (event.ctrlKey || event.metaKey) && !event.altKey && (!event.shiftKey || window.chrome || window.opera)) {
+    window.print();
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  }
+}, true);
+if ("onbeforeprint" in window) {
+  const stopPropagationIfNeeded = function (event) {
+    if (event.detail !== "custom") {
+      event.stopImmediatePropagation();
+    }
+  };
+  window.addEventListener("beforeprint", stopPropagationIfNeeded);
+  window.addEventListener("afterprint", stopPropagationIfNeeded);
+}
 let overlayPromise;
-function ensureOverlay(***REMOVED*** {
-  if (!overlayPromise***REMOVED*** {
+function ensureOverlay() {
+  if (!overlayPromise) {
     overlayManager = viewerApp.overlayManager;
-    if (!overlayManager***REMOVED*** {
-      throw new Error("The overlay manager has not yet been initialized."***REMOVED***;
-    ***REMOVED***
-    dialog ||= document.getElementById("printServiceDialog"***REMOVED***;
-    overlayPromise = overlayManager.register(dialog, true***REMOVED***;
-    document.getElementById("printCancel"***REMOVED***.onclick = abort;
-    dialog.addEventListener("close", abort***REMOVED***;
-  ***REMOVED***
+    if (!overlayManager) {
+      throw new Error("The overlay manager has not yet been initialized.");
+    }
+    dialog ||= document.getElementById("printServiceDialog");
+    overlayPromise = overlayManager.register(dialog, true);
+    document.getElementById("printCancel").onclick = abort;
+    dialog.addEventListener("close", abort);
+  }
   return overlayPromise;
-***REMOVED***
+}
 class PDFPrintServiceFactory {
-  static initGlobals(app***REMOVED*** {
+  static initGlobals(app) {
     viewerApp = app;
-  ***REMOVED***
-  static get supportsPrinting(***REMOVED*** {
-    return shadow(this, "supportsPrinting", true***REMOVED***;
-  ***REMOVED***
-  static createPrintService(params***REMOVED*** {
-    if (activeService***REMOVED*** {
-      throw new Error("The print service is created and active."***REMOVED***;
-    ***REMOVED***
-    return activeService = new PDFPrintService(params***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  }
+  static get supportsPrinting() {
+    return shadow(this, "supportsPrinting", true);
+  }
+  static createPrintService(params) {
+    if (activeService) {
+      throw new Error("The print service is created and active.");
+    }
+    return activeService = new PDFPrintService(params);
+  }
+}
 
 ;// ./web/pdf_rendering_queue.js
 
 
 const CLEANUP_TIMEOUT = 30000;
 class PDFRenderingQueue {
-  constructor(***REMOVED*** {
+  constructor() {
     this.pdfViewer = null;
     this.pdfThumbnailViewer = null;
     this.onIdle = null;
@@ -7743,106 +7743,106 @@ class PDFRenderingQueue {
     this.printing = false;
     this.isThumbnailViewEnabled = false;
     Object.defineProperty(this, "hasViewer", {
-      value: (***REMOVED*** => !!this.pdfViewer
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  setViewer(pdfViewer***REMOVED*** {
+      value: () => !!this.pdfViewer
+    });
+  }
+  setViewer(pdfViewer) {
     this.pdfViewer = pdfViewer;
-  ***REMOVED***
-  setThumbnailViewer(pdfThumbnailViewer***REMOVED*** {
+  }
+  setThumbnailViewer(pdfThumbnailViewer) {
     this.pdfThumbnailViewer = pdfThumbnailViewer;
-  ***REMOVED***
-  isHighestPriority(view***REMOVED*** {
+  }
+  isHighestPriority(view) {
     return this.highestPriorityPage === view.renderingId;
-  ***REMOVED***
-  renderHighestPriority(currentlyVisiblePages***REMOVED*** {
-    if (this.idleTimeout***REMOVED*** {
-      clearTimeout(this.idleTimeout***REMOVED***;
+  }
+  renderHighestPriority(currentlyVisiblePages) {
+    if (this.idleTimeout) {
+      clearTimeout(this.idleTimeout);
       this.idleTimeout = null;
-    ***REMOVED***
-    if (this.pdfViewer.forceRendering(currentlyVisiblePages***REMOVED******REMOVED*** {
+    }
+    if (this.pdfViewer.forceRendering(currentlyVisiblePages)) {
       return;
-    ***REMOVED***
-    if (this.isThumbnailViewEnabled && this.pdfThumbnailViewer?.forceRendering(***REMOVED******REMOVED*** {
+    }
+    if (this.isThumbnailViewEnabled && this.pdfThumbnailViewer?.forceRendering()) {
       return;
-    ***REMOVED***
-    if (this.printing***REMOVED*** {
+    }
+    if (this.printing) {
       return;
-    ***REMOVED***
-    if (this.onIdle***REMOVED*** {
-      this.idleTimeout = setTimeout(this.onIdle.bind(this***REMOVED***, CLEANUP_TIMEOUT***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  getHighestPriority(visible, views, scrolledDown, preRenderExtra = false***REMOVED*** {
+    }
+    if (this.onIdle) {
+      this.idleTimeout = setTimeout(this.onIdle.bind(this), CLEANUP_TIMEOUT);
+    }
+  }
+  getHighestPriority(visible, views, scrolledDown, preRenderExtra = false) {
     const visibleViews = visible.views,
       numVisible = visibleViews.length;
-    if (numVisible === 0***REMOVED*** {
+    if (numVisible === 0) {
       return null;
-    ***REMOVED***
-    for (let i = 0; i < numVisible; i++***REMOVED*** {
+    }
+    for (let i = 0; i < numVisible; i++) {
       const view = visibleViews[i].view;
-      if (!this.isViewFinished(view***REMOVED******REMOVED*** {
+      if (!this.isViewFinished(view)) {
         return view;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     const firstId = visible.first.id,
       lastId = visible.last.id;
-    if (lastId - firstId + 1 > numVisible***REMOVED*** {
+    if (lastId - firstId + 1 > numVisible) {
       const visibleIds = visible.ids;
-      for (let i = 1, ii = lastId - firstId; i < ii; i++***REMOVED*** {
+      for (let i = 1, ii = lastId - firstId; i < ii; i++) {
         const holeId = scrolledDown ? firstId + i : lastId - i;
-        if (visibleIds.has(holeId***REMOVED******REMOVED*** {
+        if (visibleIds.has(holeId)) {
           continue;
-        ***REMOVED***
+        }
         const holeView = views[holeId - 1];
-        if (!this.isViewFinished(holeView***REMOVED******REMOVED*** {
+        if (!this.isViewFinished(holeView)) {
           return holeView;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
+        }
+      }
+    }
     let preRenderIndex = scrolledDown ? lastId : firstId - 2;
     let preRenderView = views[preRenderIndex];
-    if (preRenderView && !this.isViewFinished(preRenderView***REMOVED******REMOVED*** {
+    if (preRenderView && !this.isViewFinished(preRenderView)) {
       return preRenderView;
-    ***REMOVED***
-    if (preRenderExtra***REMOVED*** {
+    }
+    if (preRenderExtra) {
       preRenderIndex += scrolledDown ? 1 : -1;
       preRenderView = views[preRenderIndex];
-      if (preRenderView && !this.isViewFinished(preRenderView***REMOVED******REMOVED*** {
+      if (preRenderView && !this.isViewFinished(preRenderView)) {
         return preRenderView;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     return null;
-  ***REMOVED***
-  isViewFinished(view***REMOVED*** {
+  }
+  isViewFinished(view) {
     return view.renderingState === RenderingStates.FINISHED;
-  ***REMOVED***
-  renderView(view***REMOVED*** {
-    switch (view.renderingState***REMOVED*** {
+  }
+  renderView(view) {
+    switch (view.renderingState) {
       case RenderingStates.FINISHED:
         return false;
       case RenderingStates.PAUSED:
         this.highestPriorityPage = view.renderingId;
-        view.resume(***REMOVED***;
+        view.resume();
         break;
       case RenderingStates.RUNNING:
         this.highestPriorityPage = view.renderingId;
         break;
       case RenderingStates.INITIAL:
         this.highestPriorityPage = view.renderingId;
-        view.draw(***REMOVED***.finally((***REMOVED*** => {
-          this.renderHighestPriority(***REMOVED***;
-        ***REMOVED******REMOVED***.catch(reason => {
-          if (reason instanceof RenderingCancelledException***REMOVED*** {
+        view.draw().finally(() => {
+          this.renderHighestPriority();
+        }).catch(reason => {
+          if (reason instanceof RenderingCancelledException) {
             return;
-          ***REMOVED***
-          console.error("renderView:", reason***REMOVED***;
-        ***REMOVED******REMOVED***;
+          }
+          console.error("renderView:", reason);
+        });
         break;
-    ***REMOVED***
+    }
     return true;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/pdf_scripting_manager.js
 
@@ -7863,174 +7863,174 @@ class PDFScriptingManager {
     eventBus,
     externalServices = null,
     docProperties = null
-  ***REMOVED******REMOVED*** {
+  }) {
     this.#eventBus = eventBus;
     this.#externalServices = externalServices;
     this.#docProperties = docProperties;
-  ***REMOVED***
-  setViewer(pdfViewer***REMOVED*** {
+  }
+  setViewer(pdfViewer) {
     this.#pdfViewer = pdfViewer;
-  ***REMOVED***
-  async setDocument(pdfDocument***REMOVED*** {
-    if (this.#pdfDocument***REMOVED*** {
-      await this.#destroyScripting(***REMOVED***;
-    ***REMOVED***
+  }
+  async setDocument(pdfDocument) {
+    if (this.#pdfDocument) {
+      await this.#destroyScripting();
+    }
     this.#pdfDocument = pdfDocument;
-    if (!pdfDocument***REMOVED*** {
+    if (!pdfDocument) {
       return;
-    ***REMOVED***
-    const [objects, calculationOrder, docActions] = await Promise.all([pdfDocument.getFieldObjects(***REMOVED***, pdfDocument.getCalculationOrderIds(***REMOVED***, pdfDocument.getJSActions(***REMOVED***]***REMOVED***;
-    if (!objects && !docActions***REMOVED*** {
-      await this.#destroyScripting(***REMOVED***;
+    }
+    const [objects, calculationOrder, docActions] = await Promise.all([pdfDocument.getFieldObjects(), pdfDocument.getCalculationOrderIds(), pdfDocument.getJSActions()]);
+    if (!objects && !docActions) {
+      await this.#destroyScripting();
       return;
-    ***REMOVED***
-    if (pdfDocument !== this.#pdfDocument***REMOVED*** {
+    }
+    if (pdfDocument !== this.#pdfDocument) {
       return;
-    ***REMOVED***
-  ***REMOVED***
-      this.#scripting = this.#initScripting(***REMOVED***;
-    ***REMOVED*** catch (error***REMOVED*** {
-      console.error("setDocument:", error***REMOVED***;
-      await this.#destroyScripting(***REMOVED***;
+    }
+    try {
+      this.#scripting = this.#initScripting();
+    } catch (error) {
+      console.error("setDocument:", error);
+      await this.#destroyScripting();
       return;
-    ***REMOVED***
+    }
     const eventBus = this.#eventBus;
-    this.#eventAbortController = new AbortController(***REMOVED***;
+    this.#eventAbortController = new AbortController();
     const {
       signal
-    ***REMOVED*** = this.#eventAbortController;
+    } = this.#eventAbortController;
     eventBus._on("updatefromsandbox", event => {
-      if (event?.source === window***REMOVED*** {
-        this.#updateFromSandbox(event.detail***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***, {
+      if (event?.source === window) {
+        this.#updateFromSandbox(event.detail);
+      }
+    }, {
       signal
-    ***REMOVED******REMOVED***;
+    });
     eventBus._on("dispatcheventinsandbox", event => {
-      this.#scripting?.dispatchEventInSandbox(event.detail***REMOVED***;
-    ***REMOVED***, {
+      this.#scripting?.dispatchEventInSandbox(event.detail);
+    }, {
       signal
-    ***REMOVED******REMOVED***;
+    });
     eventBus._on("pagechanging", ({
       pageNumber,
       previous
-    ***REMOVED******REMOVED*** => {
-      if (pageNumber === previous***REMOVED*** {
+    }) => {
+      if (pageNumber === previous) {
         return;
-      ***REMOVED***
-      this.#dispatchPageClose(previous***REMOVED***;
-      this.#dispatchPageOpen(pageNumber***REMOVED***;
-    ***REMOVED***, {
+      }
+      this.#dispatchPageClose(previous);
+      this.#dispatchPageOpen(pageNumber);
+    }, {
       signal
-    ***REMOVED******REMOVED***;
+    });
     eventBus._on("pagerendered", ({
       pageNumber
-    ***REMOVED******REMOVED*** => {
-      if (!this._pageOpenPending.has(pageNumber***REMOVED******REMOVED*** {
+    }) => {
+      if (!this._pageOpenPending.has(pageNumber)) {
         return;
-      ***REMOVED***
-      if (pageNumber !== this.#pdfViewer.currentPageNumber***REMOVED*** {
+      }
+      if (pageNumber !== this.#pdfViewer.currentPageNumber) {
         return;
-      ***REMOVED***
-      this.#dispatchPageOpen(pageNumber***REMOVED***;
-    ***REMOVED***, {
+      }
+      this.#dispatchPageOpen(pageNumber);
+    }, {
       signal
-    ***REMOVED******REMOVED***;
-    eventBus._on("pagesdestroy", async (***REMOVED*** => {
-      await this.#dispatchPageClose(this.#pdfViewer.currentPageNumber***REMOVED***;
+    });
+    eventBus._on("pagesdestroy", async () => {
+      await this.#dispatchPageClose(this.#pdfViewer.currentPageNumber);
       await this.#scripting?.dispatchEventInSandbox({
         id: "doc",
         name: "WillClose"
-      ***REMOVED******REMOVED***;
-      this.#closeCapability?.resolve(***REMOVED***;
-    ***REMOVED***, {
+      });
+      this.#closeCapability?.resolve();
+    }, {
       signal
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-      const docProperties = await this.#docProperties(pdfDocument***REMOVED***;
-      if (pdfDocument !== this.#pdfDocument***REMOVED*** {
+    });
+    try {
+      const docProperties = await this.#docProperties(pdfDocument);
+      if (pdfDocument !== this.#pdfDocument) {
         return;
-      ***REMOVED***
+      }
       await this.#scripting.createSandbox({
         objects,
         calculationOrder,
         appInfo: {
           platform: navigator.platform,
           language: navigator.language
-        ***REMOVED***,
+        },
         docInfo: {
           ...docProperties,
           actions: docActions
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
+        }
+      });
       eventBus.dispatch("sandboxcreated", {
         source: this
-      ***REMOVED******REMOVED***;
-    ***REMOVED*** catch (error***REMOVED*** {
-      console.error("setDocument:", error***REMOVED***;
-      await this.#destroyScripting(***REMOVED***;
+      });
+    } catch (error) {
+      console.error("setDocument:", error);
+      await this.#destroyScripting();
       return;
-    ***REMOVED***
+    }
     await this.#scripting?.dispatchEventInSandbox({
       id: "doc",
       name: "Open"
-    ***REMOVED******REMOVED***;
-    await this.#dispatchPageOpen(this.#pdfViewer.currentPageNumber, true***REMOVED***;
-    Promise.resolve(***REMOVED***.then((***REMOVED*** => {
-      if (pdfDocument === this.#pdfDocument***REMOVED*** {
+    });
+    await this.#dispatchPageOpen(this.#pdfViewer.currentPageNumber, true);
+    Promise.resolve().then(() => {
+      if (pdfDocument === this.#pdfDocument) {
         this.#ready = true;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async dispatchWillSave(***REMOVED*** {
+      }
+    });
+  }
+  async dispatchWillSave() {
     return this.#scripting?.dispatchEventInSandbox({
       id: "doc",
       name: "WillSave"
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async dispatchDidSave(***REMOVED*** {
+    });
+  }
+  async dispatchDidSave() {
     return this.#scripting?.dispatchEventInSandbox({
       id: "doc",
       name: "DidSave"
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async dispatchWillPrint(***REMOVED*** {
-    if (!this.#scripting***REMOVED*** {
+    });
+  }
+  async dispatchWillPrint() {
+    if (!this.#scripting) {
       return;
-    ***REMOVED***
+    }
     await this.#willPrintCapability?.promise;
-    this.#willPrintCapability = Promise.withResolvers(***REMOVED***;
-  ***REMOVED***
+    this.#willPrintCapability = Promise.withResolvers();
+    try {
       await this.#scripting.dispatchEventInSandbox({
         id: "doc",
         name: "WillPrint"
-      ***REMOVED******REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      this.#willPrintCapability.resolve(***REMOVED***;
+      });
+    } catch (ex) {
+      this.#willPrintCapability.resolve();
       this.#willPrintCapability = null;
       throw ex;
-    ***REMOVED***
+    }
     await this.#willPrintCapability.promise;
-  ***REMOVED***
-  async dispatchDidPrint(***REMOVED*** {
+  }
+  async dispatchDidPrint() {
     return this.#scripting?.dispatchEventInSandbox({
       id: "doc",
       name: "DidPrint"
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get destroyPromise(***REMOVED*** {
+    });
+  }
+  get destroyPromise() {
     return this.#destroyCapability?.promise || null;
-  ***REMOVED***
-  get ready(***REMOVED*** {
+  }
+  get ready() {
     return this.#ready;
-  ***REMOVED***
-  get _pageOpenPending(***REMOVED*** {
-    return shadow(this, "_pageOpenPending", new Set(***REMOVED******REMOVED***;
-  ***REMOVED***
-  get _visitedPages(***REMOVED*** {
-    return shadow(this, "_visitedPages", new Map(***REMOVED******REMOVED***;
-  ***REMOVED***
-  async #updateFromSandbox(detail***REMOVED*** {
+  }
+  get _pageOpenPending() {
+    return shadow(this, "_pageOpenPending", new Set());
+  }
+  get _visitedPages() {
+    return shadow(this, "_visitedPages", new Map());
+  }
+  async #updateFromSandbox(detail) {
     const pdfViewer = this.#pdfViewer;
     const isInPresentationMode = pdfViewer.isInPresentationMode || pdfViewer.isChangingPresentationMode;
     const {
@@ -8038,20 +8038,20 @@ class PDFScriptingManager {
       siblings,
       command,
       value
-    ***REMOVED*** = detail;
-    if (!id***REMOVED*** {
-      switch (command***REMOVED*** {
+    } = detail;
+    if (!id) {
+      switch (command) {
         case "clear":
-          console.clear(***REMOVED***;
+          console.clear();
           break;
         case "error":
-          console.error(value***REMOVED***;
+          console.error(value);
           break;
         case "layout":
-          if (!isInPresentationMode***REMOVED*** {
-            const modes = apiPageLayoutToViewerModes(value***REMOVED***;
+          if (!isInPresentationMode) {
+            const modes = apiPageLayoutToViewerModes(value);
             pdfViewer.spreadMode = modes.spreadMode;
-          ***REMOVED***
+          }
           break;
         case "page-num":
           pdfViewer.currentPageNumber = value + 1;
@@ -8060,20 +8060,20 @@ class PDFScriptingManager {
           await pdfViewer.pagesPromise;
           this.#eventBus.dispatch("print", {
             source: this
-          ***REMOVED******REMOVED***;
+          });
           break;
         case "println":
-          console.log(value***REMOVED***;
+          console.log(value);
           break;
         case "zoom":
-          if (!isInPresentationMode***REMOVED*** {
+          if (!isInPresentationMode) {
             pdfViewer.currentScaleValue = value;
-          ***REMOVED***
+          }
           break;
         case "SaveAs":
           this.#eventBus.dispatch("download", {
             source: this
-          ***REMOVED******REMOVED***;
+          });
           break;
         case "FirstPage":
           pdfViewer.currentPageNumber = 1;
@@ -8082,132 +8082,132 @@ class PDFScriptingManager {
           pdfViewer.currentPageNumber = pdfViewer.pagesCount;
           break;
         case "NextPage":
-          pdfViewer.nextPage(***REMOVED***;
+          pdfViewer.nextPage();
           break;
         case "PrevPage":
-          pdfViewer.previousPage(***REMOVED***;
+          pdfViewer.previousPage();
           break;
         case "ZoomViewIn":
-          if (!isInPresentationMode***REMOVED*** {
-            pdfViewer.increaseScale(***REMOVED***;
-          ***REMOVED***
+          if (!isInPresentationMode) {
+            pdfViewer.increaseScale();
+          }
           break;
         case "ZoomViewOut":
-          if (!isInPresentationMode***REMOVED*** {
-            pdfViewer.decreaseScale(***REMOVED***;
-          ***REMOVED***
+          if (!isInPresentationMode) {
+            pdfViewer.decreaseScale();
+          }
           break;
         case "WillPrintFinished":
-          this.#willPrintCapability?.resolve(***REMOVED***;
+          this.#willPrintCapability?.resolve();
           this.#willPrintCapability = null;
           break;
-      ***REMOVED***
+      }
       return;
-    ***REMOVED***
-    if (isInPresentationMode && detail.focus***REMOVED*** {
+    }
+    if (isInPresentationMode && detail.focus) {
       return;
-    ***REMOVED***
+    }
     delete detail.id;
     delete detail.siblings;
     const ids = siblings ? [id, ...siblings] : [id];
-    for (const elementId of ids***REMOVED*** {
-      const element = document.querySelector(`[data-element-id="${elementId***REMOVED***"]`***REMOVED***;
-      if (element***REMOVED*** {
+    for (const elementId of ids) {
+      const element = document.querySelector(`[data-element-id="${elementId}"]`);
+      if (element) {
         element.dispatchEvent(new CustomEvent("updatefromsandbox", {
           detail
-        ***REMOVED******REMOVED******REMOVED***;
-      ***REMOVED*** else {
-        this.#pdfDocument?.annotationStorage.setValue(elementId, detail***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  async #dispatchPageOpen(pageNumber, initialize = false***REMOVED*** {
+        }));
+      } else {
+        this.#pdfDocument?.annotationStorage.setValue(elementId, detail);
+      }
+    }
+  }
+  async #dispatchPageOpen(pageNumber, initialize = false) {
     const pdfDocument = this.#pdfDocument,
       visitedPages = this._visitedPages;
-    if (initialize***REMOVED*** {
-      this.#closeCapability = Promise.withResolvers(***REMOVED***;
-    ***REMOVED***
-    if (!this.#closeCapability***REMOVED*** {
+    if (initialize) {
+      this.#closeCapability = Promise.withResolvers();
+    }
+    if (!this.#closeCapability) {
       return;
-    ***REMOVED***
-    const pageView = this.#pdfViewer.getPageView(pageNumber - 1***REMOVED***;
-    if (pageView?.renderingState !== RenderingStates.FINISHED***REMOVED*** {
-      this._pageOpenPending.add(pageNumber***REMOVED***;
+    }
+    const pageView = this.#pdfViewer.getPageView(pageNumber - 1);
+    if (pageView?.renderingState !== RenderingStates.FINISHED) {
+      this._pageOpenPending.add(pageNumber);
       return;
-    ***REMOVED***
-    this._pageOpenPending.delete(pageNumber***REMOVED***;
-    const actionsPromise = (async (***REMOVED*** => {
-      const actions = await (!visitedPages.has(pageNumber***REMOVED*** ? pageView.pdfPage?.getJSActions(***REMOVED*** : null***REMOVED***;
-      if (pdfDocument !== this.#pdfDocument***REMOVED*** {
+    }
+    this._pageOpenPending.delete(pageNumber);
+    const actionsPromise = (async () => {
+      const actions = await (!visitedPages.has(pageNumber) ? pageView.pdfPage?.getJSActions() : null);
+      if (pdfDocument !== this.#pdfDocument) {
         return;
-      ***REMOVED***
+      }
       await this.#scripting?.dispatchEventInSandbox({
         id: "page",
         name: "PageOpen",
         pageNumber,
         actions
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***(***REMOVED***;
-    visitedPages.set(pageNumber, actionsPromise***REMOVED***;
-  ***REMOVED***
-  async #dispatchPageClose(pageNumber***REMOVED*** {
+      });
+    })();
+    visitedPages.set(pageNumber, actionsPromise);
+  }
+  async #dispatchPageClose(pageNumber) {
     const pdfDocument = this.#pdfDocument,
       visitedPages = this._visitedPages;
-    if (!this.#closeCapability***REMOVED*** {
+    if (!this.#closeCapability) {
       return;
-    ***REMOVED***
-    if (this._pageOpenPending.has(pageNumber***REMOVED******REMOVED*** {
+    }
+    if (this._pageOpenPending.has(pageNumber)) {
       return;
-    ***REMOVED***
-    const actionsPromise = visitedPages.get(pageNumber***REMOVED***;
-    if (!actionsPromise***REMOVED*** {
+    }
+    const actionsPromise = visitedPages.get(pageNumber);
+    if (!actionsPromise) {
       return;
-    ***REMOVED***
-    visitedPages.set(pageNumber, null***REMOVED***;
+    }
+    visitedPages.set(pageNumber, null);
     await actionsPromise;
-    if (pdfDocument !== this.#pdfDocument***REMOVED*** {
+    if (pdfDocument !== this.#pdfDocument) {
       return;
-    ***REMOVED***
+    }
     await this.#scripting?.dispatchEventInSandbox({
       id: "page",
       name: "PageClose",
       pageNumber
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #initScripting(***REMOVED*** {
-    this.#destroyCapability = Promise.withResolvers(***REMOVED***;
-    if (this.#scripting***REMOVED*** {
-      throw new Error("#initScripting: Scripting already exists."***REMOVED***;
-    ***REMOVED***
-    return this.#externalServices.createScripting(***REMOVED***;
-  ***REMOVED***
-  async #destroyScripting(***REMOVED*** {
-    if (!this.#scripting***REMOVED*** {
+    });
+  }
+  #initScripting() {
+    this.#destroyCapability = Promise.withResolvers();
+    if (this.#scripting) {
+      throw new Error("#initScripting: Scripting already exists.");
+    }
+    return this.#externalServices.createScripting();
+  }
+  async #destroyScripting() {
+    if (!this.#scripting) {
       this.#pdfDocument = null;
-      this.#destroyCapability?.resolve(***REMOVED***;
+      this.#destroyCapability?.resolve();
       return;
-    ***REMOVED***
-    if (this.#closeCapability***REMOVED*** {
+    }
+    if (this.#closeCapability) {
       await Promise.race([this.#closeCapability.promise, new Promise(resolve => {
-        setTimeout(resolve, 1000***REMOVED***;
-      ***REMOVED******REMOVED***]***REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***;
+        setTimeout(resolve, 1000);
+      })]).catch(() => { });
       this.#closeCapability = null;
-    ***REMOVED***
+    }
     this.#pdfDocument = null;
-  ***REMOVED***
-      await this.#scripting.destroySandbox(***REMOVED***;
-    ***REMOVED*** catch { ***REMOVED***
-    this.#willPrintCapability?.reject(new Error("Scripting destroyed."***REMOVED******REMOVED***;
+    try {
+      await this.#scripting.destroySandbox();
+    } catch { }
+    this.#willPrintCapability?.reject(new Error("Scripting destroyed."));
     this.#willPrintCapability = null;
-    this.#eventAbortController?.abort(***REMOVED***;
+    this.#eventAbortController?.abort();
     this.#eventAbortController = null;
-    this._pageOpenPending.clear(***REMOVED***;
-    this._visitedPages.clear(***REMOVED***;
+    this._pageOpenPending.clear();
+    this._visitedPages.clear();
     this.#scripting = null;
     this.#ready = false;
-    this.#destroyCapability?.resolve(***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    this.#destroyCapability?.resolve();
+  }
+}
 
 ;// ./web/pdf_sidebar.js
 
@@ -8224,7 +8224,7 @@ class PDFSidebar {
     elements,
     eventBus,
     l10n
-  ***REMOVED******REMOVED*** {
+  }) {
     this.isOpen = false;
     this.active = SidebarView.THUMBS;
     this.isInitialViewSet = false;
@@ -8245,286 +8245,286 @@ class PDFSidebar {
     this.layersView = elements.layersView;
     this._currentOutlineItemButton = elements.currentOutlineItemButton;
     this.eventBus = eventBus;
-    this.#isRTL = l10n.getDirection(***REMOVED*** === "rtl";
-    this.#addEventListeners(***REMOVED***;
-  ***REMOVED***
-  reset(***REMOVED*** {
+    this.#isRTL = l10n.getDirection() === "rtl";
+    this.#addEventListeners();
+  }
+  reset() {
     this.isInitialViewSet = false;
     this.isInitialEventDispatched = false;
-    this.#hideUINotification(true***REMOVED***;
-    this.switchView(SidebarView.THUMBS***REMOVED***;
+    this.#hideUINotification(true);
+    this.switchView(SidebarView.THUMBS);
     this.outlineButton.disabled = false;
     this.attachmentsButton.disabled = false;
     this.layersButton.disabled = false;
     this._currentOutlineItemButton.disabled = true;
-  ***REMOVED***
-  get visibleView(***REMOVED*** {
+  }
+  get visibleView() {
     return this.isOpen ? this.active : SidebarView.NONE;
-  ***REMOVED***
-  setInitialView(view = SidebarView.NONE***REMOVED*** {
-    if (this.isInitialViewSet***REMOVED*** {
+  }
+  setInitialView(view = SidebarView.NONE) {
+    if (this.isInitialViewSet) {
       return;
-    ***REMOVED***
+    }
     this.isInitialViewSet = true;
-    if (view === SidebarView.NONE || view === SidebarView.UNKNOWN***REMOVED*** {
-      this.#dispatchEvent(***REMOVED***;
+    if (view === SidebarView.NONE || view === SidebarView.UNKNOWN) {
+      this.#dispatchEvent();
       return;
-    ***REMOVED***
-    this.switchView(view, true***REMOVED***;
-    if (!this.isInitialEventDispatched***REMOVED*** {
-      this.#dispatchEvent(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  switchView(view, forceOpen = false***REMOVED*** {
+    }
+    this.switchView(view, true);
+    if (!this.isInitialEventDispatched) {
+      this.#dispatchEvent();
+    }
+  }
+  switchView(view, forceOpen = false) {
     const isViewChanged = view !== this.active;
     let forceRendering = false;
-    switch (view***REMOVED*** {
+    switch (view) {
       case SidebarView.NONE:
-        if (this.isOpen***REMOVED*** {
-          this.close(***REMOVED***;
-        ***REMOVED***
+        if (this.isOpen) {
+          this.close();
+        }
         return;
       case SidebarView.THUMBS:
-        if (this.isOpen && isViewChanged***REMOVED*** {
+        if (this.isOpen && isViewChanged) {
           forceRendering = true;
-        ***REMOVED***
+        }
         break;
       case SidebarView.OUTLINE:
-        if (this.outlineButton.disabled***REMOVED*** {
+        if (this.outlineButton.disabled) {
           return;
-        ***REMOVED***
+        }
         break;
       case SidebarView.ATTACHMENTS:
-        if (this.attachmentsButton.disabled***REMOVED*** {
+        if (this.attachmentsButton.disabled) {
           return;
-        ***REMOVED***
+        }
         break;
       case SidebarView.LAYERS:
-        if (this.layersButton.disabled***REMOVED*** {
+        if (this.layersButton.disabled) {
           return;
-        ***REMOVED***
+        }
         break;
       default:
-        console.error(`PDFSidebar.switchView: "${view***REMOVED***" is not a valid view.`***REMOVED***;
+        console.error(`PDFSidebar.switchView: "${view}" is not a valid view.`);
         return;
-    ***REMOVED***
+    }
     this.active = view;
-    toggleCheckedBtn(this.thumbnailButton, view === SidebarView.THUMBS, this.thumbnailView***REMOVED***;
-    toggleCheckedBtn(this.outlineButton, view === SidebarView.OUTLINE, this.outlineView***REMOVED***;
-    toggleCheckedBtn(this.attachmentsButton, view === SidebarView.ATTACHMENTS, this.attachmentsView***REMOVED***;
-    toggleCheckedBtn(this.layersButton, view === SidebarView.LAYERS, this.layersView***REMOVED***;
-    if (forceOpen && !this.isOpen***REMOVED*** {
-      this.open(***REMOVED***;
+    toggleCheckedBtn(this.thumbnailButton, view === SidebarView.THUMBS, this.thumbnailView);
+    toggleCheckedBtn(this.outlineButton, view === SidebarView.OUTLINE, this.outlineView);
+    toggleCheckedBtn(this.attachmentsButton, view === SidebarView.ATTACHMENTS, this.attachmentsView);
+    toggleCheckedBtn(this.layersButton, view === SidebarView.LAYERS, this.layersView);
+    if (forceOpen && !this.isOpen) {
+      this.open();
       return;
-    ***REMOVED***
-    if (forceRendering***REMOVED*** {
-      this.onUpdateThumbnails(***REMOVED***;
-      this.onToggled(***REMOVED***;
-    ***REMOVED***
-    if (isViewChanged***REMOVED*** {
-      this.#dispatchEvent(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  open(***REMOVED*** {
-    if (this.isOpen***REMOVED*** {
+    }
+    if (forceRendering) {
+      this.onUpdateThumbnails();
+      this.onToggled();
+    }
+    if (isViewChanged) {
+      this.#dispatchEvent();
+    }
+  }
+  open() {
+    if (this.isOpen) {
       return;
-    ***REMOVED***
+    }
     this.isOpen = true;
-    toggleExpandedBtn(this.toggleButton, true***REMOVED***;
-    this.outerContainer.classList.add("sidebarMoving", "sidebarOpen"***REMOVED***;
-    if (this.active === SidebarView.THUMBS***REMOVED*** {
-      this.onUpdateThumbnails(***REMOVED***;
-    ***REMOVED***
-    this.onToggled(***REMOVED***;
-    this.#dispatchEvent(***REMOVED***;
-    this.#hideUINotification(***REMOVED***;
-  ***REMOVED***
-  close(evt = null***REMOVED*** {
-    if (!this.isOpen***REMOVED*** {
+    toggleExpandedBtn(this.toggleButton, true);
+    this.outerContainer.classList.add("sidebarMoving", "sidebarOpen");
+    if (this.active === SidebarView.THUMBS) {
+      this.onUpdateThumbnails();
+    }
+    this.onToggled();
+    this.#dispatchEvent();
+    this.#hideUINotification();
+  }
+  close(evt = null) {
+    if (!this.isOpen) {
       return;
-    ***REMOVED***
+    }
     this.isOpen = false;
-    toggleExpandedBtn(this.toggleButton, false***REMOVED***;
-    this.outerContainer.classList.add("sidebarMoving"***REMOVED***;
-    this.outerContainer.classList.remove("sidebarOpen"***REMOVED***;
-    this.onToggled(***REMOVED***;
-    this.#dispatchEvent(***REMOVED***;
-    if (evt?.detail > 0***REMOVED*** {
-      this.toggleButton.blur(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  toggle(evt = null***REMOVED*** {
-    if (this.isOpen***REMOVED*** {
-      this.close(evt***REMOVED***;
-    ***REMOVED*** else {
-      this.open(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #dispatchEvent(***REMOVED*** {
-    if (this.isInitialViewSet***REMOVED*** {
+    toggleExpandedBtn(this.toggleButton, false);
+    this.outerContainer.classList.add("sidebarMoving");
+    this.outerContainer.classList.remove("sidebarOpen");
+    this.onToggled();
+    this.#dispatchEvent();
+    if (evt?.detail > 0) {
+      this.toggleButton.blur();
+    }
+  }
+  toggle(evt = null) {
+    if (this.isOpen) {
+      this.close(evt);
+    } else {
+      this.open();
+    }
+  }
+  #dispatchEvent() {
+    if (this.isInitialViewSet) {
       this.isInitialEventDispatched ||= true;
-    ***REMOVED***
+    }
     this.eventBus.dispatch("sidebarviewchanged", {
       source: this,
       view: this.visibleView
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #showUINotification(***REMOVED*** {
-    this.toggleButton.setAttribute("data-l10n-id", "pdfjs-toggle-sidebar-notification-button"***REMOVED***;
-    if (!this.isOpen***REMOVED*** {
-      this.toggleButton.classList.add(UI_NOTIFICATION_CLASS***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #hideUINotification(reset = false***REMOVED*** {
-    if (this.isOpen || reset***REMOVED*** {
-      this.toggleButton.classList.remove(UI_NOTIFICATION_CLASS***REMOVED***;
-    ***REMOVED***
-    if (reset***REMOVED*** {
-      this.toggleButton.setAttribute("data-l10n-id", "pdfjs-toggle-sidebar-button"***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #addEventListeners(***REMOVED*** {
+    });
+  }
+  #showUINotification() {
+    this.toggleButton.setAttribute("data-l10n-id", "pdfjs-toggle-sidebar-notification-button");
+    if (!this.isOpen) {
+      this.toggleButton.classList.add(UI_NOTIFICATION_CLASS);
+    }
+  }
+  #hideUINotification(reset = false) {
+    if (this.isOpen || reset) {
+      this.toggleButton.classList.remove(UI_NOTIFICATION_CLASS);
+    }
+    if (reset) {
+      this.toggleButton.setAttribute("data-l10n-id", "pdfjs-toggle-sidebar-button");
+    }
+  }
+  #addEventListeners() {
     const {
       eventBus,
       outerContainer
-    ***REMOVED*** = this;
+    } = this;
     this.sidebarContainer.addEventListener("transitionend", evt => {
-      if (evt.target === this.sidebarContainer***REMOVED*** {
-        outerContainer.classList.remove("sidebarMoving"***REMOVED***;
+      if (evt.target === this.sidebarContainer) {
+        outerContainer.classList.remove("sidebarMoving");
         eventBus.dispatch("resize", {
           source: this
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
+        });
+      }
+    });
     this.toggleButton.addEventListener("click", evt => {
-      this.toggle(evt***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.thumbnailButton.addEventListener("click", (***REMOVED*** => {
-      this.switchView(SidebarView.THUMBS***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.outlineButton.addEventListener("click", (***REMOVED*** => {
-      this.switchView(SidebarView.OUTLINE***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.outlineButton.addEventListener("dblclick", (***REMOVED*** => {
+      this.toggle(evt);
+    });
+    this.thumbnailButton.addEventListener("click", () => {
+      this.switchView(SidebarView.THUMBS);
+    });
+    this.outlineButton.addEventListener("click", () => {
+      this.switchView(SidebarView.OUTLINE);
+    });
+    this.outlineButton.addEventListener("dblclick", () => {
       eventBus.dispatch("toggleoutlinetree", {
         source: this
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.attachmentsButton.addEventListener("click", (***REMOVED*** => {
-      this.switchView(SidebarView.ATTACHMENTS***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.layersButton.addEventListener("click", (***REMOVED*** => {
-      this.switchView(SidebarView.LAYERS***REMOVED***;
-    ***REMOVED******REMOVED***;
-    this.layersButton.addEventListener("dblclick", (***REMOVED*** => {
+      });
+    });
+    this.attachmentsButton.addEventListener("click", () => {
+      this.switchView(SidebarView.ATTACHMENTS);
+    });
+    this.layersButton.addEventListener("click", () => {
+      this.switchView(SidebarView.LAYERS);
+    });
+    this.layersButton.addEventListener("dblclick", () => {
       eventBus.dispatch("resetlayers", {
         source: this
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    this._currentOutlineItemButton.addEventListener("click", (***REMOVED*** => {
+      });
+    });
+    this._currentOutlineItemButton.addEventListener("click", () => {
       eventBus.dispatch("currentoutlineitem", {
         source: this
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    const onTreeLoaded = (count, button, view***REMOVED*** => {
+      });
+    });
+    const onTreeLoaded = (count, button, view) => {
       button.disabled = !count;
-      if (count***REMOVED*** {
-        this.#showUINotification(***REMOVED***;
-      ***REMOVED*** else if (this.active === view***REMOVED*** {
-        this.switchView(SidebarView.THUMBS***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***;
+      if (count) {
+        this.#showUINotification();
+      } else if (this.active === view) {
+        this.switchView(SidebarView.THUMBS);
+      }
+    };
     eventBus._on("outlineloaded", evt => {
-      onTreeLoaded(evt.outlineCount, this.outlineButton, SidebarView.OUTLINE***REMOVED***;
+      onTreeLoaded(evt.outlineCount, this.outlineButton, SidebarView.OUTLINE);
       evt.currentOutlineItemPromise.then(enabled => {
-        if (!this.isInitialViewSet***REMOVED*** {
+        if (!this.isInitialViewSet) {
           return;
-        ***REMOVED***
+        }
         this._currentOutlineItemButton.disabled = !enabled;
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
+      });
+    });
     eventBus._on("attachmentsloaded", evt => {
-      onTreeLoaded(evt.attachmentsCount, this.attachmentsButton, SidebarView.ATTACHMENTS***REMOVED***;
-    ***REMOVED******REMOVED***;
+      onTreeLoaded(evt.attachmentsCount, this.attachmentsButton, SidebarView.ATTACHMENTS);
+    });
     eventBus._on("layersloaded", evt => {
-      onTreeLoaded(evt.layersCount, this.layersButton, SidebarView.LAYERS***REMOVED***;
-    ***REMOVED******REMOVED***;
+      onTreeLoaded(evt.layersCount, this.layersButton, SidebarView.LAYERS);
+    });
     eventBus._on("presentationmodechanged", evt => {
-      if (evt.state === PresentationModeState.NORMAL && this.visibleView === SidebarView.THUMBS***REMOVED*** {
-        this.onUpdateThumbnails(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
+      if (evt.state === PresentationModeState.NORMAL && this.visibleView === SidebarView.THUMBS) {
+        this.onUpdateThumbnails();
+      }
+    });
     this.resizer.addEventListener("mousedown", evt => {
-      if (evt.button !== 0***REMOVED*** {
+      if (evt.button !== 0) {
         return;
-      ***REMOVED***
-      outerContainer.classList.add(SIDEBAR_RESIZING_CLASS***REMOVED***;
-      this.#mouseAC = new AbortController(***REMOVED***;
+      }
+      outerContainer.classList.add(SIDEBAR_RESIZING_CLASS);
+      this.#mouseAC = new AbortController();
       const opts = {
         signal: this.#mouseAC.signal
-      ***REMOVED***;
-      window.addEventListener("mousemove", this.#mouseMove.bind(this***REMOVED***, opts***REMOVED***;
-      window.addEventListener("mouseup", this.#mouseUp.bind(this***REMOVED***, opts***REMOVED***;
-      window.addEventListener("blur", this.#mouseUp.bind(this***REMOVED***, opts***REMOVED***;
-    ***REMOVED******REMOVED***;
+      };
+      window.addEventListener("mousemove", this.#mouseMove.bind(this), opts);
+      window.addEventListener("mouseup", this.#mouseUp.bind(this), opts);
+      window.addEventListener("blur", this.#mouseUp.bind(this), opts);
+    });
     eventBus._on("resize", evt => {
-      if (evt.source !== window***REMOVED*** {
+      if (evt.source !== window) {
         return;
-      ***REMOVED***
+      }
       this.#outerContainerWidth = null;
-      if (!this.#width***REMOVED*** {
+      if (!this.#width) {
         return;
-      ***REMOVED***
-      if (!this.isOpen***REMOVED*** {
-        this.#updateWidth(this.#width***REMOVED***;
+      }
+      if (!this.isOpen) {
+        this.#updateWidth(this.#width);
         return;
-      ***REMOVED***
-      outerContainer.classList.add(SIDEBAR_RESIZING_CLASS***REMOVED***;
-      const updated = this.#updateWidth(this.#width***REMOVED***;
-      Promise.resolve(***REMOVED***.then((***REMOVED*** => {
-        outerContainer.classList.remove(SIDEBAR_RESIZING_CLASS***REMOVED***;
-        if (updated***REMOVED*** {
+      }
+      outerContainer.classList.add(SIDEBAR_RESIZING_CLASS);
+      const updated = this.#updateWidth(this.#width);
+      Promise.resolve().then(() => {
+        outerContainer.classList.remove(SIDEBAR_RESIZING_CLASS);
+        if (updated) {
           eventBus.dispatch("resize", {
             source: this
-          ***REMOVED******REMOVED***;
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get outerContainerWidth(***REMOVED*** {
+          });
+        }
+      });
+    });
+  }
+  get outerContainerWidth() {
     return this.#outerContainerWidth ||= this.outerContainer.clientWidth;
-  ***REMOVED***
-  #updateWidth(width = 0***REMOVED*** {
-    const maxWidth = Math.floor(this.outerContainerWidth / 2***REMOVED***;
-    if (width > maxWidth***REMOVED*** {
+  }
+  #updateWidth(width = 0) {
+    const maxWidth = Math.floor(this.outerContainerWidth / 2);
+    if (width > maxWidth) {
       width = maxWidth;
-    ***REMOVED***
-    if (width < SIDEBAR_MIN_WIDTH***REMOVED*** {
+    }
+    if (width < SIDEBAR_MIN_WIDTH) {
       width = SIDEBAR_MIN_WIDTH;
-    ***REMOVED***
-    if (width === this.#width***REMOVED*** {
+    }
+    if (width === this.#width) {
       return false;
-    ***REMOVED***
+    }
     this.#width = width;
-    docStyle.setProperty(SIDEBAR_WIDTH_VAR, `${width***REMOVED***px`***REMOVED***;
+    docStyle.setProperty(SIDEBAR_WIDTH_VAR, `${width}px`);
     return true;
-  ***REMOVED***
-  #mouseMove(evt***REMOVED*** {
+  }
+  #mouseMove(evt) {
     let width = evt.clientX;
-    if (this.#isRTL***REMOVED*** {
+    if (this.#isRTL) {
       width = this.outerContainerWidth - width;
-    ***REMOVED***
-    this.#updateWidth(width***REMOVED***;
-  ***REMOVED***
-  #mouseUp(evt***REMOVED*** {
-    this.outerContainer.classList.remove(SIDEBAR_RESIZING_CLASS***REMOVED***;
+    }
+    this.#updateWidth(width);
+  }
+  #mouseUp(evt) {
+    this.outerContainer.classList.remove(SIDEBAR_RESIZING_CLASS);
     this.eventBus.dispatch("resize", {
       source: this
-    ***REMOVED******REMOVED***;
-    this.#mouseAC?.abort(***REMOVED***;
+    });
+    this.#mouseAC?.abort();
     this.#mouseAC = null;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/pdf_thumbnail_view.js
 
@@ -8534,28 +8534,28 @@ const MAX_NUM_SCALING_STEPS = 3;
 const THUMBNAIL_WIDTH = 98;
 class TempImageFactory {
   static #tempCanvas = null;
-  static getCanvas(width, height***REMOVED*** {
-    const tempCanvas = this.#tempCanvas ||= document.createElement("canvas"***REMOVED***;
+  static getCanvas(width, height) {
+    const tempCanvas = this.#tempCanvas ||= document.createElement("canvas");
     tempCanvas.width = width;
     tempCanvas.height = height;
     const ctx = tempCanvas.getContext("2d", {
       alpha: false
-    ***REMOVED******REMOVED***;
-    ctx.save(***REMOVED***;
-    ctx.fillStyle = "rgb(255, 255, 255***REMOVED***";
-    ctx.fillRect(0, 0, width, height***REMOVED***;
-    ctx.restore(***REMOVED***;
-    return [tempCanvas, tempCanvas.getContext("2d"***REMOVED***];
-  ***REMOVED***
-  static destroyCanvas(***REMOVED*** {
+    });
+    ctx.save();
+    ctx.fillStyle = "rgb(255, 255, 255)";
+    ctx.fillRect(0, 0, width, height);
+    ctx.restore();
+    return [tempCanvas, tempCanvas.getContext("2d")];
+  }
+  static destroyCanvas() {
     const tempCanvas = this.#tempCanvas;
-    if (tempCanvas***REMOVED*** {
+    if (tempCanvas) {
       tempCanvas.width = 0;
       tempCanvas.height = 0;
-    ***REMOVED***
+    }
     this.#tempCanvas = null;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 class PDFThumbnailView {
   constructor({
     container,
@@ -8567,7 +8567,7 @@ class PDFThumbnailView {
     renderingQueue,
     pageColors,
     enableHWA
-  ***REMOVED******REMOVED*** {
+  }) {
     this.id = id;
     this.renderingId = "thumbnail" + id;
     this.pageLabel = null;
@@ -8584,241 +8584,241 @@ class PDFThumbnailView {
     this.renderTask = null;
     this.renderingState = RenderingStates.INITIAL;
     this.resume = null;
-    const anchor = document.createElement("a"***REMOVED***;
-    anchor.href = linkService.getAnchorUrl("#page=" + id***REMOVED***;
-    anchor.setAttribute("data-l10n-id", "pdfjs-thumb-page-title"***REMOVED***;
-    anchor.setAttribute("data-l10n-args", this.#pageL10nArgs***REMOVED***;
-    anchor.onclick = function (***REMOVED*** {
-      linkService.goToPage(id***REMOVED***;
+    const anchor = document.createElement("a");
+    anchor.href = linkService.getAnchorUrl("#page=" + id);
+    anchor.setAttribute("data-l10n-id", "pdfjs-thumb-page-title");
+    anchor.setAttribute("data-l10n-args", this.#pageL10nArgs);
+    anchor.onclick = function () {
+      linkService.goToPage(id);
       return false;
-    ***REMOVED***;
+    };
     this.anchor = anchor;
-    const div = document.createElement("div"***REMOVED***;
+    const div = document.createElement("div");
     div.className = "thumbnail";
-    div.setAttribute("data-page-number", this.id***REMOVED***;
+    div.setAttribute("data-page-number", this.id);
     this.div = div;
-    this.#updateDims(***REMOVED***;
-    const img = document.createElement("div"***REMOVED***;
+    this.#updateDims();
+    const img = document.createElement("div");
     img.className = "thumbnailImage";
     this._placeholderImg = img;
-    div.append(img***REMOVED***;
-    anchor.append(div***REMOVED***;
-    container.append(anchor***REMOVED***;
-  ***REMOVED***
-  #updateDims(***REMOVED*** {
+    div.append(img);
+    anchor.append(div);
+    container.append(anchor);
+  }
+  #updateDims() {
     const {
       width,
       height
-    ***REMOVED*** = this.viewport;
+    } = this.viewport;
     const ratio = width / height;
     this.canvasWidth = THUMBNAIL_WIDTH;
     this.canvasHeight = this.canvasWidth / ratio | 0;
     this.scale = this.canvasWidth / width;
     const {
       style
-    ***REMOVED*** = this.div;
-    style.setProperty("--thumbnail-width", `${this.canvasWidth***REMOVED***px`***REMOVED***;
-    style.setProperty("--thumbnail-height", `${this.canvasHeight***REMOVED***px`***REMOVED***;
-  ***REMOVED***
-  setPdfPage(pdfPage***REMOVED*** {
+    } = this.div;
+    style.setProperty("--thumbnail-width", `${this.canvasWidth}px`);
+    style.setProperty("--thumbnail-height", `${this.canvasHeight}px`);
+  }
+  setPdfPage(pdfPage) {
     this.pdfPage = pdfPage;
     this.pdfPageRotate = pdfPage.rotate;
-    const totalRotation = (this.rotation + this.pdfPageRotate***REMOVED*** % 360;
+    const totalRotation = (this.rotation + this.pdfPageRotate) % 360;
     this.viewport = pdfPage.getViewport({
       scale: 1,
       rotation: totalRotation
-    ***REMOVED******REMOVED***;
-    this.reset(***REMOVED***;
-  ***REMOVED***
-  reset(***REMOVED*** {
-    this.cancelRendering(***REMOVED***;
+    });
+    this.reset();
+  }
+  reset() {
+    this.cancelRendering();
     this.renderingState = RenderingStates.INITIAL;
-    this.div.removeAttribute("data-loaded"***REMOVED***;
-    this.image?.replaceWith(this._placeholderImg***REMOVED***;
-    this.#updateDims(***REMOVED***;
-    if (this.image***REMOVED*** {
-      this.image.removeAttribute("src"***REMOVED***;
+    this.div.removeAttribute("data-loaded");
+    this.image?.replaceWith(this._placeholderImg);
+    this.#updateDims();
+    if (this.image) {
+      this.image.removeAttribute("src");
       delete this.image;
-    ***REMOVED***
-  ***REMOVED***
+    }
+  }
   update({
     rotation = null
-  ***REMOVED******REMOVED*** {
-    if (typeof rotation === "number"***REMOVED*** {
+  }) {
+    if (typeof rotation === "number") {
       this.rotation = rotation;
-    ***REMOVED***
-    const totalRotation = (this.rotation + this.pdfPageRotate***REMOVED*** % 360;
+    }
+    const totalRotation = (this.rotation + this.pdfPageRotate) % 360;
     this.viewport = this.viewport.clone({
       scale: 1,
       rotation: totalRotation
-    ***REMOVED******REMOVED***;
-    this.reset(***REMOVED***;
-  ***REMOVED***
-  cancelRendering(***REMOVED*** {
-    if (this.renderTask***REMOVED*** {
-      this.renderTask.cancel(***REMOVED***;
+    });
+    this.reset();
+  }
+  cancelRendering() {
+    if (this.renderTask) {
+      this.renderTask.cancel();
       this.renderTask = null;
-    ***REMOVED***
+    }
     this.resume = null;
-  ***REMOVED***
-  #getPageDrawContext(upscaleFactor = 1, enableHWA = this.enableHWA***REMOVED*** {
-    const canvas = document.createElement("canvas"***REMOVED***;
+  }
+  #getPageDrawContext(upscaleFactor = 1, enableHWA = this.enableHWA) {
+    const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d", {
       alpha: false,
       willReadFrequently: !enableHWA
-    ***REMOVED******REMOVED***;
-    const outputScale = new OutputScale(***REMOVED***;
+    });
+    const outputScale = new OutputScale();
     canvas.width = upscaleFactor * this.canvasWidth * outputScale.sx | 0;
     canvas.height = upscaleFactor * this.canvasHeight * outputScale.sy | 0;
     const transform = outputScale.scaled ? [outputScale.sx, 0, 0, outputScale.sy, 0, 0] : null;
-***REMOVED***
+    return {
       ctx,
       canvas,
       transform
-    ***REMOVED***;
-  ***REMOVED***
-  #convertCanvasToImage(canvas***REMOVED*** {
-    if (this.renderingState !== RenderingStates.FINISHED***REMOVED*** {
-      throw new Error("#convertCanvasToImage: Rendering has not finished."***REMOVED***;
-    ***REMOVED***
-    const reducedCanvas = this.#reduceImage(canvas***REMOVED***;
-    const image = document.createElement("img"***REMOVED***;
+    };
+  }
+  #convertCanvasToImage(canvas) {
+    if (this.renderingState !== RenderingStates.FINISHED) {
+      throw new Error("#convertCanvasToImage: Rendering has not finished.");
+    }
+    const reducedCanvas = this.#reduceImage(canvas);
+    const image = document.createElement("img");
     image.className = "thumbnailImage";
-    image.setAttribute("data-l10n-id", "pdfjs-thumb-page-canvas"***REMOVED***;
-    image.setAttribute("data-l10n-args", this.#pageL10nArgs***REMOVED***;
-    image.src = reducedCanvas.toDataURL(***REMOVED***;
+    image.setAttribute("data-l10n-id", "pdfjs-thumb-page-canvas");
+    image.setAttribute("data-l10n-args", this.#pageL10nArgs);
+    image.src = reducedCanvas.toDataURL();
     this.image = image;
-    this.div.setAttribute("data-loaded", true***REMOVED***;
-    this._placeholderImg.replaceWith(image***REMOVED***;
+    this.div.setAttribute("data-loaded", true);
+    this._placeholderImg.replaceWith(image);
     reducedCanvas.width = 0;
     reducedCanvas.height = 0;
-  ***REMOVED***
-  async #finishRenderTask(renderTask, canvas, error = null***REMOVED*** {
-    if (renderTask === this.renderTask***REMOVED*** {
+  }
+  async #finishRenderTask(renderTask, canvas, error = null) {
+    if (renderTask === this.renderTask) {
       this.renderTask = null;
-    ***REMOVED***
-    if (error instanceof RenderingCancelledException***REMOVED*** {
+    }
+    if (error instanceof RenderingCancelledException) {
       return;
-    ***REMOVED***
+    }
     this.renderingState = RenderingStates.FINISHED;
-    this.#convertCanvasToImage(canvas***REMOVED***;
-    if (error***REMOVED*** {
-  ***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async draw(***REMOVED*** {
-    if (this.renderingState !== RenderingStates.INITIAL***REMOVED*** {
-      console.error("Must be in new state before drawing"***REMOVED***;
+    this.#convertCanvasToImage(canvas);
+    if (error) {
+      throw error;
+    }
+  }
+  async draw() {
+    if (this.renderingState !== RenderingStates.INITIAL) {
+      console.error("Must be in new state before drawing");
       return undefined;
-    ***REMOVED***
+    }
     const {
       pdfPage
-    ***REMOVED*** = this;
-    if (!pdfPage***REMOVED*** {
+    } = this;
+    if (!pdfPage) {
       this.renderingState = RenderingStates.FINISHED;
-      throw new Error("pdfPage is not loaded"***REMOVED***;
-    ***REMOVED***
+      throw new Error("pdfPage is not loaded");
+    }
     this.renderingState = RenderingStates.RUNNING;
     const {
       ctx,
       canvas,
       transform
-    ***REMOVED*** = this.#getPageDrawContext(DRAW_UPSCALE_FACTOR***REMOVED***;
+    } = this.#getPageDrawContext(DRAW_UPSCALE_FACTOR);
     const drawViewport = this.viewport.clone({
       scale: DRAW_UPSCALE_FACTOR * this.scale
-    ***REMOVED******REMOVED***;
+    });
     const renderContinueCallback = cont => {
-      if (!this.renderingQueue.isHighestPriority(this***REMOVED******REMOVED*** {
+      if (!this.renderingQueue.isHighestPriority(this)) {
         this.renderingState = RenderingStates.PAUSED;
-        this.resume = (***REMOVED*** => {
+        this.resume = () => {
           this.renderingState = RenderingStates.RUNNING;
-          cont(***REMOVED***;
-        ***REMOVED***;
+          cont();
+        };
         return;
-      ***REMOVED***
-      cont(***REMOVED***;
-    ***REMOVED***;
+      }
+      cont();
+    };
     const renderContext = {
       canvasContext: ctx,
       transform,
       viewport: drawViewport,
       optionalContentConfigPromise: this._optionalContentConfigPromise,
       pageColors: this.pageColors
-    ***REMOVED***;
-    const renderTask = this.renderTask = pdfPage.render(renderContext***REMOVED***;
+    };
+    const renderTask = this.renderTask = pdfPage.render(renderContext);
     renderTask.onContinue = renderContinueCallback;
-    const resultPromise = renderTask.promise.then((***REMOVED*** => this.#finishRenderTask(renderTask, canvas***REMOVED***, error => this.#finishRenderTask(renderTask, canvas, error***REMOVED******REMOVED***;
-    resultPromise.finally((***REMOVED*** => {
+    const resultPromise = renderTask.promise.then(() => this.#finishRenderTask(renderTask, canvas), error => this.#finishRenderTask(renderTask, canvas, error));
+    resultPromise.finally(() => {
       canvas.width = 0;
       canvas.height = 0;
       this.eventBus.dispatch("thumbnailrendered", {
         source: this,
         pageNumber: this.id,
         pdfPage: this.pdfPage
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
+      });
+    });
     return resultPromise;
-  ***REMOVED***
-  setImage(pageView***REMOVED*** {
-    if (this.renderingState !== RenderingStates.INITIAL***REMOVED*** {
+  }
+  setImage(pageView) {
+    if (this.renderingState !== RenderingStates.INITIAL) {
       return;
-    ***REMOVED***
+    }
     const {
       thumbnailCanvas: canvas,
       pdfPage,
       scale
-    ***REMOVED*** = pageView;
-    if (!canvas***REMOVED*** {
+    } = pageView;
+    if (!canvas) {
       return;
-    ***REMOVED***
-    if (!this.pdfPage***REMOVED*** {
-      this.setPdfPage(pdfPage***REMOVED***;
-    ***REMOVED***
-    if (scale < this.scale***REMOVED*** {
+    }
+    if (!this.pdfPage) {
+      this.setPdfPage(pdfPage);
+    }
+    if (scale < this.scale) {
       return;
-    ***REMOVED***
+    }
     this.renderingState = RenderingStates.FINISHED;
-    this.#convertCanvasToImage(canvas***REMOVED***;
-  ***REMOVED***
-  #reduceImage(img***REMOVED*** {
+    this.#convertCanvasToImage(canvas);
+  }
+  #reduceImage(img) {
     const {
       ctx,
       canvas
-    ***REMOVED*** = this.#getPageDrawContext(1, true***REMOVED***;
-    if (img.width <= 2 * canvas.width***REMOVED*** {
-      ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height***REMOVED***;
+    } = this.#getPageDrawContext(1, true);
+    if (img.width <= 2 * canvas.width) {
+      ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
       return canvas;
-    ***REMOVED***
+    }
     let reducedWidth = canvas.width << MAX_NUM_SCALING_STEPS;
     let reducedHeight = canvas.height << MAX_NUM_SCALING_STEPS;
-    const [reducedImage, reducedImageCtx] = TempImageFactory.getCanvas(reducedWidth, reducedHeight***REMOVED***;
-    while (reducedWidth > img.width || reducedHeight > img.height***REMOVED*** {
+    const [reducedImage, reducedImageCtx] = TempImageFactory.getCanvas(reducedWidth, reducedHeight);
+    while (reducedWidth > img.width || reducedHeight > img.height) {
       reducedWidth >>= 1;
       reducedHeight >>= 1;
-    ***REMOVED***
-    reducedImageCtx.drawImage(img, 0, 0, img.width, img.height, 0, 0, reducedWidth, reducedHeight***REMOVED***;
-    while (reducedWidth > 2 * canvas.width***REMOVED*** {
-      reducedImageCtx.drawImage(reducedImage, 0, 0, reducedWidth, reducedHeight, 0, 0, reducedWidth >> 1, reducedHeight >> 1***REMOVED***;
+    }
+    reducedImageCtx.drawImage(img, 0, 0, img.width, img.height, 0, 0, reducedWidth, reducedHeight);
+    while (reducedWidth > 2 * canvas.width) {
+      reducedImageCtx.drawImage(reducedImage, 0, 0, reducedWidth, reducedHeight, 0, 0, reducedWidth >> 1, reducedHeight >> 1);
       reducedWidth >>= 1;
       reducedHeight >>= 1;
-    ***REMOVED***
-    ctx.drawImage(reducedImage, 0, 0, reducedWidth, reducedHeight, 0, 0, canvas.width, canvas.height***REMOVED***;
+    }
+    ctx.drawImage(reducedImage, 0, 0, reducedWidth, reducedHeight, 0, 0, canvas.width, canvas.height);
     return canvas;
-  ***REMOVED***
-  get #pageL10nArgs(***REMOVED*** {
+  }
+  get #pageL10nArgs() {
     return JSON.stringify({
       page: this.pageLabel ?? this.id
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  setPageLabel(label***REMOVED*** {
+    });
+  }
+  setPageLabel(label) {
     this.pageLabel = typeof label === "string" ? label : null;
-    this.anchor.setAttribute("data-l10n-args", this.#pageL10nArgs***REMOVED***;
-    if (this.renderingState !== RenderingStates.FINISHED***REMOVED*** {
+    this.anchor.setAttribute("data-l10n-args", this.#pageL10nArgs);
+    if (this.renderingState !== RenderingStates.FINISHED) {
       return;
-    ***REMOVED***
-    this.image?.setAttribute("data-l10n-args", this.#pageL10nArgs***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    }
+    this.image?.setAttribute("data-l10n-args", this.#pageL10nArgs);
+  }
+}
 
 ;// ./web/pdf_thumbnail_viewer.js
 
@@ -8834,203 +8834,203 @@ class PDFThumbnailViewer {
     pageColors,
     abortSignal,
     enableHWA
-  ***REMOVED******REMOVED*** {
+  }) {
     this.container = container;
     this.eventBus = eventBus;
     this.linkService = linkService;
     this.renderingQueue = renderingQueue;
     this.pageColors = pageColors || null;
     this.enableHWA = enableHWA || false;
-    this.scroll = watchScroll(this.container, this.#scrollUpdated.bind(this***REMOVED***, abortSignal***REMOVED***;
-    this.#resetView(***REMOVED***;
-  ***REMOVED***
-  #scrollUpdated(***REMOVED*** {
-    this.renderingQueue.renderHighestPriority(***REMOVED***;
-  ***REMOVED***
-  getThumbnail(index***REMOVED*** {
+    this.scroll = watchScroll(this.container, this.#scrollUpdated.bind(this), abortSignal);
+    this.#resetView();
+  }
+  #scrollUpdated() {
+    this.renderingQueue.renderHighestPriority();
+  }
+  getThumbnail(index) {
     return this._thumbnails[index];
-  ***REMOVED***
-  #getVisibleThumbs(***REMOVED*** {
+  }
+  #getVisibleThumbs() {
     return getVisibleElements({
       scrollEl: this.container,
       views: this._thumbnails
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  scrollThumbnailIntoView(pageNumber***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+    });
+  }
+  scrollThumbnailIntoView(pageNumber) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     const thumbnailView = this._thumbnails[pageNumber - 1];
-    if (!thumbnailView***REMOVED*** {
-      console.error('scrollThumbnailIntoView: Invalid "pageNumber" parameter.'***REMOVED***;
+    if (!thumbnailView) {
+      console.error('scrollThumbnailIntoView: Invalid "pageNumber" parameter.');
       return;
-    ***REMOVED***
-    if (pageNumber !== this._currentPageNumber***REMOVED*** {
+    }
+    if (pageNumber !== this._currentPageNumber) {
       const prevThumbnailView = this._thumbnails[this._currentPageNumber - 1];
-      prevThumbnailView.div.classList.remove(THUMBNAIL_SELECTED_CLASS***REMOVED***;
-      thumbnailView.div.classList.add(THUMBNAIL_SELECTED_CLASS***REMOVED***;
-    ***REMOVED***
+      prevThumbnailView.div.classList.remove(THUMBNAIL_SELECTED_CLASS);
+      thumbnailView.div.classList.add(THUMBNAIL_SELECTED_CLASS);
+    }
     const {
       first,
       last,
       views
-    ***REMOVED*** = this.#getVisibleThumbs(***REMOVED***;
-    if (views.length > 0***REMOVED*** {
+    } = this.#getVisibleThumbs();
+    if (views.length > 0) {
       let shouldScroll = false;
-      if (pageNumber <= first.id || pageNumber >= last.id***REMOVED*** {
+      if (pageNumber <= first.id || pageNumber >= last.id) {
         shouldScroll = true;
-      ***REMOVED*** else {
+      } else {
         for (const {
           id,
           percent
-        ***REMOVED*** of views***REMOVED*** {
-          if (id !== pageNumber***REMOVED*** {
+        } of views) {
+          if (id !== pageNumber) {
             continue;
-          ***REMOVED***
+          }
           shouldScroll = percent < 100;
           break;
-        ***REMOVED***
-      ***REMOVED***
-      if (shouldScroll***REMOVED*** {
+        }
+      }
+      if (shouldScroll) {
         scrollIntoView(thumbnailView.div, {
           top: THUMBNAIL_SCROLL_MARGIN
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
+        });
+      }
+    }
     this._currentPageNumber = pageNumber;
-  ***REMOVED***
-  get pagesRotation(***REMOVED*** {
+  }
+  get pagesRotation() {
     return this._pagesRotation;
-  ***REMOVED***
-  set pagesRotation(rotation***REMOVED*** {
-    if (!isValidRotation(rotation***REMOVED******REMOVED*** {
-      throw new Error("Invalid thumbnails rotation angle."***REMOVED***;
-    ***REMOVED***
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  set pagesRotation(rotation) {
+    if (!isValidRotation(rotation)) {
+      throw new Error("Invalid thumbnails rotation angle.");
+    }
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    if (this._pagesRotation === rotation***REMOVED*** {
+    }
+    if (this._pagesRotation === rotation) {
       return;
-    ***REMOVED***
+    }
     this._pagesRotation = rotation;
     const updateArgs = {
       rotation
-    ***REMOVED***;
-    for (const thumbnail of this._thumbnails***REMOVED*** {
-      thumbnail.update(updateArgs***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  cleanup(***REMOVED*** {
-    for (const thumbnail of this._thumbnails***REMOVED*** {
-      if (thumbnail.renderingState !== RenderingStates.FINISHED***REMOVED*** {
-        thumbnail.reset(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    TempImageFactory.destroyCanvas(***REMOVED***;
-  ***REMOVED***
-  #resetView(***REMOVED*** {
+    };
+    for (const thumbnail of this._thumbnails) {
+      thumbnail.update(updateArgs);
+    }
+  }
+  cleanup() {
+    for (const thumbnail of this._thumbnails) {
+      if (thumbnail.renderingState !== RenderingStates.FINISHED) {
+        thumbnail.reset();
+      }
+    }
+    TempImageFactory.destroyCanvas();
+  }
+  #resetView() {
     this._thumbnails = [];
     this._currentPageNumber = 1;
     this._pageLabels = null;
     this._pagesRotation = 0;
     this.container.textContent = "";
-  ***REMOVED***
-  setDocument(pdfDocument***REMOVED*** {
-    if (this.pdfDocument***REMOVED*** {
-      this.#cancelRendering(***REMOVED***;
-      this.#resetView(***REMOVED***;
-    ***REMOVED***
+  }
+  setDocument(pdfDocument) {
+    if (this.pdfDocument) {
+      this.#cancelRendering();
+      this.#resetView();
+    }
     this.pdfDocument = pdfDocument;
-    if (!pdfDocument***REMOVED*** {
+    if (!pdfDocument) {
       return;
-    ***REMOVED***
-    const firstPagePromise = pdfDocument.getPage(1***REMOVED***;
+    }
+    const firstPagePromise = pdfDocument.getPage(1);
     const optionalContentConfigPromise = pdfDocument.getOptionalContentConfig({
       intent: "display"
-    ***REMOVED******REMOVED***;
+    });
     firstPagePromise.then(firstPdfPage => {
       const pagesCount = pdfDocument.numPages;
       const viewport = firstPdfPage.getViewport({
         scale: 1
-      ***REMOVED******REMOVED***;
-      for (let pageNum = 1; pageNum <= pagesCount; ++pageNum***REMOVED*** {
+      });
+      for (let pageNum = 1; pageNum <= pagesCount; ++pageNum) {
         const thumbnail = new PDFThumbnailView({
           container: this.container,
           eventBus: this.eventBus,
           id: pageNum,
-          defaultViewport: viewport.clone(***REMOVED***,
+          defaultViewport: viewport.clone(),
           optionalContentConfigPromise,
           linkService: this.linkService,
           renderingQueue: this.renderingQueue,
           pageColors: this.pageColors,
           enableHWA: this.enableHWA
-        ***REMOVED******REMOVED***;
-        this._thumbnails.push(thumbnail***REMOVED***;
-      ***REMOVED***
-      this._thumbnails[0]?.setPdfPage(firstPdfPage***REMOVED***;
+        });
+        this._thumbnails.push(thumbnail);
+      }
+      this._thumbnails[0]?.setPdfPage(firstPdfPage);
       const thumbnailView = this._thumbnails[this._currentPageNumber - 1];
-      thumbnailView.div.classList.add(THUMBNAIL_SELECTED_CLASS***REMOVED***;
-    ***REMOVED******REMOVED***.catch(reason => {
-      console.error("Unable to initialize thumbnail viewer", reason***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #cancelRendering(***REMOVED*** {
-    for (const thumbnail of this._thumbnails***REMOVED*** {
-      thumbnail.cancelRendering(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  setPageLabels(labels***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+      thumbnailView.div.classList.add(THUMBNAIL_SELECTED_CLASS);
+    }).catch(reason => {
+      console.error("Unable to initialize thumbnail viewer", reason);
+    });
+  }
+  #cancelRendering() {
+    for (const thumbnail of this._thumbnails) {
+      thumbnail.cancelRendering();
+    }
+  }
+  setPageLabels(labels) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    if (!labels***REMOVED*** {
+    }
+    if (!labels) {
       this._pageLabels = null;
-    ***REMOVED*** else if (!(Array.isArray(labels***REMOVED*** && this.pdfDocument.numPages === labels.length***REMOVED******REMOVED*** {
+    } else if (!(Array.isArray(labels) && this.pdfDocument.numPages === labels.length)) {
       this._pageLabels = null;
-      console.error("PDFThumbnailViewer_setPageLabels: Invalid page labels."***REMOVED***;
-    ***REMOVED*** else {
+      console.error("PDFThumbnailViewer_setPageLabels: Invalid page labels.");
+    } else {
       this._pageLabels = labels;
-    ***REMOVED***
-    for (let i = 0, ii = this._thumbnails.length; i < ii; i++***REMOVED*** {
-      this._thumbnails[i].setPageLabel(this._pageLabels?.[i] ?? null***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async #ensurePdfPageLoaded(thumbView***REMOVED*** {
-    if (thumbView.pdfPage***REMOVED*** {
+    }
+    for (let i = 0, ii = this._thumbnails.length; i < ii; i++) {
+      this._thumbnails[i].setPageLabel(this._pageLabels?.[i] ?? null);
+    }
+  }
+  async #ensurePdfPageLoaded(thumbView) {
+    if (thumbView.pdfPage) {
       return thumbView.pdfPage;
-    ***REMOVED***
-  ***REMOVED***
-      const pdfPage = await this.pdfDocument.getPage(thumbView.id***REMOVED***;
-      if (!thumbView.pdfPage***REMOVED*** {
-        thumbView.setPdfPage(pdfPage***REMOVED***;
-      ***REMOVED***
+    }
+    try {
+      const pdfPage = await this.pdfDocument.getPage(thumbView.id);
+      if (!thumbView.pdfPage) {
+        thumbView.setPdfPage(pdfPage);
+      }
       return pdfPage;
-    ***REMOVED*** catch (reason***REMOVED*** {
-      console.error("Unable to get page for thumb view", reason***REMOVED***;
+    } catch (reason) {
+      console.error("Unable to get page for thumb view", reason);
       return null;
-    ***REMOVED***
-  ***REMOVED***
-  #getScrollAhead(visible***REMOVED*** {
-    if (visible.first?.id === 1***REMOVED*** {
+    }
+  }
+  #getScrollAhead(visible) {
+    if (visible.first?.id === 1) {
       return true;
-    ***REMOVED*** else if (visible.last?.id === this._thumbnails.length***REMOVED*** {
+    } else if (visible.last?.id === this._thumbnails.length) {
       return false;
-    ***REMOVED***
+    }
     return this.scroll.down;
-  ***REMOVED***
-  forceRendering(***REMOVED*** {
-    const visibleThumbs = this.#getVisibleThumbs(***REMOVED***;
-    const scrollAhead = this.#getScrollAhead(visibleThumbs***REMOVED***;
-    const thumbView = this.renderingQueue.getHighestPriority(visibleThumbs, this._thumbnails, scrollAhead***REMOVED***;
-    if (thumbView***REMOVED*** {
-      this.#ensurePdfPageLoaded(thumbView***REMOVED***.then((***REMOVED*** => {
-        this.renderingQueue.renderView(thumbView***REMOVED***;
-      ***REMOVED******REMOVED***;
+  }
+  forceRendering() {
+    const visibleThumbs = this.#getVisibleThumbs();
+    const scrollAhead = this.#getScrollAhead(visibleThumbs);
+    const thumbView = this.renderingQueue.getHighestPriority(visibleThumbs, this._thumbnails, scrollAhead);
+    if (thumbView) {
+      this.#ensurePdfPageLoaded(thumbView).then(() => {
+        this.renderingQueue.renderView(thumbView);
+      });
       return true;
-    ***REMOVED***
+    }
     return false;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/annotation_editor_layer_builder.js
 
@@ -9042,11 +9042,11 @@ class AnnotationEditorLayerBuilder {
   #structTreeLayer = null;
   #textLayer = null;
   #uiManager;
-  constructor(options***REMOVED*** {
+  constructor(options) {
     this.pdfPage = options.pdfPage;
     this.accessibilityManager = options.accessibilityManager;
     this.l10n = options.l10n;
-    this.l10n ||= new genericl10n_GenericL10n(***REMOVED***;
+    this.l10n ||= new genericl10n_GenericL10n();
     this.annotationEditorLayer = null;
     this.div = null;
     this._cancelled = false;
@@ -9056,29 +9056,29 @@ class AnnotationEditorLayerBuilder {
     this.#drawLayer = options.drawLayer || null;
     this.#onAppend = options.onAppend || null;
     this.#structTreeLayer = options.structTreeLayer || null;
-  ***REMOVED***
-  async render(viewport, intent = "display"***REMOVED*** {
-    if (intent !== "display"***REMOVED*** {
+  }
+  async render(viewport, intent = "display") {
+    if (intent !== "display") {
       return;
-    ***REMOVED***
-    if (this._cancelled***REMOVED*** {
+    }
+    if (this._cancelled) {
       return;
-    ***REMOVED***
+    }
     const clonedViewport = viewport.clone({
       dontFlip: true
-    ***REMOVED******REMOVED***;
-    if (this.div***REMOVED*** {
+    });
+    if (this.div) {
       this.annotationEditorLayer.update({
         viewport: clonedViewport
-      ***REMOVED******REMOVED***;
-      this.show(***REMOVED***;
+      });
+      this.show();
       return;
-    ***REMOVED***
-    const div = this.div = document.createElement("div"***REMOVED***;
+    }
+    const div = this.div = document.createElement("div");
     div.className = "annotationEditorLayer";
     div.hidden = true;
     div.dir = this.#uiManager.direction;
-    this.#onAppend?.(div***REMOVED***;
+    this.#onAppend?.(div);
     this.annotationEditorLayer = new AnnotationEditorLayer({
       uiManager: this.#uiManager,
       div,
@@ -9090,38 +9090,38 @@ class AnnotationEditorLayerBuilder {
       annotationLayer: this.#annotationLayer,
       textLayer: this.#textLayer,
       drawLayer: this.#drawLayer
-    ***REMOVED******REMOVED***;
+    });
     const parameters = {
       viewport: clonedViewport,
       div,
       annotations: null,
       intent
-    ***REMOVED***;
-    this.annotationEditorLayer.render(parameters***REMOVED***;
-    this.show(***REMOVED***;
-  ***REMOVED***
-  cancel(***REMOVED*** {
+    };
+    this.annotationEditorLayer.render(parameters);
+    this.show();
+  }
+  cancel() {
     this._cancelled = true;
-    if (!this.div***REMOVED*** {
+    if (!this.div) {
       return;
-    ***REMOVED***
-    this.annotationEditorLayer.destroy(***REMOVED***;
-  ***REMOVED***
-  hide(***REMOVED*** {
-    if (!this.div***REMOVED*** {
+    }
+    this.annotationEditorLayer.destroy();
+  }
+  hide() {
+    if (!this.div) {
       return;
-    ***REMOVED***
-    this.annotationEditorLayer.pause(true***REMOVED***;
+    }
+    this.annotationEditorLayer.pause(true);
     this.div.hidden = true;
-  ***REMOVED***
-  show(***REMOVED*** {
-    if (!this.div || this.annotationEditorLayer.isInvisible***REMOVED*** {
+  }
+  show() {
+    if (!this.div || this.annotationEditorLayer.isInvisible) {
       return;
-    ***REMOVED***
+    }
     this.div.hidden = false;
-    this.annotationEditorLayer.pause(false***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    this.annotationEditorLayer.pause(false);
+  }
+}
 
 ;// ./web/annotation_layer_builder.js
 
@@ -9143,7 +9143,7 @@ class AnnotationLayerBuilder {
     accessibilityManager = null,
     annotationEditorUIManager = null,
     onAppend = null
-  ***REMOVED******REMOVED*** {
+  }) {
     this.pdfPage = pdfPage;
     this.linkService = linkService;
     this.downloadManager = downloadManager;
@@ -9151,8 +9151,8 @@ class AnnotationLayerBuilder {
     this.renderForms = renderForms;
     this.annotationStorage = annotationStorage;
     this.enableScripting = enableScripting;
-    this._hasJSActionsPromise = hasJSActionsPromise || Promise.resolve(false***REMOVED***;
-    this._fieldObjectsPromise = fieldObjectsPromise || Promise.resolve(null***REMOVED***;
+    this._hasJSActionsPromise = hasJSActionsPromise || Promise.resolve(false);
+    this._fieldObjectsPromise = fieldObjectsPromise || Promise.resolve(null);
     this._annotationCanvasMap = annotationCanvasMap;
     this._accessibilityManager = accessibilityManager;
     this._annotationEditorUIManager = annotationEditorUIManager;
@@ -9161,32 +9161,32 @@ class AnnotationLayerBuilder {
     this.div = null;
     this._cancelled = false;
     this._eventBus = linkService.eventBus;
-  ***REMOVED***
-  async render(viewport, options, intent = "display"***REMOVED*** {
-    if (this.div***REMOVED*** {
-      if (this._cancelled || !this.annotationLayer***REMOVED*** {
+  }
+  async render(viewport, options, intent = "display") {
+    if (this.div) {
+      if (this._cancelled || !this.annotationLayer) {
         return;
-      ***REMOVED***
+      }
       this.annotationLayer.update({
         viewport: viewport.clone({
           dontFlip: true
-        ***REMOVED******REMOVED***
-      ***REMOVED******REMOVED***;
+        })
+      });
       return;
-    ***REMOVED***
+    }
     const [annotations, hasJSActions, fieldObjects] = await Promise.all([this.pdfPage.getAnnotations({
       intent
-    ***REMOVED******REMOVED***, this._hasJSActionsPromise, this._fieldObjectsPromise]***REMOVED***;
-    if (this._cancelled***REMOVED*** {
+    }), this._hasJSActionsPromise, this._fieldObjectsPromise]);
+    if (this._cancelled) {
       return;
-    ***REMOVED***
-    const div = this.div = document.createElement("div"***REMOVED***;
+    }
+    const div = this.div = document.createElement("div");
     div.className = "annotationLayer";
-    this.#onAppend?.(div***REMOVED***;
-    if (annotations.length === 0***REMOVED*** {
-      this.hide(***REMOVED***;
+    this.#onAppend?.(div);
+    if (annotations.length === 0) {
+      this.hide();
       return;
-    ***REMOVED***
+    }
     this.annotationLayer = new AnnotationLayer({
       div,
       accessibilityManager: this._accessibilityManager,
@@ -9195,9 +9195,9 @@ class AnnotationLayerBuilder {
       page: this.pdfPage,
       viewport: viewport.clone({
         dontFlip: true
-      ***REMOVED******REMOVED***,
+      }),
       structTreeLayer: options?.structTreeLayer || null
-    ***REMOVED******REMOVED***;
+    });
     await this.annotationLayer.render({
       annotations,
       imageResourcesPath: this.imageResourcesPath,
@@ -9208,39 +9208,39 @@ class AnnotationLayerBuilder {
       enableScripting: this.enableScripting,
       hasJSActions,
       fieldObjects
-    ***REMOVED******REMOVED***;
-    if (this.linkService.isInPresentationMode***REMOVED*** {
-      this.#updatePresentationModeState(PresentationModeState.FULLSCREEN***REMOVED***;
-    ***REMOVED***
-    if (!this.#eventAbortController***REMOVED*** {
-      this.#eventAbortController = new AbortController(***REMOVED***;
+    });
+    if (this.linkService.isInPresentationMode) {
+      this.#updatePresentationModeState(PresentationModeState.FULLSCREEN);
+    }
+    if (!this.#eventAbortController) {
+      this.#eventAbortController = new AbortController();
       this._eventBus?._on("presentationmodechanged", evt => {
-        this.#updatePresentationModeState(evt.state***REMOVED***;
-      ***REMOVED***, {
+        this.#updatePresentationModeState(evt.state);
+      }, {
         signal: this.#eventAbortController.signal
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  cancel(***REMOVED*** {
+      });
+    }
+  }
+  cancel() {
     this._cancelled = true;
-    this.#eventAbortController?.abort(***REMOVED***;
+    this.#eventAbortController?.abort();
     this.#eventAbortController = null;
-  ***REMOVED***
-  hide(***REMOVED*** {
-    if (!this.div***REMOVED*** {
+  }
+  hide() {
+    if (!this.div) {
       return;
-    ***REMOVED***
+    }
     this.div.hidden = true;
-  ***REMOVED***
-  hasEditableAnnotations(***REMOVED*** {
-    return !!this.annotationLayer?.hasEditableAnnotations(***REMOVED***;
-  ***REMOVED***
-  #updatePresentationModeState(state***REMOVED*** {
-    if (!this.div***REMOVED*** {
+  }
+  hasEditableAnnotations() {
+    return !!this.annotationLayer?.hasEditableAnnotations();
+  }
+  #updatePresentationModeState(state) {
+    if (!this.div) {
       return;
-    ***REMOVED***
+    }
     let disableFormElements = false;
-    switch (state***REMOVED*** {
+    switch (state) {
       case PresentationModeState.FULLSCREEN:
         disableFormElements = true;
         break;
@@ -9248,46 +9248,46 @@ class AnnotationLayerBuilder {
         break;
       default:
         return;
-    ***REMOVED***
-    for (const section of this.div.childNodes***REMOVED*** {
-      if (section.hasAttribute("data-internal-link"***REMOVED******REMOVED*** {
+    }
+    for (const section of this.div.childNodes) {
+      if (section.hasAttribute("data-internal-link")) {
         continue;
-      ***REMOVED***
+      }
       section.inert = disableFormElements;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 ;// ./web/draw_layer_builder.js
 
 class DrawLayerBuilder {
   #drawLayer = null;
-  constructor(options***REMOVED*** {
+  constructor(options) {
     this.pageIndex = options.pageIndex;
-  ***REMOVED***
-  async render(intent = "display"***REMOVED*** {
-    if (intent !== "display" || this.#drawLayer || this._cancelled***REMOVED*** {
+  }
+  async render(intent = "display") {
+    if (intent !== "display" || this.#drawLayer || this._cancelled) {
       return;
-    ***REMOVED***
+    }
     this.#drawLayer = new DrawLayer({
       pageIndex: this.pageIndex
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  cancel(***REMOVED*** {
+    });
+  }
+  cancel() {
     this._cancelled = true;
-    if (!this.#drawLayer***REMOVED*** {
+    if (!this.#drawLayer) {
       return;
-    ***REMOVED***
-    this.#drawLayer.destroy(***REMOVED***;
+    }
+    this.#drawLayer.destroy();
     this.#drawLayer = null;
-  ***REMOVED***
-  setParent(parent***REMOVED*** {
-    this.#drawLayer?.setParent(parent***REMOVED***;
-  ***REMOVED***
-  getDrawLayer(***REMOVED*** {
+  }
+  setParent(parent) {
+    this.#drawLayer?.setParent(parent);
+  }
+  getDrawLayer() {
     return this.#drawLayer;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/struct_tree_layer_builder.js
 
@@ -9332,318 +9332,318 @@ const PDF_ROLE_TO_HTML_ROLE = {
   Figure: "figure",
   Formula: null,
   Artifact: null
-***REMOVED***;
-const HEADING_PATTERN = /^H(\d+***REMOVED***$/;
+};
+const HEADING_PATTERN = /^H(\d+)$/;
 class StructTreeLayerBuilder {
   #promise;
   #treeDom = null;
   #treePromise;
-  #elementAttributes = new Map(***REMOVED***;
+  #elementAttributes = new Map();
   #rawDims;
   #elementsToAddToTextLayer = null;
-  constructor(pdfPage, rawDims***REMOVED*** {
-    this.#promise = pdfPage.getStructTree(***REMOVED***;
+  constructor(pdfPage, rawDims) {
+    this.#promise = pdfPage.getStructTree();
     this.#rawDims = rawDims;
-  ***REMOVED***
-  async render(***REMOVED*** {
-    if (this.#treePromise***REMOVED*** {
+  }
+  async render() {
+    if (this.#treePromise) {
       return this.#treePromise;
-    ***REMOVED***
+    }
     const {
       promise,
       resolve,
       reject
-    ***REMOVED*** = Promise.withResolvers(***REMOVED***;
+    } = Promise.withResolvers();
     this.#treePromise = promise;
-  ***REMOVED***
-      this.#treeDom = this.#walk(await this.#promise***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      reject(ex***REMOVED***;
-    ***REMOVED***
+    try {
+      this.#treeDom = this.#walk(await this.#promise);
+    } catch (ex) {
+      reject(ex);
+    }
     this.#promise = null;
-    this.#treeDom?.classList.add("structTree"***REMOVED***;
-    resolve(this.#treeDom***REMOVED***;
+    this.#treeDom?.classList.add("structTree");
+    resolve(this.#treeDom);
     return promise;
-  ***REMOVED***
-  async getAriaAttributes(annotationId***REMOVED*** {
-  ***REMOVED***
-      await this.render(***REMOVED***;
-      return this.#elementAttributes.get(annotationId***REMOVED***;
-    ***REMOVED*** catch { ***REMOVED***
+  }
+  async getAriaAttributes(annotationId) {
+    try {
+      await this.render();
+      return this.#elementAttributes.get(annotationId);
+    } catch { }
     return null;
-  ***REMOVED***
-  hide(***REMOVED*** {
-    if (this.#treeDom && !this.#treeDom.hidden***REMOVED*** {
+  }
+  hide() {
+    if (this.#treeDom && !this.#treeDom.hidden) {
       this.#treeDom.hidden = true;
-    ***REMOVED***
-  ***REMOVED***
-  show(***REMOVED*** {
-    if (this.#treeDom?.hidden***REMOVED*** {
+    }
+  }
+  show() {
+    if (this.#treeDom?.hidden) {
       this.#treeDom.hidden = false;
-    ***REMOVED***
-  ***REMOVED***
-  #setAttributes(structElement, htmlElement***REMOVED*** {
+    }
+  }
+  #setAttributes(structElement, htmlElement) {
     const {
       alt,
       id,
       lang
-    ***REMOVED*** = structElement;
-    if (alt !== undefined***REMOVED*** {
+    } = structElement;
+    if (alt !== undefined) {
       let added = false;
-      const label = removeNullCharacters(alt***REMOVED***;
-      for (const child of structElement.children***REMOVED*** {
-        if (child.type === "annotation"***REMOVED*** {
-          let attrs = this.#elementAttributes.get(child.id***REMOVED***;
-          if (!attrs***REMOVED*** {
-            attrs = new Map(***REMOVED***;
-            this.#elementAttributes.set(child.id, attrs***REMOVED***;
-          ***REMOVED***
-          attrs.set("aria-label", label***REMOVED***;
+      const label = removeNullCharacters(alt);
+      for (const child of structElement.children) {
+        if (child.type === "annotation") {
+          let attrs = this.#elementAttributes.get(child.id);
+          if (!attrs) {
+            attrs = new Map();
+            this.#elementAttributes.set(child.id, attrs);
+          }
+          attrs.set("aria-label", label);
           added = true;
-        ***REMOVED***
-      ***REMOVED***
-      if (!added***REMOVED*** {
-        htmlElement.setAttribute("aria-label", label***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    if (id !== undefined***REMOVED*** {
-      htmlElement.setAttribute("aria-owns", id***REMOVED***;
-    ***REMOVED***
-    if (lang !== undefined***REMOVED*** {
-      htmlElement.setAttribute("lang", removeNullCharacters(lang, true***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #addImageInTextLayer(node, element***REMOVED*** {
+        }
+      }
+      if (!added) {
+        htmlElement.setAttribute("aria-label", label);
+      }
+    }
+    if (id !== undefined) {
+      htmlElement.setAttribute("aria-owns", id);
+    }
+    if (lang !== undefined) {
+      htmlElement.setAttribute("lang", removeNullCharacters(lang, true));
+    }
+  }
+  #addImageInTextLayer(node, element) {
     const {
       alt,
       bbox,
       children
-    ***REMOVED*** = node;
+    } = node;
     const child = children?.[0];
-    if (!this.#rawDims || !alt || !bbox || child?.type !== "content"***REMOVED*** {
+    if (!this.#rawDims || !alt || !bbox || child?.type !== "content") {
       return false;
-    ***REMOVED***
+    }
     const {
       id
-    ***REMOVED*** = child;
-    if (!id***REMOVED*** {
+    } = child;
+    if (!id) {
       return false;
-    ***REMOVED***
-    element.setAttribute("aria-owns", id***REMOVED***;
-    const img = document.createElement("span"***REMOVED***;
-    (this.#elementsToAddToTextLayer ||= new Map(***REMOVED******REMOVED***.set(id, img***REMOVED***;
-    img.setAttribute("role", "img"***REMOVED***;
-    img.setAttribute("aria-label", removeNullCharacters(alt***REMOVED******REMOVED***;
+    }
+    element.setAttribute("aria-owns", id);
+    const img = document.createElement("span");
+    (this.#elementsToAddToTextLayer ||= new Map()).set(id, img);
+    img.setAttribute("role", "img");
+    img.setAttribute("aria-label", removeNullCharacters(alt));
     const {
       pageHeight,
       pageX,
       pageY
-    ***REMOVED*** = this.#rawDims;
-    const calc = "calc(var(--scale-factor***REMOVED****";
+    } = this.#rawDims;
+    const calc = "calc(var(--scale-factor)*";
     const {
       style
-    ***REMOVED*** = img;
-    style.width = `${calc***REMOVED***${bbox[2] - bbox[0]***REMOVED***px***REMOVED***`;
-    style.height = `${calc***REMOVED***${bbox[3] - bbox[1]***REMOVED***px***REMOVED***`;
-    style.left = `${calc***REMOVED***${bbox[0] - pageX***REMOVED***px***REMOVED***`;
-    style.top = `${calc***REMOVED***${pageHeight - bbox[3] + pageY***REMOVED***px***REMOVED***`;
+    } = img;
+    style.width = `${calc}${bbox[2] - bbox[0]}px)`;
+    style.height = `${calc}${bbox[3] - bbox[1]}px)`;
+    style.left = `${calc}${bbox[0] - pageX}px)`;
+    style.top = `${calc}${pageHeight - bbox[3] + pageY}px)`;
     return true;
-  ***REMOVED***
-  addElementsToTextLayer(***REMOVED*** {
-    if (!this.#elementsToAddToTextLayer***REMOVED*** {
+  }
+  addElementsToTextLayer() {
+    if (!this.#elementsToAddToTextLayer) {
       return;
-    ***REMOVED***
-    for (const [id, img] of this.#elementsToAddToTextLayer***REMOVED*** {
-      document.getElementById(id***REMOVED***?.append(img***REMOVED***;
-    ***REMOVED***
-    this.#elementsToAddToTextLayer.clear(***REMOVED***;
+    }
+    for (const [id, img] of this.#elementsToAddToTextLayer) {
+      document.getElementById(id)?.append(img);
+    }
+    this.#elementsToAddToTextLayer.clear();
     this.#elementsToAddToTextLayer = null;
-  ***REMOVED***
-  #walk(node***REMOVED*** {
-    if (!node***REMOVED*** {
+  }
+  #walk(node) {
+    if (!node) {
       return null;
-    ***REMOVED***
-    const element = document.createElement("span"***REMOVED***;
-    if ("role" in node***REMOVED*** {
+    }
+    const element = document.createElement("span");
+    if ("role" in node) {
       const {
         role
-      ***REMOVED*** = node;
-      const match = role.match(HEADING_PATTERN***REMOVED***;
-      if (match***REMOVED*** {
-        element.setAttribute("role", "heading"***REMOVED***;
-        element.setAttribute("aria-level", match[1]***REMOVED***;
-      ***REMOVED*** else if (PDF_ROLE_TO_HTML_ROLE[role]***REMOVED*** {
-        element.setAttribute("role", PDF_ROLE_TO_HTML_ROLE[role]***REMOVED***;
-      ***REMOVED***
-      if (role === "Figure" && this.#addImageInTextLayer(node, element***REMOVED******REMOVED*** {
+      } = node;
+      const match = role.match(HEADING_PATTERN);
+      if (match) {
+        element.setAttribute("role", "heading");
+        element.setAttribute("aria-level", match[1]);
+      } else if (PDF_ROLE_TO_HTML_ROLE[role]) {
+        element.setAttribute("role", PDF_ROLE_TO_HTML_ROLE[role]);
+      }
+      if (role === "Figure" && this.#addImageInTextLayer(node, element)) {
         return element;
-      ***REMOVED***
-    ***REMOVED***
-    this.#setAttributes(node, element***REMOVED***;
-    if (node.children***REMOVED*** {
-      if (node.children.length === 1 && "id" in node.children[0]***REMOVED*** {
-        this.#setAttributes(node.children[0], element***REMOVED***;
-      ***REMOVED*** else {
-        for (const kid of node.children***REMOVED*** {
-          element.append(this.#walk(kid***REMOVED******REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
+    this.#setAttributes(node, element);
+    if (node.children) {
+      if (node.children.length === 1 && "id" in node.children[0]) {
+        this.#setAttributes(node.children[0], element);
+      } else {
+        for (const kid of node.children) {
+          element.append(this.#walk(kid));
+        }
+      }
+    }
     return element;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/text_accessibility.js
 
 class TextAccessibilityManager {
   #enabled = false;
   #textChildren = null;
-  #textNodes = new Map(***REMOVED***;
-  #waitingElements = new Map(***REMOVED***;
-  setTextMapping(textDivs***REMOVED*** {
+  #textNodes = new Map();
+  #waitingElements = new Map();
+  setTextMapping(textDivs) {
     this.#textChildren = textDivs;
-  ***REMOVED***
-  static #compareElementPositions(e1, e2***REMOVED*** {
-    const rect1 = e1.getBoundingClientRect(***REMOVED***;
-    const rect2 = e2.getBoundingClientRect(***REMOVED***;
-    if (rect1.width === 0 && rect1.height === 0***REMOVED*** {
+  }
+  static #compareElementPositions(e1, e2) {
+    const rect1 = e1.getBoundingClientRect();
+    const rect2 = e2.getBoundingClientRect();
+    if (rect1.width === 0 && rect1.height === 0) {
       return +1;
-    ***REMOVED***
-    if (rect2.width === 0 && rect2.height === 0***REMOVED*** {
+    }
+    if (rect2.width === 0 && rect2.height === 0) {
       return -1;
-    ***REMOVED***
+    }
     const top1 = rect1.y;
     const bot1 = rect1.y + rect1.height;
     const mid1 = rect1.y + rect1.height / 2;
     const top2 = rect2.y;
     const bot2 = rect2.y + rect2.height;
     const mid2 = rect2.y + rect2.height / 2;
-    if (mid1 <= top2 && mid2 >= bot1***REMOVED*** {
+    if (mid1 <= top2 && mid2 >= bot1) {
       return -1;
-    ***REMOVED***
-    if (mid2 <= top1 && mid1 >= bot2***REMOVED*** {
+    }
+    if (mid2 <= top1 && mid1 >= bot2) {
       return +1;
-    ***REMOVED***
+    }
     const centerX1 = rect1.x + rect1.width / 2;
     const centerX2 = rect2.x + rect2.width / 2;
     return centerX1 - centerX2;
-  ***REMOVED***
-  enable(***REMOVED*** {
-    if (this.#enabled***REMOVED*** {
-      throw new Error("TextAccessibilityManager is already enabled."***REMOVED***;
-    ***REMOVED***
-    if (!this.#textChildren***REMOVED*** {
-      throw new Error("Text divs and strings have not been set."***REMOVED***;
-    ***REMOVED***
+  }
+  enable() {
+    if (this.#enabled) {
+      throw new Error("TextAccessibilityManager is already enabled.");
+    }
+    if (!this.#textChildren) {
+      throw new Error("Text divs and strings have not been set.");
+    }
     this.#enabled = true;
-    this.#textChildren = this.#textChildren.slice(***REMOVED***;
-    this.#textChildren.sort(TextAccessibilityManager.#compareElementPositions***REMOVED***;
-    if (this.#textNodes.size > 0***REMOVED*** {
+    this.#textChildren = this.#textChildren.slice();
+    this.#textChildren.sort(TextAccessibilityManager.#compareElementPositions);
+    if (this.#textNodes.size > 0) {
       const textChildren = this.#textChildren;
-      for (const [id, nodeIndex] of this.#textNodes***REMOVED*** {
-        const element = document.getElementById(id***REMOVED***;
-        if (!element***REMOVED*** {
-          this.#textNodes.delete(id***REMOVED***;
+      for (const [id, nodeIndex] of this.#textNodes) {
+        const element = document.getElementById(id);
+        if (!element) {
+          this.#textNodes.delete(id);
           continue;
-        ***REMOVED***
-        this.#addIdToAriaOwns(id, textChildren[nodeIndex]***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    for (const [element, isRemovable] of this.#waitingElements***REMOVED*** {
-      this.addPointerInTextLayer(element, isRemovable***REMOVED***;
-    ***REMOVED***
-    this.#waitingElements.clear(***REMOVED***;
-  ***REMOVED***
-  disable(***REMOVED*** {
-    if (!this.#enabled***REMOVED*** {
+        }
+        this.#addIdToAriaOwns(id, textChildren[nodeIndex]);
+      }
+    }
+    for (const [element, isRemovable] of this.#waitingElements) {
+      this.addPointerInTextLayer(element, isRemovable);
+    }
+    this.#waitingElements.clear();
+  }
+  disable() {
+    if (!this.#enabled) {
       return;
-    ***REMOVED***
-    this.#waitingElements.clear(***REMOVED***;
+    }
+    this.#waitingElements.clear();
     this.#textChildren = null;
     this.#enabled = false;
-  ***REMOVED***
-  removePointerInTextLayer(element***REMOVED*** {
-    if (!this.#enabled***REMOVED*** {
-      this.#waitingElements.delete(element***REMOVED***;
+  }
+  removePointerInTextLayer(element) {
+    if (!this.#enabled) {
+      this.#waitingElements.delete(element);
       return;
-    ***REMOVED***
+    }
     const children = this.#textChildren;
-    if (!children || children.length === 0***REMOVED*** {
+    if (!children || children.length === 0) {
       return;
-    ***REMOVED***
+    }
     const {
       id
-    ***REMOVED*** = element;
-    const nodeIndex = this.#textNodes.get(id***REMOVED***;
-    if (nodeIndex === undefined***REMOVED*** {
+    } = element;
+    const nodeIndex = this.#textNodes.get(id);
+    if (nodeIndex === undefined) {
       return;
-    ***REMOVED***
+    }
     const node = children[nodeIndex];
-    this.#textNodes.delete(id***REMOVED***;
-    let owns = node.getAttribute("aria-owns"***REMOVED***;
-    if (owns?.includes(id***REMOVED******REMOVED*** {
-      owns = owns.split(" "***REMOVED***.filter(x => x !== id***REMOVED***.join(" "***REMOVED***;
-      if (owns***REMOVED*** {
-        node.setAttribute("aria-owns", owns***REMOVED***;
-      ***REMOVED*** else {
-        node.removeAttribute("aria-owns"***REMOVED***;
-        node.setAttribute("role", "presentation"***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  #addIdToAriaOwns(id, node***REMOVED*** {
-    const owns = node.getAttribute("aria-owns"***REMOVED***;
-    if (!owns?.includes(id***REMOVED******REMOVED*** {
-      node.setAttribute("aria-owns", owns ? `${owns***REMOVED*** ${id***REMOVED***` : id***REMOVED***;
-    ***REMOVED***
-    node.removeAttribute("role"***REMOVED***;
-  ***REMOVED***
-  addPointerInTextLayer(element, isRemovable***REMOVED*** {
+    this.#textNodes.delete(id);
+    let owns = node.getAttribute("aria-owns");
+    if (owns?.includes(id)) {
+      owns = owns.split(" ").filter(x => x !== id).join(" ");
+      if (owns) {
+        node.setAttribute("aria-owns", owns);
+      } else {
+        node.removeAttribute("aria-owns");
+        node.setAttribute("role", "presentation");
+      }
+    }
+  }
+  #addIdToAriaOwns(id, node) {
+    const owns = node.getAttribute("aria-owns");
+    if (!owns?.includes(id)) {
+      node.setAttribute("aria-owns", owns ? `${owns} ${id}` : id);
+    }
+    node.removeAttribute("role");
+  }
+  addPointerInTextLayer(element, isRemovable) {
     const {
       id
-    ***REMOVED*** = element;
-    if (!id***REMOVED*** {
+    } = element;
+    if (!id) {
       return null;
-    ***REMOVED***
-    if (!this.#enabled***REMOVED*** {
-      this.#waitingElements.set(element, isRemovable***REMOVED***;
+    }
+    if (!this.#enabled) {
+      this.#waitingElements.set(element, isRemovable);
       return null;
-    ***REMOVED***
-    if (isRemovable***REMOVED*** {
-      this.removePointerInTextLayer(element***REMOVED***;
-    ***REMOVED***
+    }
+    if (isRemovable) {
+      this.removePointerInTextLayer(element);
+    }
     const children = this.#textChildren;
-    if (!children || children.length === 0***REMOVED*** {
+    if (!children || children.length === 0) {
       return null;
-    ***REMOVED***
-    const index = binarySearchFirstItem(children, node => TextAccessibilityManager.#compareElementPositions(element, node***REMOVED*** < 0***REMOVED***;
-    const nodeIndex = Math.max(0, index - 1***REMOVED***;
+    }
+    const index = binarySearchFirstItem(children, node => TextAccessibilityManager.#compareElementPositions(element, node) < 0);
+    const nodeIndex = Math.max(0, index - 1);
     const child = children[nodeIndex];
-    this.#addIdToAriaOwns(id, child***REMOVED***;
-    this.#textNodes.set(id, nodeIndex***REMOVED***;
+    this.#addIdToAriaOwns(id, child);
+    this.#textNodes.set(id, nodeIndex);
     const parent = child.parentNode;
-    return parent?.classList.contains("markedContent"***REMOVED*** ? parent.id : null;
-  ***REMOVED***
-  moveElementInDOM(container, element, contentElement, isRemovable***REMOVED*** {
-    const id = this.addPointerInTextLayer(contentElement, isRemovable***REMOVED***;
-    if (!container.hasChildNodes(***REMOVED******REMOVED*** {
-      container.append(element***REMOVED***;
+    return parent?.classList.contains("markedContent") ? parent.id : null;
+  }
+  moveElementInDOM(container, element, contentElement, isRemovable) {
+    const id = this.addPointerInTextLayer(contentElement, isRemovable);
+    if (!container.hasChildNodes()) {
+      container.append(element);
       return id;
-    ***REMOVED***
-    const children = Array.from(container.childNodes***REMOVED***.filter(node => node !== element***REMOVED***;
-    if (children.length === 0***REMOVED*** {
+    }
+    const children = Array.from(container.childNodes).filter(node => node !== element);
+    if (children.length === 0) {
       return id;
-    ***REMOVED***
+    }
     const elementToCompare = contentElement || element;
-    const index = binarySearchFirstItem(children, node => TextAccessibilityManager.#compareElementPositions(elementToCompare, node***REMOVED*** < 0***REMOVED***;
-    if (index === 0***REMOVED*** {
-      children[0].before(element***REMOVED***;
-    ***REMOVED*** else {
-      children[index - 1].after(element***REMOVED***;
-    ***REMOVED***
+    const index = binarySearchFirstItem(children, node => TextAccessibilityManager.#compareElementPositions(elementToCompare, node) < 0);
+    if (index === 0) {
+      children[0].before(element);
+    } else {
+      children[index - 1].after(element);
+    }
     return id;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/text_highlighter.js
 class TextHighlighter {
@@ -9652,7 +9652,7 @@ class TextHighlighter {
     findController,
     eventBus,
     pageIndex
-  ***REMOVED******REMOVED*** {
+  }) {
     this.findController = findController;
     this.matches = [];
     this.eventBus = eventBus;
@@ -9660,91 +9660,91 @@ class TextHighlighter {
     this.textDivs = null;
     this.textContentItemsStr = null;
     this.enabled = false;
-  ***REMOVED***
-  setTextMapping(divs, texts***REMOVED*** {
+  }
+  setTextMapping(divs, texts) {
     this.textDivs = divs;
     this.textContentItemsStr = texts;
-  ***REMOVED***
-  enable(***REMOVED*** {
-    if (!this.textDivs || !this.textContentItemsStr***REMOVED*** {
-      throw new Error("Text divs and strings have not been set."***REMOVED***;
-    ***REMOVED***
-    if (this.enabled***REMOVED*** {
-      throw new Error("TextHighlighter is already enabled."***REMOVED***;
-    ***REMOVED***
+  }
+  enable() {
+    if (!this.textDivs || !this.textContentItemsStr) {
+      throw new Error("Text divs and strings have not been set.");
+    }
+    if (this.enabled) {
+      throw new Error("TextHighlighter is already enabled.");
+    }
     this.enabled = true;
-    if (!this.#eventAbortController***REMOVED*** {
-      this.#eventAbortController = new AbortController(***REMOVED***;
+    if (!this.#eventAbortController) {
+      this.#eventAbortController = new AbortController();
       this.eventBus._on("updatetextlayermatches", evt => {
-        if (evt.pageIndex === this.pageIdx || evt.pageIndex === -1***REMOVED*** {
-          this._updateMatches(***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***, {
+        if (evt.pageIndex === this.pageIdx || evt.pageIndex === -1) {
+          this._updateMatches();
+        }
+      }, {
         signal: this.#eventAbortController.signal
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    this._updateMatches(***REMOVED***;
-  ***REMOVED***
-  disable(***REMOVED*** {
-    if (!this.enabled***REMOVED*** {
+      });
+    }
+    this._updateMatches();
+  }
+  disable() {
+    if (!this.enabled) {
       return;
-    ***REMOVED***
+    }
     this.enabled = false;
-    this.#eventAbortController?.abort(***REMOVED***;
+    this.#eventAbortController?.abort();
     this.#eventAbortController = null;
-    this._updateMatches(true***REMOVED***;
-  ***REMOVED***
-  _convertMatches(matches, matchesLength***REMOVED*** {
-    if (!matches***REMOVED*** {
+    this._updateMatches(true);
+  }
+  _convertMatches(matches, matchesLength) {
+    if (!matches) {
       return [];
-    ***REMOVED***
+    }
     const {
       textContentItemsStr
-    ***REMOVED*** = this;
+    } = this;
     let i = 0,
       iIndex = 0;
     const end = textContentItemsStr.length - 1;
     const result = [];
-    for (let m = 0, mm = matches.length; m < mm; m++***REMOVED*** {
+    for (let m = 0, mm = matches.length; m < mm; m++) {
       let matchIdx = matches[m];
-      while (i !== end && matchIdx >= iIndex + textContentItemsStr[i].length***REMOVED*** {
+      while (i !== end && matchIdx >= iIndex + textContentItemsStr[i].length) {
         iIndex += textContentItemsStr[i].length;
         i++;
-      ***REMOVED***
-      if (i === textContentItemsStr.length***REMOVED*** {
-        console.error("Could not find a matching mapping"***REMOVED***;
-      ***REMOVED***
+      }
+      if (i === textContentItemsStr.length) {
+        console.error("Could not find a matching mapping");
+      }
       const match = {
         begin: {
           divIdx: i,
           offset: matchIdx - iIndex
-        ***REMOVED***
-      ***REMOVED***;
+        }
+      };
       matchIdx += matchesLength[m];
-      while (i !== end && matchIdx > iIndex + textContentItemsStr[i].length***REMOVED*** {
+      while (i !== end && matchIdx > iIndex + textContentItemsStr[i].length) {
         iIndex += textContentItemsStr[i].length;
         i++;
-      ***REMOVED***
+      }
       match.end = {
         divIdx: i,
         offset: matchIdx - iIndex
-      ***REMOVED***;
-      result.push(match***REMOVED***;
-    ***REMOVED***
+      };
+      result.push(match);
+    }
     return result;
-  ***REMOVED***
-  _renderMatches(matches***REMOVED*** {
-    if (matches.length === 0***REMOVED*** {
+  }
+  _renderMatches(matches) {
+    if (matches.length === 0) {
       return;
-    ***REMOVED***
+    }
     const {
       findController,
       pageIdx
-    ***REMOVED*** = this;
+    } = this;
     const {
       textContentItemsStr,
       textDivs
-    ***REMOVED*** = this;
+    } = this;
     const isSelectedPage = pageIdx === findController.selected.pageIdx;
     const selectedMatchIdx = findController.selected.matchIdx;
     const highlightAll = findController.state.highlightAll;
@@ -9752,125 +9752,125 @@ class TextHighlighter {
     const infinity = {
       divIdx: -1,
       offset: undefined
-    ***REMOVED***;
-    function beginText(begin, className***REMOVED*** {
+    };
+    function beginText(begin, className) {
       const divIdx = begin.divIdx;
       textDivs[divIdx].textContent = "";
-      return appendTextToDiv(divIdx, 0, begin.offset, className***REMOVED***;
-    ***REMOVED***
-    function appendTextToDiv(divIdx, fromOffset, toOffset, className***REMOVED*** {
+      return appendTextToDiv(divIdx, 0, begin.offset, className);
+    }
+    function appendTextToDiv(divIdx, fromOffset, toOffset, className) {
       let div = textDivs[divIdx];
-      if (div.nodeType === Node.TEXT_NODE***REMOVED*** {
-        const span = document.createElement("span"***REMOVED***;
-        div.before(span***REMOVED***;
-        span.append(div***REMOVED***;
+      if (div.nodeType === Node.TEXT_NODE) {
+        const span = document.createElement("span");
+        div.before(span);
+        span.append(div);
         textDivs[divIdx] = span;
         div = span;
-      ***REMOVED***
-      const content = textContentItemsStr[divIdx].substring(fromOffset, toOffset***REMOVED***;
-      const node = document.createTextNode(content***REMOVED***;
-      if (className***REMOVED*** {
-        const span = document.createElement("span"***REMOVED***;
-        span.className = `${className***REMOVED*** appended`;
-        span.append(node***REMOVED***;
-        div.append(span***REMOVED***;
-        if (className.includes("selected"***REMOVED******REMOVED*** {
+      }
+      const content = textContentItemsStr[divIdx].substring(fromOffset, toOffset);
+      const node = document.createTextNode(content);
+      if (className) {
+        const span = document.createElement("span");
+        span.className = `${className} appended`;
+        span.append(node);
+        div.append(span);
+        if (className.includes("selected")) {
           const {
             left
-          ***REMOVED*** = span.getClientRects(***REMOVED***[0];
-          const parentLeft = div.getBoundingClientRect(***REMOVED***.left;
+          } = span.getClientRects()[0];
+          const parentLeft = div.getBoundingClientRect().left;
           return left - parentLeft;
-        ***REMOVED***
+        }
         return 0;
-      ***REMOVED***
-      div.append(node***REMOVED***;
+      }
+      div.append(node);
       return 0;
-    ***REMOVED***
+    }
     let i0 = selectedMatchIdx,
       i1 = i0 + 1;
-    if (highlightAll***REMOVED*** {
+    if (highlightAll) {
       i0 = 0;
       i1 = matches.length;
-    ***REMOVED*** else if (!isSelectedPage***REMOVED*** {
+    } else if (!isSelectedPage) {
       return;
-    ***REMOVED***
+    }
     let lastDivIdx = -1;
     let lastOffset = -1;
-    for (let i = i0; i < i1; i++***REMOVED*** {
+    for (let i = i0; i < i1; i++) {
       const match = matches[i];
       const begin = match.begin;
-      if (begin.divIdx === lastDivIdx && begin.offset === lastOffset***REMOVED*** {
+      if (begin.divIdx === lastDivIdx && begin.offset === lastOffset) {
         continue;
-      ***REMOVED***
+      }
       lastDivIdx = begin.divIdx;
       lastOffset = begin.offset;
       const end = match.end;
       const isSelected = isSelectedPage && i === selectedMatchIdx;
       const highlightSuffix = isSelected ? " selected" : "";
       let selectedLeft = 0;
-      if (!prevEnd || begin.divIdx !== prevEnd.divIdx***REMOVED*** {
-        if (prevEnd !== null***REMOVED*** {
-          appendTextToDiv(prevEnd.divIdx, prevEnd.offset, infinity.offset***REMOVED***;
-        ***REMOVED***
-        beginText(begin***REMOVED***;
-      ***REMOVED*** else {
-        appendTextToDiv(prevEnd.divIdx, prevEnd.offset, begin.offset***REMOVED***;
-      ***REMOVED***
-      if (begin.divIdx === end.divIdx***REMOVED*** {
-        selectedLeft = appendTextToDiv(begin.divIdx, begin.offset, end.offset, "highlight" + highlightSuffix***REMOVED***;
-      ***REMOVED*** else {
-        selectedLeft = appendTextToDiv(begin.divIdx, begin.offset, infinity.offset, "highlight begin" + highlightSuffix***REMOVED***;
-        for (let n0 = begin.divIdx + 1, n1 = end.divIdx; n0 < n1; n0++***REMOVED*** {
+      if (!prevEnd || begin.divIdx !== prevEnd.divIdx) {
+        if (prevEnd !== null) {
+          appendTextToDiv(prevEnd.divIdx, prevEnd.offset, infinity.offset);
+        }
+        beginText(begin);
+      } else {
+        appendTextToDiv(prevEnd.divIdx, prevEnd.offset, begin.offset);
+      }
+      if (begin.divIdx === end.divIdx) {
+        selectedLeft = appendTextToDiv(begin.divIdx, begin.offset, end.offset, "highlight" + highlightSuffix);
+      } else {
+        selectedLeft = appendTextToDiv(begin.divIdx, begin.offset, infinity.offset, "highlight begin" + highlightSuffix);
+        for (let n0 = begin.divIdx + 1, n1 = end.divIdx; n0 < n1; n0++) {
           textDivs[n0].className = "highlight middle" + highlightSuffix;
-        ***REMOVED***
-        beginText(end, "highlight end" + highlightSuffix***REMOVED***;
-      ***REMOVED***
+        }
+        beginText(end, "highlight end" + highlightSuffix);
+      }
       prevEnd = end;
-      if (isSelected***REMOVED*** {
+      if (isSelected) {
         findController.scrollMatchIntoView({
           element: textDivs[begin.divIdx],
           selectedLeft,
           pageIndex: pageIdx,
           matchIndex: selectedMatchIdx
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    if (prevEnd***REMOVED*** {
-      appendTextToDiv(prevEnd.divIdx, prevEnd.offset, infinity.offset***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  _updateMatches(reset = false***REMOVED*** {
-    if (!this.enabled && !reset***REMOVED*** {
+        });
+      }
+    }
+    if (prevEnd) {
+      appendTextToDiv(prevEnd.divIdx, prevEnd.offset, infinity.offset);
+    }
+  }
+  _updateMatches(reset = false) {
+    if (!this.enabled && !reset) {
       return;
-    ***REMOVED***
+    }
     const {
       findController,
       matches,
       pageIdx
-    ***REMOVED*** = this;
+    } = this;
     const {
       textContentItemsStr,
       textDivs
-    ***REMOVED*** = this;
+    } = this;
     let clearedUntilDivIdx = -1;
-    for (const match of matches***REMOVED*** {
-      const begin = Math.max(clearedUntilDivIdx, match.begin.divIdx***REMOVED***;
-      for (let n = begin, end = match.end.divIdx; n <= end; n++***REMOVED*** {
+    for (const match of matches) {
+      const begin = Math.max(clearedUntilDivIdx, match.begin.divIdx);
+      for (let n = begin, end = match.end.divIdx; n <= end; n++) {
         const div = textDivs[n];
         div.textContent = textContentItemsStr[n];
         div.className = "";
-      ***REMOVED***
+      }
       clearedUntilDivIdx = match.end.divIdx + 1;
-    ***REMOVED***
-    if (!findController?.highlightMatches || reset***REMOVED*** {
+    }
+    if (!findController?.highlightMatches || reset) {
       return;
-    ***REMOVED***
+    }
     const pageMatches = findController.pageMatches[pageIdx] || null;
     const pageMatchesLength = findController.pageMatchesLength[pageIdx] || null;
-    this.matches = this._convertMatches(pageMatches, pageMatchesLength***REMOVED***;
-    this._renderMatches(this.matches***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    this.matches = this._convertMatches(pageMatches, pageMatchesLength);
+    this._renderMatches(this.matches);
+  }
+}
 
 ;// ./web/text_layer_builder.js
 
@@ -9880,7 +9880,7 @@ class TextLayerBuilder {
   #onAppend = null;
   #renderingDone = false;
   #textLayer = null;
-  static #textLayers = new Map(***REMOVED***;
+  static #textLayers = new Map();
   static #selectionChangeAbortController = null;
   constructor({
     pdfPage,
@@ -9888,178 +9888,178 @@ class TextLayerBuilder {
     accessibilityManager = null,
     enablePermissions = false,
     onAppend = null
-  ***REMOVED******REMOVED*** {
+  }) {
     this.pdfPage = pdfPage;
     this.highlighter = highlighter;
     this.accessibilityManager = accessibilityManager;
     this.#enablePermissions = enablePermissions === true;
     this.#onAppend = onAppend;
-    this.div = document.createElement("div"***REMOVED***;
+    this.div = document.createElement("div");
     this.div.tabIndex = 0;
     this.div.className = "textLayer";
-  ***REMOVED***
-  async render(viewport, textContentParams = null***REMOVED*** {
-    if (this.#renderingDone && this.#textLayer***REMOVED*** {
+  }
+  async render(viewport, textContentParams = null) {
+    if (this.#renderingDone && this.#textLayer) {
       this.#textLayer.update({
         viewport,
-        onBefore: this.hide.bind(this***REMOVED***
-      ***REMOVED******REMOVED***;
-      this.show(***REMOVED***;
+        onBefore: this.hide.bind(this)
+      });
+      this.show();
       return;
-    ***REMOVED***
-    this.cancel(***REMOVED***;
+    }
+    this.cancel();
     this.#textLayer = new TextLayer({
       textContentSource: this.pdfPage.streamTextContent(textContentParams || {
         includeMarkedContent: true,
         disableNormalization: true
-      ***REMOVED******REMOVED***,
+      }),
       container: this.div,
       viewport
-    ***REMOVED******REMOVED***;
+    });
     const {
       textDivs,
       textContentItemsStr
-    ***REMOVED*** = this.#textLayer;
-    this.highlighter?.setTextMapping(textDivs, textContentItemsStr***REMOVED***;
-    this.accessibilityManager?.setTextMapping(textDivs***REMOVED***;
-    await this.#textLayer.render(***REMOVED***;
+    } = this.#textLayer;
+    this.highlighter?.setTextMapping(textDivs, textContentItemsStr);
+    this.accessibilityManager?.setTextMapping(textDivs);
+    await this.#textLayer.render();
     this.#renderingDone = true;
-    const endOfContent = document.createElement("div"***REMOVED***;
+    const endOfContent = document.createElement("div");
     endOfContent.className = "endOfContent";
-    this.div.append(endOfContent***REMOVED***;
-    this.#bindMouse(endOfContent***REMOVED***;
-    this.#onAppend?.(this.div***REMOVED***;
-    this.highlighter?.enable(***REMOVED***;
-    this.accessibilityManager?.enable(***REMOVED***;
-  ***REMOVED***
-  hide(***REMOVED*** {
-    if (!this.div.hidden && this.#renderingDone***REMOVED*** {
-      this.highlighter?.disable(***REMOVED***;
+    this.div.append(endOfContent);
+    this.#bindMouse(endOfContent);
+    this.#onAppend?.(this.div);
+    this.highlighter?.enable();
+    this.accessibilityManager?.enable();
+  }
+  hide() {
+    if (!this.div.hidden && this.#renderingDone) {
+      this.highlighter?.disable();
       this.div.hidden = true;
-    ***REMOVED***
-  ***REMOVED***
-  show(***REMOVED*** {
-    if (this.div.hidden && this.#renderingDone***REMOVED*** {
+    }
+  }
+  show() {
+    if (this.div.hidden && this.#renderingDone) {
       this.div.hidden = false;
-      this.highlighter?.enable(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  cancel(***REMOVED*** {
-    this.#textLayer?.cancel(***REMOVED***;
+      this.highlighter?.enable();
+    }
+  }
+  cancel() {
+    this.#textLayer?.cancel();
     this.#textLayer = null;
-    this.highlighter?.disable(***REMOVED***;
-    this.accessibilityManager?.disable(***REMOVED***;
-    TextLayerBuilder.#removeGlobalSelectionListener(this.div***REMOVED***;
-  ***REMOVED***
-  #bindMouse(end***REMOVED*** {
+    this.highlighter?.disable();
+    this.accessibilityManager?.disable();
+    TextLayerBuilder.#removeGlobalSelectionListener(this.div);
+  }
+  #bindMouse(end) {
     const {
       div
-    ***REMOVED*** = this;
-    div.addEventListener("mousedown", (***REMOVED*** => {
-      div.classList.add("selecting"***REMOVED***;
-    ***REMOVED******REMOVED***;
+    } = this;
+    div.addEventListener("mousedown", () => {
+      div.classList.add("selecting");
+    });
     div.addEventListener("copy", event => {
-      if (!this.#enablePermissions***REMOVED*** {
-        const selection = document.getSelection(***REMOVED***;
-        event.clipboardData.setData("text/plain", removeNullCharacters(normalizeUnicode(selection.toString(***REMOVED******REMOVED******REMOVED******REMOVED***;
-      ***REMOVED***
-      stopEvent(event***REMOVED***;
-    ***REMOVED******REMOVED***;
-    TextLayerBuilder.#textLayers.set(div, end***REMOVED***;
-    TextLayerBuilder.#enableGlobalSelectionListener(***REMOVED***;
-  ***REMOVED***
-  static #removeGlobalSelectionListener(textLayerDiv***REMOVED*** {
-    this.#textLayers.delete(textLayerDiv***REMOVED***;
-    if (this.#textLayers.size === 0***REMOVED*** {
-      this.#selectionChangeAbortController?.abort(***REMOVED***;
+      if (!this.#enablePermissions) {
+        const selection = document.getSelection();
+        event.clipboardData.setData("text/plain", removeNullCharacters(normalizeUnicode(selection.toString())));
+      }
+      stopEvent(event);
+    });
+    TextLayerBuilder.#textLayers.set(div, end);
+    TextLayerBuilder.#enableGlobalSelectionListener();
+  }
+  static #removeGlobalSelectionListener(textLayerDiv) {
+    this.#textLayers.delete(textLayerDiv);
+    if (this.#textLayers.size === 0) {
+      this.#selectionChangeAbortController?.abort();
       this.#selectionChangeAbortController = null;
-    ***REMOVED***
-  ***REMOVED***
-  static #enableGlobalSelectionListener(***REMOVED*** {
-    if (this.#selectionChangeAbortController***REMOVED*** {
+    }
+  }
+  static #enableGlobalSelectionListener() {
+    if (this.#selectionChangeAbortController) {
       return;
-    ***REMOVED***
-    this.#selectionChangeAbortController = new AbortController(***REMOVED***;
+    }
+    this.#selectionChangeAbortController = new AbortController();
     const {
       signal
-    ***REMOVED*** = this.#selectionChangeAbortController;
-    const reset = (end, textLayer***REMOVED*** => {
-      textLayer.append(end***REMOVED***;
+    } = this.#selectionChangeAbortController;
+    const reset = (end, textLayer) => {
+      textLayer.append(end);
       end.style.width = "";
       end.style.height = "";
-      textLayer.classList.remove("selecting"***REMOVED***;
-    ***REMOVED***;
+      textLayer.classList.remove("selecting");
+    };
     let isPointerDown = false;
-    document.addEventListener("pointerdown", (***REMOVED*** => {
+    document.addEventListener("pointerdown", () => {
       isPointerDown = true;
-    ***REMOVED***, {
+    }, {
       signal
-    ***REMOVED******REMOVED***;
-    document.addEventListener("pointerup", (***REMOVED*** => {
+    });
+    document.addEventListener("pointerup", () => {
       isPointerDown = false;
-      this.#textLayers.forEach(reset***REMOVED***;
-    ***REMOVED***, {
+      this.#textLayers.forEach(reset);
+    }, {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("blur", (***REMOVED*** => {
+    });
+    window.addEventListener("blur", () => {
       isPointerDown = false;
-      this.#textLayers.forEach(reset***REMOVED***;
-    ***REMOVED***, {
+      this.#textLayers.forEach(reset);
+    }, {
       signal
-    ***REMOVED******REMOVED***;
-    document.addEventListener("keyup", (***REMOVED*** => {
-      if (!isPointerDown***REMOVED*** {
-        this.#textLayers.forEach(reset***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***, {
+    });
+    document.addEventListener("keyup", () => {
+      if (!isPointerDown) {
+        this.#textLayers.forEach(reset);
+      }
+    }, {
       signal
-    ***REMOVED******REMOVED***;
+    });
     var isFirefox, prevRange;
-    document.addEventListener("selectionchange", (***REMOVED*** => {
-      const selection = document.getSelection(***REMOVED***;
-      if (selection.rangeCount === 0***REMOVED*** {
-        this.#textLayers.forEach(reset***REMOVED***;
+    document.addEventListener("selectionchange", () => {
+      const selection = document.getSelection();
+      if (selection.rangeCount === 0) {
+        this.#textLayers.forEach(reset);
         return;
-      ***REMOVED***
-      const activeTextLayers = new Set(***REMOVED***;
-      for (let i = 0; i < selection.rangeCount; i++***REMOVED*** {
-        const range = selection.getRangeAt(i***REMOVED***;
-        for (const textLayerDiv of this.#textLayers.keys(***REMOVED******REMOVED*** {
-          if (!activeTextLayers.has(textLayerDiv***REMOVED*** && range.intersectsNode(textLayerDiv***REMOVED******REMOVED*** {
-            activeTextLayers.add(textLayerDiv***REMOVED***;
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED***
-      for (const [textLayerDiv, endDiv] of this.#textLayers***REMOVED*** {
-        if (activeTextLayers.has(textLayerDiv***REMOVED******REMOVED*** {
-          textLayerDiv.classList.add("selecting"***REMOVED***;
-        ***REMOVED*** else {
-          reset(endDiv, textLayerDiv***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-      isFirefox ??= getComputedStyle(this.#textLayers.values(***REMOVED***.next(***REMOVED***.value***REMOVED***.getPropertyValue("-moz-user-select"***REMOVED*** === "none";
-      if (isFirefox***REMOVED*** {
+      }
+      const activeTextLayers = new Set();
+      for (let i = 0; i < selection.rangeCount; i++) {
+        const range = selection.getRangeAt(i);
+        for (const textLayerDiv of this.#textLayers.keys()) {
+          if (!activeTextLayers.has(textLayerDiv) && range.intersectsNode(textLayerDiv)) {
+            activeTextLayers.add(textLayerDiv);
+          }
+        }
+      }
+      for (const [textLayerDiv, endDiv] of this.#textLayers) {
+        if (activeTextLayers.has(textLayerDiv)) {
+          textLayerDiv.classList.add("selecting");
+        } else {
+          reset(endDiv, textLayerDiv);
+        }
+      }
+      isFirefox ??= getComputedStyle(this.#textLayers.values().next().value).getPropertyValue("-moz-user-select") === "none";
+      if (isFirefox) {
         return;
-      ***REMOVED***
-      const range = selection.getRangeAt(0***REMOVED***;
-      const modifyStart = prevRange && (range.compareBoundaryPoints(Range.END_TO_END, prevRange***REMOVED*** === 0 || range.compareBoundaryPoints(Range.START_TO_END, prevRange***REMOVED*** === 0***REMOVED***;
+      }
+      const range = selection.getRangeAt(0);
+      const modifyStart = prevRange && (range.compareBoundaryPoints(Range.END_TO_END, prevRange) === 0 || range.compareBoundaryPoints(Range.START_TO_END, prevRange) === 0);
       let anchor = modifyStart ? range.startContainer : range.endContainer;
-      if (anchor.nodeType === Node.TEXT_NODE***REMOVED*** {
+      if (anchor.nodeType === Node.TEXT_NODE) {
         anchor = anchor.parentNode;
-      ***REMOVED***
-      const parentTextLayer = anchor.parentElement?.closest(".textLayer"***REMOVED***;
-      const endDiv = this.#textLayers.get(parentTextLayer***REMOVED***;
-      if (endDiv***REMOVED*** {
+      }
+      const parentTextLayer = anchor.parentElement?.closest(".textLayer");
+      const endDiv = this.#textLayers.get(parentTextLayer);
+      if (endDiv) {
         endDiv.style.width = parentTextLayer.style.width;
         endDiv.style.height = parentTextLayer.style.height;
-        anchor.parentElement.insertBefore(endDiv, modifyStart ? anchor : anchor.nextSibling***REMOVED***;
-      ***REMOVED***
-      prevRange = range.cloneRange(***REMOVED***;
-    ***REMOVED***, {
+        anchor.parentElement.insertBefore(endDiv, modifyStart ? anchor : anchor.nextSibling);
+      }
+      prevRange = range.cloneRange();
+    }, {
       signal
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    });
+  }
+}
 
 ;// ./web/pdf_page_view.js
 
@@ -10076,7 +10076,7 @@ class TextLayerBuilder {
 
 
 const DEFAULT_LAYER_PROPERTIES = null;
-const LAYERS_ORDER = new Map([["canvasWrapper", 0], ["textLayer", 1], ["annotationLayer", 2], ["annotationEditorLayer", 3], ["xfaLayer", 3]]***REMOVED***;
+const LAYERS_ORDER = new Map([["canvasWrapper", 0], ["textLayer", 1], ["annotationLayer", 2], ["annotationEditorLayer", 3], ["xfaLayer", 3]]);
 class PDFPageView {
   #annotationMode = AnnotationMode.ENABLE_FORMS;
   #canvasWrapper = null;
@@ -10096,9 +10096,9 @@ class PDFPageView {
     directDrawing: true,
     initialOptionalContent: true,
     regularAnnotations: true
-  ***REMOVED***;
+  };
   #layers = [null, null, null, null];
-  constructor(options***REMOVED*** {
+  constructor(options) {
     const container = options.container;
     const defaultViewport = options.defaultViewport;
     this.id = options.id;
@@ -10114,16 +10114,16 @@ class PDFPageView {
     this.#textLayerMode = options.textLayerMode ?? TextLayerMode.ENABLE;
     this.#annotationMode = options.annotationMode ?? AnnotationMode.ENABLE_FORMS;
     this.imageResourcesPath = options.imageResourcesPath || "";
-    this.maxCanvasPixels = options.maxCanvasPixels ?? AppOptions.get("maxCanvasPixels"***REMOVED***;
+    this.maxCanvasPixels = options.maxCanvasPixels ?? AppOptions.get("maxCanvasPixels");
     this.pageColors = options.pageColors || null;
     this.#enableHWA = options.enableHWA || false;
     this.eventBus = options.eventBus;
     this.renderingQueue = options.renderingQueue;
     this.l10n = options.l10n;
-    this.l10n ||= new genericl10n_GenericL10n(***REMOVED***;
+    this.l10n ||= new genericl10n_GenericL10n();
     this.renderTask = null;
     this.resume = null;
-    this._isStandalone = !this.renderingQueue?.hasViewer(***REMOVED***;
+    this._isStandalone = !this.renderingQueue?.hasViewer();
     this._container = container;
     this._annotationCanvasMap = null;
     this.annotationLayer = null;
@@ -10132,248 +10132,248 @@ class PDFPageView {
     this.xfaLayer = null;
     this.structTreeLayer = null;
     this.drawLayer = null;
-    const div = document.createElement("div"***REMOVED***;
+    const div = document.createElement("div");
     div.className = "page";
-    div.setAttribute("data-page-number", this.id***REMOVED***;
-    div.setAttribute("role", "region"***REMOVED***;
-    div.setAttribute("data-l10n-id", "pdfjs-page-landmark"***REMOVED***;
+    div.setAttribute("data-page-number", this.id);
+    div.setAttribute("role", "region");
+    div.setAttribute("data-l10n-id", "pdfjs-page-landmark");
     div.setAttribute("data-l10n-args", JSON.stringify({
       page: this.id
-    ***REMOVED******REMOVED******REMOVED***;
+    }));
     this.div = div;
-    this.#setDimensions(***REMOVED***;
-    container?.append(div***REMOVED***;
-    if (this._isStandalone***REMOVED*** {
-      container?.style.setProperty("--scale-factor", this.scale * PixelsPerInch.PDF_TO_CSS_UNITS***REMOVED***;
-      if (this.pageColors?.background***REMOVED*** {
-        container?.style.setProperty("--page-bg-color", this.pageColors.background***REMOVED***;
-      ***REMOVED***
+    this.#setDimensions();
+    container?.append(div);
+    if (this._isStandalone) {
+      container?.style.setProperty("--scale-factor", this.scale * PixelsPerInch.PDF_TO_CSS_UNITS);
+      if (this.pageColors?.background) {
+        container?.style.setProperty("--page-bg-color", this.pageColors.background);
+      }
       const {
         optionalContentConfigPromise
-      ***REMOVED*** = options;
-      if (optionalContentConfigPromise***REMOVED*** {
+      } = options;
+      if (optionalContentConfigPromise) {
         optionalContentConfigPromise.then(optionalContentConfig => {
-          if (optionalContentConfigPromise !== this._optionalContentConfigPromise***REMOVED*** {
+          if (optionalContentConfigPromise !== this._optionalContentConfigPromise) {
             return;
-          ***REMOVED***
+          }
           this.#useThumbnailCanvas.initialOptionalContent = optionalContentConfig.hasInitialVisibility;
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-      if (!options.l10n***REMOVED*** {
-        this.l10n.translate(this.div***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  #addLayer(div, name***REMOVED*** {
-    const pos = LAYERS_ORDER.get(name***REMOVED***;
+        });
+      }
+      if (!options.l10n) {
+        this.l10n.translate(this.div);
+      }
+    }
+  }
+  #addLayer(div, name) {
+    const pos = LAYERS_ORDER.get(name);
     const oldDiv = this.#layers[pos];
     this.#layers[pos] = div;
-    if (oldDiv***REMOVED*** {
-      oldDiv.replaceWith(div***REMOVED***;
+    if (oldDiv) {
+      oldDiv.replaceWith(div);
       return;
-    ***REMOVED***
-    for (let i = pos - 1; i >= 0; i--***REMOVED*** {
+    }
+    for (let i = pos - 1; i >= 0; i--) {
       const layer = this.#layers[i];
-      if (layer***REMOVED*** {
-        layer.after(div***REMOVED***;
+      if (layer) {
+        layer.after(div);
         return;
-      ***REMOVED***
-    ***REMOVED***
-    this.div.prepend(div***REMOVED***;
-  ***REMOVED***
-  get renderingState(***REMOVED*** {
+      }
+    }
+    this.div.prepend(div);
+  }
+  get renderingState() {
     return this.#renderingState;
-  ***REMOVED***
-  set renderingState(state***REMOVED*** {
-    if (state === this.#renderingState***REMOVED*** {
+  }
+  set renderingState(state) {
+    if (state === this.#renderingState) {
       return;
-    ***REMOVED***
+    }
     this.#renderingState = state;
-    if (this.#loadingId***REMOVED*** {
-      clearTimeout(this.#loadingId***REMOVED***;
+    if (this.#loadingId) {
+      clearTimeout(this.#loadingId);
       this.#loadingId = null;
-    ***REMOVED***
-    switch (state***REMOVED*** {
+    }
+    switch (state) {
       case RenderingStates.PAUSED:
-        this.div.classList.remove("loading"***REMOVED***;
+        this.div.classList.remove("loading");
         break;
       case RenderingStates.RUNNING:
-        this.div.classList.add("loadingIcon"***REMOVED***;
-        this.#loadingId = setTimeout((***REMOVED*** => {
-          this.div.classList.add("loading"***REMOVED***;
+        this.div.classList.add("loadingIcon");
+        this.#loadingId = setTimeout(() => {
+          this.div.classList.add("loading");
           this.#loadingId = null;
-        ***REMOVED***, 0***REMOVED***;
+        }, 0);
         break;
       case RenderingStates.INITIAL:
       case RenderingStates.FINISHED:
-        this.div.classList.remove("loadingIcon", "loading"***REMOVED***;
+        this.div.classList.remove("loadingIcon", "loading");
         break;
-    ***REMOVED***
-  ***REMOVED***
-  #setDimensions(***REMOVED*** {
+    }
+  }
+  #setDimensions() {
     const {
       viewport
-    ***REMOVED*** = this;
-    if (this.pdfPage***REMOVED*** {
-      if (this.#previousRotation === viewport.rotation***REMOVED*** {
+    } = this;
+    if (this.pdfPage) {
+      if (this.#previousRotation === viewport.rotation) {
         return;
-      ***REMOVED***
+      }
       this.#previousRotation = viewport.rotation;
-    ***REMOVED***
-    setLayerDimensions(this.div, viewport, true, false***REMOVED***;
-  ***REMOVED***
-  setPdfPage(pdfPage***REMOVED*** {
-    if (this._isStandalone && (this.pageColors?.foreground === "CanvasText" || this.pageColors?.background === "Canvas"***REMOVED******REMOVED*** {
-      this._container?.style.setProperty("--hcm-highlight-filter", pdfPage.filterFactory.addHighlightHCMFilter("highlight", "CanvasText", "Canvas", "HighlightText", "Highlight"***REMOVED******REMOVED***;
-      this._container?.style.setProperty("--hcm-highlight-selected-filter", pdfPage.filterFactory.addHighlightHCMFilter("highlight_selected", "CanvasText", "Canvas", "HighlightText", "Highlight"***REMOVED******REMOVED***;
-    ***REMOVED***
+    }
+    setLayerDimensions(this.div, viewport, true, false);
+  }
+  setPdfPage(pdfPage) {
+    if (this._isStandalone && (this.pageColors?.foreground === "CanvasText" || this.pageColors?.background === "Canvas")) {
+      this._container?.style.setProperty("--hcm-highlight-filter", pdfPage.filterFactory.addHighlightHCMFilter("highlight", "CanvasText", "Canvas", "HighlightText", "Highlight"));
+      this._container?.style.setProperty("--hcm-highlight-selected-filter", pdfPage.filterFactory.addHighlightHCMFilter("highlight_selected", "CanvasText", "Canvas", "HighlightText", "Highlight"));
+    }
     this.pdfPage = pdfPage;
     this.pdfPageRotate = pdfPage.rotate;
-    const totalRotation = (this.rotation + this.pdfPageRotate***REMOVED*** % 360;
+    const totalRotation = (this.rotation + this.pdfPageRotate) % 360;
     this.viewport = pdfPage.getViewport({
       scale: this.scale * PixelsPerInch.PDF_TO_CSS_UNITS,
       rotation: totalRotation
-    ***REMOVED******REMOVED***;
-    this.#setDimensions(***REMOVED***;
-    this.reset(***REMOVED***;
-  ***REMOVED***
-  destroy(***REMOVED*** {
-    this.reset(***REMOVED***;
-    this.pdfPage?.cleanup(***REMOVED***;
-  ***REMOVED***
-  hasEditableAnnotations(***REMOVED*** {
-    return !!this.annotationLayer?.hasEditableAnnotations(***REMOVED***;
-  ***REMOVED***
-  get _textHighlighter(***REMOVED*** {
+    });
+    this.#setDimensions();
+    this.reset();
+  }
+  destroy() {
+    this.reset();
+    this.pdfPage?.cleanup();
+  }
+  hasEditableAnnotations() {
+    return !!this.annotationLayer?.hasEditableAnnotations();
+  }
+  get _textHighlighter() {
     return shadow(this, "_textHighlighter", new TextHighlighter({
       pageIndex: this.id - 1,
       eventBus: this.eventBus,
       findController: this.#layerProperties.findController
-    ***REMOVED******REMOVED******REMOVED***;
-  ***REMOVED***
-  #dispatchLayerRendered(name, error***REMOVED*** {
+    }));
+  }
+  #dispatchLayerRendered(name, error) {
     this.eventBus.dispatch(name, {
       source: this,
       pageNumber: this.id,
       error
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async #renderAnnotationLayer(***REMOVED*** {
+    });
+  }
+  async #renderAnnotationLayer() {
     let error = null;
-  ***REMOVED***
+    try {
       await this.annotationLayer.render(this.viewport, {
         structTreeLayer: this.structTreeLayer
-      ***REMOVED***, "display"***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      console.error("#renderAnnotationLayer:", ex***REMOVED***;
+      }, "display");
+    } catch (ex) {
+      console.error("#renderAnnotationLayer:", ex);
       error = ex;
-    ***REMOVED*** finally {
-      this.#dispatchLayerRendered("annotationlayerrendered", error***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async #renderAnnotationEditorLayer(***REMOVED*** {
+    } finally {
+      this.#dispatchLayerRendered("annotationlayerrendered", error);
+    }
+  }
+  async #renderAnnotationEditorLayer() {
     let error = null;
-  ***REMOVED***
-      await this.annotationEditorLayer.render(this.viewport, "display"***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      console.error("#renderAnnotationEditorLayer:", ex***REMOVED***;
+    try {
+      await this.annotationEditorLayer.render(this.viewport, "display");
+    } catch (ex) {
+      console.error("#renderAnnotationEditorLayer:", ex);
       error = ex;
-    ***REMOVED*** finally {
-      this.#dispatchLayerRendered("annotationeditorlayerrendered", error***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async #renderDrawLayer(***REMOVED*** {
-  ***REMOVED***
-      await this.drawLayer.render("display"***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      console.error("#renderDrawLayer:", ex***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async #renderXfaLayer(***REMOVED*** {
+    } finally {
+      this.#dispatchLayerRendered("annotationeditorlayerrendered", error);
+    }
+  }
+  async #renderDrawLayer() {
+    try {
+      await this.drawLayer.render("display");
+    } catch (ex) {
+      console.error("#renderDrawLayer:", ex);
+    }
+  }
+  async #renderXfaLayer() {
     let error = null;
-  ***REMOVED***
-      const result = await this.xfaLayer.render(this.viewport, "display"***REMOVED***;
-      if (result?.textDivs && this._textHighlighter***REMOVED*** {
-        this.#buildXfaTextContentItems(result.textDivs***REMOVED***;
-      ***REMOVED***
-    ***REMOVED*** catch (ex***REMOVED*** {
-      console.error("#renderXfaLayer:", ex***REMOVED***;
+    try {
+      const result = await this.xfaLayer.render(this.viewport, "display");
+      if (result?.textDivs && this._textHighlighter) {
+        this.#buildXfaTextContentItems(result.textDivs);
+      }
+    } catch (ex) {
+      console.error("#renderXfaLayer:", ex);
       error = ex;
-    ***REMOVED*** finally {
-      if (this.xfaLayer?.div***REMOVED*** {
-        this.l10n.pause(***REMOVED***;
-        this.#addLayer(this.xfaLayer.div, "xfaLayer"***REMOVED***;
-        this.l10n.resume(***REMOVED***;
-      ***REMOVED***
-      this.#dispatchLayerRendered("xfalayerrendered", error***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async #renderTextLayer(***REMOVED*** {
-    if (!this.textLayer***REMOVED*** {
+    } finally {
+      if (this.xfaLayer?.div) {
+        this.l10n.pause();
+        this.#addLayer(this.xfaLayer.div, "xfaLayer");
+        this.l10n.resume();
+      }
+      this.#dispatchLayerRendered("xfalayerrendered", error);
+    }
+  }
+  async #renderTextLayer() {
+    if (!this.textLayer) {
       return;
-    ***REMOVED***
+    }
     let error = null;
-  ***REMOVED***
-      await this.textLayer.render(this.viewport***REMOVED***;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      if (ex instanceof AbortException***REMOVED*** {
+    try {
+      await this.textLayer.render(this.viewport);
+    } catch (ex) {
+      if (ex instanceof AbortException) {
         return;
-      ***REMOVED***
-      console.error("#renderTextLayer:", ex***REMOVED***;
+      }
+      console.error("#renderTextLayer:", ex);
       error = ex;
-    ***REMOVED***
-    this.#dispatchLayerRendered("textlayerrendered", error***REMOVED***;
-    this.#renderStructTreeLayer(***REMOVED***;
-  ***REMOVED***
-  async #renderStructTreeLayer(***REMOVED*** {
-    if (!this.textLayer***REMOVED*** {
+    }
+    this.#dispatchLayerRendered("textlayerrendered", error);
+    this.#renderStructTreeLayer();
+  }
+  async #renderStructTreeLayer() {
+    if (!this.textLayer) {
       return;
-    ***REMOVED***
-    const treeDom = await this.structTreeLayer?.render(***REMOVED***;
-    if (treeDom***REMOVED*** {
-      this.l10n.pause(***REMOVED***;
-      this.structTreeLayer?.addElementsToTextLayer(***REMOVED***;
-      if (this.canvas && treeDom.parentNode !== this.canvas***REMOVED*** {
-        this.canvas.append(treeDom***REMOVED***;
-      ***REMOVED***
-      this.l10n.resume(***REMOVED***;
-    ***REMOVED***
-    this.structTreeLayer?.show(***REMOVED***;
-  ***REMOVED***
-  async #buildXfaTextContentItems(textDivs***REMOVED*** {
-    const text = await this.pdfPage.getTextContent(***REMOVED***;
+    }
+    const treeDom = await this.structTreeLayer?.render();
+    if (treeDom) {
+      this.l10n.pause();
+      this.structTreeLayer?.addElementsToTextLayer();
+      if (this.canvas && treeDom.parentNode !== this.canvas) {
+        this.canvas.append(treeDom);
+      }
+      this.l10n.resume();
+    }
+    this.structTreeLayer?.show();
+  }
+  async #buildXfaTextContentItems(textDivs) {
+    const text = await this.pdfPage.getTextContent();
     const items = [];
-    for (const item of text.items***REMOVED*** {
-      items.push(item.str***REMOVED***;
-    ***REMOVED***
-    this._textHighlighter.setTextMapping(textDivs, items***REMOVED***;
-    this._textHighlighter.enable(***REMOVED***;
-  ***REMOVED***
-  #resetCanvas(***REMOVED*** {
+    for (const item of text.items) {
+      items.push(item.str);
+    }
+    this._textHighlighter.setTextMapping(textDivs, items);
+    this._textHighlighter.enable();
+  }
+  #resetCanvas() {
     const {
       canvas
-    ***REMOVED*** = this;
-    if (!canvas***REMOVED*** {
+    } = this;
+    if (!canvas) {
       return;
-    ***REMOVED***
-    canvas.remove(***REMOVED***;
+    }
+    canvas.remove();
     canvas.width = canvas.height = 0;
     this.canvas = null;
     this.#originalViewport = null;
-  ***REMOVED***
+  }
   reset({
     keepAnnotationLayer = false,
     keepAnnotationEditorLayer = false,
     keepXfaLayer = false,
     keepTextLayer = false,
     keepCanvasWrapper = false
-  ***REMOVED*** = {***REMOVED******REMOVED*** {
+  } = {}) {
     this.cancelRendering({
       keepAnnotationLayer,
       keepAnnotationEditorLayer,
       keepXfaLayer,
       keepTextLayer
-    ***REMOVED******REMOVED***;
+    });
     this.renderingState = RenderingStates.INITIAL;
     const div = this.div;
     const childNodes = div.childNodes,
@@ -10382,45 +10382,45 @@ class PDFPageView {
       xfaLayerNode = keepXfaLayer && this.xfaLayer?.div || null,
       textLayerNode = keepTextLayer && this.textLayer?.div || null,
       canvasWrapperNode = keepCanvasWrapper && this.#canvasWrapper || null;
-    for (let i = childNodes.length - 1; i >= 0; i--***REMOVED*** {
+    for (let i = childNodes.length - 1; i >= 0; i--) {
       const node = childNodes[i];
-      switch (node***REMOVED*** {
+      switch (node) {
         case annotationLayerNode:
         case annotationEditorLayerNode:
         case xfaLayerNode:
         case textLayerNode:
         case canvasWrapperNode:
           continue;
-      ***REMOVED***
-      node.remove(***REMOVED***;
-      const layerIndex = this.#layers.indexOf(node***REMOVED***;
-      if (layerIndex >= 0***REMOVED*** {
+      }
+      node.remove();
+      const layerIndex = this.#layers.indexOf(node);
+      if (layerIndex >= 0) {
         this.#layers[layerIndex] = null;
-      ***REMOVED***
-    ***REMOVED***
-    div.removeAttribute("data-loaded"***REMOVED***;
-    if (annotationLayerNode***REMOVED*** {
-      this.annotationLayer.hide(***REMOVED***;
-    ***REMOVED***
-    if (annotationEditorLayerNode***REMOVED*** {
-      this.annotationEditorLayer.hide(***REMOVED***;
-    ***REMOVED***
-    if (xfaLayerNode***REMOVED*** {
-      this.xfaLayer.hide(***REMOVED***;
-    ***REMOVED***
-    if (textLayerNode***REMOVED*** {
-      this.textLayer.hide(***REMOVED***;
-    ***REMOVED***
-    this.structTreeLayer?.hide(***REMOVED***;
-    if (!keepCanvasWrapper && this.#canvasWrapper***REMOVED*** {
+      }
+    }
+    div.removeAttribute("data-loaded");
+    if (annotationLayerNode) {
+      this.annotationLayer.hide();
+    }
+    if (annotationEditorLayerNode) {
+      this.annotationEditorLayer.hide();
+    }
+    if (xfaLayerNode) {
+      this.xfaLayer.hide();
+    }
+    if (textLayerNode) {
+      this.textLayer.hide();
+    }
+    this.structTreeLayer?.hide();
+    if (!keepCanvasWrapper && this.#canvasWrapper) {
       this.#canvasWrapper = null;
-      this.#resetCanvas(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  toggleEditingMode(isEditing***REMOVED*** {
-    if (!this.hasEditableAnnotations(***REMOVED******REMOVED*** {
+      this.#resetCanvas();
+    }
+  }
+  toggleEditingMode(isEditing) {
+    if (!this.hasEditableAnnotations()) {
       return;
-    ***REMOVED***
+    }
     this.#isEditing = isEditing;
     this.reset({
       keepAnnotationLayer: true,
@@ -10428,200 +10428,200 @@ class PDFPageView {
       keepXfaLayer: true,
       keepTextLayer: true,
       keepCanvasWrapper: true
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+    });
+  }
   update({
     scale = 0,
     rotation = null,
     optionalContentConfigPromise = null,
     drawingDelay = -1
-  ***REMOVED******REMOVED*** {
+  }) {
     this.scale = scale || this.scale;
-    if (typeof rotation === "number"***REMOVED*** {
+    if (typeof rotation === "number") {
       this.rotation = rotation;
-    ***REMOVED***
-    if (optionalContentConfigPromise instanceof Promise***REMOVED*** {
+    }
+    if (optionalContentConfigPromise instanceof Promise) {
       this._optionalContentConfigPromise = optionalContentConfigPromise;
       optionalContentConfigPromise.then(optionalContentConfig => {
-        if (optionalContentConfigPromise !== this._optionalContentConfigPromise***REMOVED*** {
+        if (optionalContentConfigPromise !== this._optionalContentConfigPromise) {
           return;
-        ***REMOVED***
+        }
         this.#useThumbnailCanvas.initialOptionalContent = optionalContentConfig.hasInitialVisibility;
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+      });
+    }
     this.#useThumbnailCanvas.directDrawing = true;
-    const totalRotation = (this.rotation + this.pdfPageRotate***REMOVED*** % 360;
+    const totalRotation = (this.rotation + this.pdfPageRotate) % 360;
     this.viewport = this.viewport.clone({
       scale: this.scale * PixelsPerInch.PDF_TO_CSS_UNITS,
       rotation: totalRotation
-    ***REMOVED******REMOVED***;
-    this.#setDimensions(***REMOVED***;
-    if (this._isStandalone***REMOVED*** {
-      this._container?.style.setProperty("--scale-factor", this.viewport.scale***REMOVED***;
-    ***REMOVED***
-    if (this.canvas***REMOVED*** {
+    });
+    this.#setDimensions();
+    if (this._isStandalone) {
+      this._container?.style.setProperty("--scale-factor", this.viewport.scale);
+    }
+    if (this.canvas) {
       let onlyCssZoom = false;
-      if (this.#hasRestrictedScaling***REMOVED*** {
-        if (this.maxCanvasPixels === 0***REMOVED*** {
+      if (this.#hasRestrictedScaling) {
+        if (this.maxCanvasPixels === 0) {
           onlyCssZoom = true;
-        ***REMOVED*** else if (this.maxCanvasPixels > 0***REMOVED*** {
+        } else if (this.maxCanvasPixels > 0) {
           const {
             width,
             height
-          ***REMOVED*** = this.viewport;
+          } = this.viewport;
           const {
             sx,
             sy
-          ***REMOVED*** = this.outputScale;
-          onlyCssZoom = (Math.floor(width***REMOVED*** * sx | 0***REMOVED*** * (Math.floor(height***REMOVED*** * sy | 0***REMOVED*** > this.maxCanvasPixels;
-        ***REMOVED***
-      ***REMOVED***
+          } = this.outputScale;
+          onlyCssZoom = (Math.floor(width) * sx | 0) * (Math.floor(height) * sy | 0) > this.maxCanvasPixels;
+        }
+      }
       const postponeDrawing = drawingDelay >= 0 && drawingDelay < 1000;
-      if (postponeDrawing || onlyCssZoom***REMOVED*** {
-        if (postponeDrawing && !onlyCssZoom && this.renderingState !== RenderingStates.FINISHED***REMOVED*** {
+      if (postponeDrawing || onlyCssZoom) {
+        if (postponeDrawing && !onlyCssZoom && this.renderingState !== RenderingStates.FINISHED) {
           this.cancelRendering({
             keepAnnotationLayer: true,
             keepAnnotationEditorLayer: true,
             keepXfaLayer: true,
             keepTextLayer: true,
             cancelExtraDelay: drawingDelay
-          ***REMOVED******REMOVED***;
+          });
           this.renderingState = RenderingStates.FINISHED;
           this.#useThumbnailCanvas.directDrawing = false;
-        ***REMOVED***
+        }
         this.cssTransform({
           redrawAnnotationLayer: true,
           redrawAnnotationEditorLayer: true,
           redrawXfaLayer: true,
           redrawTextLayer: !postponeDrawing,
           hideTextLayer: postponeDrawing
-        ***REMOVED******REMOVED***;
-        if (postponeDrawing***REMOVED*** {
+        });
+        if (postponeDrawing) {
           return;
-        ***REMOVED***
+        }
         this.eventBus.dispatch("pagerendered", {
           source: this,
           pageNumber: this.id,
           cssTransform: true,
-          timestamp: performance.now(***REMOVED***,
+          timestamp: performance.now(),
           error: this.#renderError
-        ***REMOVED******REMOVED***;
+        });
         return;
-      ***REMOVED***
-    ***REMOVED***
-    this.cssTransform({***REMOVED******REMOVED***;
+      }
+    }
+    this.cssTransform({});
     this.reset({
       keepAnnotationLayer: true,
       keepAnnotationEditorLayer: true,
       keepXfaLayer: true,
       keepTextLayer: true,
       keepCanvasWrapper: true
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
+    });
+  }
   cancelRendering({
     keepAnnotationLayer = false,
     keepAnnotationEditorLayer = false,
     keepXfaLayer = false,
     keepTextLayer = false,
     cancelExtraDelay = 0
-  ***REMOVED*** = {***REMOVED******REMOVED*** {
-    if (this.renderTask***REMOVED*** {
-      this.renderTask.cancel(cancelExtraDelay***REMOVED***;
+  } = {}) {
+    if (this.renderTask) {
+      this.renderTask.cancel(cancelExtraDelay);
       this.renderTask = null;
-    ***REMOVED***
+    }
     this.resume = null;
-    if (this.textLayer && (!keepTextLayer || !this.textLayer.div***REMOVED******REMOVED*** {
-      this.textLayer.cancel(***REMOVED***;
+    if (this.textLayer && (!keepTextLayer || !this.textLayer.div)) {
+      this.textLayer.cancel();
       this.textLayer = null;
-    ***REMOVED***
-    if (this.annotationLayer && (!keepAnnotationLayer || !this.annotationLayer.div***REMOVED******REMOVED*** {
-      this.annotationLayer.cancel(***REMOVED***;
+    }
+    if (this.annotationLayer && (!keepAnnotationLayer || !this.annotationLayer.div)) {
+      this.annotationLayer.cancel();
       this.annotationLayer = null;
       this._annotationCanvasMap = null;
-    ***REMOVED***
-    if (this.structTreeLayer && !this.textLayer***REMOVED*** {
+    }
+    if (this.structTreeLayer && !this.textLayer) {
       this.structTreeLayer = null;
-    ***REMOVED***
-    if (this.annotationEditorLayer && (!keepAnnotationEditorLayer || !this.annotationEditorLayer.div***REMOVED******REMOVED*** {
-      if (this.drawLayer***REMOVED*** {
-        this.drawLayer.cancel(***REMOVED***;
+    }
+    if (this.annotationEditorLayer && (!keepAnnotationEditorLayer || !this.annotationEditorLayer.div)) {
+      if (this.drawLayer) {
+        this.drawLayer.cancel();
         this.drawLayer = null;
-      ***REMOVED***
-      this.annotationEditorLayer.cancel(***REMOVED***;
+      }
+      this.annotationEditorLayer.cancel();
       this.annotationEditorLayer = null;
-    ***REMOVED***
-    if (this.xfaLayer && (!keepXfaLayer || !this.xfaLayer.div***REMOVED******REMOVED*** {
-      this.xfaLayer.cancel(***REMOVED***;
+    }
+    if (this.xfaLayer && (!keepXfaLayer || !this.xfaLayer.div)) {
+      this.xfaLayer.cancel();
       this.xfaLayer = null;
-      this._textHighlighter?.disable(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+      this._textHighlighter?.disable();
+    }
+  }
   cssTransform({
     redrawAnnotationLayer = false,
     redrawAnnotationEditorLayer = false,
     redrawXfaLayer = false,
     redrawTextLayer = false,
     hideTextLayer = false
-  ***REMOVED******REMOVED*** {
+  }) {
     const {
       canvas
-    ***REMOVED*** = this;
-    if (!canvas***REMOVED*** {
+    } = this;
+    if (!canvas) {
       return;
-    ***REMOVED***
+    }
     const originalViewport = this.#originalViewport;
-    if (this.viewport !== originalViewport***REMOVED*** {
-      const relativeRotation = (360 + this.viewport.rotation - originalViewport.rotation***REMOVED*** % 360;
-      if (relativeRotation === 90 || relativeRotation === 270***REMOVED*** {
+    if (this.viewport !== originalViewport) {
+      const relativeRotation = (360 + this.viewport.rotation - originalViewport.rotation) % 360;
+      if (relativeRotation === 90 || relativeRotation === 270) {
         const {
           width,
           height
-        ***REMOVED*** = this.viewport;
+        } = this.viewport;
         const scaleX = height / width;
         const scaleY = width / height;
-        canvas.style.transform = `rotate(${relativeRotation***REMOVED***deg***REMOVED*** scale(${scaleX***REMOVED***,${scaleY***REMOVED******REMOVED***`;
-      ***REMOVED*** else {
-        canvas.style.transform = relativeRotation === 0 ? "" : `rotate(${relativeRotation***REMOVED***deg***REMOVED***`;
-      ***REMOVED***
-    ***REMOVED***
-    if (redrawAnnotationLayer && this.annotationLayer***REMOVED*** {
-      this.#renderAnnotationLayer(***REMOVED***;
-    ***REMOVED***
-    if (redrawAnnotationEditorLayer && this.annotationEditorLayer***REMOVED*** {
-      if (this.drawLayer***REMOVED*** {
-        this.#renderDrawLayer(***REMOVED***;
-      ***REMOVED***
-      this.#renderAnnotationEditorLayer(***REMOVED***;
-    ***REMOVED***
-    if (redrawXfaLayer && this.xfaLayer***REMOVED*** {
-      this.#renderXfaLayer(***REMOVED***;
-    ***REMOVED***
-    if (this.textLayer***REMOVED*** {
-      if (hideTextLayer***REMOVED*** {
-        this.textLayer.hide(***REMOVED***;
-        this.structTreeLayer?.hide(***REMOVED***;
-      ***REMOVED*** else if (redrawTextLayer***REMOVED*** {
-        this.#renderTextLayer(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  get width(***REMOVED*** {
+        canvas.style.transform = `rotate(${relativeRotation}deg) scale(${scaleX},${scaleY})`;
+      } else {
+        canvas.style.transform = relativeRotation === 0 ? "" : `rotate(${relativeRotation}deg)`;
+      }
+    }
+    if (redrawAnnotationLayer && this.annotationLayer) {
+      this.#renderAnnotationLayer();
+    }
+    if (redrawAnnotationEditorLayer && this.annotationEditorLayer) {
+      if (this.drawLayer) {
+        this.#renderDrawLayer();
+      }
+      this.#renderAnnotationEditorLayer();
+    }
+    if (redrawXfaLayer && this.xfaLayer) {
+      this.#renderXfaLayer();
+    }
+    if (this.textLayer) {
+      if (hideTextLayer) {
+        this.textLayer.hide();
+        this.structTreeLayer?.hide();
+      } else if (redrawTextLayer) {
+        this.#renderTextLayer();
+      }
+    }
+  }
+  get width() {
     return this.viewport.width;
-  ***REMOVED***
-  get height(***REMOVED*** {
+  }
+  get height() {
     return this.viewport.height;
-  ***REMOVED***
-  getPagePoint(x, y***REMOVED*** {
-    return this.viewport.convertToPdfPoint(x, y***REMOVED***;
-  ***REMOVED***
-  async #finishRenderTask(renderTask, error = null***REMOVED*** {
-    if (renderTask === this.renderTask***REMOVED*** {
+  }
+  getPagePoint(x, y) {
+    return this.viewport.convertToPdfPoint(x, y);
+  }
+  async #finishRenderTask(renderTask, error = null) {
+    if (renderTask === this.renderTask) {
       this.renderTask = null;
-    ***REMOVED***
-    if (error instanceof RenderingCancelledException***REMOVED*** {
+    }
+    if (error instanceof RenderingCancelledException) {
       this.#renderError = null;
       return;
-    ***REMOVED***
+    }
     this.#renderError = error;
     this.renderingState = RenderingStates.FINISHED;
     this.#useThumbnailCanvas.regularAnnotations = !renderTask.separateAnnots;
@@ -10629,51 +10629,51 @@ class PDFPageView {
       source: this,
       pageNumber: this.id,
       cssTransform: false,
-      timestamp: performance.now(***REMOVED***,
+      timestamp: performance.now(),
       error: this.#renderError
-    ***REMOVED******REMOVED***;
-    if (error***REMOVED*** {
-  ***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async draw(***REMOVED*** {
-    if (this.renderingState !== RenderingStates.INITIAL***REMOVED*** {
-      console.error("Must be in new state before drawing"***REMOVED***;
-      this.reset(***REMOVED***;
-    ***REMOVED***
+    });
+    if (error) {
+      throw error;
+    }
+  }
+  async draw() {
+    if (this.renderingState !== RenderingStates.INITIAL) {
+      console.error("Must be in new state before drawing");
+      this.reset();
+    }
     const {
       div,
       l10n,
       pageColors,
       pdfPage,
       viewport
-    ***REMOVED*** = this;
-    if (!pdfPage***REMOVED*** {
+    } = this;
+    if (!pdfPage) {
       this.renderingState = RenderingStates.FINISHED;
-      throw new Error("pdfPage is not loaded"***REMOVED***;
-    ***REMOVED***
+      throw new Error("pdfPage is not loaded");
+    }
     this.renderingState = RenderingStates.RUNNING;
     let canvasWrapper = this.#canvasWrapper;
-    if (!canvasWrapper***REMOVED*** {
-      canvasWrapper = this.#canvasWrapper = document.createElement("div"***REMOVED***;
-      canvasWrapper.classList.add("canvasWrapper"***REMOVED***;
-      this.#addLayer(canvasWrapper, "canvasWrapper"***REMOVED***;
-    ***REMOVED***
-    if (!this.textLayer && this.#textLayerMode !== TextLayerMode.DISABLE && !pdfPage.isPureXfa***REMOVED*** {
-      this._accessibilityManager ||= new TextAccessibilityManager(***REMOVED***;
+    if (!canvasWrapper) {
+      canvasWrapper = this.#canvasWrapper = document.createElement("div");
+      canvasWrapper.classList.add("canvasWrapper");
+      this.#addLayer(canvasWrapper, "canvasWrapper");
+    }
+    if (!this.textLayer && this.#textLayerMode !== TextLayerMode.DISABLE && !pdfPage.isPureXfa) {
+      this._accessibilityManager ||= new TextAccessibilityManager();
       this.textLayer = new TextLayerBuilder({
         pdfPage,
         highlighter: this._textHighlighter,
         accessibilityManager: this._accessibilityManager,
         enablePermissions: this.#textLayerMode === TextLayerMode.ENABLE_PERMISSIONS,
         onAppend: textLayerDiv => {
-          this.l10n.pause(***REMOVED***;
-          this.#addLayer(textLayerDiv, "textLayer"***REMOVED***;
-          this.l10n.resume(***REMOVED***;
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    if (!this.annotationLayer && this.#annotationMode !== AnnotationMode.DISABLE***REMOVED*** {
+          this.l10n.pause();
+          this.#addLayer(textLayerDiv, "textLayer");
+          this.l10n.resume();
+        }
+      });
+    }
+    if (!this.annotationLayer && this.#annotationMode !== AnnotationMode.DISABLE) {
       const {
         annotationStorage,
         annotationEditorUIManager,
@@ -10682,8 +10682,8 @@ class PDFPageView {
         fieldObjectsPromise,
         hasJSActionsPromise,
         linkService
-      ***REMOVED*** = this.#layerProperties;
-      this._annotationCanvasMap ||= new Map(***REMOVED***;
+      } = this.#layerProperties;
+      this._annotationCanvasMap ||= new Map();
       this.annotationLayer = new AnnotationLayerBuilder({
         pdfPage,
         annotationStorage,
@@ -10698,87 +10698,87 @@ class PDFPageView {
         accessibilityManager: this._accessibilityManager,
         annotationEditorUIManager,
         onAppend: annotationLayerDiv => {
-          this.#addLayer(annotationLayerDiv, "annotationLayer"***REMOVED***;
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+          this.#addLayer(annotationLayerDiv, "annotationLayer");
+        }
+      });
+    }
     const renderContinueCallback = cont => {
-      showCanvas?.(false***REMOVED***;
-      if (this.renderingQueue && !this.renderingQueue.isHighestPriority(this***REMOVED******REMOVED*** {
+      showCanvas?.(false);
+      if (this.renderingQueue && !this.renderingQueue.isHighestPriority(this)) {
         this.renderingState = RenderingStates.PAUSED;
-        this.resume = (***REMOVED*** => {
+        this.resume = () => {
           this.renderingState = RenderingStates.RUNNING;
-          cont(***REMOVED***;
-        ***REMOVED***;
+          cont();
+        };
         return;
-      ***REMOVED***
-      cont(***REMOVED***;
-    ***REMOVED***;
+      }
+      cont();
+    };
     const {
       width,
       height
-    ***REMOVED*** = viewport;
-    const canvas = document.createElement("canvas"***REMOVED***;
-    canvas.setAttribute("role", "presentation"***REMOVED***;
-    const hasHCM = !!(pageColors?.background && pageColors?.foreground***REMOVED***;
+    } = viewport;
+    const canvas = document.createElement("canvas");
+    canvas.setAttribute("role", "presentation");
+    const hasHCM = !!(pageColors?.background && pageColors?.foreground);
     const prevCanvas = this.canvas;
     const updateOnFirstShow = !prevCanvas && !hasHCM;
     this.canvas = canvas;
     this.#originalViewport = viewport;
     let showCanvas = isLastShow => {
-      if (updateOnFirstShow***REMOVED*** {
-        canvasWrapper.prepend(canvas***REMOVED***;
+      if (updateOnFirstShow) {
+        canvasWrapper.prepend(canvas);
         showCanvas = null;
         return;
-      ***REMOVED***
-      if (!isLastShow***REMOVED*** {
+      }
+      if (!isLastShow) {
         return;
-      ***REMOVED***
-      if (prevCanvas***REMOVED*** {
-        prevCanvas.replaceWith(canvas***REMOVED***;
+      }
+      if (prevCanvas) {
+        prevCanvas.replaceWith(canvas);
         prevCanvas.width = prevCanvas.height = 0;
-      ***REMOVED*** else {
-        canvasWrapper.prepend(canvas***REMOVED***;
-      ***REMOVED***
+      } else {
+        canvasWrapper.prepend(canvas);
+      }
       showCanvas = null;
-    ***REMOVED***;
+    };
     const ctx = canvas.getContext("2d", {
       alpha: false,
       willReadFrequently: !this.#enableHWA
-    ***REMOVED******REMOVED***;
-    const outputScale = this.outputScale = new OutputScale(***REMOVED***;
-    if (this.maxCanvasPixels === 0***REMOVED*** {
+    });
+    const outputScale = this.outputScale = new OutputScale();
+    if (this.maxCanvasPixels === 0) {
       const invScale = 1 / this.scale;
       outputScale.sx *= invScale;
       outputScale.sy *= invScale;
       this.#hasRestrictedScaling = true;
-    ***REMOVED*** else if (this.maxCanvasPixels > 0***REMOVED*** {
+    } else if (this.maxCanvasPixels > 0) {
       const pixelsInViewport = width * height;
-      const maxScale = Math.sqrt(this.maxCanvasPixels / pixelsInViewport***REMOVED***;
-      if (outputScale.sx > maxScale || outputScale.sy > maxScale***REMOVED*** {
+      const maxScale = Math.sqrt(this.maxCanvasPixels / pixelsInViewport);
+      if (outputScale.sx > maxScale || outputScale.sy > maxScale) {
         outputScale.sx = maxScale;
         outputScale.sy = maxScale;
         this.#hasRestrictedScaling = true;
-      ***REMOVED*** else {
+      } else {
         this.#hasRestrictedScaling = false;
-      ***REMOVED***
-    ***REMOVED***
-    const sfx = approximateFraction(outputScale.sx***REMOVED***;
-    const sfy = approximateFraction(outputScale.sy***REMOVED***;
-    const canvasWidth = canvas.width = floorToDivide(calcRound(width * outputScale.sx***REMOVED***, sfx[0]***REMOVED***;
-    const canvasHeight = canvas.height = floorToDivide(calcRound(height * outputScale.sy***REMOVED***, sfy[0]***REMOVED***;
-    const pageWidth = floorToDivide(calcRound(width***REMOVED***, sfx[1]***REMOVED***;
-    const pageHeight = floorToDivide(calcRound(height***REMOVED***, sfy[1]***REMOVED***;
+      }
+    }
+    const sfx = approximateFraction(outputScale.sx);
+    const sfy = approximateFraction(outputScale.sy);
+    const canvasWidth = canvas.width = floorToDivide(calcRound(width * outputScale.sx), sfx[0]);
+    const canvasHeight = canvas.height = floorToDivide(calcRound(height * outputScale.sy), sfy[0]);
+    const pageWidth = floorToDivide(calcRound(width), sfx[1]);
+    const pageHeight = floorToDivide(calcRound(height), sfy[1]);
     outputScale.sx = canvasWidth / pageWidth;
     outputScale.sy = canvasHeight / pageHeight;
-    if (this.#scaleRoundX !== sfx[1]***REMOVED*** {
-      div.style.setProperty("--scale-round-x", `${sfx[1]***REMOVED***px`***REMOVED***;
+    if (this.#scaleRoundX !== sfx[1]) {
+      div.style.setProperty("--scale-round-x", `${sfx[1]}px`);
       this.#scaleRoundX = sfx[1];
-    ***REMOVED***
-    if (this.#scaleRoundY !== sfy[1]***REMOVED*** {
-      div.style.setProperty("--scale-round-y", `${sfy[1]***REMOVED***px`***REMOVED***;
+    }
+    if (this.#scaleRoundY !== sfy[1]) {
+      div.style.setProperty("--scale-round-y", `${sfy[1]}px`);
       this.#scaleRoundY = sfy[1];
-    ***REMOVED***
+    }
     const transform = outputScale.scaled ? [outputScale.sx, 0, 0, outputScale.sy, 0, 0] : null;
     const renderContext = {
       canvasContext: ctx,
@@ -10789,28 +10789,28 @@ class PDFPageView {
       annotationCanvasMap: this._annotationCanvasMap,
       pageColors,
       isEditing: this.#isEditing
-    ***REMOVED***;
-    const renderTask = this.renderTask = pdfPage.render(renderContext***REMOVED***;
+    };
+    const renderTask = this.renderTask = pdfPage.render(renderContext);
     renderTask.onContinue = renderContinueCallback;
-    const resultPromise = renderTask.promise.then(async (***REMOVED*** => {
-      showCanvas?.(true***REMOVED***;
-      await this.#finishRenderTask(renderTask***REMOVED***;
-      this.structTreeLayer ||= new StructTreeLayerBuilder(pdfPage, viewport.rawDims***REMOVED***;
-      this.#renderTextLayer(***REMOVED***;
-      if (this.annotationLayer***REMOVED*** {
-        await this.#renderAnnotationLayer(***REMOVED***;
-      ***REMOVED***
+    const resultPromise = renderTask.promise.then(async () => {
+      showCanvas?.(true);
+      await this.#finishRenderTask(renderTask);
+      this.structTreeLayer ||= new StructTreeLayerBuilder(pdfPage, viewport.rawDims);
+      this.#renderTextLayer();
+      if (this.annotationLayer) {
+        await this.#renderAnnotationLayer();
+      }
       const {
         annotationEditorUIManager
-      ***REMOVED*** = this.#layerProperties;
-      if (!annotationEditorUIManager***REMOVED*** {
+      } = this.#layerProperties;
+      if (!annotationEditorUIManager) {
         return;
-      ***REMOVED***
+      }
       this.drawLayer ||= new DrawLayerBuilder({
         pageIndex: this.id
-      ***REMOVED******REMOVED***;
-      await this.#renderDrawLayer(***REMOVED***;
-      this.drawLayer.setParent(canvasWrapper***REMOVED***;
+      });
+      await this.#renderDrawLayer();
+      this.drawLayer.setParent(canvasWrapper);
       this.annotationEditorLayer ||= new AnnotationEditorLayerBuilder({
         uiManager: annotationEditorUIManager,
         pdfPage,
@@ -10819,62 +10819,62 @@ class PDFPageView {
         accessibilityManager: this._accessibilityManager,
         annotationLayer: this.annotationLayer?.annotationLayer,
         textLayer: this.textLayer,
-        drawLayer: this.drawLayer.getDrawLayer(***REMOVED***,
+        drawLayer: this.drawLayer.getDrawLayer(),
         onAppend: annotationEditorLayerDiv => {
-          this.#addLayer(annotationEditorLayerDiv, "annotationEditorLayer"***REMOVED***;
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-      this.#renderAnnotationEditorLayer(***REMOVED***;
-    ***REMOVED***, error => {
-      if (!(error instanceof RenderingCancelledException***REMOVED******REMOVED*** {
-        showCanvas?.(true***REMOVED***;
-      ***REMOVED*** else {
-        prevCanvas?.remove(***REMOVED***;
-        this.#resetCanvas(***REMOVED***;
-      ***REMOVED***
-      return this.#finishRenderTask(renderTask, error***REMOVED***;
-    ***REMOVED******REMOVED***;
-    if (pdfPage.isPureXfa***REMOVED*** {
-      if (!this.xfaLayer***REMOVED*** {
+          this.#addLayer(annotationEditorLayerDiv, "annotationEditorLayer");
+        }
+      });
+      this.#renderAnnotationEditorLayer();
+    }, error => {
+      if (!(error instanceof RenderingCancelledException)) {
+        showCanvas?.(true);
+      } else {
+        prevCanvas?.remove();
+        this.#resetCanvas();
+      }
+      return this.#finishRenderTask(renderTask, error);
+    });
+    if (pdfPage.isPureXfa) {
+      if (!this.xfaLayer) {
         const {
           annotationStorage,
           linkService
-        ***REMOVED*** = this.#layerProperties;
+        } = this.#layerProperties;
         this.xfaLayer = new XfaLayerBuilder({
           pdfPage,
           annotationStorage,
           linkService
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-      this.#renderXfaLayer(***REMOVED***;
-    ***REMOVED***
-    div.setAttribute("data-loaded", true***REMOVED***;
+        });
+      }
+      this.#renderXfaLayer();
+    }
+    div.setAttribute("data-loaded", true);
     this.eventBus.dispatch("pagerender", {
       source: this,
       pageNumber: this.id
-    ***REMOVED******REMOVED***;
+    });
     return resultPromise;
-  ***REMOVED***
-  setPageLabel(label***REMOVED*** {
+  }
+  setPageLabel(label) {
     this.pageLabel = typeof label === "string" ? label : null;
     this.div.setAttribute("data-l10n-args", JSON.stringify({
       page: this.pageLabel ?? this.id
-    ***REMOVED******REMOVED******REMOVED***;
-    if (this.pageLabel !== null***REMOVED*** {
-      this.div.setAttribute("data-page-label", this.pageLabel***REMOVED***;
-    ***REMOVED*** else {
-      this.div.removeAttribute("data-page-label"***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  get thumbnailCanvas(***REMOVED*** {
+    }));
+    if (this.pageLabel !== null) {
+      this.div.setAttribute("data-page-label", this.pageLabel);
+    } else {
+      this.div.removeAttribute("data-page-label");
+    }
+  }
+  get thumbnailCanvas() {
     const {
       directDrawing,
       initialOptionalContent,
       regularAnnotations
-    ***REMOVED*** = this.#useThumbnailCanvas;
+    } = this.#useThumbnailCanvas;
     return directDrawing && initialOptionalContent && regularAnnotations ? this.canvas : null;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/pdf_viewer.js
 
@@ -10888,58 +10888,58 @@ const PagesCountLimit = {
   FORCE_SCROLL_MODE_PAGE: 10000,
   FORCE_LAZY_PAGE_INIT: 5000,
   PAUSE_EAGER_PAGE_INIT: 250
-***REMOVED***;
-function isValidAnnotationEditorMode(mode***REMOVED*** {
-  return Object.values(AnnotationEditorType***REMOVED***.includes(mode***REMOVED*** && mode !== AnnotationEditorType.DISABLE;
-***REMOVED***
+};
+function isValidAnnotationEditorMode(mode) {
+  return Object.values(AnnotationEditorType).includes(mode) && mode !== AnnotationEditorType.DISABLE;
+}
 class PDFPageViewBuffer {
-  #buf = new Set(***REMOVED***;
+  #buf = new Set();
   #size = 0;
-  constructor(size***REMOVED*** {
+  constructor(size) {
     this.#size = size;
-  ***REMOVED***
-  push(view***REMOVED*** {
+  }
+  push(view) {
     const buf = this.#buf;
-    if (buf.has(view***REMOVED******REMOVED*** {
-      buf.delete(view***REMOVED***;
-    ***REMOVED***
-    buf.add(view***REMOVED***;
-    if (buf.size > this.#size***REMOVED*** {
-      this.#destroyFirstView(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  resize(newSize, idsToKeep = null***REMOVED*** {
+    if (buf.has(view)) {
+      buf.delete(view);
+    }
+    buf.add(view);
+    if (buf.size > this.#size) {
+      this.#destroyFirstView();
+    }
+  }
+  resize(newSize, idsToKeep = null) {
     this.#size = newSize;
     const buf = this.#buf;
-    if (idsToKeep***REMOVED*** {
+    if (idsToKeep) {
       const ii = buf.size;
       let i = 1;
-      for (const view of buf***REMOVED*** {
-        if (idsToKeep.has(view.id***REMOVED******REMOVED*** {
-          buf.delete(view***REMOVED***;
-          buf.add(view***REMOVED***;
-        ***REMOVED***
-        if (++i > ii***REMOVED*** {
+      for (const view of buf) {
+        if (idsToKeep.has(view.id)) {
+          buf.delete(view);
+          buf.add(view);
+        }
+        if (++i > ii) {
           break;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
-    while (buf.size > this.#size***REMOVED*** {
-      this.#destroyFirstView(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  has(view***REMOVED*** {
-    return this.#buf.has(view***REMOVED***;
-  ***REMOVED***
-  [Symbol.iterator](***REMOVED*** {
-    return this.#buf.keys(***REMOVED***;
-  ***REMOVED***
-  #destroyFirstView(***REMOVED*** {
-    const firstView = this.#buf.keys(***REMOVED***.next(***REMOVED***.value;
-    firstView?.destroy(***REMOVED***;
-    this.#buf.delete(firstView***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+        }
+      }
+    }
+    while (buf.size > this.#size) {
+      this.#destroyFirstView();
+    }
+  }
+  has(view) {
+    return this.#buf.has(view);
+  }
+  [Symbol.iterator]() {
+    return this.#buf.keys();
+  }
+  #destroyFirstView() {
+    const firstView = this.#buf.keys().next().value;
+    firstView?.destroy();
+    this.#buf.delete(firstView);
+  }
+}
 class PDFViewer {
   #buffer = null;
   #altTextManager = null;
@@ -10962,34 +10962,34 @@ class PDFViewer {
   #hiddenCopyElement = null;
   #interruptCopyCondition = false;
   #previousContainerHeight = 0;
-  #resizeObserver = new ResizeObserver(this.#resizeObserverCallback.bind(this***REMOVED******REMOVED***;
+  #resizeObserver = new ResizeObserver(this.#resizeObserverCallback.bind(this));
   #scrollModePageState = null;
   #scaleTimeoutId = null;
   #supportsPinchToZoom = true;
   #textLayerMode = TextLayerMode.ENABLE;
-  constructor(options***REMOVED*** {
+  constructor(options) {
     const viewerVersion = "4.10.38";
-    if (version !== viewerVersion***REMOVED*** {
-      throw new Error(`The API version "${version***REMOVED***" does not match the Viewer version "${viewerVersion***REMOVED***".`***REMOVED***;
-    ***REMOVED***
+    if (version !== viewerVersion) {
+      throw new Error(`The API version "${version}" does not match the Viewer version "${viewerVersion}".`);
+    }
     this.container = options.container;
     this.viewer = options.viewer || options.container.firstElementChild;
-    if (this.container?.tagName !== "DIV" || this.viewer?.tagName !== "DIV"***REMOVED*** {
-      throw new Error("Invalid `container` and/or `viewer` option."***REMOVED***;
-    ***REMOVED***
-    if (this.container.offsetParent && getComputedStyle(this.container***REMOVED***.position !== "absolute"***REMOVED*** {
-      throw new Error("The `container` must be absolutely positioned."***REMOVED***;
-    ***REMOVED***
-    this.#resizeObserver.observe(this.container***REMOVED***;
+    if (this.container?.tagName !== "DIV" || this.viewer?.tagName !== "DIV") {
+      throw new Error("Invalid `container` and/or `viewer` option.");
+    }
+    if (this.container.offsetParent && getComputedStyle(this.container).position !== "absolute") {
+      throw new Error("The `container` must be absolutely positioned.");
+    }
+    this.#resizeObserver.observe(this.container);
     this.eventBus = options.eventBus;
-    this.linkService = options.linkService || new SimpleLinkService(***REMOVED***;
+    this.linkService = options.linkService || new SimpleLinkService();
     this.downloadManager = options.downloadManager || null;
     this.findController = options.findController || null;
     this.#altTextManager = options.altTextManager || null;
     this.#editorUndoBar = options.editorUndoBar || null;
-    if (this.findController***REMOVED*** {
-      this.findController.onIsPageVisible = pageNumber => this._getVisiblePages(***REMOVED***.ids.has(pageNumber***REMOVED***;
-    ***REMOVED***
+    if (this.findController) {
+      this.findController.onIsPageVisible = pageNumber => this._getVisiblePages().ids.has(pageNumber);
+    }
     this._scriptingManager = options.scriptingManager || null;
     this.#textLayerMode = options.textLayerMode ?? TextLayerMode.ENABLE;
     this.#annotationMode = options.annotationMode ?? AnnotationMode.ENABLE_FORMS;
@@ -11003,90 +11003,90 @@ class PDFViewer {
     this.removePageBorders = options.removePageBorders || false;
     this.maxCanvasPixels = options.maxCanvasPixels;
     this.l10n = options.l10n;
-    this.l10n ||= new genericl10n_GenericL10n(***REMOVED***;
+    this.l10n ||= new genericl10n_GenericL10n();
     this.#enablePermissions = options.enablePermissions || false;
     this.pageColors = options.pageColors || null;
     this.#mlManager = options.mlManager || null;
     this.#enableHWA = options.enableHWA || false;
     this.#supportsPinchToZoom = options.supportsPinchToZoom !== false;
     this.defaultRenderingQueue = !options.renderingQueue;
-    if (this.defaultRenderingQueue***REMOVED*** {
-      this.renderingQueue = new PDFRenderingQueue(***REMOVED***;
-      this.renderingQueue.setViewer(this***REMOVED***;
-    ***REMOVED*** else {
+    if (this.defaultRenderingQueue) {
+      this.renderingQueue = new PDFRenderingQueue();
+      this.renderingQueue.setViewer(this);
+    } else {
       this.renderingQueue = options.renderingQueue;
-    ***REMOVED***
+    }
     const {
       abortSignal
-    ***REMOVED*** = options;
-    abortSignal?.addEventListener("abort", (***REMOVED*** => {
-      this.#resizeObserver.disconnect(***REMOVED***;
+    } = options;
+    abortSignal?.addEventListener("abort", () => {
+      this.#resizeObserver.disconnect();
       this.#resizeObserver = null;
-    ***REMOVED***, {
+    }, {
       once: true
-    ***REMOVED******REMOVED***;
-    this.scroll = watchScroll(this.container, this._scrollUpdate.bind(this***REMOVED***, abortSignal***REMOVED***;
+    });
+    this.scroll = watchScroll(this.container, this._scrollUpdate.bind(this), abortSignal);
     this.presentationModeState = PresentationModeState.UNKNOWN;
-    this._resetView(***REMOVED***;
-    if (this.removePageBorders***REMOVED*** {
-      this.viewer.classList.add("removePageBorders"***REMOVED***;
-    ***REMOVED***
-    this.#updateContainerHeightCss(***REMOVED***;
+    this._resetView();
+    if (this.removePageBorders) {
+      this.viewer.classList.add("removePageBorders");
+    }
+    this.#updateContainerHeightCss();
     this.eventBus._on("thumbnailrendered", ({
       pageNumber,
       pdfPage
-    ***REMOVED******REMOVED*** => {
+    }) => {
       const pageView = this._pages[pageNumber - 1];
-      if (!this.#buffer.has(pageView***REMOVED******REMOVED*** {
-        pdfPage?.cleanup(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    if (!options.l10n***REMOVED*** {
-      this.l10n.translate(this.container***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  get pagesCount(***REMOVED*** {
+      if (!this.#buffer.has(pageView)) {
+        pdfPage?.cleanup();
+      }
+    });
+    if (!options.l10n) {
+      this.l10n.translate(this.container);
+    }
+  }
+  get pagesCount() {
     return this._pages.length;
-  ***REMOVED***
-  getPageView(index***REMOVED*** {
+  }
+  getPageView(index) {
     return this._pages[index];
-  ***REMOVED***
-  getCachedPageViews(***REMOVED*** {
-    return new Set(this.#buffer***REMOVED***;
-  ***REMOVED***
-  get pageViewsReady(***REMOVED*** {
-    return this._pages.every(pageView => pageView?.pdfPage***REMOVED***;
-  ***REMOVED***
-  get renderForms(***REMOVED*** {
+  }
+  getCachedPageViews() {
+    return new Set(this.#buffer);
+  }
+  get pageViewsReady() {
+    return this._pages.every(pageView => pageView?.pdfPage);
+  }
+  get renderForms() {
     return this.#annotationMode === AnnotationMode.ENABLE_FORMS;
-  ***REMOVED***
-  get enableScripting(***REMOVED*** {
+  }
+  get enableScripting() {
     return !!this._scriptingManager;
-  ***REMOVED***
-  get currentPageNumber(***REMOVED*** {
+  }
+  get currentPageNumber() {
     return this._currentPageNumber;
-  ***REMOVED***
-  set currentPageNumber(val***REMOVED*** {
-    if (!Number.isInteger(val***REMOVED******REMOVED*** {
-      throw new Error("Invalid page number."***REMOVED***;
-    ***REMOVED***
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  set currentPageNumber(val) {
+    if (!Number.isInteger(val)) {
+      throw new Error("Invalid page number.");
+    }
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    if (!this._setCurrentPageNumber(val, true***REMOVED******REMOVED*** {
-      console.error(`currentPageNumber: "${val***REMOVED***" is not a valid page.`***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  _setCurrentPageNumber(val, resetCurrentPageView = false***REMOVED*** {
-    if (this._currentPageNumber === val***REMOVED*** {
-      if (resetCurrentPageView***REMOVED*** {
-        this.#resetCurrentPageView(***REMOVED***;
-      ***REMOVED***
+    }
+    if (!this._setCurrentPageNumber(val, true)) {
+      console.error(`currentPageNumber: "${val}" is not a valid page.`);
+    }
+  }
+  _setCurrentPageNumber(val, resetCurrentPageView = false) {
+    if (this._currentPageNumber === val) {
+      if (resetCurrentPageView) {
+        this.#resetCurrentPageView();
+      }
       return true;
-    ***REMOVED***
-    if (!(0 < val && val <= this.pagesCount***REMOVED******REMOVED*** {
+    }
+    if (!(0 < val && val <= this.pagesCount)) {
       return false;
-    ***REMOVED***
+    }
     const previous = this._currentPageNumber;
     this._currentPageNumber = val;
     this.eventBus.dispatch("pagechanging", {
@@ -11094,347 +11094,347 @@ class PDFViewer {
       pageNumber: val,
       pageLabel: this._pageLabels?.[val - 1] ?? null,
       previous
-    ***REMOVED******REMOVED***;
-    if (resetCurrentPageView***REMOVED*** {
-      this.#resetCurrentPageView(***REMOVED***;
-    ***REMOVED***
+    });
+    if (resetCurrentPageView) {
+      this.#resetCurrentPageView();
+    }
     return true;
-  ***REMOVED***
-  get currentPageLabel(***REMOVED*** {
+  }
+  get currentPageLabel() {
     return this._pageLabels?.[this._currentPageNumber - 1] ?? null;
-  ***REMOVED***
-  set currentPageLabel(val***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  set currentPageLabel(val) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     let page = val | 0;
-    if (this._pageLabels***REMOVED*** {
-      const i = this._pageLabels.indexOf(val***REMOVED***;
-      if (i >= 0***REMOVED*** {
+    if (this._pageLabels) {
+      const i = this._pageLabels.indexOf(val);
+      if (i >= 0) {
         page = i + 1;
-      ***REMOVED***
-    ***REMOVED***
-    if (!this._setCurrentPageNumber(page, true***REMOVED******REMOVED*** {
-      console.error(`currentPageLabel: "${val***REMOVED***" is not a valid page.`***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  get currentScale(***REMOVED*** {
+      }
+    }
+    if (!this._setCurrentPageNumber(page, true)) {
+      console.error(`currentPageLabel: "${val}" is not a valid page.`);
+    }
+  }
+  get currentScale() {
     return this._currentScale !== UNKNOWN_SCALE ? this._currentScale : DEFAULT_SCALE;
-  ***REMOVED***
-  set currentScale(val***REMOVED*** {
-    if (isNaN(val***REMOVED******REMOVED*** {
-      throw new Error("Invalid numeric scale."***REMOVED***;
-    ***REMOVED***
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  set currentScale(val) {
+    if (isNaN(val)) {
+      throw new Error("Invalid numeric scale.");
+    }
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     this.#setScale(val, {
       noScroll: false
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get currentScaleValue(***REMOVED*** {
+    });
+  }
+  get currentScaleValue() {
     return this._currentScaleValue;
-  ***REMOVED***
-  set currentScaleValue(val***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  set currentScaleValue(val) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     this.#setScale(val, {
       noScroll: false
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get pagesRotation(***REMOVED*** {
+    });
+  }
+  get pagesRotation() {
     return this._pagesRotation;
-  ***REMOVED***
-  set pagesRotation(rotation***REMOVED*** {
-    if (!isValidRotation(rotation***REMOVED******REMOVED*** {
-      throw new Error("Invalid pages rotation angle."***REMOVED***;
-    ***REMOVED***
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  set pagesRotation(rotation) {
+    if (!isValidRotation(rotation)) {
+      throw new Error("Invalid pages rotation angle.");
+    }
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     rotation %= 360;
-    if (rotation < 0***REMOVED*** {
+    if (rotation < 0) {
       rotation += 360;
-    ***REMOVED***
-    if (this._pagesRotation === rotation***REMOVED*** {
+    }
+    if (this._pagesRotation === rotation) {
       return;
-    ***REMOVED***
+    }
     this._pagesRotation = rotation;
     const pageNumber = this._currentPageNumber;
     this.refresh(true, {
       rotation
-    ***REMOVED******REMOVED***;
-    if (this._currentScaleValue***REMOVED*** {
+    });
+    if (this._currentScaleValue) {
       this.#setScale(this._currentScaleValue, {
         noScroll: true
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+      });
+    }
     this.eventBus.dispatch("rotationchanging", {
       source: this,
       pagesRotation: rotation,
       pageNumber
-    ***REMOVED******REMOVED***;
-    if (this.defaultRenderingQueue***REMOVED*** {
-      this.update(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  get firstPagePromise(***REMOVED*** {
+    });
+    if (this.defaultRenderingQueue) {
+      this.update();
+    }
+  }
+  get firstPagePromise() {
     return this.pdfDocument ? this._firstPageCapability.promise : null;
-  ***REMOVED***
-  get onePageRendered(***REMOVED*** {
+  }
+  get onePageRendered() {
     return this.pdfDocument ? this._onePageRenderedCapability.promise : null;
-  ***REMOVED***
-  get pagesPromise(***REMOVED*** {
+  }
+  get pagesPromise() {
     return this.pdfDocument ? this._pagesCapability.promise : null;
-  ***REMOVED***
-  get _layerProperties(***REMOVED*** {
+  }
+  get _layerProperties() {
     const self = this;
     return shadow(this, "_layerProperties", {
-      get annotationEditorUIManager(***REMOVED*** {
+      get annotationEditorUIManager() {
         return self.#annotationEditorUIManager;
-      ***REMOVED***,
-      get annotationStorage(***REMOVED*** {
+      },
+      get annotationStorage() {
         return self.pdfDocument?.annotationStorage;
-      ***REMOVED***,
-      get downloadManager(***REMOVED*** {
+      },
+      get downloadManager() {
         return self.downloadManager;
-      ***REMOVED***,
-      get enableScripting(***REMOVED*** {
+      },
+      get enableScripting() {
         return !!self._scriptingManager;
-      ***REMOVED***,
-      get fieldObjectsPromise(***REMOVED*** {
-        return self.pdfDocument?.getFieldObjects(***REMOVED***;
-      ***REMOVED***,
-      get findController(***REMOVED*** {
+      },
+      get fieldObjectsPromise() {
+        return self.pdfDocument?.getFieldObjects();
+      },
+      get findController() {
         return self.findController;
-      ***REMOVED***,
-      get hasJSActionsPromise(***REMOVED*** {
-        return self.pdfDocument?.hasJSActions(***REMOVED***;
-      ***REMOVED***,
-      get linkService(***REMOVED*** {
+      },
+      get hasJSActionsPromise() {
+        return self.pdfDocument?.hasJSActions();
+      },
+      get linkService() {
         return self.linkService;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #initializePermissions(permissions***REMOVED*** {
+      }
+    });
+  }
+  #initializePermissions(permissions) {
     const params = {
       annotationEditorMode: this.#annotationEditorMode,
       annotationMode: this.#annotationMode,
       textLayerMode: this.#textLayerMode
-    ***REMOVED***;
-    if (!permissions***REMOVED*** {
+    };
+    if (!permissions) {
       return params;
-    ***REMOVED***
-    if (!permissions.includes(PermissionFlag.COPY***REMOVED*** && this.#textLayerMode === TextLayerMode.ENABLE***REMOVED*** {
+    }
+    if (!permissions.includes(PermissionFlag.COPY) && this.#textLayerMode === TextLayerMode.ENABLE) {
       params.textLayerMode = TextLayerMode.ENABLE_PERMISSIONS;
-    ***REMOVED***
-    if (!permissions.includes(PermissionFlag.MODIFY_CONTENTS***REMOVED******REMOVED*** {
+    }
+    if (!permissions.includes(PermissionFlag.MODIFY_CONTENTS)) {
       params.annotationEditorMode = AnnotationEditorType.DISABLE;
-    ***REMOVED***
-    if (!permissions.includes(PermissionFlag.MODIFY_ANNOTATIONS***REMOVED*** && !permissions.includes(PermissionFlag.FILL_INTERACTIVE_FORMS***REMOVED*** && this.#annotationMode === AnnotationMode.ENABLE_FORMS***REMOVED*** {
+    }
+    if (!permissions.includes(PermissionFlag.MODIFY_ANNOTATIONS) && !permissions.includes(PermissionFlag.FILL_INTERACTIVE_FORMS) && this.#annotationMode === AnnotationMode.ENABLE_FORMS) {
       params.annotationMode = AnnotationMode.ENABLE;
-    ***REMOVED***
+    }
     return params;
-  ***REMOVED***
-  async #onePageRenderedOrForceFetch(signal***REMOVED*** {
-    if (document.visibilityState === "hidden" || !this.container.offsetParent || this._getVisiblePages(***REMOVED***.views.length === 0***REMOVED*** {
+  }
+  async #onePageRenderedOrForceFetch(signal) {
+    if (document.visibilityState === "hidden" || !this.container.offsetParent || this._getVisiblePages().views.length === 0) {
       return;
-    ***REMOVED***
-    const hiddenCapability = Promise.withResolvers(***REMOVED***,
-      ac = new AbortController(***REMOVED***;
-    document.addEventListener("visibilitychange", (***REMOVED*** => {
-      if (document.visibilityState === "hidden"***REMOVED*** {
-        hiddenCapability.resolve(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***, {
-      signal: typeof AbortSignal.any === "function" ? AbortSignal.any([signal, ac.signal]***REMOVED*** : signal
-    ***REMOVED******REMOVED***;
-    await Promise.race([this._onePageRenderedCapability.promise, hiddenCapability.promise]***REMOVED***;
-    ac.abort(***REMOVED***;
-  ***REMOVED***
-  async getAllText(***REMOVED*** {
+    }
+    const hiddenCapability = Promise.withResolvers(),
+      ac = new AbortController();
+    document.addEventListener("visibilitychange", () => {
+      if (document.visibilityState === "hidden") {
+        hiddenCapability.resolve();
+      }
+    }, {
+      signal: typeof AbortSignal.any === "function" ? AbortSignal.any([signal, ac.signal]) : signal
+    });
+    await Promise.race([this._onePageRenderedCapability.promise, hiddenCapability.promise]);
+    ac.abort();
+  }
+  async getAllText() {
     const texts = [];
     const buffer = [];
-    for (let pageNum = 1, pagesCount = this.pdfDocument.numPages; pageNum <= pagesCount; ++pageNum***REMOVED*** {
-      if (this.#interruptCopyCondition***REMOVED*** {
+    for (let pageNum = 1, pagesCount = this.pdfDocument.numPages; pageNum <= pagesCount; ++pageNum) {
+      if (this.#interruptCopyCondition) {
         return null;
-      ***REMOVED***
+      }
       buffer.length = 0;
-      const page = await this.pdfDocument.getPage(pageNum***REMOVED***;
+      const page = await this.pdfDocument.getPage(pageNum);
       const {
         items
-      ***REMOVED*** = await page.getTextContent(***REMOVED***;
-      for (const item of items***REMOVED*** {
-        if (item.str***REMOVED*** {
-          buffer.push(item.str***REMOVED***;
-        ***REMOVED***
-        if (item.hasEOL***REMOVED*** {
-          buffer.push("\n"***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-      texts.push(removeNullCharacters(buffer.join(""***REMOVED******REMOVED******REMOVED***;
-    ***REMOVED***
-    return texts.join("\n"***REMOVED***;
-  ***REMOVED***
-  #copyCallback(textLayerMode, event***REMOVED*** {
-    const selection = document.getSelection(***REMOVED***;
+      } = await page.getTextContent();
+      for (const item of items) {
+        if (item.str) {
+          buffer.push(item.str);
+        }
+        if (item.hasEOL) {
+          buffer.push("\n");
+        }
+      }
+      texts.push(removeNullCharacters(buffer.join("")));
+    }
+    return texts.join("\n");
+  }
+  #copyCallback(textLayerMode, event) {
+    const selection = document.getSelection();
     const {
       focusNode,
       anchorNode
-    ***REMOVED*** = selection;
-    if (anchorNode && focusNode && selection.containsNode(this.#hiddenCopyElement***REMOVED******REMOVED*** {
-      if (this.#getAllTextInProgress || textLayerMode === TextLayerMode.ENABLE_PERMISSIONS***REMOVED*** {
-        stopEvent(event***REMOVED***;
+    } = selection;
+    if (anchorNode && focusNode && selection.containsNode(this.#hiddenCopyElement)) {
+      if (this.#getAllTextInProgress || textLayerMode === TextLayerMode.ENABLE_PERMISSIONS) {
+        stopEvent(event);
         return;
-      ***REMOVED***
+      }
       this.#getAllTextInProgress = true;
       const {
         classList
-      ***REMOVED*** = this.viewer;
-      classList.add("copyAll"***REMOVED***;
-      const ac = new AbortController(***REMOVED***;
+      } = this.viewer;
+      classList.add("copyAll");
+      const ac = new AbortController();
       window.addEventListener("keydown", ev => this.#interruptCopyCondition = ev.key === "Escape", {
         signal: ac.signal
-      ***REMOVED******REMOVED***;
-      this.getAllText(***REMOVED***.then(async text => {
-        if (text !== null***REMOVED*** {
-          await navigator.clipboard.writeText(text***REMOVED***;
-        ***REMOVED***
-      ***REMOVED******REMOVED***.catch(reason => {
-        console.warn(`Something goes wrong when extracting the text: ${reason.message***REMOVED***`***REMOVED***;
-      ***REMOVED******REMOVED***.finally((***REMOVED*** => {
+      });
+      this.getAllText().then(async text => {
+        if (text !== null) {
+          await navigator.clipboard.writeText(text);
+        }
+      }).catch(reason => {
+        console.warn(`Something goes wrong when extracting the text: ${reason.message}`);
+      }).finally(() => {
         this.#getAllTextInProgress = false;
         this.#interruptCopyCondition = false;
-        ac.abort(***REMOVED***;
-        classList.remove("copyAll"***REMOVED***;
-      ***REMOVED******REMOVED***;
-      stopEvent(event***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  setDocument(pdfDocument***REMOVED*** {
-    if (this.pdfDocument***REMOVED*** {
+        ac.abort();
+        classList.remove("copyAll");
+      });
+      stopEvent(event);
+    }
+  }
+  setDocument(pdfDocument) {
+    if (this.pdfDocument) {
       this.eventBus.dispatch("pagesdestroy", {
         source: this
-      ***REMOVED******REMOVED***;
-      this._cancelRendering(***REMOVED***;
-      this._resetView(***REMOVED***;
-      this.findController?.setDocument(null***REMOVED***;
-      this._scriptingManager?.setDocument(null***REMOVED***;
-      this.#annotationEditorUIManager?.destroy(***REMOVED***;
+      });
+      this._cancelRendering();
+      this._resetView();
+      this.findController?.setDocument(null);
+      this._scriptingManager?.setDocument(null);
+      this.#annotationEditorUIManager?.destroy();
       this.#annotationEditorUIManager = null;
-    ***REMOVED***
+    }
     this.pdfDocument = pdfDocument;
-    if (!pdfDocument***REMOVED*** {
+    if (!pdfDocument) {
       return;
-    ***REMOVED***
+    }
     const pagesCount = pdfDocument.numPages;
-    const firstPagePromise = pdfDocument.getPage(1***REMOVED***;
+    const firstPagePromise = pdfDocument.getPage(1);
     const optionalContentConfigPromise = pdfDocument.getOptionalContentConfig({
       intent: "display"
-    ***REMOVED******REMOVED***;
-    const permissionsPromise = this.#enablePermissions ? pdfDocument.getPermissions(***REMOVED*** : Promise.resolve(***REMOVED***;
+    });
+    const permissionsPromise = this.#enablePermissions ? pdfDocument.getPermissions() : Promise.resolve();
     const {
       eventBus,
       pageColors,
       viewer
-    ***REMOVED*** = this;
-    this.#eventAbortController = new AbortController(***REMOVED***;
+    } = this;
+    this.#eventAbortController = new AbortController();
     const {
       signal
-    ***REMOVED*** = this.#eventAbortController;
-    if (pagesCount > PagesCountLimit.FORCE_SCROLL_MODE_PAGE***REMOVED*** {
-      console.warn("Forcing PAGE-scrolling for performance reasons, given the length of the document."***REMOVED***;
+    } = this.#eventAbortController;
+    if (pagesCount > PagesCountLimit.FORCE_SCROLL_MODE_PAGE) {
+      console.warn("Forcing PAGE-scrolling for performance reasons, given the length of the document.");
       const mode = this._scrollMode = ScrollMode.PAGE;
       eventBus.dispatch("scrollmodechanged", {
         source: this,
         mode
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    this._pagesCapability.promise.then((***REMOVED*** => {
+      });
+    }
+    this._pagesCapability.promise.then(() => {
       eventBus.dispatch("pagesloaded", {
         source: this,
         pagesCount
-      ***REMOVED******REMOVED***;
-    ***REMOVED***, (***REMOVED*** => { ***REMOVED******REMOVED***;
+      });
+    }, () => { });
     const onBeforeDraw = evt => {
       const pageView = this._pages[evt.pageNumber - 1];
-      if (!pageView***REMOVED*** {
+      if (!pageView) {
         return;
-      ***REMOVED***
-      this.#buffer.push(pageView***REMOVED***;
-    ***REMOVED***;
+      }
+      this.#buffer.push(pageView);
+    };
     eventBus._on("pagerender", onBeforeDraw, {
       signal
-    ***REMOVED******REMOVED***;
+    });
     const onAfterDraw = evt => {
-      if (evt.cssTransform***REMOVED*** {
+      if (evt.cssTransform) {
         return;
-      ***REMOVED***
+      }
       this._onePageRenderedCapability.resolve({
         timestamp: evt.timestamp
-      ***REMOVED******REMOVED***;
-      eventBus._off("pagerendered", onAfterDraw***REMOVED***;
-    ***REMOVED***;
+      });
+      eventBus._off("pagerendered", onAfterDraw);
+    };
     eventBus._on("pagerendered", onAfterDraw, {
       signal
-    ***REMOVED******REMOVED***;
-    Promise.all([firstPagePromise, permissionsPromise]***REMOVED***.then(([firstPdfPage, permissions]***REMOVED*** => {
-      if (pdfDocument !== this.pdfDocument***REMOVED*** {
+    });
+    Promise.all([firstPagePromise, permissionsPromise]).then(([firstPdfPage, permissions]) => {
+      if (pdfDocument !== this.pdfDocument) {
         return;
-      ***REMOVED***
-      this._firstPageCapability.resolve(firstPdfPage***REMOVED***;
+      }
+      this._firstPageCapability.resolve(firstPdfPage);
       this._optionalContentConfigPromise = optionalContentConfigPromise;
       const {
         annotationEditorMode,
         annotationMode,
         textLayerMode
-      ***REMOVED*** = this.#initializePermissions(permissions***REMOVED***;
-      if (textLayerMode !== TextLayerMode.DISABLE***REMOVED*** {
-        const element = this.#hiddenCopyElement = document.createElement("div"***REMOVED***;
+      } = this.#initializePermissions(permissions);
+      if (textLayerMode !== TextLayerMode.DISABLE) {
+        const element = this.#hiddenCopyElement = document.createElement("div");
         element.id = "hiddenCopyElement";
-        viewer.before(element***REMOVED***;
-      ***REMOVED***
-      if (typeof AbortSignal.any === "function" && annotationEditorMode !== AnnotationEditorType.DISABLE***REMOVED*** {
+        viewer.before(element);
+      }
+      if (typeof AbortSignal.any === "function" && annotationEditorMode !== AnnotationEditorType.DISABLE) {
         const mode = annotationEditorMode;
-        if (pdfDocument.isPureXfa***REMOVED*** {
-          console.warn("Warning: XFA-editing is not implemented."***REMOVED***;
-        ***REMOVED*** else if (isValidAnnotationEditorMode(mode***REMOVED******REMOVED*** {
-          this.#annotationEditorUIManager = new AnnotationEditorUIManager(this.container, viewer, this.#altTextManager, eventBus, pdfDocument, pageColors, this.#annotationEditorHighlightColors, this.#enableHighlightFloatingButton, this.#enableUpdatedAddImage, this.#enableNewAltTextWhenAddingImage, this.#mlManager, this.#editorUndoBar, this.#supportsPinchToZoom***REMOVED***;
+        if (pdfDocument.isPureXfa) {
+          console.warn("Warning: XFA-editing is not implemented.");
+        } else if (isValidAnnotationEditorMode(mode)) {
+          this.#annotationEditorUIManager = new AnnotationEditorUIManager(this.container, viewer, this.#altTextManager, eventBus, pdfDocument, pageColors, this.#annotationEditorHighlightColors, this.#enableHighlightFloatingButton, this.#enableUpdatedAddImage, this.#enableNewAltTextWhenAddingImage, this.#mlManager, this.#editorUndoBar, this.#supportsPinchToZoom);
           eventBus.dispatch("annotationeditoruimanager", {
             source: this,
             uiManager: this.#annotationEditorUIManager
-          ***REMOVED******REMOVED***;
-          if (mode !== AnnotationEditorType.NONE***REMOVED*** {
-            if (mode === AnnotationEditorType.STAMP***REMOVED*** {
-              this.#mlManager?.loadModel("altText"***REMOVED***;
-            ***REMOVED***
-            this.#annotationEditorUIManager.updateMode(mode***REMOVED***;
-          ***REMOVED***
-        ***REMOVED*** else {
-          console.error(`Invalid AnnotationEditor mode: ${mode***REMOVED***`***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
+          });
+          if (mode !== AnnotationEditorType.NONE) {
+            if (mode === AnnotationEditorType.STAMP) {
+              this.#mlManager?.loadModel("altText");
+            }
+            this.#annotationEditorUIManager.updateMode(mode);
+          }
+        } else {
+          console.error(`Invalid AnnotationEditor mode: ${mode}`);
+        }
+      }
       const viewerElement = this._scrollMode === ScrollMode.PAGE ? null : viewer;
       const scale = this.currentScale;
       const viewport = firstPdfPage.getViewport({
         scale: scale * PixelsPerInch.PDF_TO_CSS_UNITS
-      ***REMOVED******REMOVED***;
-      viewer.style.setProperty("--scale-factor", viewport.scale***REMOVED***;
-      if (pageColors?.background***REMOVED*** {
-        viewer.style.setProperty("--page-bg-color", pageColors.background***REMOVED***;
-      ***REMOVED***
-      if (pageColors?.foreground === "CanvasText" || pageColors?.background === "Canvas"***REMOVED*** {
-        viewer.style.setProperty("--hcm-highlight-filter", pdfDocument.filterFactory.addHighlightHCMFilter("highlight", "CanvasText", "Canvas", "HighlightText", "Highlight"***REMOVED******REMOVED***;
-        viewer.style.setProperty("--hcm-highlight-selected-filter", pdfDocument.filterFactory.addHighlightHCMFilter("highlight_selected", "CanvasText", "Canvas", "HighlightText", "ButtonText"***REMOVED******REMOVED***;
-      ***REMOVED***
-      for (let pageNum = 1; pageNum <= pagesCount; ++pageNum***REMOVED*** {
+      });
+      viewer.style.setProperty("--scale-factor", viewport.scale);
+      if (pageColors?.background) {
+        viewer.style.setProperty("--page-bg-color", pageColors.background);
+      }
+      if (pageColors?.foreground === "CanvasText" || pageColors?.background === "Canvas") {
+        viewer.style.setProperty("--hcm-highlight-filter", pdfDocument.filterFactory.addHighlightHCMFilter("highlight", "CanvasText", "Canvas", "HighlightText", "Highlight"));
+        viewer.style.setProperty("--hcm-highlight-selected-filter", pdfDocument.filterFactory.addHighlightHCMFilter("highlight_selected", "CanvasText", "Canvas", "HighlightText", "ButtonText"));
+      }
+      for (let pageNum = 1; pageNum <= pagesCount; ++pageNum) {
         const pageView = new PDFPageView({
           container: viewerElement,
           eventBus,
           id: pageNum,
           scale,
-          defaultViewport: viewport.clone(***REMOVED***,
+          defaultViewport: viewport.clone(),
           optionalContentConfigPromise,
           renderingQueue: this.renderingQueue,
           textLayerMode,
@@ -11445,111 +11445,111 @@ class PDFViewer {
           l10n: this.l10n,
           layerProperties: this._layerProperties,
           enableHWA: this.#enableHWA
-        ***REMOVED******REMOVED***;
-        this._pages.push(pageView***REMOVED***;
-      ***REMOVED***
-      this._pages[0]?.setPdfPage(firstPdfPage***REMOVED***;
-      if (this._scrollMode === ScrollMode.PAGE***REMOVED*** {
-        this.#ensurePageViewVisible(***REMOVED***;
-      ***REMOVED*** else if (this._spreadMode !== SpreadMode.NONE***REMOVED*** {
-        this._updateSpreadMode(***REMOVED***;
-      ***REMOVED***
-      this.#onePageRenderedOrForceFetch(signal***REMOVED***.then(async (***REMOVED*** => {
-        if (pdfDocument !== this.pdfDocument***REMOVED*** {
+        });
+        this._pages.push(pageView);
+      }
+      this._pages[0]?.setPdfPage(firstPdfPage);
+      if (this._scrollMode === ScrollMode.PAGE) {
+        this.#ensurePageViewVisible();
+      } else if (this._spreadMode !== SpreadMode.NONE) {
+        this._updateSpreadMode();
+      }
+      this.#onePageRenderedOrForceFetch(signal).then(async () => {
+        if (pdfDocument !== this.pdfDocument) {
           return;
-        ***REMOVED***
-        this.findController?.setDocument(pdfDocument***REMOVED***;
-        this._scriptingManager?.setDocument(pdfDocument***REMOVED***;
-        if (this.#hiddenCopyElement***REMOVED*** {
-          document.addEventListener("copy", this.#copyCallback.bind(this, textLayerMode***REMOVED***, {
+        }
+        this.findController?.setDocument(pdfDocument);
+        this._scriptingManager?.setDocument(pdfDocument);
+        if (this.#hiddenCopyElement) {
+          document.addEventListener("copy", this.#copyCallback.bind(this, textLayerMode), {
             signal
-          ***REMOVED******REMOVED***;
-        ***REMOVED***
-        if (this.#annotationEditorUIManager***REMOVED*** {
+          });
+        }
+        if (this.#annotationEditorUIManager) {
           eventBus.dispatch("annotationeditormodechanged", {
             source: this,
             mode: this.#annotationEditorMode
-          ***REMOVED******REMOVED***;
-        ***REMOVED***
-        if (pdfDocument.loadingParams.disableAutoFetch || pagesCount > PagesCountLimit.FORCE_LAZY_PAGE_INIT***REMOVED*** {
-          this._pagesCapability.resolve(***REMOVED***;
+          });
+        }
+        if (pdfDocument.loadingParams.disableAutoFetch || pagesCount > PagesCountLimit.FORCE_LAZY_PAGE_INIT) {
+          this._pagesCapability.resolve();
           return;
-        ***REMOVED***
+        }
         let getPagesLeft = pagesCount - 1;
-        if (getPagesLeft <= 0***REMOVED*** {
-          this._pagesCapability.resolve(***REMOVED***;
+        if (getPagesLeft <= 0) {
+          this._pagesCapability.resolve();
           return;
-        ***REMOVED***
-        for (let pageNum = 2; pageNum <= pagesCount; ++pageNum***REMOVED*** {
-          const promise = pdfDocument.getPage(pageNum***REMOVED***.then(pdfPage => {
+        }
+        for (let pageNum = 2; pageNum <= pagesCount; ++pageNum) {
+          const promise = pdfDocument.getPage(pageNum).then(pdfPage => {
             const pageView = this._pages[pageNum - 1];
-            if (!pageView.pdfPage***REMOVED*** {
-              pageView.setPdfPage(pdfPage***REMOVED***;
-            ***REMOVED***
-            if (--getPagesLeft === 0***REMOVED*** {
-              this._pagesCapability.resolve(***REMOVED***;
-            ***REMOVED***
-          ***REMOVED***, reason => {
-            console.error(`Unable to get page ${pageNum***REMOVED*** to initialize viewer`, reason***REMOVED***;
-            if (--getPagesLeft === 0***REMOVED*** {
-              this._pagesCapability.resolve(***REMOVED***;
-            ***REMOVED***
-          ***REMOVED******REMOVED***;
-          if (pageNum % PagesCountLimit.PAUSE_EAGER_PAGE_INIT === 0***REMOVED*** {
+            if (!pageView.pdfPage) {
+              pageView.setPdfPage(pdfPage);
+            }
+            if (--getPagesLeft === 0) {
+              this._pagesCapability.resolve();
+            }
+          }, reason => {
+            console.error(`Unable to get page ${pageNum} to initialize viewer`, reason);
+            if (--getPagesLeft === 0) {
+              this._pagesCapability.resolve();
+            }
+          });
+          if (pageNum % PagesCountLimit.PAUSE_EAGER_PAGE_INIT === 0) {
             await promise;
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
+          }
+        }
+      });
       eventBus.dispatch("pagesinit", {
         source: this
-      ***REMOVED******REMOVED***;
-      pdfDocument.getMetadata(***REMOVED***.then(({
+      });
+      pdfDocument.getMetadata().then(({
         info
-      ***REMOVED******REMOVED*** => {
-        if (pdfDocument !== this.pdfDocument***REMOVED*** {
+      }) => {
+        if (pdfDocument !== this.pdfDocument) {
           return;
-        ***REMOVED***
-        if (info.Language***REMOVED*** {
+        }
+        if (info.Language) {
           viewer.lang = info.Language;
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-      if (this.defaultRenderingQueue***REMOVED*** {
-        this.update(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***.catch(reason => {
-      console.error("Unable to initialize viewer", reason***REMOVED***;
-      this._pagesCapability.reject(reason***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  setPageLabels(labels***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+        }
+      });
+      if (this.defaultRenderingQueue) {
+        this.update();
+      }
+    }).catch(reason => {
+      console.error("Unable to initialize viewer", reason);
+      this._pagesCapability.reject(reason);
+    });
+  }
+  setPageLabels(labels) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    if (!labels***REMOVED*** {
+    }
+    if (!labels) {
       this._pageLabels = null;
-    ***REMOVED*** else if (!(Array.isArray(labels***REMOVED*** && this.pdfDocument.numPages === labels.length***REMOVED******REMOVED*** {
+    } else if (!(Array.isArray(labels) && this.pdfDocument.numPages === labels.length)) {
       this._pageLabels = null;
-      console.error(`setPageLabels: Invalid page labels.`***REMOVED***;
-    ***REMOVED*** else {
+      console.error(`setPageLabels: Invalid page labels.`);
+    } else {
       this._pageLabels = labels;
-    ***REMOVED***
-    for (let i = 0, ii = this._pages.length; i < ii; i++***REMOVED*** {
-      this._pages[i].setPageLabel(this._pageLabels?.[i] ?? null***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  _resetView(***REMOVED*** {
+    }
+    for (let i = 0, ii = this._pages.length; i < ii; i++) {
+      this._pages[i].setPageLabel(this._pageLabels?.[i] ?? null);
+    }
+  }
+  _resetView() {
     this._pages = [];
     this._currentPageNumber = 1;
     this._currentScale = UNKNOWN_SCALE;
     this._currentScaleValue = null;
     this._pageLabels = null;
-    this.#buffer = new PDFPageViewBuffer(DEFAULT_CACHE_SIZE***REMOVED***;
+    this.#buffer = new PDFPageViewBuffer(DEFAULT_CACHE_SIZE);
     this._location = null;
     this._pagesRotation = 0;
     this._optionalContentConfigPromise = null;
-    this._firstPageCapability = Promise.withResolvers(***REMOVED***;
-    this._onePageRenderedCapability = Promise.withResolvers(***REMOVED***;
-    this._pagesCapability = Promise.withResolvers(***REMOVED***;
+    this._firstPageCapability = Promise.withResolvers();
+    this._onePageRenderedCapability = Promise.withResolvers();
+    this._pagesCapability = Promise.withResolvers();
     this._scrollMode = ScrollMode.VERTICAL;
     this._previousScrollMode = ScrollMode.UNKNOWN;
     this._spreadMode = SpreadMode.NONE;
@@ -11557,193 +11557,193 @@ class PDFViewer {
       previousPageNumber: 1,
       scrollDown: true,
       pages: []
-    ***REMOVED***;
-    this.#eventAbortController?.abort(***REMOVED***;
+    };
+    this.#eventAbortController?.abort();
     this.#eventAbortController = null;
     this.viewer.textContent = "";
-    this._updateScrollMode(***REMOVED***;
-    this.viewer.removeAttribute("lang"***REMOVED***;
-    this.#hiddenCopyElement?.remove(***REMOVED***;
+    this._updateScrollMode();
+    this.viewer.removeAttribute("lang");
+    this.#hiddenCopyElement?.remove();
     this.#hiddenCopyElement = null;
-    this.#cleanupSwitchAnnotationEditorMode(***REMOVED***;
-  ***REMOVED***
-  #ensurePageViewVisible(***REMOVED*** {
-    if (this._scrollMode !== ScrollMode.PAGE***REMOVED*** {
-      throw new Error("#ensurePageViewVisible: Invalid scrollMode value."***REMOVED***;
-    ***REMOVED***
+    this.#cleanupSwitchAnnotationEditorMode();
+  }
+  #ensurePageViewVisible() {
+    if (this._scrollMode !== ScrollMode.PAGE) {
+      throw new Error("#ensurePageViewVisible: Invalid scrollMode value.");
+    }
     const pageNumber = this._currentPageNumber,
       state = this.#scrollModePageState,
       viewer = this.viewer;
     viewer.textContent = "";
     state.pages.length = 0;
-    if (this._spreadMode === SpreadMode.NONE && !this.isInPresentationMode***REMOVED*** {
+    if (this._spreadMode === SpreadMode.NONE && !this.isInPresentationMode) {
       const pageView = this._pages[pageNumber - 1];
-      viewer.append(pageView.div***REMOVED***;
-      state.pages.push(pageView***REMOVED***;
-    ***REMOVED*** else {
-      const pageIndexSet = new Set(***REMOVED***,
+      viewer.append(pageView.div);
+      state.pages.push(pageView);
+    } else {
+      const pageIndexSet = new Set(),
         parity = this._spreadMode - 1;
-      if (parity === -1***REMOVED*** {
-        pageIndexSet.add(pageNumber - 1***REMOVED***;
-      ***REMOVED*** else if (pageNumber % 2 !== parity***REMOVED*** {
-        pageIndexSet.add(pageNumber - 1***REMOVED***;
-        pageIndexSet.add(pageNumber***REMOVED***;
-      ***REMOVED*** else {
-        pageIndexSet.add(pageNumber - 2***REMOVED***;
-        pageIndexSet.add(pageNumber - 1***REMOVED***;
-      ***REMOVED***
-      const spread = document.createElement("div"***REMOVED***;
+      if (parity === -1) {
+        pageIndexSet.add(pageNumber - 1);
+      } else if (pageNumber % 2 !== parity) {
+        pageIndexSet.add(pageNumber - 1);
+        pageIndexSet.add(pageNumber);
+      } else {
+        pageIndexSet.add(pageNumber - 2);
+        pageIndexSet.add(pageNumber - 1);
+      }
+      const spread = document.createElement("div");
       spread.className = "spread";
-      if (this.isInPresentationMode***REMOVED*** {
-        const dummyPage = document.createElement("div"***REMOVED***;
+      if (this.isInPresentationMode) {
+        const dummyPage = document.createElement("div");
         dummyPage.className = "dummyPage";
-        spread.append(dummyPage***REMOVED***;
-      ***REMOVED***
-      for (const i of pageIndexSet***REMOVED*** {
+        spread.append(dummyPage);
+      }
+      for (const i of pageIndexSet) {
         const pageView = this._pages[i];
-        if (!pageView***REMOVED*** {
+        if (!pageView) {
           continue;
-        ***REMOVED***
-        spread.append(pageView.div***REMOVED***;
-        state.pages.push(pageView***REMOVED***;
-      ***REMOVED***
-      viewer.append(spread***REMOVED***;
-    ***REMOVED***
+        }
+        spread.append(pageView.div);
+        state.pages.push(pageView);
+      }
+      viewer.append(spread);
+    }
     state.scrollDown = pageNumber >= state.previousPageNumber;
     state.previousPageNumber = pageNumber;
-  ***REMOVED***
-  _scrollUpdate(***REMOVED*** {
-    if (this.pagesCount === 0***REMOVED*** {
+  }
+  _scrollUpdate() {
+    if (this.pagesCount === 0) {
       return;
-    ***REMOVED***
-    this.update(***REMOVED***;
-  ***REMOVED***
-  #scrollIntoView(pageView, pageSpot = null***REMOVED*** {
+    }
+    this.update();
+  }
+  #scrollIntoView(pageView, pageSpot = null) {
     const {
       div,
       id
-    ***REMOVED*** = pageView;
-    if (this._currentPageNumber !== id***REMOVED*** {
-      this._setCurrentPageNumber(id***REMOVED***;
-    ***REMOVED***
-    if (this._scrollMode === ScrollMode.PAGE***REMOVED*** {
-      this.#ensurePageViewVisible(***REMOVED***;
-      this.update(***REMOVED***;
-    ***REMOVED***
-    if (!pageSpot && !this.isInPresentationMode***REMOVED*** {
+    } = pageView;
+    if (this._currentPageNumber !== id) {
+      this._setCurrentPageNumber(id);
+    }
+    if (this._scrollMode === ScrollMode.PAGE) {
+      this.#ensurePageViewVisible();
+      this.update();
+    }
+    if (!pageSpot && !this.isInPresentationMode) {
       const left = div.offsetLeft + div.clientLeft,
         right = left + div.clientWidth;
       const {
         scrollLeft,
         clientWidth
-      ***REMOVED*** = this.container;
-      if (this._scrollMode === ScrollMode.HORIZONTAL || left < scrollLeft || right > scrollLeft + clientWidth***REMOVED*** {
+      } = this.container;
+      if (this._scrollMode === ScrollMode.HORIZONTAL || left < scrollLeft || right > scrollLeft + clientWidth) {
         pageSpot = {
           left: 0,
           top: 0
-        ***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    scrollIntoView(div, pageSpot***REMOVED***;
-    if (!this._currentScaleValue && this._location***REMOVED*** {
+        };
+      }
+    }
+    scrollIntoView(div, pageSpot);
+    if (!this._currentScaleValue && this._location) {
       this._location = null;
-    ***REMOVED***
-  ***REMOVED***
-  #isSameScale(newScale***REMOVED*** {
-    return newScale === this._currentScale || Math.abs(newScale - this._currentScale***REMOVED*** < 1e-15;
-  ***REMOVED***
+    }
+  }
+  #isSameScale(newScale) {
+    return newScale === this._currentScale || Math.abs(newScale - this._currentScale) < 1e-15;
+  }
   #setScaleUpdatePages(newScale, newValue, {
     noScroll = false,
     preset = false,
     drawingDelay = -1,
     origin = null
-  ***REMOVED******REMOVED*** {
-    this._currentScaleValue = newValue.toString(***REMOVED***;
-    if (this.#isSameScale(newScale***REMOVED******REMOVED*** {
-      if (preset***REMOVED*** {
+  }) {
+    this._currentScaleValue = newValue.toString();
+    if (this.#isSameScale(newScale)) {
+      if (preset) {
         this.eventBus.dispatch("scalechanging", {
           source: this,
           scale: newScale,
           presetValue: newValue
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
+        });
+      }
       return;
-    ***REMOVED***
-    this.viewer.style.setProperty("--scale-factor", newScale * PixelsPerInch.PDF_TO_CSS_UNITS***REMOVED***;
+    }
+    this.viewer.style.setProperty("--scale-factor", newScale * PixelsPerInch.PDF_TO_CSS_UNITS);
     const postponeDrawing = drawingDelay >= 0 && drawingDelay < 1000;
     this.refresh(true, {
       scale: newScale,
       drawingDelay: postponeDrawing ? drawingDelay : -1
-    ***REMOVED******REMOVED***;
-    if (postponeDrawing***REMOVED*** {
-      this.#scaleTimeoutId = setTimeout((***REMOVED*** => {
+    });
+    if (postponeDrawing) {
+      this.#scaleTimeoutId = setTimeout(() => {
         this.#scaleTimeoutId = null;
-        this.refresh(***REMOVED***;
-      ***REMOVED***, drawingDelay***REMOVED***;
-    ***REMOVED***
+        this.refresh();
+      }, drawingDelay);
+    }
     const previousScale = this._currentScale;
     this._currentScale = newScale;
-    if (!noScroll***REMOVED*** {
+    if (!noScroll) {
       let page = this._currentPageNumber,
         dest;
-      if (this._location && !(this.isInPresentationMode || this.isChangingPresentationMode***REMOVED******REMOVED*** {
+      if (this._location && !(this.isInPresentationMode || this.isChangingPresentationMode)) {
         page = this._location.pageNumber;
         dest = [null, {
           name: "XYZ"
-        ***REMOVED***, this._location.left, this._location.top, null];
-      ***REMOVED***
+        }, this._location.left, this._location.top, null];
+      }
       this.scrollPageIntoView({
         pageNumber: page,
         destArray: dest,
         allowNegativeOffset: true
-      ***REMOVED******REMOVED***;
-      if (Array.isArray(origin***REMOVED******REMOVED*** {
+      });
+      if (Array.isArray(origin)) {
         const scaleDiff = newScale / previousScale - 1;
         const [top, left] = this.containerTopLeft;
-        this.container.scrollLeft += (origin[0] - left***REMOVED*** * scaleDiff;
-        this.container.scrollTop += (origin[1] - top***REMOVED*** * scaleDiff;
-      ***REMOVED***
-    ***REMOVED***
+        this.container.scrollLeft += (origin[0] - left) * scaleDiff;
+        this.container.scrollTop += (origin[1] - top) * scaleDiff;
+      }
+    }
     this.eventBus.dispatch("scalechanging", {
       source: this,
       scale: newScale,
       presetValue: preset ? newValue : undefined
-    ***REMOVED******REMOVED***;
-    if (this.defaultRenderingQueue***REMOVED*** {
-      this.update(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  get #pageWidthScaleFactor(***REMOVED*** {
-    if (this._spreadMode !== SpreadMode.NONE && this._scrollMode !== ScrollMode.HORIZONTAL***REMOVED*** {
+    });
+    if (this.defaultRenderingQueue) {
+      this.update();
+    }
+  }
+  get #pageWidthScaleFactor() {
+    if (this._spreadMode !== SpreadMode.NONE && this._scrollMode !== ScrollMode.HORIZONTAL) {
       return 2;
-    ***REMOVED***
+    }
     return 1;
-  ***REMOVED***
-  #setScale(value, options***REMOVED*** {
-    let scale = parseFloat(value***REMOVED***;
-    if (scale > 0***REMOVED*** {
+  }
+  #setScale(value, options) {
+    let scale = parseFloat(value);
+    if (scale > 0) {
       options.preset = false;
-      this.#setScaleUpdatePages(scale, value, options***REMOVED***;
-    ***REMOVED*** else {
+      this.#setScaleUpdatePages(scale, value, options);
+    } else {
       const currentPage = this._pages[this._currentPageNumber - 1];
-      if (!currentPage***REMOVED*** {
+      if (!currentPage) {
         return;
-      ***REMOVED***
+      }
       let hPadding = SCROLLBAR_PADDING,
         vPadding = VERTICAL_PADDING;
-      if (this.isInPresentationMode***REMOVED*** {
+      if (this.isInPresentationMode) {
         hPadding = vPadding = 4;
-        if (this._spreadMode !== SpreadMode.NONE***REMOVED*** {
+        if (this._spreadMode !== SpreadMode.NONE) {
           hPadding *= 2;
-        ***REMOVED***
-      ***REMOVED*** else if (this.removePageBorders***REMOVED*** {
+        }
+      } else if (this.removePageBorders) {
         hPadding = vPadding = 0;
-      ***REMOVED*** else if (this._scrollMode === ScrollMode.HORIZONTAL***REMOVED*** {
+      } else if (this._scrollMode === ScrollMode.HORIZONTAL) {
         [hPadding, vPadding] = [vPadding, hPadding];
-      ***REMOVED***
-      const pageWidthScale = (this.container.clientWidth - hPadding***REMOVED*** / currentPage.width * currentPage.scale / this.#pageWidthScaleFactor;
-      const pageHeightScale = (this.container.clientHeight - vPadding***REMOVED*** / currentPage.height * currentPage.scale;
-      switch (value***REMOVED*** {
+      }
+      const pageWidthScale = (this.container.clientWidth - hPadding) / currentPage.width * currentPage.scale / this.#pageWidthScaleFactor;
+      const pageHeightScale = (this.container.clientHeight - vPadding) / currentPage.height * currentPage.scale;
+      switch (value) {
         case "page-actual":
           scale = 1;
           break;
@@ -11754,57 +11754,57 @@ class PDFViewer {
           scale = pageHeightScale;
           break;
         case "page-fit":
-          scale = Math.min(pageWidthScale, pageHeightScale***REMOVED***;
+          scale = Math.min(pageWidthScale, pageHeightScale);
           break;
         case "auto":
-          const horizontalScale = isPortraitOrientation(currentPage***REMOVED*** ? pageWidthScale : Math.min(pageHeightScale, pageWidthScale***REMOVED***;
-          scale = Math.min(MAX_AUTO_SCALE, horizontalScale***REMOVED***;
+          const horizontalScale = isPortraitOrientation(currentPage) ? pageWidthScale : Math.min(pageHeightScale, pageWidthScale);
+          scale = Math.min(MAX_AUTO_SCALE, horizontalScale);
           break;
         default:
-          console.error(`#setScale: "${value***REMOVED***" is an unknown zoom value.`***REMOVED***;
+          console.error(`#setScale: "${value}" is an unknown zoom value.`);
           return;
-      ***REMOVED***
+      }
       options.preset = true;
-      this.#setScaleUpdatePages(scale, value, options***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #resetCurrentPageView(***REMOVED*** {
+      this.#setScaleUpdatePages(scale, value, options);
+    }
+  }
+  #resetCurrentPageView() {
     const pageView = this._pages[this._currentPageNumber - 1];
-    if (this.isInPresentationMode***REMOVED*** {
+    if (this.isInPresentationMode) {
       this.#setScale(this._currentScaleValue, {
         noScroll: true
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    this.#scrollIntoView(pageView***REMOVED***;
-  ***REMOVED***
-  pageLabelToPageNumber(label***REMOVED*** {
-    if (!this._pageLabels***REMOVED*** {
+      });
+    }
+    this.#scrollIntoView(pageView);
+  }
+  pageLabelToPageNumber(label) {
+    if (!this._pageLabels) {
       return null;
-    ***REMOVED***
-    const i = this._pageLabels.indexOf(label***REMOVED***;
-    if (i < 0***REMOVED*** {
+    }
+    const i = this._pageLabels.indexOf(label);
+    if (i < 0) {
       return null;
-    ***REMOVED***
+    }
     return i + 1;
-  ***REMOVED***
+  }
   scrollPageIntoView({
     pageNumber,
     destArray = null,
     allowNegativeOffset = false,
     ignoreDestinationZoom = false
-  ***REMOVED******REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+  }) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    const pageView = Number.isInteger(pageNumber***REMOVED*** && this._pages[pageNumber - 1];
-    if (!pageView***REMOVED*** {
-      console.error(`scrollPageIntoView: "${pageNumber***REMOVED***" is not a valid pageNumber parameter.`***REMOVED***;
+    }
+    const pageView = Number.isInteger(pageNumber) && this._pages[pageNumber - 1];
+    if (!pageView) {
+      console.error(`scrollPageIntoView: "${pageNumber}" is not a valid pageNumber parameter.`);
       return;
-    ***REMOVED***
-    if (this.isInPresentationMode || !destArray***REMOVED*** {
-      this._setCurrentPageNumber(pageNumber, true***REMOVED***;
+    }
+    if (this.isInPresentationMode || !destArray) {
+      this._setCurrentPageNumber(pageNumber, true);
       return;
-    ***REMOVED***
+    }
     let x = 0,
       y = 0;
     let width = 0,
@@ -11812,10 +11812,10 @@ class PDFViewer {
       widthScale,
       heightScale;
     const changeOrientation = pageView.rotation % 180 !== 0;
-    const pageWidth = (changeOrientation ? pageView.height : pageView.width***REMOVED*** / pageView.scale / PixelsPerInch.PDF_TO_CSS_UNITS;
-    const pageHeight = (changeOrientation ? pageView.width : pageView.height***REMOVED*** / pageView.scale / PixelsPerInch.PDF_TO_CSS_UNITS;
+    const pageWidth = (changeOrientation ? pageView.height : pageView.width) / pageView.scale / PixelsPerInch.PDF_TO_CSS_UNITS;
+    const pageHeight = (changeOrientation ? pageView.width : pageView.height) / pageView.scale / PixelsPerInch.PDF_TO_CSS_UNITS;
     let scale = 0;
-    switch (destArray[1].name***REMOVED*** {
+    switch (destArray[1].name) {
       case "XYZ":
         x = destArray[2];
         y = destArray[3];
@@ -11831,12 +11831,12 @@ class PDFViewer {
       case "FitBH":
         y = destArray[2];
         scale = "page-width";
-        if (y === null && this._location***REMOVED*** {
+        if (y === null && this._location) {
           x = this._location.left;
           y = this._location.top;
-        ***REMOVED*** else if (typeof y !== "number" || y < 0***REMOVED*** {
+        } else if (typeof y !== "number" || y < 0) {
           y = pageHeight;
-        ***REMOVED***
+        }
         break;
       case "FitV":
       case "FitBV":
@@ -11852,54 +11852,54 @@ class PDFViewer {
         height = destArray[5] - y;
         let hPadding = SCROLLBAR_PADDING,
           vPadding = VERTICAL_PADDING;
-        if (this.removePageBorders***REMOVED*** {
+        if (this.removePageBorders) {
           hPadding = vPadding = 0;
-        ***REMOVED***
-        widthScale = (this.container.clientWidth - hPadding***REMOVED*** / width / PixelsPerInch.PDF_TO_CSS_UNITS;
-        heightScale = (this.container.clientHeight - vPadding***REMOVED*** / height / PixelsPerInch.PDF_TO_CSS_UNITS;
-        scale = Math.min(Math.abs(widthScale***REMOVED***, Math.abs(heightScale***REMOVED******REMOVED***;
+        }
+        widthScale = (this.container.clientWidth - hPadding) / width / PixelsPerInch.PDF_TO_CSS_UNITS;
+        heightScale = (this.container.clientHeight - vPadding) / height / PixelsPerInch.PDF_TO_CSS_UNITS;
+        scale = Math.min(Math.abs(widthScale), Math.abs(heightScale));
         break;
       default:
-        console.error(`scrollPageIntoView: "${destArray[1].name***REMOVED***" is not a valid destination type.`***REMOVED***;
+        console.error(`scrollPageIntoView: "${destArray[1].name}" is not a valid destination type.`);
         return;
-    ***REMOVED***
-    if (!ignoreDestinationZoom***REMOVED*** {
-      if (scale && scale !== this._currentScale***REMOVED*** {
+    }
+    if (!ignoreDestinationZoom) {
+      if (scale && scale !== this._currentScale) {
         this.currentScaleValue = scale;
-      ***REMOVED*** else if (this._currentScale === UNKNOWN_SCALE***REMOVED*** {
+      } else if (this._currentScale === UNKNOWN_SCALE) {
         this.currentScaleValue = DEFAULT_SCALE_VALUE;
-      ***REMOVED***
-    ***REMOVED***
-    if (scale === "page-fit" && !destArray[4]***REMOVED*** {
-      this.#scrollIntoView(pageView***REMOVED***;
+      }
+    }
+    if (scale === "page-fit" && !destArray[4]) {
+      this.#scrollIntoView(pageView);
       return;
-    ***REMOVED***
-    const boundingRect = [pageView.viewport.convertToViewportPoint(x, y***REMOVED***, pageView.viewport.convertToViewportPoint(x + width, y + height***REMOVED***];
-    let left = Math.min(boundingRect[0][0], boundingRect[1][0]***REMOVED***;
-    let top = Math.min(boundingRect[0][1], boundingRect[1][1]***REMOVED***;
-    if (!allowNegativeOffset***REMOVED*** {
-      left = Math.max(left, 0***REMOVED***;
-      top = Math.max(top, 0***REMOVED***;
-    ***REMOVED***
+    }
+    const boundingRect = [pageView.viewport.convertToViewportPoint(x, y), pageView.viewport.convertToViewportPoint(x + width, y + height)];
+    let left = Math.min(boundingRect[0][0], boundingRect[1][0]);
+    let top = Math.min(boundingRect[0][1], boundingRect[1][1]);
+    if (!allowNegativeOffset) {
+      left = Math.max(left, 0);
+      top = Math.max(top, 0);
+    }
     this.#scrollIntoView(pageView, {
       left,
       top
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  _updateLocation(firstPage***REMOVED*** {
+    });
+  }
+  _updateLocation(firstPage) {
     const currentScale = this._currentScale;
     const currentScaleValue = this._currentScaleValue;
-    const normalizedScaleValue = parseFloat(currentScaleValue***REMOVED*** === currentScale ? Math.round(currentScale * 10000***REMOVED*** / 100 : currentScaleValue;
+    const normalizedScaleValue = parseFloat(currentScaleValue) === currentScale ? Math.round(currentScale * 10000) / 100 : currentScaleValue;
     const pageNumber = firstPage.id;
     const currentPageView = this._pages[pageNumber - 1];
     const container = this.container;
-    const topLeft = currentPageView.getPagePoint(container.scrollLeft - firstPage.x, container.scrollTop - firstPage.y***REMOVED***;
-    const intLeft = Math.round(topLeft[0]***REMOVED***;
-    const intTop = Math.round(topLeft[1]***REMOVED***;
-    let pdfOpenParams = `#page=${pageNumber***REMOVED***`;
-    if (!this.isInPresentationMode***REMOVED*** {
-      pdfOpenParams += `&zoom=${normalizedScaleValue***REMOVED***,${intLeft***REMOVED***,${intTop***REMOVED***`;
-    ***REMOVED***
+    const topLeft = currentPageView.getPagePoint(container.scrollLeft - firstPage.x, container.scrollTop - firstPage.y);
+    const intLeft = Math.round(topLeft[0]);
+    const intTop = Math.round(topLeft[1]);
+    let pdfOpenParams = `#page=${pageNumber}`;
+    if (!this.isInPresentationMode) {
+      pdfOpenParams += `&zoom=${normalizedScaleValue},${intLeft},${intTop}`;
+    }
     this._location = {
       pageNumber,
       scale: normalizedScaleValue,
@@ -11907,87 +11907,87 @@ class PDFViewer {
       left: intLeft,
       rotation: this._pagesRotation,
       pdfOpenParams
-    ***REMOVED***;
-  ***REMOVED***
-  update(***REMOVED*** {
-    const visible = this._getVisiblePages(***REMOVED***;
+    };
+  }
+  update() {
+    const visible = this._getVisiblePages();
     const visiblePages = visible.views,
       numVisiblePages = visiblePages.length;
-    if (numVisiblePages === 0***REMOVED*** {
+    if (numVisiblePages === 0) {
       return;
-    ***REMOVED***
-    const newCacheSize = Math.max(DEFAULT_CACHE_SIZE, 2 * numVisiblePages + 1***REMOVED***;
-    this.#buffer.resize(newCacheSize, visible.ids***REMOVED***;
-    this.renderingQueue.renderHighestPriority(visible***REMOVED***;
-    const isSimpleLayout = this._spreadMode === SpreadMode.NONE && (this._scrollMode === ScrollMode.PAGE || this._scrollMode === ScrollMode.VERTICAL***REMOVED***;
+    }
+    const newCacheSize = Math.max(DEFAULT_CACHE_SIZE, 2 * numVisiblePages + 1);
+    this.#buffer.resize(newCacheSize, visible.ids);
+    this.renderingQueue.renderHighestPriority(visible);
+    const isSimpleLayout = this._spreadMode === SpreadMode.NONE && (this._scrollMode === ScrollMode.PAGE || this._scrollMode === ScrollMode.VERTICAL);
     const currentId = this._currentPageNumber;
     let stillFullyVisible = false;
-    for (const page of visiblePages***REMOVED*** {
-      if (page.percent < 100***REMOVED*** {
+    for (const page of visiblePages) {
+      if (page.percent < 100) {
         break;
-      ***REMOVED***
-      if (page.id === currentId && isSimpleLayout***REMOVED*** {
+      }
+      if (page.id === currentId && isSimpleLayout) {
         stillFullyVisible = true;
         break;
-      ***REMOVED***
-    ***REMOVED***
-    this._setCurrentPageNumber(stillFullyVisible ? currentId : visiblePages[0].id***REMOVED***;
-    this._updateLocation(visible.first***REMOVED***;
+      }
+    }
+    this._setCurrentPageNumber(stillFullyVisible ? currentId : visiblePages[0].id);
+    this._updateLocation(visible.first);
     this.eventBus.dispatch("updateviewarea", {
       source: this,
       location: this._location
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #switchToEditAnnotationMode(***REMOVED*** {
-    const visible = this._getVisiblePages(***REMOVED***;
+    });
+  }
+  #switchToEditAnnotationMode() {
+    const visible = this._getVisiblePages();
     const pagesToRefresh = [];
     const {
       ids,
       views
-    ***REMOVED*** = visible;
-    for (const page of views***REMOVED*** {
+    } = visible;
+    for (const page of views) {
       const {
         view
-      ***REMOVED*** = page;
-      if (!view.hasEditableAnnotations(***REMOVED******REMOVED*** {
-        ids.delete(view.id***REMOVED***;
+      } = page;
+      if (!view.hasEditableAnnotations()) {
+        ids.delete(view.id);
         continue;
-      ***REMOVED***
-      pagesToRefresh.push(page***REMOVED***;
-    ***REMOVED***
-    if (pagesToRefresh.length === 0***REMOVED*** {
+      }
+      pagesToRefresh.push(page);
+    }
+    if (pagesToRefresh.length === 0) {
       return null;
-    ***REMOVED***
+    }
     this.renderingQueue.renderHighestPriority({
       first: pagesToRefresh[0],
-      last: pagesToRefresh.at(-1***REMOVED***,
+      last: pagesToRefresh.at(-1),
       views: pagesToRefresh,
       ids
-    ***REMOVED******REMOVED***;
+    });
     return ids;
-  ***REMOVED***
-  containsElement(element***REMOVED*** {
-    return this.container.contains(element***REMOVED***;
-  ***REMOVED***
-  focus(***REMOVED*** {
-    this.container.focus(***REMOVED***;
-  ***REMOVED***
-  get _isContainerRtl(***REMOVED*** {
-    return getComputedStyle(this.container***REMOVED***.direction === "rtl";
-  ***REMOVED***
-  get isInPresentationMode(***REMOVED*** {
+  }
+  containsElement(element) {
+    return this.container.contains(element);
+  }
+  focus() {
+    this.container.focus();
+  }
+  get _isContainerRtl() {
+    return getComputedStyle(this.container).direction === "rtl";
+  }
+  get isInPresentationMode() {
     return this.presentationModeState === PresentationModeState.FULLSCREEN;
-  ***REMOVED***
-  get isChangingPresentationMode(***REMOVED*** {
+  }
+  get isChangingPresentationMode() {
     return this.presentationModeState === PresentationModeState.CHANGING;
-  ***REMOVED***
-  get isHorizontalScrollbarEnabled(***REMOVED*** {
+  }
+  get isHorizontalScrollbarEnabled() {
     return this.isInPresentationMode ? false : this.container.scrollWidth > this.container.clientWidth;
-  ***REMOVED***
-  get isVerticalScrollbarEnabled(***REMOVED*** {
+  }
+  get isVerticalScrollbarEnabled() {
     return this.isInPresentationMode ? false : this.container.scrollHeight > this.container.clientHeight;
-  ***REMOVED***
-  _getVisiblePages(***REMOVED*** {
+  }
+  _getVisiblePages() {
     const views = this._scrollMode === ScrollMode.PAGE ? this.#scrollModePageState.pages : this._pages,
       horizontal = this._scrollMode === ScrollMode.HORIZONTAL,
       rtl = horizontal && this._isContainerRtl;
@@ -11997,709 +11997,709 @@ class PDFViewer {
       sortByVisibility: true,
       horizontal,
       rtl
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  cleanup(***REMOVED*** {
-    for (const pageView of this._pages***REMOVED*** {
-      if (pageView.renderingState !== RenderingStates.FINISHED***REMOVED*** {
-        pageView.reset(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  _cancelRendering(***REMOVED*** {
-    for (const pageView of this._pages***REMOVED*** {
-      pageView.cancelRendering(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  async #ensurePdfPageLoaded(pageView***REMOVED*** {
-    if (pageView.pdfPage***REMOVED*** {
+    });
+  }
+  cleanup() {
+    for (const pageView of this._pages) {
+      if (pageView.renderingState !== RenderingStates.FINISHED) {
+        pageView.reset();
+      }
+    }
+  }
+  _cancelRendering() {
+    for (const pageView of this._pages) {
+      pageView.cancelRendering();
+    }
+  }
+  async #ensurePdfPageLoaded(pageView) {
+    if (pageView.pdfPage) {
       return pageView.pdfPage;
-    ***REMOVED***
-  ***REMOVED***
-      const pdfPage = await this.pdfDocument.getPage(pageView.id***REMOVED***;
-      if (!pageView.pdfPage***REMOVED*** {
-        pageView.setPdfPage(pdfPage***REMOVED***;
-      ***REMOVED***
+    }
+    try {
+      const pdfPage = await this.pdfDocument.getPage(pageView.id);
+      if (!pageView.pdfPage) {
+        pageView.setPdfPage(pdfPage);
+      }
       return pdfPage;
-    ***REMOVED*** catch (reason***REMOVED*** {
-      console.error("Unable to get page for page view", reason***REMOVED***;
+    } catch (reason) {
+      console.error("Unable to get page for page view", reason);
       return null;
-    ***REMOVED***
-  ***REMOVED***
-  #getScrollAhead(visible***REMOVED*** {
-    if (visible.first?.id === 1***REMOVED*** {
+    }
+  }
+  #getScrollAhead(visible) {
+    if (visible.first?.id === 1) {
       return true;
-    ***REMOVED*** else if (visible.last?.id === this.pagesCount***REMOVED*** {
+    } else if (visible.last?.id === this.pagesCount) {
       return false;
-    ***REMOVED***
-    switch (this._scrollMode***REMOVED*** {
+    }
+    switch (this._scrollMode) {
       case ScrollMode.PAGE:
         return this.#scrollModePageState.scrollDown;
       case ScrollMode.HORIZONTAL:
         return this.scroll.right;
-    ***REMOVED***
+    }
     return this.scroll.down;
-  ***REMOVED***
-  forceRendering(currentlyVisiblePages***REMOVED*** {
-    const visiblePages = currentlyVisiblePages || this._getVisiblePages(***REMOVED***;
-    const scrollAhead = this.#getScrollAhead(visiblePages***REMOVED***;
+  }
+  forceRendering(currentlyVisiblePages) {
+    const visiblePages = currentlyVisiblePages || this._getVisiblePages();
+    const scrollAhead = this.#getScrollAhead(visiblePages);
     const preRenderExtra = this._spreadMode !== SpreadMode.NONE && this._scrollMode !== ScrollMode.HORIZONTAL;
-    const pageView = this.renderingQueue.getHighestPriority(visiblePages, this._pages, scrollAhead, preRenderExtra***REMOVED***;
-    if (pageView***REMOVED*** {
-      this.#ensurePdfPageLoaded(pageView***REMOVED***.then((***REMOVED*** => {
-        this.renderingQueue.renderView(pageView***REMOVED***;
-      ***REMOVED******REMOVED***;
+    const pageView = this.renderingQueue.getHighestPriority(visiblePages, this._pages, scrollAhead, preRenderExtra);
+    if (pageView) {
+      this.#ensurePdfPageLoaded(pageView).then(() => {
+        this.renderingQueue.renderView(pageView);
+      });
       return true;
-    ***REMOVED***
+    }
     return false;
-  ***REMOVED***
-  get hasEqualPageSizes(***REMOVED*** {
+  }
+  get hasEqualPageSizes() {
     const firstPageView = this._pages[0];
-    for (let i = 1, ii = this._pages.length; i < ii; ++i***REMOVED*** {
+    for (let i = 1, ii = this._pages.length; i < ii; ++i) {
       const pageView = this._pages[i];
-      if (pageView.width !== firstPageView.width || pageView.height !== firstPageView.height***REMOVED*** {
+      if (pageView.width !== firstPageView.width || pageView.height !== firstPageView.height) {
         return false;
-      ***REMOVED***
-    ***REMOVED***
+      }
+    }
     return true;
-  ***REMOVED***
-  getPagesOverview(***REMOVED*** {
+  }
+  getPagesOverview() {
     let initialOrientation;
     return this._pages.map(pageView => {
       const viewport = pageView.pdfPage.getViewport({
         scale: 1
-      ***REMOVED******REMOVED***;
-      const orientation = isPortraitOrientation(viewport***REMOVED***;
-      if (initialOrientation === undefined***REMOVED*** {
+      });
+      const orientation = isPortraitOrientation(viewport);
+      if (initialOrientation === undefined) {
         initialOrientation = orientation;
-      ***REMOVED*** else if (this.enablePrintAutoRotate && orientation !== initialOrientation***REMOVED*** {
-    ***REMOVED***
+      } else if (this.enablePrintAutoRotate && orientation !== initialOrientation) {
+        return {
           width: viewport.height,
           height: viewport.width,
-          rotation: (viewport.rotation - 90***REMOVED*** % 360
-        ***REMOVED***;
-      ***REMOVED***
-  ***REMOVED***
+          rotation: (viewport.rotation - 90) % 360
+        };
+      }
+      return {
         width: viewport.width,
         height: viewport.height,
         rotation: viewport.rotation
-      ***REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get optionalContentConfigPromise(***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
-      return Promise.resolve(null***REMOVED***;
-    ***REMOVED***
-    if (!this._optionalContentConfigPromise***REMOVED*** {
-      console.error("optionalContentConfigPromise: Not initialized yet."***REMOVED***;
+      };
+    });
+  }
+  get optionalContentConfigPromise() {
+    if (!this.pdfDocument) {
+      return Promise.resolve(null);
+    }
+    if (!this._optionalContentConfigPromise) {
+      console.error("optionalContentConfigPromise: Not initialized yet.");
       return this.pdfDocument.getOptionalContentConfig({
         intent: "display"
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+      });
+    }
     return this._optionalContentConfigPromise;
-  ***REMOVED***
-  set optionalContentConfigPromise(promise***REMOVED*** {
-    if (!(promise instanceof Promise***REMOVED******REMOVED*** {
-      throw new Error(`Invalid optionalContentConfigPromise: ${promise***REMOVED***`***REMOVED***;
-    ***REMOVED***
-    if (!this.pdfDocument***REMOVED*** {
+  }
+  set optionalContentConfigPromise(promise) {
+    if (!(promise instanceof Promise)) {
+      throw new Error(`Invalid optionalContentConfigPromise: ${promise}`);
+    }
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    if (!this._optionalContentConfigPromise***REMOVED*** {
+    }
+    if (!this._optionalContentConfigPromise) {
       return;
-    ***REMOVED***
+    }
     this._optionalContentConfigPromise = promise;
     this.refresh(false, {
       optionalContentConfigPromise: promise
-    ***REMOVED******REMOVED***;
+    });
     this.eventBus.dispatch("optionalcontentconfigchanged", {
       source: this,
       promise
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  get scrollMode(***REMOVED*** {
+    });
+  }
+  get scrollMode() {
     return this._scrollMode;
-  ***REMOVED***
-  set scrollMode(mode***REMOVED*** {
-    if (this._scrollMode === mode***REMOVED*** {
+  }
+  set scrollMode(mode) {
+    if (this._scrollMode === mode) {
       return;
-    ***REMOVED***
-    if (!isValidScrollMode(mode***REMOVED******REMOVED*** {
-      throw new Error(`Invalid scroll mode: ${mode***REMOVED***`***REMOVED***;
-    ***REMOVED***
-    if (this.pagesCount > PagesCountLimit.FORCE_SCROLL_MODE_PAGE***REMOVED*** {
+    }
+    if (!isValidScrollMode(mode)) {
+      throw new Error(`Invalid scroll mode: ${mode}`);
+    }
+    if (this.pagesCount > PagesCountLimit.FORCE_SCROLL_MODE_PAGE) {
       return;
-    ***REMOVED***
+    }
     this._previousScrollMode = this._scrollMode;
     this._scrollMode = mode;
     this.eventBus.dispatch("scrollmodechanged", {
       source: this,
       mode
-    ***REMOVED******REMOVED***;
-    this._updateScrollMode(this._currentPageNumber***REMOVED***;
-  ***REMOVED***
-  _updateScrollMode(pageNumber = null***REMOVED*** {
+    });
+    this._updateScrollMode(this._currentPageNumber);
+  }
+  _updateScrollMode(pageNumber = null) {
     const scrollMode = this._scrollMode,
       viewer = this.viewer;
-    viewer.classList.toggle("scrollHorizontal", scrollMode === ScrollMode.HORIZONTAL***REMOVED***;
-    viewer.classList.toggle("scrollWrapped", scrollMode === ScrollMode.WRAPPED***REMOVED***;
-    if (!this.pdfDocument || !pageNumber***REMOVED*** {
+    viewer.classList.toggle("scrollHorizontal", scrollMode === ScrollMode.HORIZONTAL);
+    viewer.classList.toggle("scrollWrapped", scrollMode === ScrollMode.WRAPPED);
+    if (!this.pdfDocument || !pageNumber) {
       return;
-    ***REMOVED***
-    if (scrollMode === ScrollMode.PAGE***REMOVED*** {
-      this.#ensurePageViewVisible(***REMOVED***;
-    ***REMOVED*** else if (this._previousScrollMode === ScrollMode.PAGE***REMOVED*** {
-      this._updateSpreadMode(***REMOVED***;
-    ***REMOVED***
-    if (this._currentScaleValue && isNaN(this._currentScaleValue***REMOVED******REMOVED*** {
+    }
+    if (scrollMode === ScrollMode.PAGE) {
+      this.#ensurePageViewVisible();
+    } else if (this._previousScrollMode === ScrollMode.PAGE) {
+      this._updateSpreadMode();
+    }
+    if (this._currentScaleValue && isNaN(this._currentScaleValue)) {
       this.#setScale(this._currentScaleValue, {
         noScroll: true
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    this._setCurrentPageNumber(pageNumber, true***REMOVED***;
-    this.update(***REMOVED***;
-  ***REMOVED***
-  get spreadMode(***REMOVED*** {
+      });
+    }
+    this._setCurrentPageNumber(pageNumber, true);
+    this.update();
+  }
+  get spreadMode() {
     return this._spreadMode;
-  ***REMOVED***
-  set spreadMode(mode***REMOVED*** {
-    if (this._spreadMode === mode***REMOVED*** {
+  }
+  set spreadMode(mode) {
+    if (this._spreadMode === mode) {
       return;
-    ***REMOVED***
-    if (!isValidSpreadMode(mode***REMOVED******REMOVED*** {
-      throw new Error(`Invalid spread mode: ${mode***REMOVED***`***REMOVED***;
-    ***REMOVED***
+    }
+    if (!isValidSpreadMode(mode)) {
+      throw new Error(`Invalid spread mode: ${mode}`);
+    }
     this._spreadMode = mode;
     this.eventBus.dispatch("spreadmodechanged", {
       source: this,
       mode
-    ***REMOVED******REMOVED***;
-    this._updateSpreadMode(this._currentPageNumber***REMOVED***;
-  ***REMOVED***
-  _updateSpreadMode(pageNumber = null***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+    });
+    this._updateSpreadMode(this._currentPageNumber);
+  }
+  _updateSpreadMode(pageNumber = null) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     const viewer = this.viewer,
       pages = this._pages;
-    if (this._scrollMode === ScrollMode.PAGE***REMOVED*** {
-      this.#ensurePageViewVisible(***REMOVED***;
-    ***REMOVED*** else {
+    if (this._scrollMode === ScrollMode.PAGE) {
+      this.#ensurePageViewVisible();
+    } else {
       viewer.textContent = "";
-      if (this._spreadMode === SpreadMode.NONE***REMOVED*** {
-        for (const pageView of this._pages***REMOVED*** {
-          viewer.append(pageView.div***REMOVED***;
-        ***REMOVED***
-      ***REMOVED*** else {
+      if (this._spreadMode === SpreadMode.NONE) {
+        for (const pageView of this._pages) {
+          viewer.append(pageView.div);
+        }
+      } else {
         const parity = this._spreadMode - 1;
         let spread = null;
-        for (let i = 0, ii = pages.length; i < ii; ++i***REMOVED*** {
-          if (spread === null***REMOVED*** {
-            spread = document.createElement("div"***REMOVED***;
+        for (let i = 0, ii = pages.length; i < ii; ++i) {
+          if (spread === null) {
+            spread = document.createElement("div");
             spread.className = "spread";
-            viewer.append(spread***REMOVED***;
-          ***REMOVED*** else if (i % 2 === parity***REMOVED*** {
-            spread = spread.cloneNode(false***REMOVED***;
-            viewer.append(spread***REMOVED***;
-          ***REMOVED***
-          spread.append(pages[i].div***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
-    if (!pageNumber***REMOVED*** {
+            viewer.append(spread);
+          } else if (i % 2 === parity) {
+            spread = spread.cloneNode(false);
+            viewer.append(spread);
+          }
+          spread.append(pages[i].div);
+        }
+      }
+    }
+    if (!pageNumber) {
       return;
-    ***REMOVED***
-    if (this._currentScaleValue && isNaN(this._currentScaleValue***REMOVED******REMOVED*** {
+    }
+    if (this._currentScaleValue && isNaN(this._currentScaleValue)) {
       this.#setScale(this._currentScaleValue, {
         noScroll: true
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    this._setCurrentPageNumber(pageNumber, true***REMOVED***;
-    this.update(***REMOVED***;
-  ***REMOVED***
-  _getPageAdvance(currentPageNumber, previous = false***REMOVED*** {
-    switch (this._scrollMode***REMOVED*** {
+      });
+    }
+    this._setCurrentPageNumber(pageNumber, true);
+    this.update();
+  }
+  _getPageAdvance(currentPageNumber, previous = false) {
+    switch (this._scrollMode) {
       case ScrollMode.WRAPPED:
-      ***REMOVED***
+        {
           const {
             views
-          ***REMOVED*** = this._getVisiblePages(***REMOVED***,
-            pageLayout = new Map(***REMOVED***;
+          } = this._getVisiblePages(),
+            pageLayout = new Map();
           for (const {
             id,
             y,
             percent,
             widthPercent
-          ***REMOVED*** of views***REMOVED*** {
-            if (percent === 0 || widthPercent < 100***REMOVED*** {
+          } of views) {
+            if (percent === 0 || widthPercent < 100) {
               continue;
-            ***REMOVED***
-            let yArray = pageLayout.get(y***REMOVED***;
-            if (!yArray***REMOVED*** {
-              pageLayout.set(y, yArray ||= []***REMOVED***;
-            ***REMOVED***
-            yArray.push(id***REMOVED***;
-          ***REMOVED***
-          for (const yArray of pageLayout.values(***REMOVED******REMOVED*** {
-            const currentIndex = yArray.indexOf(currentPageNumber***REMOVED***;
-            if (currentIndex === -1***REMOVED*** {
+            }
+            let yArray = pageLayout.get(y);
+            if (!yArray) {
+              pageLayout.set(y, yArray ||= []);
+            }
+            yArray.push(id);
+          }
+          for (const yArray of pageLayout.values()) {
+            const currentIndex = yArray.indexOf(currentPageNumber);
+            if (currentIndex === -1) {
               continue;
-            ***REMOVED***
+            }
             const numPages = yArray.length;
-            if (numPages === 1***REMOVED*** {
+            if (numPages === 1) {
               break;
-            ***REMOVED***
-            if (previous***REMOVED*** {
-              for (let i = currentIndex - 1, ii = 0; i >= ii; i--***REMOVED*** {
+            }
+            if (previous) {
+              for (let i = currentIndex - 1, ii = 0; i >= ii; i--) {
                 const currentId = yArray[i],
                   expectedId = yArray[i + 1] - 1;
-                if (currentId < expectedId***REMOVED*** {
+                if (currentId < expectedId) {
                   return currentPageNumber - expectedId;
-                ***REMOVED***
-              ***REMOVED***
-            ***REMOVED*** else {
-              for (let i = currentIndex + 1, ii = numPages; i < ii; i++***REMOVED*** {
+                }
+              }
+            } else {
+              for (let i = currentIndex + 1, ii = numPages; i < ii; i++) {
                 const currentId = yArray[i],
                   expectedId = yArray[i - 1] + 1;
-                if (currentId > expectedId***REMOVED*** {
+                if (currentId > expectedId) {
                   return expectedId - currentPageNumber;
-                ***REMOVED***
-              ***REMOVED***
-            ***REMOVED***
-            if (previous***REMOVED*** {
+                }
+              }
+            }
+            if (previous) {
               const firstId = yArray[0];
-              if (firstId < currentPageNumber***REMOVED*** {
+              if (firstId < currentPageNumber) {
                 return currentPageNumber - firstId + 1;
-              ***REMOVED***
-            ***REMOVED*** else {
+              }
+            } else {
               const lastId = yArray[numPages - 1];
-              if (lastId > currentPageNumber***REMOVED*** {
+              if (lastId > currentPageNumber) {
                 return lastId - currentPageNumber + 1;
-              ***REMOVED***
-            ***REMOVED***
+              }
+            }
             break;
-          ***REMOVED***
+          }
           break;
-        ***REMOVED***
+        }
       case ScrollMode.HORIZONTAL:
-      ***REMOVED***
+        {
           break;
-        ***REMOVED***
+        }
       case ScrollMode.PAGE:
       case ScrollMode.VERTICAL:
-      ***REMOVED***
-          if (this._spreadMode === SpreadMode.NONE***REMOVED*** {
+        {
+          if (this._spreadMode === SpreadMode.NONE) {
             break;
-          ***REMOVED***
+          }
           const parity = this._spreadMode - 1;
-          if (previous && currentPageNumber % 2 !== parity***REMOVED*** {
+          if (previous && currentPageNumber % 2 !== parity) {
             break;
-          ***REMOVED*** else if (!previous && currentPageNumber % 2 === parity***REMOVED*** {
+          } else if (!previous && currentPageNumber % 2 === parity) {
             break;
-          ***REMOVED***
+          }
           const {
             views
-          ***REMOVED*** = this._getVisiblePages(***REMOVED***,
+          } = this._getVisiblePages(),
             expectedId = previous ? currentPageNumber - 1 : currentPageNumber + 1;
           for (const {
             id,
             percent,
             widthPercent
-          ***REMOVED*** of views***REMOVED*** {
-            if (id !== expectedId***REMOVED*** {
+          } of views) {
+            if (id !== expectedId) {
               continue;
-            ***REMOVED***
-            if (percent > 0 && widthPercent === 100***REMOVED*** {
+            }
+            if (percent > 0 && widthPercent === 100) {
               return 2;
-            ***REMOVED***
+            }
             break;
-          ***REMOVED***
+          }
           break;
-        ***REMOVED***
-    ***REMOVED***
+        }
+    }
     return 1;
-  ***REMOVED***
-  nextPage(***REMOVED*** {
+  }
+  nextPage() {
     const currentPageNumber = this._currentPageNumber,
       pagesCount = this.pagesCount;
-    if (currentPageNumber >= pagesCount***REMOVED*** {
+    if (currentPageNumber >= pagesCount) {
       return false;
-    ***REMOVED***
-    const advance = this._getPageAdvance(currentPageNumber, false***REMOVED*** || 1;
-    this.currentPageNumber = Math.min(currentPageNumber + advance, pagesCount***REMOVED***;
+    }
+    const advance = this._getPageAdvance(currentPageNumber, false) || 1;
+    this.currentPageNumber = Math.min(currentPageNumber + advance, pagesCount);
     return true;
-  ***REMOVED***
-  previousPage(***REMOVED*** {
+  }
+  previousPage() {
     const currentPageNumber = this._currentPageNumber;
-    if (currentPageNumber <= 1***REMOVED*** {
+    if (currentPageNumber <= 1) {
       return false;
-    ***REMOVED***
-    const advance = this._getPageAdvance(currentPageNumber, true***REMOVED*** || 1;
-    this.currentPageNumber = Math.max(currentPageNumber - advance, 1***REMOVED***;
+    }
+    const advance = this._getPageAdvance(currentPageNumber, true) || 1;
+    this.currentPageNumber = Math.max(currentPageNumber - advance, 1);
     return true;
-  ***REMOVED***
+  }
   updateScale({
     drawingDelay,
     scaleFactor = null,
     steps = null,
     origin
-  ***REMOVED******REMOVED*** {
-    if (steps === null && scaleFactor === null***REMOVED*** {
-      throw new Error("Invalid updateScale options: either `steps` or `scaleFactor` must be provided."***REMOVED***;
-    ***REMOVED***
-    if (!this.pdfDocument***REMOVED*** {
+  }) {
+    if (steps === null && scaleFactor === null) {
+      throw new Error("Invalid updateScale options: either `steps` or `scaleFactor` must be provided.");
+    }
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     let newScale = this._currentScale;
-    if (scaleFactor > 0 && scaleFactor !== 1***REMOVED*** {
-      newScale = Math.round(newScale * scaleFactor * 100***REMOVED*** / 100;
-    ***REMOVED*** else if (steps***REMOVED*** {
+    if (scaleFactor > 0 && scaleFactor !== 1) {
+      newScale = Math.round(newScale * scaleFactor * 100) / 100;
+    } else if (steps) {
       const delta = steps > 0 ? DEFAULT_SCALE_DELTA : 1 / DEFAULT_SCALE_DELTA;
       const round = steps > 0 ? Math.ceil : Math.floor;
-      steps = Math.abs(steps***REMOVED***;
+      steps = Math.abs(steps);
       do {
-        newScale = round((newScale * delta***REMOVED***.toFixed(2***REMOVED*** * 10***REMOVED*** / 10;
-      ***REMOVED*** while (--steps > 0***REMOVED***;
-    ***REMOVED***
-    newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, newScale***REMOVED******REMOVED***;
+        newScale = round((newScale * delta).toFixed(2) * 10) / 10;
+      } while (--steps > 0);
+    }
+    newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, newScale));
     this.#setScale(newScale, {
       noScroll: false,
       drawingDelay,
       origin
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  increaseScale(options = {***REMOVED******REMOVED*** {
+    });
+  }
+  increaseScale(options = {}) {
     this.updateScale({
       ...options,
       steps: options.steps ?? 1
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  decreaseScale(options = {***REMOVED******REMOVED*** {
+    });
+  }
+  decreaseScale(options = {}) {
     this.updateScale({
       ...options,
-      steps: -(options.steps ?? 1***REMOVED***
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #updateContainerHeightCss(height = this.container.clientHeight***REMOVED*** {
-    if (height !== this.#previousContainerHeight***REMOVED*** {
+      steps: -(options.steps ?? 1)
+    });
+  }
+  #updateContainerHeightCss(height = this.container.clientHeight) {
+    if (height !== this.#previousContainerHeight) {
       this.#previousContainerHeight = height;
-      docStyle.setProperty("--viewer-container-height", `${height***REMOVED***px`***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  #resizeObserverCallback(entries***REMOVED*** {
-    for (const entry of entries***REMOVED*** {
-      if (entry.target === this.container***REMOVED*** {
-        this.#updateContainerHeightCss(Math.floor(entry.borderBoxSize[0].blockSize***REMOVED******REMOVED***;
+      docStyle.setProperty("--viewer-container-height", `${height}px`);
+    }
+  }
+  #resizeObserverCallback(entries) {
+    for (const entry of entries) {
+      if (entry.target === this.container) {
+        this.#updateContainerHeightCss(Math.floor(entry.borderBoxSize[0].blockSize));
         this.#containerTopLeft = null;
         break;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***
-  get containerTopLeft(***REMOVED*** {
+      }
+    }
+  }
+  get containerTopLeft() {
     return this.#containerTopLeft ||= [this.container.offsetTop, this.container.offsetLeft];
-  ***REMOVED***
-  #cleanupSwitchAnnotationEditorMode(***REMOVED*** {
-    this.#switchAnnotationEditorModeAC?.abort(***REMOVED***;
+  }
+  #cleanupSwitchAnnotationEditorMode() {
+    this.#switchAnnotationEditorModeAC?.abort();
     this.#switchAnnotationEditorModeAC = null;
-    if (this.#switchAnnotationEditorModeTimeoutId !== null***REMOVED*** {
-      clearTimeout(this.#switchAnnotationEditorModeTimeoutId***REMOVED***;
+    if (this.#switchAnnotationEditorModeTimeoutId !== null) {
+      clearTimeout(this.#switchAnnotationEditorModeTimeoutId);
       this.#switchAnnotationEditorModeTimeoutId = null;
-    ***REMOVED***
-  ***REMOVED***
-  get annotationEditorMode(***REMOVED*** {
+    }
+  }
+  get annotationEditorMode() {
     return this.#annotationEditorUIManager ? this.#annotationEditorMode : AnnotationEditorType.DISABLE;
-  ***REMOVED***
+  }
   set annotationEditorMode({
     mode,
     editId = null,
     isFromKeyboard = false
-  ***REMOVED******REMOVED*** {
-    if (!this.#annotationEditorUIManager***REMOVED*** {
-      throw new Error(`The AnnotationEditor is not enabled.`***REMOVED***;
-    ***REMOVED***
-    if (this.#annotationEditorMode === mode***REMOVED*** {
+  }) {
+    if (!this.#annotationEditorUIManager) {
+      throw new Error(`The AnnotationEditor is not enabled.`);
+    }
+    if (this.#annotationEditorMode === mode) {
       return;
-    ***REMOVED***
-    if (!isValidAnnotationEditorMode(mode***REMOVED******REMOVED*** {
-      throw new Error(`Invalid AnnotationEditor mode: ${mode***REMOVED***`***REMOVED***;
-    ***REMOVED***
-    if (!this.pdfDocument***REMOVED*** {
+    }
+    if (!isValidAnnotationEditorMode(mode)) {
+      throw new Error(`Invalid AnnotationEditor mode: ${mode}`);
+    }
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    if (mode === AnnotationEditorType.STAMP***REMOVED*** {
-      this.#mlManager?.loadModel("altText"***REMOVED***;
-    ***REMOVED***
+    }
+    if (mode === AnnotationEditorType.STAMP) {
+      this.#mlManager?.loadModel("altText");
+    }
     const {
       eventBus
-    ***REMOVED*** = this;
-    const updater = (***REMOVED*** => {
-      this.#cleanupSwitchAnnotationEditorMode(***REMOVED***;
+    } = this;
+    const updater = () => {
+      this.#cleanupSwitchAnnotationEditorMode();
       this.#annotationEditorMode = mode;
-      this.#annotationEditorUIManager.updateMode(mode, editId, isFromKeyboard***REMOVED***;
+      this.#annotationEditorUIManager.updateMode(mode, editId, isFromKeyboard);
       eventBus.dispatch("annotationeditormodechanged", {
         source: this,
         mode
-      ***REMOVED******REMOVED***;
-    ***REMOVED***;
-    if (mode === AnnotationEditorType.NONE || this.#annotationEditorMode === AnnotationEditorType.NONE***REMOVED*** {
+      });
+    };
+    if (mode === AnnotationEditorType.NONE || this.#annotationEditorMode === AnnotationEditorType.NONE) {
       const isEditing = mode !== AnnotationEditorType.NONE;
-      if (!isEditing***REMOVED*** {
-        this.pdfDocument.annotationStorage.resetModifiedIds(***REMOVED***;
-      ***REMOVED***
-      for (const pageView of this._pages***REMOVED*** {
-        pageView.toggleEditingMode(isEditing***REMOVED***;
-      ***REMOVED***
-      const idsToRefresh = this.#switchToEditAnnotationMode(***REMOVED***;
-      if (isEditing && idsToRefresh***REMOVED*** {
-        this.#cleanupSwitchAnnotationEditorMode(***REMOVED***;
-        this.#switchAnnotationEditorModeAC = new AbortController(***REMOVED***;
-        const signal = AbortSignal.any([this.#eventAbortController.signal, this.#switchAnnotationEditorModeAC.signal]***REMOVED***;
+      if (!isEditing) {
+        this.pdfDocument.annotationStorage.resetModifiedIds();
+      }
+      for (const pageView of this._pages) {
+        pageView.toggleEditingMode(isEditing);
+      }
+      const idsToRefresh = this.#switchToEditAnnotationMode();
+      if (isEditing && idsToRefresh) {
+        this.#cleanupSwitchAnnotationEditorMode();
+        this.#switchAnnotationEditorModeAC = new AbortController();
+        const signal = AbortSignal.any([this.#eventAbortController.signal, this.#switchAnnotationEditorModeAC.signal]);
         eventBus._on("pagerendered", ({
           pageNumber
-        ***REMOVED******REMOVED*** => {
-          idsToRefresh.delete(pageNumber***REMOVED***;
-          if (idsToRefresh.size === 0***REMOVED*** {
-            this.#switchAnnotationEditorModeTimeoutId = setTimeout(updater, 0***REMOVED***;
-          ***REMOVED***
-        ***REMOVED***, {
+        }) => {
+          idsToRefresh.delete(pageNumber);
+          if (idsToRefresh.size === 0) {
+            this.#switchAnnotationEditorModeTimeoutId = setTimeout(updater, 0);
+          }
+        }, {
           signal
-        ***REMOVED******REMOVED***;
+        });
         return;
-      ***REMOVED***
-    ***REMOVED***
-    updater(***REMOVED***;
-  ***REMOVED***
-  refresh(noUpdate = false, updateArgs = Object.create(null***REMOVED******REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+      }
+    }
+    updater();
+  }
+  refresh(noUpdate = false, updateArgs = Object.create(null)) {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    for (const pageView of this._pages***REMOVED*** {
-      pageView.update(updateArgs***REMOVED***;
-    ***REMOVED***
-    if (this.#scaleTimeoutId !== null***REMOVED*** {
-      clearTimeout(this.#scaleTimeoutId***REMOVED***;
+    }
+    for (const pageView of this._pages) {
+      pageView.update(updateArgs);
+    }
+    if (this.#scaleTimeoutId !== null) {
+      clearTimeout(this.#scaleTimeoutId);
       this.#scaleTimeoutId = null;
-    ***REMOVED***
-    if (!noUpdate***REMOVED*** {
-      this.update(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+    if (!noUpdate) {
+      this.update();
+    }
+  }
+}
 
 ;// ./web/secondary_toolbar.js
 
 
 class SecondaryToolbar {
   #opts;
-  constructor(options, eventBus***REMOVED*** {
+  constructor(options, eventBus) {
     this.#opts = options;
     const buttons = [{
       element: options.presentationModeButton,
       eventName: "presentationmode",
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.printButton,
       eventName: "print",
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.downloadButton,
       eventName: "download",
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.viewBookmarkButton,
       eventName: null,
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.firstPageButton,
       eventName: "firstpage",
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.lastPageButton,
       eventName: "lastpage",
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.pageRotateCwButton,
       eventName: "rotatecw",
       close: false
-    ***REMOVED***, {
+    }, {
       element: options.pageRotateCcwButton,
       eventName: "rotateccw",
       close: false
-    ***REMOVED***, {
+    }, {
       element: options.cursorSelectToolButton,
       eventName: "switchcursortool",
       eventDetails: {
         tool: CursorTool.SELECT
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.cursorHandToolButton,
       eventName: "switchcursortool",
       eventDetails: {
         tool: CursorTool.HAND
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.scrollPageButton,
       eventName: "switchscrollmode",
       eventDetails: {
         mode: ScrollMode.PAGE
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.scrollVerticalButton,
       eventName: "switchscrollmode",
       eventDetails: {
         mode: ScrollMode.VERTICAL
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.scrollHorizontalButton,
       eventName: "switchscrollmode",
       eventDetails: {
         mode: ScrollMode.HORIZONTAL
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.scrollWrappedButton,
       eventName: "switchscrollmode",
       eventDetails: {
         mode: ScrollMode.WRAPPED
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.spreadNoneButton,
       eventName: "switchspreadmode",
       eventDetails: {
         mode: SpreadMode.NONE
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.spreadOddButton,
       eventName: "switchspreadmode",
       eventDetails: {
         mode: SpreadMode.ODD
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.spreadEvenButton,
       eventName: "switchspreadmode",
       eventDetails: {
         mode: SpreadMode.EVEN
-      ***REMOVED***,
+      },
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.imageAltTextSettingsButton,
       eventName: "imagealttextsettings",
       close: true
-    ***REMOVED***, {
+    }, {
       element: options.documentPropertiesButton,
       eventName: "documentproperties",
       close: true
-    ***REMOVED***];
+    }];
     buttons.push({
       element: options.openFileButton,
       eventName: "openfile",
       close: true
-    ***REMOVED******REMOVED***;
+    });
     this.eventBus = eventBus;
     this.opened = false;
-    this.#bindListeners(buttons***REMOVED***;
-    this.reset(***REMOVED***;
-  ***REMOVED***
-  get isOpen(***REMOVED*** {
+    this.#bindListeners(buttons);
+    this.reset();
+  }
+  get isOpen() {
     return this.opened;
-  ***REMOVED***
-  setPageNumber(pageNumber***REMOVED*** {
+  }
+  setPageNumber(pageNumber) {
     this.pageNumber = pageNumber;
-    this.#updateUIState(***REMOVED***;
-  ***REMOVED***
-  setPagesCount(pagesCount***REMOVED*** {
+    this.#updateUIState();
+  }
+  setPagesCount(pagesCount) {
     this.pagesCount = pagesCount;
-    this.#updateUIState(***REMOVED***;
-  ***REMOVED***
-  reset(***REMOVED*** {
+    this.#updateUIState();
+  }
+  reset() {
     this.pageNumber = 0;
     this.pagesCount = 0;
-    this.#updateUIState(***REMOVED***;
+    this.#updateUIState();
     this.eventBus.dispatch("switchcursortool", {
       source: this,
       reset: true
-    ***REMOVED******REMOVED***;
+    });
     this.#scrollModeChanged({
       mode: ScrollMode.VERTICAL
-    ***REMOVED******REMOVED***;
+    });
     this.#spreadModeChanged({
       mode: SpreadMode.NONE
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #updateUIState(***REMOVED*** {
+    });
+  }
+  #updateUIState() {
     const {
       firstPageButton,
       lastPageButton,
       pageRotateCwButton,
       pageRotateCcwButton
-    ***REMOVED*** = this.#opts;
+    } = this.#opts;
     firstPageButton.disabled = this.pageNumber <= 1;
     lastPageButton.disabled = this.pageNumber >= this.pagesCount;
     pageRotateCwButton.disabled = this.pagesCount === 0;
     pageRotateCcwButton.disabled = this.pagesCount === 0;
-  ***REMOVED***
-  #bindListeners(buttons***REMOVED*** {
+  }
+  #bindListeners(buttons) {
     const {
       eventBus
-    ***REMOVED*** = this;
+    } = this;
     const {
       toggleButton
-    ***REMOVED*** = this.#opts;
-    toggleButton.addEventListener("click", this.toggle.bind(this***REMOVED******REMOVED***;
+    } = this.#opts;
+    toggleButton.addEventListener("click", this.toggle.bind(this));
     for (const {
       element,
       eventName,
       close,
       eventDetails
-    ***REMOVED*** of buttons***REMOVED*** {
+    } of buttons) {
       element.addEventListener("click", evt => {
-        if (eventName !== null***REMOVED*** {
+        if (eventName !== null) {
           eventBus.dispatch(eventName, {
             source: this,
             ...eventDetails
-          ***REMOVED******REMOVED***;
-        ***REMOVED***
-        if (close***REMOVED*** {
-          this.close(***REMOVED***;
-        ***REMOVED***
+          });
+        }
+        if (close) {
+          this.close();
+        }
         eventBus.dispatch("reporttelemetry", {
           source: this,
           details: {
             type: "buttons",
             data: {
               id: element.id
-            ***REMOVED***
-          ***REMOVED***
-        ***REMOVED******REMOVED***;
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    eventBus._on("cursortoolchanged", this.#cursorToolChanged.bind(this***REMOVED******REMOVED***;
-    eventBus._on("scrollmodechanged", this.#scrollModeChanged.bind(this***REMOVED******REMOVED***;
-    eventBus._on("spreadmodechanged", this.#spreadModeChanged.bind(this***REMOVED******REMOVED***;
-  ***REMOVED***
+            }
+          }
+        });
+      });
+    }
+    eventBus._on("cursortoolchanged", this.#cursorToolChanged.bind(this));
+    eventBus._on("scrollmodechanged", this.#scrollModeChanged.bind(this));
+    eventBus._on("spreadmodechanged", this.#spreadModeChanged.bind(this));
+  }
   #cursorToolChanged({
     tool,
     disabled
-  ***REMOVED******REMOVED*** {
+  }) {
     const {
       cursorSelectToolButton,
       cursorHandToolButton
-    ***REMOVED*** = this.#opts;
-    toggleCheckedBtn(cursorSelectToolButton, tool === CursorTool.SELECT***REMOVED***;
-    toggleCheckedBtn(cursorHandToolButton, tool === CursorTool.HAND***REMOVED***;
+    } = this.#opts;
+    toggleCheckedBtn(cursorSelectToolButton, tool === CursorTool.SELECT);
+    toggleCheckedBtn(cursorHandToolButton, tool === CursorTool.HAND);
     cursorSelectToolButton.disabled = disabled;
     cursorHandToolButton.disabled = disabled;
-  ***REMOVED***
+  }
   #scrollModeChanged({
     mode
-  ***REMOVED******REMOVED*** {
+  }) {
     const {
       scrollPageButton,
       scrollVerticalButton,
@@ -12708,11 +12708,11 @@ class SecondaryToolbar {
       spreadNoneButton,
       spreadOddButton,
       spreadEvenButton
-    ***REMOVED*** = this.#opts;
-    toggleCheckedBtn(scrollPageButton, mode === ScrollMode.PAGE***REMOVED***;
-    toggleCheckedBtn(scrollVerticalButton, mode === ScrollMode.VERTICAL***REMOVED***;
-    toggleCheckedBtn(scrollHorizontalButton, mode === ScrollMode.HORIZONTAL***REMOVED***;
-    toggleCheckedBtn(scrollWrappedButton, mode === ScrollMode.WRAPPED***REMOVED***;
+    } = this.#opts;
+    toggleCheckedBtn(scrollPageButton, mode === ScrollMode.PAGE);
+    toggleCheckedBtn(scrollVerticalButton, mode === ScrollMode.VERTICAL);
+    toggleCheckedBtn(scrollHorizontalButton, mode === ScrollMode.HORIZONTAL);
+    toggleCheckedBtn(scrollWrappedButton, mode === ScrollMode.WRAPPED);
     const forceScrollModePage = this.pagesCount > PagesCountLimit.FORCE_SCROLL_MODE_PAGE;
     scrollPageButton.disabled = forceScrollModePage;
     scrollVerticalButton.disabled = forceScrollModePage;
@@ -12722,265 +12722,265 @@ class SecondaryToolbar {
     spreadNoneButton.disabled = isHorizontal;
     spreadOddButton.disabled = isHorizontal;
     spreadEvenButton.disabled = isHorizontal;
-  ***REMOVED***
+  }
   #spreadModeChanged({
     mode
-  ***REMOVED******REMOVED*** {
+  }) {
     const {
       spreadNoneButton,
       spreadOddButton,
       spreadEvenButton
-    ***REMOVED*** = this.#opts;
-    toggleCheckedBtn(spreadNoneButton, mode === SpreadMode.NONE***REMOVED***;
-    toggleCheckedBtn(spreadOddButton, mode === SpreadMode.ODD***REMOVED***;
-    toggleCheckedBtn(spreadEvenButton, mode === SpreadMode.EVEN***REMOVED***;
-  ***REMOVED***
-  open(***REMOVED*** {
-    if (this.opened***REMOVED*** {
+    } = this.#opts;
+    toggleCheckedBtn(spreadNoneButton, mode === SpreadMode.NONE);
+    toggleCheckedBtn(spreadOddButton, mode === SpreadMode.ODD);
+    toggleCheckedBtn(spreadEvenButton, mode === SpreadMode.EVEN);
+  }
+  open() {
+    if (this.opened) {
       return;
-    ***REMOVED***
+    }
     this.opened = true;
     const {
       toggleButton,
       toolbar
-    ***REMOVED*** = this.#opts;
-    toggleExpandedBtn(toggleButton, true, toolbar***REMOVED***;
-  ***REMOVED***
-  close(***REMOVED*** {
-    if (!this.opened***REMOVED*** {
+    } = this.#opts;
+    toggleExpandedBtn(toggleButton, true, toolbar);
+  }
+  close() {
+    if (!this.opened) {
       return;
-    ***REMOVED***
+    }
     this.opened = false;
     const {
       toggleButton,
       toolbar
-    ***REMOVED*** = this.#opts;
-    toggleExpandedBtn(toggleButton, false, toolbar***REMOVED***;
-  ***REMOVED***
-  toggle(***REMOVED*** {
-    if (this.opened***REMOVED*** {
-      this.close(***REMOVED***;
-    ***REMOVED*** else {
-      this.open(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    } = this.#opts;
+    toggleExpandedBtn(toggleButton, false, toolbar);
+  }
+  toggle() {
+    if (this.opened) {
+      this.close();
+    } else {
+      this.open();
+    }
+  }
+}
 
 ;// ./web/toolbar.js
 
 
 class Toolbar {
   #opts;
-  constructor(options, eventBus, toolbarDensity = 0***REMOVED*** {
+  constructor(options, eventBus, toolbarDensity = 0) {
     this.#opts = options;
     this.eventBus = eventBus;
     const buttons = [{
       element: options.previous,
       eventName: "previouspage"
-    ***REMOVED***, {
+    }, {
       element: options.next,
       eventName: "nextpage"
-    ***REMOVED***, {
+    }, {
       element: options.zoomIn,
       eventName: "zoomin"
-    ***REMOVED***, {
+    }, {
       element: options.zoomOut,
       eventName: "zoomout"
-    ***REMOVED***, {
+    }, {
       element: options.print,
       eventName: "print"
-    ***REMOVED***, {
+    }, {
       element: options.download,
       eventName: "download"
-    ***REMOVED***, {
+    }, {
       element: options.editorFreeTextButton,
       eventName: "switchannotationeditormode",
       eventDetails: {
-        get mode(***REMOVED*** {
+        get mode() {
           const {
             classList
-          ***REMOVED*** = options.editorFreeTextButton;
-          return classList.contains("toggled"***REMOVED*** ? AnnotationEditorType.NONE : AnnotationEditorType.FREETEXT;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***, {
+          } = options.editorFreeTextButton;
+          return classList.contains("toggled") ? AnnotationEditorType.NONE : AnnotationEditorType.FREETEXT;
+        }
+      }
+    }, {
       element: options.editorHighlightButton,
       eventName: "switchannotationeditormode",
       eventDetails: {
-        get mode(***REMOVED*** {
+        get mode() {
           const {
             classList
-          ***REMOVED*** = options.editorHighlightButton;
-          return classList.contains("toggled"***REMOVED*** ? AnnotationEditorType.NONE : AnnotationEditorType.HIGHLIGHT;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***, {
+          } = options.editorHighlightButton;
+          return classList.contains("toggled") ? AnnotationEditorType.NONE : AnnotationEditorType.HIGHLIGHT;
+        }
+      }
+    }, {
       element: options.editorInkButton,
       eventName: "switchannotationeditormode",
       eventDetails: {
-        get mode(***REMOVED*** {
+        get mode() {
           const {
             classList
-          ***REMOVED*** = options.editorInkButton;
-          return classList.contains("toggled"***REMOVED*** ? AnnotationEditorType.NONE : AnnotationEditorType.INK;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***, {
+          } = options.editorInkButton;
+          return classList.contains("toggled") ? AnnotationEditorType.NONE : AnnotationEditorType.INK;
+        }
+      }
+    }, {
       element: options.editorStampButton,
       eventName: "switchannotationeditormode",
       eventDetails: {
-        get mode(***REMOVED*** {
+        get mode() {
           const {
             classList
-          ***REMOVED*** = options.editorStampButton;
-          return classList.contains("toggled"***REMOVED*** ? AnnotationEditorType.NONE : AnnotationEditorType.STAMP;
-        ***REMOVED***
-      ***REMOVED***,
+          } = options.editorStampButton;
+          return classList.contains("toggled") ? AnnotationEditorType.NONE : AnnotationEditorType.STAMP;
+        }
+      },
       telemetry: {
         type: "editing",
         data: {
           action: "pdfjs.image.icon_click"
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***];
-    this.#bindListeners(buttons***REMOVED***;
+        }
+      }
+    }];
+    this.#bindListeners(buttons);
     this.#updateToolbarDensity({
       value: toolbarDensity
-    ***REMOVED******REMOVED***;
-    this.reset(***REMOVED***;
-  ***REMOVED***
+    });
+    this.reset();
+  }
   #updateToolbarDensity({
     value
-  ***REMOVED******REMOVED*** {
+  }) {
     let name = "normal";
-    switch (value***REMOVED*** {
+    switch (value) {
       case 1:
         name = "compact";
         break;
       case 2:
         name = "touch";
         break;
-    ***REMOVED***
-    document.documentElement.setAttribute("data-toolbar-density", name***REMOVED***;
-  ***REMOVED***
-  #setAnnotationEditorUIManager(uiManager, parentContainer***REMOVED*** {
+    }
+    document.documentElement.setAttribute("data-toolbar-density", name);
+  }
+  #setAnnotationEditorUIManager(uiManager, parentContainer) {
     const colorPicker = new ColorPicker({
       uiManager
-    ***REMOVED******REMOVED***;
-    uiManager.setMainHighlightColorPicker(colorPicker***REMOVED***;
-    parentContainer.append(colorPicker.renderMainDropdown(***REMOVED******REMOVED***;
-  ***REMOVED***
-  setPageNumber(pageNumber, pageLabel***REMOVED*** {
+    });
+    uiManager.setMainHighlightColorPicker(colorPicker);
+    parentContainer.append(colorPicker.renderMainDropdown());
+  }
+  setPageNumber(pageNumber, pageLabel) {
     this.pageNumber = pageNumber;
     this.pageLabel = pageLabel;
-    this.#updateUIState(false***REMOVED***;
-  ***REMOVED***
-  setPagesCount(pagesCount, hasPageLabels***REMOVED*** {
+    this.#updateUIState(false);
+  }
+  setPagesCount(pagesCount, hasPageLabels) {
     this.pagesCount = pagesCount;
     this.hasPageLabels = hasPageLabels;
-    this.#updateUIState(true***REMOVED***;
-  ***REMOVED***
-  setPageScale(pageScaleValue, pageScale***REMOVED*** {
-    this.pageScaleValue = (pageScaleValue || pageScale***REMOVED***.toString(***REMOVED***;
+    this.#updateUIState(true);
+  }
+  setPageScale(pageScaleValue, pageScale) {
+    this.pageScaleValue = (pageScaleValue || pageScale).toString();
     this.pageScale = pageScale;
-    this.#updateUIState(false***REMOVED***;
-  ***REMOVED***
-  reset(***REMOVED*** {
+    this.#updateUIState(false);
+  }
+  reset() {
     this.pageNumber = 0;
     this.pageLabel = null;
     this.hasPageLabels = false;
     this.pagesCount = 0;
     this.pageScaleValue = DEFAULT_SCALE_VALUE;
     this.pageScale = DEFAULT_SCALE;
-    this.#updateUIState(true***REMOVED***;
-    this.updateLoadingIndicatorState(***REMOVED***;
+    this.#updateUIState(true);
+    this.updateLoadingIndicatorState();
     this.#editorModeChanged({
       mode: AnnotationEditorType.DISABLE
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  #bindListeners(buttons***REMOVED*** {
+    });
+  }
+  #bindListeners(buttons) {
     const {
       eventBus
-    ***REMOVED*** = this;
+    } = this;
     const {
       editorHighlightColorPicker,
       editorHighlightButton,
       pageNumber,
       scaleSelect
-    ***REMOVED*** = this.#opts;
+    } = this.#opts;
     const self = this;
     for (const {
       element,
       eventName,
       eventDetails,
       telemetry
-    ***REMOVED*** of buttons***REMOVED*** {
+    } of buttons) {
       element.addEventListener("click", evt => {
-        if (eventName !== null***REMOVED*** {
+        if (eventName !== null) {
           eventBus.dispatch(eventName, {
             source: this,
             ...eventDetails,
             isFromKeyboard: evt.detail === 0
-          ***REMOVED******REMOVED***;
-        ***REMOVED***
-        if (telemetry***REMOVED*** {
+          });
+        }
+        if (telemetry) {
           eventBus.dispatch("reporttelemetry", {
             source: this,
             details: telemetry
-          ***REMOVED******REMOVED***;
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    pageNumber.addEventListener("click", function (***REMOVED*** {
-      this.select(***REMOVED***;
-    ***REMOVED******REMOVED***;
-    pageNumber.addEventListener("change", function (***REMOVED*** {
+          });
+        }
+      });
+    }
+    pageNumber.addEventListener("click", function () {
+      this.select();
+    });
+    pageNumber.addEventListener("change", function () {
       eventBus.dispatch("pagenumberchanged", {
         source: self,
         value: this.value
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    scaleSelect.addEventListener("change", function (***REMOVED*** {
-      if (this.value === "custom"***REMOVED*** {
+      });
+    });
+    scaleSelect.addEventListener("change", function () {
+      if (this.value === "custom") {
         return;
-      ***REMOVED***
+      }
       eventBus.dispatch("scalechanged", {
         source: self,
         value: this.value
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
+      });
+    });
     scaleSelect.addEventListener("click", function ({
       target
-    ***REMOVED******REMOVED*** {
-      if (this.value === self.pageScaleValue && target.tagName.toUpperCase(***REMOVED*** === "OPTION"***REMOVED*** {
-        this.blur(***REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
+    }) {
+      if (this.value === self.pageScaleValue && target.tagName.toUpperCase() === "OPTION") {
+        this.blur();
+      }
+    });
     scaleSelect.oncontextmenu = noContextMenu;
-    eventBus._on("annotationeditormodechanged", this.#editorModeChanged.bind(this***REMOVED******REMOVED***;
+    eventBus._on("annotationeditormodechanged", this.#editorModeChanged.bind(this));
     eventBus._on("showannotationeditorui", ({
       mode
-    ***REMOVED******REMOVED*** => {
-      switch (mode***REMOVED*** {
+    }) => {
+      switch (mode) {
         case AnnotationEditorType.HIGHLIGHT:
-          editorHighlightButton.click(***REMOVED***;
+          editorHighlightButton.click();
           break;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    eventBus._on("toolbardensity", this.#updateToolbarDensity.bind(this***REMOVED******REMOVED***;
-    if (editorHighlightColorPicker***REMOVED*** {
+      }
+    });
+    eventBus._on("toolbardensity", this.#updateToolbarDensity.bind(this));
+    if (editorHighlightColorPicker) {
       eventBus._on("annotationeditoruimanager", ({
         uiManager
-      ***REMOVED******REMOVED*** => {
-        this.#setAnnotationEditorUIManager(uiManager, editorHighlightColorPicker***REMOVED***;
-      ***REMOVED***, {
+      }) => {
+        this.#setAnnotationEditorUIManager(uiManager, editorHighlightColorPicker);
+      }, {
         once: true
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
+      });
+    }
+  }
   #editorModeChanged({
     mode
-  ***REMOVED******REMOVED*** {
+  }) {
     const {
       editorFreeTextButton,
       editorFreeTextParamsToolbar,
@@ -12990,141 +12990,141 @@ class Toolbar {
       editorInkParamsToolbar,
       editorStampButton,
       editorStampParamsToolbar
-    ***REMOVED*** = this.#opts;
-    toggleExpandedBtn(editorFreeTextButton, mode === AnnotationEditorType.FREETEXT, editorFreeTextParamsToolbar***REMOVED***;
-    toggleExpandedBtn(editorHighlightButton, mode === AnnotationEditorType.HIGHLIGHT, editorHighlightParamsToolbar***REMOVED***;
-    toggleExpandedBtn(editorInkButton, mode === AnnotationEditorType.INK, editorInkParamsToolbar***REMOVED***;
-    toggleExpandedBtn(editorStampButton, mode === AnnotationEditorType.STAMP, editorStampParamsToolbar***REMOVED***;
+    } = this.#opts;
+    toggleExpandedBtn(editorFreeTextButton, mode === AnnotationEditorType.FREETEXT, editorFreeTextParamsToolbar);
+    toggleExpandedBtn(editorHighlightButton, mode === AnnotationEditorType.HIGHLIGHT, editorHighlightParamsToolbar);
+    toggleExpandedBtn(editorInkButton, mode === AnnotationEditorType.INK, editorInkParamsToolbar);
+    toggleExpandedBtn(editorStampButton, mode === AnnotationEditorType.STAMP, editorStampParamsToolbar);
     const isDisable = mode === AnnotationEditorType.DISABLE;
     editorFreeTextButton.disabled = isDisable;
     editorHighlightButton.disabled = isDisable;
     editorInkButton.disabled = isDisable;
     editorStampButton.disabled = isDisable;
-  ***REMOVED***
-  #updateUIState(resetNumPages = false***REMOVED*** {
+  }
+  #updateUIState(resetNumPages = false) {
     const {
       pageNumber,
       pagesCount,
       pageScaleValue,
       pageScale
-    ***REMOVED*** = this;
+    } = this;
     const opts = this.#opts;
-    if (resetNumPages***REMOVED*** {
-      if (this.hasPageLabels***REMOVED*** {
+    if (resetNumPages) {
+      if (this.hasPageLabels) {
         opts.pageNumber.type = "text";
-        opts.numPages.setAttribute("data-l10n-id", "pdfjs-page-of-pages"***REMOVED***;
-      ***REMOVED*** else {
+        opts.numPages.setAttribute("data-l10n-id", "pdfjs-page-of-pages");
+      } else {
         opts.pageNumber.type = "number";
-        opts.numPages.setAttribute("data-l10n-id", "pdfjs-of-pages"***REMOVED***;
+        opts.numPages.setAttribute("data-l10n-id", "pdfjs-of-pages");
         opts.numPages.setAttribute("data-l10n-args", JSON.stringify({
           pagesCount
-        ***REMOVED******REMOVED******REMOVED***;
-      ***REMOVED***
+        }));
+      }
       opts.pageNumber.max = pagesCount;
-    ***REMOVED***
-    if (this.hasPageLabels***REMOVED*** {
+    }
+    if (this.hasPageLabels) {
       opts.pageNumber.value = this.pageLabel;
       opts.numPages.setAttribute("data-l10n-args", JSON.stringify({
         pageNumber,
         pagesCount
-      ***REMOVED******REMOVED******REMOVED***;
-    ***REMOVED*** else {
+      }));
+    } else {
       opts.pageNumber.value = pageNumber;
-    ***REMOVED***
+    }
     opts.previous.disabled = pageNumber <= 1;
     opts.next.disabled = pageNumber >= pagesCount;
     opts.zoomOut.disabled = pageScale <= MIN_SCALE;
     opts.zoomIn.disabled = pageScale >= MAX_SCALE;
     let predefinedValueFound = false;
-    for (const option of opts.scaleSelect.options***REMOVED*** {
-      if (option.value !== pageScaleValue***REMOVED*** {
+    for (const option of opts.scaleSelect.options) {
+      if (option.value !== pageScaleValue) {
         option.selected = false;
         continue;
-      ***REMOVED***
+      }
       option.selected = true;
       predefinedValueFound = true;
-    ***REMOVED***
-    if (!predefinedValueFound***REMOVED*** {
+    }
+    if (!predefinedValueFound) {
       opts.customScaleOption.selected = true;
       opts.customScaleOption.setAttribute("data-l10n-args", JSON.stringify({
-        scale: Math.round(pageScale * 10000***REMOVED*** / 100
-      ***REMOVED******REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  updateLoadingIndicatorState(loading = false***REMOVED*** {
+        scale: Math.round(pageScale * 10000) / 100
+      }));
+    }
+  }
+  updateLoadingIndicatorState(loading = false) {
     const {
       pageNumber
-    ***REMOVED*** = this.#opts;
-    pageNumber.classList.toggle("loading", loading***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+    } = this.#opts;
+    pageNumber.classList.toggle("loading", loading);
+  }
+}
 
 ;// ./web/view_history.js
 const DEFAULT_VIEW_HISTORY_CACHE_SIZE = 20;
 class ViewHistory {
-  constructor(fingerprint, cacheSize = DEFAULT_VIEW_HISTORY_CACHE_SIZE***REMOVED*** {
+  constructor(fingerprint, cacheSize = DEFAULT_VIEW_HISTORY_CACHE_SIZE) {
     this.fingerprint = fingerprint;
     this.cacheSize = cacheSize;
-    this._initializedPromise = this._readFromStorage(***REMOVED***.then(databaseStr => {
-      const database = JSON.parse(databaseStr || "{***REMOVED***"***REMOVED***;
+    this._initializedPromise = this._readFromStorage().then(databaseStr => {
+      const database = JSON.parse(databaseStr || "{}");
       let index = -1;
-      if (!Array.isArray(database.files***REMOVED******REMOVED*** {
+      if (!Array.isArray(database.files)) {
         database.files = [];
-      ***REMOVED*** else {
-        while (database.files.length >= this.cacheSize***REMOVED*** {
-          database.files.shift(***REMOVED***;
-        ***REMOVED***
-        for (let i = 0, ii = database.files.length; i < ii; i++***REMOVED*** {
+      } else {
+        while (database.files.length >= this.cacheSize) {
+          database.files.shift();
+        }
+        for (let i = 0, ii = database.files.length; i < ii; i++) {
           const branch = database.files[i];
-          if (branch.fingerprint === this.fingerprint***REMOVED*** {
+          if (branch.fingerprint === this.fingerprint) {
             index = i;
             break;
-          ***REMOVED***
-        ***REMOVED***
-      ***REMOVED***
-      if (index === -1***REMOVED*** {
+          }
+        }
+      }
+      if (index === -1) {
         index = database.files.push({
           fingerprint: this.fingerprint
-        ***REMOVED******REMOVED*** - 1;
-      ***REMOVED***
+        }) - 1;
+      }
       this.file = database.files[index];
       this.database = database;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***
-  async _writeToStorage(***REMOVED*** {
-    const databaseStr = JSON.stringify(this.database***REMOVED***;
-    localStorage.setItem("pdfjs.history", databaseStr***REMOVED***;
-  ***REMOVED***
-  async _readFromStorage(***REMOVED*** {
-    return localStorage.getItem("pdfjs.history"***REMOVED***;
-  ***REMOVED***
-  async set(name, val***REMOVED*** {
+    });
+  }
+  async _writeToStorage() {
+    const databaseStr = JSON.stringify(this.database);
+    localStorage.setItem("pdfjs.history", databaseStr);
+  }
+  async _readFromStorage() {
+    return localStorage.getItem("pdfjs.history");
+  }
+  async set(name, val) {
     await this._initializedPromise;
     this.file[name] = val;
-    return this._writeToStorage(***REMOVED***;
-  ***REMOVED***
-  async setMultiple(properties***REMOVED*** {
+    return this._writeToStorage();
+  }
+  async setMultiple(properties) {
     await this._initializedPromise;
-    for (const name in properties***REMOVED*** {
+    for (const name in properties) {
       this.file[name] = properties[name];
-    ***REMOVED***
-    return this._writeToStorage(***REMOVED***;
-  ***REMOVED***
-  async get(name, defaultValue***REMOVED*** {
+    }
+    return this._writeToStorage();
+  }
+  async get(name, defaultValue) {
     await this._initializedPromise;
     const val = this.file[name];
     return val !== undefined ? val : defaultValue;
-  ***REMOVED***
-  async getMultiple(properties***REMOVED*** {
+  }
+  async getMultiple(properties) {
     await this._initializedPromise;
-    const values = Object.create(null***REMOVED***;
-    for (const name in properties***REMOVED*** {
+    const values = Object.create(null);
+    for (const name in properties) {
       const val = this.file[name];
       values[name] = val !== undefined ? val : properties[name];
-    ***REMOVED***
+    }
     return values;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 
 ;// ./web/app.js
 
@@ -13165,13 +13165,13 @@ const ViewOnLoad = {
   UNKNOWN: -1,
   PREVIOUS: 0,
   INITIAL: 1
-***REMOVED***;
+};
 const PDFViewerApplication = {
-  initialBookmark: document.location.hash.substring(1***REMOVED***,
+  initialBookmark: document.location.hash.substring(1),
   _initializedCapability: {
-    ...Promise.withResolvers(***REMOVED***,
+    ...Promise.withResolvers(),
     settled: false
-  ***REMOVED***,
+  },
   appConfig: null,
   pdfDocument: null,
   pdfLoadingTask: null,
@@ -13192,7 +13192,7 @@ const PDFViewerApplication = {
   store: null,
   downloadManager: null,
   overlayManager: null,
-  preferences: new Preferences(***REMOVED***,
+  preferences: new Preferences(),
   toolbar: null,
   secondaryToolbar: null,
   eventBus: null,
@@ -13207,7 +13207,7 @@ const PDFViewerApplication = {
   _downloadUrl: "",
   _eventBusAbortController: null,
   _windowAbortController: null,
-  _globalAbortController: new AbortController(***REMOVED***,
+  _globalAbortController: new AbortController(),
   documentInfo: null,
   metadata: null,
   _contentDispositionFilename: null,
@@ -13226,103 +13226,103 @@ const PDFViewerApplication = {
   _caretBrowsing: null,
   _isScrolling: false,
   editorUndoBar: null,
-  async initialize(appConfig***REMOVED*** {
+  async initialize(appConfig) {
     this.appConfig = appConfig;
-  ***REMOVED***
+    try {
       await this.preferences.initializedPromise;
-    ***REMOVED*** catch (ex***REMOVED*** {
-      console.error("initialize:", ex***REMOVED***;
-    ***REMOVED***
-    if (AppOptions.get("pdfBugEnabled"***REMOVED******REMOVED*** {
-      await this._parseHashParams(***REMOVED***;
-    ***REMOVED***
+    } catch (ex) {
+      console.error("initialize:", ex);
+    }
+    if (AppOptions.get("pdfBugEnabled")) {
+      await this._parseHashParams();
+    }
     let mode;
-    switch (AppOptions.get("viewerCssTheme"***REMOVED******REMOVED*** {
+    switch (AppOptions.get("viewerCssTheme")) {
       case 1:
         mode = "is-light";
         break;
       case 2:
         mode = "is-dark";
         break;
-    ***REMOVED***
-    if (mode***REMOVED*** {
-      document.documentElement.classList.add(mode***REMOVED***;
-    ***REMOVED***
-    this.l10n = await this.externalServices.createL10n(***REMOVED***;
-    document.getElementsByTagName("html"***REMOVED***[0].dir = this.l10n.getDirection(***REMOVED***;
-    this.l10n.translate(appConfig.appContainer || document.documentElement***REMOVED***;
-    if (this.isViewerEmbedded && AppOptions.get("externalLinkTarget"***REMOVED*** === LinkTarget.NONE***REMOVED*** {
-      AppOptions.set("externalLinkTarget", LinkTarget.TOP***REMOVED***;
-    ***REMOVED***
-    await this._initializeViewerComponents(***REMOVED***;
-    this.bindEvents(***REMOVED***;
-    this.bindWindowEvents(***REMOVED***;
+    }
+    if (mode) {
+      document.documentElement.classList.add(mode);
+    }
+    this.l10n = await this.externalServices.createL10n();
+    document.getElementsByTagName("html")[0].dir = this.l10n.getDirection();
+    this.l10n.translate(appConfig.appContainer || document.documentElement);
+    if (this.isViewerEmbedded && AppOptions.get("externalLinkTarget") === LinkTarget.NONE) {
+      AppOptions.set("externalLinkTarget", LinkTarget.TOP);
+    }
+    await this._initializeViewerComponents();
+    this.bindEvents();
+    this.bindWindowEvents();
     this._initializedCapability.settled = true;
-    this._initializedCapability.resolve(***REMOVED***;
-  ***REMOVED***,
-  async _parseHashParams(***REMOVED*** {
-    const hash = document.location.hash.substring(1***REMOVED***;
-    if (!hash***REMOVED*** {
+    this._initializedCapability.resolve();
+  },
+  async _parseHashParams() {
+    const hash = document.location.hash.substring(1);
+    if (!hash) {
       return;
-    ***REMOVED***
+    }
     const {
       mainContainer,
       viewerContainer
-    ***REMOVED*** = this.appConfig,
-      params = parseQueryString(hash***REMOVED***;
-    const loadPDFBug = async (***REMOVED*** => {
-      if (this._PDFBug***REMOVED*** {
+    } = this.appConfig,
+      params = parseQueryString(hash);
+    const loadPDFBug = async () => {
+      if (this._PDFBug) {
         return;
-      ***REMOVED***
+      }
       const {
         PDFBug
-      ***REMOVED*** = await import(/*webpackIgnore: true*/AppOptions.get("debuggerSrc"***REMOVED******REMOVED***;
+      } = await import(/*webpackIgnore: true*/AppOptions.get("debuggerSrc"));
       this._PDFBug = PDFBug;
-    ***REMOVED***;
-    if (params.get("disableworker"***REMOVED*** === "true"***REMOVED*** {
-    ***REMOVED***
-        GlobalWorkerOptions.workerSrc ||= AppOptions.get("workerSrc"***REMOVED***;
-        await import(/*webpackIgnore: true*/PDFWorker.workerSrc***REMOVED***;
-      ***REMOVED*** catch (ex***REMOVED*** {
-        console.error("_parseHashParams:", ex***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    if (params.has("textlayer"***REMOVED******REMOVED*** {
-      switch (params.get("textlayer"***REMOVED******REMOVED*** {
+    };
+    if (params.get("disableworker") === "true") {
+      try {
+        GlobalWorkerOptions.workerSrc ||= AppOptions.get("workerSrc");
+        await import(/*webpackIgnore: true*/PDFWorker.workerSrc);
+      } catch (ex) {
+        console.error("_parseHashParams:", ex);
+      }
+    }
+    if (params.has("textlayer")) {
+      switch (params.get("textlayer")) {
         case "off":
-          AppOptions.set("textLayerMode", TextLayerMode.DISABLE***REMOVED***;
+          AppOptions.set("textLayerMode", TextLayerMode.DISABLE);
           break;
         case "visible":
         case "shadow":
         case "hover":
-          viewerContainer.classList.add(`textLayer-${params.get("textlayer"***REMOVED******REMOVED***`***REMOVED***;
-        ***REMOVED***
-            await loadPDFBug(***REMOVED***;
-            this._PDFBug.loadCSS(***REMOVED***;
-          ***REMOVED*** catch (ex***REMOVED*** {
-            console.error("_parseHashParams:", ex***REMOVED***;
-          ***REMOVED***
+          viewerContainer.classList.add(`textLayer-${params.get("textlayer")}`);
+          try {
+            await loadPDFBug();
+            this._PDFBug.loadCSS();
+          } catch (ex) {
+            console.error("_parseHashParams:", ex);
+          }
           break;
-      ***REMOVED***
-    ***REMOVED***
-    if (params.has("pdfbug"***REMOVED******REMOVED*** {
+      }
+    }
+    if (params.has("pdfbug")) {
       AppOptions.setAll({
         pdfBug: true,
         fontExtraProperties: true
-      ***REMOVED******REMOVED***;
-      const enabled = params.get("pdfbug"***REMOVED***.split(","***REMOVED***;
-    ***REMOVED***
-        await loadPDFBug(***REMOVED***;
-        this._PDFBug.init(mainContainer, enabled***REMOVED***;
-      ***REMOVED*** catch (ex***REMOVED*** {
-        console.error("_parseHashParams:", ex***REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    if (params.has("locale"***REMOVED******REMOVED*** {
+      });
+      const enabled = params.get("pdfbug").split(",");
+      try {
+        await loadPDFBug();
+        this._PDFBug.init(mainContainer, enabled);
+      } catch (ex) {
+        console.error("_parseHashParams:", ex);
+      }
+    }
+    if (params.has("locale")) {
       AppOptions.set("localeProperties", {
-        lang: params.get("locale"***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
+        lang: params.get("locale")
+      });
+    }
     const opts = {
       disableAutoFetch: x => x === "true",
       disableFontFace: x => x === "true",
@@ -13330,65 +13330,65 @@ const PDFViewerApplication = {
       disableRange: x => x === "true",
       disableStream: x => x === "true",
       verbosity: x => x | 0
-    ***REMOVED***;
-    for (const name in opts***REMOVED*** {
+    };
+    for (const name in opts) {
       const check = opts[name],
-        key = name.toLowerCase(***REMOVED***;
-      if (params.has(key***REMOVED******REMOVED*** {
-        AppOptions.set(name, check(params.get(key***REMOVED******REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***,
-  async _initializeViewerComponents(***REMOVED*** {
+        key = name.toLowerCase();
+      if (params.has(key)) {
+        AppOptions.set(name, check(params.get(key)));
+      }
+    }
+  },
+  async _initializeViewerComponents() {
     const {
       appConfig,
       externalServices,
       l10n
-    ***REMOVED*** = this;
-    const eventBus = new EventBus(***REMOVED***;
+    } = this;
+    const eventBus = new EventBus();
     this.eventBus = AppOptions.eventBus = eventBus;
-    this.mlManager?.setEventBus(eventBus, this._globalAbortController.signal***REMOVED***;
-    this.overlayManager = new OverlayManager(***REMOVED***;
-    const pdfRenderingQueue = new PDFRenderingQueue(***REMOVED***;
-    pdfRenderingQueue.onIdle = this._cleanup.bind(this***REMOVED***;
+    this.mlManager?.setEventBus(eventBus, this._globalAbortController.signal);
+    this.overlayManager = new OverlayManager();
+    const pdfRenderingQueue = new PDFRenderingQueue();
+    pdfRenderingQueue.onIdle = this._cleanup.bind(this);
     this.pdfRenderingQueue = pdfRenderingQueue;
     const pdfLinkService = new PDFLinkService({
       eventBus,
-      externalLinkTarget: AppOptions.get("externalLinkTarget"***REMOVED***,
-      externalLinkRel: AppOptions.get("externalLinkRel"***REMOVED***,
-      ignoreDestinationZoom: AppOptions.get("ignoreDestinationZoom"***REMOVED***
-    ***REMOVED******REMOVED***;
+      externalLinkTarget: AppOptions.get("externalLinkTarget"),
+      externalLinkRel: AppOptions.get("externalLinkRel"),
+      ignoreDestinationZoom: AppOptions.get("ignoreDestinationZoom")
+    });
     this.pdfLinkService = pdfLinkService;
-    const downloadManager = this.downloadManager = new DownloadManager(***REMOVED***;
+    const downloadManager = this.downloadManager = new DownloadManager();
     const findController = new PDFFindController({
       linkService: pdfLinkService,
       eventBus,
       updateMatchesCountOnProgress: true
-    ***REMOVED******REMOVED***;
+    });
     this.findController = findController;
     const pdfScriptingManager = new PDFScriptingManager({
       eventBus,
       externalServices,
-      docProperties: this._scriptingDocProperties.bind(this***REMOVED***
-    ***REMOVED******REMOVED***;
+      docProperties: this._scriptingDocProperties.bind(this)
+    });
     this.pdfScriptingManager = pdfScriptingManager;
     const container = appConfig.mainContainer,
       viewer = appConfig.viewerContainer;
-    const annotationEditorMode = AppOptions.get("annotationEditorMode"***REMOVED***;
-    const pageColors = AppOptions.get("forcePageColors"***REMOVED*** || window.matchMedia("(forced-colors: active***REMOVED***"***REMOVED***.matches ? {
-      background: AppOptions.get("pageColorsBackground"***REMOVED***,
-      foreground: AppOptions.get("pageColorsForeground"***REMOVED***
-    ***REMOVED*** : null;
+    const annotationEditorMode = AppOptions.get("annotationEditorMode");
+    const pageColors = AppOptions.get("forcePageColors") || window.matchMedia("(forced-colors: active)").matches ? {
+      background: AppOptions.get("pageColorsBackground"),
+      foreground: AppOptions.get("pageColorsForeground")
+    } : null;
     let altTextManager;
-    if (AppOptions.get("enableUpdatedAddImage"***REMOVED******REMOVED*** {
-      altTextManager = appConfig.newAltTextDialog ? new NewAltTextManager(appConfig.newAltTextDialog, this.overlayManager, eventBus***REMOVED*** : null;
-    ***REMOVED*** else {
-      altTextManager = appConfig.altTextDialog ? new AltTextManager(appConfig.altTextDialog, container, this.overlayManager, eventBus***REMOVED*** : null;
-    ***REMOVED***
-    if (appConfig.editorUndoBar***REMOVED*** {
-      this.editorUndoBar = new EditorUndoBar(appConfig.editorUndoBar, eventBus***REMOVED***;
-    ***REMOVED***
-    const enableHWA = AppOptions.get("enableHWA"***REMOVED***;
+    if (AppOptions.get("enableUpdatedAddImage")) {
+      altTextManager = appConfig.newAltTextDialog ? new NewAltTextManager(appConfig.newAltTextDialog, this.overlayManager, eventBus) : null;
+    } else {
+      altTextManager = appConfig.altTextDialog ? new AltTextManager(appConfig.altTextDialog, container, this.overlayManager, eventBus) : null;
+    }
+    if (appConfig.editorUndoBar) {
+      this.editorUndoBar = new EditorUndoBar(appConfig.editorUndoBar, eventBus);
+    }
+    const enableHWA = AppOptions.get("enableHWA");
     const pdfViewer = new PDFViewer({
       container,
       viewer,
@@ -13399,30 +13399,30 @@ const PDFViewerApplication = {
       altTextManager,
       editorUndoBar: this.editorUndoBar,
       findController,
-      scriptingManager: AppOptions.get("enableScripting"***REMOVED*** && pdfScriptingManager,
+      scriptingManager: AppOptions.get("enableScripting") && pdfScriptingManager,
       l10n,
-      textLayerMode: AppOptions.get("textLayerMode"***REMOVED***,
-      annotationMode: AppOptions.get("annotationMode"***REMOVED***,
+      textLayerMode: AppOptions.get("textLayerMode"),
+      annotationMode: AppOptions.get("annotationMode"),
       annotationEditorMode,
-      annotationEditorHighlightColors: AppOptions.get("highlightEditorColors"***REMOVED***,
-      enableHighlightFloatingButton: AppOptions.get("enableHighlightFloatingButton"***REMOVED***,
-      enableUpdatedAddImage: AppOptions.get("enableUpdatedAddImage"***REMOVED***,
-      enableNewAltTextWhenAddingImage: AppOptions.get("enableNewAltTextWhenAddingImage"***REMOVED***,
-      imageResourcesPath: AppOptions.get("imageResourcesPath"***REMOVED***,
-      enablePrintAutoRotate: AppOptions.get("enablePrintAutoRotate"***REMOVED***,
-      maxCanvasPixels: AppOptions.get("maxCanvasPixels"***REMOVED***,
-      enablePermissions: AppOptions.get("enablePermissions"***REMOVED***,
+      annotationEditorHighlightColors: AppOptions.get("highlightEditorColors"),
+      enableHighlightFloatingButton: AppOptions.get("enableHighlightFloatingButton"),
+      enableUpdatedAddImage: AppOptions.get("enableUpdatedAddImage"),
+      enableNewAltTextWhenAddingImage: AppOptions.get("enableNewAltTextWhenAddingImage"),
+      imageResourcesPath: AppOptions.get("imageResourcesPath"),
+      enablePrintAutoRotate: AppOptions.get("enablePrintAutoRotate"),
+      maxCanvasPixels: AppOptions.get("maxCanvasPixels"),
+      enablePermissions: AppOptions.get("enablePermissions"),
       pageColors,
       mlManager: this.mlManager,
       abortSignal: this._globalAbortController.signal,
       enableHWA,
       supportsPinchToZoom: this.supportsPinchToZoom
-    ***REMOVED******REMOVED***;
+    });
     this.pdfViewer = pdfViewer;
-    pdfRenderingQueue.setViewer(pdfViewer***REMOVED***;
-    pdfLinkService.setViewer(pdfViewer***REMOVED***;
-    pdfScriptingManager.setViewer(pdfViewer***REMOVED***;
-    if (appConfig.sidebar?.thumbnailView***REMOVED*** {
+    pdfRenderingQueue.setViewer(pdfViewer);
+    pdfLinkService.setViewer(pdfViewer);
+    pdfScriptingManager.setViewer(pdfViewer);
+    if (appConfig.sidebar?.thumbnailView) {
       this.pdfThumbnailViewer = new PDFThumbnailViewer({
         container: appConfig.sidebar.thumbnailView,
         eventBus,
@@ -13431,317 +13431,317 @@ const PDFViewerApplication = {
         pageColors,
         abortSignal: this._globalAbortController.signal,
         enableHWA
-      ***REMOVED******REMOVED***;
-      pdfRenderingQueue.setThumbnailViewer(this.pdfThumbnailViewer***REMOVED***;
-    ***REMOVED***
-    if (!this.isViewerEmbedded && !AppOptions.get("disableHistory"***REMOVED******REMOVED*** {
+      });
+      pdfRenderingQueue.setThumbnailViewer(this.pdfThumbnailViewer);
+    }
+    if (!this.isViewerEmbedded && !AppOptions.get("disableHistory")) {
       this.pdfHistory = new PDFHistory({
         linkService: pdfLinkService,
         eventBus
-      ***REMOVED******REMOVED***;
-      pdfLinkService.setHistory(this.pdfHistory***REMOVED***;
-    ***REMOVED***
-    if (!this.supportsIntegratedFind && appConfig.findBar***REMOVED*** {
-      this.findBar = new PDFFindBar(appConfig.findBar, appConfig.principalContainer, eventBus***REMOVED***;
-    ***REMOVED***
-    if (appConfig.annotationEditorParams***REMOVED*** {
-      if (typeof AbortSignal.any === "function" && annotationEditorMode !== AnnotationEditorType.DISABLE***REMOVED*** {
-        this.annotationEditorParams = new AnnotationEditorParams(appConfig.annotationEditorParams, eventBus***REMOVED***;
-      ***REMOVED*** else {
-        for (const id of ["editorModeButtons", "editorModeSeparator"]***REMOVED*** {
-          document.getElementById(id***REMOVED***?.classList.add("hidden"***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
-    if (this.mlManager && appConfig.secondaryToolbar?.imageAltTextSettingsButton***REMOVED*** {
-      this.imageAltTextSettings = new ImageAltTextSettings(appConfig.altTextSettingsDialog, this.overlayManager, eventBus, this.mlManager***REMOVED***;
-    ***REMOVED***
-    if (appConfig.documentProperties***REMOVED*** {
-      this.pdfDocumentProperties = new PDFDocumentProperties(appConfig.documentProperties, this.overlayManager, eventBus, l10n, (***REMOVED*** => this._docFilename***REMOVED***;
-    ***REMOVED***
-    if (appConfig.secondaryToolbar?.cursorHandToolButton***REMOVED*** {
+      });
+      pdfLinkService.setHistory(this.pdfHistory);
+    }
+    if (!this.supportsIntegratedFind && appConfig.findBar) {
+      this.findBar = new PDFFindBar(appConfig.findBar, appConfig.principalContainer, eventBus);
+    }
+    if (appConfig.annotationEditorParams) {
+      if (typeof AbortSignal.any === "function" && annotationEditorMode !== AnnotationEditorType.DISABLE) {
+        this.annotationEditorParams = new AnnotationEditorParams(appConfig.annotationEditorParams, eventBus);
+      } else {
+        for (const id of ["editorModeButtons", "editorModeSeparator"]) {
+          document.getElementById(id)?.classList.add("hidden");
+        }
+      }
+    }
+    if (this.mlManager && appConfig.secondaryToolbar?.imageAltTextSettingsButton) {
+      this.imageAltTextSettings = new ImageAltTextSettings(appConfig.altTextSettingsDialog, this.overlayManager, eventBus, this.mlManager);
+    }
+    if (appConfig.documentProperties) {
+      this.pdfDocumentProperties = new PDFDocumentProperties(appConfig.documentProperties, this.overlayManager, eventBus, l10n, () => this._docFilename);
+    }
+    if (appConfig.secondaryToolbar?.cursorHandToolButton) {
       this.pdfCursorTools = new PDFCursorTools({
         container,
         eventBus,
-        cursorToolOnLoad: AppOptions.get("cursorToolOnLoad"***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    if (appConfig.toolbar***REMOVED*** {
-      this.toolbar = new Toolbar(appConfig.toolbar, eventBus, AppOptions.get("toolbarDensity"***REMOVED******REMOVED***;
-    ***REMOVED***
-    if (appConfig.secondaryToolbar***REMOVED*** {
-      if (AppOptions.get("enableAltText"***REMOVED******REMOVED*** {
-        appConfig.secondaryToolbar.imageAltTextSettingsButton?.classList.remove("hidden"***REMOVED***;
-        appConfig.secondaryToolbar.imageAltTextSettingsSeparator?.classList.remove("hidden"***REMOVED***;
-      ***REMOVED***
-      this.secondaryToolbar = new SecondaryToolbar(appConfig.secondaryToolbar, eventBus***REMOVED***;
-    ***REMOVED***
-    if (this.supportsFullscreen && appConfig.secondaryToolbar?.presentationModeButton***REMOVED*** {
+        cursorToolOnLoad: AppOptions.get("cursorToolOnLoad")
+      });
+    }
+    if (appConfig.toolbar) {
+      this.toolbar = new Toolbar(appConfig.toolbar, eventBus, AppOptions.get("toolbarDensity"));
+    }
+    if (appConfig.secondaryToolbar) {
+      if (AppOptions.get("enableAltText")) {
+        appConfig.secondaryToolbar.imageAltTextSettingsButton?.classList.remove("hidden");
+        appConfig.secondaryToolbar.imageAltTextSettingsSeparator?.classList.remove("hidden");
+      }
+      this.secondaryToolbar = new SecondaryToolbar(appConfig.secondaryToolbar, eventBus);
+    }
+    if (this.supportsFullscreen && appConfig.secondaryToolbar?.presentationModeButton) {
       this.pdfPresentationMode = new PDFPresentationMode({
         container,
         pdfViewer,
         eventBus
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    if (appConfig.passwordOverlay***REMOVED*** {
-      this.passwordPrompt = new PasswordPrompt(appConfig.passwordOverlay, this.overlayManager, this.isViewerEmbedded***REMOVED***;
-    ***REMOVED***
-    if (appConfig.sidebar?.outlineView***REMOVED*** {
+      });
+    }
+    if (appConfig.passwordOverlay) {
+      this.passwordPrompt = new PasswordPrompt(appConfig.passwordOverlay, this.overlayManager, this.isViewerEmbedded);
+    }
+    if (appConfig.sidebar?.outlineView) {
       this.pdfOutlineViewer = new PDFOutlineViewer({
         container: appConfig.sidebar.outlineView,
         eventBus,
         l10n,
         linkService: pdfLinkService,
         downloadManager
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    if (appConfig.sidebar?.attachmentsView***REMOVED*** {
+      });
+    }
+    if (appConfig.sidebar?.attachmentsView) {
       this.pdfAttachmentViewer = new PDFAttachmentViewer({
         container: appConfig.sidebar.attachmentsView,
         eventBus,
         l10n,
         downloadManager
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    if (appConfig.sidebar?.layersView***REMOVED*** {
+      });
+    }
+    if (appConfig.sidebar?.layersView) {
       this.pdfLayerViewer = new PDFLayerViewer({
         container: appConfig.sidebar.layersView,
         eventBus,
         l10n
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    if (appConfig.sidebar***REMOVED*** {
+      });
+    }
+    if (appConfig.sidebar) {
       this.pdfSidebar = new PDFSidebar({
         elements: appConfig.sidebar,
         eventBus,
         l10n
-      ***REMOVED******REMOVED***;
-      this.pdfSidebar.onToggled = this.forceRendering.bind(this***REMOVED***;
-      this.pdfSidebar.onUpdateThumbnails = (***REMOVED*** => {
-        for (const pageView of pdfViewer.getCachedPageViews(***REMOVED******REMOVED*** {
-          if (pageView.renderingState === RenderingStates.FINISHED***REMOVED*** {
-            this.pdfThumbnailViewer.getThumbnail(pageView.id - 1***REMOVED***?.setImage(pageView***REMOVED***;
-          ***REMOVED***
-        ***REMOVED***
-        this.pdfThumbnailViewer.scrollThumbnailIntoView(pdfViewer.currentPageNumber***REMOVED***;
-      ***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  async run(config***REMOVED*** {
-    await this.initialize(config***REMOVED***;
+      });
+      this.pdfSidebar.onToggled = this.forceRendering.bind(this);
+      this.pdfSidebar.onUpdateThumbnails = () => {
+        for (const pageView of pdfViewer.getCachedPageViews()) {
+          if (pageView.renderingState === RenderingStates.FINISHED) {
+            this.pdfThumbnailViewer.getThumbnail(pageView.id - 1)?.setImage(pageView);
+          }
+        }
+        this.pdfThumbnailViewer.scrollThumbnailIntoView(pdfViewer.currentPageNumber);
+      };
+    }
+  },
+  async run(config) {
+    await this.initialize(config);
     const {
       appConfig,
       eventBus
-    ***REMOVED*** = this;
+    } = this;
     let file;
-    const queryString = document.location.search.substring(1***REMOVED***;
-    const params = parseQueryString(queryString***REMOVED***;
-    file = params.get("file"***REMOVED*** ?? AppOptions.get("defaultUrl"***REMOVED***;
-    validateFileURL(file***REMOVED***;
-    const fileInput = this._openFileInput = document.createElement("input"***REMOVED***;
+    const queryString = document.location.search.substring(1);
+    const params = parseQueryString(queryString);
+    file = params.get("file") ?? AppOptions.get("defaultUrl");
+    validateFileURL(file);
+    const fileInput = this._openFileInput = document.createElement("input");
     fileInput.id = "fileInput";
     fileInput.hidden = true;
     fileInput.type = "file";
     fileInput.value = null;
-    document.body.append(fileInput***REMOVED***;
-    fileInput.addEventListener("change", function (evt***REMOVED*** {
+    document.body.append(fileInput);
+    fileInput.addEventListener("change", function (evt) {
       const {
         files
-      ***REMOVED*** = evt.target;
-      if (!files || files.length === 0***REMOVED*** {
+      } = evt.target;
+      if (!files || files.length === 0) {
         return;
-      ***REMOVED***
+      }
       eventBus.dispatch("fileinputchange", {
         source: this,
         fileInput: evt.target
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    appConfig.mainContainer.addEventListener("dragover", function (evt***REMOVED*** {
-      for (const item of evt.dataTransfer.items***REMOVED*** {
-        if (item.type === "application/pdf"***REMOVED*** {
+      });
+    });
+    appConfig.mainContainer.addEventListener("dragover", function (evt) {
+      for (const item of evt.dataTransfer.items) {
+        if (item.type === "application/pdf") {
           evt.dataTransfer.dropEffect = evt.dataTransfer.effectAllowed === "copy" ? "copy" : "move";
-          stopEvent(evt***REMOVED***;
+          stopEvent(evt);
           return;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    appConfig.mainContainer.addEventListener("drop", function (evt***REMOVED*** {
-      if (evt.dataTransfer.files?.[0].type !== "application/pdf"***REMOVED*** {
+        }
+      }
+    });
+    appConfig.mainContainer.addEventListener("drop", function (evt) {
+      if (evt.dataTransfer.files?.[0].type !== "application/pdf") {
         return;
-      ***REMOVED***
-      stopEvent(evt***REMOVED***;
+      }
+      stopEvent(evt);
       eventBus.dispatch("fileinputchange", {
         source: this,
         fileInput: evt.dataTransfer
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    if (!AppOptions.get("supportsDocumentFonts"***REMOVED******REMOVED*** {
-      AppOptions.set("disableFontFace", true***REMOVED***;
-      this.l10n.get("pdfjs-web-fonts-disabled"***REMOVED***.then(msg => {
-        console.warn(msg***REMOVED***;
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    if (!this.supportsPrinting***REMOVED*** {
-      appConfig.toolbar?.print?.classList.add("hidden"***REMOVED***;
-      appConfig.secondaryToolbar?.printButton.classList.add("hidden"***REMOVED***;
-    ***REMOVED***
-    if (!this.supportsFullscreen***REMOVED*** {
-      appConfig.secondaryToolbar?.presentationModeButton.classList.add("hidden"***REMOVED***;
-    ***REMOVED***
-    if (this.supportsIntegratedFind***REMOVED*** {
-      appConfig.findBar?.toggleButton?.classList.add("hidden"***REMOVED***;
-    ***REMOVED***
-    if (file***REMOVED*** {
+      });
+    });
+    if (!AppOptions.get("supportsDocumentFonts")) {
+      AppOptions.set("disableFontFace", true);
+      this.l10n.get("pdfjs-web-fonts-disabled").then(msg => {
+        console.warn(msg);
+      });
+    }
+    if (!this.supportsPrinting) {
+      appConfig.toolbar?.print?.classList.add("hidden");
+      appConfig.secondaryToolbar?.printButton.classList.add("hidden");
+    }
+    if (!this.supportsFullscreen) {
+      appConfig.secondaryToolbar?.presentationModeButton.classList.add("hidden");
+    }
+    if (this.supportsIntegratedFind) {
+      appConfig.findBar?.toggleButton?.classList.add("hidden");
+    }
+    if (file) {
       this.open({
         url: file
-      ***REMOVED******REMOVED***;
-    ***REMOVED*** else {
-      this._hideViewBookmark(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  get externalServices(***REMOVED*** {
-    return shadow(this, "externalServices", new ExternalServices(***REMOVED******REMOVED***;
-  ***REMOVED***,
-  get initialized(***REMOVED*** {
+      });
+    } else {
+      this._hideViewBookmark();
+    }
+  },
+  get externalServices() {
+    return shadow(this, "externalServices", new ExternalServices());
+  },
+  get initialized() {
     return this._initializedCapability.settled;
-  ***REMOVED***,
-  get initializedPromise(***REMOVED*** {
+  },
+  get initializedPromise() {
     return this._initializedCapability.promise;
-  ***REMOVED***,
-  updateZoom(steps, scaleFactor, origin***REMOVED*** {
-    if (this.pdfViewer.isInPresentationMode***REMOVED*** {
+  },
+  updateZoom(steps, scaleFactor, origin) {
+    if (this.pdfViewer.isInPresentationMode) {
       return;
-    ***REMOVED***
+    }
     this.pdfViewer.updateScale({
-      drawingDelay: AppOptions.get("defaultZoomDelay"***REMOVED***,
+      drawingDelay: AppOptions.get("defaultZoomDelay"),
       steps,
       scaleFactor,
       origin
-    ***REMOVED******REMOVED***;
-  ***REMOVED***,
-  zoomIn(***REMOVED*** {
-    this.updateZoom(1***REMOVED***;
-  ***REMOVED***,
-  zoomOut(***REMOVED*** {
-    this.updateZoom(-1***REMOVED***;
-  ***REMOVED***,
-  zoomReset(***REMOVED*** {
-    if (this.pdfViewer.isInPresentationMode***REMOVED*** {
+    });
+  },
+  zoomIn() {
+    this.updateZoom(1);
+  },
+  zoomOut() {
+    this.updateZoom(-1);
+  },
+  zoomReset() {
+    if (this.pdfViewer.isInPresentationMode) {
       return;
-    ***REMOVED***
+    }
     this.pdfViewer.currentScaleValue = DEFAULT_SCALE_VALUE;
-  ***REMOVED***,
-  touchPinchCallback(origin, prevDistance, distance***REMOVED*** {
-    if (this.supportsPinchToZoom***REMOVED*** {
-      const newScaleFactor = this._accumulateFactor(this.pdfViewer.currentScale, distance / prevDistance, "_touchUnusedFactor"***REMOVED***;
-      this.updateZoom(null, newScaleFactor, origin***REMOVED***;
-    ***REMOVED*** else {
+  },
+  touchPinchCallback(origin, prevDistance, distance) {
+    if (this.supportsPinchToZoom) {
+      const newScaleFactor = this._accumulateFactor(this.pdfViewer.currentScale, distance / prevDistance, "_touchUnusedFactor");
+      this.updateZoom(null, newScaleFactor, origin);
+    } else {
       const PIXELS_PER_LINE_SCALE = 30;
-      const ticks = this._accumulateTicks((distance - prevDistance***REMOVED*** / PIXELS_PER_LINE_SCALE, "_touchUnusedTicks"***REMOVED***;
-      this.updateZoom(ticks, null, origin***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  touchPinchEndCallback(***REMOVED*** {
+      const ticks = this._accumulateTicks((distance - prevDistance) / PIXELS_PER_LINE_SCALE, "_touchUnusedTicks");
+      this.updateZoom(ticks, null, origin);
+    }
+  },
+  touchPinchEndCallback() {
     this._touchUnusedTicks = 0;
     this._touchUnusedFactor = 1;
-  ***REMOVED***,
-  get pagesCount(***REMOVED*** {
+  },
+  get pagesCount() {
     return this.pdfDocument ? this.pdfDocument.numPages : 0;
-  ***REMOVED***,
-  get page(***REMOVED*** {
+  },
+  get page() {
     return this.pdfViewer.currentPageNumber;
-  ***REMOVED***,
-  set page(val***REMOVED*** {
+  },
+  set page(val) {
     this.pdfViewer.currentPageNumber = val;
-  ***REMOVED***,
-  get supportsPrinting(***REMOVED*** {
+  },
+  get supportsPrinting() {
     return PDFPrintServiceFactory.supportsPrinting;
-  ***REMOVED***,
-  get supportsFullscreen(***REMOVED*** {
-    return shadow(this, "supportsFullscreen", document.fullscreenEnabled***REMOVED***;
-  ***REMOVED***,
-  get supportsPinchToZoom(***REMOVED*** {
-    return shadow(this, "supportsPinchToZoom", AppOptions.get("supportsPinchToZoom"***REMOVED******REMOVED***;
-  ***REMOVED***,
-  get supportsIntegratedFind(***REMOVED*** {
-    return shadow(this, "supportsIntegratedFind", AppOptions.get("supportsIntegratedFind"***REMOVED******REMOVED***;
-  ***REMOVED***,
-  get loadingBar(***REMOVED*** {
-    const barElement = document.getElementById("loadingBar"***REMOVED***;
-    const bar = barElement ? new ProgressBar(barElement***REMOVED*** : null;
-    return shadow(this, "loadingBar", bar***REMOVED***;
-  ***REMOVED***,
-  get supportsMouseWheelZoomCtrlKey(***REMOVED*** {
-    return shadow(this, "supportsMouseWheelZoomCtrlKey", AppOptions.get("supportsMouseWheelZoomCtrlKey"***REMOVED******REMOVED***;
-  ***REMOVED***,
-  get supportsMouseWheelZoomMetaKey(***REMOVED*** {
-    return shadow(this, "supportsMouseWheelZoomMetaKey", AppOptions.get("supportsMouseWheelZoomMetaKey"***REMOVED******REMOVED***;
-  ***REMOVED***,
-  get supportsCaretBrowsingMode(***REMOVED*** {
-    return AppOptions.get("supportsCaretBrowsingMode"***REMOVED***;
-  ***REMOVED***,
-  moveCaret(isUp, select***REMOVED*** {
-    this._caretBrowsing ||= new CaretBrowsingMode(this._globalAbortController.signal, this.appConfig.mainContainer, this.appConfig.viewerContainer, this.appConfig.toolbar?.container***REMOVED***;
-    this._caretBrowsing.moveCaret(isUp, select***REMOVED***;
-  ***REMOVED***,
-  setTitleUsingUrl(url = "", downloadUrl = null***REMOVED*** {
+  },
+  get supportsFullscreen() {
+    return shadow(this, "supportsFullscreen", document.fullscreenEnabled);
+  },
+  get supportsPinchToZoom() {
+    return shadow(this, "supportsPinchToZoom", AppOptions.get("supportsPinchToZoom"));
+  },
+  get supportsIntegratedFind() {
+    return shadow(this, "supportsIntegratedFind", AppOptions.get("supportsIntegratedFind"));
+  },
+  get loadingBar() {
+    const barElement = document.getElementById("loadingBar");
+    const bar = barElement ? new ProgressBar(barElement) : null;
+    return shadow(this, "loadingBar", bar);
+  },
+  get supportsMouseWheelZoomCtrlKey() {
+    return shadow(this, "supportsMouseWheelZoomCtrlKey", AppOptions.get("supportsMouseWheelZoomCtrlKey"));
+  },
+  get supportsMouseWheelZoomMetaKey() {
+    return shadow(this, "supportsMouseWheelZoomMetaKey", AppOptions.get("supportsMouseWheelZoomMetaKey"));
+  },
+  get supportsCaretBrowsingMode() {
+    return AppOptions.get("supportsCaretBrowsingMode");
+  },
+  moveCaret(isUp, select) {
+    this._caretBrowsing ||= new CaretBrowsingMode(this._globalAbortController.signal, this.appConfig.mainContainer, this.appConfig.viewerContainer, this.appConfig.toolbar?.container);
+    this._caretBrowsing.moveCaret(isUp, select);
+  },
+  setTitleUsingUrl(url = "", downloadUrl = null) {
     this.url = url;
-    this.baseUrl = url.split("#", 1***REMOVED***[0];
-    if (downloadUrl***REMOVED*** {
-      this._downloadUrl = downloadUrl === url ? this.baseUrl : downloadUrl.split("#", 1***REMOVED***[0];
-    ***REMOVED***
-    if (isDataScheme(url***REMOVED******REMOVED*** {
-      this._hideViewBookmark(***REMOVED***;
-    ***REMOVED***
-    let title = pdfjs_getPdfFilenameFromUrl(url, ""***REMOVED***;
-    if (!title***REMOVED*** {
-    ***REMOVED***
-        title = decodeURIComponent(getFilenameFromUrl(url***REMOVED******REMOVED***;
-      ***REMOVED*** catch { ***REMOVED***
-    ***REMOVED***
-    this.setTitle(title || url***REMOVED***;
-  ***REMOVED***,
-  setTitle(title = this._title***REMOVED*** {
+    this.baseUrl = url.split("#", 1)[0];
+    if (downloadUrl) {
+      this._downloadUrl = downloadUrl === url ? this.baseUrl : downloadUrl.split("#", 1)[0];
+    }
+    if (isDataScheme(url)) {
+      this._hideViewBookmark();
+    }
+    let title = pdfjs_getPdfFilenameFromUrl(url, "");
+    if (!title) {
+      try {
+        title = decodeURIComponent(getFilenameFromUrl(url));
+      } catch { }
+    }
+    this.setTitle(title || url);
+  },
+  setTitle(title = this._title) {
     this._title = title;
-    if (this.isViewerEmbedded***REMOVED*** {
+    if (this.isViewerEmbedded) {
       return;
-    ***REMOVED***
+    }
     const editorIndicator = this._hasAnnotationEditors && !this.pdfRenderingQueue.printing;
-    document.title = `${editorIndicator ? "* " : ""***REMOVED***${title***REMOVED***`;
-  ***REMOVED***,
-  get _docFilename(***REMOVED*** {
-    return this._contentDispositionFilename || pdfjs_getPdfFilenameFromUrl(this.url***REMOVED***;
-  ***REMOVED***,
-  _hideViewBookmark(***REMOVED*** {
+    document.title = `${editorIndicator ? "* " : ""}${title}`;
+  },
+  get _docFilename() {
+    return this._contentDispositionFilename || pdfjs_getPdfFilenameFromUrl(this.url);
+  },
+  _hideViewBookmark() {
     const {
       secondaryToolbar
-    ***REMOVED*** = this.appConfig;
-    secondaryToolbar?.viewBookmarkButton.classList.add("hidden"***REMOVED***;
-    if (secondaryToolbar?.presentationModeButton.classList.contains("hidden"***REMOVED******REMOVED*** {
-      document.getElementById("viewBookmarkSeparator"***REMOVED***?.classList.add("hidden"***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  async close(***REMOVED*** {
-    this._unblockDocumentLoadEvent(***REMOVED***;
-    this._hideViewBookmark(***REMOVED***;
-    if (!this.pdfLoadingTask***REMOVED*** {
+    } = this.appConfig;
+    secondaryToolbar?.viewBookmarkButton.classList.add("hidden");
+    if (secondaryToolbar?.presentationModeButton.classList.contains("hidden")) {
+      document.getElementById("viewBookmarkSeparator")?.classList.add("hidden");
+    }
+  },
+  async close() {
+    this._unblockDocumentLoadEvent();
+    this._hideViewBookmark();
+    if (!this.pdfLoadingTask) {
       return;
-    ***REMOVED***
-    if (this.pdfDocument?.annotationStorage.size > 0 && this._annotationStorageModified***REMOVED*** {
-    ***REMOVED***
-        await this.save(***REMOVED***;
-      ***REMOVED*** catch { ***REMOVED***
-    ***REMOVED***
+    }
+    if (this.pdfDocument?.annotationStorage.size > 0 && this._annotationStorageModified) {
+      try {
+        await this.save();
+      } catch { }
+    }
     const promises = [];
-    promises.push(this.pdfLoadingTask.destroy(***REMOVED******REMOVED***;
+    promises.push(this.pdfLoadingTask.destroy());
     this.pdfLoadingTask = null;
-    if (this.pdfDocument***REMOVED*** {
+    if (this.pdfDocument) {
       this.pdfDocument = null;
-      this.pdfThumbnailViewer?.setDocument(null***REMOVED***;
-      this.pdfViewer.setDocument(null***REMOVED***;
-      this.pdfLinkService.setDocument(null***REMOVED***;
-      this.pdfDocumentProperties?.setDocument(null***REMOVED***;
-    ***REMOVED***
+      this.pdfThumbnailViewer?.setDocument(null);
+      this.pdfViewer.setDocument(null);
+      this.pdfLinkService.setDocument(null);
+      this.pdfDocumentProperties?.setDocument(null);
+    }
     this.pdfLinkService.externalLinkEnabled = true;
     this.store = null;
     this.isInitialViewSet = false;
@@ -13754,177 +13754,177 @@ const PDFViewerApplication = {
     this._contentLength = null;
     this._saveInProgress = false;
     this._hasAnnotationEditors = false;
-    promises.push(this.pdfScriptingManager.destroyPromise, this.passwordPrompt.close(***REMOVED******REMOVED***;
-    this.setTitle(***REMOVED***;
-    this.pdfSidebar?.reset(***REMOVED***;
-    this.pdfOutlineViewer?.reset(***REMOVED***;
-    this.pdfAttachmentViewer?.reset(***REMOVED***;
-    this.pdfLayerViewer?.reset(***REMOVED***;
-    this.pdfHistory?.reset(***REMOVED***;
-    this.findBar?.reset(***REMOVED***;
-    this.toolbar?.reset(***REMOVED***;
-    this.secondaryToolbar?.reset(***REMOVED***;
-    this._PDFBug?.cleanup(***REMOVED***;
-    await Promise.all(promises***REMOVED***;
-  ***REMOVED***,
-  async open(args***REMOVED*** {
-    if (this.pdfLoadingTask***REMOVED*** {
-      await this.close(***REMOVED***;
-    ***REMOVED***
-    const workerParams = AppOptions.getAll(OptionKind.WORKER***REMOVED***;
-    Object.assign(GlobalWorkerOptions, workerParams***REMOVED***;
-    if (args.url***REMOVED*** {
-      this.setTitleUsingUrl(args.originalUrl || args.url, args.url***REMOVED***;
-    ***REMOVED***
-    const apiParams = AppOptions.getAll(OptionKind.API***REMOVED***;
+    promises.push(this.pdfScriptingManager.destroyPromise, this.passwordPrompt.close());
+    this.setTitle();
+    this.pdfSidebar?.reset();
+    this.pdfOutlineViewer?.reset();
+    this.pdfAttachmentViewer?.reset();
+    this.pdfLayerViewer?.reset();
+    this.pdfHistory?.reset();
+    this.findBar?.reset();
+    this.toolbar?.reset();
+    this.secondaryToolbar?.reset();
+    this._PDFBug?.cleanup();
+    await Promise.all(promises);
+  },
+  async open(args) {
+    if (this.pdfLoadingTask) {
+      await this.close();
+    }
+    const workerParams = AppOptions.getAll(OptionKind.WORKER);
+    Object.assign(GlobalWorkerOptions, workerParams);
+    if (args.url) {
+      this.setTitleUsingUrl(args.originalUrl || args.url, args.url);
+    }
+    const apiParams = AppOptions.getAll(OptionKind.API);
     const loadingTask = getDocument({
       ...apiParams,
       ...args
-    ***REMOVED******REMOVED***;
+    });
     this.pdfLoadingTask = loadingTask;
-    loadingTask.onPassword = (updateCallback, reason***REMOVED*** => {
-      if (this.isViewerEmbedded***REMOVED*** {
-        this._unblockDocumentLoadEvent(***REMOVED***;
-      ***REMOVED***
+    loadingTask.onPassword = (updateCallback, reason) => {
+      if (this.isViewerEmbedded) {
+        this._unblockDocumentLoadEvent();
+      }
       this.pdfLinkService.externalLinkEnabled = false;
-      this.passwordPrompt.setUpdateCallback(updateCallback, reason***REMOVED***;
-      this.passwordPrompt.open(***REMOVED***;
-    ***REMOVED***;
+      this.passwordPrompt.setUpdateCallback(updateCallback, reason);
+      this.passwordPrompt.open();
+    };
     loadingTask.onProgress = ({
       loaded,
       total
-    ***REMOVED******REMOVED*** => {
-      this.progress(loaded / total***REMOVED***;
-    ***REMOVED***;
+    }) => {
+      this.progress(loaded / total);
+    };
     return loadingTask.promise.then(pdfDocument => {
-      this.load(pdfDocument***REMOVED***;
-    ***REMOVED***, reason => {
-      if (loadingTask !== this.pdfLoadingTask***REMOVED*** {
+      this.load(pdfDocument);
+    }, reason => {
+      if (loadingTask !== this.pdfLoadingTask) {
         return undefined;
-      ***REMOVED***
+      }
       let key = "pdfjs-loading-error";
-      if (reason instanceof InvalidPDFException***REMOVED*** {
+      if (reason instanceof InvalidPDFException) {
         key = "pdfjs-invalid-file-error";
-      ***REMOVED*** else if (reason instanceof MissingPDFException***REMOVED*** {
+      } else if (reason instanceof MissingPDFException) {
         key = "pdfjs-missing-file-error";
-      ***REMOVED*** else if (reason instanceof UnexpectedResponseException***REMOVED*** {
+      } else if (reason instanceof UnexpectedResponseException) {
         key = "pdfjs-unexpected-response-error";
-      ***REMOVED***
+      }
       return this._documentError(key, {
         message: reason.message
-      ***REMOVED******REMOVED***.then((***REMOVED*** => {
+      }).then(() => {
         throw reason;
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-  ***REMOVED***,
-  async download(***REMOVED*** {
+      });
+    });
+  },
+  async download() {
     let data;
-  ***REMOVED***
-      data = await this.pdfDocument.getData(***REMOVED***;
-    ***REMOVED*** catch { ***REMOVED***
-    this.downloadManager.download(data, this._downloadUrl, this._docFilename***REMOVED***;
-  ***REMOVED***,
-  async save(***REMOVED*** {
-    if (this._saveInProgress***REMOVED*** {
+    try {
+      data = await this.pdfDocument.getData();
+    } catch { }
+    this.downloadManager.download(data, this._downloadUrl, this._docFilename);
+  },
+  async save() {
+    if (this._saveInProgress) {
       return;
-    ***REMOVED***
+    }
     this._saveInProgress = true;
-    await this.pdfScriptingManager.dispatchWillSave(***REMOVED***;
-  ***REMOVED***
-      const data = await this.pdfDocument.saveDocument(***REMOVED***;
-      this.downloadManager.download(data, this._downloadUrl, this._docFilename***REMOVED***;
-    ***REMOVED*** catch (reason***REMOVED*** {
-      console.error(`Error when saving the document:`, reason***REMOVED***;
-      await this.download(***REMOVED***;
-    ***REMOVED*** finally {
-      await this.pdfScriptingManager.dispatchDidSave(***REMOVED***;
+    await this.pdfScriptingManager.dispatchWillSave();
+    try {
+      const data = await this.pdfDocument.saveDocument();
+      this.downloadManager.download(data, this._downloadUrl, this._docFilename);
+    } catch (reason) {
+      console.error(`Error when saving the document:`, reason);
+      await this.download();
+    } finally {
+      await this.pdfScriptingManager.dispatchDidSave();
       this._saveInProgress = false;
-    ***REMOVED***
-    if (this._hasAnnotationEditors***REMOVED*** {
+    }
+    if (this._hasAnnotationEditors) {
       this.externalServices.reportTelemetry({
         type: "editing",
         data: {
           type: "save",
           stats: this.pdfDocument?.annotationStorage.editorStats
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  async downloadOrSave(***REMOVED*** {
+        }
+      });
+    }
+  },
+  async downloadOrSave() {
     const {
       classList
-    ***REMOVED*** = this.appConfig.appContainer;
-    classList.add("wait"***REMOVED***;
-    await (this.pdfDocument?.annotationStorage.size > 0 ? this.save(***REMOVED*** : this.download(***REMOVED******REMOVED***;
-    classList.remove("wait"***REMOVED***;
-  ***REMOVED***,
-  async _documentError(key, moreInfo = null***REMOVED*** {
-    this._unblockDocumentLoadEvent(***REMOVED***;
-    const message = await this._otherError(key || "pdfjs-loading-error", moreInfo***REMOVED***;
+    } = this.appConfig.appContainer;
+    classList.add("wait");
+    await (this.pdfDocument?.annotationStorage.size > 0 ? this.save() : this.download());
+    classList.remove("wait");
+  },
+  async _documentError(key, moreInfo = null) {
+    this._unblockDocumentLoadEvent();
+    const message = await this._otherError(key || "pdfjs-loading-error", moreInfo);
     this.eventBus.dispatch("documenterror", {
       source: this,
       message,
       reason: moreInfo?.message ?? null
-    ***REMOVED******REMOVED***;
-  ***REMOVED***,
-  async _otherError(key, moreInfo = null***REMOVED*** {
-    const message = await this.l10n.get(key***REMOVED***;
-    const moreInfoText = [`PDF.js v${version || "?"***REMOVED*** (build: ${build || "?"***REMOVED******REMOVED***`];
-    if (moreInfo***REMOVED*** {
-      moreInfoText.push(`Message: ${moreInfo.message***REMOVED***`***REMOVED***;
-      if (moreInfo.stack***REMOVED*** {
-        moreInfoText.push(`Stack: ${moreInfo.stack***REMOVED***`***REMOVED***;
-      ***REMOVED*** else {
-        if (moreInfo.filename***REMOVED*** {
-          moreInfoText.push(`File: ${moreInfo.filename***REMOVED***`***REMOVED***;
-        ***REMOVED***
-        if (moreInfo.lineNumber***REMOVED*** {
-          moreInfoText.push(`Line: ${moreInfo.lineNumber***REMOVED***`***REMOVED***;
-        ***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
-    console.error(`${message***REMOVED***\n\n${moreInfoText.join("\n"***REMOVED******REMOVED***`***REMOVED***;
+    });
+  },
+  async _otherError(key, moreInfo = null) {
+    const message = await this.l10n.get(key);
+    const moreInfoText = [`PDF.js v${version || "?"} (build: ${build || "?"})`];
+    if (moreInfo) {
+      moreInfoText.push(`Message: ${moreInfo.message}`);
+      if (moreInfo.stack) {
+        moreInfoText.push(`Stack: ${moreInfo.stack}`);
+      } else {
+        if (moreInfo.filename) {
+          moreInfoText.push(`File: ${moreInfo.filename}`);
+        }
+        if (moreInfo.lineNumber) {
+          moreInfoText.push(`Line: ${moreInfo.lineNumber}`);
+        }
+      }
+    }
+    console.error(`${message}\n\n${moreInfoText.join("\n")}`);
     return message;
-  ***REMOVED***,
-  progress(level***REMOVED*** {
-    const percent = Math.round(level * 100***REMOVED***;
-    if (!this.loadingBar || percent <= this.loadingBar.percent***REMOVED*** {
+  },
+  progress(level) {
+    const percent = Math.round(level * 100);
+    if (!this.loadingBar || percent <= this.loadingBar.percent) {
       return;
-    ***REMOVED***
+    }
     this.loadingBar.percent = percent;
-    if (this.pdfDocument?.loadingParams.disableAutoFetch ?? AppOptions.get("disableAutoFetch"***REMOVED******REMOVED*** {
-      this.loadingBar.setDisableAutoFetch(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  load(pdfDocument***REMOVED*** {
+    if (this.pdfDocument?.loadingParams.disableAutoFetch ?? AppOptions.get("disableAutoFetch")) {
+      this.loadingBar.setDisableAutoFetch();
+    }
+  },
+  load(pdfDocument) {
     this.pdfDocument = pdfDocument;
-    pdfDocument.getDownloadInfo(***REMOVED***.then(({
+    pdfDocument.getDownloadInfo().then(({
       length
-    ***REMOVED******REMOVED*** => {
+    }) => {
       this._contentLength = length;
-      this.loadingBar?.hide(***REMOVED***;
-      firstPagePromise.then((***REMOVED*** => {
+      this.loadingBar?.hide();
+      firstPagePromise.then(() => {
         this.eventBus.dispatch("documentloaded", {
           source: this
-        ***REMOVED******REMOVED***;
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    const pageLayoutPromise = pdfDocument.getPageLayout(***REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***;
-    const pageModePromise = pdfDocument.getPageMode(***REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***;
-    const openActionPromise = pdfDocument.getOpenAction(***REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***;
-    this.toolbar?.setPagesCount(pdfDocument.numPages, false***REMOVED***;
-    this.secondaryToolbar?.setPagesCount(pdfDocument.numPages***REMOVED***;
-    this.pdfLinkService.setDocument(pdfDocument***REMOVED***;
-    this.pdfDocumentProperties?.setDocument(pdfDocument***REMOVED***;
+        });
+      });
+    });
+    const pageLayoutPromise = pdfDocument.getPageLayout().catch(() => { });
+    const pageModePromise = pdfDocument.getPageMode().catch(() => { });
+    const openActionPromise = pdfDocument.getOpenAction().catch(() => { });
+    this.toolbar?.setPagesCount(pdfDocument.numPages, false);
+    this.secondaryToolbar?.setPagesCount(pdfDocument.numPages);
+    this.pdfLinkService.setDocument(pdfDocument);
+    this.pdfDocumentProperties?.setDocument(pdfDocument);
     const pdfViewer = this.pdfViewer;
-    pdfViewer.setDocument(pdfDocument***REMOVED***;
+    pdfViewer.setDocument(pdfDocument);
     const {
       firstPagePromise,
       onePageRendered,
       pagesPromise
-    ***REMOVED*** = pdfViewer;
-    this.pdfThumbnailViewer?.setDocument(pdfDocument***REMOVED***;
-    const storedPromise = (this.store = new ViewHistory(pdfDocument.fingerprints[0]***REMOVED******REMOVED***.getMultiple({
+    } = pdfViewer;
+    this.pdfThumbnailViewer?.setDocument(pdfDocument);
+    const storedPromise = (this.store = new ViewHistory(pdfDocument.fingerprints[0])).getMultiple({
       page: null,
       zoom: DEFAULT_SCALE_VALUE,
       scrollLeft: "0",
@@ -13933,708 +13933,708 @@ const PDFViewerApplication = {
       sidebarView: SidebarView.UNKNOWN,
       scrollMode: ScrollMode.UNKNOWN,
       spreadMode: SpreadMode.UNKNOWN
-    ***REMOVED******REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***;
+    }).catch(() => { });
     firstPagePromise.then(pdfPage => {
-      this.loadingBar?.setWidth(this.appConfig.viewerContainer***REMOVED***;
-      this._initializeAnnotationStorageCallbacks(pdfDocument***REMOVED***;
-      Promise.all([animationStarted, storedPromise, pageLayoutPromise, pageModePromise, openActionPromise]***REMOVED***.then(async ([timeStamp, stored, pageLayout, pageMode, openAction]***REMOVED*** => {
-        const viewOnLoad = AppOptions.get("viewOnLoad"***REMOVED***;
+      this.loadingBar?.setWidth(this.appConfig.viewerContainer);
+      this._initializeAnnotationStorageCallbacks(pdfDocument);
+      Promise.all([animationStarted, storedPromise, pageLayoutPromise, pageModePromise, openActionPromise]).then(async ([timeStamp, stored, pageLayout, pageMode, openAction]) => {
+        const viewOnLoad = AppOptions.get("viewOnLoad");
         this._initializePdfHistory({
           fingerprint: pdfDocument.fingerprints[0],
           viewOnLoad,
           initialDest: openAction?.dest
-        ***REMOVED******REMOVED***;
+        });
         const initialBookmark = this.initialBookmark;
-        const zoom = AppOptions.get("defaultZoomValue"***REMOVED***;
-        let hash = zoom ? `zoom=${zoom***REMOVED***` : null;
+        const zoom = AppOptions.get("defaultZoomValue");
+        let hash = zoom ? `zoom=${zoom}` : null;
         let rotation = null;
-        let sidebarView = AppOptions.get("sidebarViewOnLoad"***REMOVED***;
-        let scrollMode = AppOptions.get("scrollModeOnLoad"***REMOVED***;
-        let spreadMode = AppOptions.get("spreadModeOnLoad"***REMOVED***;
-        if (stored?.page && viewOnLoad !== ViewOnLoad.INITIAL***REMOVED*** {
-          hash = `page=${stored.page***REMOVED***&zoom=${zoom || stored.zoom***REMOVED***,` + `${stored.scrollLeft***REMOVED***,${stored.scrollTop***REMOVED***`;
-          rotation = parseInt(stored.rotation, 10***REMOVED***;
-          if (sidebarView === SidebarView.UNKNOWN***REMOVED*** {
+        let sidebarView = AppOptions.get("sidebarViewOnLoad");
+        let scrollMode = AppOptions.get("scrollModeOnLoad");
+        let spreadMode = AppOptions.get("spreadModeOnLoad");
+        if (stored?.page && viewOnLoad !== ViewOnLoad.INITIAL) {
+          hash = `page=${stored.page}&zoom=${zoom || stored.zoom},` + `${stored.scrollLeft},${stored.scrollTop}`;
+          rotation = parseInt(stored.rotation, 10);
+          if (sidebarView === SidebarView.UNKNOWN) {
             sidebarView = stored.sidebarView | 0;
-          ***REMOVED***
-          if (scrollMode === ScrollMode.UNKNOWN***REMOVED*** {
+          }
+          if (scrollMode === ScrollMode.UNKNOWN) {
             scrollMode = stored.scrollMode | 0;
-          ***REMOVED***
-          if (spreadMode === SpreadMode.UNKNOWN***REMOVED*** {
+          }
+          if (spreadMode === SpreadMode.UNKNOWN) {
             spreadMode = stored.spreadMode | 0;
-          ***REMOVED***
-        ***REMOVED***
-        if (pageMode && sidebarView === SidebarView.UNKNOWN***REMOVED*** {
-          sidebarView = apiPageModeToSidebarView(pageMode***REMOVED***;
-        ***REMOVED***
-        if (pageLayout && scrollMode === ScrollMode.UNKNOWN && spreadMode === SpreadMode.UNKNOWN***REMOVED*** {
-          const modes = apiPageLayoutToViewerModes(pageLayout***REMOVED***;
+          }
+        }
+        if (pageMode && sidebarView === SidebarView.UNKNOWN) {
+          sidebarView = apiPageModeToSidebarView(pageMode);
+        }
+        if (pageLayout && scrollMode === ScrollMode.UNKNOWN && spreadMode === SpreadMode.UNKNOWN) {
+          const modes = apiPageLayoutToViewerModes(pageLayout);
           spreadMode = modes.spreadMode;
-        ***REMOVED***
+        }
         this.setInitialView(hash, {
           rotation,
           sidebarView,
           scrollMode,
           spreadMode
-        ***REMOVED******REMOVED***;
+        });
         this.eventBus.dispatch("documentinit", {
           source: this
-        ***REMOVED******REMOVED***;
-        if (!this.isViewerEmbedded***REMOVED*** {
-          pdfViewer.focus(***REMOVED***;
-        ***REMOVED***
+        });
+        if (!this.isViewerEmbedded) {
+          pdfViewer.focus();
+        }
         await Promise.race([pagesPromise, new Promise(resolve => {
-          setTimeout(resolve, FORCE_PAGES_LOADED_TIMEOUT***REMOVED***;
-        ***REMOVED******REMOVED***]***REMOVED***;
-        if (!initialBookmark && !hash***REMOVED*** {
+          setTimeout(resolve, FORCE_PAGES_LOADED_TIMEOUT);
+        })]);
+        if (!initialBookmark && !hash) {
           return;
-        ***REMOVED***
-        if (pdfViewer.hasEqualPageSizes***REMOVED*** {
+        }
+        if (pdfViewer.hasEqualPageSizes) {
           return;
-        ***REMOVED***
+        }
         this.initialBookmark = initialBookmark;
         pdfViewer.currentScaleValue = pdfViewer.currentScaleValue;
-        this.setInitialView(hash***REMOVED***;
-      ***REMOVED******REMOVED***.catch((***REMOVED*** => {
-        this.setInitialView(***REMOVED***;
-      ***REMOVED******REMOVED***.then(function (***REMOVED*** {
-        pdfViewer.update(***REMOVED***;
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
-    pagesPromise.then((***REMOVED*** => {
-      this._unblockDocumentLoadEvent(***REMOVED***;
-      this._initializeAutoPrint(pdfDocument, openActionPromise***REMOVED***;
-    ***REMOVED***, reason => {
+        this.setInitialView(hash);
+      }).catch(() => {
+        this.setInitialView();
+      }).then(function () {
+        pdfViewer.update();
+      });
+    });
+    pagesPromise.then(() => {
+      this._unblockDocumentLoadEvent();
+      this._initializeAutoPrint(pdfDocument, openActionPromise);
+    }, reason => {
       this._documentError("pdfjs-loading-error", {
         message: reason.message
-      ***REMOVED******REMOVED***;
-    ***REMOVED******REMOVED***;
+      });
+    });
     onePageRendered.then(data => {
       this.externalServices.reportTelemetry({
         type: "pageInfo",
         timestamp: data.timestamp
-      ***REMOVED******REMOVED***;
-      if (this.pdfOutlineViewer***REMOVED*** {
-        pdfDocument.getOutline(***REMOVED***.then(outline => {
-          if (pdfDocument !== this.pdfDocument***REMOVED*** {
+      });
+      if (this.pdfOutlineViewer) {
+        pdfDocument.getOutline().then(outline => {
+          if (pdfDocument !== this.pdfDocument) {
             return;
-          ***REMOVED***
+          }
           this.pdfOutlineViewer.render({
             outline,
             pdfDocument
-          ***REMOVED******REMOVED***;
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-      if (this.pdfAttachmentViewer***REMOVED*** {
-        pdfDocument.getAttachments(***REMOVED***.then(attachments => {
-          if (pdfDocument !== this.pdfDocument***REMOVED*** {
+          });
+        });
+      }
+      if (this.pdfAttachmentViewer) {
+        pdfDocument.getAttachments().then(attachments => {
+          if (pdfDocument !== this.pdfDocument) {
             return;
-          ***REMOVED***
+          }
           this.pdfAttachmentViewer.render({
             attachments
-          ***REMOVED******REMOVED***;
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-      if (this.pdfLayerViewer***REMOVED*** {
+          });
+        });
+      }
+      if (this.pdfLayerViewer) {
         pdfViewer.optionalContentConfigPromise.then(optionalContentConfig => {
-          if (pdfDocument !== this.pdfDocument***REMOVED*** {
+          if (pdfDocument !== this.pdfDocument) {
             return;
-          ***REMOVED***
+          }
           this.pdfLayerViewer.render({
             optionalContentConfig,
             pdfDocument
-          ***REMOVED******REMOVED***;
-        ***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED******REMOVED***;
-    this._initializePageLabels(pdfDocument***REMOVED***;
-    this._initializeMetadata(pdfDocument***REMOVED***;
-  ***REMOVED***,
-  async _scriptingDocProperties(pdfDocument***REMOVED*** {
-    if (!this.documentInfo***REMOVED*** {
+          });
+        });
+      }
+    });
+    this._initializePageLabels(pdfDocument);
+    this._initializeMetadata(pdfDocument);
+  },
+  async _scriptingDocProperties(pdfDocument) {
+    if (!this.documentInfo) {
       await new Promise(resolve => {
         this.eventBus._on("metadataloaded", resolve, {
           once: true
-        ***REMOVED******REMOVED***;
-      ***REMOVED******REMOVED***;
-      if (pdfDocument !== this.pdfDocument***REMOVED*** {
+        });
+      });
+      if (pdfDocument !== this.pdfDocument) {
         return null;
-      ***REMOVED***
-    ***REMOVED***
-    if (!this._contentLength***REMOVED*** {
+      }
+    }
+    if (!this._contentLength) {
       await new Promise(resolve => {
         this.eventBus._on("documentloaded", resolve, {
           once: true
-        ***REMOVED******REMOVED***;
-      ***REMOVED******REMOVED***;
-      if (pdfDocument !== this.pdfDocument***REMOVED*** {
+        });
+      });
+      if (pdfDocument !== this.pdfDocument) {
         return null;
-      ***REMOVED***
-    ***REMOVED***
-***REMOVED***
+      }
+    }
+    return {
       ...this.documentInfo,
       baseURL: this.baseUrl,
       filesize: this._contentLength,
       filename: this._docFilename,
-      metadata: this.metadata?.getRaw(***REMOVED***,
-      authors: this.metadata?.get("dc:creator"***REMOVED***,
+      metadata: this.metadata?.getRaw(),
+      authors: this.metadata?.get("dc:creator"),
       numPages: this.pagesCount,
       URL: this.url
-    ***REMOVED***;
-  ***REMOVED***,
-  async _initializeAutoPrint(pdfDocument, openActionPromise***REMOVED*** {
-    const [openAction, jsActions] = await Promise.all([openActionPromise, this.pdfViewer.enableScripting ? null : pdfDocument.getJSActions(***REMOVED***]***REMOVED***;
-    if (pdfDocument !== this.pdfDocument***REMOVED*** {
+    };
+  },
+  async _initializeAutoPrint(pdfDocument, openActionPromise) {
+    const [openAction, jsActions] = await Promise.all([openActionPromise, this.pdfViewer.enableScripting ? null : pdfDocument.getJSActions()]);
+    if (pdfDocument !== this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     let triggerAutoPrint = openAction?.action === "Print";
-    if (jsActions***REMOVED*** {
-      console.warn("Warning: JavaScript support is not enabled"***REMOVED***;
-      for (const name in jsActions***REMOVED*** {
-        if (triggerAutoPrint***REMOVED*** {
+    if (jsActions) {
+      console.warn("Warning: JavaScript support is not enabled");
+      for (const name in jsActions) {
+        if (triggerAutoPrint) {
           break;
-        ***REMOVED***
-        switch (name***REMOVED*** {
+        }
+        switch (name) {
           case "WillClose":
           case "WillSave":
           case "DidSave":
           case "WillPrint":
           case "DidPrint":
             continue;
-        ***REMOVED***
-        triggerAutoPrint = jsActions[name].some(js => AutoPrintRegExp.test(js***REMOVED******REMOVED***;
-      ***REMOVED***
-    ***REMOVED***
-    if (triggerAutoPrint***REMOVED*** {
-      this.triggerPrinting(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  async _initializeMetadata(pdfDocument***REMOVED*** {
+        }
+        triggerAutoPrint = jsActions[name].some(js => AutoPrintRegExp.test(js));
+      }
+    }
+    if (triggerAutoPrint) {
+      this.triggerPrinting();
+    }
+  },
+  async _initializeMetadata(pdfDocument) {
     const {
       info,
       metadata,
       contentDispositionFilename,
       contentLength
-    ***REMOVED*** = await pdfDocument.getMetadata(***REMOVED***;
-    if (pdfDocument !== this.pdfDocument***REMOVED*** {
+    } = await pdfDocument.getMetadata();
+    if (pdfDocument !== this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     this.documentInfo = info;
     this.metadata = metadata;
     this._contentDispositionFilename ??= contentDispositionFilename;
     this._contentLength ??= contentLength;
-    console.log(`PDF ${pdfDocument.fingerprints[0]***REMOVED*** [${info.PDFFormatVersion***REMOVED*** ` + `${(info.Producer || "-"***REMOVED***.trim(***REMOVED******REMOVED*** / ${(info.Creator || "-"***REMOVED***.trim(***REMOVED******REMOVED***] ` + `(PDF.js: ${version || "?"***REMOVED*** [${build || "?"***REMOVED***]***REMOVED***`***REMOVED***;
+    console.log(`PDF ${pdfDocument.fingerprints[0]} [${info.PDFFormatVersion} ` + `${(info.Producer || "-").trim()} / ${(info.Creator || "-").trim()}] ` + `(PDF.js: ${version || "?"} [${build || "?"}])`);
     let pdfTitle = info.Title;
-    const metadataTitle = metadata?.get("dc:title"***REMOVED***;
-    if (metadataTitle***REMOVED*** {
-      if (metadataTitle !== "Untitled" && !/[\uFFF0-\uFFFF]/g.test(metadataTitle***REMOVED******REMOVED*** {
+    const metadataTitle = metadata?.get("dc:title");
+    if (metadataTitle) {
+      if (metadataTitle !== "Untitled" && !/[\uFFF0-\uFFFF]/g.test(metadataTitle)) {
         pdfTitle = metadataTitle;
-      ***REMOVED***
-    ***REMOVED***
-    if (pdfTitle***REMOVED*** {
-      this.setTitle(`${pdfTitle***REMOVED*** - ${this._contentDispositionFilename || this._title***REMOVED***`***REMOVED***;
-    ***REMOVED*** else if (this._contentDispositionFilename***REMOVED*** {
-      this.setTitle(this._contentDispositionFilename***REMOVED***;
-    ***REMOVED***
-    if (info.IsXFAPresent && !info.IsAcroFormPresent && !pdfDocument.isPureXfa***REMOVED*** {
-      if (pdfDocument.loadingParams.enableXfa***REMOVED*** {
-        console.warn("Warning: XFA Foreground documents are not supported"***REMOVED***;
-      ***REMOVED*** else {
-        console.warn("Warning: XFA support is not enabled"***REMOVED***;
-      ***REMOVED***
-    ***REMOVED*** else if ((info.IsAcroFormPresent || info.IsXFAPresent***REMOVED*** && !this.pdfViewer.renderForms***REMOVED*** {
-      console.warn("Warning: Interactive form support is not enabled"***REMOVED***;
-    ***REMOVED***
-    if (info.IsSignaturesPresent***REMOVED*** {
-      console.warn("Warning: Digital signatures validation is not supported"***REMOVED***;
-    ***REMOVED***
+      }
+    }
+    if (pdfTitle) {
+      this.setTitle(`${pdfTitle} - ${this._contentDispositionFilename || this._title}`);
+    } else if (this._contentDispositionFilename) {
+      this.setTitle(this._contentDispositionFilename);
+    }
+    if (info.IsXFAPresent && !info.IsAcroFormPresent && !pdfDocument.isPureXfa) {
+      if (pdfDocument.loadingParams.enableXfa) {
+        console.warn("Warning: XFA Foreground documents are not supported");
+      } else {
+        console.warn("Warning: XFA support is not enabled");
+      }
+    } else if ((info.IsAcroFormPresent || info.IsXFAPresent) && !this.pdfViewer.renderForms) {
+      console.warn("Warning: Interactive form support is not enabled");
+    }
+    if (info.IsSignaturesPresent) {
+      console.warn("Warning: Digital signatures validation is not supported");
+    }
     this.eventBus.dispatch("metadataloaded", {
       source: this
-    ***REMOVED******REMOVED***;
-  ***REMOVED***,
-  async _initializePageLabels(pdfDocument***REMOVED*** {
-    const labels = await pdfDocument.getPageLabels(***REMOVED***;
-    if (pdfDocument !== this.pdfDocument***REMOVED*** {
+    });
+  },
+  async _initializePageLabels(pdfDocument) {
+    const labels = await pdfDocument.getPageLabels();
+    if (pdfDocument !== this.pdfDocument) {
       return;
-    ***REMOVED***
-    if (!labels || AppOptions.get("disablePageLabels"***REMOVED******REMOVED*** {
+    }
+    if (!labels || AppOptions.get("disablePageLabels")) {
       return;
-    ***REMOVED***
+    }
     const numLabels = labels.length;
     let standardLabels = 0,
       emptyLabels = 0;
-    for (let i = 0; i < numLabels; i++***REMOVED*** {
+    for (let i = 0; i < numLabels; i++) {
       const label = labels[i];
-      if (label === (i + 1***REMOVED***.toString(***REMOVED******REMOVED*** {
+      if (label === (i + 1).toString()) {
         standardLabels++;
-      ***REMOVED*** else if (label === ""***REMOVED*** {
+      } else if (label === "") {
         emptyLabels++;
-      ***REMOVED*** else {
+      } else {
         break;
-      ***REMOVED***
-    ***REMOVED***
-    if (standardLabels >= numLabels || emptyLabels >= numLabels***REMOVED*** {
+      }
+    }
+    if (standardLabels >= numLabels || emptyLabels >= numLabels) {
       return;
-    ***REMOVED***
+    }
     const {
       pdfViewer,
       pdfThumbnailViewer,
       toolbar
-    ***REMOVED*** = this;
-    pdfViewer.setPageLabels(labels***REMOVED***;
-    pdfThumbnailViewer?.setPageLabels(labels***REMOVED***;
-    toolbar?.setPagesCount(numLabels, true***REMOVED***;
-    toolbar?.setPageNumber(pdfViewer.currentPageNumber, pdfViewer.currentPageLabel***REMOVED***;
-  ***REMOVED***,
+    } = this;
+    pdfViewer.setPageLabels(labels);
+    pdfThumbnailViewer?.setPageLabels(labels);
+    toolbar?.setPagesCount(numLabels, true);
+    toolbar?.setPageNumber(pdfViewer.currentPageNumber, pdfViewer.currentPageLabel);
+  },
   _initializePdfHistory({
     fingerprint,
     viewOnLoad,
     initialDest = null
-  ***REMOVED******REMOVED*** {
-    if (!this.pdfHistory***REMOVED*** {
+  }) {
+    if (!this.pdfHistory) {
       return;
-    ***REMOVED***
+    }
     this.pdfHistory.initialize({
       fingerprint,
       resetHistory: viewOnLoad === ViewOnLoad.INITIAL,
-      updateUrl: AppOptions.get("historyUpdateUrl"***REMOVED***
-    ***REMOVED******REMOVED***;
-    if (this.pdfHistory.initialBookmark***REMOVED*** {
+      updateUrl: AppOptions.get("historyUpdateUrl")
+    });
+    if (this.pdfHistory.initialBookmark) {
       this.initialBookmark = this.pdfHistory.initialBookmark;
       this.initialRotation = this.pdfHistory.initialRotation;
-    ***REMOVED***
-    if (initialDest && !this.initialBookmark && viewOnLoad === ViewOnLoad.UNKNOWN***REMOVED*** {
-      this.initialBookmark = JSON.stringify(initialDest***REMOVED***;
+    }
+    if (initialDest && !this.initialBookmark && viewOnLoad === ViewOnLoad.UNKNOWN) {
+      this.initialBookmark = JSON.stringify(initialDest);
       this.pdfHistory.push({
         explicitDest: initialDest,
         pageNumber: null
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  _initializeAnnotationStorageCallbacks(pdfDocument***REMOVED*** {
-    if (pdfDocument !== this.pdfDocument***REMOVED*** {
+      });
+    }
+  },
+  _initializeAnnotationStorageCallbacks(pdfDocument) {
+    if (pdfDocument !== this.pdfDocument) {
       return;
-    ***REMOVED***
+    }
     const {
       annotationStorage
-    ***REMOVED*** = pdfDocument;
-    annotationStorage.onSetModified = (***REMOVED*** => {
-      window.addEventListener("beforeunload", beforeUnload***REMOVED***;
+    } = pdfDocument;
+    annotationStorage.onSetModified = () => {
+      window.addEventListener("beforeunload", beforeUnload);
       this._annotationStorageModified = true;
-    ***REMOVED***;
-    annotationStorage.onResetModified = (***REMOVED*** => {
-      window.removeEventListener("beforeunload", beforeUnload***REMOVED***;
+    };
+    annotationStorage.onResetModified = () => {
+      window.removeEventListener("beforeunload", beforeUnload);
       delete this._annotationStorageModified;
-    ***REMOVED***;
+    };
     annotationStorage.onAnnotationEditor = typeStr => {
       this._hasAnnotationEditors = !!typeStr;
-      this.setTitle(***REMOVED***;
-    ***REMOVED***;
-  ***REMOVED***,
+      this.setTitle();
+    };
+  },
   setInitialView(storedHash, {
     rotation,
     sidebarView,
     scrollMode,
     spreadMode
-  ***REMOVED*** = {***REMOVED******REMOVED*** {
+  } = {}) {
     const setRotation = angle => {
-      if (isValidRotation(angle***REMOVED******REMOVED*** {
+      if (isValidRotation(angle)) {
         this.pdfViewer.pagesRotation = angle;
-      ***REMOVED***
-    ***REMOVED***;
-    const setViewerModes = (scroll, spread***REMOVED*** => {
-      if (isValidScrollMode(scroll***REMOVED******REMOVED*** {
+      }
+    };
+    const setViewerModes = (scroll, spread) => {
+      if (isValidScrollMode(scroll)) {
         this.pdfViewer.scrollMode = scroll;
-      ***REMOVED***
-      if (isValidSpreadMode(spread***REMOVED******REMOVED*** {
+      }
+      if (isValidSpreadMode(spread)) {
         this.pdfViewer.spreadMode = spread;
-      ***REMOVED***
-    ***REMOVED***;
+      }
+    };
     this.isInitialViewSet = true;
-    this.pdfSidebar?.setInitialView(sidebarView***REMOVED***;
-    setViewerModes(scrollMode, spreadMode***REMOVED***;
-    if (this.initialBookmark***REMOVED*** {
-      setRotation(this.initialRotation***REMOVED***;
+    this.pdfSidebar?.setInitialView(sidebarView);
+    setViewerModes(scrollMode, spreadMode);
+    if (this.initialBookmark) {
+      setRotation(this.initialRotation);
       delete this.initialRotation;
-      this.pdfLinkService.setHash(this.initialBookmark***REMOVED***;
+      this.pdfLinkService.setHash(this.initialBookmark);
       this.initialBookmark = null;
-    ***REMOVED*** else if (storedHash***REMOVED*** {
-      setRotation(rotation***REMOVED***;
-      this.pdfLinkService.setHash(storedHash***REMOVED***;
-    ***REMOVED***
-    this.toolbar?.setPageNumber(this.pdfViewer.currentPageNumber, this.pdfViewer.currentPageLabel***REMOVED***;
-    this.secondaryToolbar?.setPageNumber(this.pdfViewer.currentPageNumber***REMOVED***;
-    if (!this.pdfViewer.currentScaleValue***REMOVED*** {
+    } else if (storedHash) {
+      setRotation(rotation);
+      this.pdfLinkService.setHash(storedHash);
+    }
+    this.toolbar?.setPageNumber(this.pdfViewer.currentPageNumber, this.pdfViewer.currentPageLabel);
+    this.secondaryToolbar?.setPageNumber(this.pdfViewer.currentPageNumber);
+    if (!this.pdfViewer.currentScaleValue) {
       this.pdfViewer.currentScaleValue = DEFAULT_SCALE_VALUE;
-    ***REMOVED***
-  ***REMOVED***,
-  _cleanup(***REMOVED*** {
-    if (!this.pdfDocument***REMOVED*** {
+    }
+  },
+  _cleanup() {
+    if (!this.pdfDocument) {
       return;
-    ***REMOVED***
-    this.pdfViewer.cleanup(***REMOVED***;
-    this.pdfThumbnailViewer?.cleanup(***REMOVED***;
-    this.pdfDocument.cleanup(AppOptions.get("fontExtraProperties"***REMOVED******REMOVED***;
-  ***REMOVED***,
-  forceRendering(***REMOVED*** {
+    }
+    this.pdfViewer.cleanup();
+    this.pdfThumbnailViewer?.cleanup();
+    this.pdfDocument.cleanup(AppOptions.get("fontExtraProperties"));
+  },
+  forceRendering() {
     this.pdfRenderingQueue.printing = !!this.printService;
     this.pdfRenderingQueue.isThumbnailViewEnabled = this.pdfSidebar?.visibleView === SidebarView.THUMBS;
-    this.pdfRenderingQueue.renderHighestPriority(***REMOVED***;
-  ***REMOVED***,
-  beforePrint(***REMOVED*** {
-    this._printAnnotationStoragePromise = this.pdfScriptingManager.dispatchWillPrint(***REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***.then((***REMOVED*** => this.pdfDocument?.annotationStorage.print***REMOVED***;
-    if (this.printService***REMOVED*** {
+    this.pdfRenderingQueue.renderHighestPriority();
+  },
+  beforePrint() {
+    this._printAnnotationStoragePromise = this.pdfScriptingManager.dispatchWillPrint().catch(() => { }).then(() => this.pdfDocument?.annotationStorage.print);
+    if (this.printService) {
       return;
-    ***REMOVED***
-    if (!this.supportsPrinting***REMOVED*** {
-      this._otherError("pdfjs-printing-not-supported"***REMOVED***;
+    }
+    if (!this.supportsPrinting) {
+      this._otherError("pdfjs-printing-not-supported");
       return;
-    ***REMOVED***
-    if (!this.pdfViewer.pageViewsReady***REMOVED*** {
-      this.l10n.get("pdfjs-printing-not-ready"***REMOVED***.then(msg => {
-        window.alert(msg***REMOVED***;
-      ***REMOVED******REMOVED***;
+    }
+    if (!this.pdfViewer.pageViewsReady) {
+      this.l10n.get("pdfjs-printing-not-ready").then(msg => {
+        window.alert(msg);
+      });
       return;
-    ***REMOVED***
+    }
     this.printService = PDFPrintServiceFactory.createPrintService({
       pdfDocument: this.pdfDocument,
-      pagesOverview: this.pdfViewer.getPagesOverview(***REMOVED***,
+      pagesOverview: this.pdfViewer.getPagesOverview(),
       printContainer: this.appConfig.printContainer,
-      printResolution: AppOptions.get("printResolution"***REMOVED***,
+      printResolution: AppOptions.get("printResolution"),
       printAnnotationStoragePromise: this._printAnnotationStoragePromise
-    ***REMOVED******REMOVED***;
-    this.forceRendering(***REMOVED***;
-    this.setTitle(***REMOVED***;
-    this.printService.layout(***REMOVED***;
-    if (this._hasAnnotationEditors***REMOVED*** {
+    });
+    this.forceRendering();
+    this.setTitle();
+    this.printService.layout();
+    if (this._hasAnnotationEditors) {
       this.externalServices.reportTelemetry({
         type: "editing",
         data: {
           type: "print",
           stats: this.pdfDocument?.annotationStorage.editorStats
-        ***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  afterPrint(***REMOVED*** {
-    if (this._printAnnotationStoragePromise***REMOVED*** {
-      this._printAnnotationStoragePromise.then((***REMOVED*** => {
-        this.pdfScriptingManager.dispatchDidPrint(***REMOVED***;
-      ***REMOVED******REMOVED***;
+        }
+      });
+    }
+  },
+  afterPrint() {
+    if (this._printAnnotationStoragePromise) {
+      this._printAnnotationStoragePromise.then(() => {
+        this.pdfScriptingManager.dispatchDidPrint();
+      });
       this._printAnnotationStoragePromise = null;
-    ***REMOVED***
-    if (this.printService***REMOVED*** {
-      this.printService.destroy(***REMOVED***;
+    }
+    if (this.printService) {
+      this.printService.destroy();
       this.printService = null;
-      this.pdfDocument?.annotationStorage.resetModified(***REMOVED***;
-    ***REMOVED***
-    this.forceRendering(***REMOVED***;
-    this.setTitle(***REMOVED***;
-  ***REMOVED***,
-  rotatePages(delta***REMOVED*** {
+      this.pdfDocument?.annotationStorage.resetModified();
+    }
+    this.forceRendering();
+    this.setTitle();
+  },
+  rotatePages(delta) {
     this.pdfViewer.pagesRotation += delta;
-  ***REMOVED***,
-  requestPresentationMode(***REMOVED*** {
-    this.pdfPresentationMode?.request(***REMOVED***;
-  ***REMOVED***,
-  triggerPrinting(***REMOVED*** {
-    if (this.supportsPrinting***REMOVED*** {
-      window.print(***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***,
-  bindEvents(***REMOVED*** {
-    if (this._eventBusAbortController***REMOVED*** {
+  },
+  requestPresentationMode() {
+    this.pdfPresentationMode?.request();
+  },
+  triggerPrinting() {
+    if (this.supportsPrinting) {
+      window.print();
+    }
+  },
+  bindEvents() {
+    if (this._eventBusAbortController) {
       return;
-    ***REMOVED***
-    const ac = this._eventBusAbortController = new AbortController(***REMOVED***;
+    }
+    const ac = this._eventBusAbortController = new AbortController();
     const opts = {
       signal: ac.signal
-    ***REMOVED***;
+    };
     const {
       eventBus,
       externalServices,
       pdfDocumentProperties,
       pdfViewer,
       preferences
-    ***REMOVED*** = this;
-    eventBus._on("resize", onResize.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("hashchange", onHashchange.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("beforeprint", this.beforePrint.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("afterprint", this.afterPrint.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("pagerender", onPageRender.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("pagerendered", onPageRendered.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("updateviewarea", onUpdateViewarea.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("pagechanging", onPageChanging.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("scalechanging", onScaleChanging.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("rotationchanging", onRotationChanging.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("sidebarviewchanged", onSidebarViewChanged.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("pagemode", onPageMode.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("namedaction", onNamedAction.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("presentationmodechanged", evt => pdfViewer.presentationModeState = evt.state, opts***REMOVED***;
-    eventBus._on("presentationmode", this.requestPresentationMode.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("switchannotationeditormode", evt => pdfViewer.annotationEditorMode = evt, opts***REMOVED***;
-    eventBus._on("print", this.triggerPrinting.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("download", this.downloadOrSave.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("firstpage", (***REMOVED*** => this.page = 1, opts***REMOVED***;
-    eventBus._on("lastpage", (***REMOVED*** => this.page = this.pagesCount, opts***REMOVED***;
-    eventBus._on("nextpage", (***REMOVED*** => pdfViewer.nextPage(***REMOVED***, opts***REMOVED***;
-    eventBus._on("previouspage", (***REMOVED*** => pdfViewer.previousPage(***REMOVED***, opts***REMOVED***;
-    eventBus._on("zoomin", this.zoomIn.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("zoomout", this.zoomOut.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("zoomreset", this.zoomReset.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("pagenumberchanged", onPageNumberChanged.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("scalechanged", evt => pdfViewer.currentScaleValue = evt.value, opts***REMOVED***;
-    eventBus._on("rotatecw", this.rotatePages.bind(this, 90***REMOVED***, opts***REMOVED***;
-    eventBus._on("rotateccw", this.rotatePages.bind(this, -90***REMOVED***, opts***REMOVED***;
-    eventBus._on("optionalcontentconfig", evt => pdfViewer.optionalContentConfigPromise = evt.promise, opts***REMOVED***;
-    eventBus._on("switchscrollmode", evt => pdfViewer.scrollMode = evt.mode, opts***REMOVED***;
-    eventBus._on("scrollmodechanged", onViewerModesChanged.bind(this, "scrollMode"***REMOVED***, opts***REMOVED***;
-    eventBus._on("switchspreadmode", evt => pdfViewer.spreadMode = evt.mode, opts***REMOVED***;
-    eventBus._on("spreadmodechanged", onViewerModesChanged.bind(this, "spreadMode"***REMOVED***, opts***REMOVED***;
-    eventBus._on("imagealttextsettings", onImageAltTextSettings.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("documentproperties", (***REMOVED*** => pdfDocumentProperties?.open(***REMOVED***, opts***REMOVED***;
-    eventBus._on("findfromurlhash", onFindFromUrlHash.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("updatefindmatchescount", onUpdateFindMatchesCount.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("updatefindcontrolstate", onUpdateFindControlState.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("fileinputchange", onFileInputChange.bind(this***REMOVED***, opts***REMOVED***;
-    eventBus._on("openfile", onOpenFile.bind(this***REMOVED***, opts***REMOVED***;
-  ***REMOVED***,
-  bindWindowEvents(***REMOVED*** {
-    if (this._windowAbortController***REMOVED*** {
+    } = this;
+    eventBus._on("resize", onResize.bind(this), opts);
+    eventBus._on("hashchange", onHashchange.bind(this), opts);
+    eventBus._on("beforeprint", this.beforePrint.bind(this), opts);
+    eventBus._on("afterprint", this.afterPrint.bind(this), opts);
+    eventBus._on("pagerender", onPageRender.bind(this), opts);
+    eventBus._on("pagerendered", onPageRendered.bind(this), opts);
+    eventBus._on("updateviewarea", onUpdateViewarea.bind(this), opts);
+    eventBus._on("pagechanging", onPageChanging.bind(this), opts);
+    eventBus._on("scalechanging", onScaleChanging.bind(this), opts);
+    eventBus._on("rotationchanging", onRotationChanging.bind(this), opts);
+    eventBus._on("sidebarviewchanged", onSidebarViewChanged.bind(this), opts);
+    eventBus._on("pagemode", onPageMode.bind(this), opts);
+    eventBus._on("namedaction", onNamedAction.bind(this), opts);
+    eventBus._on("presentationmodechanged", evt => pdfViewer.presentationModeState = evt.state, opts);
+    eventBus._on("presentationmode", this.requestPresentationMode.bind(this), opts);
+    eventBus._on("switchannotationeditormode", evt => pdfViewer.annotationEditorMode = evt, opts);
+    eventBus._on("print", this.triggerPrinting.bind(this), opts);
+    eventBus._on("download", this.downloadOrSave.bind(this), opts);
+    eventBus._on("firstpage", () => this.page = 1, opts);
+    eventBus._on("lastpage", () => this.page = this.pagesCount, opts);
+    eventBus._on("nextpage", () => pdfViewer.nextPage(), opts);
+    eventBus._on("previouspage", () => pdfViewer.previousPage(), opts);
+    eventBus._on("zoomin", this.zoomIn.bind(this), opts);
+    eventBus._on("zoomout", this.zoomOut.bind(this), opts);
+    eventBus._on("zoomreset", this.zoomReset.bind(this), opts);
+    eventBus._on("pagenumberchanged", onPageNumberChanged.bind(this), opts);
+    eventBus._on("scalechanged", evt => pdfViewer.currentScaleValue = evt.value, opts);
+    eventBus._on("rotatecw", this.rotatePages.bind(this, 90), opts);
+    eventBus._on("rotateccw", this.rotatePages.bind(this, -90), opts);
+    eventBus._on("optionalcontentconfig", evt => pdfViewer.optionalContentConfigPromise = evt.promise, opts);
+    eventBus._on("switchscrollmode", evt => pdfViewer.scrollMode = evt.mode, opts);
+    eventBus._on("scrollmodechanged", onViewerModesChanged.bind(this, "scrollMode"), opts);
+    eventBus._on("switchspreadmode", evt => pdfViewer.spreadMode = evt.mode, opts);
+    eventBus._on("spreadmodechanged", onViewerModesChanged.bind(this, "spreadMode"), opts);
+    eventBus._on("imagealttextsettings", onImageAltTextSettings.bind(this), opts);
+    eventBus._on("documentproperties", () => pdfDocumentProperties?.open(), opts);
+    eventBus._on("findfromurlhash", onFindFromUrlHash.bind(this), opts);
+    eventBus._on("updatefindmatchescount", onUpdateFindMatchesCount.bind(this), opts);
+    eventBus._on("updatefindcontrolstate", onUpdateFindControlState.bind(this), opts);
+    eventBus._on("fileinputchange", onFileInputChange.bind(this), opts);
+    eventBus._on("openfile", onOpenFile.bind(this), opts);
+  },
+  bindWindowEvents() {
+    if (this._windowAbortController) {
       return;
-    ***REMOVED***
-    this._windowAbortController = new AbortController(***REMOVED***;
+    }
+    this._windowAbortController = new AbortController();
     const {
       eventBus,
       appConfig: {
         mainContainer
-      ***REMOVED***,
+      },
       pdfViewer,
       _windowAbortController: {
         signal
-      ***REMOVED***
-    ***REMOVED*** = this;
-    if (typeof AbortSignal.any === "function"***REMOVED*** {
+      }
+    } = this;
+    if (typeof AbortSignal.any === "function") {
       this._touchManager = new TouchManager({
         container: window,
-        isPinchingDisabled: (***REMOVED*** => pdfViewer.isInPresentationMode,
-        isPinchingStopped: (***REMOVED*** => this.overlayManager?.active,
-        onPinching: this.touchPinchCallback.bind(this***REMOVED***,
-        onPinchEnd: this.touchPinchEndCallback.bind(this***REMOVED***,
+        isPinchingDisabled: () => pdfViewer.isInPresentationMode,
+        isPinchingStopped: () => this.overlayManager?.active,
+        onPinching: this.touchPinchCallback.bind(this),
+        onPinchEnd: this.touchPinchEndCallback.bind(this),
         signal
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    function addWindowResolutionChange(evt = null***REMOVED*** {
-      if (evt***REMOVED*** {
-        pdfViewer.refresh(***REMOVED***;
-      ***REMOVED***
-      const mediaQueryList = window.matchMedia(`(resolution: ${window.devicePixelRatio || 1***REMOVED***dppx***REMOVED***`***REMOVED***;
+      });
+    }
+    function addWindowResolutionChange(evt = null) {
+      if (evt) {
+        pdfViewer.refresh();
+      }
+      const mediaQueryList = window.matchMedia(`(resolution: ${window.devicePixelRatio || 1}dppx)`);
       mediaQueryList.addEventListener("change", addWindowResolutionChange, {
         once: true,
         signal
-      ***REMOVED******REMOVED***;
-    ***REMOVED***
-    addWindowResolutionChange(***REMOVED***;
-    window.addEventListener("wheel", onWheel.bind(this***REMOVED***, {
+      });
+    }
+    addWindowResolutionChange();
+    window.addEventListener("wheel", onWheel.bind(this), {
       passive: false,
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("click", onClick.bind(this***REMOVED***, {
+    });
+    window.addEventListener("click", onClick.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("keydown", onKeyDown.bind(this***REMOVED***, {
+    });
+    window.addEventListener("keydown", onKeyDown.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("keyup", onKeyUp.bind(this***REMOVED***, {
+    });
+    window.addEventListener("keyup", onKeyUp.bind(this), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("resize", (***REMOVED*** => eventBus.dispatch("resize", {
+    });
+    window.addEventListener("resize", () => eventBus.dispatch("resize", {
       source: window
-    ***REMOVED******REMOVED***, {
+    }), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("hashchange", (***REMOVED*** => {
+    });
+    window.addEventListener("hashchange", () => {
       eventBus.dispatch("hashchange", {
         source: window,
-        hash: document.location.hash.substring(1***REMOVED***
-      ***REMOVED******REMOVED***;
-    ***REMOVED***, {
+        hash: document.location.hash.substring(1)
+      });
+    }, {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("beforeprint", (***REMOVED*** => eventBus.dispatch("beforeprint", {
+    });
+    window.addEventListener("beforeprint", () => eventBus.dispatch("beforeprint", {
       source: window
-    ***REMOVED******REMOVED***, {
+    }), {
       signal
-    ***REMOVED******REMOVED***;
-    window.addEventListener("afterprint", (***REMOVED*** => eventBus.dispatch("afterprint", {
+    });
+    window.addEventListener("afterprint", () => eventBus.dispatch("afterprint", {
       source: window
-    ***REMOVED******REMOVED***, {
+    }), {
       signal
-    ***REMOVED******REMOVED***;
+    });
     window.addEventListener("updatefromsandbox", evt => {
       eventBus.dispatch("updatefromsandbox", {
         source: window,
         detail: evt.detail
-      ***REMOVED******REMOVED***;
-    ***REMOVED***, {
+      });
+    }, {
       signal
-    ***REMOVED******REMOVED***;
-    if (!("onscrollend" in document.documentElement***REMOVED******REMOVED*** {
+    });
+    if (!("onscrollend" in document.documentElement)) {
       return;
-    ***REMOVED***
+    }
     ({
       scrollTop: this._lastScrollTop,
       scrollLeft: this._lastScrollLeft
-    ***REMOVED*** = mainContainer***REMOVED***;
-    const scrollend = (***REMOVED*** => {
+    } = mainContainer);
+    const scrollend = () => {
       ({
         scrollTop: this._lastScrollTop,
         scrollLeft: this._lastScrollLeft
-      ***REMOVED*** = mainContainer***REMOVED***;
+      } = mainContainer);
       this._isScrolling = false;
       mainContainer.addEventListener("scroll", scroll, {
         passive: true,
         signal
-      ***REMOVED******REMOVED***;
-      mainContainer.removeEventListener("scrollend", scrollend***REMOVED***;
-      mainContainer.removeEventListener("blur", scrollend***REMOVED***;
-    ***REMOVED***;
-    const scroll = (***REMOVED*** => {
-      if (this._isCtrlKeyDown***REMOVED*** {
+      });
+      mainContainer.removeEventListener("scrollend", scrollend);
+      mainContainer.removeEventListener("blur", scrollend);
+    };
+    const scroll = () => {
+      if (this._isCtrlKeyDown) {
         return;
-      ***REMOVED***
-      if (this._lastScrollTop === mainContainer.scrollTop && this._lastScrollLeft === mainContainer.scrollLeft***REMOVED*** {
+      }
+      if (this._lastScrollTop === mainContainer.scrollTop && this._lastScrollLeft === mainContainer.scrollLeft) {
         return;
-      ***REMOVED***
-      mainContainer.removeEventListener("scroll", scroll***REMOVED***;
+      }
+      mainContainer.removeEventListener("scroll", scroll);
       this._isScrolling = true;
       mainContainer.addEventListener("scrollend", scrollend, {
         signal
-      ***REMOVED******REMOVED***;
+      });
       mainContainer.addEventListener("blur", scrollend, {
         signal
-      ***REMOVED******REMOVED***;
-    ***REMOVED***;
+      });
+    };
     mainContainer.addEventListener("scroll", scroll, {
       passive: true,
       signal
-    ***REMOVED******REMOVED***;
-  ***REMOVED***,
-  unbindEvents(***REMOVED*** {
-    this._eventBusAbortController?.abort(***REMOVED***;
+    });
+  },
+  unbindEvents() {
+    this._eventBusAbortController?.abort();
     this._eventBusAbortController = null;
-  ***REMOVED***,
-  unbindWindowEvents(***REMOVED*** {
-    this._windowAbortController?.abort(***REMOVED***;
+  },
+  unbindWindowEvents() {
+    this._windowAbortController?.abort();
     this._windowAbortController = null;
     this._touchManager = null;
-  ***REMOVED***,
-  async testingClose(***REMOVED*** {
-    this.unbindEvents(***REMOVED***;
-    this.unbindWindowEvents(***REMOVED***;
-    this._globalAbortController?.abort(***REMOVED***;
+  },
+  async testingClose() {
+    this.unbindEvents();
+    this.unbindWindowEvents();
+    this._globalAbortController?.abort();
     this._globalAbortController = null;
-    this.findBar?.close(***REMOVED***;
-    await Promise.all([this.l10n?.destroy(***REMOVED***, this.close(***REMOVED***]***REMOVED***;
-  ***REMOVED***,
-  _accumulateTicks(ticks, prop***REMOVED*** {
-    if (this[prop] > 0 && ticks < 0 || this[prop] < 0 && ticks > 0***REMOVED*** {
+    this.findBar?.close();
+    await Promise.all([this.l10n?.destroy(), this.close()]);
+  },
+  _accumulateTicks(ticks, prop) {
+    if (this[prop] > 0 && ticks < 0 || this[prop] < 0 && ticks > 0) {
       this[prop] = 0;
-    ***REMOVED***
+    }
     this[prop] += ticks;
-    const wholeTicks = Math.trunc(this[prop]***REMOVED***;
+    const wholeTicks = Math.trunc(this[prop]);
     this[prop] -= wholeTicks;
     return wholeTicks;
-  ***REMOVED***,
-  _accumulateFactor(previousScale, factor, prop***REMOVED*** {
-    if (factor === 1***REMOVED*** {
+  },
+  _accumulateFactor(previousScale, factor, prop) {
+    if (factor === 1) {
       return 1;
-    ***REMOVED***
-    if (this[prop] > 1 && factor < 1 || this[prop] < 1 && factor > 1***REMOVED*** {
+    }
+    if (this[prop] > 1 && factor < 1 || this[prop] < 1 && factor > 1) {
       this[prop] = 1;
-    ***REMOVED***
-    const newFactor = Math.floor(previousScale * factor * this[prop] * 100***REMOVED*** / (100 * previousScale***REMOVED***;
+    }
+    const newFactor = Math.floor(previousScale * factor * this[prop] * 100) / (100 * previousScale);
     this[prop] = factor / newFactor;
     return newFactor;
-  ***REMOVED***,
-  _unblockDocumentLoadEvent(***REMOVED*** {
-    document.blockUnblockOnload?.(false***REMOVED***;
-    this._unblockDocumentLoadEvent = (***REMOVED*** => { ***REMOVED***;
-  ***REMOVED***,
-  get scriptingReady(***REMOVED*** {
+  },
+  _unblockDocumentLoadEvent() {
+    document.blockUnblockOnload?.(false);
+    this._unblockDocumentLoadEvent = () => { };
+  },
+  get scriptingReady() {
     return this.pdfScriptingManager.ready;
-  ***REMOVED***
-***REMOVED***;
-initCom(PDFViewerApplication***REMOVED***;
+  }
+};
+initCom(PDFViewerApplication);
 {
-  PDFPrintServiceFactory.initGlobals(PDFViewerApplication***REMOVED***;
-***REMOVED***
+  PDFPrintServiceFactory.initGlobals(PDFViewerApplication);
+}
 {
   const HOSTED_VIEWER_ORIGINS = ["null", "http://mozilla.github.io", "https://mozilla.github.io"];
-  var validateFileURL = function (file***REMOVED*** {
-    if (!file***REMOVED*** {
+  var validateFileURL = function (file) {
+    if (!file) {
       return;
-    ***REMOVED***
-  ***REMOVED***
-      const viewerOrigin = new URL(window.location.href***REMOVED***.origin || "null";
-      if (HOSTED_VIEWER_ORIGINS.includes(viewerOrigin***REMOVED******REMOVED*** {
+    }
+    try {
+      const viewerOrigin = new URL(window.location.href).origin || "null";
+      if (HOSTED_VIEWER_ORIGINS.includes(viewerOrigin)) {
         return;
-      ***REMOVED***
-      const fileOrigin = new URL(file, window.location.href***REMOVED***.origin;
-      // if (fileOrigin !== viewerOrigin***REMOVED*** {
-      //   throw new Error("file origin does not match viewer's"***REMOVED***;
-      // ***REMOVED***
-    ***REMOVED*** catch (ex***REMOVED*** {
+      }
+      const fileOrigin = new URL(file, window.location.href).origin;
+      // if (fileOrigin !== viewerOrigin) {
+      //   throw new Error("file origin does not match viewer's");
+      // }
+    } catch (ex) {
       PDFViewerApplication._documentError("pdfjs-loading-error", {
         message: ex.message
-      ***REMOVED******REMOVED***;
+      });
       throw ex;
-    ***REMOVED***
-  ***REMOVED***;
-  var onFileInputChange = function (evt***REMOVED*** {
-    if (this.pdfViewer?.isInPresentationMode***REMOVED*** {
+    }
+  };
+  var onFileInputChange = function (evt) {
+    if (this.pdfViewer?.isInPresentationMode) {
       return;
-    ***REMOVED***
+    }
     const file = evt.fileInput.files[0];
     this.open({
-      url: URL.createObjectURL(file***REMOVED***,
+      url: URL.createObjectURL(file),
       originalUrl: file.name
-    ***REMOVED******REMOVED***;
-  ***REMOVED***;
-  var onOpenFile = function (evt***REMOVED*** {
-    this._openFileInput?.click(***REMOVED***;
-  ***REMOVED***;
-***REMOVED***
+    });
+  };
+  var onOpenFile = function (evt) {
+    this._openFileInput?.click();
+  };
+}
 function onPageRender({
   pageNumber
-***REMOVED******REMOVED*** {
-  if (pageNumber === this.page***REMOVED*** {
-    this.toolbar?.updateLoadingIndicatorState(true***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+}) {
+  if (pageNumber === this.page) {
+    this.toolbar?.updateLoadingIndicatorState(true);
+  }
+}
 function onPageRendered({
   pageNumber,
   error
-***REMOVED******REMOVED*** {
-  if (pageNumber === this.page***REMOVED*** {
-    this.toolbar?.updateLoadingIndicatorState(false***REMOVED***;
-  ***REMOVED***
-  if (this.pdfSidebar?.visibleView === SidebarView.THUMBS***REMOVED*** {
-    const pageView = this.pdfViewer.getPageView(pageNumber - 1***REMOVED***;
-    const thumbnailView = this.pdfThumbnailViewer?.getThumbnail(pageNumber - 1***REMOVED***;
-    if (pageView***REMOVED*** {
-      thumbnailView?.setImage(pageView***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-  if (error***REMOVED*** {
-    this._otherError("pdfjs-rendering-error", error***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+}) {
+  if (pageNumber === this.page) {
+    this.toolbar?.updateLoadingIndicatorState(false);
+  }
+  if (this.pdfSidebar?.visibleView === SidebarView.THUMBS) {
+    const pageView = this.pdfViewer.getPageView(pageNumber - 1);
+    const thumbnailView = this.pdfThumbnailViewer?.getThumbnail(pageNumber - 1);
+    if (pageView) {
+      thumbnailView?.setImage(pageView);
+    }
+  }
+  if (error) {
+    this._otherError("pdfjs-rendering-error", error);
+  }
+}
 function onPageMode({
   mode
-***REMOVED******REMOVED*** {
+}) {
   let view;
-  switch (mode***REMOVED*** {
+  switch (mode) {
     case "thumbs":
       view = SidebarView.THUMBS;
       break;
@@ -14652,105 +14652,105 @@ function onPageMode({
       view = SidebarView.NONE;
       break;
     default:
-      console.error('Invalid "pagemode" hash parameter: ' + mode***REMOVED***;
+      console.error('Invalid "pagemode" hash parameter: ' + mode);
       return;
-  ***REMOVED***
-  this.pdfSidebar?.switchView(view, true***REMOVED***;
-***REMOVED***
-function onNamedAction(evt***REMOVED*** {
-  switch (evt.action***REMOVED*** {
+  }
+  this.pdfSidebar?.switchView(view, true);
+}
+function onNamedAction(evt) {
+  switch (evt.action) {
     case "GoToPage":
-      this.appConfig.toolbar?.pageNumber.select(***REMOVED***;
+      this.appConfig.toolbar?.pageNumber.select();
       break;
     case "Find":
-      if (!this.supportsIntegratedFind***REMOVED*** {
-        this.findBar?.toggle(***REMOVED***;
-      ***REMOVED***
+      if (!this.supportsIntegratedFind) {
+        this.findBar?.toggle();
+      }
       break;
     case "Print":
-      this.triggerPrinting(***REMOVED***;
+      this.triggerPrinting();
       break;
     case "SaveAs":
-      this.downloadOrSave(***REMOVED***;
+      this.downloadOrSave();
       break;
-  ***REMOVED***
-***REMOVED***
+  }
+}
 function onSidebarViewChanged({
   view
-***REMOVED******REMOVED*** {
+}) {
   this.pdfRenderingQueue.isThumbnailViewEnabled = view === SidebarView.THUMBS;
-  if (this.isInitialViewSet***REMOVED*** {
-    this.store?.set("sidebarView", view***REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
+  if (this.isInitialViewSet) {
+    this.store?.set("sidebarView", view).catch(() => { });
+  }
+}
 function onUpdateViewarea({
   location
-***REMOVED******REMOVED*** {
-  if (this.isInitialViewSet***REMOVED*** {
+}) {
+  if (this.isInitialViewSet) {
     this.store?.setMultiple({
       page: location.pageNumber,
       zoom: location.scale,
       scrollLeft: location.left,
       scrollTop: location.top,
       rotation: location.rotation
-    ***REMOVED******REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***;
-  ***REMOVED***
-  if (this.appConfig.secondaryToolbar***REMOVED*** {
-    this.appConfig.secondaryToolbar.viewBookmarkButton.href = this.pdfLinkService.getAnchorUrl(location.pdfOpenParams***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function onViewerModesChanged(name, evt***REMOVED*** {
-  if (this.isInitialViewSet && !this.pdfViewer.isInPresentationMode***REMOVED*** {
-    this.store?.set(name, evt.mode***REMOVED***.catch((***REMOVED*** => { ***REMOVED******REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function onResize(***REMOVED*** {
+    }).catch(() => { });
+  }
+  if (this.appConfig.secondaryToolbar) {
+    this.appConfig.secondaryToolbar.viewBookmarkButton.href = this.pdfLinkService.getAnchorUrl(location.pdfOpenParams);
+  }
+}
+function onViewerModesChanged(name, evt) {
+  if (this.isInitialViewSet && !this.pdfViewer.isInPresentationMode) {
+    this.store?.set(name, evt.mode).catch(() => { });
+  }
+}
+function onResize() {
   const {
     pdfDocument,
     pdfViewer,
     pdfRenderingQueue
-  ***REMOVED*** = this;
-  if (pdfRenderingQueue.printing && window.matchMedia("print"***REMOVED***.matches***REMOVED*** {
+  } = this;
+  if (pdfRenderingQueue.printing && window.matchMedia("print").matches) {
     return;
-  ***REMOVED***
-  if (!pdfDocument***REMOVED*** {
+  }
+  if (!pdfDocument) {
     return;
-  ***REMOVED***
+  }
   const currentScaleValue = pdfViewer.currentScaleValue;
-  if (currentScaleValue === "auto" || currentScaleValue === "page-fit" || currentScaleValue === "page-width"***REMOVED*** {
+  if (currentScaleValue === "auto" || currentScaleValue === "page-fit" || currentScaleValue === "page-width") {
     pdfViewer.currentScaleValue = currentScaleValue;
-  ***REMOVED***
-  pdfViewer.update(***REMOVED***;
-***REMOVED***
-function onHashchange(evt***REMOVED*** {
+  }
+  pdfViewer.update();
+}
+function onHashchange(evt) {
   const hash = evt.hash;
-  if (!hash***REMOVED*** {
+  if (!hash) {
     return;
-  ***REMOVED***
-  if (!this.isInitialViewSet***REMOVED*** {
+  }
+  if (!this.isInitialViewSet) {
     this.initialBookmark = hash;
-  ***REMOVED*** else if (!this.pdfHistory?.popStateInProgress***REMOVED*** {
-    this.pdfLinkService.setHash(hash***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function onPageNumberChanged(evt***REMOVED*** {
+  } else if (!this.pdfHistory?.popStateInProgress) {
+    this.pdfLinkService.setHash(hash);
+  }
+}
+function onPageNumberChanged(evt) {
   const {
     pdfViewer
-  ***REMOVED*** = this;
-  if (evt.value !== ""***REMOVED*** {
-    this.pdfLinkService.goToPage(evt.value***REMOVED***;
-  ***REMOVED***
-  if (evt.value !== pdfViewer.currentPageNumber.toString(***REMOVED*** && evt.value !== pdfViewer.currentPageLabel***REMOVED*** {
-    this.toolbar?.setPageNumber(pdfViewer.currentPageNumber, pdfViewer.currentPageLabel***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function onImageAltTextSettings(***REMOVED*** {
+  } = this;
+  if (evt.value !== "") {
+    this.pdfLinkService.goToPage(evt.value);
+  }
+  if (evt.value !== pdfViewer.currentPageNumber.toString() && evt.value !== pdfViewer.currentPageLabel) {
+    this.toolbar?.setPageNumber(pdfViewer.currentPageNumber, pdfViewer.currentPageLabel);
+  }
+}
+function onImageAltTextSettings() {
   this.imageAltTextSettings?.open({
-    enableGuessAltText: AppOptions.get("enableGuessAltText"***REMOVED***,
-    enableNewAltTextWhenAddingImage: AppOptions.get("enableNewAltTextWhenAddingImage"***REMOVED***
-  ***REMOVED******REMOVED***;
-***REMOVED***
-function onFindFromUrlHash(evt***REMOVED*** {
+    enableGuessAltText: AppOptions.get("enableGuessAltText"),
+    enableNewAltTextWhenAddingImage: AppOptions.get("enableNewAltTextWhenAddingImage")
+  });
+}
+function onFindFromUrlHash(evt) {
   this.eventBus.dispatch("find", {
     source: evt.source,
     type: "",
@@ -14760,403 +14760,403 @@ function onFindFromUrlHash(evt***REMOVED*** {
     highlightAll: true,
     findPrevious: false,
     matchDiacritics: true
-  ***REMOVED******REMOVED***;
-***REMOVED***
+  });
+}
 function onUpdateFindMatchesCount({
   matchesCount
-***REMOVED******REMOVED*** {
-  if (this.supportsIntegratedFind***REMOVED*** {
-    this.externalServices.updateFindMatchesCount(matchesCount***REMOVED***;
-  ***REMOVED*** else {
-    this.findBar?.updateResultsCount(matchesCount***REMOVED***;
-  ***REMOVED***
-***REMOVED***
+}) {
+  if (this.supportsIntegratedFind) {
+    this.externalServices.updateFindMatchesCount(matchesCount);
+  } else {
+    this.findBar?.updateResultsCount(matchesCount);
+  }
+}
 function onUpdateFindControlState({
   state,
   previous,
   entireWord,
   matchesCount,
   rawQuery
-***REMOVED******REMOVED*** {
-  if (this.supportsIntegratedFind***REMOVED*** {
+}) {
+  if (this.supportsIntegratedFind) {
     this.externalServices.updateFindControlState({
       result: state,
       findPrevious: previous,
       entireWord,
       matchesCount,
       rawQuery
-    ***REMOVED******REMOVED***;
-  ***REMOVED*** else {
-    this.findBar?.updateUIState(state, previous, matchesCount***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function onScaleChanging(evt***REMOVED*** {
-  this.toolbar?.setPageScale(evt.presetValue, evt.scale***REMOVED***;
-  this.pdfViewer.update(***REMOVED***;
-***REMOVED***
-function onRotationChanging(evt***REMOVED*** {
-  if (this.pdfThumbnailViewer***REMOVED*** {
+    });
+  } else {
+    this.findBar?.updateUIState(state, previous, matchesCount);
+  }
+}
+function onScaleChanging(evt) {
+  this.toolbar?.setPageScale(evt.presetValue, evt.scale);
+  this.pdfViewer.update();
+}
+function onRotationChanging(evt) {
+  if (this.pdfThumbnailViewer) {
     this.pdfThumbnailViewer.pagesRotation = evt.pagesRotation;
-  ***REMOVED***
-  this.forceRendering(***REMOVED***;
+  }
+  this.forceRendering();
   this.pdfViewer.currentPageNumber = evt.pageNumber;
-***REMOVED***
+}
 function onPageChanging({
   pageNumber,
   pageLabel
-***REMOVED******REMOVED*** {
-  this.toolbar?.setPageNumber(pageNumber, pageLabel***REMOVED***;
-  this.secondaryToolbar?.setPageNumber(pageNumber***REMOVED***;
-  if (this.pdfSidebar?.visibleView === SidebarView.THUMBS***REMOVED*** {
-    this.pdfThumbnailViewer?.scrollThumbnailIntoView(pageNumber***REMOVED***;
-  ***REMOVED***
-  const currentPage = this.pdfViewer.getPageView(pageNumber - 1***REMOVED***;
-  this.toolbar?.updateLoadingIndicatorState(currentPage?.renderingState === RenderingStates.RUNNING***REMOVED***;
-***REMOVED***
-function onWheel(evt***REMOVED*** {
+}) {
+  this.toolbar?.setPageNumber(pageNumber, pageLabel);
+  this.secondaryToolbar?.setPageNumber(pageNumber);
+  if (this.pdfSidebar?.visibleView === SidebarView.THUMBS) {
+    this.pdfThumbnailViewer?.scrollThumbnailIntoView(pageNumber);
+  }
+  const currentPage = this.pdfViewer.getPageView(pageNumber - 1);
+  this.toolbar?.updateLoadingIndicatorState(currentPage?.renderingState === RenderingStates.RUNNING);
+}
+function onWheel(evt) {
   const {
     pdfViewer,
     supportsMouseWheelZoomCtrlKey,
     supportsMouseWheelZoomMetaKey,
     supportsPinchToZoom
-  ***REMOVED*** = this;
-  if (pdfViewer.isInPresentationMode***REMOVED*** {
+  } = this;
+  if (pdfViewer.isInPresentationMode) {
     return;
-  ***REMOVED***
+  }
   const deltaMode = evt.deltaMode;
-  let scaleFactor = Math.exp(-evt.deltaY / 100***REMOVED***;
+  let scaleFactor = Math.exp(-evt.deltaY / 100);
   const isBuiltInMac = false;
-  const isPinchToZoom = evt.ctrlKey && !this._isCtrlKeyDown && deltaMode === WheelEvent.DOM_DELTA_PIXEL && evt.deltaX === 0 && (Math.abs(scaleFactor - 1***REMOVED*** < 0.05 || isBuiltInMac***REMOVED*** && evt.deltaZ === 0;
+  const isPinchToZoom = evt.ctrlKey && !this._isCtrlKeyDown && deltaMode === WheelEvent.DOM_DELTA_PIXEL && evt.deltaX === 0 && (Math.abs(scaleFactor - 1) < 0.05 || isBuiltInMac) && evt.deltaZ === 0;
   const origin = [evt.clientX, evt.clientY];
-  if (isPinchToZoom || evt.ctrlKey && supportsMouseWheelZoomCtrlKey || evt.metaKey && supportsMouseWheelZoomMetaKey***REMOVED*** {
-    evt.preventDefault(***REMOVED***;
-    if (this._isScrolling || document.visibilityState === "hidden" || this.overlayManager.active***REMOVED*** {
+  if (isPinchToZoom || evt.ctrlKey && supportsMouseWheelZoomCtrlKey || evt.metaKey && supportsMouseWheelZoomMetaKey) {
+    evt.preventDefault();
+    if (this._isScrolling || document.visibilityState === "hidden" || this.overlayManager.active) {
       return;
-    ***REMOVED***
-    if (isPinchToZoom && supportsPinchToZoom***REMOVED*** {
-      scaleFactor = this._accumulateFactor(pdfViewer.currentScale, scaleFactor, "_wheelUnusedFactor"***REMOVED***;
-      this.updateZoom(null, scaleFactor, origin***REMOVED***;
-    ***REMOVED*** else {
-      const delta = normalizeWheelEventDirection(evt***REMOVED***;
+    }
+    if (isPinchToZoom && supportsPinchToZoom) {
+      scaleFactor = this._accumulateFactor(pdfViewer.currentScale, scaleFactor, "_wheelUnusedFactor");
+      this.updateZoom(null, scaleFactor, origin);
+    } else {
+      const delta = normalizeWheelEventDirection(evt);
       let ticks = 0;
-      if (deltaMode === WheelEvent.DOM_DELTA_LINE || deltaMode === WheelEvent.DOM_DELTA_PAGE***REMOVED*** {
-        ticks = Math.abs(delta***REMOVED*** >= 1 ? Math.sign(delta***REMOVED*** : this._accumulateTicks(delta, "_wheelUnusedTicks"***REMOVED***;
-      ***REMOVED*** else {
+      if (deltaMode === WheelEvent.DOM_DELTA_LINE || deltaMode === WheelEvent.DOM_DELTA_PAGE) {
+        ticks = Math.abs(delta) >= 1 ? Math.sign(delta) : this._accumulateTicks(delta, "_wheelUnusedTicks");
+      } else {
         const PIXELS_PER_LINE_SCALE = 30;
-        ticks = this._accumulateTicks(delta / PIXELS_PER_LINE_SCALE, "_wheelUnusedTicks"***REMOVED***;
-      ***REMOVED***
-      this.updateZoom(ticks, null, origin***REMOVED***;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
-function closeSecondaryToolbar(evt***REMOVED*** {
-  if (!this.secondaryToolbar?.isOpen***REMOVED*** {
+        ticks = this._accumulateTicks(delta / PIXELS_PER_LINE_SCALE, "_wheelUnusedTicks");
+      }
+      this.updateZoom(ticks, null, origin);
+    }
+  }
+}
+function closeSecondaryToolbar(evt) {
+  if (!this.secondaryToolbar?.isOpen) {
     return;
-  ***REMOVED***
+  }
   const appConfig = this.appConfig;
-  if (this.pdfViewer.containsElement(evt.target***REMOVED*** || appConfig.toolbar?.container.contains(evt.target***REMOVED*** && !appConfig.secondaryToolbar?.toggleButton.contains(evt.target***REMOVED******REMOVED*** {
-    this.secondaryToolbar.close(***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function closeEditorUndoBar(evt***REMOVED*** {
-  if (!this.editorUndoBar?.isOpen***REMOVED*** {
+  if (this.pdfViewer.containsElement(evt.target) || appConfig.toolbar?.container.contains(evt.target) && !appConfig.secondaryToolbar?.toggleButton.contains(evt.target)) {
+    this.secondaryToolbar.close();
+  }
+}
+function closeEditorUndoBar(evt) {
+  if (!this.editorUndoBar?.isOpen) {
     return;
-  ***REMOVED***
-  if (this.appConfig.secondaryToolbar?.toolbar.contains(evt.target***REMOVED******REMOVED*** {
-    this.editorUndoBar.hide(***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function onClick(evt***REMOVED*** {
-  closeSecondaryToolbar.call(this, evt***REMOVED***;
-  closeEditorUndoBar.call(this, evt***REMOVED***;
-***REMOVED***
-function onKeyUp(evt***REMOVED*** {
-  if (evt.key === "Control"***REMOVED*** {
+  }
+  if (this.appConfig.secondaryToolbar?.toolbar.contains(evt.target)) {
+    this.editorUndoBar.hide();
+  }
+}
+function onClick(evt) {
+  closeSecondaryToolbar.call(this, evt);
+  closeEditorUndoBar.call(this, evt);
+}
+function onKeyUp(evt) {
+  if (evt.key === "Control") {
     this._isCtrlKeyDown = false;
-  ***REMOVED***
-***REMOVED***
-function onKeyDown(evt***REMOVED*** {
+  }
+}
+function onKeyDown(evt) {
   this._isCtrlKeyDown = evt.key === "Control";
-  if (this.editorUndoBar?.isOpen && evt.keyCode !== 9 && evt.keyCode !== 16 && !((evt.keyCode === 13 || evt.keyCode === 32***REMOVED*** && getActiveOrFocusedElement(***REMOVED*** === this.appConfig.editorUndoBar.undoButton***REMOVED******REMOVED*** {
-    this.editorUndoBar.hide(***REMOVED***;
-  ***REMOVED***
-  if (this.overlayManager.active***REMOVED*** {
+  if (this.editorUndoBar?.isOpen && evt.keyCode !== 9 && evt.keyCode !== 16 && !((evt.keyCode === 13 || evt.keyCode === 32) && getActiveOrFocusedElement() === this.appConfig.editorUndoBar.undoButton)) {
+    this.editorUndoBar.hide();
+  }
+  if (this.overlayManager.active) {
     return;
-  ***REMOVED***
+  }
   const {
     eventBus,
     pdfViewer
-  ***REMOVED*** = this;
+  } = this;
   const isViewerInPresentationMode = pdfViewer.isInPresentationMode;
   let handled = false,
     ensureViewerFocused = false;
-  const cmd = (evt.ctrlKey ? 1 : 0***REMOVED*** | (evt.altKey ? 2 : 0***REMOVED*** | (evt.shiftKey ? 4 : 0***REMOVED*** | (evt.metaKey ? 8 : 0***REMOVED***;
-  if (cmd === 1 || cmd === 8 || cmd === 5 || cmd === 12***REMOVED*** {
-    switch (evt.keyCode***REMOVED*** {
+  const cmd = (evt.ctrlKey ? 1 : 0) | (evt.altKey ? 2 : 0) | (evt.shiftKey ? 4 : 0) | (evt.metaKey ? 8 : 0);
+  if (cmd === 1 || cmd === 8 || cmd === 5 || cmd === 12) {
+    switch (evt.keyCode) {
       case 70:
-        if (!this.supportsIntegratedFind && !evt.shiftKey***REMOVED*** {
-          this.findBar?.open(***REMOVED***;
+        if (!this.supportsIntegratedFind && !evt.shiftKey) {
+          this.findBar?.open();
           handled = true;
-        ***REMOVED***
+        }
         break;
       case 71:
-        if (!this.supportsIntegratedFind***REMOVED*** {
+        if (!this.supportsIntegratedFind) {
           const {
             state
-          ***REMOVED*** = this.findController;
-          if (state***REMOVED*** {
+          } = this.findController;
+          if (state) {
             const newState = {
               source: window,
               type: "again",
               findPrevious: cmd === 5 || cmd === 12
-            ***REMOVED***;
+            };
             eventBus.dispatch("find", {
               ...state,
               ...newState
-            ***REMOVED******REMOVED***;
-          ***REMOVED***
+            });
+          }
           handled = true;
-        ***REMOVED***
+        }
         break;
       case 61:
       case 107:
       case 187:
       case 171:
-        this.zoomIn(***REMOVED***;
+        this.zoomIn();
         handled = true;
         break;
       case 173:
       case 109:
       case 189:
-        this.zoomOut(***REMOVED***;
+        this.zoomOut();
         handled = true;
         break;
       case 48:
       case 96:
-        if (!isViewerInPresentationMode***REMOVED*** {
-          setTimeout((***REMOVED*** => {
-            this.zoomReset(***REMOVED***;
-          ***REMOVED******REMOVED***;
+        if (!isViewerInPresentationMode) {
+          setTimeout(() => {
+            this.zoomReset();
+          });
           handled = false;
-        ***REMOVED***
+        }
         break;
       case 38:
-        if (isViewerInPresentationMode || this.page > 1***REMOVED*** {
+        if (isViewerInPresentationMode || this.page > 1) {
           this.page = 1;
           handled = true;
           ensureViewerFocused = true;
-        ***REMOVED***
+        }
         break;
       case 40:
-        if (isViewerInPresentationMode || this.page < this.pagesCount***REMOVED*** {
+        if (isViewerInPresentationMode || this.page < this.pagesCount) {
           this.page = this.pagesCount;
           handled = true;
           ensureViewerFocused = true;
-        ***REMOVED***
+        }
         break;
-    ***REMOVED***
-  ***REMOVED***
-  if (cmd === 1 || cmd === 8***REMOVED*** {
-    switch (evt.keyCode***REMOVED*** {
+    }
+  }
+  if (cmd === 1 || cmd === 8) {
+    switch (evt.keyCode) {
       case 83:
         eventBus.dispatch("download", {
           source: window
-        ***REMOVED******REMOVED***;
+        });
         handled = true;
         break;
       case 79:
-      ***REMOVED***
+        {
           eventBus.dispatch("openfile", {
             source: window
-          ***REMOVED******REMOVED***;
+          });
           handled = true;
-        ***REMOVED***
+        }
         break;
-    ***REMOVED***
-  ***REMOVED***
-  if (cmd === 3 || cmd === 10***REMOVED*** {
-    switch (evt.keyCode***REMOVED*** {
+    }
+  }
+  if (cmd === 3 || cmd === 10) {
+    switch (evt.keyCode) {
       case 80:
-        this.requestPresentationMode(***REMOVED***;
+        this.requestPresentationMode();
         handled = true;
         this.externalServices.reportTelemetry({
           type: "buttons",
           data: {
             id: "presentationModeKeyboard"
-          ***REMOVED***
-        ***REMOVED******REMOVED***;
+          }
+        });
         break;
       case 71:
-        if (this.appConfig.toolbar***REMOVED*** {
-          this.appConfig.toolbar.pageNumber.select(***REMOVED***;
+        if (this.appConfig.toolbar) {
+          this.appConfig.toolbar.pageNumber.select();
           handled = true;
-        ***REMOVED***
+        }
         break;
-    ***REMOVED***
-  ***REMOVED***
-  if (handled***REMOVED*** {
-    if (ensureViewerFocused && !isViewerInPresentationMode***REMOVED*** {
-      pdfViewer.focus(***REMOVED***;
-    ***REMOVED***
-    evt.preventDefault(***REMOVED***;
+    }
+  }
+  if (handled) {
+    if (ensureViewerFocused && !isViewerInPresentationMode) {
+      pdfViewer.focus();
+    }
+    evt.preventDefault();
     return;
-  ***REMOVED***
-  const curElement = getActiveOrFocusedElement(***REMOVED***;
-  const curElementTagName = curElement?.tagName.toUpperCase(***REMOVED***;
-  if (curElementTagName === "INPUT" || curElementTagName === "TEXTAREA" || curElementTagName === "SELECT" || curElementTagName === "BUTTON" && (evt.keyCode === 13 || evt.keyCode === 32***REMOVED*** || curElement?.isContentEditable***REMOVED*** {
-    if (evt.keyCode !== 27***REMOVED*** {
+  }
+  const curElement = getActiveOrFocusedElement();
+  const curElementTagName = curElement?.tagName.toUpperCase();
+  if (curElementTagName === "INPUT" || curElementTagName === "TEXTAREA" || curElementTagName === "SELECT" || curElementTagName === "BUTTON" && (evt.keyCode === 13 || evt.keyCode === 32) || curElement?.isContentEditable) {
+    if (evt.keyCode !== 27) {
       return;
-    ***REMOVED***
-  ***REMOVED***
-  if (cmd === 0***REMOVED*** {
+    }
+  }
+  if (cmd === 0) {
     let turnPage = 0,
       turnOnlyIfPageFit = false;
-    switch (evt.keyCode***REMOVED*** {
+    switch (evt.keyCode) {
       case 38:
-        if (this.supportsCaretBrowsingMode***REMOVED*** {
-          this.moveCaret(true, false***REMOVED***;
+        if (this.supportsCaretBrowsingMode) {
+          this.moveCaret(true, false);
           handled = true;
           break;
-        ***REMOVED***
+        }
       case 33:
-        if (pdfViewer.isVerticalScrollbarEnabled***REMOVED*** {
+        if (pdfViewer.isVerticalScrollbarEnabled) {
           turnOnlyIfPageFit = true;
-        ***REMOVED***
+        }
         turnPage = -1;
         break;
       case 8:
-        if (!isViewerInPresentationMode***REMOVED*** {
+        if (!isViewerInPresentationMode) {
           turnOnlyIfPageFit = true;
-        ***REMOVED***
+        }
         turnPage = -1;
         break;
       case 37:
-        if (this.supportsCaretBrowsingMode***REMOVED*** {
+        if (this.supportsCaretBrowsingMode) {
           return;
-        ***REMOVED***
-        if (pdfViewer.isHorizontalScrollbarEnabled***REMOVED*** {
+        }
+        if (pdfViewer.isHorizontalScrollbarEnabled) {
           turnOnlyIfPageFit = true;
-        ***REMOVED***
+        }
       case 75:
       case 80:
         turnPage = -1;
         break;
       case 27:
-        if (this.secondaryToolbar?.isOpen***REMOVED*** {
-          this.secondaryToolbar.close(***REMOVED***;
+        if (this.secondaryToolbar?.isOpen) {
+          this.secondaryToolbar.close();
           handled = true;
-        ***REMOVED***
-        if (!this.supportsIntegratedFind && this.findBar?.opened***REMOVED*** {
-          this.findBar.close(***REMOVED***;
+        }
+        if (!this.supportsIntegratedFind && this.findBar?.opened) {
+          this.findBar.close();
           handled = true;
-        ***REMOVED***
+        }
         break;
       case 40:
-        if (this.supportsCaretBrowsingMode***REMOVED*** {
-          this.moveCaret(false, false***REMOVED***;
+        if (this.supportsCaretBrowsingMode) {
+          this.moveCaret(false, false);
           handled = true;
           break;
-        ***REMOVED***
+        }
       case 34:
-        if (pdfViewer.isVerticalScrollbarEnabled***REMOVED*** {
+        if (pdfViewer.isVerticalScrollbarEnabled) {
           turnOnlyIfPageFit = true;
-        ***REMOVED***
+        }
         turnPage = 1;
         break;
       case 13:
       case 32:
-        if (!isViewerInPresentationMode***REMOVED*** {
+        if (!isViewerInPresentationMode) {
           turnOnlyIfPageFit = true;
-        ***REMOVED***
+        }
         turnPage = 1;
         break;
       case 39:
-        if (this.supportsCaretBrowsingMode***REMOVED*** {
+        if (this.supportsCaretBrowsingMode) {
           return;
-        ***REMOVED***
-        if (pdfViewer.isHorizontalScrollbarEnabled***REMOVED*** {
+        }
+        if (pdfViewer.isHorizontalScrollbarEnabled) {
           turnOnlyIfPageFit = true;
-        ***REMOVED***
+        }
       case 74:
       case 78:
         turnPage = 1;
         break;
       case 36:
-        if (isViewerInPresentationMode || this.page > 1***REMOVED*** {
+        if (isViewerInPresentationMode || this.page > 1) {
           this.page = 1;
           handled = true;
           ensureViewerFocused = true;
-        ***REMOVED***
+        }
         break;
       case 35:
-        if (isViewerInPresentationMode || this.page < this.pagesCount***REMOVED*** {
+        if (isViewerInPresentationMode || this.page < this.pagesCount) {
           this.page = this.pagesCount;
           handled = true;
           ensureViewerFocused = true;
-        ***REMOVED***
+        }
         break;
       case 83:
-        this.pdfCursorTools?.switchTool(CursorTool.SELECT***REMOVED***;
+        this.pdfCursorTools?.switchTool(CursorTool.SELECT);
         break;
       case 72:
-        this.pdfCursorTools?.switchTool(CursorTool.HAND***REMOVED***;
+        this.pdfCursorTools?.switchTool(CursorTool.HAND);
         break;
       case 82:
-        this.rotatePages(90***REMOVED***;
+        this.rotatePages(90);
         break;
       case 115:
-        this.pdfSidebar?.toggle(***REMOVED***;
+        this.pdfSidebar?.toggle();
         break;
-    ***REMOVED***
-    if (turnPage !== 0 && (!turnOnlyIfPageFit || pdfViewer.currentScaleValue === "page-fit"***REMOVED******REMOVED*** {
-      if (turnPage > 0***REMOVED*** {
-        pdfViewer.nextPage(***REMOVED***;
-      ***REMOVED*** else {
-        pdfViewer.previousPage(***REMOVED***;
-      ***REMOVED***
+    }
+    if (turnPage !== 0 && (!turnOnlyIfPageFit || pdfViewer.currentScaleValue === "page-fit")) {
+      if (turnPage > 0) {
+        pdfViewer.nextPage();
+      } else {
+        pdfViewer.previousPage();
+      }
       handled = true;
-    ***REMOVED***
-  ***REMOVED***
-  if (cmd === 4***REMOVED*** {
-    switch (evt.keyCode***REMOVED*** {
+    }
+  }
+  if (cmd === 4) {
+    switch (evt.keyCode) {
       case 13:
       case 32:
-        if (!isViewerInPresentationMode && pdfViewer.currentScaleValue !== "page-fit"***REMOVED*** {
+        if (!isViewerInPresentationMode && pdfViewer.currentScaleValue !== "page-fit") {
           break;
-        ***REMOVED***
-        pdfViewer.previousPage(***REMOVED***;
+        }
+        pdfViewer.previousPage();
         handled = true;
         break;
       case 38:
-        this.moveCaret(true, true***REMOVED***;
+        this.moveCaret(true, true);
         handled = true;
         break;
       case 40:
-        this.moveCaret(false, true***REMOVED***;
+        this.moveCaret(false, true);
         handled = true;
         break;
       case 82:
-        this.rotatePages(-90***REMOVED***;
+        this.rotatePages(-90);
         break;
-    ***REMOVED***
-  ***REMOVED***
-  if (!handled && !isViewerInPresentationMode***REMOVED*** {
-    if (evt.keyCode >= 33 && evt.keyCode <= 40 || evt.keyCode === 32 && curElementTagName !== "BUTTON"***REMOVED*** {
+    }
+  }
+  if (!handled && !isViewerInPresentationMode) {
+    if (evt.keyCode >= 33 && evt.keyCode <= 40 || evt.keyCode === 32 && curElementTagName !== "BUTTON") {
       ensureViewerFocused = true;
-    ***REMOVED***
-  ***REMOVED***
-  if (ensureViewerFocused && !pdfViewer.containsElement(curElement***REMOVED******REMOVED*** {
-    pdfViewer.focus(***REMOVED***;
-  ***REMOVED***
-  if (handled***REMOVED*** {
-    evt.preventDefault(***REMOVED***;
-  ***REMOVED***
-***REMOVED***
-function beforeUnload(evt***REMOVED*** {
-  evt.preventDefault(***REMOVED***;
+    }
+  }
+  if (ensureViewerFocused && !pdfViewer.containsElement(curElement)) {
+    pdfViewer.focus();
+  }
+  if (handled) {
+    evt.preventDefault();
+  }
+}
+function beforeUnload(evt) {
+  evt.preventDefault();
   evt.returnValue = "";
   return false;
-***REMOVED***
+}
 
 ;// ./web/viewer.js
 
@@ -15170,201 +15170,201 @@ const AppConstants = {
   RenderingStates: RenderingStates,
   ScrollMode: ScrollMode,
   SpreadMode: SpreadMode
-***REMOVED***;
+};
 window.PDFViewerApplication = PDFViewerApplication;
 window.PDFViewerApplicationConstants = AppConstants;
 window.PDFViewerApplicationOptions = AppOptions;
-function getViewerConfiguration(***REMOVED*** {
+function getViewerConfiguration() {
   return {
     appContainer: document.body,
-    principalContainer: document.getElementById("mainContainer"***REMOVED***,
-    mainContainer: document.getElementById("viewerContainer"***REMOVED***,
-    viewerContainer: document.getElementById("viewer"***REMOVED***,
+    principalContainer: document.getElementById("mainContainer"),
+    mainContainer: document.getElementById("viewerContainer"),
+    viewerContainer: document.getElementById("viewer"),
     toolbar: {
-      container: document.getElementById("toolbarContainer"***REMOVED***,
-      numPages: document.getElementById("numPages"***REMOVED***,
-      pageNumber: document.getElementById("pageNumber"***REMOVED***,
-      scaleSelect: document.getElementById("scaleSelect"***REMOVED***,
-      customScaleOption: document.getElementById("customScaleOption"***REMOVED***,
-      previous: document.getElementById("previous"***REMOVED***,
-      next: document.getElementById("next"***REMOVED***,
-      zoomIn: document.getElementById("zoomInButton"***REMOVED***,
-      zoomOut: document.getElementById("zoomOutButton"***REMOVED***,
-      print: document.getElementById("printButton"***REMOVED***,
-      editorFreeTextButton: document.getElementById("editorFreeTextButton"***REMOVED***,
-      editorFreeTextParamsToolbar: document.getElementById("editorFreeTextParamsToolbar"***REMOVED***,
-      editorHighlightButton: document.getElementById("editorHighlightButton"***REMOVED***,
-      editorHighlightParamsToolbar: document.getElementById("editorHighlightParamsToolbar"***REMOVED***,
-      editorHighlightColorPicker: document.getElementById("editorHighlightColorPicker"***REMOVED***,
-      editorInkButton: document.getElementById("editorInkButton"***REMOVED***,
-      editorInkParamsToolbar: document.getElementById("editorInkParamsToolbar"***REMOVED***,
-      editorStampButton: document.getElementById("editorStampButton"***REMOVED***,
-      editorStampParamsToolbar: document.getElementById("editorStampParamsToolbar"***REMOVED***,
-      download: document.getElementById("downloadButton"***REMOVED***
-    ***REMOVED***,
+      container: document.getElementById("toolbarContainer"),
+      numPages: document.getElementById("numPages"),
+      pageNumber: document.getElementById("pageNumber"),
+      scaleSelect: document.getElementById("scaleSelect"),
+      customScaleOption: document.getElementById("customScaleOption"),
+      previous: document.getElementById("previous"),
+      next: document.getElementById("next"),
+      zoomIn: document.getElementById("zoomInButton"),
+      zoomOut: document.getElementById("zoomOutButton"),
+      print: document.getElementById("printButton"),
+      editorFreeTextButton: document.getElementById("editorFreeTextButton"),
+      editorFreeTextParamsToolbar: document.getElementById("editorFreeTextParamsToolbar"),
+      editorHighlightButton: document.getElementById("editorHighlightButton"),
+      editorHighlightParamsToolbar: document.getElementById("editorHighlightParamsToolbar"),
+      editorHighlightColorPicker: document.getElementById("editorHighlightColorPicker"),
+      editorInkButton: document.getElementById("editorInkButton"),
+      editorInkParamsToolbar: document.getElementById("editorInkParamsToolbar"),
+      editorStampButton: document.getElementById("editorStampButton"),
+      editorStampParamsToolbar: document.getElementById("editorStampParamsToolbar"),
+      download: document.getElementById("downloadButton")
+    },
     secondaryToolbar: {
-      toolbar: document.getElementById("secondaryToolbar"***REMOVED***,
-      toggleButton: document.getElementById("secondaryToolbarToggleButton"***REMOVED***,
-      presentationModeButton: document.getElementById("presentationMode"***REMOVED***,
-      openFileButton: document.getElementById("secondaryOpenFile"***REMOVED***,
-      printButton: document.getElementById("secondaryPrint"***REMOVED***,
-      downloadButton: document.getElementById("secondaryDownload"***REMOVED***,
-      viewBookmarkButton: document.getElementById("viewBookmark"***REMOVED***,
-      firstPageButton: document.getElementById("firstPage"***REMOVED***,
-      lastPageButton: document.getElementById("lastPage"***REMOVED***,
-      pageRotateCwButton: document.getElementById("pageRotateCw"***REMOVED***,
-      pageRotateCcwButton: document.getElementById("pageRotateCcw"***REMOVED***,
-      cursorSelectToolButton: document.getElementById("cursorSelectTool"***REMOVED***,
-      cursorHandToolButton: document.getElementById("cursorHandTool"***REMOVED***,
-      scrollPageButton: document.getElementById("scrollPage"***REMOVED***,
-      scrollVerticalButton: document.getElementById("scrollVertical"***REMOVED***,
-      scrollHorizontalButton: document.getElementById("scrollHorizontal"***REMOVED***,
-      scrollWrappedButton: document.getElementById("scrollWrapped"***REMOVED***,
-      spreadNoneButton: document.getElementById("spreadNone"***REMOVED***,
-      spreadOddButton: document.getElementById("spreadOdd"***REMOVED***,
-      spreadEvenButton: document.getElementById("spreadEven"***REMOVED***,
-      imageAltTextSettingsButton: document.getElementById("imageAltTextSettings"***REMOVED***,
-      imageAltTextSettingsSeparator: document.getElementById("imageAltTextSettingsSeparator"***REMOVED***,
-      documentPropertiesButton: document.getElementById("documentProperties"***REMOVED***
-    ***REMOVED***,
+      toolbar: document.getElementById("secondaryToolbar"),
+      toggleButton: document.getElementById("secondaryToolbarToggleButton"),
+      presentationModeButton: document.getElementById("presentationMode"),
+      openFileButton: document.getElementById("secondaryOpenFile"),
+      printButton: document.getElementById("secondaryPrint"),
+      downloadButton: document.getElementById("secondaryDownload"),
+      viewBookmarkButton: document.getElementById("viewBookmark"),
+      firstPageButton: document.getElementById("firstPage"),
+      lastPageButton: document.getElementById("lastPage"),
+      pageRotateCwButton: document.getElementById("pageRotateCw"),
+      pageRotateCcwButton: document.getElementById("pageRotateCcw"),
+      cursorSelectToolButton: document.getElementById("cursorSelectTool"),
+      cursorHandToolButton: document.getElementById("cursorHandTool"),
+      scrollPageButton: document.getElementById("scrollPage"),
+      scrollVerticalButton: document.getElementById("scrollVertical"),
+      scrollHorizontalButton: document.getElementById("scrollHorizontal"),
+      scrollWrappedButton: document.getElementById("scrollWrapped"),
+      spreadNoneButton: document.getElementById("spreadNone"),
+      spreadOddButton: document.getElementById("spreadOdd"),
+      spreadEvenButton: document.getElementById("spreadEven"),
+      imageAltTextSettingsButton: document.getElementById("imageAltTextSettings"),
+      imageAltTextSettingsSeparator: document.getElementById("imageAltTextSettingsSeparator"),
+      documentPropertiesButton: document.getElementById("documentProperties")
+    },
     sidebar: {
-      outerContainer: document.getElementById("outerContainer"***REMOVED***,
-      sidebarContainer: document.getElementById("sidebarContainer"***REMOVED***,
-      toggleButton: document.getElementById("sidebarToggleButton"***REMOVED***,
-      resizer: document.getElementById("sidebarResizer"***REMOVED***,
-      thumbnailButton: document.getElementById("viewThumbnail"***REMOVED***,
-      outlineButton: document.getElementById("viewOutline"***REMOVED***,
-      attachmentsButton: document.getElementById("viewAttachments"***REMOVED***,
-      layersButton: document.getElementById("viewLayers"***REMOVED***,
-      thumbnailView: document.getElementById("thumbnailView"***REMOVED***,
-      outlineView: document.getElementById("outlineView"***REMOVED***,
-      attachmentsView: document.getElementById("attachmentsView"***REMOVED***,
-      layersView: document.getElementById("layersView"***REMOVED***,
-      currentOutlineItemButton: document.getElementById("currentOutlineItem"***REMOVED***
-    ***REMOVED***,
+      outerContainer: document.getElementById("outerContainer"),
+      sidebarContainer: document.getElementById("sidebarContainer"),
+      toggleButton: document.getElementById("sidebarToggleButton"),
+      resizer: document.getElementById("sidebarResizer"),
+      thumbnailButton: document.getElementById("viewThumbnail"),
+      outlineButton: document.getElementById("viewOutline"),
+      attachmentsButton: document.getElementById("viewAttachments"),
+      layersButton: document.getElementById("viewLayers"),
+      thumbnailView: document.getElementById("thumbnailView"),
+      outlineView: document.getElementById("outlineView"),
+      attachmentsView: document.getElementById("attachmentsView"),
+      layersView: document.getElementById("layersView"),
+      currentOutlineItemButton: document.getElementById("currentOutlineItem")
+    },
     findBar: {
-      bar: document.getElementById("findbar"***REMOVED***,
-      toggleButton: document.getElementById("viewFindButton"***REMOVED***,
-      findField: document.getElementById("findInput"***REMOVED***,
-      highlightAllCheckbox: document.getElementById("findHighlightAll"***REMOVED***,
-      caseSensitiveCheckbox: document.getElementById("findMatchCase"***REMOVED***,
-      matchDiacriticsCheckbox: document.getElementById("findMatchDiacritics"***REMOVED***,
-      entireWordCheckbox: document.getElementById("findEntireWord"***REMOVED***,
-      findMsg: document.getElementById("findMsg"***REMOVED***,
-      findResultsCount: document.getElementById("findResultsCount"***REMOVED***,
-      findPreviousButton: document.getElementById("findPreviousButton"***REMOVED***,
-      findNextButton: document.getElementById("findNextButton"***REMOVED***
-    ***REMOVED***,
+      bar: document.getElementById("findbar"),
+      toggleButton: document.getElementById("viewFindButton"),
+      findField: document.getElementById("findInput"),
+      highlightAllCheckbox: document.getElementById("findHighlightAll"),
+      caseSensitiveCheckbox: document.getElementById("findMatchCase"),
+      matchDiacriticsCheckbox: document.getElementById("findMatchDiacritics"),
+      entireWordCheckbox: document.getElementById("findEntireWord"),
+      findMsg: document.getElementById("findMsg"),
+      findResultsCount: document.getElementById("findResultsCount"),
+      findPreviousButton: document.getElementById("findPreviousButton"),
+      findNextButton: document.getElementById("findNextButton")
+    },
     passwordOverlay: {
-      dialog: document.getElementById("passwordDialog"***REMOVED***,
-      label: document.getElementById("passwordText"***REMOVED***,
-      input: document.getElementById("password"***REMOVED***,
-      submitButton: document.getElementById("passwordSubmit"***REMOVED***,
-      cancelButton: document.getElementById("passwordCancel"***REMOVED***
-    ***REMOVED***,
+      dialog: document.getElementById("passwordDialog"),
+      label: document.getElementById("passwordText"),
+      input: document.getElementById("password"),
+      submitButton: document.getElementById("passwordSubmit"),
+      cancelButton: document.getElementById("passwordCancel")
+    },
     documentProperties: {
-      dialog: document.getElementById("documentPropertiesDialog"***REMOVED***,
-      closeButton: document.getElementById("documentPropertiesClose"***REMOVED***,
+      dialog: document.getElementById("documentPropertiesDialog"),
+      closeButton: document.getElementById("documentPropertiesClose"),
       fields: {
-        fileName: document.getElementById("fileNameField"***REMOVED***,
-        fileSize: document.getElementById("fileSizeField"***REMOVED***,
-        title: document.getElementById("titleField"***REMOVED***,
-        author: document.getElementById("authorField"***REMOVED***,
-        subject: document.getElementById("subjectField"***REMOVED***,
-        keywords: document.getElementById("keywordsField"***REMOVED***,
-        creationDate: document.getElementById("creationDateField"***REMOVED***,
-        modificationDate: document.getElementById("modificationDateField"***REMOVED***,
-        creator: document.getElementById("creatorField"***REMOVED***,
-        producer: document.getElementById("producerField"***REMOVED***,
-        version: document.getElementById("versionField"***REMOVED***,
-        pageCount: document.getElementById("pageCountField"***REMOVED***,
-        pageSize: document.getElementById("pageSizeField"***REMOVED***,
-        linearized: document.getElementById("linearizedField"***REMOVED***
-      ***REMOVED***
-    ***REMOVED***,
+        fileName: document.getElementById("fileNameField"),
+        fileSize: document.getElementById("fileSizeField"),
+        title: document.getElementById("titleField"),
+        author: document.getElementById("authorField"),
+        subject: document.getElementById("subjectField"),
+        keywords: document.getElementById("keywordsField"),
+        creationDate: document.getElementById("creationDateField"),
+        modificationDate: document.getElementById("modificationDateField"),
+        creator: document.getElementById("creatorField"),
+        producer: document.getElementById("producerField"),
+        version: document.getElementById("versionField"),
+        pageCount: document.getElementById("pageCountField"),
+        pageSize: document.getElementById("pageSizeField"),
+        linearized: document.getElementById("linearizedField")
+      }
+    },
     altTextDialog: {
-      dialog: document.getElementById("altTextDialog"***REMOVED***,
-      optionDescription: document.getElementById("descriptionButton"***REMOVED***,
-      optionDecorative: document.getElementById("decorativeButton"***REMOVED***,
-      textarea: document.getElementById("descriptionTextarea"***REMOVED***,
-      cancelButton: document.getElementById("altTextCancel"***REMOVED***,
-      saveButton: document.getElementById("altTextSave"***REMOVED***
-    ***REMOVED***,
+      dialog: document.getElementById("altTextDialog"),
+      optionDescription: document.getElementById("descriptionButton"),
+      optionDecorative: document.getElementById("decorativeButton"),
+      textarea: document.getElementById("descriptionTextarea"),
+      cancelButton: document.getElementById("altTextCancel"),
+      saveButton: document.getElementById("altTextSave")
+    },
     newAltTextDialog: {
-      dialog: document.getElementById("newAltTextDialog"***REMOVED***,
-      title: document.getElementById("newAltTextTitle"***REMOVED***,
-      descriptionContainer: document.getElementById("newAltTextDescriptionContainer"***REMOVED***,
-      textarea: document.getElementById("newAltTextDescriptionTextarea"***REMOVED***,
-      disclaimer: document.getElementById("newAltTextDisclaimer"***REMOVED***,
-      learnMore: document.getElementById("newAltTextLearnMore"***REMOVED***,
-      imagePreview: document.getElementById("newAltTextImagePreview"***REMOVED***,
-      createAutomatically: document.getElementById("newAltTextCreateAutomatically"***REMOVED***,
-      createAutomaticallyButton: document.getElementById("newAltTextCreateAutomaticallyButton"***REMOVED***,
-      downloadModel: document.getElementById("newAltTextDownloadModel"***REMOVED***,
-      downloadModelDescription: document.getElementById("newAltTextDownloadModelDescription"***REMOVED***,
-      error: document.getElementById("newAltTextError"***REMOVED***,
-      errorCloseButton: document.getElementById("newAltTextCloseButton"***REMOVED***,
-      cancelButton: document.getElementById("newAltTextCancel"***REMOVED***,
-      notNowButton: document.getElementById("newAltTextNotNow"***REMOVED***,
-      saveButton: document.getElementById("newAltTextSave"***REMOVED***
-    ***REMOVED***,
+      dialog: document.getElementById("newAltTextDialog"),
+      title: document.getElementById("newAltTextTitle"),
+      descriptionContainer: document.getElementById("newAltTextDescriptionContainer"),
+      textarea: document.getElementById("newAltTextDescriptionTextarea"),
+      disclaimer: document.getElementById("newAltTextDisclaimer"),
+      learnMore: document.getElementById("newAltTextLearnMore"),
+      imagePreview: document.getElementById("newAltTextImagePreview"),
+      createAutomatically: document.getElementById("newAltTextCreateAutomatically"),
+      createAutomaticallyButton: document.getElementById("newAltTextCreateAutomaticallyButton"),
+      downloadModel: document.getElementById("newAltTextDownloadModel"),
+      downloadModelDescription: document.getElementById("newAltTextDownloadModelDescription"),
+      error: document.getElementById("newAltTextError"),
+      errorCloseButton: document.getElementById("newAltTextCloseButton"),
+      cancelButton: document.getElementById("newAltTextCancel"),
+      notNowButton: document.getElementById("newAltTextNotNow"),
+      saveButton: document.getElementById("newAltTextSave")
+    },
     altTextSettingsDialog: {
-      dialog: document.getElementById("altTextSettingsDialog"***REMOVED***,
-      createModelButton: document.getElementById("createModelButton"***REMOVED***,
-      aiModelSettings: document.getElementById("aiModelSettings"***REMOVED***,
-      learnMore: document.getElementById("altTextSettingsLearnMore"***REMOVED***,
-      deleteModelButton: document.getElementById("deleteModelButton"***REMOVED***,
-      downloadModelButton: document.getElementById("downloadModelButton"***REMOVED***,
-      showAltTextDialogButton: document.getElementById("showAltTextDialogButton"***REMOVED***,
-      altTextSettingsCloseButton: document.getElementById("altTextSettingsCloseButton"***REMOVED***,
-      closeButton: document.getElementById("altTextSettingsCloseButton"***REMOVED***
-    ***REMOVED***,
+      dialog: document.getElementById("altTextSettingsDialog"),
+      createModelButton: document.getElementById("createModelButton"),
+      aiModelSettings: document.getElementById("aiModelSettings"),
+      learnMore: document.getElementById("altTextSettingsLearnMore"),
+      deleteModelButton: document.getElementById("deleteModelButton"),
+      downloadModelButton: document.getElementById("downloadModelButton"),
+      showAltTextDialogButton: document.getElementById("showAltTextDialogButton"),
+      altTextSettingsCloseButton: document.getElementById("altTextSettingsCloseButton"),
+      closeButton: document.getElementById("altTextSettingsCloseButton")
+    },
     annotationEditorParams: {
-      editorFreeTextFontSize: document.getElementById("editorFreeTextFontSize"***REMOVED***,
-      editorFreeTextColor: document.getElementById("editorFreeTextColor"***REMOVED***,
-      editorInkColor: document.getElementById("editorInkColor"***REMOVED***,
-      editorInkThickness: document.getElementById("editorInkThickness"***REMOVED***,
-      editorInkOpacity: document.getElementById("editorInkOpacity"***REMOVED***,
-      editorStampAddImage: document.getElementById("editorStampAddImage"***REMOVED***,
-      editorFreeHighlightThickness: document.getElementById("editorFreeHighlightThickness"***REMOVED***,
-      editorHighlightShowAll: document.getElementById("editorHighlightShowAll"***REMOVED***
-    ***REMOVED***,
-    printContainer: document.getElementById("printContainer"***REMOVED***,
+      editorFreeTextFontSize: document.getElementById("editorFreeTextFontSize"),
+      editorFreeTextColor: document.getElementById("editorFreeTextColor"),
+      editorInkColor: document.getElementById("editorInkColor"),
+      editorInkThickness: document.getElementById("editorInkThickness"),
+      editorInkOpacity: document.getElementById("editorInkOpacity"),
+      editorStampAddImage: document.getElementById("editorStampAddImage"),
+      editorFreeHighlightThickness: document.getElementById("editorFreeHighlightThickness"),
+      editorHighlightShowAll: document.getElementById("editorHighlightShowAll")
+    },
+    printContainer: document.getElementById("printContainer"),
     editorUndoBar: {
-      container: document.getElementById("editorUndoBar"***REMOVED***,
-      message: document.getElementById("editorUndoBarMessage"***REMOVED***,
-      undoButton: document.getElementById("editorUndoBarUndoButton"***REMOVED***,
-      closeButton: document.getElementById("editorUndoBarCloseButton"***REMOVED***
-    ***REMOVED***
-  ***REMOVED***;
-***REMOVED***
-function webViewerLoad(***REMOVED*** {
-  const config = getViewerConfiguration(***REMOVED***;
+      container: document.getElementById("editorUndoBar"),
+      message: document.getElementById("editorUndoBarMessage"),
+      undoButton: document.getElementById("editorUndoBarUndoButton"),
+      closeButton: document.getElementById("editorUndoBarCloseButton")
+    }
+  };
+}
+function webViewerLoad() {
+  const config = getViewerConfiguration();
   const event = new CustomEvent("webviewerloaded", {
     bubbles: true,
     cancelable: true,
     detail: {
       source: window
-    ***REMOVED***
-  ***REMOVED******REMOVED***;
-***REMOVED***
-    parent.document.dispatchEvent(event***REMOVED***;
-  ***REMOVED*** catch (ex***REMOVED*** {
-    console.error("webviewerloaded:", ex***REMOVED***;
-    document.dispatchEvent(event***REMOVED***;
-  ***REMOVED***
-  PDFViewerApplication.run(config***REMOVED***;
-***REMOVED***
-document.blockUnblockOnload?.(true***REMOVED***;
-if (document.readyState === "interactive" || document.readyState === "complete"***REMOVED*** {
-  webViewerLoad(***REMOVED***;
-***REMOVED*** else {
-  document.addEventListener("DOMContentLoaded", webViewerLoad, true***REMOVED***;
-***REMOVED***
+    }
+  });
+  try {
+    parent.document.dispatchEvent(event);
+  } catch (ex) {
+    console.error("webviewerloaded:", ex);
+    document.dispatchEvent(event);
+  }
+  PDFViewerApplication.run(config);
+}
+document.blockUnblockOnload?.(true);
+if (document.readyState === "interactive" || document.readyState === "complete") {
+  webViewerLoad();
+} else {
+  document.addEventListener("DOMContentLoaded", webViewerLoad, true);
+}
 
 var __webpack_exports__PDFViewerApplication = __webpack_exports__.PDFViewerApplication;
 var __webpack_exports__PDFViewerApplicationConstants = __webpack_exports__.PDFViewerApplicationConstants;
 var __webpack_exports__PDFViewerApplicationOptions = __webpack_exports__.PDFViewerApplicationOptions;
-export { __webpack_exports__PDFViewerApplication as PDFViewerApplication, __webpack_exports__PDFViewerApplicationConstants as PDFViewerApplicationConstants, __webpack_exports__PDFViewerApplicationOptions as PDFViewerApplicationOptions ***REMOVED***;
+export { __webpack_exports__PDFViewerApplication as PDFViewerApplication, __webpack_exports__PDFViewerApplicationConstants as PDFViewerApplicationConstants, __webpack_exports__PDFViewerApplicationOptions as PDFViewerApplicationOptions };
 
 //# sourceMappingURL=viewer.mjs.map

@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-const link = ref('https://github.com/pdsuwwz/chatgpt-vue3-light-mvp'***REMOVED***
-***REMOVED***
+const link = ref('https://github.com/pdsuwwz/chatgpt-vue3-light-mvp')
+</script>
 
-***REMOVED***
+<template>
   <a
     class="octocat-link c-#71717a dark:c-#666 hover-c-#3f3f46 dark:hover-c-#f6f5f7"
     target="_blank"
@@ -22,7 +22,7 @@ const link = ref('https://github.com/pdsuwwz/chatgpt-vue3-light-mvp'***REMOVED**
       />
     </svg>
   </a>
-***REMOVED***
+</template>
 
 <style lang="scss" scoped>
 .octocat-link {
@@ -30,5 +30,5 @@ const link = ref('https://github.com/pdsuwwz/chatgpt-vue3-light-mvp'***REMOVED**
   margin: 0 6px;
   transition: 0.2s color;
   display: inline-flex;
-***REMOVED***
-***REMOVED***
+}
+</style>

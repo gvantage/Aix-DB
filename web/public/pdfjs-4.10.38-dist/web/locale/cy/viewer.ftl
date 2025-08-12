@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Tudalen Flaenorol
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Nesaf
 pdfjs-page-input =
     .title = Tudalen
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = o { $pagesCount ***REMOVED***
+pdfjs-of-pages = o { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** o { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } o { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Lleihau
 pdfjs-zoom-out-button-label = Lleihau
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Argraffu
 pdfjs-save-button =
     .title = Cadw
 pdfjs-save-button-label = Cadw
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Llwytho i lawr
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Llwytho i lawr
 pdfjs-bookmark-button =
-    .title = Tudalen Gyfredol (Gweld URL o'r Dudalen Gyfredol***REMOVED***
+    .title = Tudalen Gyfredol (Gweld URL o'r Dudalen Gyfredol)
 pdfjs-bookmark-button-label = Tudalen Gyfredol
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Priodweddau Dogfen…
 pdfjs-document-properties-file-name = Enw ffeil:
 pdfjs-document-properties-file-size = Maint ffeil:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** beit***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } beit)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** beit***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } beit)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** beit***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } beit)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** beit***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } beit)
 pdfjs-document-properties-title = Teitl:
 pdfjs-document-properties-author = Awdur:
 pdfjs-document-properties-subject = Pwnc:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Allweddair:
 pdfjs-document-properties-creation-date = Dyddiad Creu:
 pdfjs-document-properties-modification-date = Dyddiad Addasu:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Crewr:
 pdfjs-document-properties-producer = Cynhyrchydd PDF:
 pdfjs-document-properties-version = Fersiwn PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Llythyr
 pdfjs-document-properties-page-size-name-legal = Cyfreithiol
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Cau
 
 pdfjs-print-progress-message = Paratoi dogfen ar gyfer ei hargraffu…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Diddymu
 pdfjs-printing-not-supported = Rhybudd: Nid yw argraffu yn cael ei gynnal yn llawn gan y porwr.
 pdfjs-printing-not-ready = Rhybudd: Nid yw'r PDF wedi ei lwytho'n llawn ar gyfer argraffu.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Rhybudd: Nid yw'r PDF wedi ei lwytho'n llawn ar gyfer
 pdfjs-toggle-sidebar-button =
     .title = Toglo'r Bar Ochr
 pdfjs-toggle-sidebar-notification-button =
-    .title = Toglo'r Bar Ochr (mae'r ddogfen yn cynnwys amlinelliadau/atodiadau/haenau***REMOVED***
+    .title = Toglo'r Bar Ochr (mae'r ddogfen yn cynnwys amlinelliadau/atodiadau/haenau)
 pdfjs-toggle-sidebar-button-label = Toglo'r Bar Ochr
 pdfjs-document-outline-button =
-    .title = Dangos Amlinell Dogfen (clic dwbl i ymestyn/cau pob eitem***REMOVED***
+    .title = Dangos Amlinell Dogfen (clic dwbl i ymestyn/cau pob eitem)
 pdfjs-document-outline-button-label = Amlinelliad Dogfen
 pdfjs-attachments-button =
     .title = Dangos Atodiadau
 pdfjs-attachments-button-label = Atodiadau
 pdfjs-layers-button =
-    .title = Dangos Haenau (cliciwch ddwywaith i ailosod yr holl haenau i'r cyflwr rhagosodedig***REMOVED***
+    .title = Dangos Haenau (cliciwch ddwywaith i ailosod yr holl haenau i'r cyflwr rhagosodedig)
 pdfjs-layers-button-label = Haenau
 pdfjs-thumbs-button =
     .title = Dangos Lluniau Bach
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Canfod
 pdfjs-additional-layers = Haenau Ychwanegol
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Tudalen { $page ***REMOVED***
+    .title = Tudalen { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Llun Bach Tudalen { $page ***REMOVED***
+    .aria-label = Llun Bach Tudalen { $page }
 
 ## Find panel button title and messages
 
@@ -232,28 +232,28 @@ pdfjs-find-entire-word-checkbox-label = Geiriau Cyfan
 pdfjs-find-reached-top = Wedi cyrraedd brig y dudalen, parhau o'r gwaelod
 pdfjs-find-reached-bottom = Wedi cyrraedd diwedd y dudalen, parhau o'r brig
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [zero] { $current ***REMOVED*** o { $total ***REMOVED*** cydweddiadau
-        [one] { $current ***REMOVED*** o { $total ***REMOVED*** cydweddiad
-        [two] { $current ***REMOVED*** o { $total ***REMOVED*** gydweddiad
-        [few] { $current ***REMOVED*** o { $total ***REMOVED*** cydweddiad
-        [many] { $current ***REMOVED*** o { $total ***REMOVED*** chydweddiad
-       *[other] { $current ***REMOVED*** o { $total ***REMOVED*** cydweddiad
-    ***REMOVED***
+    { $total ->
+        [zero] { $current } o { $total } cydweddiadau
+        [one] { $current } o { $total } cydweddiad
+        [two] { $current } o { $total } gydweddiad
+        [few] { $current } o { $total } cydweddiad
+        [many] { $current } o { $total } chydweddiad
+       *[other] { $current } o { $total } cydweddiad
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [zero] Mwy nag { $limit ***REMOVED*** cydweddiadau
-        [one] Mwy nag { $limit ***REMOVED*** cydweddiad
-        [two] Mwy nag { $limit ***REMOVED*** gydweddiad
-        [few] Mwy nag { $limit ***REMOVED*** cydweddiad
-        [many] Mwy nag { $limit ***REMOVED*** chydweddiad
-       *[other] Mwy nag { $limit ***REMOVED*** cydweddiad
-    ***REMOVED***
+    { $limit ->
+        [zero] Mwy nag { $limit } cydweddiadau
+        [one] Mwy nag { $limit } cydweddiad
+        [two] Mwy nag { $limit } gydweddiad
+        [few] Mwy nag { $limit } cydweddiad
+        [many] Mwy nag { $limit } chydweddiad
+       *[other] Mwy nag { $limit } cydweddiad
+    }
 pdfjs-find-not-found = Heb ganfod ymadrodd
 
 ## Predefined zoom values
@@ -263,15 +263,15 @@ pdfjs-page-scale-fit = Ffit Tudalen
 pdfjs-page-scale-auto = Chwyddo Awtomatig
 pdfjs-page-scale-actual = Maint Gwirioneddol
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Tudalen { $page ***REMOVED***
+    .aria-label = Tudalen { $page }
 
 ## Loading indicator messages
 
@@ -284,19 +284,19 @@ pdfjs-rendering-error = Digwyddodd gwall wrth adeiladu'r dudalen.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Anodiad { $type ***REMOVED*** ]
+    .alt = [Anodiad { $type } ]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -347,7 +347,7 @@ pdfjs-editor-ink-opacity-input = Didreiddedd
 pdfjs-editor-stamp-add-image-button =
     .title = Ychwanegu delwedd
 pdfjs-editor-stamp-add-image-button-label = Ychwanegu delwedd
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Trwch
 pdfjs-editor-free-highlight-thickness-title =
     .title = Newid trwch wrth amlygu eitemau heblaw testun
@@ -365,12 +365,12 @@ pdfjs-ink-canvas =
 
 ## Alt-text dialog
 
-pdfjs-editor-alt-text-button-label = Testun amgen (alt***REMOVED***
+pdfjs-editor-alt-text-button-label = Testun amgen (alt)
 pdfjs-editor-alt-text-edit-button =
     .aria-label = Golygu testun amgen
 pdfjs-editor-alt-text-edit-button-label = Golygu testun amgen
 pdfjs-editor-alt-text-dialog-label = Dewisiadau
-pdfjs-editor-alt-text-dialog-description = Mae testun amgen (testun alt***REMOVED*** yn helpu pan na all pobl weld y ddelwedd neu pan nad yw'n llwytho.
+pdfjs-editor-alt-text-dialog-description = Mae testun amgen (testun alt) yn helpu pan na all pobl weld y ddelwedd neu pan nad yw'n llwytho.
 pdfjs-editor-alt-text-add-description-label = Ychwanegu disgrifiad
 pdfjs-editor-alt-text-add-description-description = Anelwch at 1-2 frawddeg sy'n disgrifio'r pwnc, y cefndir neu'r gweithredoedd.
 pdfjs-editor-alt-text-mark-decorative-label = Marcio fel addurniadol
@@ -381,9 +381,9 @@ pdfjs-editor-alt-text-decorative-tooltip = Marcio fel addurniadol
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Er enghraifft, “Mae dyn ifanc yn eistedd wrth fwrdd i fwyta pryd bwyd”
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
-    .aria-label = Testun amgen (alt***REMOVED***
+    .aria-label = Testun amgen (alt)
 
 ## Editor resizers
 ## This is used in an aria label to help to understand the role of the resizer.
@@ -440,12 +440,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Dangos y cyfan
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Golygu testun amgen (disgrifiad o ddelwedd***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Golygu testun amgen (disgrifiad o ddelwedd)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Ychwanegwch destun amgen (disgrifiad delwedd***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Ychwanegwch destun amgen (disgrifiad delwedd)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Ysgrifennwch eich disgrifiad yma…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -459,11 +459,11 @@ pdfjs-editor-new-alt-text-error-title = Methu â chreu testun amgen yn awtomatig
 pdfjs-editor-new-alt-text-error-description = Ysgrifennwch eich testun amgen eich hun neu ceisiwch eto yn nes ymlaen.
 pdfjs-editor-new-alt-text-error-close-button = Cau
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Wrthi'n llwytho i lawr model AI testun amgen ( { $downloadedSize ***REMOVED*** o { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = Wrthi'n llwytho i lawr model AI testun amgen ( { $downloadedSize ***REMOVED*** o { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Wrthi'n llwytho i lawr model AI testun amgen ( { $downloadedSize } o { $totalSize } MB)
+    .aria-valuetext = Wrthi'n llwytho i lawr model AI testun amgen ( { $downloadedSize } o { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Ychwanegwyd testun amgen
@@ -478,8 +478,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Adolygu'r testun amgen
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Crëwyd yn awtomatig: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Crëwyd yn awtomatig: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -491,8 +491,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Testun amgen awtomatig
 pdfjs-editor-alt-text-settings-create-model-button-label = Creu testun amgen yn awtomatig
 pdfjs-editor-alt-text-settings-create-model-description = Yn awgrymu disgrifiadau i helpu pobl sydd ddim yn gallu gweld y ddelwedd neu pan nad yw'r ddelwedd yn llwytho.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Model AI testun amgen ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Model AI testun amgen ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Yn rhedeg yn lleol ar eich dyfais fel bod eich data'n aros yn breifat. Yn ofynnol ar gyfer testun amgen awtomatig.
 pdfjs-editor-alt-text-settings-delete-model-button = Dileu
 pdfjs-editor-alt-text-settings-download-model-button = Llwytho i Lawr
@@ -509,16 +509,16 @@ pdfjs-editor-undo-bar-message-freetext = Tynnwyd y testun
 pdfjs-editor-undo-bar-message-ink = Tynnwyd y lluniad
 pdfjs-editor-undo-bar-message-stamp = Tynnwyd y ddelwedd
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [zero] { $count ***REMOVED*** anodiad wedi'u tynnu
-        [one] { $count ***REMOVED*** anodiad wedi'i dynnu
-        [two] { $count ***REMOVED*** anodiad wedi'u tynnu
-        [few] { $count ***REMOVED*** anodiad wedi'u tynnu
-        [many] { $count ***REMOVED*** anodiad wedi'u tynnu
-       *[other] { $count ***REMOVED*** anodiad wedi'u tynnu
-    ***REMOVED***
+    { $count ->
+        [zero] { $count } anodiad wedi'u tynnu
+        [one] { $count } anodiad wedi'i dynnu
+        [two] { $count } anodiad wedi'u tynnu
+        [few] { $count } anodiad wedi'u tynnu
+        [many] { $count } anodiad wedi'u tynnu
+       *[other] { $count } anodiad wedi'u tynnu
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Dadwneud
 pdfjs-editor-undo-bar-undo-button-label = Dadwneud

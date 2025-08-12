@@ -1,23 +1,21 @@
 <script lang="ts" setup>
 interface Props {
   loading?: boolean
-***REMOVED***
-withDefaults(defineProps<Props>(***REMOVED***, {
+}
+withDefaults(defineProps<Props>(), {
   loading: false,
-***REMOVED******REMOVED***
+})
 
-const router = useRouter(***REMOVED***
-const userStore = useUserStore(***REMOVED***
-const appStore = useAppStore(***REMOVED***
+const appStore = useAppStore()
 
 appStore.areaLoading = true
 // 主页面加载提示
-setTimeout((***REMOVED*** => {
+setTimeout(() => {
   appStore.areaLoading = false
-***REMOVED***, 400***REMOVED***
-***REMOVED***
+}, 400)
+</script>
 
-***REMOVED***
+<template>
   <LayoutSlotFrame :class="['bg-no-repeat bg-cover bg-center']">
     <template #center>
       <div
@@ -35,7 +33,7 @@ setTimeout((***REMOVED*** => {
           class="bg-#ffffff"
           :style="{
             '--n-opacity-spinning': '0',
-          ***REMOVED***"
+          }"
         >
           <section
             flex="~ col"
@@ -44,7 +42,7 @@ setTimeout((***REMOVED*** => {
             h-full
             overflow-hidden
             relative
-***REMOVED***
+          >
             <NavigationSideBar />
           </section>
           <section
@@ -52,30 +50,30 @@ setTimeout((***REMOVED*** => {
             min-w-0
             h-full
             overflow-hidden
-            py-12
-            pr-12
-            style="background: linear-gradient(to bottom, #8874f1, #588af9***REMOVED***"
-***REMOVED***
+            py-10
+            pr-10
+            style="background: linear-gradient(to bottom, #8874f1, #588af9)"
+          >
             <div
               size-full
               rounded-10
               overflow-hidden
-  ***REMOVED***
+            >
               <LayoutDefault />
-***REMOVED***
+            </div>
           </section>
         </n-spin>
-***REMOVED***
-    ***REMOVED***
+      </div>
+    </template>
     <template #bottom>
       <NavigationNavFooter />
-    ***REMOVED***
+    </template>
   </LayoutSlotFrame>
-***REMOVED***
+</template>
 
 <style lang="scss" scoped>
 .panel-shadow {
-  --shadow: 50px 50px 100px 10px rgb(0 0 0 / 10%***REMOVED***;
+  --shadow: 50px 50px 100px 10px rgb(0 0 0 / 10%);
   --at-apply: 'shadow-[--shadow]';
-***REMOVED***
-***REMOVED***
+}
+</style>

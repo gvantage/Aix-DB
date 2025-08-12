@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = หน้าก่อนหน้า
@@ -15,13 +15,13 @@ pdfjs-next-button-label = ถัดไป
 pdfjs-page-input =
     .title = หน้า
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = จาก { $pagesCount ***REMOVED***
+pdfjs-of-pages = จาก { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** จาก { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } จาก { $pagesCount })
 pdfjs-zoom-out-button =
     .title = ซูมออก
 pdfjs-zoom-out-button-label = ซูมออก
@@ -42,14 +42,14 @@ pdfjs-print-button-label = พิมพ์
 pdfjs-save-button =
     .title = บันทึก
 pdfjs-save-button-label = บันทึก
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = ดาวน์โหลด
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = ดาวน์โหลด
 pdfjs-bookmark-button =
-    .title = หน้าปัจจุบัน (ดู URL จากหน้าปัจจุบัน***REMOVED***
+    .title = หน้าปัจจุบัน (ดู URL จากหน้าปัจจุบัน)
 pdfjs-bookmark-button-label = หน้าปัจจุบัน
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = คุณสมบัติเอกส
 pdfjs-document-properties-file-name = ชื่อไฟล์:
 pdfjs-document-properties-file-size = ขนาดไฟล์:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** ไบต์***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } ไบต์)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** ไบต์***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } ไบต์)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** ไบต์***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } ไบต์)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** ไบต์***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } ไบต์)
 pdfjs-document-properties-title = ชื่อเรื่อง:
 pdfjs-document-properties-author = ผู้สร้าง:
 pdfjs-document-properties-subject = ชื่อเรื่อง:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = คำสำคัญ:
 pdfjs-document-properties-creation-date = วันที่สร้าง:
 pdfjs-document-properties-modification-date = วันที่แก้ไข:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = ผู้สร้าง:
 pdfjs-document-properties-producer = ผู้ผลิต PDF:
 pdfjs-document-properties-version = รุ่น PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = จดหมาย
 pdfjs-document-properties-page-size-name-legal = ข้อกฎหมาย
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = ปิด
 
 pdfjs-print-progress-message = กำลังเตรียมเอกสารสำหรับการพิมพ์…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = ยกเลิก
 pdfjs-printing-not-supported = คำเตือน: เบราว์เซอร์นี้ไม่ได้สนับสนุนการพิมพ์อย่างเต็มที่
 pdfjs-printing-not-ready = คำเตือน: PDF ไม่ได้รับการโหลดอย่างเต็มที่สำหรับการพิมพ์
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = คำเตือน: PDF ไม่ได้รั�
 pdfjs-toggle-sidebar-button =
     .title = เปิด/ปิดแถบข้าง
 pdfjs-toggle-sidebar-notification-button =
-    .title = เปิด/ปิดแถบข้าง (เอกสารมีเค้าร่าง/ไฟล์แนบ/เลเยอร์***REMOVED***
+    .title = เปิด/ปิดแถบข้าง (เอกสารมีเค้าร่าง/ไฟล์แนบ/เลเยอร์)
 pdfjs-toggle-sidebar-button-label = เปิด/ปิดแถบข้าง
 pdfjs-document-outline-button =
-    .title = แสดงเค้าร่างเอกสาร (คลิกสองครั้งเพื่อขยาย/ยุบรายการทั้งหมด***REMOVED***
+    .title = แสดงเค้าร่างเอกสาร (คลิกสองครั้งเพื่อขยาย/ยุบรายการทั้งหมด)
 pdfjs-document-outline-button-label = เค้าร่างเอกสาร
 pdfjs-attachments-button =
     .title = แสดงไฟล์แนบ
 pdfjs-attachments-button-label = ไฟล์แนบ
 pdfjs-layers-button =
-    .title = แสดงเลเยอร์ (คลิกสองครั้งเพื่อรีเซ็ตเลเยอร์ทั้งหมดเป็นสถานะเริ่มต้น***REMOVED***
+    .title = แสดงเลเยอร์ (คลิกสองครั้งเพื่อรีเซ็ตเลเยอร์ทั้งหมดเป็นสถานะเริ่มต้น)
 pdfjs-layers-button-label = เลเยอร์
 pdfjs-thumbs-button =
     .title = แสดงภาพขนาดย่อ
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = ค้นหา
 pdfjs-additional-layers = เลเยอร์เพิ่มเติม
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = หน้า { $page ***REMOVED***
+    .title = หน้า { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = ภาพขนาดย่อของหน้า { $page ***REMOVED***
+    .aria-label = ภาพขนาดย่อของหน้า { $page }
 
 ## Find panel button title and messages
 
@@ -232,12 +232,12 @@ pdfjs-find-entire-word-checkbox-label = ทั้งคำ
 pdfjs-find-reached-top = ค้นหาถึงจุดเริ่มต้นของหน้า เริ่มค้นต่อจากด้านล่าง
 pdfjs-find-reached-bottom = ค้นหาถึงจุดสิ้นสุดหน้า เริ่มค้นต่อจากด้านบน
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
-pdfjs-find-match-count = { $current ***REMOVED*** จาก { $total ***REMOVED*** รายการที่ตรงกัน
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
+pdfjs-find-match-count = { $current } จาก { $total } รายการที่ตรงกัน
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
-pdfjs-find-match-count-limit = มากกว่า { $limit ***REMOVED*** รายการที่ตรงกัน
+#   $limit (Number) - the maximum number of matches
+pdfjs-find-match-count-limit = มากกว่า { $limit } รายการที่ตรงกัน
 pdfjs-find-not-found = ไม่พบวลี
 
 ## Predefined zoom values
@@ -247,15 +247,15 @@ pdfjs-page-scale-fit = พอดีหน้า
 pdfjs-page-scale-auto = ซูมอัตโนมัติ
 pdfjs-page-scale-actual = ขนาดจริง
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = หน้า { $page ***REMOVED***
+    .aria-label = หน้า { $page }
 
 ## Loading indicator messages
 
@@ -268,19 +268,19 @@ pdfjs-rendering-error = เกิดข้อผิดพลาดขณะเ�
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [คำอธิบายประกอบ { $type ***REMOVED***]
+    .alt = [คำอธิบายประกอบ { $type }]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -331,7 +331,7 @@ pdfjs-editor-ink-opacity-input = ความทึบ
 pdfjs-editor-stamp-add-image-button =
     .title = เพิ่มภาพ
 pdfjs-editor-stamp-add-image-button-label = เพิ่มภาพ
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = ความหนา
 pdfjs-editor-free-highlight-thickness-title =
     .title = เปลี่ยนความหนาเมื่อเน้นรายการอื่นๆ ที่ไม่ใช่ข้อความ
@@ -365,7 +365,7 @@ pdfjs-editor-alt-text-decorative-tooltip = ทำเครื่องหมา�
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = ตัวอย่างเช่น “ชายหนุ่มคนหนึ่งนั่งลงที่โต๊ะเพื่อรับประทานอาหารมื้อหนึ่ง”
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = ข้อความทดแทน
 
@@ -424,12 +424,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = แสดงทั้งหมด
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = แก้ไขข้อความทดแทน (คำอธิบายภาพ***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = แก้ไขข้อความทดแทน (คำอธิบายภาพ)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = เพิ่มข้อความทดแทน (คำอธิบายภาพ***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = เพิ่มข้อความทดแทน (คำอธิบายภาพ)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = เขียนคำอธิบายของคุณที่นี่…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -443,11 +443,11 @@ pdfjs-editor-new-alt-text-error-title = ไม่สามารถสร้า�
 pdfjs-editor-new-alt-text-error-description = กรุณาเขียนข้อความทดแทนด้วยตัวเองหรือลองใหม่อีกครั้งในภายหลัง
 pdfjs-editor-new-alt-text-error-close-button = ปิด
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = กำลังดาวน์โหลดโมเดล AI สำหรับข้อความทดแทน ({ $downloadedSize ***REMOVED*** จาก { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = กำลังดาวน์โหลดโมเดล AI สำหรับข้อความทดแทน ({ $downloadedSize ***REMOVED*** จาก { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = กำลังดาวน์โหลดโมเดล AI สำหรับข้อความทดแทน ({ $downloadedSize } จาก { $totalSize } MB)
+    .aria-valuetext = กำลังดาวน์โหลดโมเดล AI สำหรับข้อความทดแทน ({ $downloadedSize } จาก { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = เพิ่มข้อความทดแทนแล้ว
@@ -462,8 +462,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = ตรวจสอบข้อความทดแทน
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = สร้างขึ้นโดยอัตโนมัติ: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = สร้างขึ้นโดยอัตโนมัติ: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -475,8 +475,8 @@ pdfjs-editor-alt-text-settings-automatic-title = การทดแทนด้�
 pdfjs-editor-alt-text-settings-create-model-button-label = สร้างข้อความทดแทนอัตโนมัติ
 pdfjs-editor-alt-text-settings-create-model-description = แนะนำคำอธิบายเพื่อช่วยเหลือผู้ที่ไม่สามารถมองเห็นภาพหรือเมื่อภาพไม่โหลด
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = โมเดล AI สำหรับข้อความทดแทน ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = โมเดล AI สำหรับข้อความทดแทน ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = ทำงานในเครื่องของคุณเพื่อให้ข้อมูลของคุณเป็นส่วนตัว จำเป็นสำหรับข้อความทดแทนอัตโนมัติ
 pdfjs-editor-alt-text-settings-delete-model-button = ลบ
 pdfjs-editor-alt-text-settings-download-model-button = ดาวน์โหลด
@@ -493,8 +493,8 @@ pdfjs-editor-undo-bar-message-freetext = เอาข้อความออก
 pdfjs-editor-undo-bar-message-ink = เอาภาพวาดออกแล้ว
 pdfjs-editor-undo-bar-message-stamp = เอาภาพออกแล้ว
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
-pdfjs-editor-undo-bar-message-multiple = เอาคำอธิบายประกอบ { $count ***REMOVED*** รายการออกแล้ว
+#   $count (Number) - the number of removed annotations.
+pdfjs-editor-undo-bar-message-multiple = เอาคำอธิบายประกอบ { $count } รายการออกแล้ว
 pdfjs-editor-undo-bar-undo-button =
     .title = เลิกทำ
 pdfjs-editor-undo-bar-undo-button-label = เลิกทำ

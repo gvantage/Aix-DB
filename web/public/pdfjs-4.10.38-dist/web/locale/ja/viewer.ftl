@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = 前のページへ戻ります
@@ -15,13 +15,13 @@ pdfjs-next-button-label = 次へ
 pdfjs-page-input =
     .title = ページ
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = / { $pagesCount ***REMOVED***
+pdfjs-of-pages = / { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** / { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } / { $pagesCount })
 pdfjs-zoom-out-button =
     .title = 表示を縮小します
 pdfjs-zoom-out-button-label = 縮小
@@ -42,14 +42,14 @@ pdfjs-print-button-label = 印刷
 pdfjs-save-button =
     .title = 保存します
 pdfjs-save-button-label = 保存
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = ダウンロードします
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = ダウンロード
 pdfjs-bookmark-button =
-    .title = 現在のページの URL です (現在のページを表示する URL***REMOVED***
+    .title = 現在のページの URL です (現在のページを表示する URL)
 pdfjs-bookmark-button-label = 現在のページ
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = 文書のプロパティ...
 pdfjs-document-properties-file-name = ファイル名:
 pdfjs-document-properties-file-size = ファイルサイズ:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** バイト***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } バイト)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** バイト***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } バイト)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** バイト***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } バイト)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** バイト***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } バイト)
 pdfjs-document-properties-title = タイトル:
 pdfjs-document-properties-author = 作成者:
 pdfjs-document-properties-subject = 件名:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = キーワード:
 pdfjs-document-properties-creation-date = 作成日:
 pdfjs-document-properties-modification-date = 更新日:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = アプリケーション:
 pdfjs-document-properties-producer = PDF 作成:
 pdfjs-document-properties-version = PDF のバージョン:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = レター
 pdfjs-document-properties-page-size-name-legal = リーガル
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = 閉じる
 
 pdfjs-print-progress-message = 文書の印刷を準備しています...
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = キャンセル
 pdfjs-printing-not-supported = 警告: このブラウザーでは印刷が完全にサポートされていません。
 pdfjs-printing-not-ready = 警告: PDF を印刷するための読み込みが終了していません。
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = 警告: PDF を印刷するための読み込みが�
 pdfjs-toggle-sidebar-button =
     .title = サイドバー表示を切り替えます
 pdfjs-toggle-sidebar-notification-button =
-    .title = サイドバー表示を切り替えます (文書に含まれるアウトライン / 添付 / レイヤー***REMOVED***
+    .title = サイドバー表示を切り替えます (文書に含まれるアウトライン / 添付 / レイヤー)
 pdfjs-toggle-sidebar-button-label = サイドバーの切り替え
 pdfjs-document-outline-button =
-    .title = 文書の目次を表示します (ダブルクリックで項目を開閉します***REMOVED***
+    .title = 文書の目次を表示します (ダブルクリックで項目を開閉します)
 pdfjs-document-outline-button-label = 文書の目次
 pdfjs-attachments-button =
     .title = 添付ファイルを表示します
 pdfjs-attachments-button-label = 添付ファイル
 pdfjs-layers-button =
-    .title = レイヤーを表示します (ダブルクリックですべてのレイヤーが初期状態に戻ります***REMOVED***
+    .title = レイヤーを表示します (ダブルクリックですべてのレイヤーが初期状態に戻ります)
 pdfjs-layers-button-label = レイヤー
 pdfjs-thumbs-button =
     .title = 縮小版を表示します
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = 検索
 pdfjs-additional-layers = 追加レイヤー
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = { $page ***REMOVED*** ページ
+    .title = { $page } ページ
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = { $page ***REMOVED*** ページの縮小版
+    .aria-label = { $page } ページの縮小版
 
 ## Find panel button title and messages
 
@@ -232,12 +232,12 @@ pdfjs-find-entire-word-checkbox-label = 単語一致
 pdfjs-find-reached-top = 文書先頭に到達したので末尾から続けて検索します
 pdfjs-find-reached-bottom = 文書末尾に到達したので先頭から続けて検索します
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
-pdfjs-find-match-count = { $total ***REMOVED*** 件中 { $current ***REMOVED*** 件目
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
+pdfjs-find-match-count = { $total } 件中 { $current } 件目
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
-pdfjs-find-match-count-limit = { $limit ***REMOVED*** 件以上一致
+#   $limit (Number) - the maximum number of matches
+pdfjs-find-match-count-limit = { $limit } 件以上一致
 pdfjs-find-not-found = 見つかりませんでした
 
 ## Predefined zoom values
@@ -247,15 +247,15 @@ pdfjs-page-scale-fit = ページのサイズに合わせる
 pdfjs-page-scale-auto = 自動ズーム
 pdfjs-page-scale-actual = 実際のサイズ
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = { $page ***REMOVED*** ページ
+    .aria-label = { $page } ページ
 
 ## Loading indicator messages
 
@@ -268,19 +268,19 @@ pdfjs-rendering-error = ページのレンダリング中にエラーが発生�
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** 注釈]
+    .alt = [{ $type } 注釈]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -331,7 +331,7 @@ pdfjs-editor-ink-opacity-input = 不透明度
 pdfjs-editor-stamp-add-image-button =
     .title = 画像を追加します
 pdfjs-editor-stamp-add-image-button-label = 画像を追加
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = 太さ
 pdfjs-editor-free-highlight-thickness-title =
     .title = テキスト以外のアイテムを強調する時の太さを変更します
@@ -365,7 +365,7 @@ pdfjs-editor-alt-text-decorative-tooltip = 装飾マークが付いています
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = 例:「若い人がテーブルの席について食事をしています」
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = 代替テキスト
 
@@ -420,17 +420,17 @@ pdfjs-editor-colorpicker-red =
 ## This is a toggle button to show/hide all the highlights.
 
 pdfjs-editor-highlight-show-all-button-label = すべて表示
-# (^m^***REMOVED*** en-US: .title = Show all
+# (^m^) en-US: .title = Show all
 pdfjs-editor-highlight-show-all-button =
     .title = 強調の表示を切り替えます
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = 代替テキストを編集 (画像の説明***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = 代替テキストを編集 (画像の説明)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = 代替テキストを追加 (画像の説明***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = 代替テキストを追加 (画像の説明)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = ここに説明を記入してください...
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -443,11 +443,11 @@ pdfjs-editor-new-alt-text-error-title = 代替テキストを自動生成でき�
 pdfjs-editor-new-alt-text-error-description = ご自分で代替テキストを書くか後でもう一度試してください。
 pdfjs-editor-new-alt-text-error-close-button = 閉じる
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = 代替テキスト AI モデルをダウンロードしています ({ $downloadedSize ***REMOVED*** / { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = 代替テキスト AI モデルをダウンロードしています ({ $downloadedSize ***REMOVED*** / { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = 代替テキスト AI モデルをダウンロードしています ({ $downloadedSize } / { $totalSize } MB)
+    .aria-valuetext = 代替テキスト AI モデルをダウンロードしています ({ $downloadedSize } / { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = 代替テキストを追加しました
@@ -462,8 +462,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = 代替テキストをレビュー
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = 自動生成されました: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = 自動生成されました: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -475,8 +475,8 @@ pdfjs-editor-alt-text-settings-automatic-title = 自動代替テキスト
 pdfjs-editor-alt-text-settings-create-model-button-label = 代替テキストを自動生成
 pdfjs-editor-alt-text-settings-create-model-description = 画像が読み込まれない場合や見えない人のために説明を提案します。
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = 代替テキスト AI モデル ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = 代替テキスト AI モデル ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = ローカルの端末上で実行されるためデータは非公開になります。代替テキストの自動生成に必要です。
 pdfjs-editor-alt-text-settings-delete-model-button = 削除
 pdfjs-editor-alt-text-settings-download-model-button = ダウンロード
@@ -493,8 +493,8 @@ pdfjs-editor-undo-bar-message-freetext = フリーテキスト注釈が削除さ
 pdfjs-editor-undo-bar-message-ink = インク注釈が削除されました
 pdfjs-editor-undo-bar-message-stamp = 画像が削除されました
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
-pdfjs-editor-undo-bar-message-multiple = { $count ***REMOVED*** 個の注釈が削除されました
+#   $count (Number) - the number of removed annotations.
+pdfjs-editor-undo-bar-message-multiple = { $count } 個の注釈が削除されました
 pdfjs-editor-undo-bar-undo-button =
     .title = 元に戻す
 pdfjs-editor-undo-bar-undo-button-label = 元に戻す

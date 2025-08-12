@@ -7,7 +7,7 @@
     "source.fixAll.eslint": "explicit",
     "source.organizeImports": "never",
     "source.fixAll.stylelint": "explicit"
-  ***REMOVED***,
+  },
   "eslint.run": "onType",
   "eslint.format.enable": true,
   "stylelint.validate": [
@@ -35,4 +35,4 @@
     "gql",
     "graphql"
   ]
-***REMOVED***
+}

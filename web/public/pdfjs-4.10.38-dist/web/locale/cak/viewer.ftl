@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Jun kan ruxaq
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Jun chik
 pdfjs-page-input =
     .title = Ruxaq
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = richin { $pagesCount ***REMOVED***
+pdfjs-of-pages = richin { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** richin { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } richin { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Tich'utinirisäx
 pdfjs-zoom-out-button-label = Tich'utinirisäx
@@ -97,13 +97,13 @@ pdfjs-document-properties-button-label = Taq richinil wuj…
 pdfjs-document-properties-file-name = Rub'i' yakb'äl:
 pdfjs-document-properties-file-size = Runimilem yakb'äl:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = B'i'aj:
 pdfjs-document-properties-author = B'anel:
 pdfjs-document-properties-subject = Taqikil:
@@ -111,9 +111,9 @@ pdfjs-document-properties-keywords = Kixe'el taq tzij:
 pdfjs-document-properties-creation-date = Ruq'ijul xtz'uk:
 pdfjs-document-properties-modification-date = Ruq'ijul xjalwachïx:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Q'inonel:
 pdfjs-document-properties-producer = PDF b'anöy:
 pdfjs-document-properties-version = PDF ruwäch:
@@ -129,14 +129,14 @@ pdfjs-document-properties-page-size-name-letter = Loman wuj
 pdfjs-document-properties-page-size-name-legal = Taqanel tzijol
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -151,8 +151,8 @@ pdfjs-document-properties-close-button = Titz'apïx
 
 pdfjs-print-progress-message = Ruchojmirisaxik wuj richin nitz'ajb'äx…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Tiq'at
 pdfjs-printing-not-supported = Rutzijol k'ayewal: Ri rutz'ajb'axik man koch'el ta ronojel pa re okik'amaya'l re'.
 pdfjs-printing-not-ready = Rutzijol k'ayewal: Ri PDF man xusamajij ta ronojel richin nitz'ajb'äx.
@@ -162,16 +162,16 @@ pdfjs-printing-not-ready = Rutzijol k'ayewal: Ri PDF man xusamajij ta ronojel ri
 pdfjs-toggle-sidebar-button =
     .title = Tijal ri ajxikin kajtz'ik
 pdfjs-toggle-sidebar-notification-button =
-    .title = Tik'ex ri ajxikin yuqkajtz'ik (ri wuj eruk'wan taq ruchi'/taqo/kuchuj***REMOVED***
+    .title = Tik'ex ri ajxikin yuqkajtz'ik (ri wuj eruk'wan taq ruchi'/taqo/kuchuj)
 pdfjs-toggle-sidebar-button-label = Tijal ri ajxikin kajtz'ik
 pdfjs-document-outline-button =
-    .title = Tik'ut pe ruch'akulal wuj (kamul-pitz'oj richin nirik'/nich'utinirisäx ronojel ruch'akulal***REMOVED***
+    .title = Tik'ut pe ruch'akulal wuj (kamul-pitz'oj richin nirik'/nich'utinirisäx ronojel ruch'akulal)
 pdfjs-document-outline-button-label = Ruch'akulal wuj
 pdfjs-attachments-button =
     .title = Kek'ut pe ri taq taqoj
 pdfjs-attachments-button-label = Taq taqoj
 pdfjs-layers-button =
-    .title = Kek'ut taq Kuchuj (ka'i'-pitz' richin yetzolïx ronojel ri taq kuchuj e k'o wi***REMOVED***
+    .title = Kek'ut taq Kuchuj (ka'i'-pitz' richin yetzolïx ronojel ri taq kuchuj e k'o wi)
 pdfjs-layers-button-label = Taq kuchuj
 pdfjs-thumbs-button =
     .title = Kek'ut pe taq ch'utiq
@@ -184,16 +184,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Tikanöx
 pdfjs-additional-layers = Tz'aqat ta Kuchuj
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Ruxaq { $page ***REMOVED***
+    .title = Ruxaq { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Ruch'utinirisaxik ruxaq { $page ***REMOVED***
+    .aria-label = Ruch'utinirisaxik ruxaq { $page }
 
 ## Find panel button title and messages
 
@@ -221,15 +221,15 @@ pdfjs-page-scale-fit = Tinuk' ruxaq
 pdfjs-page-scale-auto = Yonil chi nimilem
 pdfjs-page-scale-actual = Runimilem Wakami
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Ruxaq { $page ***REMOVED***
+    .aria-label = Ruxaq { $page }
 
 ## Loading indicator messages
 
@@ -242,16 +242,16 @@ pdfjs-rendering-error = Xk'ulwachitäj jun sachoj toq ninuk'wachij ri ruxaq.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Tz'ib'anïk]
+    .alt = [{ $type } Tz'ib'anïk]
 
 ## Password
 

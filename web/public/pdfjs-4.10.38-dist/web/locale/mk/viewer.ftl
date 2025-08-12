@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Претходна страница
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Следна
 pdfjs-page-input =
     .title = Страница
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = од { $pagesCount ***REMOVED***
+pdfjs-of-pages = од { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** од { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } од { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Намалување
 pdfjs-zoom-out-button-label = Намали
@@ -69,13 +69,13 @@ pdfjs-document-properties-button-label = Својства на документ�
 pdfjs-document-properties-file-name = Име на датотека:
 pdfjs-document-properties-file-size = Големина на датотеката:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** КБ ({ $size_b ***REMOVED*** бајти***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } КБ ({ $size_b } бајти)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** МБ ({ $size_b ***REMOVED*** бајти***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } МБ ({ $size_b } бајти)
 pdfjs-document-properties-title = Наслов:
 pdfjs-document-properties-author = Автор:
 pdfjs-document-properties-subject = Тема:
@@ -83,9 +83,9 @@ pdfjs-document-properties-keywords = Клучни зборови:
 pdfjs-document-properties-creation-date = Датум на создавање:
 pdfjs-document-properties-modification-date = Датум на промена:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Креатор:
 pdfjs-document-properties-version = Верзија на PDF:
 pdfjs-document-properties-page-count = Број на страници:
@@ -99,14 +99,14 @@ pdfjs-document-properties-page-size-name-a-four = A4
 pdfjs-document-properties-page-size-name-letter = Писмо
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -118,8 +118,8 @@ pdfjs-document-properties-close-button = Затвори
 
 pdfjs-print-progress-message = Документ се подготвува за печатење…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Откажи
 pdfjs-printing-not-supported = Предупредување: Печатењето не е целосно поддржано во овој прелистувач.
 pdfjs-printing-not-ready = Предупредување: PDF документот не е целосно вчитан за печатење.
@@ -139,16 +139,16 @@ pdfjs-findbar-button =
     .title = Најди во документот
 pdfjs-findbar-button-label = Најди
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Страница { $page ***REMOVED***
+    .title = Страница { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Икона од страница { $page ***REMOVED***
+    .aria-label = Икона од страница { $page }
 
 ## Find panel button title and messages
 
@@ -175,8 +175,8 @@ pdfjs-page-scale-fit = Цела страница
 pdfjs-page-scale-auto = Автоматска големина
 pdfjs-page-scale-actual = Вистинска големина
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -192,9 +192,9 @@ pdfjs-rendering-error = Настана грешка при прикажувањ�
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 
 ## Password
 

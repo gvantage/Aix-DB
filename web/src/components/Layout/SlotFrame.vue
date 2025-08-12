@@ -4,22 +4,22 @@
  */
 defineOptions({
   name: 'LayoutSlotFrame',
-***REMOVED******REMOVED***
-***REMOVED***
+})
+</script>
 
-***REMOVED***
+<template>
   <div class="slot-frame-layout-container">
     <div v-if="$slots.top" class="top">
       <slot name="top"></slot>
-***REMOVED***
+    </div>
     <div class="center">
       <slot name="center"></slot>
-***REMOVED***
+    </div>
     <div class="bottom">
       <slot name="bottom"></slot>
-***REMOVED***
+    </div>
   </div>
-***REMOVED***
+</template>
 
 <style lang="scss" scoped>
 .slot-frame-layout-container {
@@ -31,15 +31,15 @@ defineOptions({
   .bottom {
     --at-apply: w-full;
 
-  ***REMOVED***
+    display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1;
     min-height: 0;
-  ***REMOVED***
+  }
 
   .center {
     --at-apply: flex flex-1 min-w-0 overflow-hidden;
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+  }
+}
+</style>

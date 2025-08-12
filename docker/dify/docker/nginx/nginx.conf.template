@@ -1,7 +1,7 @@
 # Please do not directly edit this file. Instead, modify the .env variables related to NGINX configuration.
 
 user  nginx;
-worker_processes  ${NGINX_WORKER_PROCESSES***REMOVED***;
+worker_processes  ${NGINX_WORKER_PROCESSES};
 
 error_log  /var/log/nginx/error.log notice;
 pid        /var/run/nginx.pid;
@@ -9,7 +9,7 @@ pid        /var/run/nginx.pid;
 
 events {
     worker_connections  1024;
-***REMOVED***
+}
 
 
 http {
@@ -25,10 +25,10 @@ http {
     sendfile        on;
     #tcp_nopush     on;
 
-    keepalive_timeout  ${NGINX_KEEPALIVE_TIMEOUT***REMOVED***;
+    keepalive_timeout  ${NGINX_KEEPALIVE_TIMEOUT};
 
     #gzip  on;
-    client_max_body_size ${NGINX_CLIENT_MAX_BODY_SIZE***REMOVED***;
+    client_max_body_size ${NGINX_CLIENT_MAX_BODY_SIZE};
 
     include /etc/nginx/conf.d/*.conf;
-***REMOVED***
+}

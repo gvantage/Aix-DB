@@ -1,17 +1,17 @@
-import type { Router ***REMOVED*** from 'vue-router'
+import type { Router } from 'vue-router'
 import NProgress from 'nprogress'
 
 NProgress.configure({
   showSpinner: false,
-***REMOVED******REMOVED***
+})
 
-export function createRouterGuards(router: Router***REMOVED*** {
-  router.beforeEach(async (to, from, next***REMOVED*** => {
-    NProgress.start(***REMOVED***
-    next(***REMOVED***
-  ***REMOVED******REMOVED***
+export function createRouterGuards(router: Router) {
+  router.beforeEach(async (to, from, next) => {
+    NProgress.start()
+    next()
+  })
 
-  router.afterEach((***REMOVED*** => {
-    NProgress.done(***REMOVED***
-  ***REMOVED******REMOVED***
-***REMOVED***
+  router.afterEach(() => {
+    NProgress.done()
+  })
+}

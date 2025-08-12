@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = پچھلا ورقہ
@@ -15,13 +15,13 @@ pdfjs-next-button-label = اڳلا
 pdfjs-page-input =
     .title = ورقہ
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = { $pagesCount ***REMOVED*** دا
+pdfjs-of-pages = { $pagesCount } دا
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** دا { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } دا { $pagesCount })
 pdfjs-zoom-out-button =
     .title = زوم آؤٹ
 pdfjs-zoom-out-button-label = زوم آؤٹ
@@ -42,14 +42,14 @@ pdfjs-print-button-label = چھاپو
 pdfjs-save-button =
     .title = ہتھیکڑا کرو
 pdfjs-save-button-label = ہتھیکڑا کرو
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = ڈاؤن لوڈ
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = ڈاؤن لوڈ
 pdfjs-bookmark-button =
-    .title = موجودہ ورقہ (موجودہ ورقے کنوں یوآرایل ݙیکھو***REMOVED***
+    .title = موجودہ ورقہ (موجودہ ورقے کنوں یوآرایل ݙیکھو)
 pdfjs-bookmark-button-label = موجودہ ورقہ
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = دستاویز خواص …
 pdfjs-document-properties-file-name = فائل دا ناں:
 pdfjs-document-properties-file-size = فائل دا سائز:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** بائٹاں***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } بائٹاں)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** بائٹاں***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } بائٹاں)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** کے بی ({ $size_b ***REMOVED*** بائٹس***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } کے بی ({ $size_b } بائٹس)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** ایم بی ({ $size_b ***REMOVED*** بائٹس***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } ایم بی ({ $size_b } بائٹس)
 pdfjs-document-properties-title = عنوان:
 pdfjs-document-properties-author = تخلیق کار:
 pdfjs-document-properties-subject = موضوع:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = کلیدی الفاظ:
 pdfjs-document-properties-creation-date = تخلیق دی تاریخ:
 pdfjs-document-properties-modification-date = ترمیم دی تاریخ:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = تخلیق کار:
 pdfjs-document-properties-producer = PDF پیدا کار:
 pdfjs-document-properties-version = PDF ورژن:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = لیٹر
 pdfjs-document-properties-page-size-name-legal = قنونی
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = بند کرو
 
 pdfjs-print-progress-message = چھاپݨ کیتے دستاویز تیار تھیندے پئے ہن …
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = منسوخ کرو
 pdfjs-printing-not-supported = چتاوݨی: چھپائی ایں براؤزر تے پوری طراں معاونت شدہ کائنی۔
 pdfjs-printing-not-ready = چتاوݨی: PDF چھپائی کیتے پوری طراں لوڈ نئیں تھئی۔
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = چتاوݨی: PDF چھپائی کیتے پوری طر
 pdfjs-toggle-sidebar-button =
     .title = سائیڈ بار ٹوگل کرو
 pdfjs-toggle-sidebar-notification-button =
-    .title = سائیڈ بار ٹوگل کرو (دستاویز وِچ آؤٹ لائن/ منسلکات/ پرتاں شامل ہن***REMOVED***
+    .title = سائیڈ بار ٹوگل کرو (دستاویز وِچ آؤٹ لائن/ منسلکات/ پرتاں شامل ہن)
 pdfjs-toggle-sidebar-button-label = سائیڈ بار ٹوگل کرو
 pdfjs-document-outline-button =
-    .title = دستاویز دا خاکہ ݙکھاؤ (تمام آئٹمز کوں پھیلاوݨ/سنگوڑݨ کیتے ڈبل کلک کرو***REMOVED***
+    .title = دستاویز دا خاکہ ݙکھاؤ (تمام آئٹمز کوں پھیلاوݨ/سنگوڑݨ کیتے ڈبل کلک کرو)
 pdfjs-document-outline-button-label = دستاویز آؤٹ لائن
 pdfjs-attachments-button =
     .title = نتھیاں ݙکھاؤ
 pdfjs-attachments-button-label = منسلکات
 pdfjs-layers-button =
-    .title = پرتاں ݙکھاؤ (تمام پرتاں کوں ڈیفالٹ حالت وِچ دوبارہ ترتیب ݙیوݨ کیتے ڈبل کلک کرو***REMOVED***
+    .title = پرتاں ݙکھاؤ (تمام پرتاں کوں ڈیفالٹ حالت وِچ دوبارہ ترتیب ݙیوݨ کیتے ڈبل کلک کرو)
 pdfjs-layers-button-label = پرتاں
 pdfjs-thumbs-button =
     .title = تھمبنیل ݙکھاؤ
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = لبھو
 pdfjs-additional-layers = اضافی پرتاں
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = ورقہ { $page ***REMOVED***
+    .title = ورقہ { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = ورقے دا تھمبنیل { $page ***REMOVED***
+    .aria-label = ورقے دا تھمبنیل { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = تمام الفاظ
 pdfjs-find-reached-top = ورقے دے شروع تے پُج ڳیا، تلوں جاری کیتا ڳیا
 pdfjs-find-reached-bottom = ورقے دے پاند تے پُڄ ڳیا، اُتوں شروع کیتا ڳیا
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $total ***REMOVED*** وِچوں { $current ***REMOVED*** مشابہ
-       *[other] { $total ***REMOVED*** وِچوں { $current ***REMOVED*** مشابے
-    ***REMOVED***
+    { $total ->
+        [one] { $total } وِچوں { $current } مشابہ
+       *[other] { $total } وِچوں { $current } مشابے
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] { $limit ***REMOVED*** توں ودھ مماثلت۔
-       *[other] { $limit ***REMOVED*** توں ودھ مماثلتاں۔
-    ***REMOVED***
+    { $limit ->
+        [one] { $limit } توں ودھ مماثلت۔
+       *[other] { $limit } توں ودھ مماثلتاں۔
+    }
 pdfjs-find-not-found = فقرہ نئیں ملیا
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = ورقہ فٹنگ
 pdfjs-page-scale-auto = آپوں آپ زوم
 pdfjs-page-scale-actual = اصل میچا
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = ورقہ { $page ***REMOVED***
+    .aria-label = ورقہ { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = ورقہ رینڈر کریندے ویلھے ہک خرا�
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** تشریح]
+    .alt = [{ $type } تشریح]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = دھندلاپن
 pdfjs-editor-stamp-add-image-button =
     .title = تصویر شامل کرو
 pdfjs-editor-stamp-add-image-button-label = تصویر شامل کرو
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = مُٹاݨ
 pdfjs-editor-free-highlight-thickness-title =
     .title = متن توں ان٘ج ٻئے شئیں کوں نمایاں کرݨ ویلے مُٹاݨ کوں بدلو
@@ -356,7 +356,7 @@ pdfjs-ink-canvas =
 pdfjs-editor-alt-text-button-label = Alt متن
 pdfjs-editor-alt-text-edit-button-label = alt متن وِچ ترمیم کرو
 pdfjs-editor-alt-text-dialog-label = ہِک اختیار چُݨو
-pdfjs-editor-alt-text-dialog-description = Alt متن (متبادل متن***REMOVED*** اِیں ویلے مَدَت کرین٘دا ہِے جہڑیلے لوک تصویر کوں نِھیں ݙیکھ سڳدے یا جہڑیلے اِیہ لوڈ کائنی تِھین٘دا۔
+pdfjs-editor-alt-text-dialog-description = Alt متن (متبادل متن) اِیں ویلے مَدَت کرین٘دا ہِے جہڑیلے لوک تصویر کوں نِھیں ݙیکھ سڳدے یا جہڑیلے اِیہ لوڈ کائنی تِھین٘دا۔
 pdfjs-editor-alt-text-add-description-label = تفصیل شامل کرو
 pdfjs-editor-alt-text-add-description-description = 1-2 جملیاں دا مقصد جہڑے موضوع، ترتیب، یا اعمال کوں بیان کرین٘دے ہِن۔
 pdfjs-editor-alt-text-mark-decorative-label = آرائشی طور تے نشان زد کرو
@@ -367,7 +367,7 @@ pdfjs-editor-alt-text-decorative-tooltip = آرائشی دے طور تے نشا�
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = مثال دے طور تے، "ہِک جؤان کھاݨاں کھاوݨ کِیتے میز اُتّے ٻیٹھا ہِے"
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Alt متن
 
@@ -426,12 +426,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = سارے ݙکھاؤ
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = آلٹ عبارت وچ تبدیلی کرو (تصویر تفصیل***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = آلٹ عبارت وچ تبدیلی کرو (تصویر تفصیل)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = آلٹ عبارت شامل کرو (تصویر تفصیل***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = آلٹ عبارت شامل کرو (تصویر تفصیل)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = اتھ آپݨی وضاحت لکھو۔۔۔
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -445,11 +445,11 @@ pdfjs-editor-new-alt-text-error-title = آلٹ عبارت خودکار نہ بݨ
 pdfjs-editor-new-alt-text-error-description = سوہݨا، آپݨی آلٹ عبارت لکھو یا ولدا بعد وچ کوشش کرو۔
 pdfjs-editor-new-alt-text-error-close-button = بند کرو
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = آلٹ عبارت اے آئی ماڈل({ $totalSize ***REMOVED***ایم بی دے { $downloadedSize ***REMOVED******REMOVED*** ڈاؤن لوڈ تھیندا پئے
-    .aria-valuetext = آلٹ عبارت اے آئی ماڈل({ $totalSize ***REMOVED***ایم بی دے { $downloadedSize ***REMOVED******REMOVED*** ڈاؤن لوڈ تھیندا پئے
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = آلٹ عبارت اے آئی ماڈل({ $totalSize }ایم بی دے { $downloadedSize }) ڈاؤن لوڈ تھیندا پئے
+    .aria-valuetext = آلٹ عبارت اے آئی ماڈل({ $totalSize }ایم بی دے { $downloadedSize }) ڈاؤن لوڈ تھیندا پئے
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = آلٹ عبارت شامل تھی ڳئی
@@ -464,8 +464,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = alt متن تے نظرثانی کرو
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = خودکار تخلیق تھئی: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = خودکار تخلیق تھئی: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -477,8 +477,8 @@ pdfjs-editor-alt-text-settings-automatic-title = خودکار آلٹ عبارت
 pdfjs-editor-alt-text-settings-create-model-button-label = آلٹ عبارت خودکار بݨاؤ
 pdfjs-editor-alt-text-settings-create-model-description = اُنہاں لوکاں دی مدد کیتے  تفصیل تجویز کرو جہڑے تصویر کائنی ݙیکھ سڳدے یا ڄݙݨ تصویر لوڈ کائبی تھیندی۔
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = آلٹ عبارت اے آئی ماڈل ({ $totalSize ***REMOVED*** ایم بی***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = آلٹ عبارت اے آئی ماڈل ({ $totalSize } ایم بی)
 pdfjs-editor-alt-text-settings-ai-model-description = تہاݙی ڈیوائس تے مقامی طور تے چلدا ہے تاں جو تہاݙا ڈیٹا نجی رہوے۔ خودکار آلٹ عبارت کیتے ضروری ہے۔
 pdfjs-editor-alt-text-settings-delete-model-button = مٹاؤ
 pdfjs-editor-alt-text-settings-download-model-button = ڈاؤن لوڈ

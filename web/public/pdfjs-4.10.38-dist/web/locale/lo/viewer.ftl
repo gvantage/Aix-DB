@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = ຫນ້າກ່ອນຫນ້າ
@@ -15,13 +15,13 @@ pdfjs-next-button-label = ຖັດໄປ
 pdfjs-page-input =
     .title = ຫນ້າ
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = ຈາກ { $pagesCount ***REMOVED***
+pdfjs-of-pages = ຈາກ { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** ຈາກ { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } ຈາກ { $pagesCount })
 pdfjs-zoom-out-button =
     .title = ຂະຫຍາຍອອກ
 pdfjs-zoom-out-button-label = ຂະຫຍາຍອອກ
@@ -43,7 +43,7 @@ pdfjs-save-button =
     .title = ບັນທຶກ
 pdfjs-save-button-label = ບັນທຶກ
 pdfjs-bookmark-button =
-    .title = ໜ້າປັດຈຸບັນ (ເບິ່ງ URL ຈາກໜ້າປັດຈຸບັນ***REMOVED***
+    .title = ໜ້າປັດຈຸບັນ (ເບິ່ງ URL ຈາກໜ້າປັດຈຸບັນ)
 pdfjs-bookmark-button-label = ຫນ້າ​ປັດ​ຈຸ​ບັນ
 
 ##  Secondary toolbar and context menu
@@ -99,13 +99,13 @@ pdfjs-document-properties-button-label = ຄຸນສົມບັດເອກະ
 pdfjs-document-properties-file-name = ຊື່ໄຟລ໌:
 pdfjs-document-properties-file-size = ຂະຫນາດໄຟລ໌:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED***  ໄບຕ໌***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b }  ໄບຕ໌)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** ໄບຕ໌***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } ໄບຕ໌)
 pdfjs-document-properties-title = ຫົວຂໍ້:
 pdfjs-document-properties-author = ຜູ້ຂຽນ:
 pdfjs-document-properties-subject = ຫົວຂໍ້:
@@ -113,9 +113,9 @@ pdfjs-document-properties-keywords = ຄໍາທີ່ຕ້ອງການຄ�
 pdfjs-document-properties-creation-date = ວັນທີສ້າງ:
 pdfjs-document-properties-modification-date = ວັນທີແກ້ໄຂ:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = ຜູ້ສ້າງ:
 pdfjs-document-properties-producer = ຜູ້ຜະລິດ PDF:
 pdfjs-document-properties-version = ເວີຊັ່ນ PDF:
@@ -131,14 +131,14 @@ pdfjs-document-properties-page-size-name-letter = ຈົດໝາຍ
 pdfjs-document-properties-page-size-name-legal = ຂໍ້ກົດຫມາຍ
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -153,8 +153,8 @@ pdfjs-document-properties-close-button = ປິດ
 
 pdfjs-print-progress-message = ກຳລັງກະກຽມເອກະສານສຳລັບການພິມ...
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = ຍົກເລີກ
 pdfjs-printing-not-supported = ຄຳເຕືອນ: ບຼາວເຊີນີ້ບໍ່ຮອງຮັບການພິມຢ່າງເຕັມທີ່.
 pdfjs-printing-not-ready = ຄໍາ​ເຕືອນ​: PDF ບໍ່​ໄດ້​ຖືກ​ໂຫຼດ​ຢ່າງ​ເຕັມ​ທີ່​ສໍາ​ລັບ​ການ​ພິມ​.
@@ -164,16 +164,16 @@ pdfjs-printing-not-ready = ຄໍາ​ເຕືອນ​: PDF ບໍ່​ໄ�
 pdfjs-toggle-sidebar-button =
     .title = ເປີດ/ປິດແຖບຂ້າງ
 pdfjs-toggle-sidebar-notification-button =
-    .title = ສະຫຼັບແຖບດ້ານຂ້າງ (ເອກະສານປະກອບມີໂຄງຮ່າງ/ໄຟລ໌ແນບ/ຊັ້ນຂໍ້ມູນ***REMOVED***
+    .title = ສະຫຼັບແຖບດ້ານຂ້າງ (ເອກະສານປະກອບມີໂຄງຮ່າງ/ໄຟລ໌ແນບ/ຊັ້ນຂໍ້ມູນ)
 pdfjs-toggle-sidebar-button-label = ເປີດ/ປິດແຖບຂ້າງ
 pdfjs-document-outline-button =
-    .title = ສະ​ແດງ​ໂຄງ​ຮ່າງ​ເອ​ກະ​ສານ (ກົດ​ສອງ​ຄັ້ງ​ເພື່ອ​ຂະ​ຫຍາຍ / ຫຍໍ້​ລາຍ​ການ​ທັງ​ຫມົດ​***REMOVED***
+    .title = ສະ​ແດງ​ໂຄງ​ຮ່າງ​ເອ​ກະ​ສານ (ກົດ​ສອງ​ຄັ້ງ​ເພື່ອ​ຂະ​ຫຍາຍ / ຫຍໍ້​ລາຍ​ການ​ທັງ​ຫມົດ​)
 pdfjs-document-outline-button-label = ເຄົ້າຮ່າງເອກະສານ
 pdfjs-attachments-button =
     .title = ສະແດງໄຟລ໌ແນບ
 pdfjs-attachments-button-label = ໄຟລ໌ແນບ
 pdfjs-layers-button =
-    .title = ສະແດງຊັ້ນຂໍ້ມູນ (ຄລິກສອງເທື່ອເພື່ອຣີເຊັດຊັ້ນຂໍ້ມູນທັງໝົດໃຫ້ເປັນສະຖານະເລີ່ມຕົ້ນ***REMOVED***
+    .title = ສະແດງຊັ້ນຂໍ້ມູນ (ຄລິກສອງເທື່ອເພື່ອຣີເຊັດຊັ້ນຂໍ້ມູນທັງໝົດໃຫ້ເປັນສະຖານະເລີ່ມຕົ້ນ)
 pdfjs-layers-button-label = ຊັ້ນ
 pdfjs-thumbs-button =
     .title = ສະແດງຮູບຫຍໍ້
@@ -186,16 +186,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = ຄົ້ນຫາ
 pdfjs-additional-layers = ຊັ້ນຂໍ້ມູນເພີ່ມເຕີມ
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = ໜ້າ { $page ***REMOVED***
+    .title = ໜ້າ { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = ຮູບຕົວຢ່າງຂອງໜ້າ { $page ***REMOVED***
+    .aria-label = ຮູບຕົວຢ່າງຂອງໜ້າ { $page }
 
 ## Find panel button title and messages
 
@@ -223,15 +223,15 @@ pdfjs-page-scale-fit = ໜ້າພໍດີ
 pdfjs-page-scale-auto = ຊູມອັດຕະໂນມັດ
 pdfjs-page-scale-actual = ຂະໜາດຕົວຈິງ
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = ໜ້າ { $page ***REMOVED***
+    .aria-label = ໜ້າ { $page }
 
 ## Loading indicator messages
 
@@ -244,16 +244,16 @@ pdfjs-rendering-error = ມີຂໍ້ຜິດພາດເກີດຂື້�
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** ຄຳບັນຍາຍ]
+    .alt = [{ $type } ຄຳບັນຍາຍ]
 
 ## Password
 
@@ -306,7 +306,7 @@ pdfjs-ink-canvas =
 
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 
 ## Image alt-text settings

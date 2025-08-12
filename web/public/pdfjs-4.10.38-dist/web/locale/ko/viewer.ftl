@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = 이전 페이지
@@ -15,13 +15,13 @@ pdfjs-next-button-label = 다음
 pdfjs-page-input =
     .title = 페이지
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = / { $pagesCount ***REMOVED***
+pdfjs-of-pages = / { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** / { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } / { $pagesCount })
 pdfjs-zoom-out-button =
     .title = 축소
 pdfjs-zoom-out-button-label = 축소
@@ -42,14 +42,14 @@ pdfjs-print-button-label = 인쇄
 pdfjs-save-button =
     .title = 저장
 pdfjs-save-button-label = 저장
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = 다운로드
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = 다운로드
 pdfjs-bookmark-button =
-    .title = 현재 페이지 (현재 페이지에서 URL 보기***REMOVED***
+    .title = 현재 페이지 (현재 페이지에서 URL 보기)
 pdfjs-bookmark-button-label = 현재 페이지
 
 ##  Secondary toolbar and context menu
@@ -85,7 +85,7 @@ pdfjs-scroll-horizontal-button =
     .title = 가로 스크롤 사용
 pdfjs-scroll-horizontal-button-label = 가로 스크롤
 pdfjs-scroll-wrapped-button =
-    .title = 래핑(자동 줄 바꿈***REMOVED*** 스크롤 사용
+    .title = 래핑(자동 줄 바꿈) 스크롤 사용
 pdfjs-scroll-wrapped-button-label = 래핑 스크롤
 pdfjs-spread-none-button =
     .title = 한 페이지 보기
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = 문서 속성…
 pdfjs-document-properties-file-name = 파일 이름:
 pdfjs-document-properties-file-size = 파일 크기:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** 바이트***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } 바이트)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** 바이트***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } 바이트)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED***바이트***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b }바이트)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED***바이트***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b }바이트)
 pdfjs-document-properties-title = 제목:
 pdfjs-document-properties-author = 작성자:
 pdfjs-document-properties-subject = 주제:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = 키워드:
 pdfjs-document-properties-creation-date = 작성 날짜:
 pdfjs-document-properties-modification-date = 수정 날짜:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = 작성 프로그램:
 pdfjs-document-properties-producer = PDF 변환 소프트웨어:
 pdfjs-document-properties-version = PDF 버전:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = 레터
 pdfjs-document-properties-page-size-name-legal = 리걸
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = 닫기
 
 pdfjs-print-progress-message = 인쇄 문서 준비 중…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = 취소
 pdfjs-printing-not-supported = 경고: 이 브라우저는 인쇄를 완전히 지원하지 않습니다.
 pdfjs-printing-not-ready = 경고: 이 PDF를 인쇄를 할 수 있을 정도로 읽어들이지 못했습니다.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = 경고: 이 PDF를 인쇄를 할 수 있을 정도로
 pdfjs-toggle-sidebar-button =
     .title = 사이드바 표시/숨기기
 pdfjs-toggle-sidebar-notification-button =
-    .title = 사이드바 표시/숨기기 (문서에 아웃라인/첨부파일/레이어 포함됨***REMOVED***
+    .title = 사이드바 표시/숨기기 (문서에 아웃라인/첨부파일/레이어 포함됨)
 pdfjs-toggle-sidebar-button-label = 사이드바 표시/숨기기
 pdfjs-document-outline-button =
-    .title = 문서 아웃라인 보기 (더블 클릭해서 모든 항목 펼치기/접기***REMOVED***
+    .title = 문서 아웃라인 보기 (더블 클릭해서 모든 항목 펼치기/접기)
 pdfjs-document-outline-button-label = 문서 아웃라인
 pdfjs-attachments-button =
     .title = 첨부파일 보기
 pdfjs-attachments-button-label = 첨부파일
 pdfjs-layers-button =
-    .title = 레이어 보기 (더블 클릭해서 모든 레이어를 기본 상태로 재설정***REMOVED***
+    .title = 레이어 보기 (더블 클릭해서 모든 레이어를 기본 상태로 재설정)
 pdfjs-layers-button-label = 레이어
 pdfjs-thumbs-button =
     .title = 미리보기
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = 검색
 pdfjs-additional-layers = 추가 레이어
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = { $page ***REMOVED*** 페이지
+    .title = { $page } 페이지
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = { $page ***REMOVED*** 페이지 미리보기
+    .aria-label = { $page } 페이지 미리보기
 
 ## Find panel button title and messages
 
@@ -232,12 +232,12 @@ pdfjs-find-entire-word-checkbox-label = 단어 단위로
 pdfjs-find-reached-top = 문서 처음까지 검색하고 끝으로 돌아와 검색했습니다.
 pdfjs-find-reached-bottom = 문서 끝까지 검색하고 앞으로 돌아와 검색했습니다.
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
-pdfjs-find-match-count = { $current ***REMOVED*** / { $total ***REMOVED*** 일치
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
+pdfjs-find-match-count = { $current } / { $total } 일치
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
-pdfjs-find-match-count-limit = { $limit ***REMOVED***개 이상 일치
+#   $limit (Number) - the maximum number of matches
+pdfjs-find-match-count-limit = { $limit }개 이상 일치
 pdfjs-find-not-found = 검색 결과 없음
 
 ## Predefined zoom values
@@ -247,15 +247,15 @@ pdfjs-page-scale-fit = 페이지에 맞추기
 pdfjs-page-scale-auto = 자동
 pdfjs-page-scale-actual = 실제 크기
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = { $page ***REMOVED*** 페이지
+    .aria-label = { $page } 페이지
 
 ## Loading indicator messages
 
@@ -268,19 +268,19 @@ pdfjs-rendering-error = 페이지를 렌더링하는 동안 오류가 발생했�
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED*** { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date } { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** 주석]
+    .alt = [{ $type } 주석]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -331,7 +331,7 @@ pdfjs-editor-ink-opacity-input = 불투명도
 pdfjs-editor-stamp-add-image-button =
     .title = 이미지 추가
 pdfjs-editor-stamp-add-image-button-label = 이미지 추가
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = 두께
 pdfjs-editor-free-highlight-thickness-title =
     .title = 텍스트 이외의 항목을 강조 표시할 때 두께 변경
@@ -365,7 +365,7 @@ pdfjs-editor-alt-text-decorative-tooltip = 장식용으로 표시됨
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = 예를 들어, “한 청년이 식탁에 앉아 식사를 하고 있습니다.”
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = 대체 텍스트
 
@@ -424,12 +424,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = 모두 보기
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = 대체 텍스트 (이미지 설명***REMOVED*** 편집
+pdfjs-editor-new-alt-text-dialog-edit-label = 대체 텍스트 (이미지 설명) 편집
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = 대체 텍스트 (이미지 설명***REMOVED*** 추가
+pdfjs-editor-new-alt-text-dialog-add-label = 대체 텍스트 (이미지 설명) 추가
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = 여기에 설명을 작성하세요…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -443,11 +443,11 @@ pdfjs-editor-new-alt-text-error-title = 대체 텍스트를 자동으로 생성�
 pdfjs-editor-new-alt-text-error-description = 대체 텍스트를 직접 작성하거나 나중에 다시 시도하세요.
 pdfjs-editor-new-alt-text-error-close-button = 닫기
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = 대체 텍스트 AI 모델 다운로드 중 ({ $downloadedSize ***REMOVED*** / { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = 대체 텍스트 AI 모델 다운로드 중 ({ $downloadedSize ***REMOVED*** / { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = 대체 텍스트 AI 모델 다운로드 중 ({ $downloadedSize } / { $totalSize } MB)
+    .aria-valuetext = 대체 텍스트 AI 모델 다운로드 중 ({ $downloadedSize } / { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = 대체 텍스트 추가됨
@@ -462,8 +462,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = 대체 텍스트 검토
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = 자동으로 생성됨: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = 자동으로 생성됨: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -475,8 +475,8 @@ pdfjs-editor-alt-text-settings-automatic-title = 자동 대체 텍스트
 pdfjs-editor-alt-text-settings-create-model-button-label = 자동으로 대체 텍스트 생성
 pdfjs-editor-alt-text-settings-create-model-description = 이미지가 보이지 않거나 이미지가 로딩되지 않을 때 도움이 되는 설명을 제안합니다.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = 대체 텍스트 AI 모델 ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = 대체 텍스트 AI 모델 ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = 사용자의 장치에서 로컬로 실행되므로 데이터가 비공개로 유지됩니다. 자동 대체 텍스트에 필요합니다.
 pdfjs-editor-alt-text-settings-delete-model-button = 삭제
 pdfjs-editor-alt-text-settings-download-model-button = 다운로드
@@ -493,8 +493,8 @@ pdfjs-editor-undo-bar-message-freetext = 텍스트 제거됨
 pdfjs-editor-undo-bar-message-ink = 그리기 제거됨
 pdfjs-editor-undo-bar-message-stamp = 이미지 제거됨
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
-pdfjs-editor-undo-bar-message-multiple = 주석 { $count ***REMOVED***개 제거됨
+#   $count (Number) - the number of removed annotations.
+pdfjs-editor-undo-bar-message-multiple = 주석 { $count }개 제거됨
 pdfjs-editor-undo-bar-undo-button =
     .title = 실행 취소
 pdfjs-editor-undo-bar-undo-button-label = 실행 취소

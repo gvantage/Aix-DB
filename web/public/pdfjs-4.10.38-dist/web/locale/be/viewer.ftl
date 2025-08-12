@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Папярэдняя старонка
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Наступная
 pdfjs-page-input =
     .title = Старонка
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = з { $pagesCount ***REMOVED***
+pdfjs-of-pages = з { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** з { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } з { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Паменшыць
 pdfjs-zoom-out-button-label = Паменшыць
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Друкаваць
 pdfjs-save-button =
     .title = Захаваць
 pdfjs-save-button-label = Захаваць
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Сцягнуць
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Сцягнуць
 pdfjs-bookmark-button =
-    .title = Дзейная старонка (паглядзець URL-адрас з дзейнай старонкі***REMOVED***
+    .title = Дзейная старонка (паглядзець URL-адрас з дзейнай старонкі)
 pdfjs-bookmark-button-label = Цяперашняя старонка
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Уласцівасці дакумент
 pdfjs-document-properties-file-name = Назва файла:
 pdfjs-document-properties-file-size = Памер файла:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** КБ ({ $b ***REMOVED*** байтаў***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } КБ ({ $b } байтаў)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** МБ ({ $b ***REMOVED*** байтаў***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } МБ ({ $b } байтаў)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** КБ ({ $size_b ***REMOVED*** байт***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } КБ ({ $size_b } байт)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** МБ ({ $size_b ***REMOVED*** байт***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } МБ ({ $size_b } байт)
 pdfjs-document-properties-title = Загаловак:
 pdfjs-document-properties-author = Аўтар:
 pdfjs-document-properties-subject = Тэма:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Ключавыя словы:
 pdfjs-document-properties-creation-date = Дата стварэння:
 pdfjs-document-properties-modification-date = Дата змянення:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Стваральнік:
 pdfjs-document-properties-producer = Вырабнік PDF:
 pdfjs-document-properties-version = Версія PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Letter
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Закрыць
 
 pdfjs-print-progress-message = Падрыхтоўка дакумента да друку…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Скасаваць
 pdfjs-printing-not-supported = Папярэджанне: друк не падтрымліваецца цалкам гэтым браўзерам.
 pdfjs-printing-not-ready = Увага: PDF не сцягнуты цалкам для друкавання.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Увага: PDF не сцягнуты цалкам д
 pdfjs-toggle-sidebar-button =
     .title = Паказаць/схаваць бакавую панэль
 pdfjs-toggle-sidebar-notification-button =
-    .title = Паказаць/схаваць бакавую панэль (дакумент мае змест/укладанні/пласты***REMOVED***
+    .title = Паказаць/схаваць бакавую панэль (дакумент мае змест/укладанні/пласты)
 pdfjs-toggle-sidebar-button-label = Паказаць/схаваць бакавую панэль
 pdfjs-document-outline-button =
-    .title = Паказаць структуру дакумента (двайная пстрычка, каб разгарнуць /згарнуць усе элементы***REMOVED***
+    .title = Паказаць структуру дакумента (двайная пстрычка, каб разгарнуць /згарнуць усе элементы)
 pdfjs-document-outline-button-label = Структура дакумента
 pdfjs-attachments-button =
     .title = Паказаць далучэнні
 pdfjs-attachments-button-label = Далучэнні
 pdfjs-layers-button =
-    .title = Паказаць пласты (націсніце двойчы, каб скінуць усе пласты да прадвызначанага стану***REMOVED***
+    .title = Паказаць пласты (націсніце двойчы, каб скінуць усе пласты да прадвызначанага стану)
 pdfjs-layers-button-label = Пласты
 pdfjs-thumbs-button =
     .title = Паказ мініяцюр
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Знайсці
 pdfjs-additional-layers = Дадатковыя пласты
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Старонка { $page ***REMOVED***
+    .title = Старонка { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Мініяцюра старонкі { $page ***REMOVED***
+    .aria-label = Мініяцюра старонкі { $page }
 
 ## Find panel button title and messages
 
@@ -232,22 +232,22 @@ pdfjs-find-entire-word-checkbox-label = Словы цалкам
 pdfjs-find-reached-top = Дасягнуты пачатак дакумента, працяг з канца
 pdfjs-find-reached-bottom = Дасягнуты канец дакумента, працяг з пачатку
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** з { $total ***REMOVED*** супадзенняў
-        [few] { $current ***REMOVED*** з { $total ***REMOVED*** супадзенняў
-       *[many] { $current ***REMOVED*** з { $total ***REMOVED*** супадзенняў
-    ***REMOVED***
+    { $total ->
+        [one] { $current } з { $total } супадзенняў
+        [few] { $current } з { $total } супадзенняў
+       *[many] { $current } з { $total } супадзенняў
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Больш за { $limit ***REMOVED*** супадзенне
-        [few] Больш за { $limit ***REMOVED*** супадзенні
-       *[many] Больш за { $limit ***REMOVED*** супадзенняў
-    ***REMOVED***
+    { $limit ->
+        [one] Больш за { $limit } супадзенне
+        [few] Больш за { $limit } супадзенні
+       *[many] Больш за { $limit } супадзенняў
+    }
 pdfjs-find-not-found = Выраз не знойдзены
 
 ## Predefined zoom values
@@ -257,15 +257,15 @@ pdfjs-page-scale-fit = Уцісненне старонкі
 pdfjs-page-scale-auto = Аўтаматычнае павелічэнне
 pdfjs-page-scale-actual = Сапраўдны памер
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Старонка { $page ***REMOVED***
+    .aria-label = Старонка { $page }
 
 ## Loading indicator messages
 
@@ -278,19 +278,19 @@ pdfjs-rendering-error = Здарылася памылка падчас адлю�
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Annotation]
+    .alt = [{ $type } Annotation]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -341,7 +341,7 @@ pdfjs-editor-ink-opacity-input = Непразрыстасць
 pdfjs-editor-stamp-add-image-button =
     .title = Дадаць выяву
 pdfjs-editor-stamp-add-image-button-label = Дадаць выяву
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Таўшчыня
 pdfjs-editor-free-highlight-thickness-title =
     .title = Змяняць таўшчыню пры вылучэнні іншых элементаў, акрамя тэксту
@@ -375,7 +375,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Пазначаны як дэкара�
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Напрыклад, «Малады чалавек садзіцца за стол есці»
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Альтэрнатыўны тэкст
 
@@ -434,12 +434,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Паказаць усе
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Рэдагаваць тэкст для атрыбута alt (апісанне выявы***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Рэдагаваць тэкст для атрыбута alt (апісанне выявы)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Дадаць тэкст для атрыбута alt (апісанне выявы***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Дадаць тэкст для атрыбута alt (апісанне выявы)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Напішыце сваё апісанне тут…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -453,11 +453,11 @@ pdfjs-editor-new-alt-text-error-title = Не ўдалося аўтаматычн
 pdfjs-editor-new-alt-text-error-description = Калі ласка, напішыце ўласны тэкст для атрыбута alt або паўтарыце спробу пазней.
 pdfjs-editor-new-alt-text-error-close-button = Закрыць
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Сцягванне мадэлі ШІ для тэксту для атрыбута alt ({ $downloadedSize ***REMOVED*** з { $totalSize ***REMOVED*** МБ***REMOVED***
-    .aria-valuetext = Сцягванне мадэлі ШІ для тэксту для атрыбута alt ({ $downloadedSize ***REMOVED*** з { $totalSize ***REMOVED*** МБ***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Сцягванне мадэлі ШІ для тэксту для атрыбута alt ({ $downloadedSize } з { $totalSize } МБ)
+    .aria-valuetext = Сцягванне мадэлі ШІ для тэксту для атрыбута alt ({ $downloadedSize } з { $totalSize } МБ)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Тэкст для атрыбута alt дададзены
@@ -472,8 +472,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Водгук на тэкст для атрыбута alt
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Створаны аўтаматычна: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Створаны аўтаматычна: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -485,8 +485,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Аўтаматычны тэкс
 pdfjs-editor-alt-text-settings-create-model-button-label = Ствараць тэкст для атрыбута alt аўтаматычна
 pdfjs-editor-alt-text-settings-create-model-description = Прапануе апісанні, каб дапамагчы людзям, якія не бачаць выяву, ці калі выява не загружаецца.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Мадэль ШІ для тэксту для атрыбута alt ({ $totalSize ***REMOVED*** МБ***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Мадэль ШІ для тэксту для атрыбута alt ({ $totalSize } МБ)
 pdfjs-editor-alt-text-settings-ai-model-description = Працуе лакальна на вашай прыладзе, таму вашы звесткі застаюцца прыватнымі. Патрабуецца для аўтаматычнага альтэрнатыўнага тэксту.
 pdfjs-editor-alt-text-settings-delete-model-button = Выдаліць
 pdfjs-editor-alt-text-settings-download-model-button = Сцягнуць
@@ -503,13 +503,13 @@ pdfjs-editor-undo-bar-message-freetext = Тэкст выдалены
 pdfjs-editor-undo-bar-message-ink = Малюнак выдалены
 pdfjs-editor-undo-bar-message-stamp = Відарыс выдалены
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] { $count ***REMOVED*** анатацыя выдалена
-        [few] { $count ***REMOVED*** анатацыі выдалена
-       *[many] { $count ***REMOVED*** анатацый выдалена
-    ***REMOVED***
+    { $count ->
+        [one] { $count } анатацыя выдалена
+        [few] { $count } анатацыі выдалена
+       *[many] { $count } анатацый выдалена
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Адмяніць
 pdfjs-editor-undo-bar-undo-button-label = Адмяніць

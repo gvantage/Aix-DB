@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Pachina anterior
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Siguient
 pdfjs-page-input =
     .title = Pachina
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = de { $pagesCount ***REMOVED***
+pdfjs-of-pages = de { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** de { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } de { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Achiquir
 pdfjs-zoom-out-button-label = Achiquir
@@ -90,13 +90,13 @@ pdfjs-document-properties-button-label = Propiedatz d'o documento...
 pdfjs-document-properties-file-name = Nombre de fichero:
 pdfjs-document-properties-file-size = Grandaria d'o fichero:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = Titol:
 pdfjs-document-properties-author = Autor:
 pdfjs-document-properties-subject = Afer:
@@ -104,9 +104,9 @@ pdfjs-document-properties-keywords = Parolas clau:
 pdfjs-document-properties-creation-date = Calendata de creyación:
 pdfjs-document-properties-modification-date = Calendata de modificación:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Creyador:
 pdfjs-document-properties-producer = Creyador de PDF:
 pdfjs-document-properties-version = Versión de PDF:
@@ -122,14 +122,14 @@ pdfjs-document-properties-page-size-name-letter = Carta
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** x { $height ***REMOVED*** { $unit ***REMOVED*** { $orientation ***REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** x { $height ***REMOVED*** { $unit ***REMOVED*** { $name ***REMOVED***, { $orientation ***REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } x { $height } { $unit } { $orientation }
+pdfjs-document-properties-page-size-dimension-name-string = { $width } x { $height } { $unit } { $name }, { $orientation }
 
 ##
 
@@ -144,8 +144,8 @@ pdfjs-document-properties-close-button = Zarrar
 
 pdfjs-print-progress-message = Se ye preparando la documentación pa imprentar…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Cancelar
 pdfjs-printing-not-supported = Pare cuenta: Iste navegador no maneya totalment as impresions.
 pdfjs-printing-not-ready = Aviso: Encara no se ha cargau completament o PDF ta imprentar-lo.
@@ -155,16 +155,16 @@ pdfjs-printing-not-ready = Aviso: Encara no se ha cargau completament o PDF ta i
 pdfjs-toggle-sidebar-button =
     .title = Amostrar u amagar a barra lateral
 pdfjs-toggle-sidebar-notification-button =
-    .title = Cambiar barra lateral (lo documento contiene esquema/adchuntos/capas***REMOVED***
+    .title = Cambiar barra lateral (lo documento contiene esquema/adchuntos/capas)
 pdfjs-toggle-sidebar-button-label = Amostrar a barra lateral
 pdfjs-document-outline-button =
-    .title = Amostrar esquema d'o documento (fer doble clic pa expandir/compactar totz los items***REMOVED***
+    .title = Amostrar esquema d'o documento (fer doble clic pa expandir/compactar totz los items)
 pdfjs-document-outline-button-label = Esquema d'o documento
 pdfjs-attachments-button =
     .title = Amostrar os adchuntos
 pdfjs-attachments-button-label = Adchuntos
 pdfjs-layers-button =
-    .title = Amostrar capas (doble clic para reiniciar totas las capas a lo estau per defecto***REMOVED***
+    .title = Amostrar capas (doble clic para reiniciar totas las capas a lo estau per defecto)
 pdfjs-layers-button-label = Capas
 pdfjs-thumbs-button =
     .title = Amostrar as miniaturas
@@ -174,16 +174,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Trobar
 pdfjs-additional-layers = Capas adicionals
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Pachina { $page ***REMOVED***
+    .title = Pachina { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Miniatura d'a pachina { $page ***REMOVED***
+    .aria-label = Miniatura d'a pachina { $page }
 
 ## Find panel button title and messages
 
@@ -210,8 +210,8 @@ pdfjs-page-scale-fit = Achuste d'a pachina
 pdfjs-page-scale-auto = Grandaria automatica
 pdfjs-page-scale-actual = Grandaria actual
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -227,16 +227,16 @@ pdfjs-rendering-error = Ha ocurriu una error en renderizar a pachina.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Anotación { $type ***REMOVED***]
+    .alt = [Anotación { $type }]
 
 ## Password
 

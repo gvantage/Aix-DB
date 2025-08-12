@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = முந்தைய பக்கம்
@@ -15,13 +15,13 @@ pdfjs-next-button-label = அடுத்து
 pdfjs-page-input =
     .title = பக்கம்
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = { $pagesCount ***REMOVED*** இல்
+pdfjs-of-pages = { $pagesCount } இல்
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = { $pagesCount ***REMOVED******REMOVED*** இல் ({ $pageNumber ***REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = { $pagesCount }) இல் ({ $pageNumber }
 pdfjs-zoom-out-button =
     .title = சிறிதாக்கு
 pdfjs-zoom-out-button-label = சிறிதாக்கு
@@ -72,13 +72,13 @@ pdfjs-document-properties-button-label = ஆவண பண்புகள்...
 pdfjs-document-properties-file-name = கோப்பு பெயர்:
 pdfjs-document-properties-file-size = கோப்பின் அளவு:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** கிபை ({ $size_b ***REMOVED*** பைட்டுகள்***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } கிபை ({ $size_b } பைட்டுகள்)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** மெபை ({ $size_b ***REMOVED*** பைட்டுகள்***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } மெபை ({ $size_b } பைட்டுகள்)
 pdfjs-document-properties-title = தலைப்பு:
 pdfjs-document-properties-author = எழுதியவர்
 pdfjs-document-properties-subject = பொருள்:
@@ -86,9 +86,9 @@ pdfjs-document-properties-keywords = முக்கிய வார்த்த
 pdfjs-document-properties-creation-date = படைத்த தேதி :
 pdfjs-document-properties-modification-date = திருத்திய தேதி:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = உருவாக்குபவர்:
 pdfjs-document-properties-producer = பிடிஎஃப் தயாரிப்பாளர்:
 pdfjs-document-properties-version = PDF பதிப்பு:
@@ -104,14 +104,14 @@ pdfjs-document-properties-page-size-name-letter = கடிதம்
 pdfjs-document-properties-page-size-name-legal = சட்டபூர்வ
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -121,8 +121,8 @@ pdfjs-document-properties-close-button = மூடுக
 
 pdfjs-print-progress-message = அச்சிடுவதற்கான ஆவணம் தயாராகிறது...
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = ரத்து
 pdfjs-printing-not-supported = எச்சரிக்கை: இந்த உலாவி அச்சிடுதலை முழுமையாக ஆதரிக்கவில்லை.
 pdfjs-printing-not-ready = எச்சரிக்கை: PDF அச்சிட முழுவதுமாக ஏற்றப்படவில்லை.
@@ -133,7 +133,7 @@ pdfjs-toggle-sidebar-button =
     .title = பக்கப் பட்டியை நிலைமாற்று
 pdfjs-toggle-sidebar-button-label = பக்கப் பட்டியை நிலைமாற்று
 pdfjs-document-outline-button =
-    .title = ஆவண அடக்கத்தைக் காட்டு (இருமுறைச் சொடுக்கி அனைத்து உறுப்பிடிகளையும் விரி/சேர்***REMOVED***
+    .title = ஆவண அடக்கத்தைக் காட்டு (இருமுறைச் சொடுக்கி அனைத்து உறுப்பிடிகளையும் விரி/சேர்)
 pdfjs-document-outline-button-label = ஆவண வெளிவரை
 pdfjs-attachments-button =
     .title = இணைப்புகளை காண்பி
@@ -145,16 +145,16 @@ pdfjs-findbar-button =
     .title = ஆவணத்தில் கண்டறி
 pdfjs-findbar-button-label = தேடு
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = பக்கம் { $page ***REMOVED***
+    .title = பக்கம் { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = பக்கத்தின் சிறுபடம் { $page ***REMOVED***
+    .aria-label = பக்கத்தின் சிறுபடம் { $page }
 
 ## Find panel button title and messages
 
@@ -180,8 +180,8 @@ pdfjs-page-scale-fit = பக்கப் பொருத்தம்
 pdfjs-page-scale-auto = தானியக்க பெரிதாக்கல்
 pdfjs-page-scale-actual = உண்மையான அளவு
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -198,11 +198,11 @@ pdfjs-rendering-error = இந்தப் பக்கத்தை காட்
 
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** விளக்கம்]
+    .alt = [{ $type } விளக்கம்]
 
 ## Password
 

@@ -3,90 +3,93 @@ import logging
 import os
 import traceback
 from datetime import datetime, timedelta
+from typing import List
 
 import jwt
 import requests
 
 from common.exception import MyException
 from common.mysql_util import MysqlUtil
-from constants.code_enum import SysCodeEnum, DiFyAppEnum
+from constants.code_enum import SysCodeEnum, DiFyAppEnum, DataTypeEnum
 from constants.dify_rest_api import DiFyRestApi
 
-logger = logging.getLogger(__name__***REMOVED***
+logger = logging.getLogger(__name__)
 
-mysql_client = MysqlUtil(***REMOVED***
+mysql_client = MysqlUtil()
 
 
-async def authenticate_user(username, password***REMOVED***:
+async def authenticate_user(username, password):
     """验证用户凭据并返回用户信息或 None"""
-    sql = f"""select * from t_user where userName='{username***REMOVED***' and password='{password***REMOVED***'"""
-    report_dict = MysqlUtil(***REMOVED***.query_mysql_dict(sql***REMOVED***
-    if len(report_dict***REMOVED*** > 0:
+    sql = f"""select * from t_user where userName='{username}' and password='{password}'"""
+    report_dict = MysqlUtil().query_mysql_dict(sql)
+    if len(report_dict) > 0:
         return report_dict[0]
     else:
         return False
 
 
-async def generate_jwt_token(user_id, username***REMOVED***:
+async def generate_jwt_token(user_id, username):
     """生成 JWT token"""
-    payload = {"id": str(user_id***REMOVED***, "username": username, "exp": datetime.utcnow(***REMOVED*** + timedelta(hours=24***REMOVED******REMOVED***  # Token 过期时间
-    token = jwt.encode(payload, os.getenv("JWT_SECRET_KEY"***REMOVED***, algorithm="HS256"***REMOVED***
+    payload = {"id": str(user_id), "username": username, "exp": datetime.utcnow() + timedelta(hours=24)}  # Token 过期时间
+    token = jwt.encode(payload, os.getenv("JWT_SECRET_KEY"), algorithm="HS256")
     return token
 
 
-async def decode_jwt_token(token***REMOVED***:
+async def decode_jwt_token(token):
     """解析 JWT token 并返回 payload"""
     try:
         # 使用与生成 token 时相同的密钥和算法来解码 token
-        payload = jwt.decode(token, key=os.getenv("JWT_SECRET_KEY"***REMOVED***, algorithms=["HS256"]***REMOVED***
+        payload = jwt.decode(token, key=os.getenv("JWT_SECRET_KEY"), algorithms=["HS256"])
         # 检查 token 是否过期
-        if "exp" in payload and datetime.utcfromtimestamp(payload["exp"]***REMOVED*** < datetime.utcnow(***REMOVED***:
-            raise jwt.ExpiredSignatureError("Token has expired"***REMOVED***
+        if "exp" in payload and datetime.utcfromtimestamp(payload["exp"]) < datetime.utcnow():
+            raise jwt.ExpiredSignatureError("Token has expired")
         return payload
     except jwt.ExpiredSignatureError as e:
         # 处理过期的 token
-        return None, 401, str(e***REMOVED***
+        return None, 401, str(e)
     except jwt.InvalidTokenError as e:
         # 处理无效的 token
-        return None, 400, str(e***REMOVED***
+        return None, 400, str(e)
     except Exception as e:
         # 处理其他可能的错误
-        return None, 500, str(e***REMOVED***
+        return None, 500, str(e)
 
 
-async def get_user_info(request***REMOVED*** -> dict:
+async def get_user_info(request) -> dict:
     """获取登录用户信息"""
-    token = request.headers.get("Authorization"***REMOVED***
+    token = request.headers.get("Authorization")
 
     # 检查 Authorization 头是否存在
     if not token:
-        logging.error("Authorization header is missing"***REMOVED***
-        raise MyException(SysCodeEnum.c_401***REMOVED***
+        logging.error("Authorization header is missing")
+        raise MyException(SysCodeEnum.c_401)
 
     # 检查 Authorization 头格式是否正确
-    if not token.startswith("Bearer "***REMOVED***:
-        logging.error("Invalid Authorization header format"***REMOVED***
-        raise MyException(SysCodeEnum.c_400***REMOVED***
+    if not token.startswith("Bearer "):
+        logging.error("Invalid Authorization header format")
+        raise MyException(SysCodeEnum.c_400)
 
     # 提取 token
-    token = token.split(" "***REMOVED***[1].strip(***REMOVED***
+    token = token.split(" ")[1].strip()
 
     # 检查 token 是否为空
     if not token:
-        logging.error("Token is empty or whitespace"***REMOVED***
-        raise MyException(SysCodeEnum.c_400***REMOVED***
+        logging.error("Token is empty or whitespace")
+        raise MyException(SysCodeEnum.c_400)
 
     try:
         # 解码 JWT token
-        user_info = await decode_jwt_token(token***REMOVED***
+        user_info = await decode_jwt_token(token)
     except Exception as e:
-        logging.error(f"Failed to decode JWT token: {e***REMOVED***"***REMOVED***
-        raise MyException(SysCodeEnum.c_401***REMOVED***
+        logging.error(f"Failed to decode JWT token: {e}")
+        raise MyException(SysCodeEnum.c_401)
 
     return user_info
 
 
-async def add_question_record(uuid_str, user_token, conversation_id, message_id, task_id, chat_id, question, t02_answer, t04_answer, qa_type***REMOVED***:
+async def add_question_record(
+    uuid_str, user_token, conversation_id, message_id, task_id, chat_id, question, t02_answer, t04_answer, qa_type
+):
     """
     @:param uuid_str: 唯一ID
     @param user_token: 用户token
@@ -102,23 +105,23 @@ async def add_question_record(uuid_str, user_token, conversation_id, message_id,
     """
     try:
         # 解析token信息
-        user_dict = await decode_jwt_token(user_token***REMOVED***
+        user_dict = await decode_jwt_token(user_token)
         user_id = user_dict["id"]
 
         # 文件问答时保存 minio/key
         file_key = ""
         if qa_type == DiFyAppEnum.FILEDATA_QA.value[0]:
-            file_key = question.split("|"***REMOVED***[0]
-            question = question.split("|"***REMOVED***[1]
+            file_key = question.split("|")[0]
+            question = question.split("|")[1]
 
-        sql = f"select * from t_user_qa_record where user_id={user_id***REMOVED*** and chat_id='{chat_id***REMOVED***' and message_id='{message_id***REMOVED***'"
-        log_dict = mysql_client.query_mysql_dict(sql***REMOVED***
+        sql = f"select * from t_user_qa_record where user_id={user_id} and chat_id='{chat_id}' and message_id='{message_id}'"
+        log_dict = mysql_client.query_mysql_dict(sql)
 
         # 根据 message_id 判断是否是同一个问题
-        if len(log_dict***REMOVED*** > 0:
-            sql = f"""update t_user_qa_record set to4_answer='{json.dumps(t04_answer, ensure_ascii=False***REMOVED******REMOVED***' 
-                    where user_id={user_id***REMOVED*** and chat_id='{chat_id***REMOVED***' and message_id='{message_id***REMOVED***'"""
-            mysql_client.update(sql***REMOVED***
+        if len(log_dict) > 0:
+            sql = f"""update t_user_qa_record set to4_answer='{json.dumps(t04_answer, ensure_ascii=False)}' 
+                    where user_id={user_id} and chat_id='{chat_id}' and message_id='{message_id}'"""
+            mysql_client.update(sql)
         else:
             insert_params = [
                 uuid_str,
@@ -128,22 +131,59 @@ async def add_question_record(uuid_str, user_token, conversation_id, message_id,
                 task_id,
                 chat_id,
                 question,
-                json.dumps(t02_answer, ensure_ascii=False***REMOVED***,
+                json.dumps(t02_answer, ensure_ascii=False),
                 qa_type,
                 file_key,
-        ***REMOVED***
+            ]
             sql = (
-                f" insert into t_user_qa_record(uuid,user_id,conversation_id, message_id, task_id,chat_id,question,to2_answer,qa_type,file_key***REMOVED*** "
-                f"values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s***REMOVED***"
-            ***REMOVED***
-            mysql_client.insert(sql=sql, params=insert_params***REMOVED***
+                f" insert into t_user_qa_record(uuid,user_id,conversation_id, message_id, task_id,chat_id,question,to2_answer,qa_type,file_key) "
+                f"values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+            )
+            mysql_client.insert(sql=sql, params=insert_params)
 
     except Exception as e:
-        traceback.print_exception(e***REMOVED***
-        logger.error(f"保存用户问答日志失败: {e***REMOVED***"***REMOVED***
+        traceback.print_exception(e)
+        logger.error(f"保存用户问答日志失败: {e}")
 
 
-async def delete_user_record(user_id, record_ids***REMOVED***:
+async def add_user_record(
+    uuid_str: str, chat_id: int, question: str, to2_answer: List[str], qa_type: str, user_token: str
+):
+    """
+    新增用户问答记录
+    """
+    try:
+        # 1. 解析用户信息
+        user_info = await decode_jwt_token(user_token)
+        user_id = user_info.get("id")
+        if not user_id:
+            raise ValueError("Invalid user token: missing user_id")
+
+        # 2. 组装 answer 数据
+        t02_message_json = {
+            "data": {"messageType": "continue", "content": "".join(to2_answer or [])},
+            "dataType": DataTypeEnum.ANSWER.value[0],
+        }
+        answer_str = json.dumps(t02_message_json, ensure_ascii=False)
+
+        # 3. 插入数据库
+        insert_sql = """
+            INSERT INTO t_user_qa_record
+            (uuid, user_id, chat_id, question, to2_answer, qa_type)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """
+        insert_params = [uuid_str, user_id, chat_id, question, answer_str, DiFyAppEnum.COMMON_QA.value[0]]
+
+        # 如果 mysql_client.insert 是异步方法
+        mysql_client.insert(sql=insert_sql, params=insert_params)
+
+    except Exception as e:
+        # 建议替换成项目的日志系统
+        logger.error(f"Failed to insert user QA record: {e}", exc_info=True)
+        raise
+
+
+async def delete_user_record(user_id, record_ids):
     """
     删除用户问答记录
     :param user_id: 用户ID
@@ -151,24 +191,24 @@ async def delete_user_record(user_id, record_ids***REMOVED***:
     :return: None
     """
     # 确保 record_ids 是一个非空列表
-    if not isinstance(record_ids, list***REMOVED*** or not record_ids:
-        raise ValueError("record_ids 必须是非空列表"***REMOVED***
+    if not isinstance(record_ids, list) or not record_ids:
+        raise ValueError("record_ids 必须是非空列表")
 
     # 创建 IN 子句和对应的参数列表
-    in_clause = ", ".join(["%s"] * len(record_ids***REMOVED******REMOVED***
+    in_clause = ", ".join(["%s"] * len(record_ids))
     sql = f"""
         DELETE FROM t_user_qa_record
-        WHERE user_id = %s AND id IN ({in_clause***REMOVED******REMOVED***
+        WHERE user_id = %s AND id IN ({in_clause})
     """
 
     # 将 user_id 添加到参数列表的开头
     params = [user_id] + record_ids
 
     # 执行更新操作
-    mysql_client.update_params(sql=sql, params=params***REMOVED***
+    mysql_client.update_params(sql=sql, params=params)
 
 
-async def query_user_record(user_id, page, limit, search_text, chat_id***REMOVED***:
+async def query_user_record(user_id, page, limit, search_text, chat_id):
     """
     根据用户id查询用户问答记录
     :param page
@@ -180,40 +220,40 @@ async def query_user_record(user_id, page, limit, search_text, chat_id***REMOVED
     """
     conditions = []
     if chat_id:
-        conditions.append(f"chat_id = '{chat_id***REMOVED***'"***REMOVED***
+        conditions.append(f"chat_id = '{chat_id}'")
     if search_text:
-        conditions.append(f"question LIKE '%{search_text***REMOVED***%'"***REMOVED***
+        conditions.append(f"question LIKE '%{search_text}%'")
     elif user_id:
-        conditions.append(f"user_id = {user_id***REMOVED***"***REMOVED***
+        conditions.append(f"user_id = {user_id}")
 
-    count_sql = "select count(1***REMOVED*** as count from t_user_qa_record"
+    count_sql = "select count(1) as count from t_user_qa_record"
     if conditions:
-        count_sql += " where " + " and ".join(conditions***REMOVED***
-    total_count = mysql_client.query_mysql_dict(count_sql***REMOVED***[0]["count"]
-    total_pages = (total_count + limit - 1***REMOVED*** // limit  # 计算总页数
+        count_sql += " where " + " and ".join(conditions)
+    total_count = mysql_client.query_mysql_dict(count_sql)[0]["count"]
+    total_pages = (total_count + limit - 1) // limit  # 计算总页数
 
     # 计算偏移量
-    offset = (page - 1***REMOVED*** * limit
+    offset = (page - 1) * limit
     records_sql = f"""select * from t_user_qa_record"""
     if conditions:
-        records_sql += " where " + " and ".join(conditions***REMOVED***
-    records_sql += " order by id desc LIMIT {limit***REMOVED*** OFFSET {offset***REMOVED***".format(limit=limit, offset=offset***REMOVED***
-    records = mysql_client.query_mysql_dict(records_sql***REMOVED***
+        records_sql += " where " + " and ".join(conditions)
+    records_sql += " order by id desc LIMIT {limit} OFFSET {offset}".format(limit=limit, offset=offset)
+    records = mysql_client.query_mysql_dict(records_sql)
 
-***REMOVED***"records": records, "current_page": page, "total_pages": total_pages, "total_count": total_count***REMOVED***
+    return {"records": records, "current_page": page, "total_pages": total_pages, "total_count": total_count}
 
 
-def query_user_qa_record(chat_id***REMOVED***:
+def query_user_qa_record(chat_id):
     """
     根据chat_id查询对话记录
     :param chat_id:
     :return:
     """
-    sql = f"select * from t_user_qa_record where chat_id='{chat_id***REMOVED***' order by id desc limit 1"
-    return mysql_client.query_mysql_dict(sql***REMOVED***
+    sql = f"select * from t_user_qa_record where chat_id='{chat_id}' order by id desc limit 1"
+    return mysql_client.query_mysql_dict(sql)
 
 
-async def send_dify_feedback(chat_id, rating***REMOVED***:
+async def send_dify_feedback(chat_id, rating):
     """
     发送反馈给指定的消息ID。
 
@@ -222,17 +262,17 @@ async def send_dify_feedback(chat_id, rating***REMOVED***:
     :return: 返回服务器响应。
     """
     # 查询对话记录
-    qa_record = query_user_qa_record(chat_id***REMOVED***
-    url = DiFyRestApi.replace_path_params(DiFyRestApi.DIFY_REST_FEEDBACK, {"message_id": qa_record[0]["message_id"]***REMOVED******REMOVED***
-    api_key = os.getenv("DIFY_DATABASE_QA_API_KEY"***REMOVED***
-    headers = {"Authorization": f"Bearer {api_key***REMOVED***", "Content-Type": "application/json"***REMOVED***
-    payload = {"rating": rating, "user": "abc-123"***REMOVED***
+    qa_record = query_user_qa_record(chat_id)
+    url = DiFyRestApi.replace_path_params(DiFyRestApi.DIFY_REST_FEEDBACK, {"message_id": qa_record[0]["message_id"]})
+    api_key = os.getenv("DIFY_DATABASE_QA_API_KEY")
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    payload = {"rating": rating, "user": "abc-123"}
 
-    response = requests.post(url, headers=headers, json=payload***REMOVED***
+    response = requests.post(url, headers=headers, json=payload)
 
     # 检查请求是否成功
     if response.status_code == 200:
-        logger.info("Feedback successfully sent."***REMOVED***
+        logger.info("Feedback successfully sent.")
     else:
-        logger.error(f"Failed to send feedback. Status code: {response.status_code***REMOVED***,Response body: {response.text***REMOVED***"***REMOVED***
+        logger.error(f"Failed to send feedback. Status code: {response.status_code},Response body: {response.text}")
         raise

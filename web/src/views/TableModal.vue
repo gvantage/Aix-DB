@@ -3,28 +3,28 @@ import * as GlobalAPI from '@/api'
 
 const props = defineProps({
   show: Boolean,
-***REMOVED******REMOVED***
+})
 
-const emit = defineEmits(['update:show', 'delete']***REMOVED***
+const emit = defineEmits(['update:show', 'delete'])
 
-const localShow = ref(props.show***REMOVED***
-const tableData = ref([]***REMOVED***
+const localShow = ref(props.show)
+const tableData = ref([])
 const columns = ref([
-***REMOVED***
+  {
     type: 'selection',
-  ***REMOVED***,
-***REMOVED***
+  },
+  {
     title: '用户问题',
     key: 'question',
     ellipsis: true,
-  ***REMOVED***,
-***REMOVED***
+  },
+  {
     title: '创建时间',
     key: 'create_time',
-  ***REMOVED***,
-]***REMOVED***
-const loading = ref(false***REMOVED***
-const checkedRowKeys = ref([]***REMOVED***
+  },
+])
+const loading = ref(false)
+const checkedRowKeys = ref([])
 
 // 分页配置
 const pagination = ref({
@@ -32,97 +32,97 @@ const pagination = ref({
   pageSize: 8,
   total: 0, // 总记录数
   pageCount: 0, // 总页数
-  onChange: (page***REMOVED*** => handlePageChange(page***REMOVED***,
-  onUpdatePageSize: (pageSize***REMOVED*** => handlePageSizeChange(pageSize***REMOVED***,
-***REMOVED******REMOVED***
+  onChange: (page) => handlePageChange(page),
+  onUpdatePageSize: (pageSize) => handlePageSizeChange(pageSize),
+})
 
-async function fetchData(***REMOVED*** {
-***REMOVED***
-***REMOVED***
+async function fetchData() {
+  loading.value = true
+  try {
     const res = await GlobalAPI.query_user_qa_record(
       pagination.value.page,
       pagination.value.pageSize,
-    ***REMOVED***
-    if (res.ok***REMOVED*** {
-      const data = await res.json(***REMOVED***
-      if (data && data.data***REMOVED*** {
+    )
+    if (res.ok) {
+      const data = await res.json()
+      if (data && data.data) {
         tableData.value = data.data.records || []
         pagination.value.total = data.data.total_count || 0
         pagination.value.pageCount = data.data.total_pages || 0
-      ***REMOVED*** else {
-        console.error('Unexpected data format:', data***REMOVED***
+      } else {
+        console.error('Unexpected data format:', data)
         tableData.value = []
         pagination.value.total = 0
         pagination.value.pageCount = 0
-      ***REMOVED***
-    ***REMOVED*** else {
-      console.error('API request failed with status:', res.status***REMOVED***
+      }
+    } else {
+      console.error('API request failed with status:', res.status)
       tableData.value = []
       pagination.value.total = 0
       pagination.value.pageCount = 0
-    ***REMOVED***
-  ***REMOVED*** catch (error***REMOVED*** {
-    console.error('Error fetching data:', error***REMOVED***
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error)
     tableData.value = []
     pagination.value.total = 0
     pagination.value.pageCount = 0
-  ***REMOVED*** finally {
-***REMOVED***
-  ***REMOVED***
-***REMOVED***
-function close(***REMOVED*** {
+  } finally {
+    loading.value = false
+  }
+}
+function close() {
   localShow.value = false
-  emit('update:show', false***REMOVED***
+  emit('update:show', false)
   pagination.value.page = 1
-***REMOVED***
+}
 
-const rowKey = (row***REMOVED*** => row.id
+const rowKey = (row) => row.id
 
-function handleCheck(rowKeys***REMOVED*** {
+function handleCheck(rowKeys) {
   checkedRowKeys.value = rowKeys
-***REMOVED***
+}
 
-async function deleteSelectedData(***REMOVED*** {
-  if (checkedRowKeys.value.length === 0***REMOVED*** {
+async function deleteSelectedData() {
+  if (checkedRowKeys.value.length === 0) {
     return
-  ***REMOVED***
-  const res = await GlobalAPI.delete_user_record(checkedRowKeys.value***REMOVED***
-  if (res.ok***REMOVED*** {
-    fetchData(***REMOVED***
-  ***REMOVED***
-***REMOVED***
+  }
+  const res = await GlobalAPI.delete_user_record(checkedRowKeys.value)
+  if (res.ok) {
+    fetchData()
+  }
+}
 
-function handlePageChange(page***REMOVED*** {
+function handlePageChange(page) {
   pagination.value.page = page
-  fetchData(***REMOVED***
-***REMOVED***
+  fetchData()
+}
 
-function handlePageSizeChange(newPageSize***REMOVED*** {
+function handlePageSizeChange(newPageSize) {
   pagination.value.pageSize = newPageSize
   pagination.value.page = 1 // 重置到第一页
-  fetchData(***REMOVED***
-***REMOVED***
+  fetchData()
+}
 
 const modalTitle = computed(
-  (***REMOVED*** => `管理对话记录 · 共${pagination.value.total***REMOVED***条`,
-***REMOVED***
+  () => `管理对话记录 · 共${pagination.value.total}条`,
+)
 
 watch(
-  (***REMOVED*** => props.show,
-  (newVal***REMOVED*** => {
-    if (newVal !== localShow.value***REMOVED*** {
+  () => props.show,
+  (newVal) => {
+    if (newVal !== localShow.value) {
       localShow.value = newVal
-      if (newVal***REMOVED*** {
-        fetchData(***REMOVED***
-      ***REMOVED***
-    ***REMOVED***
-  ***REMOVED***,
-***REMOVED***
+      if (newVal) {
+        fetchData()
+      }
+    }
+  },
+)
 
-const tableRef = useTemplateRef('tableRef'***REMOVED***
-***REMOVED***
+const tableRef = useTemplateRef('tableRef')
+</script>
 
-***REMOVED***
+<template>
   <n-modal
     v-model:show="localShow"
     :mask-closable="false"
@@ -145,9 +145,9 @@ const tableRef = useTemplateRef('tableRef'***REMOVED***
           style="height: 100%; width: 100%"
           @update:checked-row-keys="handleCheck"
         >
-          <template #bodyCell="{ column, row ***REMOVED***">
-            <td :key="column.key">{{ row[column.key] ***REMOVED******REMOVED***</td>
-          ***REMOVED***
+          <template #bodyCell="{ column, row }">
+            <td :key="column.key">{{ row[column.key] }}</td>
+          </template>
         </n-data-table>
       </n-spin>
       <div
@@ -157,8 +157,8 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 padding: 10px;
-background-color: var(--n-modal-footer-bg***REMOVED***;
-border-top: 1px solid var(--n-modal-border-color***REMOVED***;
+background-color: var(--n-modal-footer-bg);
+border-top: 1px solid var(--n-modal-border-color);
                 "
       >
         <n-pagination
@@ -177,35 +177,35 @@ border-top: 1px solid var(--n-modal-border-color***REMOVED***;
             type="error"
             :disabled="checkedRowKeys.length === 0"
             @click="deleteSelectedData"
-***REMOVED***
+          >
             删除所选
           </n-button>
-***REMOVED***
-***REMOVED***
-***REMOVED***
+        </div>
+      </div>
+    </div>
   </n-modal>
-***REMOVED***
+</template>
 
-***REMOVED***
+<style scoped>
 .modal-content {
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
 .footer {
-***REMOVED***
+  display: flex;
   gap: 10px;
-***REMOVED***
-***REMOVED***
-  background-color: var(--n-modal-footer-bg***REMOVED***;
-  border-top: 1px solid var(--n-modal-border-color***REMOVED***;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--n-modal-footer-bg);
+  border-top: 1px solid var(--n-modal-border-color);
   justify-content: flex-end;
-***REMOVED***
+}
 
 /* 确保分页组件在新的一行 */
 
 .n-pagination {
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  margin-top: 10px;
+}
+</style>

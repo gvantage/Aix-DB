@@ -2,21 +2,21 @@
 withDefaults(
   defineProps<{
     showBorder?: boolean
-  ***REMOVED***>(***REMOVED***,
-***REMOVED***
+  }>(),
+  {
     showBorder: false,
-  ***REMOVED***,
-***REMOVED***
+  },
+)
 
-const link = ref('https://github.com/pdsuwwz'***REMOVED***
-***REMOVED***
+const link = ref('https://github.com/pdsuwwz')
+</script>
 
-***REMOVED***
+<template>
   <!-- <footer
     class="footer"
     :class="{
       'b-t b-t-solid b-t-#dcdfe6 dark:b-t-#444': showBorder
-    ***REMOVED***"
+    }"
   >
     <div
       class="container"
@@ -33,14 +33,14 @@ const link = ref('https://github.com/pdsuwwz'***REMOVED***
           Wisdom
         </a>
       </p>
-***REMOVED***
+    </div>
   </footer> -->
-***REMOVED***
+</template>
 
 <style lang="scss" scoped>
 .footer {
-***REMOVED***
-***REMOVED***
+  margin: 0 auto;
+  width: 100%;
 
   --at-apply: select-none;
   --at-apply: flex justify-center;
@@ -50,7 +50,7 @@ const link = ref('https://github.com/pdsuwwz'***REMOVED***
     padding: 14px 0;
 
     .text {
-    ***REMOVED***
+      display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
@@ -59,9 +59,9 @@ const link = ref('https://github.com/pdsuwwz'***REMOVED***
       line-height: 1;
       font-size: 1em;
       color: #929292;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
+    }
+  }
+}
 
 .github-link {
   transition: border 0.3s ease-in-out;
@@ -69,6 +69,6 @@ const link = ref('https://github.com/pdsuwwz'***REMOVED***
 
   &:hover {
     border-color: #7d7d7d;
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+  }
+}
+</style>

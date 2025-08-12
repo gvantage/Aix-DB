@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Əvvəlki səhifə
@@ -15,13 +15,13 @@ pdfjs-next-button-label = İrəli
 pdfjs-page-input =
     .title = Səhifə
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = / { $pagesCount ***REMOVED***
+pdfjs-of-pages = / { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** / { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } / { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Uzaqlaş
 pdfjs-zoom-out-button-label = Uzaqlaş
@@ -90,13 +90,13 @@ pdfjs-document-properties-button-label = Sənəd xüsusiyyətləri…
 pdfjs-document-properties-file-name = Fayl adı:
 pdfjs-document-properties-file-size = Fayl ölçüsü:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bayt***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bayt)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bayt***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bayt)
 pdfjs-document-properties-title = Başlık:
 pdfjs-document-properties-author = Müəllif:
 pdfjs-document-properties-subject = Mövzu:
@@ -104,9 +104,9 @@ pdfjs-document-properties-keywords = Açar sözlər:
 pdfjs-document-properties-creation-date = Yaradılış Tarixi :
 pdfjs-document-properties-modification-date = Dəyişdirilmə Tarixi :
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Yaradan:
 pdfjs-document-properties-producer = PDF yaradıcısı:
 pdfjs-document-properties-version = PDF versiyası:
@@ -122,14 +122,14 @@ pdfjs-document-properties-page-size-name-letter = Məktub
 pdfjs-document-properties-page-size-name-legal = Hüquqi
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -144,8 +144,8 @@ pdfjs-document-properties-close-button = Qapat
 
 pdfjs-print-progress-message = Sənəd çap üçün hazırlanır…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Ləğv et
 pdfjs-printing-not-supported = Xəbərdarlıq: Çap bu səyyah tərəfindən tam olaraq dəstəklənmir.
 pdfjs-printing-not-ready = Xəbərdarlıq: PDF çap üçün tam yüklənməyib.
@@ -155,16 +155,16 @@ pdfjs-printing-not-ready = Xəbərdarlıq: PDF çap üçün tam yüklənməyib.
 pdfjs-toggle-sidebar-button =
     .title = Yan Paneli Aç/Bağla
 pdfjs-toggle-sidebar-notification-button =
-    .title = Yan paneli çevir (sənəddə icmal/bağlamalar/laylar mövcuddur***REMOVED***
+    .title = Yan paneli çevir (sənəddə icmal/bağlamalar/laylar mövcuddur)
 pdfjs-toggle-sidebar-button-label = Yan Paneli Aç/Bağla
 pdfjs-document-outline-button =
-    .title = Sənədin eskizini göstər (bütün bəndləri açmaq/yığmaq üçün iki dəfə klikləyin***REMOVED***
+    .title = Sənədin eskizini göstər (bütün bəndləri açmaq/yığmaq üçün iki dəfə klikləyin)
 pdfjs-document-outline-button-label = Sənəd strukturu
 pdfjs-attachments-button =
     .title = Bağlamaları göstər
 pdfjs-attachments-button-label = Bağlamalar
 pdfjs-layers-button =
-    .title = Layları göstər (bütün layları ilkin halına sıfırlamaq üçün iki dəfə klikləyin***REMOVED***
+    .title = Layları göstər (bütün layları ilkin halına sıfırlamaq üçün iki dəfə klikləyin)
 pdfjs-layers-button-label = Laylar
 pdfjs-thumbs-button =
     .title = Kiçik şəkilləri göstər
@@ -174,16 +174,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Tap
 pdfjs-additional-layers = Əlavə laylar
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Səhifə{ $page ***REMOVED***
+    .title = Səhifə{ $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = { $page ***REMOVED*** səhifəsinin kiçik vəziyyəti
+    .aria-label = { $page } səhifəsinin kiçik vəziyyəti
 
 ## Find panel button title and messages
 
@@ -210,8 +210,8 @@ pdfjs-page-scale-fit = Səhifəni sığdır
 pdfjs-page-scale-auto = Avtomatik yaxınlaşdır
 pdfjs-page-scale-actual = Hazırkı Həcm
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -227,16 +227,16 @@ pdfjs-rendering-error = Səhifə göstərilərkən səhv yarandı.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Annotasiyası]
+    .alt = [{ $type } Annotasiyası]
 
 ## Password
 

@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Predchádzajúca strana
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Nasledujúca
 pdfjs-page-input =
     .title = Strana
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = z { $pagesCount ***REMOVED***
+pdfjs-of-pages = z { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** z { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } z { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Zmenšiť veľkosť
 pdfjs-zoom-out-button-label = Zmenšiť veľkosť
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Tlačiť
 pdfjs-save-button =
     .title = Uložiť
 pdfjs-save-button-label = Uložiť
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Stiahnuť
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Stiahnuť
 pdfjs-bookmark-button =
-    .title = Aktuálna stránka (zobraziť adresu URL z aktuálnej stránky***REMOVED***
+    .title = Aktuálna stránka (zobraziť adresu URL z aktuálnej stránky)
 pdfjs-bookmark-button-label = Aktuálna stránka
 
 ##  Secondary toolbar and context menu
@@ -92,10 +92,10 @@ pdfjs-spread-none-button =
 pdfjs-spread-none-button-label = Žiadne združovanie
 pdfjs-spread-odd-button =
     .title = Združí stránky a umiestni nepárne stránky vľavo
-pdfjs-spread-odd-button-label = Združiť stránky (nepárne vľavo***REMOVED***
+pdfjs-spread-odd-button-label = Združiť stránky (nepárne vľavo)
 pdfjs-spread-even-button =
     .title = Združí stránky a umiestni párne stránky vľavo
-pdfjs-spread-even-button-label = Združiť stránky (párne vľavo***REMOVED***
+pdfjs-spread-even-button-label = Združiť stránky (párne vľavo)
 
 ## Document properties dialog
 
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Vlastnosti dokumentu…
 pdfjs-document-properties-file-name = Názov súboru:
 pdfjs-document-properties-file-size = Veľkosť súboru:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** kB ({ $b ***REMOVED*** bajtov***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } kB ({ $b } bajtov)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** bajtov***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } bajtov)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** kB ({ $size_b ***REMOVED*** bajtov***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } kB ({ $size_b } bajtov)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bajtov***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bajtov)
 pdfjs-document-properties-title = Názov:
 pdfjs-document-properties-author = Autor:
 pdfjs-document-properties-subject = Predmet:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Kľúčové slová:
 pdfjs-document-properties-creation-date = Dátum vytvorenia:
 pdfjs-document-properties-modification-date = Dátum úpravy:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Aplikácia:
 pdfjs-document-properties-producer = Tvorca PDF:
 pdfjs-document-properties-version = Verzia PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = List
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Zavrieť
 
 pdfjs-print-progress-message = Príprava dokumentu na tlač…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED*** %
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress } %
 pdfjs-print-progress-close-button = Zrušiť
 pdfjs-printing-not-supported = Upozornenie: tlač nie je v tomto prehliadači plne podporovaná.
 pdfjs-printing-not-ready = Upozornenie: súbor PDF nie je plne načítaný pre tlač.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Upozornenie: súbor PDF nie je plne načítaný pre t
 pdfjs-toggle-sidebar-button =
     .title = Prepnúť bočný panel
 pdfjs-toggle-sidebar-notification-button =
-    .title = Prepnúť bočný panel (dokument obsahuje osnovu/prílohy/vrstvy***REMOVED***
+    .title = Prepnúť bočný panel (dokument obsahuje osnovu/prílohy/vrstvy)
 pdfjs-toggle-sidebar-button-label = Prepnúť bočný panel
 pdfjs-document-outline-button =
-    .title = Zobraziť osnovu dokumentu (dvojitým kliknutím rozbalíte/zbalíte všetky položky***REMOVED***
+    .title = Zobraziť osnovu dokumentu (dvojitým kliknutím rozbalíte/zbalíte všetky položky)
 pdfjs-document-outline-button-label = Osnova dokumentu
 pdfjs-attachments-button =
     .title = Zobraziť prílohy
 pdfjs-attachments-button-label = Prílohy
 pdfjs-layers-button =
-    .title = Zobraziť vrstvy (dvojitým kliknutím uvediete všetky vrstvy do pôvodného stavu***REMOVED***
+    .title = Zobraziť vrstvy (dvojitým kliknutím uvediete všetky vrstvy do pôvodného stavu)
 pdfjs-layers-button-label = Vrstvy
 pdfjs-thumbs-button =
     .title = Zobraziť miniatúry
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Hľadať
 pdfjs-additional-layers = Ďalšie vrstvy
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Strana { $page ***REMOVED***
+    .title = Strana { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Miniatúra strany { $page ***REMOVED***
+    .aria-label = Miniatúra strany { $page }
 
 ## Find panel button title and messages
 
@@ -232,24 +232,24 @@ pdfjs-find-entire-word-checkbox-label = Celé slová
 pdfjs-find-reached-top = Bol dosiahnutý začiatok stránky, pokračuje sa od konca
 pdfjs-find-reached-bottom = Bol dosiahnutý koniec stránky, pokračuje sa od začiatku
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] Výskyt { $current ***REMOVED*** z { $total ***REMOVED***
-        [few] Výskyt { $current ***REMOVED*** z { $total ***REMOVED***
-        [many] Výskyt { $current ***REMOVED*** z { $total ***REMOVED***
-       *[other] Výskyt { $current ***REMOVED*** z { $total ***REMOVED***
-    ***REMOVED***
+    { $total ->
+        [one] Výskyt { $current } z { $total }
+        [few] Výskyt { $current } z { $total }
+        [many] Výskyt { $current } z { $total }
+       *[other] Výskyt { $current } z { $total }
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Viac ako { $limit ***REMOVED*** výskyt
-        [few] Viac ako { $limit ***REMOVED*** výskyty
-        [many] Viac ako { $limit ***REMOVED*** výskytov
-       *[other] Viac ako { $limit ***REMOVED*** výskytov
-    ***REMOVED***
+    { $limit ->
+        [one] Viac ako { $limit } výskyt
+        [few] Viac ako { $limit } výskyty
+        [many] Viac ako { $limit } výskytov
+       *[other] Viac ako { $limit } výskytov
+    }
 pdfjs-find-not-found = Výraz nebol nájdený
 
 ## Predefined zoom values
@@ -259,15 +259,15 @@ pdfjs-page-scale-fit = Na veľkosť strany
 pdfjs-page-scale-auto = Automatická veľkosť
 pdfjs-page-scale-actual = Skutočná veľkosť
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED*** %
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale } %
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Strana { $page ***REMOVED***
+    .aria-label = Strana { $page }
 
 ## Loading indicator messages
 
@@ -280,19 +280,19 @@ pdfjs-rendering-error = Pri vykresľovaní stránky sa vyskytla chyba.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Anotácia typu { $type ***REMOVED***]
+    .alt = [Anotácia typu { $type }]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -343,7 +343,7 @@ pdfjs-editor-ink-opacity-input = Priehľadnosť
 pdfjs-editor-stamp-add-image-button =
     .title = Pridať obrázok
 pdfjs-editor-stamp-add-image-button-label = Pridať obrázok
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Hrúbka
 pdfjs-editor-free-highlight-thickness-title =
     .title = Zmeňte hrúbku pre zvýrazňovanie iných položiek ako textu
@@ -366,7 +366,7 @@ pdfjs-editor-alt-text-edit-button =
     .aria-label = Upraviť alternatívny text
 pdfjs-editor-alt-text-edit-button-label = Upraviť alternatívny text
 pdfjs-editor-alt-text-dialog-label = Vyberte možnosť
-pdfjs-editor-alt-text-dialog-description = Alternatívny text (alt text***REMOVED*** pomáha, keď ľudia obrázok nevidia alebo sa nenačítava.
+pdfjs-editor-alt-text-dialog-description = Alternatívny text (alt text) pomáha, keď ľudia obrázok nevidia alebo sa nenačítava.
 pdfjs-editor-alt-text-add-description-label = Pridať popis
 pdfjs-editor-alt-text-add-description-description = Zamerajte sa na 1-2 vety, ktoré popisujú predmet, prostredie alebo akcie.
 pdfjs-editor-alt-text-mark-decorative-label = Označiť ako dekoratívny
@@ -377,7 +377,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Označený ako dekoratívny
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Napríklad: „Mladý muž si sadá za stôl, aby sa najedol“
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Alternatívny text
 
@@ -436,12 +436,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Zobraziť všetko
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Upraviť alternatívny text (popis obrázka***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Upraviť alternatívny text (popis obrázka)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Pridať alternatívny text (popis obrázka***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Pridať alternatívny text (popis obrázka)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Sem napíšte svoj popis…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -455,11 +455,11 @@ pdfjs-editor-new-alt-text-error-title = Alternatívny text sa nepodarilo vytvori
 pdfjs-editor-new-alt-text-error-description = Napíšte svoj vlastný alternatívny text alebo to skúste znova neskôr.
 pdfjs-editor-new-alt-text-error-close-button = Zavrieť
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Sťahuje sa model AI pre alternatívne texty ({ $downloadedSize ***REMOVED*** z { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = Sťahuje sa model AI pre alternatívne texty ({ $downloadedSize ***REMOVED*** z { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Sťahuje sa model AI pre alternatívne texty ({ $downloadedSize } z { $totalSize } MB)
+    .aria-valuetext = Sťahuje sa model AI pre alternatívne texty ({ $downloadedSize } z { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Alternatívny text bol pridaný
@@ -474,8 +474,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Skontrolovať alternatívny text
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Vytvorené automaticky: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Vytvorené automaticky: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -487,8 +487,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Automatický alternatívny text
 pdfjs-editor-alt-text-settings-create-model-button-label = Automaticky vytvoriť alternatívny text
 pdfjs-editor-alt-text-settings-create-model-description = Navrhuje popisy, ktoré pomôžu ľuďom, ktorým sa obrázok nezobrazuje alebo ak sa obrázok nenačíta.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Model AI pre alternatívne texty ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Model AI pre alternatívne texty ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Beží lokálne na vašom zariadení, takže vaše dáta zostanú súkromné. Vyžaduje sa pre automatický alternatívny text.
 pdfjs-editor-alt-text-settings-delete-model-button = Odstrániť
 pdfjs-editor-alt-text-settings-download-model-button = Stiahnuť
@@ -505,14 +505,14 @@ pdfjs-editor-undo-bar-message-freetext = Text bol odstránený
 pdfjs-editor-undo-bar-message-ink = Kreslenie bolo odstránené
 pdfjs-editor-undo-bar-message-stamp = Obrázok bol odstránený
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] { $count ***REMOVED*** anotácia odstránená
-        [few] { $count ***REMOVED*** anotácie odstránené
-        [many] { $count ***REMOVED*** anotácií odstránených
-       *[other] { $count ***REMOVED*** anotácií odstránených
-    ***REMOVED***
+    { $count ->
+        [one] { $count } anotácia odstránená
+        [few] { $count } anotácie odstránené
+        [many] { $count } anotácií odstránených
+       *[other] { $count } anotácií odstránených
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Späť
 pdfjs-editor-undo-bar-undo-button-label = Späť

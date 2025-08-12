@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Προηγούμενη σελίδα
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Επόμενη
 pdfjs-page-input =
     .title = Σελίδα
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = από { $pagesCount ***REMOVED***
+pdfjs-of-pages = από { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** από { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } από { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Σμίκρυνση
 pdfjs-zoom-out-button-label = Σμίκρυνση
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Εκτύπωση
 pdfjs-save-button =
     .title = Αποθήκευση
 pdfjs-save-button-label = Αποθήκευση
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Λήψη
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Λήψη
 pdfjs-bookmark-button =
-    .title = Τρέχουσα σελίδα (Προβολή URL από τρέχουσα σελίδα***REMOVED***
+    .title = Τρέχουσα σελίδα (Προβολή URL από τρέχουσα σελίδα)
 pdfjs-bookmark-button-label = Τρέχουσα σελίδα
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Ιδιότητες εγγράφου…
 pdfjs-document-properties-file-name = Όνομα αρχείου:
 pdfjs-document-properties-file-size = Μέγεθος αρχείου:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } bytes)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** bytes***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } bytes)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = Τίτλος:
 pdfjs-document-properties-author = Συγγραφέας:
 pdfjs-document-properties-subject = Θέμα:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Λέξεις-κλειδιά:
 pdfjs-document-properties-creation-date = Ημερομηνία δημιουργίας:
 pdfjs-document-properties-modification-date = Ημερομηνία τροποποίησης:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Δημιουργός:
 pdfjs-document-properties-producer = Παραγωγός PDF:
 pdfjs-document-properties-version = Έκδοση PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Επιστολή
 pdfjs-document-properties-page-size-name-legal = Τύπου Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Κλείσιμο
 
 pdfjs-print-progress-message = Προετοιμασία του εγγράφου για εκτύπωση…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Ακύρωση
 pdfjs-printing-not-supported = Προειδοποίηση: Η εκτύπωση δεν υποστηρίζεται πλήρως από το πρόγραμμα περιήγησης.
 pdfjs-printing-not-ready = Προειδοποίηση: Το PDF δεν φορτώθηκε πλήρως για εκτύπωση.
@@ -179,18 +179,18 @@ pdfjs-printing-not-ready = Προειδοποίηση: Το PDF δεν φορτ�
 ## Tooltips and alt text for side panel toolbar buttons
 
 pdfjs-toggle-sidebar-button =
-    .title = (Απ***REMOVED***ενεργοποίηση πλαϊνής γραμμής
+    .title = (Απ)ενεργοποίηση πλαϊνής γραμμής
 pdfjs-toggle-sidebar-notification-button =
-    .title = (Απ***REMOVED***ενεργοποίηση πλαϊνής γραμμής (το έγγραφο περιέχει περίγραμμα/συνημμένα/επίπεδα***REMOVED***
-pdfjs-toggle-sidebar-button-label = (Απ***REMOVED***ενεργοποίηση πλαϊνής γραμμής
+    .title = (Απ)ενεργοποίηση πλαϊνής γραμμής (το έγγραφο περιέχει περίγραμμα/συνημμένα/επίπεδα)
+pdfjs-toggle-sidebar-button-label = (Απ)ενεργοποίηση πλαϊνής γραμμής
 pdfjs-document-outline-button =
-    .title = Εμφάνιση διάρθρωσης εγγράφου (διπλό κλικ για ανάπτυξη/σύμπτυξη όλων των στοιχείων***REMOVED***
+    .title = Εμφάνιση διάρθρωσης εγγράφου (διπλό κλικ για ανάπτυξη/σύμπτυξη όλων των στοιχείων)
 pdfjs-document-outline-button-label = Διάρθρωση εγγράφου
 pdfjs-attachments-button =
     .title = Εμφάνιση συνημμένων
 pdfjs-attachments-button-label = Συνημμένα
 pdfjs-layers-button =
-    .title = Εμφάνιση επιπέδων (διπλό κλικ για επαναφορά όλων των επιπέδων στην προεπιλεγμένη κατάσταση***REMOVED***
+    .title = Εμφάνιση επιπέδων (διπλό κλικ για επαναφορά όλων των επιπέδων στην προεπιλεγμένη κατάσταση)
 pdfjs-layers-button-label = Επίπεδα
 pdfjs-thumbs-button =
     .title = Εμφάνιση μικρογραφιών
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Εύρεση
 pdfjs-additional-layers = Επιπρόσθετα επίπεδα
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Σελίδα { $page ***REMOVED***
+    .title = Σελίδα { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Μικρογραφία σελίδας { $page ***REMOVED***
+    .aria-label = Μικρογραφία σελίδας { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = Ολόκληρες λέξεις
 pdfjs-find-reached-top = Φτάσατε στην αρχή του εγγράφου, συνέχεια από το τέλος
 pdfjs-find-reached-bottom = Φτάσατε στο τέλος του εγγράφου, συνέχεια από την αρχή
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** από { $total ***REMOVED*** αντιστοιχία
-       *[other] { $current ***REMOVED*** από { $total ***REMOVED*** αντιστοιχίες
-    ***REMOVED***
+    { $total ->
+        [one] { $current } από { $total } αντιστοιχία
+       *[other] { $current } από { $total } αντιστοιχίες
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Περισσότερες από { $limit ***REMOVED*** αντιστοιχία
-       *[other] Περισσότερες από { $limit ***REMOVED*** αντιστοιχίες
-    ***REMOVED***
+    { $limit ->
+        [one] Περισσότερες από { $limit } αντιστοιχία
+       *[other] Περισσότερες από { $limit } αντιστοιχίες
+    }
 pdfjs-find-not-found = Η φράση δεν βρέθηκε
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Μέγεθος σελίδας
 pdfjs-page-scale-auto = Αυτόματο ζουμ
 pdfjs-page-scale-actual = Πραγματικό μέγεθος
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Σελίδα { $page ***REMOVED***
+    .aria-label = Σελίδα { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Προέκυψε σφάλμα κατά την εμφάν
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Σχόλιο «{ $type ***REMOVED***»]
+    .alt = [Σχόλιο «{ $type }»]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Αδιαφάνεια
 pdfjs-editor-stamp-add-image-button =
     .title = Προσθήκη εικόνας
 pdfjs-editor-stamp-add-image-button-label = Προσθήκη εικόνας
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Πάχος
 pdfjs-editor-free-highlight-thickness-title =
     .title = Αλλαγή πάχους κατά την επισήμανση στοιχείων εκτός κειμένου
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Επισημασμένο ως δια�
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Για παράδειγμα, «Ένας νεαρός άνδρας κάθεται σε ένα τραπέζι για να φάει ένα γεύμα»
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Εναλλακτικό κείμενο
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Εμφάνιση όλων
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Επεξεργασία εναλλακτικού κειμένου (περιγραφή εικόνας***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Επεξεργασία εναλλακτικού κειμένου (περιγραφή εικόνας)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Προσθήκη εναλλακτικού κειμένου (περιγραφή εικόνας***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Προσθήκη εναλλακτικού κειμένου (περιγραφή εικόνας)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Γράψτε την περιγραφή σας εδώ…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = Δεν ήταν δυνατή η αυτό
 pdfjs-editor-new-alt-text-error-description = Γράψτε το δικό σας εναλλακτικό κείμενο ή δοκιμάστε ξανά αργότερα.
 pdfjs-editor-new-alt-text-error-close-button = Κλείσιμο
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Λήψη μοντέλου AI εναλλακτικού κειμένου ({ $downloadedSize ***REMOVED*** από { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = Λήψη μοντέλου AI εναλλακτικού κειμένου ({ $downloadedSize ***REMOVED*** από { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Λήψη μοντέλου AI εναλλακτικού κειμένου ({ $downloadedSize } από { $totalSize } MB)
+    .aria-valuetext = Λήψη μοντέλου AI εναλλακτικού κειμένου ({ $downloadedSize } από { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Προστέθηκε εναλλακτικό κείμενο
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Έλεγχος εναλλακτικού κειμένου
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Αυτόματη δημιουργία: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Αυτόματη δημιουργία: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Αυτόματο εναλλακ
 pdfjs-editor-alt-text-settings-create-model-button-label = Αυτόματη δημιουργία εναλλακτικού κειμένου
 pdfjs-editor-alt-text-settings-create-model-description = Προτείνει περιγραφές για άτομα που δεν μπορούν να δουν την εικόνα ή όταν η εικόνα δεν φορτώνεται.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Μοντέλο AI εναλλακτικού κειμένου ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Μοντέλο AI εναλλακτικού κειμένου ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Εκτελείται τοπικά στη συσκευή σας, ώστε τα δεδομένα σας να παραμένουν ιδιωτικά. Απαιτείται για τη δημιουργία του αυτόματου εναλλακτικού κειμένου.
 pdfjs-editor-alt-text-settings-delete-model-button = Διαγραφή
 pdfjs-editor-alt-text-settings-download-model-button = Λήψη
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = Το κείμενο αφαιρέθηκ�
 pdfjs-editor-undo-bar-message-ink = Το σχέδιο αφαιρέθηκε
 pdfjs-editor-undo-bar-message-stamp = Η εικόνα αφαιρέθηκε
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] Αφαιρέθηκε { $count ***REMOVED*** σχολιασμός
-       *[other] Αφαιρέθηκαν { $count ***REMOVED*** σχολιασμοί
-    ***REMOVED***
+    { $count ->
+        [one] Αφαιρέθηκε { $count } σχολιασμός
+       *[other] Αφαιρέθηκαν { $count } σχολιασμοί
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Αναίρεση
 pdfjs-editor-undo-bar-undo-button-label = Αναίρεση

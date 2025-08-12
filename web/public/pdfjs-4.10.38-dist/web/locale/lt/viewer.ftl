@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Ankstesnis puslapis
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Kitas
 pdfjs-page-input =
     .title = Puslapis
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = iš { $pagesCount ***REMOVED***
+pdfjs-of-pages = iš { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** iš { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } iš { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Sumažinti
 pdfjs-zoom-out-button-label = Sumažinti
@@ -93,13 +93,13 @@ pdfjs-document-properties-button-label = Dokumento savybės…
 pdfjs-document-properties-file-name = Failo vardas:
 pdfjs-document-properties-file-size = Failo dydis:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** B***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } B)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** B***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } B)
 pdfjs-document-properties-title = Antraštė:
 pdfjs-document-properties-author = Autorius:
 pdfjs-document-properties-subject = Tema:
@@ -107,9 +107,9 @@ pdfjs-document-properties-keywords = Reikšminiai žodžiai:
 pdfjs-document-properties-creation-date = Sukūrimo data:
 pdfjs-document-properties-modification-date = Modifikavimo data:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Kūrėjas:
 pdfjs-document-properties-producer = PDF generatorius:
 pdfjs-document-properties-version = PDF versija:
@@ -125,14 +125,14 @@ pdfjs-document-properties-page-size-name-letter = Laiškas
 pdfjs-document-properties-page-size-name-legal = Dokumentas
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -147,8 +147,8 @@ pdfjs-document-properties-close-button = Užverti
 
 pdfjs-print-progress-message = Dokumentas ruošiamas spausdinimui…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Atsisakyti
 pdfjs-printing-not-supported = Dėmesio! Spausdinimas šioje naršyklėje nėra pilnai realizuotas.
 pdfjs-printing-not-ready = Dėmesio! PDF failas dar nėra pilnai įkeltas spausdinimui.
@@ -158,16 +158,16 @@ pdfjs-printing-not-ready = Dėmesio! PDF failas dar nėra pilnai įkeltas spausd
 pdfjs-toggle-sidebar-button =
     .title = Rodyti / slėpti šoninį polangį
 pdfjs-toggle-sidebar-notification-button =
-    .title = Parankinė (dokumentas turi struktūrą / priedų / sluoksnių***REMOVED***
+    .title = Parankinė (dokumentas turi struktūrą / priedų / sluoksnių)
 pdfjs-toggle-sidebar-button-label = Šoninis polangis
 pdfjs-document-outline-button =
-    .title = Rodyti dokumento struktūrą (spustelėkite dukart norėdami išplėsti/suskleisti visus elementus***REMOVED***
+    .title = Rodyti dokumento struktūrą (spustelėkite dukart norėdami išplėsti/suskleisti visus elementus)
 pdfjs-document-outline-button-label = Dokumento struktūra
 pdfjs-attachments-button =
     .title = Rodyti priedus
 pdfjs-attachments-button-label = Priedai
 pdfjs-layers-button =
-    .title = Rodyti sluoksnius (spustelėkite dukart, norėdami atstatyti visus sluoksnius į numatytąją būseną***REMOVED***
+    .title = Rodyti sluoksnius (spustelėkite dukart, norėdami atstatyti visus sluoksnius į numatytąją būseną)
 pdfjs-layers-button-label = Sluoksniai
 pdfjs-thumbs-button =
     .title = Rodyti puslapių miniatiūras
@@ -180,16 +180,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Rasti
 pdfjs-additional-layers = Papildomi sluoksniai
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = { $page ***REMOVED*** puslapis
+    .title = { $page } puslapis
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = { $page ***REMOVED*** puslapio miniatiūra
+    .aria-label = { $page } puslapio miniatiūra
 
 ## Find panel button title and messages
 
@@ -217,15 +217,15 @@ pdfjs-page-scale-fit = Pritaikyti prie lapo dydžio
 pdfjs-page-scale-auto = Automatinis mastelis
 pdfjs-page-scale-actual = Tikras dydis
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = { $page ***REMOVED*** puslapis
+    .aria-label = { $page } puslapis
 
 ## Loading indicator messages
 
@@ -238,16 +238,16 @@ pdfjs-rendering-error = Atvaizduojant puslapį įvyko klaida.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [„{ $type ***REMOVED***“ tipo anotacija]
+    .alt = [„{ $type }“ tipo anotacija]
 
 ## Password
 

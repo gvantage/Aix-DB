@@ -1,45 +1,45 @@
-const LayoutDefault = (***REMOVED*** => import('@/components/Layout/default.vue'***REMOVED***
+const LayoutDefault = () => import('@/components/Layout/default.vue')
 
 const childrenRoutes: Array<RouteRecordRaw> = [
-***REMOVED***
+  {
     path: 'chat',
-    meta: { requiresAuth: true ***REMOVED***,
+    meta: { requiresAuth: true },
     name: 'ChatRoot',
     redirect: {
       name: 'ChatIndex',
-    ***REMOVED***,
+    },
     children: [
-    ***REMOVED***
+      {
         path: '',
         name: 'ChatIndex',
-        component: (***REMOVED*** => import('@/views/chat.vue'***REMOVED***,
-      ***REMOVED***,
-***REMOVED***,
-  ***REMOVED***,
-***REMOVED***
-    path: 'testAssitant',
-    name: 'TestAssitant',
-    component: (***REMOVED*** => import('@/views/DemandManager.vue'***REMOVED***,
-    meta: { requiresAuth: true ***REMOVED***, // 标记需要认证
-  ***REMOVED***,
-***REMOVED***
+        component: () => import('@/views/chat.vue'),
+      },
+    ],
+  },
+  // {
+  //   path: 'testAssitant',
+  //   name: 'TestAssitant',
+  //   component: () => import('@/views/DemandManager.vue'),
+  //   meta: { requiresAuth: true }, // 标记需要认证
+  // },
+  {
     path: 'uaDetail/:id',
     name: 'UaDetail',
-    component: (***REMOVED*** => import('@/views/usassistant/UsDetail.vue'***REMOVED***,
-    meta: { requiresAuth: true ***REMOVED***,
-  ***REMOVED***,
+    component: () => import('@/views/usassistant/UsDetail.vue'),
+    meta: { requiresAuth: true },
+  },
   // {
   //     path: '/testAssitant',
   //     name: 'TestAssitant',
-  //     component: (***REMOVED*** => import('@/views/TestAssistant.vue'***REMOVED***,
-  //     meta: { requiresAuth: true ***REMOVED*** // 标记需要认证
-  // ***REMOVED***,
-***REMOVED***
+  //     component: () => import('@/views/TestAssistant.vue'),
+  //     meta: { requiresAuth: true } // 标记需要认证
+  // },
+  {
     path: 'mcpChat',
     name: 'McpChat',
-    component: (***REMOVED*** => import('@/views/mcp/MCPClient.vue'***REMOVED***,
-    meta: { requiresAuth: true ***REMOVED***, // 标记需要认证
-  ***REMOVED***,
+    component: () => import('@/views/mcp/MCPClient.vue'),
+    meta: { requiresAuth: true }, // 标记需要认证
+  },
 ]
 
 export default childrenRoutes

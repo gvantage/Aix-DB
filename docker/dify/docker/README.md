@@ -36,10 +36,10 @@ Welcome to the new `docker` directory for deploying Dify using Docker Compose. T
 1. **Middleware Setup**:
     - Use the `docker-compose.middleware.yaml` for setting up essential middleware services like databases and caches.
     - Navigate to the `docker` directory.
-    - Ensure the `middleware.env` file is created by running `cp middleware.env.example middleware.env` (refer to the `middleware.env.example` file***REMOVED***.
+    - Ensure the `middleware.env` file is created by running `cp middleware.env.example middleware.env` (refer to the `middleware.env.example` file).
 2. **Running Middleware Services**:
     - Navigate to the `docker` directory.
-    - Execute `docker compose -f docker-compose.middleware.yaml --profile weaviate -p dify up -d` to start the middleware services. (Change the profile to other vector database if you are not using weaviate***REMOVED***
+    - Execute `docker compose -f docker-compose.middleware.yaml --profile weaviate -p dify up -d` to start the middleware services. (Change the profile to other vector database if you are not using weaviate)
 
 ### Migration for Existing Users
 
@@ -55,8 +55,8 @@ For users migrating from the `docker-legacy` setup:
 
 #### Key Modules and Customization
 
-- **Vector Database Services**: Depending on the type of vector database used (`VECTOR_STORE`***REMOVED***, users can set specific endpoints, ports, and authentication details.
-- **Storage Services**: Depending on the storage type (`STORAGE_TYPE`***REMOVED***, users can configure specific settings for S3, Azure Blob, Google Storage, etc.
+- **Vector Database Services**: Depending on the type of vector database used (`VECTOR_STORE`), users can set specific endpoints, ports, and authentication details.
+- **Storage Services**: Depending on the storage type (`STORAGE_TYPE`), users can configure specific settings for S3, Azure Blob, Google Storage, etc.
 - **API and Web Services**: Users can define URLs and other settings that affect how the API and web frontend operate.
 
 #### Other notable variables
@@ -85,7 +85,7 @@ The `.env.example` file provided in the Docker setup is extensive and covers a w
     - `STORAGE_TYPE`, `S3_BUCKET_NAME`, `AZURE_BLOB_ACCOUNT_NAME`: Settings for file storage options like local, S3, Azure Blob, etc.
 
 7. **Vector Database Configuration**:
-    - `VECTOR_STORE`: Type of vector database (e.g., `weaviate`, `milvus`***REMOVED***.
+    - `VECTOR_STORE`: Type of vector database (e.g., `weaviate`, `milvus`).
     - Specific settings for each vector store like `WEAVIATE_ENDPOINT`, `MILVUS_URI`.
 
 8. **CORS Configuration**:

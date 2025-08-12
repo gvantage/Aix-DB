@@ -1,37 +1,42 @@
-
-# 使用官方Python基础镜像
-# base image
-FROM python:3.10-slim-bookworm AS base
-
-# 设置工作目录
+# 构建阶段
+FROM python:3.11-slim-bookworm AS builder
 WORKDIR /sanic-web
 
-# 复制当前目录的内容到容器中的/app目录
-COPY . /sanic-web
+# 设置清华源 + 添加 PATH
+ENV PIP_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple" \
+    PIP_EXTRA_INDEX_URL="https://pypi.doubanio.com/simple" \
+    UV_INDEX_URL="https://pypi.tuna.tsinghua.edu.cn/simple" \
+    PATH="/root/.local/bin:${PATH}"
 
-# 安装Poetry
-ENV POETRY_VERSION=1.8.3
+# 复制项目文件
+COPY . .
 
-RUN pip install poetry==${POETRY_VERSION***REMOVED***
+# 安装依赖工具并安装依赖
+RUN set -eux; \
+    apt-get update && \
+    apt-get install -y --no-install-recommends gcc python3-dev && \
+    pip install --no-cache-dir pipx && \
+    pipx install "uv==0.8.0" && \
+    uv venv --clear && \
+    . .venv/bin/activate && \
+    uv sync --no-cache && \
+    apt-get purge -y gcc python3-dev && \
+    apt-get autoremove -y && \
+    rm -rf /var/lib/apt/lists/*
 
-# 将 Poetry 安装路径添加到环境变量
-ENV PATH="${PATH***REMOVED***:/root/.local/bin"
+# 最终运行阶段
+FROM python:3.11-slim-bookworm
+WORKDIR /sanic-web
 
-# 配置清华PyPI镜像
-RUN poetry source add --priority=primary mirrors https://pypi.tuna.tsinghua.edu.cn/simple/
+# 复制构建结果
+COPY --from=builder /sanic-web /sanic-web
 
-# 安装依赖
-RUN poetry lock --no-update
-
-# 这里使用系统默认的python环境
-RUN poetry env use system
-
-# 安装依赖
-RUN poetry install --no-root
+# 设置环境变量
+ENV PATH="/sanic-web/.venv/bin:${PATH}"
 
 
 # 暴露端口
 EXPOSE 8088
 
-# 运行命令 source命令激活相应的虚拟环境
-CMD ["/bin/bash", "-c", "source $(poetry env info --path***REMOVED***/bin/activate && python3 serv.py"]
+# 启动服务
+CMD [".venv/bin/python","serv.py"]

@@ -2,7 +2,7 @@
 
 set -e
 
-if [ "${VECTOR_STORE***REMOVED***" = "elasticsearch-ja" ]; then
+if [ "${VECTOR_STORE}" = "elasticsearch-ja" ]; then
     # Check if the ICU tokenizer plugin is installed
     if ! /usr/share/elasticsearch/bin/elasticsearch-plugin list | grep -q analysis-icu; then
         printf '%s\n' "Installing the ICU tokenizer plugin"

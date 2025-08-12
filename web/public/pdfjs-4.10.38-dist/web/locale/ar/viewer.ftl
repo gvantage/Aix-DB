@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = الصفحة السابقة
@@ -15,13 +15,13 @@ pdfjs-next-button-label = التالية
 pdfjs-page-input =
     .title = صفحة
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = من { $pagesCount ***REMOVED***
+pdfjs-of-pages = من { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** من { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } من { $pagesCount })
 pdfjs-zoom-out-button =
     .title = بعّد
 pdfjs-zoom-out-button-label = بعّد
@@ -42,14 +42,14 @@ pdfjs-print-button-label = اطبع
 pdfjs-save-button =
     .title = احفظ
 pdfjs-save-button-label = احفظ
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = نزّل
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = نزّل
 pdfjs-bookmark-button =
-    .title = الصفحة الحالية (عرض URL من الصفحة الحالية***REMOVED***
+    .title = الصفحة الحالية (عرض URL من الصفحة الحالية)
 pdfjs-bookmark-button-label = الصفحة الحالية
 
 ##  Secondary toolbar and context menu
@@ -105,13 +105,13 @@ pdfjs-document-properties-button-label = خصائص المستند…
 pdfjs-document-properties-file-name = اسم الملف:
 pdfjs-document-properties-file-size = حجم الملف:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** ك.بايت ({ $size_b ***REMOVED*** بايت***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } ك.بايت ({ $size_b } بايت)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** م.بايت ({ $size_b ***REMOVED*** بايت***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } م.بايت ({ $size_b } بايت)
 pdfjs-document-properties-title = العنوان:
 pdfjs-document-properties-author = المؤلف:
 pdfjs-document-properties-subject = الموضوع:
@@ -119,9 +119,9 @@ pdfjs-document-properties-keywords = الكلمات الأساسية:
 pdfjs-document-properties-creation-date = تاريخ الإنشاء:
 pdfjs-document-properties-modification-date = تاريخ التعديل:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***، { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }، { $time }
 pdfjs-document-properties-creator = المنشئ:
 pdfjs-document-properties-producer = منتج PDF:
 pdfjs-document-properties-version = إصدارة PDF:
@@ -137,14 +137,14 @@ pdfjs-document-properties-page-size-name-letter = خطاب
 pdfjs-document-properties-page-size-name-legal = قانونيّ
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = ‏{ $width ***REMOVED*** × ‏{ $height ***REMOVED*** ‏{ $unit ***REMOVED*** (‏{ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = ‏{ $width ***REMOVED*** × ‏{ $height ***REMOVED*** ‏{ $unit ***REMOVED*** (‏{ $name ***REMOVED***، { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = ‏{ $width } × ‏{ $height } ‏{ $unit } (‏{ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = ‏{ $width } × ‏{ $height } ‏{ $unit } (‏{ $name }، { $orientation })
 
 ##
 
@@ -159,8 +159,8 @@ pdfjs-document-properties-close-button = أغلق
 
 pdfjs-print-progress-message = يُحضّر المستند للطباعة…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***٪
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }٪
 pdfjs-print-progress-close-button = ألغِ
 pdfjs-printing-not-supported = تحذير: لا يدعم هذا المتصفح الطباعة بشكل كامل.
 pdfjs-printing-not-ready = تحذير: ملف PDF لم يُحمّل كاملًا للطباعة.
@@ -170,16 +170,16 @@ pdfjs-printing-not-ready = تحذير: ملف PDF لم يُحمّل كاملًا
 pdfjs-toggle-sidebar-button =
     .title = بدّل ظهور الشريط الجانبي
 pdfjs-toggle-sidebar-notification-button =
-    .title = بدّل ظهور الشريط الجانبي (يحتوي المستند على مخطط أو مرفقات أو طبقات***REMOVED***
+    .title = بدّل ظهور الشريط الجانبي (يحتوي المستند على مخطط أو مرفقات أو طبقات)
 pdfjs-toggle-sidebar-button-label = بدّل ظهور الشريط الجانبي
 pdfjs-document-outline-button =
-    .title = اعرض فهرس المستند (نقر مزدوج لتمديد أو تقليص كل العناصر***REMOVED***
+    .title = اعرض فهرس المستند (نقر مزدوج لتمديد أو تقليص كل العناصر)
 pdfjs-document-outline-button-label = مخطط المستند
 pdfjs-attachments-button =
     .title = اعرض المرفقات
 pdfjs-attachments-button-label = المُرفقات
 pdfjs-layers-button =
-    .title = اعرض الطبقات (انقر مرتين لتصفير كل الطبقات إلى الحالة المبدئية***REMOVED***
+    .title = اعرض الطبقات (انقر مرتين لتصفير كل الطبقات إلى الحالة المبدئية)
 pdfjs-layers-button-label = ‏‏الطبقات
 pdfjs-thumbs-button =
     .title = اعرض مُصغرات
@@ -192,16 +192,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = ابحث
 pdfjs-additional-layers = الطبقات الإضافية
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = صفحة { $page ***REMOVED***
+    .title = صفحة { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = مصغّرة صفحة { $page ***REMOVED***
+    .aria-label = مصغّرة صفحة { $page }
 
 ## Find panel button title and messages
 
@@ -221,28 +221,28 @@ pdfjs-find-entire-word-checkbox-label = كلمات كاملة
 pdfjs-find-reached-top = تابعت من الأسفل بعدما وصلت إلى بداية المستند
 pdfjs-find-reached-bottom = تابعت من الأعلى بعدما وصلت إلى نهاية المستند
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
+    { $total ->
         [zero] لا  مطابقة
-        [one] { $current ***REMOVED*** من أصل { $total ***REMOVED*** مطابقة
-        [two] { $current ***REMOVED*** من أصل { $total ***REMOVED*** مطابقة
-        [few] { $current ***REMOVED*** من أصل { $total ***REMOVED*** مطابقة
-        [many] { $current ***REMOVED*** من أصل { $total ***REMOVED*** مطابقة
-       *[other] { $current ***REMOVED*** من أصل { $total ***REMOVED*** مطابقة
-    ***REMOVED***
+        [one] { $current } من أصل { $total } مطابقة
+        [two] { $current } من أصل { $total } مطابقة
+        [few] { $current } من أصل { $total } مطابقة
+        [many] { $current } من أصل { $total } مطابقة
+       *[other] { $current } من أصل { $total } مطابقة
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [zero] { $limit ***REMOVED*** مطابقة
-        [one] أكثر من { $limit ***REMOVED*** مطابقة
-        [two] أكثر من { $limit ***REMOVED*** مطابقة
-        [few] أكثر من { $limit ***REMOVED*** مطابقة
-        [many] أكثر من { $limit ***REMOVED*** مطابقة
-       *[other] أكثر من { $limit ***REMOVED*** مطابقات
-    ***REMOVED***
+    { $limit ->
+        [zero] { $limit } مطابقة
+        [one] أكثر من { $limit } مطابقة
+        [two] أكثر من { $limit } مطابقة
+        [few] أكثر من { $limit } مطابقة
+        [many] أكثر من { $limit } مطابقة
+       *[other] أكثر من { $limit } مطابقات
+    }
 pdfjs-find-not-found = لا وجود للعبارة
 
 ## Predefined zoom values
@@ -252,15 +252,15 @@ pdfjs-page-scale-fit = ملائمة الصفحة
 pdfjs-page-scale-auto = تقريب تلقائي
 pdfjs-page-scale-actual = الحجم الفعلي
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***٪
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }٪
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = صفحة { $page ***REMOVED***
+    .aria-label = صفحة { $page }
 
 ## Loading indicator messages
 
@@ -273,16 +273,16 @@ pdfjs-rendering-error = حدث خطأ أثناء عرض الصفحة.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***، { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }، { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [تعليق { $type ***REMOVED***]
+    .alt = [تعليق { $type }]
 
 ## Password
 
@@ -333,7 +333,7 @@ pdfjs-editor-ink-opacity-input = العتامة
 pdfjs-editor-stamp-add-image-button =
     .title = أضِف صورة
 pdfjs-editor-stamp-add-image-button-label = أضِف صورة
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = السماكة
 pdfjs-editor-free-highlight-thickness-title =
     .title = غيّر السُمك عند إبراز عناصر أُخرى غير النص
@@ -347,7 +347,7 @@ pdfjs-ink-canvas =
 
 ## Alt-text dialog
 
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button-label = نص بديل
 pdfjs-editor-alt-text-edit-button-label = تحرير النص البديل
 pdfjs-editor-alt-text-dialog-label = اختر خيار
@@ -418,7 +418,7 @@ pdfjs-editor-highlight-show-all-button =
     .title = أظهِر الكل
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 
 ## Image alt-text settings

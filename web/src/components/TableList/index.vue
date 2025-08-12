@@ -1,29 +1,29 @@
 <script lang="ts" setup>
-import type { DataTableColumns ***REMOVED*** from 'naive-ui'
+import type { DataTableColumns } from 'naive-ui'
 
 interface Props {
   columns: DataTableColumns<any>
   loading: boolean
   data: Array<any>
-***REMOVED***
+}
 
-const props = withDefaults(defineProps<Props>(***REMOVED***, {
+const props = withDefaults(defineProps<Props>(), {
   loading: false,
-***REMOVED******REMOVED***
-***REMOVED***
+})
+</script>
 
-***REMOVED***
+<template>
   <n-spin
     :show="loading"
     :rotate="false"
     class="bg-#fff:80 h-full"
     :style="{
       '--n-opacity-spinning': '0.5',
-    ***REMOVED***"
+    }"
   >
     <template #icon>
       <div class="i-svg-spinners:tadpole"></div>
-    ***REMOVED***
+    </template>
     <n-data-table
       v-if="data.length"
       :columns="columns"
@@ -45,6 +45,6 @@ const props = withDefaults(defineProps<Props>(***REMOVED***, {
       </span>
     </section>
   </n-spin>
-***REMOVED***
+</template>
 
-<style lang="scss" scoped>***REMOVED***
+<style lang="scss" scoped></style>

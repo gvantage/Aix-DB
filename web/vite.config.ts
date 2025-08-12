@@ -7,13 +7,13 @@ import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 
 import Icons from 'unplugin-icons/vite'
-import { NaiveUiResolver ***REMOVED*** from 'unplugin-vue-components/resolvers'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
-import { defineConfig ***REMOVED*** from 'vite'
+import { defineConfig } from 'vite'
 
 import raw from 'vite-raw-plugin'
 
-export default defineConfig(({ mode ***REMOVED******REMOVED*** => {
+export default defineConfig(({ mode }) => {
   return {
     base: process.env.VITE_ROUTER_MODE === 'hash' ? '' : '/',
     server: {
@@ -24,43 +24,53 @@ export default defineConfig(({ mode ***REMOVED******REMOVED*** => {
           target: 'https://spark-api-open.xf-yun.com',
           changeOrigin: true,
           ws: true,
-          rewrite: (path***REMOVED*** => path.replace(/^\/spark/, ''***REMOVED***,
-        ***REMOVED***,
+          rewrite: (path) => path.replace(/^\/spark/, ''),
+        },
         '/siliconflow': {
           target: 'https://api.siliconflow.cn',
           changeOrigin: true,
           ws: true,
-          rewrite: (path***REMOVED*** => path.replace(/^\/siliconflow/, ''***REMOVED***,
-        ***REMOVED***,
+          rewrite: (path) => path.replace(/^\/siliconflow/, ''),
+        },
         '/sanic': {
           target: 'http://localhost:8088',
           changeOrigin: true,
           ws: true,
-          rewrite: (path***REMOVED*** => path.replace(/^\/sanic/, ''***REMOVED***,
-        ***REMOVED***,
-      ***REMOVED***,
-    ***REMOVED***,
+          rewrite: (path) => path.replace(/^\/sanic/, ''),
+        },
+        '/sse': {
+          target: 'http://localhost:3300',
+          ws: true,
+          rewrite: (path) => path.replace(/^\/sse/, 'sse'),
+        },
+        '/messages': {
+          target: 'http://localhost:3300',
+          ws: true,
+          rewrite: (path) => path.replace(/^\/messages/, 'messages'),
+        }
+      },
+    },
     plugins: [
-      UnoCSS(***REMOVED***,
-      vue(***REMOVED***,
+      UnoCSS(),
+      vue(),
       raw({
         fileRegex: /\.md$/,
-      ***REMOVED******REMOVED***,
-      vueJsx(***REMOVED***,
+      }),
+      vueJsx(),
       AutoImport({
         include: [/\.[tj]sx?$/, /\.vue\??/],
         imports: [
           'vue',
           'vue-router',
           '@vueuse/core',
-        ***REMOVED***
+          {
             'vue': ['createVNode', 'render'],
             'vue-router': [
               'createRouter',
               'createWebHistory',
               'useRouter',
               'useRoute',
-        ***REMOVED***,
+            ],
             'uuid': [['v4', 'uuidv4']],
             'lodash-es': [['*', '_']],
             'naive-ui': [
@@ -68,9 +78,9 @@ export default defineConfig(({ mode ***REMOVED******REMOVED*** => {
               'useMessage',
               'useNotification',
               'useLoadingBar',
-        ***REMOVED***,
-          ***REMOVED***,
-        ***REMOVED***
+            ],
+          },
+          {
             from: 'vue',
             imports: [
               'App',
@@ -79,38 +89,38 @@ export default defineConfig(({ mode ***REMOVED******REMOVED*** => {
               'GlobalComponents',
               'SetupContext',
               'PropType',
-        ***REMOVED***,
+            ],
             type: true,
-          ***REMOVED***,
-        ***REMOVED***
+          },
+          {
             from: 'vue-router',
             imports: ['RouteRecordRaw', 'RouteLocationRaw'],
             type: true,
-          ***REMOVED***,
-    ***REMOVED***,
-        resolvers: mode === 'development' ? [] : [NaiveUiResolver(***REMOVED***],
+          },
+        ],
+        resolvers: mode === 'development' ? [] : [NaiveUiResolver()],
         dirs: [
           './src/hooks',
           './src/store/business',
           './src/store/transform',
           './src/store/hooks/**',
-    ***REMOVED***,
+        ],
         dts: './auto-imports.d.ts',
         eslintrc: {
           enabled: true,
-        ***REMOVED***,
+        },
         vueTemplate: true,
-      ***REMOVED******REMOVED***,
+      }),
       Components({
         directoryAsNamespace: true,
         collapseSamePrefixes: true,
         resolvers: [
           IconsResolver({
             prefix: 'auto-icon',
-          ***REMOVED******REMOVED***,
-          NaiveUiResolver(***REMOVED***,
-    ***REMOVED***,
-      ***REMOVED******REMOVED***,
+          }),
+          NaiveUiResolver(),
+        ],
+      }),
       // Auto use Iconify icon
       Icons({
         autoInstall: true,
@@ -119,8 +129,8 @@ export default defineConfig(({ mode ***REMOVED******REMOVED*** => {
         defaultStyle: '',
         defaultClass: 'unplugin-icon',
         jsx: 'react',
-      ***REMOVED******REMOVED***,
-***REMOVED***,
+      }),
+    ],
     resolve: {
       extensions: [
         '.mjs',
@@ -131,23 +141,23 @@ export default defineConfig(({ mode ***REMOVED******REMOVED*** => {
         '.json',
         '.less',
         '.css',
-  ***REMOVED***,
+      ],
       alias: [
-      ***REMOVED***
+        {
           find: '@',
-          replacement: path.resolve(__dirname, 'src'***REMOVED***,
-        ***REMOVED***,
-  ***REMOVED***,
-    ***REMOVED***,
+          replacement: path.resolve(__dirname, 'src'),
+        },
+      ],
+    },
     define: {
       'process.env': process.env,
-    ***REMOVED***,
+    },
     css: {
       preprocessorOptions: {
         scss: {
           additionalData: `@use '@/styles/naive-variables.scss' as *;`,
-        ***REMOVED***,
-      ***REMOVED***,
-    ***REMOVED***,
-  ***REMOVED***
-***REMOVED******REMOVED***
+        },
+      },
+    },
+  }
+})

@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = කලින් පිටුව
@@ -15,9 +15,9 @@ pdfjs-next-button-label = ඊළඟ
 pdfjs-page-input =
     .title = පිටුව
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** / { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } / { $pagesCount })
 pdfjs-zoom-out-button =
     .title = කුඩාලනය
 pdfjs-zoom-out-button-label = කුඩාලනය
@@ -38,10 +38,10 @@ pdfjs-print-button-label = මුද්‍රණය
 pdfjs-save-button =
     .title = සුරකින්න
 pdfjs-save-button-label = සුරකින්න
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = බාගන්න
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = බාගන්න
 pdfjs-bookmark-button-label = පවතින පිටුව
@@ -81,13 +81,13 @@ pdfjs-document-properties-button-label = ලේඛනයේ ගුණාංග�
 pdfjs-document-properties-file-name = ගොනුවේ නම:
 pdfjs-document-properties-file-size = ගොනුවේ ප්‍රමාණය:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = කි.බ. { $size_kb ***REMOVED*** (බයිට { $size_b ***REMOVED******REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = කි.බ. { $size_kb } (බයිට { $size_b })
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = මෙ.බ. { $size_mb ***REMOVED*** (බයිට { $size_b ***REMOVED******REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = මෙ.බ. { $size_mb } (බයිට { $size_b })
 pdfjs-document-properties-title = සිරැසිය:
 pdfjs-document-properties-author = කතෘ:
 pdfjs-document-properties-subject = මාතෘකාව:
@@ -95,9 +95,9 @@ pdfjs-document-properties-keywords = මූල පද:
 pdfjs-document-properties-creation-date = සෑදූ දිනය:
 pdfjs-document-properties-modification-date = සංශෝධිත දිනය:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = නිර්මාතෘ:
 pdfjs-document-properties-producer = පීඩීඑෆ් සම්පාදක:
 pdfjs-document-properties-version = පීඩීඑෆ් අනුවාදය:
@@ -111,14 +111,14 @@ pdfjs-document-properties-page-size-name-a-three = A3
 pdfjs-document-properties-page-size-name-a-four = A4
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED***×{ $height ***REMOVED***{ $unit ***REMOVED***{ $name ***REMOVED***{ $orientation ***REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width }×{ $height }{ $unit }{ $name }{ $orientation }
 
 ##
 
@@ -133,8 +133,8 @@ pdfjs-document-properties-close-button = වසන්න
 
 pdfjs-print-progress-message = මුද්‍රණය සඳහා ලේඛනය සූදානම් වෙමින්…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = අවලංගු කරන්න
 pdfjs-printing-not-supported = අවවාදයයි: මෙම අතිරික්සුව මුද්‍රණය සඳහා හොඳින් සහාය නොදක්වයි.
 pdfjs-printing-not-ready = අවවාදයයි: මුද්‍රණයට පීඩීඑෆ් ගොනුව සම්පූර්ණයෙන් පූරණය වී නැත.
@@ -146,7 +146,7 @@ pdfjs-attachments-button =
     .title = ඇමුණුම් පෙන්වන්න
 pdfjs-attachments-button-label = ඇමුණුම්
 pdfjs-layers-button =
-    .title = ස්තර පෙන්වන්න (සියළු ස්තර පෙරනිමි තත්‍වයට යළි සැකසීමට දෙවරක් ඔබන්න***REMOVED***
+    .title = ස්තර පෙන්වන්න (සියළු ස්තර පෙරනිමි තත්‍වයට යළි සැකසීමට දෙවරක් ඔබන්න)
 pdfjs-layers-button-label = ස්තර
 pdfjs-thumbs-button =
     .title = සිඟිති රූ පෙන්වන්න
@@ -156,16 +156,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = සොයන්න
 pdfjs-additional-layers = අතිරේක ස්තර
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = පිටුව { $page ***REMOVED***
+    .title = පිටුව { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = පිටුවේ සිඟිත රූව { $page ***REMOVED***
+    .aria-label = පිටුවේ සිඟිත රූව { $page }
 
 ## Find panel button title and messages
 
@@ -190,15 +190,15 @@ pdfjs-page-scale-width = පිටුවේ පළල
 pdfjs-page-scale-auto = ස්වයංක්‍රීය විශාලනය
 pdfjs-page-scale-actual = සැබෑ ප්‍රමාණය
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = පිටුව { $page ***REMOVED***
+    .aria-label = පිටුව { $page }
 
 ## Loading indicator messages
 
@@ -210,9 +210,9 @@ pdfjs-unexpected-response-error = අනපේක්‍ෂිත සේවාද
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 
 ## Password
 
@@ -264,7 +264,7 @@ pdfjs-editor-alt-text-mark-decorative-description = මෙය දාර හෝ �
 
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 
 ## Image alt-text settings

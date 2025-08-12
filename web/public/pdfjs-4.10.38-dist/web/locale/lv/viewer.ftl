@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Iepriekšējā lapa
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Nākamā
 pdfjs-page-input =
     .title = Lapa
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = no { $pagesCount ***REMOVED***
+pdfjs-of-pages = no { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** no { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } no { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Attālināt
 pdfjs-zoom-out-button-label = Attālināt
@@ -90,13 +90,13 @@ pdfjs-document-properties-button-label = Dokumenta iestatījumi…
 pdfjs-document-properties-file-name = Faila nosaukums:
 pdfjs-document-properties-file-size = Faila izmērs:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** biti***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } biti)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** biti***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } biti)
 pdfjs-document-properties-title = Nosaukums:
 pdfjs-document-properties-author = Autors:
 pdfjs-document-properties-subject = Tēma:
@@ -104,9 +104,9 @@ pdfjs-document-properties-keywords = Atslēgas vārdi:
 pdfjs-document-properties-creation-date = Izveides datums:
 pdfjs-document-properties-modification-date = LAbošanas datums:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Radītājs:
 pdfjs-document-properties-producer = PDF producents:
 pdfjs-document-properties-version = PDF versija:
@@ -122,14 +122,14 @@ pdfjs-document-properties-page-size-name-letter = Vēstule
 pdfjs-document-properties-page-size-name-legal = Juridiskie teksti
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -144,8 +144,8 @@ pdfjs-document-properties-close-button = Aizvērt
 
 pdfjs-print-progress-message = Gatavo dokumentu drukāšanai...
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Atcelt
 pdfjs-printing-not-supported = Uzmanību: Drukāšana no šī pārlūka darbojas tikai daļēji.
 pdfjs-printing-not-ready = Uzmanību: PDF nav pilnībā ielādēts drukāšanai.
@@ -156,7 +156,7 @@ pdfjs-toggle-sidebar-button =
     .title = Pārslēgt sānu joslu
 pdfjs-toggle-sidebar-button-label = Pārslēgt sānu joslu
 pdfjs-document-outline-button =
-    .title = Rādīt dokumenta struktūru (veiciet dubultklikšķi lai izvērstu/sakļautu visus vienumus***REMOVED***
+    .title = Rādīt dokumenta struktūru (veiciet dubultklikšķi lai izvērstu/sakļautu visus vienumus)
 pdfjs-document-outline-button-label = Dokumenta saturs
 pdfjs-attachments-button =
     .title = Rādīt pielikumus
@@ -168,16 +168,16 @@ pdfjs-findbar-button =
     .title = Meklēt dokumentā
 pdfjs-findbar-button-label = Meklēt
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Lapa { $page ***REMOVED***
+    .title = Lapa { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Lapas { $page ***REMOVED*** sīktēls
+    .aria-label = Lapas { $page } sīktēls
 
 ## Find panel button title and messages
 
@@ -204,8 +204,8 @@ pdfjs-page-scale-fit = Ietilpinot lapu
 pdfjs-page-scale-auto = Automātiskais izmērs
 pdfjs-page-scale-actual = Patiesais izmērs
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -222,11 +222,11 @@ pdfjs-rendering-error = Attēlojot lapu radās kļūda
 
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** anotācija]
+    .alt = [{ $type } anotācija]
 
 ## Password
 

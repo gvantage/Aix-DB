@@ -1,37 +1,37 @@
 // src/store/userStore.ts
-import { defineStore ***REMOVED*** from 'pinia'
+import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('user', {
-  state: (***REMOVED*** => ({
-    user: null as null | { token: string ***REMOVED***,
-  ***REMOVED******REMOVED***,
+  state: () => ({
+    user: null as null | { token: string },
+  }),
   actions: {
-    login(user: { token: string ***REMOVED******REMOVED*** {
+    login(user: { token: string }) {
       this.user = user
       // 将用户信息存储到 sessionStorage
-      sessionStorage.setItem('user', JSON.stringify(user***REMOVED******REMOVED***
-    ***REMOVED***,
-    logout(***REMOVED*** {
+      sessionStorage.setItem('user', JSON.stringify(user))
+    },
+    logout() {
       this.user = null
       // 清除 sessionStorage 中的用户信息
-      sessionStorage.removeItem('user'***REMOVED***
-    ***REMOVED***,
-    init(***REMOVED*** {
+      sessionStorage.removeItem('user')
+    },
+    init() {
       // 从 sessionStorage 中恢复用户信息
-      const storedUser = sessionStorage.getItem('user'***REMOVED***
-      if (storedUser***REMOVED*** {
-        this.user = JSON.parse(storedUser***REMOVED***
-      ***REMOVED***
-    ***REMOVED***,
-    getUserToken(***REMOVED*** {
-      const storedUser = sessionStorage.getItem('user'***REMOVED***
-      if (storedUser***REMOVED*** {
-        this.user = JSON.parse(storedUser***REMOVED***
-      ***REMOVED***
+      const storedUser = sessionStorage.getItem('user')
+      if (storedUser) {
+        this.user = JSON.parse(storedUser)
+      }
+    },
+    getUserToken() {
+      const storedUser = sessionStorage.getItem('user')
+      if (storedUser) {
+        this.user = JSON.parse(storedUser)
+      }
       return this.user?.token
-    ***REMOVED***,
-  ***REMOVED***,
+    },
+  },
   getters: {
-    isLoggedIn: (state***REMOVED*** => !!state.user,
-  ***REMOVED***,
-***REMOVED******REMOVED***
+    isLoggedIn: (state) => !!state.user,
+  },
+})

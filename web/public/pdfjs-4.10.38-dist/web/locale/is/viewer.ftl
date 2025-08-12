@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Fyrri síða
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Næsti
 pdfjs-page-input =
     .title = Síða
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = af { $pagesCount ***REMOVED***
+pdfjs-of-pages = af { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** af { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } af { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Minnka aðdrátt
 pdfjs-zoom-out-button-label = Minnka aðdrátt
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Prenta
 pdfjs-save-button =
     .title = Vista
 pdfjs-save-button-label = Vista
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Sækja
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Sækja
 pdfjs-bookmark-button =
-    .title = Núverandi síða (Skoða vefslóð frá núverandi síðu***REMOVED***
+    .title = Núverandi síða (Skoða vefslóð frá núverandi síðu)
 pdfjs-bookmark-button-label = Núverandi síða
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Eiginleikar skjals…
 pdfjs-document-properties-file-name = Skráarnafn:
 pdfjs-document-properties-file-size = Skrárstærð:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** bæti***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } bæti)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** bæti***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } bæti)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KB ({ $size_b } bytes)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MB ({ $size_b ***REMOVED*** bytes***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MB ({ $size_b } bytes)
 pdfjs-document-properties-title = Titill:
 pdfjs-document-properties-author = Hönnuður:
 pdfjs-document-properties-subject = Efni:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Stikkorð:
 pdfjs-document-properties-creation-date = Búið til:
 pdfjs-document-properties-modification-date = Dags breytingar:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Höfundur:
 pdfjs-document-properties-producer = PDF framleiðandi:
 pdfjs-document-properties-version = PDF útgáfa:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Letter
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Loka
 
 pdfjs-print-progress-message = Undirbý skjal fyrir prentun…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Hætta við
 pdfjs-printing-not-supported = Aðvörun: Prentun er ekki með fyllilegan stuðning á þessum vafra.
 pdfjs-printing-not-ready = Aðvörun: Ekki er búið að hlaða inn allri PDF skránni fyrir prentun.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Aðvörun: Ekki er búið að hlaða inn allri PDF sk
 pdfjs-toggle-sidebar-button =
     .title = Víxla hliðarspjaldi af/á
 pdfjs-toggle-sidebar-notification-button =
-    .title = Víxla hliðarslá (skjal inniheldur yfirlit/viðhengi/lög***REMOVED***
+    .title = Víxla hliðarslá (skjal inniheldur yfirlit/viðhengi/lög)
 pdfjs-toggle-sidebar-button-label = Víxla hliðarspjaldi af/á
 pdfjs-document-outline-button =
-    .title = Sýna yfirlit skjals (tvísmelltu til að opna/loka öllum hlutum***REMOVED***
+    .title = Sýna yfirlit skjals (tvísmelltu til að opna/loka öllum hlutum)
 pdfjs-document-outline-button-label = Efnisskipan skjals
 pdfjs-attachments-button =
     .title = Sýna viðhengi
 pdfjs-attachments-button-label = Viðhengi
 pdfjs-layers-button =
-    .title = Birta lög (tvísmelltu til að endurstilla öll lög í sjálfgefna stöðu***REMOVED***
+    .title = Birta lög (tvísmelltu til að endurstilla öll lög í sjálfgefna stöðu)
 pdfjs-layers-button-label = Lög
 pdfjs-thumbs-button =
     .title = Sýna smámyndir
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Leita
 pdfjs-additional-layers = Viðbótarlög
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Síða { $page ***REMOVED***
+    .title = Síða { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Smámynd af síðu { $page ***REMOVED***
+    .aria-label = Smámynd af síðu { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = Heil orð
 pdfjs-find-reached-top = Náði efst í skjal, held áfram neðst
 pdfjs-find-reached-bottom = Náði enda skjals, held áfram efst
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** af { $total ***REMOVED*** passar við
-       *[other] { $current ***REMOVED*** af { $total ***REMOVED*** passa við
-    ***REMOVED***
+    { $total ->
+        [one] { $current } af { $total } passar við
+       *[other] { $current } af { $total } passa við
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Fleiri en { $limit ***REMOVED*** passar við
-       *[other] Fleiri en { $limit ***REMOVED*** passa við
-    ***REMOVED***
+    { $limit ->
+        [one] Fleiri en { $limit } passar við
+       *[other] Fleiri en { $limit } passa við
+    }
 pdfjs-find-not-found = Fann ekki orðið
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Passa á síðu
 pdfjs-page-scale-auto = Sjálfvirkur aðdráttur
 pdfjs-page-scale-actual = Raunstærð
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Síða { $page ***REMOVED***
+    .aria-label = Síða { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Upp kom villa við að birta síðuna.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Skýring]
+    .alt = [{ $type } Skýring]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Ógegnsæi
 pdfjs-editor-stamp-add-image-button =
     .title = Bæta við mynd
 pdfjs-editor-stamp-add-image-button-label = Bæta við mynd
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Þykkt
 pdfjs-editor-free-highlight-thickness-title =
     .title = Breyta þykkt við áherslulitun annarra atriða en texta
@@ -362,7 +362,7 @@ pdfjs-editor-alt-text-edit-button =
     .aria-label = Breyta alt-myndatexta
 pdfjs-editor-alt-text-edit-button-label = Breyta alt-varatexta
 pdfjs-editor-alt-text-dialog-label = Veldu valkost
-pdfjs-editor-alt-text-dialog-description = Alt-varatexti (auka-myndatexti***REMOVED*** hjálpar þegar fólk getur ekki séð myndina eða þegar hún hleðst ekki inn.
+pdfjs-editor-alt-text-dialog-description = Alt-varatexti (auka-myndatexti) hjálpar þegar fólk getur ekki séð myndina eða þegar hún hleðst ekki inn.
 pdfjs-editor-alt-text-add-description-label = Bættu við lýsingu
 pdfjs-editor-alt-text-add-description-description = Reyndu að takmarka þetta við 1-2 setningar sem lýsa efninu, umhverfi eða aðgerðum.
 pdfjs-editor-alt-text-mark-decorative-label = Merkja sem skraut
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = Merkt sem skraut
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = Til dæmis: „Ungur maður sest við borð til að snæða máltíð“
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = Alt-myndatexti
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = Birta allt
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = Breyta alt-myndatexta (lýsingu á mynd***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = Breyta alt-myndatexta (lýsingu á mynd)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Bæta við alt-myndatexta (lýsingu á mynd***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Bæta við alt-myndatexta (lýsingu á mynd)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Skrifaðu lýsinguna þína hér…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = Gat ekki búið til alt-myndatexta sjál
 pdfjs-editor-new-alt-text-error-description = Skrifaðu þinn eiginn alt-myndatexta eða reyndu aftur síðar.
 pdfjs-editor-new-alt-text-error-close-button = Loka
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = Sækir gervigreindarlíkan með alt-myndatextum ({ $downloadedSize ***REMOVED*** af { $totalSize ***REMOVED*** MB***REMOVED***
-    .aria-valuetext = Sækir gervigreindarlíkan með alt-myndatextum ({ $downloadedSize ***REMOVED*** af { $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = Sækir gervigreindarlíkan með alt-myndatextum ({ $downloadedSize } af { $totalSize } MB)
+    .aria-valuetext = Sækir gervigreindarlíkan með alt-myndatextum ({ $downloadedSize } af { $totalSize } MB)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = Alt-myndatexta bætt við
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = Yfirfara myndatexta
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Útbúið sjálfvirkt: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = Útbúið sjálfvirkt: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = Sjálfvirkur alt-myndatexti
 pdfjs-editor-alt-text-settings-create-model-button-label = Útbúa alt-myndatexta sjálfvirkt
 pdfjs-editor-alt-text-settings-create-model-description = Stingur upp á lýsingum til að hjálpa fólki sem getur ekki séð myndina eða þegar myndin hleðst ekki inn.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = Gervigreindarlíkan alt-myndatexta ({ $totalSize ***REMOVED*** MB***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = Gervigreindarlíkan alt-myndatexta ({ $totalSize } MB)
 pdfjs-editor-alt-text-settings-ai-model-description = Keyrir staðbundið á tækinu þínu svo gögnin þín haldast undir þinni stjórn. Nauðsynlegt fyrir sjálfvirka alt-myndatexta.
 pdfjs-editor-alt-text-settings-delete-model-button = Eyða
 pdfjs-editor-alt-text-settings-download-model-button = Sækja
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = Texti fjarlægður
 pdfjs-editor-undo-bar-message-ink = Teikning fjarlægð
 pdfjs-editor-undo-bar-message-stamp = Mynd fjarlægð
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
-        [one] { $count ***REMOVED*** glósa fjarlægð
-       *[other] { $count ***REMOVED*** glósur fjarlægðar
-    ***REMOVED***
+    { $count ->
+        [one] { $count } glósa fjarlægð
+       *[other] { $count } glósur fjarlægðar
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = Afturkalla
 pdfjs-editor-undo-bar-undo-button-label = Afturkalla

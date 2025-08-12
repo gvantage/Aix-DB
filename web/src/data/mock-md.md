@@ -6,10 +6,10 @@
 
 ## <a target="_blank" href="https://github.com/pdsuwwz/chatgpt-vue3-light-mvp">关于本仓库</a>
 
-![GitHub Pages](https://img.shields.io/badge/gh--pages-passing-brightgreen***REMOVED***
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen***REMOVED***
-![Thanks](https://img.shields.io/badge/thanks-%E2%9D%A4-pink***REMOVED***
-![License](https://img.shields.io/badge/license-MIT-blue***REMOVED***
+![GitHub Pages](https://img.shields.io/badge/gh--pages-passing-brightgreen)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+![Thanks](https://img.shields.io/badge/thanks-%E2%9D%A4-pink)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
 
 <a target="_blank" href="https://github.com/pdsuwwz/chatgpt-vue3-light-mvp">本仓库</a>是一个可二次开发的 ChatBot 对话 Web 端 MVP 原型模板，基于 `Vue3`、`TypeScript`、`Naive UI`、`UnoCSS` 等主流技术构建。项目特点如下：
@@ -44,41 +44,41 @@
 
 
 ```vue
-***REMOVED***
+<script setup lang="ts">
 // 创建一个响应式变量
-const message = ref('欢迎使用 Vue 3 组件示例！'***REMOVED***
+const message = ref('欢迎使用 Vue 3 组件示例！')
 
 // 定义一个方法来更新 message 的值
-const updateMessage = (***REMOVED*** => {
+const updateMessage = () => {
   message.value = '你点击了按钮！'
-***REMOVED***
-***REMOVED***
+}
+</script>
 
-***REMOVED***
+<template>
   <div>
-    <h1>{{ message ***REMOVED******REMOVED***</h1>
+    <h1>{{ message }}</h1>
     <button @click="updateMessage">点击我</button>
   </div>
-***REMOVED***
+</template>
 
 <style lang="scss" scoped>
 /* 添加一些样式以美化组件 */
 h1 {
   color: #42b983;
-***REMOVED***
+}
 button {
-***REMOVED***
+  padding: 10px 20px;
   font-size: 16px;
   background-color: #42b983;
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 button:hover {
   background-color: #35495e;
-***REMOVED***
-***REMOVED***
+}
+</style>
 ```
 
 **模拟接口说明**:

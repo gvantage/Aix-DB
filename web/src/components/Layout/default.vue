@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 defineOptions({
   name: 'LayoutDefault',
-***REMOVED******REMOVED***
-***REMOVED***
+})
+</script>
 
-***REMOVED***
-  <router-view v-slot="{ Component ***REMOVED***">
+<template>
+  <router-view v-slot="{ Component }">
     <Component :is="Component" />
   </router-view>
-***REMOVED***
+</template>

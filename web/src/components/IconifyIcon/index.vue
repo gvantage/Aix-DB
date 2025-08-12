@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import type { IconifyIcon, IconifyRenderMode ***REMOVED*** from '@iconify/vue'
-import { Icon ***REMOVED*** from '@iconify/vue'
+import type { IconifyIcon, IconifyRenderMode } from '@iconify/vue'
+import { Icon } from '@iconify/vue'
 
 interface IconProps {
   icon: IconifyIcon | string
@@ -9,19 +9,19 @@ interface IconProps {
   flip?: string
   width?: string
   height?: string
-***REMOVED***
+}
 
-const props = defineProps<IconProps>(***REMOVED***
-***REMOVED***
+const props = defineProps<IconProps>()
+</script>
 
-***REMOVED***
+<template>
   <Icon
     :style="{
       'font-size': '1.2em',
-    ***REMOVED***"
+    }"
     v-bind="{
       ...props,
       ...$attrs,
-    ***REMOVED***"
+    }"
   />
-***REMOVED***
+</template>

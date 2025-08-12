@@ -401,7 +401,7 @@ workflow:
           timezone: Asia/Shanghai
         tool_label: 获取当前时间
         tool_name: current_time
-        tool_parameters: {***REMOVED***
+        tool_parameters: {}
         type: tool
       height: 116
       id: '1721978268262'
@@ -417,12 +417,12 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "def main(question:str***REMOVED*** -> dict:\n***REMOVED***\n        \"dify_0_t02\"\
+        code: "def main(question:str) -> dict:\n    return {\n        \"dify_0_t02\"\
           : \"dify_0_t02\",\n        \"dify_1_t02\": \"dify_1_t02\",\n        \"dify_0_t04\"\
           : \"dify_0_t04\",\n        \"dify_1_t04\": \"dify_1_t04\",\n        \"dify_0_t07\"\
           : \"dify_0_t07\",\n        \"dify_1_t07\": \"dify_1_t07\",\n        \"top_k\"\
           : 50,\n        \"query_database\":\"chat_db\",\n        \"nl2sql_table_info\"\
-          : \"\"\" [('view_alarm_detail(案发地点,所属分局,来电类别,报警人姓名,性别,年龄,文化程度,受害人职业,手机品牌,涉案资金,是否电诈,诈骗类型,引流方式,引流地址,引流联系时间,是否看过反诈宣传,登记时间***REMOVED***'***REMOVED***]\"\
+          : \"\"\" [('view_alarm_detail(案发地点,所属分局,来电类别,报警人姓名,性别,年龄,文化程度,受害人职业,手机品牌,涉案资金,是否电诈,诈骗类型,引流方式,引流地址,引流联系时间,是否看过反诈宣传,登记时间)')]\"\
           \"\",\n        \"nl2sql_display_type\": \"\"\"\n            response_line_chart:used\
           \ to display comparative trend analysis data.\n            response_pie_chart:suitable\
           \ for scenarios such as proportion and distribution statistics.\n      \
@@ -432,9 +432,9 @@ workflow:
           \ signify item magnitude. Each bar, a category, aids quick comparison.\"\
           \"\",\n        \"nl2sql_response\": \"\"\"{\"thoughts\":\"thoughts summary\
           \ to say to user\",\"sql\":\"SQL Query to run\",\"type\":\"Data display\
-          \ method\",\"status\":\"0\"***REMOVED***\"\"\",\n        \"data_reveal\":\"根据您的问题，数据问答小助手没有查询到相关结果，请换个问题试试\"\
+          \ method\",\"status\":\"0\"}\"\"\",\n        \"data_reveal\":\"根据您的问题，数据问答小助手没有查询到相关结果，请换个问题试试\"\
           ,\n        \"who_are_you\":'您好，我是数据问答小助手。你可以向我提问，我会根据你的问题回答，快来试试吧。'\n  \
-          \  ***REMOVED***"
+          \  }"
         code_language: python3
         desc: ''
         outputs:
@@ -499,7 +499,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        answer: '{{#1721978276391.dify_0_t02#***REMOVED******REMOVED***{{#1721978276391.who_are_you#***REMOVED******REMOVED***{{#1721978276391.dify_1_t02#***REMOVED******REMOVED***'
+        answer: '{{#1721978276391.dify_0_t02#}}{{#1721978276391.who_are_you#}}{{#1721978276391.dify_1_t02#}}'
         desc: ''
         selected: false
         title: 直接回复
@@ -519,10 +519,10 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "def main(query***REMOVED*** -> dict:\n\n    question_pool = ['你是谁？','你是谁啊？','你的身份是什么？','你是什么模型？','你是什么模型啊？','你是什么大模型？','你是什么大模型啊？','你用的什么大模型？','你用的什么大模型啊？','你是哪个模型？','你是哪个模型啊？','你用的哪个模型？','你用的哪个模型啊？','你是什么类型的AI？','你是基于什么技术的？','你用的什么技术？','你是哪个AI？','你是什么AI系统？','你是用什么技术开发的？','你是怎么工作的？','你的工作原理是什么？','你是用什么模型训练的？','你背后是什么算法？','你是哪种AI？','你是哪个公司的AI？','你的开发公司是谁？','你是由谁设计的？','你的设计者是谁？','你的开发者是谁？','你属于哪个团队？','你的技术基础是什么？','你的算法是什么？','你是哪一类AI？','你是由什么算法支持的？','你是哪个版本的AI？','你的版本号是多少？','你是基于哪个平台的？','你是基于什么平台？','你由谁制造？','你的制造商是谁？','你是哪个架构？','你的架构是什么？','你是哪家公司开发的？','你由什么技术支撑？','你由什么驱动？','你的工作机制是什么？','你使用了哪些技术？','你是如何被训练的？','你用什么数据训练的？','你的训练数据是什么？','你是谁','你是谁啊','你的身份是什么','你是什么模型','你是什么模型啊','你是什么大模型','你是什么大模型啊','你用的什么大模型','你用的什么大模型啊','你是哪个模型','你是哪个模型啊','你用的哪个模型','你用的哪个模型啊','你是什么类型的AI','你是基于什么技术的','你用的什么技术','你是哪个AI','你是什么AI系统','你是用什么技术开发的','你是怎么工作的','你的工作原理是什么','你是用什么模型训练的','你背后是什么算法','你是哪种AI','你是哪个公司的AI','你的开发公司是谁','你是由谁设计的','你的设计者是谁','你的开发者是谁','你属于哪个团队','你的技术基础是什么','你的算法是什么','你是哪一类AI','你是由什么算法支持的','你是哪个版本的AI','你的版本号是多少','你是基于哪个平台的','你是基于什么平台','你由谁制造','你的制造商是谁','你是哪个架构','你的架构是什么','你是哪家公司开发的','你由什么技术支撑','你由什么驱动','你的工作机制是什么','你使用了哪些技术','你是如何被训练的','你用什么数据训练的','你的训练数据是什么',\
+        code: "def main(query) -> dict:\n\n    question_pool = ['你是谁？','你是谁啊？','你的身份是什么？','你是什么模型？','你是什么模型啊？','你是什么大模型？','你是什么大模型啊？','你用的什么大模型？','你用的什么大模型啊？','你是哪个模型？','你是哪个模型啊？','你用的哪个模型？','你用的哪个模型啊？','你是什么类型的AI？','你是基于什么技术的？','你用的什么技术？','你是哪个AI？','你是什么AI系统？','你是用什么技术开发的？','你是怎么工作的？','你的工作原理是什么？','你是用什么模型训练的？','你背后是什么算法？','你是哪种AI？','你是哪个公司的AI？','你的开发公司是谁？','你是由谁设计的？','你的设计者是谁？','你的开发者是谁？','你属于哪个团队？','你的技术基础是什么？','你的算法是什么？','你是哪一类AI？','你是由什么算法支持的？','你是哪个版本的AI？','你的版本号是多少？','你是基于哪个平台的？','你是基于什么平台？','你由谁制造？','你的制造商是谁？','你是哪个架构？','你的架构是什么？','你是哪家公司开发的？','你由什么技术支撑？','你由什么驱动？','你的工作机制是什么？','你使用了哪些技术？','你是如何被训练的？','你用什么数据训练的？','你的训练数据是什么？','你是谁','你是谁啊','你的身份是什么','你是什么模型','你是什么模型啊','你是什么大模型','你是什么大模型啊','你用的什么大模型','你用的什么大模型啊','你是哪个模型','你是哪个模型啊','你用的哪个模型','你用的哪个模型啊','你是什么类型的AI','你是基于什么技术的','你用的什么技术','你是哪个AI','你是什么AI系统','你是用什么技术开发的','你是怎么工作的','你的工作原理是什么','你是用什么模型训练的','你背后是什么算法','你是哪种AI','你是哪个公司的AI','你的开发公司是谁','你是由谁设计的','你的设计者是谁','你的开发者是谁','你属于哪个团队','你的技术基础是什么','你的算法是什么','你是哪一类AI','你是由什么算法支持的','你是哪个版本的AI','你的版本号是多少','你是基于哪个平台的','你是基于什么平台','你由谁制造','你的制造商是谁','你是哪个架构','你的架构是什么','你是哪家公司开发的','你由什么技术支撑','你由什么驱动','你的工作机制是什么','你使用了哪些技术','你是如何被训练的','你用什么数据训练的','你的训练数据是什么',\
           \ \"你好啊\", \"你好\", \"您好啊\", \"您好\"]\n    for keywords in question_pool:\n\
-          \        if keywords in query:\n        ***REMOVED***\"result\": 1***REMOVED***\n   \
-          \ else:\n    ***REMOVED***\"result\": 2***REMOVED***"
+          \        if keywords in query:\n            return {\"result\": 1}\n   \
+          \ else:\n        return {\"result\": 2}"
         code_language: python3
         desc: 身份判断
         outputs:
@@ -604,12 +604,12 @@ workflow:
             请根据用户选择的数据库和该库的部分可用表结构定义来回答用户问题.
 
 
-            # 表结构定义:***REMOVED***{#1721978276391.nl2sql_table_info#***REMOVED******REMOVED***
+            # 表结构定义:  {{#1721978276391.nl2sql_table_info#}}
 
             '
         - id: 5764dbed-c6df-43d5-a14f-5b6ad9db0cd6
           role: user
-          text: 'human: {{#sys.query#***REMOVED******REMOVED***查询
+          text: 'human: {{#sys.query#}}查询
 
 
             # 约束:
@@ -627,7 +627,7 @@ workflow:
             - 请检查SQL的正确性，并保证正确的情况下优化查询性能 
 
 
-            - 所有查询的值都必须有别名，比如从表中选择 select 所属分局, COUNT(****REMOVED***as 总数,SUM(涉案资金***REMOVED*** as 涉案资金 from
+            - 所有查询的值都必须有别名，比如从表中选择 select 所属分局, COUNT(*)as 总数,SUM(涉案资金) as 涉案资金 from
             view_alarm_detail group by 所属分局
 
 
@@ -636,7 +636,7 @@ workflow:
 
             - 用户在问题中指定了他希望获得的具体数据行数，如果大于50则始终将查询限制为最多 
 
-          ***REMOVED***{#1721978276391.top_k#***REMOVED******REMOVED***个结果。
+            {{#1721978276391.top_k#}}个结果。
 
 
             - 当问题中出现像时间，日期，月份，年，小时，季度，天等表示时间的关键字，必须使用view_alarm_detail表的“登记日期”字段进行查询统计
@@ -648,16 +648,16 @@ workflow:
             - 当使用view_alarm_detail表的"案发地点","管辖单位","联系地址","所在单位","诈骗类型"字段必须使用模糊查询统计
 
 
-            - 当前日期,今年使用 {{#1721978268262.text#***REMOVED******REMOVED***
+            - 当前日期,今年使用 {{#1721978268262.text#}}
 
 
             -  请从如下给出的展示方式种选择最形象的一种用以进行数据渲染，将类型名称放入返回要求格式的name参数值中，如果找不到最合适的则使用''Table''作为展示方式，数据展示方式如下: 
-          ***REMOVED***{#1721978276391.nl2sql_display_type#***REMOVED******REMOVED***
+            {{#1721978276391.nl2sql_display_type#}}
 
 
             # 返回格式 
 
-            请一步步思考并按照以下JSON格式回复： {{#1721978276391.nl2sql_response#***REMOVED******REMOVED***
+            请一步步思考并按照以下JSON格式回复： {{#1721978276391.nl2sql_response#}}
 
             确保返回正确的json并且可以被Python json.loads方法解析.'
         selected: false
@@ -684,12 +684,12 @@ workflow:
           config: null
           type: no-auth
         body:
-          data: '{{#1721978504647.text#***REMOVED******REMOVED***'
+          data: '{{#1721978504647.text#}}'
           type: json
         desc: 执行SQL语句封装结果集
         headers: ''
         method: post
-        params: question:{{#sys.query#***REMOVED******REMOVED***
+        params: question:{{#sys.query#}}
         selected: false
         timeout:
           max_connect_timeout: 0
@@ -714,16 +714,16 @@ workflow:
       width: 244
     - data:
         code: "import json\n# from typing import Any, Dict\n\ndef main(llm_out_text:\
-          \ str, db_result: str***REMOVED***:\n    try:\n        db_result_json = json.loads(db_result***REMOVED***\n\
-          \        parsed_json = json.loads(llm_out_text***REMOVED***\n\n        # if not isinstance(db_result_json,\
-          \ dict***REMOVED***:\n        #     db_result_json = json.loads(db_result_json***REMOVED***\n\n\
-          \        # if not isinstance(parsed_json, dict***REMOVED***:\n        #     parsed_json\
-          \ = json.loads(parsed_json***REMOVED***\n\n        db_data = json.loads(db_result_json['data']***REMOVED***\n\
-          \n    ***REMOVED***\n            \"res_code\": str(db_result_json['code']***REMOVED***,\n\
+          \ str, db_result: str):\n    try:\n        db_result_json = json.loads(db_result)\n\
+          \        parsed_json = json.loads(llm_out_text)\n\n        # if not isinstance(db_result_json,\
+          \ dict):\n        #     db_result_json = json.loads(db_result_json)\n\n\
+          \        # if not isinstance(parsed_json, dict):\n        #     parsed_json\
+          \ = json.loads(parsed_json)\n\n        db_data = json.loads(db_result_json['data'])\n\
+          \n        return {\n            \"res_code\": str(db_result_json['code']),\n\
           \            \"outline\":  parsed_json['thoughts'],\n            \"sql\"\
-          :  parsed_json['sql'],\n            \"res_data\": str(db_data['data']***REMOVED***\n\
-          \        ***REMOVED***\n    except Exception as e :\n    ***REMOVED***\"res_code\": \"\
-          9999\",\"thoughts\":\"\",\"sql\":\"\",\"outline\": f\"{e***REMOVED***\"***REMOVED***"
+          :  parsed_json['sql'],\n            \"res_data\": str(db_data['data'])\n\
+          \        }\n    except Exception as e :\n        return {\"res_code\": \"\
+          9999\",\"thoughts\":\"\",\"sql\":\"\",\"outline\": f\"{e}\"}"
         code_language: python3
         dependencies:
         - name: ''
@@ -798,7 +798,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        answer: '{{#1721978276391.dify_0_t02#***REMOVED******REMOVED***{{#1721978276391.data_reveal#***REMOVED******REMOVED***{{#1721978276391.dify_1_t02#***REMOVED******REMOVED***'
+        answer: '{{#1721978276391.dify_0_t02#}}{{#1721978276391.data_reveal#}}{{#1721978276391.dify_1_t02#}}'
         desc: ''
         selected: false
         title: 返回失败
@@ -838,8 +838,8 @@ workflow:
             '
         - id: d424dafa-ebed-4271-90e5-4bafff0ca243
           role: user
-          text: "# 任务: 请从以下诈骗数据中,总结分析出数据趋势\n\n----\n# 诈骗数据内容:***REMOVED***{#1724295169935.res_data#***REMOVED******REMOVED***\n\
-            # 诈骗数据结构说明: column 字段代表诈骗数据schema定义，result字段代表诈骗数据明细，例如：{'column':['接警单号'],'result':[{'接警单号':222xxx***REMOVED***]***REMOVED***\
+          text: "# 任务: 请从以下诈骗数据中,总结分析出数据趋势\n\n----\n# 诈骗数据内容:  {{#1724295169935.res_data#}}\n\
+            # 诈骗数据结构说明: column 字段代表诈骗数据schema定义，result字段代表诈骗数据明细，例如：{'column':['接警单号'],'result':[{'接警单号':222xxx}]}\
             \ \n\n----\n# 约束:\n - 思考过程和结论不能出现英文字符繁体字\n - 严格依据数据集回答不要虚构\n - 数据集为空时返回空\n\
             \ - 不要输出思考过程\n - 诈骗案件数量从result字段中统计\n - 字数限制在150字以内\n - 请一步一步思考并按照以下格式输出\n\
             \n# 输出格式:  文本"
@@ -863,8 +863,8 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(llm_out:str***REMOVED*** -> dict:\n***REMOVED***\n        \"llm_out_wrapper\"\
-          : llm_out+\"详情如下图:\"\n    ***REMOVED***\n"
+        code: "\ndef main(llm_out:str) -> dict:\n    return {\n        \"llm_out_wrapper\"\
+          : llm_out+\"详情如下图:\"\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -893,11 +893,11 @@ workflow:
       type: custom
       width: 244
     - data:
-        answer: '{{#1721978276391.dify_0_t02#***REMOVED******REMOVED***{{#1724295911042.llm_out_wrapper#***REMOVED******REMOVED***{{#1721978276391.dify_1_t02#***REMOVED******REMOVED***
+        answer: '{{#1721978276391.dify_0_t02#}}{{#1724295911042.llm_out_wrapper#}}{{#1721978276391.dify_1_t02#}}
 
-        ***REMOVED***{#1721978276391.dify_0_t07#***REMOVED******REMOVED***{{#1721978276391.query_database#***REMOVED******REMOVED***{{#1721978276391.dify_1_t07#***REMOVED******REMOVED***
+          {{#1721978276391.dify_0_t07#}}{{#1721978276391.query_database#}}{{#1721978276391.dify_1_t07#}}
 
-        ***REMOVED***{#1721978276391.dify_0_t04#***REMOVED******REMOVED***{{#1724295046398.body#***REMOVED******REMOVED***{{#1721978276391.dify_1_t04#***REMOVED******REMOVED***'
+          {{#1721978276391.dify_0_t04#}}{{#1724295046398.body#}}{{#1721978276391.dify_1_t04#}}'
         desc: ''
         selected: false
         title: 响应结果集
@@ -917,9 +917,9 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\ndef main(body: dict***REMOVED*** -> dict:\n    message = json.loads(body***REMOVED***\n\
-          \***REMOVED***\n        \"url\": message.get('data', ''***REMOVED***, \n        \"res_code\"\
-          : str(message.get('code', ''***REMOVED******REMOVED***\n    ***REMOVED***\n"
+        code: "import json\n\ndef main(body: dict) -> dict:\n    message = json.loads(body)\n\
+          \    return {\n        \"url\": message.get('data', ''), \n        \"res_code\"\
+          : str(message.get('code', ''))\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -951,7 +951,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        answer: '{{#1721978276391.dify_0_t02#***REMOVED******REMOVED***{{#17301926909140.llm_out#***REMOVED******REMOVED***{{#1721978276391.dify_1_t02#***REMOVED******REMOVED***'
+        answer: '{{#1721978276391.dify_0_t02#}}{{#17301926909140.llm_out#}}{{#1721978276391.dify_1_t02#}}'
         desc: ''
         selected: false
         title: 返回搜索信息
@@ -979,14 +979,14 @@ workflow:
         title: 网页爬虫
         tool_configurations:
           generate_summary: null
-          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64***REMOVED*** AppleWebKit/537.36
-            (KHTML, like Gecko***REMOVED*** Chrome/100.0.1000.0 Safari/537.36
+          user_agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
+            (KHTML, like Gecko) Chrome/100.0.1000.0 Safari/537.36
         tool_label: 网页爬虫
         tool_name: webscraper
         tool_parameters:
           url:
             type: mixed
-            value: '{{#1730191229734.url#***REMOVED******REMOVED***'
+            value: '{{#1730191229734.url#}}'
         type: tool
       height: 116
       id: '1730192041363'
@@ -1019,7 +1019,7 @@ workflow:
           text: '# 你是一个信息抽取高手,擅长根据用户问题从网页内容中抽取相关信息.'
         - id: adcc500b-a842-4e48-b825-379f0b6e3af6
           role: user
-          text: '# 用户问题: {{#sys.query#***REMOVED******REMOVED***
+          text: '# 用户问题: {{#sys.query#}}
 
 
             # 你的任务是从爬虫爬取的网页内容中抽取与用户问题相关信息.
@@ -1027,7 +1027,7 @@ workflow:
 
             -----
 
-            # 爬虫爬取的网页内容: {{#1730192041363.text#***REMOVED******REMOVED***
+            # 爬虫爬取的网页内容: {{#1730192041363.text#}}
 
 
             # 约束
@@ -1067,8 +1067,8 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "\ndef main(llm_out:str***REMOVED*** -> dict:\n***REMOVED***\n        \"llm_out\"\
-          : llm_out\n    ***REMOVED***\n"
+        code: "\ndef main(llm_out:str) -> dict:\n    return {\n        \"llm_out\"\
+          : llm_out\n    }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -1106,7 +1106,7 @@ workflow:
         desc: ''
         headers: ''
         method: post
-        params: query_str:{{#sys.query#***REMOVED******REMOVED***
+        params: query_str:{{#sys.query#}}
         selected: false
         timeout:
           max_connect_timeout: 0
@@ -1164,9 +1164,9 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "def main(query: str***REMOVED*** -> dict:\n    if \"大模型排行报告\" in query:\n     \
-          \   return { \"result\": 1 ***REMOVED***\n    else:\n    ***REMOVED*** \"result\": 2\
-          \ ***REMOVED***\n"
+        code: "def main(query: str) -> dict:\n    if \"大模型排行报告\" in query:\n     \
+          \   return { \"result\": 1 }\n    else:\n        return { \"result\": 2\
+          \ }\n"
         code_language: python3
         desc: ''
         outputs:
@@ -1234,7 +1234,7 @@ workflow:
         desc: ''
         headers: ''
         method: get
-        params: query_str:{{#sys.query#***REMOVED******REMOVED***
+        params: query_str:{{#sys.query#}}
         selected: true
         timeout:
           max_connect_timeout: 0
@@ -1258,12 +1258,12 @@ workflow:
       type: custom
       width: 244
     - data:
-        code: "import json\n\n\ndef main(query_result: str***REMOVED***:\n    try:\n        parsed_json\
-          \ = json.loads(query_result***REMOVED***\n        if not isinstance(parsed_json, dict***REMOVED***:\n\
-          \            parsed_json = json.loads(parsed_json***REMOVED***\n\n    ***REMOVED***\n\
-          \            \"res_code\": str(parsed_json['code']***REMOVED***,\n            \"mark_down\"\
-          : parsed_json['data']\n        ***REMOVED***\n    except Exception as e :\n        return\
-          \ {\"res_code\": \"9999\",\"outline\": f\"{e***REMOVED***\"***REMOVED***"
+        code: "import json\n\n\ndef main(query_result: str):\n    try:\n        parsed_json\
+          \ = json.loads(query_result)\n        if not isinstance(parsed_json, dict):\n\
+          \            parsed_json = json.loads(parsed_json)\n\n        return {\n\
+          \            \"res_code\": str(parsed_json['code']),\n            \"mark_down\"\
+          : parsed_json['data']\n        }\n    except Exception as e :\n        return\
+          \ {\"res_code\": \"9999\",\"outline\": f\"{e}\"}"
         code_language: python3
         desc: ''
         outputs:
@@ -1325,7 +1325,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        answer: '{{#1721978276391.dify_0_t02#***REMOVED******REMOVED***{{#1730887562850.mark_down#***REMOVED******REMOVED***{{#1721978276391.dify_1_t02#***REMOVED******REMOVED***'
+        answer: '{{#1721978276391.dify_0_t02#}}{{#1730887562850.mark_down#}}{{#1721978276391.dify_1_t02#}}'
         desc: ''
         selected: false
         title: 返回结果
@@ -1375,7 +1375,7 @@ workflow:
       type: custom
       width: 244
     - data:
-        answer: '{{#1721978276391.dify_0_t02#***REMOVED******REMOVED***{{#1721978276391.data_reveal#***REMOVED******REMOVED***{{#1721978276391.dify_1_t02#***REMOVED******REMOVED***'
+        answer: '{{#1721978276391.dify_0_t02#}}{{#1721978276391.data_reveal#}}{{#1721978276391.dify_1_t02#}}'
         desc: ''
         selected: false
         title: 返回失败

@@ -1,35 +1,35 @@
 // 千分符函数 【判断是否四舍五入】
-export const comma = (num: any, suffix = ''***REMOVED*** => {
-  if (!num***REMOVED*** {
+export const comma = (num: any, suffix = '') => {
+  if (!num) {
     return
-  ***REMOVED***
+  }
 
-  const strNum = _.isString(num***REMOVED*** ? num : String(num***REMOVED***
-  const intNum = _.isString(num***REMOVED*** ? Number(num***REMOVED*** : num
+  const strNum = _.isString(num) ? num : String(num)
+  const intNum = _.isString(num) ? Number(num) : num
 
-  if (isNaN(intNum***REMOVED******REMOVED*** {
+  if (isNaN(intNum)) {
     return num
-  ***REMOVED***
+  }
 
   let source = [] as Array<any>
-  if (strNum.includes('.'***REMOVED******REMOVED*** {
-    source = String(intNum.toFixed(2***REMOVED******REMOVED***.split('.'***REMOVED*** // 保留两位(四舍五入***REMOVED***; 按小数点分成2部分
-    source[0] = source[0].replace(/(\d***REMOVED***(?=(\d{3***REMOVED******REMOVED***+$***REMOVED***/g, '$1,'***REMOVED***// 只将整数部分进行都好分割
-    return source.join('.'***REMOVED*** + suffix // 再将小数部分合并进来
-  ***REMOVED***
+  if (strNum.includes('.')) {
+    source = String(intNum.toFixed(2)).split('.') // 保留两位(四舍五入); 按小数点分成2部分
+    source[0] = source[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,')// 只将整数部分进行都好分割
+    return source.join('.') + suffix // 再将小数部分合并进来
+  }
 
-  return strNum.replace(/(\d***REMOVED***(?=(\d{3***REMOVED******REMOVED***+$***REMOVED***/g, '$1,'***REMOVED*** + suffix
-***REMOVED***
+  return strNum.replace(/(\d)(?=(\d{3})+$)/g, '$1,') + suffix
+}
 
-export const generateYears = (startYear***REMOVED*** => {
-  const currentYear = new Date(***REMOVED***.getFullYear(***REMOVED***
+export const generateYears = (startYear) => {
+  const currentYear = new Date().getFullYear()
   const endYear = currentYear + 1 // 明年
   const years: string[] = []
 
   let year = startYear
-  for (; year <= endYear; year++***REMOVED*** {
-    years.push(year***REMOVED***
-  ***REMOVED***
+  for (; year <= endYear; year++) {
+    years.push(year)
+  }
 
   return years
-***REMOVED***
+}

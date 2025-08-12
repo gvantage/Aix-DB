@@ -1,60 +1,60 @@
 <script lang="ts" setup>
-const router = useRouter(***REMOVED***
+const router = useRouter()
 
 
-const testRoutesNavs = computed((***REMOVED*** => {
-  const routes = router.getRoutes(***REMOVED***
-  const _routes = routes.filter((routeItem***REMOVED*** => {
-    return (routeItem.name !== 'UserLogin'***REMOVED***
+const testRoutesNavs = computed(() => {
+  const routes = router.getRoutes()
+  const _routes = routes.filter((routeItem) => {
+    return (routeItem.name !== 'UserLogin')
       && !routeItem.redirect
       && routeItem?.meta?.title
-  ***REMOVED******REMOVED***
-  return _routes.sort((prev, next***REMOVED*** => {
+  })
+  return _routes.sort((prev, next) => {
     return prev.meta.title! > next.meta.title!
       ? 1
       : -1
-  ***REMOVED******REMOVED***
-***REMOVED******REMOVED***
+  })
+})
 
 /**
  * 随机生成测试 params hash
  */
-const extractParamsFromRoute = (routePath***REMOVED*** => {
-  const paramRegex = /:([^/?]+***REMOVED***/g
-  const params = {***REMOVED***
+const extractParamsFromRoute = (routePath) => {
+  const paramRegex = /:([^/?]+)/g
+  const params = {}
 
-  routePath.replace(paramRegex, (__, paramName***REMOVED*** => {
-    params[paramName] = uuidv4(***REMOVED***
+  routePath.replace(paramRegex, (__, paramName) => {
+    params[paramName] = uuidv4()
     return ''
-  ***REMOVED******REMOVED***
+  })
 
   return params
-***REMOVED***
+}
 
-const handleNavigateTo = (routeItem: RouteRecordRaw***REMOVED*** => {
+const handleNavigateTo = (routeItem: RouteRecordRaw) => {
   router.push({
     name: routeItem.name,
-    params: extractParamsFromRoute(routeItem.path***REMOVED***,
-  ***REMOVED******REMOVED***
-***REMOVED***
-***REMOVED***
+    params: extractParamsFromRoute(routeItem.path),
+  })
+}
+</script>
 
-***REMOVED***
+<template>
   <aside
     class="navigation-nav-sidebar-container"
   >
     <div>该侧边栏路由仅用作开发初期调试</div>
     <n-button
-      v-for="(routeItem***REMOVED*** in testRoutesNavs"
+      v-for="(routeItem) in testRoutesNavs"
       :key="routeItem.path"
       type="primary"
       :dashed="routeItem.name !== $route.name"
-      @click="handleNavigateTo(routeItem***REMOVED***"
+      @click="handleNavigateTo(routeItem)"
     >
-    ***REMOVED***{ routeItem.meta.title ***REMOVED******REMOVED***
+      {{ routeItem.meta.title }}
     </n-button>
   </aside>
-***REMOVED***
+</template>
 
 <style lang="scss" scoped>
 .navigation-nav-sidebar-container {
@@ -69,7 +69,7 @@ const handleNavigateTo = (routeItem: RouteRecordRaw***REMOVED*** => {
 
     &:last-child {
       --at-apply: mb-0;
-    ***REMOVED***
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+    }
+  }
+}
+</style>

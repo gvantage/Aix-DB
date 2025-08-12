@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { FileSystemIconLoader ***REMOVED*** from '@iconify/utils/lib/loader/node-loaders'
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 import presetRemToPx from '@unocss/preset-rem-to-px'
 
 import {
@@ -9,32 +9,32 @@ import {
   presetWind3,
   transformerAttributifyJsx,
   transformerDirectives,
-***REMOVED*** from 'unocss'
+} from 'unocss'
 
 
 export default defineConfig({
   presets: [
-    presetWind3(***REMOVED***,
-    presetAttributify(***REMOVED***,
+    presetWind3(),
+    presetAttributify(),
     presetIcons({
       customizations: {
-        transform(svg***REMOVED*** {
-          return svg.replace(/#fff/, 'currentColor'***REMOVED***
-        ***REMOVED***,
-      ***REMOVED***,
+        transform(svg) {
+          return svg.replace(/#fff/, 'currentColor')
+        },
+      },
       collections: {
         'my-svg': FileSystemIconLoader(
-          path.join(__dirname, 'src/assets/svg'***REMOVED***,
-        ***REMOVED***,
-      ***REMOVED***,
-    ***REMOVED******REMOVED***,
+          path.join(__dirname, 'src/assets/svg'),
+        ),
+      },
+    }),
     presetRemToPx({
       baseFontSize: 4,
-    ***REMOVED******REMOVED***,
+    }),
   ],
   transformers: [
-    transformerDirectives(***REMOVED***,
-    transformerAttributifyJsx(***REMOVED***,
+    transformerDirectives(),
+    transformerAttributifyJsx(),
   ],
   theme: {
     colors: {
@@ -44,13 +44,13 @@ export default defineConfig({
       danger: '#fa5555',
       info: '#909399',
       bgcolor: '#f2ecee',
-    ***REMOVED***,
-  ***REMOVED***,
+    },
+  },
   rules: [
     [
       'navbar-shadow', {
-        'box-shadow': '0 1px 4px rgb(0 21 41 / 8%***REMOVED***',
-      ***REMOVED***,
-***REMOVED***,
+        'box-shadow': '0 1px 4px rgb(0 21 41 / 8%)',
+      },
+    ],
   ],
-***REMOVED******REMOVED***
+})

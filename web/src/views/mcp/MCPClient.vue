@@ -1,179 +1,164 @@
 <script lang="tsx" setup>
-***REMOVED***
-***REMOVED*** // 假设存在 SseClientTransport
+// 移除原有的MCP客户端相关代码，保留基本的Vue设置
+</script>
 
-const message = ref(''***REMOVED***
-const messages = ref(''***REMOVED***
-const connectionStatus = ref('Disconnected'***REMOVED***
-// https://github.com/modelcontextprotocol/typescript-sdk
-// StdioClientTransport
-// 如果是本地开发，需要使用 localhost 来访问宿主机的mcp服务
-***REMOVED***
-  // new URL('http://host.docker.internal:8000/sse'***REMOVED***,
-  new URL('http://localhost:3000/sse/amap'***REMOVED***,
-***REMOVED***
+<template>
+  <n-layout class="main-layout" style="height: 100vh">
+    <div class="promotion-page">
+      <div class="content-wrapper">
+        <h1 class="main-title animate-fade-in-down">通用智能体场景</h1>
+        <div class="development-status animate-fade-in-up">
+          <span class="status-text">正在开发中</span>
+          <div class="pulse-dot"></div>
+        </div>
+        <div class="description animate-fade-in">
+          <p>构建基于大模型的通用多智能场景，为您提供更智能、更高效的解决方案。</p>
+          <p>有想法的同学，欢迎贡献代码 ; 目前缺前端后端同学，欢迎加入。</p>
+          <p>敬请期待...</p>
+        </div>
+      </div>
+    </div>
+  </n-layout>
+</template>
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-  ***REMOVED***,
-***REMOVED***
-***REMOVED***
-      prompts: {***REMOVED***,
-      resources: {***REMOVED***,
-      tools: {***REMOVED***,
-    ***REMOVED***,
-  ***REMOVED***,
-***REMOVED***
+<style scoped>
+.promotion-page {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+}
 
-onMounted(async (***REMOVED*** => {
-  await client.connect(transport***REMOVED***
-  connectionStatus.value = 'Connected'
-  const tools = await client.listTools(***REMOVED***
-  console.log(tools***REMOVED***
+.promotion-page::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+  animation: rotate 15s linear infinite;
+  z-index: 0;
+}
 
-  // const prompts = await client.listPrompts(***REMOVED***
-  // console.log(prompts***REMOVED***
-***REMOVED******REMOVED***
+.content-wrapper {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
 
-const sendMessage = async (***REMOVED*** => {
-  const result = await client.callTool({
-    name: 'maps_weather',
-    arguments: {
-      city: message.value,
-    ***REMOVED***,
-  ***REMOVED******REMOVED***
-  messages.value = JSON.stringify(result.content***REMOVED***
-  console.log(result.content***REMOVED***
-***REMOVED***
+.main-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #ffffff;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
 
-// List prompts
-// const prompts = await client.listPrompts(***REMOVED***
+.development-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
 
-// // Get a prompt
-// const prompt = await client.getPrompt('example-prompt', {
-//     arg1: 'value'
-// ***REMOVED******REMOVED***
+.status-text {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: #f8f9fa;
+  font-weight: 500;
+}
 
-// List resources
-// const resources = await client.listResources(***REMOVED***
+.pulse-dot {
+  width: 15px;
+  height: 15px;
+  background-color: #ffeb3b;
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
 
-// // Read a resource
-// const resource = await client.readResource('file:///example.txt'***REMOVED***
-***REMOVED***
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 235, 59, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 235, 59, 0);
+  }
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 235, 59, 0);
+  }
+}
 
-***REMOVED***
-***REMOVED***
-    <!-- 移动说明区块到 n-layout 外部 -->
-    <div class="note-box">
-      <p>MCP功能说明：</p>
-      <ul>
-        <li>
-          目前该功能只做了简单的客户端对接示例;
-          下一版本对接qwen3mcp能力实现多工具协调调用
-        </li>
-        <li>
-          第一步 申请高德API-KEY 并启动高德 MCP Server，命令如下：
-        </li>
-        <li>
-          npx -y supergateway --stdio
-          "AMAP_MAPS_API_KEY=高德API-KEY npx -y
-          @amap/amap-maps-mcp-server" --cors
-        </li>
-        <li>
-          通过 maps_weather 工具查询实时天气,输出城市名称如:杭州
-        </li>
-      </ul>
-***REMOVED***
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-    <div class="mcp-client">
-      <h1>MCP Client</h1>
-      <p>Connection Status: {{ connectionStatus ***REMOVED******REMOVED***</p>
-
-      <!-- 输入框和按钮 -->
-      <div>
-        <input
-          v-model="message"
-          style="width: 280px; height: 25px"
-          placeholder="Enter message to send"
-        >
-        <button
-          style="height: 25px; margin-left: 2px; width: 80px"
-          @click="sendMessage"
-        >
-          Send
-        </button>
-***REMOVED***
-
-      <!-- 消息日志 -->
-      <div class="message-log">
-        <h3>Message Log:</h3>
-        <ul>
-        ***REMOVED***{
-            messages
-          ***REMOVED******REMOVED***
-        </ul>
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-
-***REMOVED***
-/* 全局样式 */
-
-.note-box {
+.description {
+  font-size: 1.2rem;
+  line-height: 1.6;
   max-width: 600px;
-  margin: 20px auto 0;
-  background: #f8f9fa;
-  border-left: 4px solid #3b82f6;
-***REMOVED***
-  padding: 15px;
-***REMOVED***
+  margin: 0 auto;
+  color: #f1f3f5;
+}
 
-.note-box ul {
-  margin: 10px 0 0 20px;
-***REMOVED***
+.description p {
+  margin: 10px 0;
+}
 
-.note-box li {
-  list-style-type: disc;
-  margin: 5px 0;
-***REMOVED***
+.main-layout {
+  background-color: #fff;
+  border-radius: 10px;
+}
 
-/* 保持原有 scoped 样式 */
+/* 添加动画类 */
+.animate-fade-in-down {
+  animation: fade-in-down 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(-20px);
+}
 
-.mcp-client {
-  font-family: Arial, sans-serif;
-  max-width: 600px;
-***REMOVED***
-***REMOVED***
-  border: 1px solid #ccc;
-***REMOVED***
-  margin-top: 20px;
-***REMOVED***
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out 0.3s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
 
-.message-log {
-  margin-top: 20px;
-***REMOVED***
+.animate-fade-in {
+  animation: fade-in 1s ease-out 0.6s forwards;
+  opacity: 0;
+}
 
-ul {
-  list-style-type: none;
-***REMOVED***
-***REMOVED***
+@keyframes fade-in-down {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-li {
-  background: #f9f9f9;
-  margin: 5px 0;
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+@keyframes fade-in-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
-***REMOVED***
+@keyframes fade-in {
+  to {
+    opacity: 1;
+  }
+}
+</style>

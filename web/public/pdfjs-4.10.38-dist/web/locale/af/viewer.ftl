@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Vorige bladsy
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Volgende
 pdfjs-page-input =
     .title = Bladsy
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = van { $pagesCount ***REMOVED***
+pdfjs-of-pages = van { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** van { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } van { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Zoem uit
 pdfjs-zoom-out-button-label = Zoem uit
@@ -72,13 +72,13 @@ pdfjs-document-properties-button-label = Dokumenteienskappe…
 pdfjs-document-properties-file-name = Lêernaam:
 pdfjs-document-properties-file-size = Lêergrootte:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** kG ({ $size_b ***REMOVED*** grepe***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } kG ({ $size_b } grepe)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MG ({ $size_b ***REMOVED*** grepe***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MG ({ $size_b } grepe)
 pdfjs-document-properties-title = Titel:
 pdfjs-document-properties-author = Outeur:
 pdfjs-document-properties-subject = Onderwerp:
@@ -86,20 +86,20 @@ pdfjs-document-properties-keywords = Sleutelwoorde:
 pdfjs-document-properties-creation-date = Skeppingsdatum:
 pdfjs-document-properties-modification-date = Wysigingsdatum:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Skepper:
 pdfjs-document-properties-producer = PDF-vervaardiger:
 pdfjs-document-properties-version = PDF-weergawe:
 pdfjs-document-properties-page-count = Aantal bladsye:
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
 
 ##
@@ -110,8 +110,8 @@ pdfjs-document-properties-close-button = Sluit
 
 pdfjs-print-progress-message = Berei tans dokument voor om te druk…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Kanselleer
 pdfjs-printing-not-supported = Waarskuwing: Dié blaaier ondersteun nie drukwerk ten volle nie.
 pdfjs-printing-not-ready = Waarskuwing: Die PDF is nog nie volledig gelaai vir drukwerk nie.
@@ -122,7 +122,7 @@ pdfjs-toggle-sidebar-button =
     .title = Sypaneel aan/af
 pdfjs-toggle-sidebar-button-label = Sypaneel aan/af
 pdfjs-document-outline-button =
-    .title = Wys dokumentskema (dubbelklik om alle items oop/toe te vou***REMOVED***
+    .title = Wys dokumentskema (dubbelklik om alle items oop/toe te vou)
 pdfjs-document-outline-button-label = Dokumentoorsig
 pdfjs-attachments-button =
     .title = Wys aanhegsels
@@ -134,16 +134,16 @@ pdfjs-findbar-button =
     .title = Soek in dokument
 pdfjs-findbar-button-label = Vind
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Bladsy { $page ***REMOVED***
+    .title = Bladsy { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Duimnael van bladsy { $page ***REMOVED***
+    .aria-label = Duimnael van bladsy { $page }
 
 ## Find panel button title and messages
 
@@ -169,8 +169,8 @@ pdfjs-page-scale-fit = Pas bladsy
 pdfjs-page-scale-auto = Outomatiese zoem
 pdfjs-page-scale-actual = Werklike grootte
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
@@ -187,11 +187,11 @@ pdfjs-rendering-error = 'n Fout het voorgekom toe die bladsy weergegee is.
 
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED***-annotasie]
+    .alt = [{ $type }-annotasie]
 
 ## Password
 

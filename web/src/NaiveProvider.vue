@@ -1,23 +1,23 @@
-***REMOVED***
-function registerNaiveTools(***REMOVED*** {
-  window.$ModalMessage = useMessage(***REMOVED***
-  window.$ModalNotification = useNotification(***REMOVED***
-  window.$ModalDialog = useDialog(***REMOVED***
-  window.$ModalLoadingBar = useLoadingBar(***REMOVED***
-***REMOVED***
+<script setup lang="ts">
+function registerNaiveTools() {
+  window.$ModalMessage = useMessage()
+  window.$ModalNotification = useNotification()
+  window.$ModalDialog = useDialog()
+  window.$ModalLoadingBar = useLoadingBar()
+}
 
 const NaiveProviderWrapper = defineComponent({
   name: 'NaiveProviderWrapper',
-  setup(***REMOVED*** {
-    registerNaiveTools(***REMOVED***
-  ***REMOVED***,
-  render(***REMOVED*** {
-    return h('div'***REMOVED***
-  ***REMOVED***,
-***REMOVED******REMOVED***
-***REMOVED***
+  setup() {
+    registerNaiveTools()
+  },
+  render() {
+    return h('div')
+  },
+})
+</script>
 
-***REMOVED***
+<template>
   <NLoadingBarProvider>
     <NDialogProvider>
       <NNotificationProvider>
@@ -28,4 +28,4 @@ const NaiveProviderWrapper = defineComponent({
       </NNotificationProvider>
     </NDialogProvider>
   </NLoadingBarProvider>
-***REMOVED***
+</template>

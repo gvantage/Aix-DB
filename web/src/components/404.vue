@@ -1,10 +1,10 @@
 <script lang="ts">
 export default defineComponent({
   name: 'NotFound',
-***REMOVED******REMOVED***
-***REMOVED***
+})
+</script>
 
-***REMOVED***
+<template>
   <div class="w-full h-full flex items-center justify-center">
     <n-result
       status="404"
@@ -12,12 +12,12 @@ export default defineComponent({
       description="生活总归带点荒谬"
     >
       <template #footer>
-        <n-button @click="$router.replace('/'***REMOVED***">看看别的</n-button>
-      ***REMOVED***
+        <n-button @click="$router.replace('/')">看看别的</n-button>
+      </template>
     </n-result>
   </div>
-***REMOVED***
+</template>
 
 <style>
 
-***REMOVED***
+</style>

@@ -20,154 +20,154 @@ const headerThreeItems = [
   '④ 支持更复杂表格计算增强统计',
   '⑤ 表格问答数据图表可视化展示',
 ]
-***REMOVED***
+</script>
 
-***REMOVED***
+<template>
   <div class="container">
     <div class="header">
       <div class="bg-primary rounded-50%">
         <div class="size-60 bg-white i-my-svg:system-logo"></div>
-***REMOVED***
+      </div>
       <div class="header-text">
         <h1 class="header-title">你的全能AI数据助手</h1>
         <p class="header-subtitle">基于大模型的数据问答小助手</p>
-***REMOVED***
-***REMOVED***
+      </div>
+    </div>
     <div class="content">
       <div class="card-one">
         <h4 class="title">通用问答</h4>
         <p class="card-subtitle">基于RAG大模型的通用问答</p>
         <ul>
           <li
-            v-for="(item, index***REMOVED*** in headerTwoItems"
+            v-for="(item, index) in headerTwoItems"
             :key="index"
             class="list-item"
-***REMOVED***
-          ***REMOVED***{ item ***REMOVED******REMOVED***
+          >
+            {{ item }}
           </li>
         </ul>
-***REMOVED***
+      </div>
       <div class="card-two">
         <h4 class="title">数据问答</h4>
         <p class="card-subtitle">基于大模型的数据问答</p>
         <ul>
           <li
-            v-for="(item, index***REMOVED*** in hotSearchItems"
+            v-for="(item, index) in hotSearchItems"
             :key="index"
             class="list-item"
-***REMOVED***
-          ***REMOVED***{ item ***REMOVED******REMOVED***
+          >
+            {{ item }}
           </li>
         </ul>
-***REMOVED***
+      </div>
       <div class="card-three">
         <h4 class="title">表格问答</h4>
         <p class="card-subtitle">基于大模型的表格问答</p>
         <ul>
           <li
-            v-for="(item, index***REMOVED*** in headerThreeItems"
+            v-for="(item, index) in headerThreeItems"
             :key="index"
             class="list-item"
-***REMOVED***
-          ***REMOVED***{ item ***REMOVED******REMOVED***
+          >
+            {{ item }}
           </li>
         </ul>
-***REMOVED***
-***REMOVED***
+      </div>
+    </div>
   </div>
-***REMOVED***
+</template>
 
-***REMOVED***
+<style scoped>
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-***REMOVED***
+  padding: 0;
   box-sizing: border-box;
-***REMOVED***
+}
 
 .container {
-***REMOVED***
+  width: 100%;
   max-width: 900px;
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  margin: 0 auto;
+  padding: 20px;
+}
 
 .header {
   background-color: #f6f7fb;
 
-  /* background: linear-gradient(to right, #f1f0fe, #f3f2ff***REMOVED***; */
+  /* background: linear-gradient(to right, #f1f0fe, #f3f2ff); */
 
-***REMOVED***
+  border-radius: 5px;
   text-align: center;
-***REMOVED***
+  display: flex;
   align-items: center;
   gap: 16px;
   margin-top: 6%;
   justify-content: center;
   padding: 15px;
-***REMOVED***
+}
 
 .header-text {
-***REMOVED***
-***REMOVED***
+  flex: 1;
+  text-align: left;
   flex-grow: 1;
-***REMOVED***
+}
 
 .header-title {
   margin: 0; /* Remove default margin */
-***REMOVED*** /* Adjust as needed */
-***REMOVED***
+  font-size: 1.5em; /* Adjust as needed */
+}
 
 .header-subtitle {
   margin: 0; /* Remove default margin */
   font-size: 1em; /* Adjust as needed */
   margin-top: 3px; /* Add a small top margin for spacing between title and subtitle */
-***REMOVED***
+}
 
 .header > div {
-***REMOVED***
-***REMOVED***
+  text-align: left;
+}
 
 .content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr***REMOVED***;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-***REMOVED***
-***REMOVED***
+  margin-top: 10px;
+}
 
 .card-one {
-***REMOVED***
-***REMOVED***
-  background: linear-gradient(to bottom, #f0effe, #d4eefc***REMOVED***;
-***REMOVED***
+  border-radius: 10px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #f0effe, #d4eefc);
+}
 
 .card-two {
-***REMOVED***
-***REMOVED***
-  background: linear-gradient(to right, #f0effe, #d4eefc***REMOVED***;
-***REMOVED***
+  border-radius: 10px;
+  padding: 20px;
+  background: linear-gradient(to right, #f0effe, #d4eefc);
+}
 
 .card-three {
-***REMOVED***
-***REMOVED***
-  background: linear-gradient(to left, #f0effe, #d4eefc***REMOVED***;
-***REMOVED***
+  border-radius: 10px;
+  padding: 20px;
+  background: linear-gradient(to left, #f0effe, #d4eefc);
+}
 
 .card-subtitle {
   margin: 0; /* Remove default margin */
   font-size: 13px; /* Adjust as needed */
   color: #6c757d; /* Optional: to match the color of .header-subtitle */
-***REMOVED***
+}
 
 .title {
   color: #333;
   font-size: 17px;
   margin-bottom: 5px;
-***REMOVED***
+}
 
 .list-item {
   list-style-type: none;
   margin-bottom: 20px;
-***REMOVED***
-***REMOVED***
-***REMOVED***
+  margin-top: 10px;
+}
+</style>

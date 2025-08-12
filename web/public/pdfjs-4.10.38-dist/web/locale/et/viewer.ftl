@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Eelmine lehekülg
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Järgmine
 pdfjs-page-input =
     .title = Leht
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = / { $pagesCount ***REMOVED***
+pdfjs-of-pages = / { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED***/{ $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber }/{ $pagesCount })
 pdfjs-zoom-out-button =
     .title = Vähenda
 pdfjs-zoom-out-button-label = Vähenda
@@ -93,13 +93,13 @@ pdfjs-document-properties-button-label = Dokumendi omadused…
 pdfjs-document-properties-file-name = Faili nimi:
 pdfjs-document-properties-file-size = Faili suurus:
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KiB ({ $size_b ***REMOVED*** baiti***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KiB ({ $size_b } baiti)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MiB ({ $size_b ***REMOVED*** baiti***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MiB ({ $size_b } baiti)
 pdfjs-document-properties-title = Pealkiri:
 pdfjs-document-properties-author = Autor:
 pdfjs-document-properties-subject = Teema:
@@ -107,9 +107,9 @@ pdfjs-document-properties-keywords = Märksõnad:
 pdfjs-document-properties-creation-date = Loodud:
 pdfjs-document-properties-modification-date = Muudetud:
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED*** { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date } { $time }
 pdfjs-document-properties-creator = Looja:
 pdfjs-document-properties-producer = Generaator:
 pdfjs-document-properties-version = Generaatori versioon:
@@ -125,14 +125,14 @@ pdfjs-document-properties-page-size-name-letter = Letter
 pdfjs-document-properties-page-size-name-legal = Legal
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -147,8 +147,8 @@ pdfjs-document-properties-close-button = Sulge
 
 pdfjs-print-progress-message = Dokumendi ettevalmistamine printimiseks…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Loobu
 pdfjs-printing-not-supported = Hoiatus: printimine pole selle brauseri poolt täielikult toetatud.
 pdfjs-printing-not-ready = Hoiatus: PDF pole printimiseks täielikult laaditud.
@@ -158,16 +158,16 @@ pdfjs-printing-not-ready = Hoiatus: PDF pole printimiseks täielikult laaditud.
 pdfjs-toggle-sidebar-button =
     .title = Näita külgriba
 pdfjs-toggle-sidebar-notification-button =
-    .title = Näita külgriba (dokument sisaldab sisukorda/manuseid/kihte***REMOVED***
+    .title = Näita külgriba (dokument sisaldab sisukorda/manuseid/kihte)
 pdfjs-toggle-sidebar-button-label = Näita külgriba
 pdfjs-document-outline-button =
-    .title = Näita sisukorda (kõigi punktide laiendamiseks/ahendamiseks topeltklõpsa***REMOVED***
+    .title = Näita sisukorda (kõigi punktide laiendamiseks/ahendamiseks topeltklõpsa)
 pdfjs-document-outline-button-label = Näita sisukorda
 pdfjs-attachments-button =
     .title = Näita manuseid
 pdfjs-attachments-button-label = Manused
 pdfjs-layers-button =
-    .title = Näita kihte (kõikide kihtide vaikeolekusse lähtestamiseks topeltklõpsa***REMOVED***
+    .title = Näita kihte (kõikide kihtide vaikeolekusse lähtestamiseks topeltklõpsa)
 pdfjs-layers-button-label = Kihid
 pdfjs-thumbs-button =
     .title = Näita pisipilte
@@ -180,16 +180,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Otsi
 pdfjs-additional-layers = Täiendavad kihid
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = { $page ***REMOVED***. lehekülg
+    .title = { $page }. lehekülg
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = { $page ***REMOVED***. lehekülje pisipilt
+    .aria-label = { $page }. lehekülje pisipilt
 
 ## Find panel button title and messages
 
@@ -217,15 +217,15 @@ pdfjs-page-scale-fit = Mahuta leheküljele
 pdfjs-page-scale-auto = Automaatne suurendamine
 pdfjs-page-scale-actual = Tegelik suurus
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Lehekülg { $page ***REMOVED***
+    .aria-label = Lehekülg { $page }
 
 ## Loading indicator messages
 
@@ -238,16 +238,16 @@ pdfjs-rendering-error = Lehe renderdamisel esines viga.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED*** { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date } { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [{ $type ***REMOVED*** Annotation]
+    .alt = [{ $type } Annotation]
 
 ## Password
 

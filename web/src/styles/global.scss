@@ -1,18 +1,18 @@
 .fade-enter-active,
 .fade-leave-active {
   transition: all 0.25s ease;
-***REMOVED***
+}
 
 .fade-enter,
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
-  transform: translateX(-10px***REMOVED***;
-***REMOVED***
+  transform: translateX(-10px);
+}
 
 .fade-leave-active {
   position: absolute;
-***REMOVED***
+}
 
 
 .fade-between-enter-active,
@@ -20,43 +20,43 @@
   transition: all 0.25s ease;
   left: 0;
   right: 0;
-***REMOVED***
+}
 
 .fade-between-enter,
 .fade-between-enter-from,
 .fade-between-leave-to {
   opacity: 0;
-  transform: translateX(-10px***REMOVED***;
-***REMOVED***
+  transform: translateX(-10px);
+}
 
 .fade-between-leave-active {
   position: absolute;
-***REMOVED***
+}
 
 
 .transfer-enter-active,
 .transfer-leave-active {
   transition: all 0.3s ease;
-***REMOVED***
+}
 
 .transfer-enter,
 .transfer-enter-from,
 .transfer-leave-to {
   opacity: 0;
-  transform: translateX(30px***REMOVED***;
-***REMOVED***
+  transform: translateX(30px);
+}
 
 .transfer-leave-active {
   position: absolute;
-***REMOVED***
+}
 
 .textarea-resize-none {
 
   .n-input-wrapper {
     resize: none !important;
-  ***REMOVED***
+  }
 
   .n-input__textarea-el {
     resize: none !important;
-  ***REMOVED***
-***REMOVED***
+  }
+}

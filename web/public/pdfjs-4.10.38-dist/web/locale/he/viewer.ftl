@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = דף קודם
@@ -15,13 +15,13 @@ pdfjs-next-button-label = הבא
 pdfjs-page-input =
     .title = דף
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = מתוך { $pagesCount ***REMOVED***
+pdfjs-of-pages = מתוך { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** מתוך { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } מתוך { $pagesCount })
 pdfjs-zoom-out-button =
     .title = התרחקות
 pdfjs-zoom-out-button-label = התרחקות
@@ -42,14 +42,14 @@ pdfjs-print-button-label = הדפסה
 pdfjs-save-button =
     .title = שמירה
 pdfjs-save-button-label = שמירה
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = הורדה
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = הורדה
 pdfjs-bookmark-button =
-    .title = עמוד נוכחי (הצגת כתובת האתר מהעמוד הנוכחי***REMOVED***
+    .title = עמוד נוכחי (הצגת כתובת האתר מהעמוד הנוכחי)
 pdfjs-bookmark-button-label = עמוד נוכחי
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = מאפייני מסמך…
 pdfjs-document-properties-file-name = שם קובץ:
 pdfjs-document-properties-file-size = גודל הקובץ:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** ק״ב ({ $b ***REMOVED*** בתים***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } ק״ב ({ $b } בתים)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** מ״ב ({ $b ***REMOVED*** בתים***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } מ״ב ({ $b } בתים)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** ק״ב ({ $size_b ***REMOVED*** בתים***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } ק״ב ({ $size_b } בתים)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** מ״ב ({ $size_b ***REMOVED*** בתים***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } מ״ב ({ $size_b } בתים)
 pdfjs-document-properties-title = כותרת:
 pdfjs-document-properties-author = מחבר:
 pdfjs-document-properties-subject = נושא:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = מילות מפתח:
 pdfjs-document-properties-creation-date = תאריך יצירה:
 pdfjs-document-properties-modification-date = תאריך שינוי:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = יוצר:
 pdfjs-document-properties-producer = יצרן PDF:
 pdfjs-document-properties-version = גרסת PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = מכתב
 pdfjs-document-properties-page-size-name-legal = דף משפטי
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = סגירה
 
 pdfjs-print-progress-message = מסמך בהכנה להדפסה…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = ביטול
 pdfjs-printing-not-supported = אזהרה: הדפסה אינה נתמכת במלואה בדפדפן זה.
 pdfjs-printing-not-ready = אזהרה: מסמך ה־PDF לא נטען לחלוטין עד מצב שמאפשר הדפסה.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = אזהרה: מסמך ה־PDF לא נטען לחלוט
 pdfjs-toggle-sidebar-button =
     .title = הצגה/הסתרה של סרגל הצד
 pdfjs-toggle-sidebar-notification-button =
-    .title = החלפת תצוגת סרגל צד (מסמך שמכיל תוכן עניינים/קבצים מצורפים/שכבות***REMOVED***
+    .title = החלפת תצוגת סרגל צד (מסמך שמכיל תוכן עניינים/קבצים מצורפים/שכבות)
 pdfjs-toggle-sidebar-button-label = הצגה/הסתרה של סרגל הצד
 pdfjs-document-outline-button =
-    .title = הצגת תוכן העניינים של המסמך (לחיצה כפולה כדי להרחיב או לצמצם את כל הפריטים***REMOVED***
+    .title = הצגת תוכן העניינים של המסמך (לחיצה כפולה כדי להרחיב או לצמצם את כל הפריטים)
 pdfjs-document-outline-button-label = תוכן העניינים של המסמך
 pdfjs-attachments-button =
     .title = הצגת צרופות
 pdfjs-attachments-button-label = צרופות
 pdfjs-layers-button =
-    .title = הצגת שכבות (יש ללחוץ לחיצה כפולה כדי לאפס את כל השכבות למצב ברירת המחדל***REMOVED***
+    .title = הצגת שכבות (יש ללחוץ לחיצה כפולה כדי לאפס את כל השכבות למצב ברירת המחדל)
 pdfjs-layers-button-label = שכבות
 pdfjs-thumbs-button =
     .title = הצגת תצוגה מקדימה
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = חיפוש
 pdfjs-additional-layers = שכבות נוספות
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = עמוד { $page ***REMOVED***
+    .title = עמוד { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = תצוגה מקדימה של עמוד { $page ***REMOVED***
+    .aria-label = תצוגה מקדימה של עמוד { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = מילים שלמות
 pdfjs-find-reached-top = הגיע לראש הדף, ממשיך מלמטה
 pdfjs-find-reached-bottom = הגיע לסוף הדף, ממשיך מלמעלה
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] { $current ***REMOVED*** מתוך { $total ***REMOVED*** תוצאות
-       *[other] { $current ***REMOVED*** מתוך { $total ***REMOVED*** תוצאות
-    ***REMOVED***
+    { $total ->
+        [one] { $current } מתוך { $total } תוצאות
+       *[other] { $current } מתוך { $total } תוצאות
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
+    { $limit ->
         [one] יותר מתוצאה אחת
-       *[other] יותר מ־{ $limit ***REMOVED*** תוצאות
-    ***REMOVED***
+       *[other] יותר מ־{ $limit } תוצאות
+    }
 pdfjs-find-not-found = הביטוי לא נמצא
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = התאמה לעמוד
 pdfjs-page-scale-auto = מרחק מתצוגה אוטומטי
 pdfjs-page-scale-actual = גודל אמיתי
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = עמוד { $page ***REMOVED***
+    .aria-label = עמוד { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = אירעה שגיאה בעת עיבוד הדף.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [הערת { $type ***REMOVED***]
+    .alt = [הערת { $type }]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = אטימות
 pdfjs-editor-stamp-add-image-button =
     .title = הוספת תמונה
 pdfjs-editor-stamp-add-image-button-label = הוספת תמונה
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = עובי
 pdfjs-editor-free-highlight-thickness-title =
     .title = שינוי עובי בעת סימון פריטים שאינם טקסט
@@ -373,7 +373,7 @@ pdfjs-editor-alt-text-decorative-tooltip = מסומן כדקורטיבי
 # .placeholder: This is a placeholder for the alt text input area
 pdfjs-editor-alt-text-textarea =
     .placeholder = לדוגמה, ״גבר צעיר מתיישב ליד שולחן לאכול ארוחה״
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button =
     .aria-label = טקסט חלופי
 
@@ -432,12 +432,12 @@ pdfjs-editor-highlight-show-all-button =
     .title = הצגת הכול
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can edit the alt text.
-pdfjs-editor-new-alt-text-dialog-edit-label = עריכת טקסט חלופי (תיאור תמונה***REMOVED***
+pdfjs-editor-new-alt-text-dialog-edit-label = עריכת טקסט חלופי (תיאור תמונה)
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = הוספת טקסט חלופי (תיאור תמונה***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = הוספת טקסט חלופי (תיאור תמונה)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = נא לכתוב את התיאור שלך כאן…
 # This text refers to the alt text box above this description. It offers a definition of alt text.
@@ -451,11 +451,11 @@ pdfjs-editor-new-alt-text-error-title = לא ניתן היה ליצור טקסט
 pdfjs-editor-new-alt-text-error-description = נא לכתוב טקסט חלופי משלך או לנסות שוב מאוחר יותר.
 pdfjs-editor-new-alt-text-error-close-button = סגירה
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-#   $downloadedSize (Number***REMOVED*** - the downloaded size (in MB***REMOVED*** of the AI model.
-#   $percent (Number***REMOVED*** - the percentage of the downloaded size.
-pdfjs-editor-new-alt-text-ai-model-downloading-progress = בתהליך הורדת מודל AI של טקסט חלופי ({ $downloadedSize ***REMOVED*** מתוך { $totalSize ***REMOVED*** מ״ב***REMOVED***
-    .aria-valuetext = בתהליך הורדת מודל AI של טקסט חלופי ({ $downloadedSize ***REMOVED*** מתוך { $totalSize ***REMOVED*** מ״ב***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+#   $downloadedSize (Number) - the downloaded size (in MB) of the AI model.
+#   $percent (Number) - the percentage of the downloaded size.
+pdfjs-editor-new-alt-text-ai-model-downloading-progress = בתהליך הורדת מודל AI של טקסט חלופי ({ $downloadedSize } מתוך { $totalSize } מ״ב)
+    .aria-valuetext = בתהליך הורדת מודל AI של טקסט חלופי ({ $downloadedSize } מתוך { $totalSize } מ״ב)
 # This is a button that users can click to edit the alt text they have already added.
 pdfjs-editor-new-alt-text-added-button =
     .aria-label = נוסף טקסט חלופי
@@ -470,8 +470,8 @@ pdfjs-editor-new-alt-text-to-review-button =
 pdfjs-editor-new-alt-text-to-review-button-label = סקירת טקסט חלופי
 # "Created automatically" is a prefix that will be added to the beginning of any alt text that has been automatically generated. After the colon, the user will see/hear the actual alt text description. If the alt text has been edited by a human, this prefix will not appear.
 # Variables:
-#   $generatedAltText (String***REMOVED*** - the generated alt-text.
-pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = נוצר באופן אוטומטי: { $generatedAltText ***REMOVED***
+#   $generatedAltText (String) - the generated alt-text.
+pdfjs-editor-new-alt-text-generated-alt-text-with-disclaimer = נוצר באופן אוטומטי: { $generatedAltText }
 
 ## Image alt-text settings
 
@@ -483,8 +483,8 @@ pdfjs-editor-alt-text-settings-automatic-title = טקסט חלופי אוטומ�
 pdfjs-editor-alt-text-settings-create-model-button-label = יצירת טקסט חלופי באופן אוטומטי
 pdfjs-editor-alt-text-settings-create-model-description = הצעת תיאורים כדי לסייע לאנשים שאינם יכולים לראות את התמונה או כאשר התמונה אינה נטענת.
 # Variables:
-#   $totalSize (Number***REMOVED*** - the total size (in MB***REMOVED*** of the AI model.
-pdfjs-editor-alt-text-settings-download-model-label = מודל AI לטקסט חלופי ({ $totalSize ***REMOVED*** מ״ב***REMOVED***
+#   $totalSize (Number) - the total size (in MB) of the AI model.
+pdfjs-editor-alt-text-settings-download-model-label = מודל AI לטקסט חלופי ({ $totalSize } מ״ב)
 pdfjs-editor-alt-text-settings-ai-model-description = פועל באופן מקומי במכשיר שלך כך שהנתונים שלך נשארים פרטיים. נדרש עבור טקסט חלופי אוטומטי.
 pdfjs-editor-alt-text-settings-delete-model-button = מחיקה
 pdfjs-editor-alt-text-settings-download-model-button = הורדה
@@ -501,12 +501,12 @@ pdfjs-editor-undo-bar-message-freetext = הטקסט הוסר
 pdfjs-editor-undo-bar-message-ink = הציור הוסר
 pdfjs-editor-undo-bar-message-stamp = התמונה הוסרה
 # Variables:
-#   $count (Number***REMOVED*** - the number of removed annotations.
+#   $count (Number) - the number of removed annotations.
 pdfjs-editor-undo-bar-message-multiple =
-  ***REMOVED*** $count ->
+    { $count ->
         [one] הערה אחת הוסרה
-       *[other] { $count ***REMOVED*** הערות הוסרו
-    ***REMOVED***
+       *[other] { $count } הערות הוסרו
+    }
 pdfjs-editor-undo-bar-undo-button =
     .title = ביטול פעולה
 pdfjs-editor-undo-bar-undo-button-label = ביטול פעלה

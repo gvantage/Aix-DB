@@ -3,7 +3,7 @@
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 
-## Main toolbar buttons (tooltips and alt text for images***REMOVED***
+## Main toolbar buttons (tooltips and alt text for images)
 
 pdfjs-previous-button =
     .title = Asebter azewwar
@@ -15,13 +15,13 @@ pdfjs-next-button-label = Ddu ɣer zdat
 pdfjs-page-input =
     .title = Asebter
 # Variables:
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
+#   $pagesCount (Number) - the total number of pages in the document
 # This string follows an input field with the number of the page currently displayed.
-pdfjs-of-pages = ɣef { $pagesCount ***REMOVED***
+pdfjs-of-pages = ɣef { $pagesCount }
 # Variables:
-#   $pageNumber (Number***REMOVED*** - the currently visible page
-#   $pagesCount (Number***REMOVED*** - the total number of pages in the document
-pdfjs-page-of-pages = ({ $pageNumber ***REMOVED*** n { $pagesCount ***REMOVED******REMOVED***
+#   $pageNumber (Number) - the currently visible page
+#   $pagesCount (Number) - the total number of pages in the document
+pdfjs-page-of-pages = ({ $pageNumber } n { $pagesCount })
 pdfjs-zoom-out-button =
     .title = Semẓi
 pdfjs-zoom-out-button-label = Semẓi
@@ -42,14 +42,14 @@ pdfjs-print-button-label = Siggez
 pdfjs-save-button =
     .title = Sekles
 pdfjs-save-button-label = Sekles
-# Used in Firefox for Android as a tooltip for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a tooltip for the download button (“download” is a verb).
 pdfjs-download-button =
     .title = Sader
-# Used in Firefox for Android as a label for the download button (“download” is a verb***REMOVED***.
+# Used in Firefox for Android as a label for the download button (“download” is a verb).
 # Length of the translation matters since we are in a mobile context, with limited screen estate.
 pdfjs-download-button-label = Sader
 pdfjs-bookmark-button =
-    .title = Asebter amiran (Sken-d tansa URL seg usebter amiran***REMOVED***
+    .title = Asebter amiran (Sken-d tansa URL seg usebter amiran)
 pdfjs-bookmark-button-label = Asebter amiran
 
 ##  Secondary toolbar and context menu
@@ -105,21 +105,21 @@ pdfjs-document-properties-button-label = Taɣaṛa n isemli…
 pdfjs-document-properties-file-name = Isem n ufaylu:
 pdfjs-document-properties-file-size = Teɣzi n ufaylu:
 # Variables:
-#   $kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** KB ({ $b ***REMOVED*** yibiten***REMOVED***
+#   $kb (Number) - the PDF file size in kilobytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-kb = { NUMBER($kb, maximumSignificantDigits: 3) } KB ({ $b } yibiten)
 # Variables:
-#   $mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3***REMOVED*** ***REMOVED*** MB ({ $b ***REMOVED*** yibiten***REMOVED***
+#   $mb (Number) - the PDF file size in megabytes
+#   $b (Number) - the PDF file size in bytes
+pdfjs-document-properties-size-mb = { NUMBER($mb, maximumSignificantDigits: 3) } MB ({ $b } yibiten)
 # Variables:
-#   $size_kb (Number***REMOVED*** - the PDF file size in kilobytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-kb = { $size_kb ***REMOVED*** KAṬ ({ $size_b ***REMOVED*** ibiten***REMOVED***
+#   $size_kb (Number) - the PDF file size in kilobytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-kb = { $size_kb } KAṬ ({ $size_b } ibiten)
 # Variables:
-#   $size_mb (Number***REMOVED*** - the PDF file size in megabytes
-#   $size_b (Number***REMOVED*** - the PDF file size in bytes
-pdfjs-document-properties-mb = { $size_mb ***REMOVED*** MAṬ ({ $size_b ***REMOVED*** iṭamḍanen***REMOVED***
+#   $size_mb (Number) - the PDF file size in megabytes
+#   $size_b (Number) - the PDF file size in bytes
+pdfjs-document-properties-mb = { $size_mb } MAṬ ({ $size_b } iṭamḍanen)
 pdfjs-document-properties-title = Azwel:
 pdfjs-document-properties-author = Ameskar:
 pdfjs-document-properties-subject = Amgay:
@@ -127,12 +127,12 @@ pdfjs-document-properties-keywords = Awalen n tsaruţ
 pdfjs-document-properties-creation-date = Azemz n tmerna:
 pdfjs-document-properties-modification-date = Azemz n usnifel:
 # Variables:
-#   $dateObj (Date***REMOVED*** - the creation/modification date and time of the PDF file
-pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the creation/modification date and time of the PDF file
+pdfjs-document-properties-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 # Variables:
-#   $date (Date***REMOVED*** - the creation/modification date of the PDF file
-#   $time (Time***REMOVED*** - the creation/modification time of the PDF file
-pdfjs-document-properties-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the creation/modification date of the PDF file
+#   $time (Time) - the creation/modification time of the PDF file
+pdfjs-document-properties-date-string = { $date }, { $time }
 pdfjs-document-properties-creator = Yerna-t:
 pdfjs-document-properties-producer = Afecku n uselket PDF:
 pdfjs-document-properties-version = Lqem PDF:
@@ -148,14 +148,14 @@ pdfjs-document-properties-page-size-name-letter = Asekkil
 pdfjs-document-properties-page-size-name-legal = Usḍif
 
 ## Variables:
-##   $width (Number***REMOVED*** - the width of the (current***REMOVED*** page
-##   $height (Number***REMOVED*** - the height of the (current***REMOVED*** page
-##   $unit (String***REMOVED*** - the unit of measurement of the (current***REMOVED*** page
-##   $name (String***REMOVED*** - the name of the (current***REMOVED*** page
-##   $orientation (String***REMOVED*** - the orientation of the (current***REMOVED*** page
+##   $width (Number) - the width of the (current) page
+##   $height (Number) - the height of the (current) page
+##   $unit (String) - the unit of measurement of the (current) page
+##   $name (String) - the name of the (current) page
+##   $orientation (String) - the orientation of the (current) page
 
-pdfjs-document-properties-page-size-dimension-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $orientation ***REMOVED******REMOVED***
-pdfjs-document-properties-page-size-dimension-name-string = { $width ***REMOVED*** × { $height ***REMOVED*** { $unit ***REMOVED*** ({ $name ***REMOVED***, { $orientation ***REMOVED******REMOVED***
+pdfjs-document-properties-page-size-dimension-string = { $width } × { $height } { $unit } ({ $orientation })
+pdfjs-document-properties-page-size-dimension-name-string = { $width } × { $height } { $unit } ({ $name }, { $orientation })
 
 ##
 
@@ -170,8 +170,8 @@ pdfjs-document-properties-close-button = Mdel
 
 pdfjs-print-progress-message = Aheggi i usiggez n isemli…
 # Variables:
-#   $progress (Number***REMOVED*** - percent value
-pdfjs-print-progress-percent = { $progress ***REMOVED***%
+#   $progress (Number) - percent value
+pdfjs-print-progress-percent = { $progress }%
 pdfjs-print-progress-close-button = Sefsex
 pdfjs-printing-not-supported = Ɣuṛ-k: Asiggez ur ittusefrak ara yakan imaṛṛa deg iminig-a.
 pdfjs-printing-not-ready = Ɣuṛ-k: Afaylu PDF ur d-yuli ara imeṛṛa akken ad ittusiggez.
@@ -181,16 +181,16 @@ pdfjs-printing-not-ready = Ɣuṛ-k: Afaylu PDF ur d-yuli ara imeṛṛa akken a
 pdfjs-toggle-sidebar-button =
     .title = Sken/Fer agalis adisan
 pdfjs-toggle-sidebar-notification-button =
-    .title = Ffer/Sekn agalis adisan (isemli yegber aɣawas/ticeqqufin yeddan/tissiwin***REMOVED***
+    .title = Ffer/Sekn agalis adisan (isemli yegber aɣawas/ticeqqufin yeddan/tissiwin)
 pdfjs-toggle-sidebar-button-label = Sken/Fer agalis adisan
 pdfjs-document-outline-button =
-    .title = Sken isemli (Senned snat tikal i wesemɣer/Afneẓ n iferdisen meṛṛa***REMOVED***
+    .title = Sken isemli (Senned snat tikal i wesemɣer/Afneẓ n iferdisen meṛṛa)
 pdfjs-document-outline-button-label = Isɣalen n isebtar
 pdfjs-attachments-button =
     .title = Sken ticeqqufin yeddan
 pdfjs-attachments-button-label = Ticeqqufin yeddan
 pdfjs-layers-button =
-    .title = Skeen tissiwin (sit sin yiberdan i uwennez n meṛṛa tissiwin ɣer waddad amezwer***REMOVED***
+    .title = Skeen tissiwin (sit sin yiberdan i uwennez n meṛṛa tissiwin ɣer waddad amezwer)
 pdfjs-layers-button-label = Tissiwin
 pdfjs-thumbs-button =
     .title = Sken tanfult.
@@ -203,16 +203,16 @@ pdfjs-findbar-button =
 pdfjs-findbar-button-label = Nadi
 pdfjs-additional-layers = Tissiwin-nniḍen
 
-## Thumbnails panel item (tooltip and alt text for images***REMOVED***
+## Thumbnails panel item (tooltip and alt text for images)
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-title =
-    .title = Asebter { $page ***REMOVED***
+    .title = Asebter { $page }
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-thumb-page-canvas =
-    .aria-label = Tanfult n usebter { $page ***REMOVED***
+    .aria-label = Tanfult n usebter { $page }
 
 ## Find panel button title and messages
 
@@ -232,20 +232,20 @@ pdfjs-find-entire-word-checkbox-label = Awalen iččuranen
 pdfjs-find-reached-top = Yabbeḍ s afella n usebter, tuɣalin s wadda
 pdfjs-find-reached-bottom = Tebḍeḍ s adda n usebter, tuɣalin s afella
 # Variables:
-#   $current (Number***REMOVED*** - the index of the currently active find result
-#   $total (Number***REMOVED*** - the total number of matches in the document
+#   $current (Number) - the index of the currently active find result
+#   $total (Number) - the total number of matches in the document
 pdfjs-find-match-count =
-  ***REMOVED*** $total ->
-        [one] Timeḍriwt { $current ***REMOVED*** ɣef { $total ***REMOVED***
-       *[other] Timeḍriwin { $current ***REMOVED*** ɣef { $total ***REMOVED***
-    ***REMOVED***
+    { $total ->
+        [one] Timeḍriwt { $current } ɣef { $total }
+       *[other] Timeḍriwin { $current } ɣef { $total }
+    }
 # Variables:
-#   $limit (Number***REMOVED*** - the maximum number of matches
+#   $limit (Number) - the maximum number of matches
 pdfjs-find-match-count-limit =
-  ***REMOVED*** $limit ->
-        [one] Ugar n { $limit ***REMOVED*** umṣada
-       *[other] Ugar n { $limit ***REMOVED*** yimṣadayen
-    ***REMOVED***
+    { $limit ->
+        [one] Ugar n { $limit } umṣada
+       *[other] Ugar n { $limit } yimṣadayen
+    }
 pdfjs-find-not-found = Ulac tawinest
 
 ## Predefined zoom values
@@ -255,15 +255,15 @@ pdfjs-page-scale-fit = Asebter imaṛṛa
 pdfjs-page-scale-auto = Asemɣeṛ/Asemẓi awurman
 pdfjs-page-scale-actual = Teɣzi tilawt
 # Variables:
-#   $scale (Number***REMOVED*** - percent value for page scale
-pdfjs-page-scale-percent = { $scale ***REMOVED***%
+#   $scale (Number) - percent value for page scale
+pdfjs-page-scale-percent = { $scale }%
 
 ## PDF page
 
 # Variables:
-#   $page (Number***REMOVED*** - the page number
+#   $page (Number) - the page number
 pdfjs-page-landmark =
-    .aria-label = Asebter { $page ***REMOVED***
+    .aria-label = Asebter { $page }
 
 ## Loading indicator messages
 
@@ -276,19 +276,19 @@ pdfjs-rendering-error = Teḍra-d tuccḍa deg uskan n usebter.
 ## Annotations
 
 # Variables:
-#   $date (Date***REMOVED*** - the modification date of the annotation
-#   $time (Time***REMOVED*** - the modification time of the annotation
-pdfjs-annotation-date-string = { $date ***REMOVED***, { $time ***REMOVED***
+#   $date (Date) - the modification date of the annotation
+#   $time (Time) - the modification time of the annotation
+pdfjs-annotation-date-string = { $date }, { $time }
 # .alt: This is used as a tooltip.
 # Variables:
-#   $type (String***REMOVED*** - an annotation type from a list defined in the PDF spec
-# (32000-1:2008 Table 169 – Annotation types***REMOVED***.
+#   $type (String) - an annotation type from a list defined in the PDF spec
+# (32000-1:2008 Table 169 – Annotation types).
 # Some common types are e.g.: "Check", "Text", "Comment", "Note"
 pdfjs-text-annotation-type =
-    .alt = [Tabzimt { $type ***REMOVED***]
+    .alt = [Tabzimt { $type }]
 # Variables:
-#   $dateObj (Date***REMOVED*** - the modification date and time of the annotation
-pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium"***REMOVED*** ***REMOVED***
+#   $dateObj (Date) - the modification date and time of the annotation
+pdfjs-annotation-date-time-string = { DATETIME($dateObj, dateStyle: "short", timeStyle: "medium") }
 
 ## Password
 
@@ -339,7 +339,7 @@ pdfjs-editor-ink-opacity-input = Tebrek
 pdfjs-editor-stamp-add-image-button =
     .title = Rnu tawlaft
 pdfjs-editor-stamp-add-image-button-label = Rnu tawlaft
-# This refers to the thickness of the line used for free highlighting (not bound to text***REMOVED***
+# This refers to the thickness of the line used for free highlighting (not bound to text)
 pdfjs-editor-free-highlight-thickness-input = Tuzert
 pdfjs-editor-free-highlight-thickness-title =
     .title = Beddel tuzert mi ara d-tesbeggneḍ iferdisen niḍen ur nelli d aḍris
@@ -353,7 +353,7 @@ pdfjs-ink-canvas =
 
 ## Alt-text dialog
 
-# Alternative text (alt text***REMOVED*** helps when people can't see the image.
+# Alternative text (alt text) helps when people can't see the image.
 pdfjs-editor-alt-text-button-label = Aḍris amaskal
 pdfjs-editor-alt-text-edit-button-label = Ẓreg aḍris amaskal
 pdfjs-editor-alt-text-dialog-label = Fren taxtirt
@@ -418,10 +418,10 @@ pdfjs-editor-highlight-show-all-button =
     .title = Sken akk
 
 ## New alt-text dialog
-## Group note for entire feature: Alternative text (alt text***REMOVED*** helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
+## Group note for entire feature: Alternative text (alt text) helps when people can't see the image. This feature includes a tool to create alt text automatically using an AI model that works locally on the user's device to preserve privacy.
 
 # Modal header positioned above a text box where users can add the alt text.
-pdfjs-editor-new-alt-text-dialog-add-label = Rnu aḍris niḍen (aglam n tugna***REMOVED***
+pdfjs-editor-new-alt-text-dialog-add-label = Rnu aḍris niḍen (aglam n tugna)
 pdfjs-editor-new-alt-text-textarea =
     .placeholder = Aru aglam-ik dagi…
 pdfjs-editor-new-alt-text-disclaimer-learn-more-url = Issin ugar

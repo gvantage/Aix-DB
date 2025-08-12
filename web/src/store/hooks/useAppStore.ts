@@ -1,14 +1,14 @@
-import { defineStore ***REMOVED*** from 'pinia'
-import { store ***REMOVED*** from '@/store'
+import { defineStore } from 'pinia'
+import { store } from '@/store'
 
-export const useAppStore = defineStore('app-store', (***REMOVED*** => {
-  const areaLoading = ref(false***REMOVED***
+export const useAppStore = defineStore('app-store', () => {
+  const areaLoading = ref(false)
 
   return {
     areaLoading,
-  ***REMOVED***
-***REMOVED******REMOVED***
+  }
+})
 
-export function useAppStoreWithOut(***REMOVED*** {
-  return useAppStore(store***REMOVED***
-***REMOVED***
+export function useAppStoreWithOut() {
+  return useAppStore(store)
+}

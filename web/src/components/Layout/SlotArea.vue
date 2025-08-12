@@ -4,19 +4,19 @@
  */
 defineOptions({
   name: 'LayoutSlotArea',
-***REMOVED******REMOVED***
-***REMOVED***
+})
+</script>
 
-***REMOVED***
+<template>
   <main class="slot-area-layout-container">
     <div class="area-left">
       <slot name="left"></slot>
-***REMOVED***
+    </div>
     <div class="area-right">
       <slot name="right"></slot>
-***REMOVED***
+    </div>
   </main>
-***REMOVED***
+</template>
 
 <style lang="scss" scoped>
 .slot-area-layout-container {
@@ -25,12 +25,12 @@ defineOptions({
 
   .area-left {
     --at-apply: min-w-0 h-full;
-  ***REMOVED***
+  }
 
   .area-right {
     --at-apply: flex-1 overflow-y-auto;
 
     // --at-apply: b-2 b-purple b-solid;
-  ***REMOVED***
-***REMOVED***
-***REMOVED***
+  }
+}
+</style>
