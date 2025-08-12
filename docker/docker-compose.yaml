@@ -38,7 +38,7 @@ services:
       - MiNIO_SECRET_KEY=DsitWZJT3pecrg020Y2NKCETVpsIc3h2PrKTqONA
       - MODEL_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
       - MODEL_NAME=openai:qwen-plus
-      - MODEL_TEMPERATURE=0.5
+      - MODEL_TEMPERATURE=0.75
       - MODEL_API_KEY=sk-xxx
       - MCP_HUB_URL=http://host.docker.internal:3300/mcp
       - TZ=Asia/Shanghai
