@@ -91,7 +91,7 @@ https://github.com/user-attachments/assets/923758a3-4879-4836-852b-691413da372e
    - Dify本机访问地址：http://localhost:18000 账号/密码: 需自己注册 
    ```bash
    # 拉起内置的dify服务
-   cd docker/docker/dify/docker
+   cd docker/dify/docker
    docker-compose up -d
    
 2. **Dify配置**
@@ -108,7 +108,7 @@ https://github.com/user-attachments/assets/923758a3-4879-4836-852b-691413da372e
 1. **安装MCP-HUB**
 ```bash
 git clone https://github.com/apconw/sanic-web.git
-cd docker/docker
+cd docker
 docker compose up -d mcphub
 ```
 
@@ -139,7 +139,7 @@ docker compose up -d mcphub
       - 修改**MCP_HUB_URL** MCP_HUB服务地址本地启动,默认不用修改
        ```bash
        # 拉起前后端服务和中间件
-       cd /docker/docker
+       cd docker
        docker compose up -d
    
 3. **Minio配置**
@@ -149,7 +149,7 @@ docker compose up -d mcphub
 
    ```bash
    # 重新拉起前后端服务和中间件
-   cd /docker/docker
+   cd docker
    docker compose up -d
 
 4. **数据初始化**
@@ -160,12 +160,12 @@ docker compose up -d mcphub
    
    # Mac or Linux 用户执行
    
-   cd /docker/docker
+   cd docker
    ./init_data.sh
    
    # Windows 用户执行
    
-   cd /docker/common
+   cd common
    python initialize_mysql.py
    
    
@@ -213,7 +213,7 @@ docker compose up -d mcphub
 
 2. **安装中间件**
    ```bash
-   cd docker/docker
+   cd docker
    docker compose up -d mysql minio mcphub
    
 3. **修改.env.dev配置文件**
@@ -231,12 +231,12 @@ docker compose up -d mcphub
    - 如果使用本地环境mysql,初始化数据时需修改源码initialize_mysql，修改数据库连接信息即可
    ```bash
     # Mac or Linux 用户执行
-     cd docker/docker
+     cd docker
      ./init_data.sh
       
     # Windows 用户执行
       
-     cd docker/common
+     cd common
      python initialize_mysql.py
 
 5. **前端依赖安装**  
