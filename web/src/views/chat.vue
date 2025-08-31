@@ -850,7 +850,7 @@ const backgroundColorVariable = ref('#ffffff')
             class="footer"
             style="flex-shrink: 0; height: 200"
           >
-            <n-divider style="width: 100%" />
+            <n-divider  style="width: calc(100% - 50px); margin-left: 25px; margin-right: 25px; --n-color: #e8eaf2;" />
             <n-button
               quaternary
               icon-placement="left"
@@ -1461,7 +1461,7 @@ const backgroundColorVariable = ref('#ffffff')
 .scrollable-table-container {
   overflow-y: hidden; /* 默认隐藏滚动条 */
   height: 100%; /* 根据实际情况调整高度 */
-  background-color: #fff;
+  background-color: #ffffff;
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1472,7 +1472,7 @@ const backgroundColorVariable = ref('#ffffff')
 /* 隐藏滚动条轨道 */
 
 .scrollable-table-container::-webkit-scrollbar {
-  width: 5px; /* 滚动条宽度 */
+  width: 4.5px; /* 滚动条宽度 */
 }
 
 .scrollable-table-container::-webkit-scrollbar-track {
