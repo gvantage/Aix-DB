@@ -53,6 +53,9 @@ dependencies = [
     "langchain-chroma>=0.2.5",
     "langchain-tavily>=0.2.11",
     "pymupdf4llm>=0.0.27",
+    "rank-bm25>=0.2.2",
+    "jieba>=0.42.1",
+    "colorlog>=6.9.0",
 ]
 
 [[tool.uv.index]]

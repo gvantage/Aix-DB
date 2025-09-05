@@ -163,8 +163,9 @@ class Text2SqlAgent:
         处理各个步骤的内容
         """
         content_map = {
-            "schema_inspector": lambda: f"共检索{len(step_value['db_info'])}张表.",
-            "llm_reasoning": lambda: step_value["sql_reasoning"],
+            "schema_inspector": lambda: self._format_db_info(
+                step_value["db_info"]
+            ),  # "llm_reasoning": lambda: step_value["sql_reasoning"],
             "sql_generator": lambda: step_value["generated_sql"],
             "sql_executor": lambda: "执行sql语句成功" if step_value["execution_result"].success else "执行sql语句失败",
             "summarize": lambda: step_value["report_summary"],
@@ -197,6 +198,28 @@ class Text2SqlAgent:
                 if hasattr(response, "flush"):
                     await response.flush()
                 await asyncio.sleep(0)
+
+    @staticmethod
+    def _format_db_info(db_info: Dict[str, Any]) -> str:
+        """
+        格式化数据库信息，包含表名和注释
+        :param db_info: 数据库信息
+        :return: 格式化后的字符串
+        """
+        if not db_info:
+            return "共检索0张表."
+
+        table_descriptions = []
+        for table_name, table_info in db_info.items():
+            # 获取表注释
+            table_comment = table_info.get("table_comment", "")
+            if table_comment:
+                table_descriptions.append(f"{table_name}({table_comment})")
+            else:
+                table_descriptions.append(table_name)
+
+        tables_str = "、".join(table_descriptions)
+        return f"共检索{len(db_info)}张表: {tables_str}."
 
     @staticmethod
     async def _send_response(
