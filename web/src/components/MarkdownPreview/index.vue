@@ -37,13 +37,13 @@ const emit = defineEmits([
 const { copy, copyDuration } = useClipText()
 
 interface Props {
-  isInit: boolean
-  isView: boolean
-  chartId: string
-  qaType: string
-  reader: ReadableStreamDefaultReader<Uint8Array> | null
+  isInit?: boolean
+  isView?: boolean
+  chartId?: string
+  qaType?: string
+  reader?: ReadableStreamDefaultReader<Uint8Array> | null
   model?: TransformStreamModelTypes
-  parentScollBottomMethod: () => void // 父组件滚动方法
+  parentScollBottomMethod?: () => void // 父组件滚动方法
 }
 
 // 解构 props
