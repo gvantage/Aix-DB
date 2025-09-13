@@ -797,7 +797,7 @@ onBeforeUnmount(() => {
         :collapsed-width="0"
         :width="260"
         :show-collapsed-content="false"
-        show-trigger="bar"
+        show-trigger="arrow-circle"
         bordered
       >
         <div
@@ -1529,7 +1529,7 @@ onBeforeUnmount(() => {
 /* 隐藏滚动条轨道 */
 
 .scrollable-table-container::-webkit-scrollbar {
-  width: 4.5px; /* 滚动条宽度 */
+  width: 5px; /* 滚动条宽度 */
 }
 
 .scrollable-table-container::-webkit-scrollbar-track {
@@ -1537,8 +1537,8 @@ onBeforeUnmount(() => {
 }
 
 .scrollable-table-container::-webkit-scrollbar-thumb {
-  background-color: #bfbfbf; /* 滚动条颜色 */
-  border-radius: 3px; /* 滚动条圆角 */
+  background-color: #e8eaf3; /* 滚动条颜色 */
+  border-radius: 4px; /* 滚动条圆角 */
 }
 
 /* 一键到底部按钮样式，底部居中显示 */
