@@ -863,7 +863,7 @@ const UploadWrapperItem = defineComponent({
         return
       }
 
-      if (!isImage) {
+      if (!isImage.value) {
         return
       }
 
@@ -1420,8 +1420,8 @@ const UploadWrapperItem = defineComponent({
                 </div>
                 <div
                   :class="[
-                    'b b-solid b-primary bg-white',
-                    'rounded-10px p-16',
+                    'relative b b-solid b-primary bg-white',
+                    'rounded-10px p-12',
                   ]"
                 >
                   <div
@@ -1462,12 +1462,12 @@ const UploadWrapperItem = defineComponent({
                       <n-dropdown
                         :options="options"
                       >
-                        <div class="rounded-5 p-5 hover:bg-info/18 transition-all-300">
-                          <div class="text-18 c-info i-mingcute:attachment-line cursor-pointer"></div>
+                        <div flex="~ items-center justify-center" class="rounded-50% p-7 hover:bg-primary/5 transition-all-300 bg-primary/1" b="~ solid primary/20">
+                          <div class="text-16 c-primary i-uil:upload cursor-pointer"></div>
                         </div>
                       </n-dropdown>
-                      <!-- 隐藏的文件上传按钮 -->
-                      <n-upload
+                      <!-- 此隐藏按钮已废弃，请在 UploadWrapperItem 组件中编写触发上传接口的逻辑 -->
+                      <!-- <n-upload
                         ref="uploadRef"
                         type="button"
                         :show-file-list="false"
@@ -1477,34 +1477,31 @@ const UploadWrapperItem = defineComponent({
                         @finish="finish_upload"
                       >
                         选择文件
-                      </n-upload>
-                    </template>
-
-                    <template
-                      #suffix
-                    >
-                      <n-float-button
-                        position="absolute"
-                        :type="stylizingLoading ? 'primary' : 'default'"
-                        color
-                        right="8px"
-                        :class="[
-                          stylizingLoading && 'opacity-90',
-                          'text-20',
-                        ]"
-                        @click.stop="handleCreateStylized()"
-                      >
-                        <div
-                          v-if="stylizingLoading"
-                          class="i-svg-spinners:pulse-2 c-#fff"
-                        ></div>
-                        <div
-                          v-else
-                          class="flex items-center justify-center c-#303133/60 i-mingcute:send-fill"
-                        ></div>
-                      </n-float-button>
+                      </n-upload> -->
                     </template>
                   </n-input>
+
+                  <n-float-button
+                    position="absolute"
+                    :type="stylizingLoading ? 'primary' : 'default'"
+                    color
+                    bottom="12px"
+                    right="12px"
+                    :class="[
+                      stylizingLoading && 'opacity-90',
+                      'text-20',
+                    ]"
+                    @click.stop="handleCreateStylized()"
+                  >
+                    <div
+                      v-if="stylizingLoading"
+                      class="i-svg-spinners:pulse-2 c-#fff"
+                    ></div>
+                    <div
+                      v-else
+                      class="flex items-center justify-center c-#303133/60 i-mingcute:send-fill"
+                    ></div>
+                  </n-float-button>
                 </div>
               </n-space>
             </div>
