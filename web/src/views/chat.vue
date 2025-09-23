@@ -928,9 +928,9 @@ const UploadWrapperItem = defineComponent({
             this.isImage
               ? (
                   <img
-                  src={this.previewImageUrl}
-                  class="size-full object-contain"
-                />
+                    src={this.previewImageUrl}
+                    class="size-full object-contain"
+                  />
                 )
               : (
                   <div
@@ -1463,7 +1463,7 @@ const UploadWrapperItem = defineComponent({
                         :options="options"
                       >
                         <div flex="~ items-center justify-center" class="rounded-50% p-7 hover:bg-primary/5 transition-all-300 bg-primary/1" b="~ solid primary/20">
-                          <div class="text-16 c-primary i-uil:upload cursor-pointer"></div>
+                          <div class="text-20  i-uil:upload cursor-pointer"></div>
                         </div>
                       </n-dropdown>
                       <!-- 此隐藏按钮已废弃，请在 UploadWrapperItem 组件中编写触发上传接口的逻辑 -->
@@ -1485,8 +1485,8 @@ const UploadWrapperItem = defineComponent({
                     position="absolute"
                     :type="stylizingLoading ? 'primary' : 'default'"
                     color
-                    bottom="12px"
-                    right="12px"
+                    bottom="10px"
+                    right="8px"
                     :class="[
                       stylizingLoading && 'opacity-90',
                       'text-20',
@@ -1495,11 +1495,11 @@ const UploadWrapperItem = defineComponent({
                   >
                     <div
                       v-if="stylizingLoading"
-                      class="i-svg-spinners:pulse-2 c-#fff"
+                      class="i-svg-spinners:pulse-2 c-#fff text-20"
                     ></div>
                     <div
                       v-else
-                      class="flex items-center justify-center c-#303133/60 i-mingcute:send-fill"
+                      class="flex items-center justify-center i-mingcute:send-fill text-20 cursor-pointer transition-colors duration-300 hover:c-primary/80"
                     ></div>
                   </n-float-button>
                 </div>
