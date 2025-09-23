@@ -1,5 +1,5 @@
 <script lang="tsx" setup>
-import type { InputInst } from 'naive-ui'
+import type { InputInst, UploadFileInfo } from 'naive-ui'
 import { UAParser } from 'ua-parser-js'
 import * as GlobalAPI from '@/api'
 import { isMockDevelopment } from '@/config'
@@ -623,49 +623,88 @@ const onSuggested = (index: number) => {
   handleCreateStylized(suggested_array.value[index])
 }
 
-// 下拉菜单的选项
+const pendingUploadFileInfoList = ref([])
+
+
+// 下拉菜单的选项，重构上传组件
 const options = [
   {
-    label: () => h('span', null, '上传文档'),
-    icon: () =>
-      h('div', {
-        class: 'i-vscode-icons:file-type-excel2',
-        style: 'inline-block:none',
-      }),
     key: 'excel',
+    type: 'render',
+    render() {
+      return (
+        <n-upload
+          accept=".xls,.xlsx"
+          default-upload={false}
+          show-file-list={false}
+          multiple={false}
+          onChange={(res) => {
+            pendingUploadFileInfoList.value.push(res.file)
+          }}
+        >
+          <div class="px-4">
+            <div
+              flex="~ items-center gap-4"
+              class="cursor-pointer px-12 py-4 hover:bg-primary/10 transition-all-300"
+            >
+              <span class="i-material-symbols:file-open-outline text-16" />
+              <span>上传文档</span>
+            </div>
+          </div>
+        </n-upload>
+      )
+    },
   },
   {
-    label: () => h('span', null, '上传图片'),
-    icon: () =>
-      h('div', {
-        class: 'i-vscode-icons:file-type-image',
-        style: 'inline-block:none',
-      }),
     key: 'image',
+    type: 'render',
+    render() {
+      return (
+        <n-upload
+          accept="image/*"
+          default-upload={false}
+          show-file-list={false}
+          multiple
+          onChange={(res) => {
+            pendingUploadFileInfoList.value.push(res.file)
+          }}
+        >
+          <div class="px-4">
+            <div
+              flex="~ items-center gap-4"
+              class="cursor-pointer px-12 py-4 hover:bg-primary/10 transition-all-300"
+            >
+              <span class="i-mdi:file-image-outline text-16" />
+              <span>上传图片</span>
+            </div>
+          </div>
+        </n-upload>
+      )
+    },
   },
 ]
 
 // 下拉菜单选项选择事件处理程序
 const uploadRef = useTemplateRef('uploadRef')
 function handleSelect(key: string) {
-  if (key === 'excel') {
-    // 使用 nextTick 确保 DOM 更新完成后执行
-    nextTick(() => {
-      if (uploadRef.value) {
-        // 尝试直接调用 n-upload 的点击方法
-        // 如果 n-upload 没有提供这样的方法，可以查找内部的 input 并调用 click 方法
-        const fileInput
-                    = uploadRef.value.$el.querySelector('input[type="file"]')
-        if (fileInput) {
-          fileInput.click()
-        }
-      }
-    })
-  } else {
-    window.$ModalMessage.success('功能开发中', {
-      duration: 1500,
-    })
-  }
+  // if (key === 'excel') {
+  //   // 使用 nextTick 确保 DOM 更新完成后执行
+  //   nextTick(() => {
+  //     if (uploadRef.value) {
+  //       // 尝试直接调用 n-upload 的点击方法
+  //       // 如果 n-upload 没有提供这样的方法，可以查找内部的 input 并调用 click 方法
+  //       const fileInput
+  //                   = uploadRef.value.$el.querySelector('input[type="file"]')
+  //       if (fileInput) {
+  //         fileInput.click()
+  //       }
+  //     }
+  //   })
+  // } else {
+  //   window.$ModalMessage.success('功能开发中', {
+  //     duration: 1500,
+  //   })
+  // }
 }
 
 // 侧边表格滚动条数 动态显示隐藏设置
@@ -781,9 +820,9 @@ onBeforeUnmount(() => {
 const UploadWrapperItem = defineComponent({
   name: 'UploadWrapperItem',
   props: {
-    fileName: {
-      type: String,
-      default: '这是文件名文件名文件名.xlsx',
+    fileInfo: {
+      type: Object as PropType<UploadFileInfo>,
+      default: () => null,
     },
   },
   emits: ['remove'],
@@ -808,6 +847,32 @@ const UploadWrapperItem = defineComponent({
     ])
     const _status = ref('parsing')
 
+
+    const isImage = computed(() => {
+      return props.fileInfo.type?.includes('image')
+    })
+
+    const fileName = computed(() => {
+      return props.fileInfo.name || ''
+    })
+
+    const previewImageUrl = ref('')
+    const onImageFile = () => {
+      const file = props.fileInfo.file
+      if (!file) {
+        return
+      }
+
+      if (!isImage) {
+        return
+      }
+
+      previewImageUrl.value = URL.createObjectURL(file)
+    }
+
+    watchEffect(onImageFile)
+
+
     // 模拟一下整个解析的过程, 比如几秒后变一下
     setTimeout(() => {
       _status.value = 'success'
@@ -817,35 +882,28 @@ const UploadWrapperItem = defineComponent({
       return statusList.value.find((item) => item.status === _status.value)
     })
 
-    // 文件类型 mapping
     const fileTypeIconMap = ref({
       xlsx: 'i-vscode-icons:file-type-excel2',
       xls: 'i-vscode-icons:file-type-excel2',
       docx: 'i-vscode-icons:file-type-word',
       doc: 'i-vscode-icons:file-type-word',
       pdf: 'i-vscode-icons:file-type-pdf2',
-      jpg: 'i-vscode-icons:file-type-image',
-      jpeg: 'i-vscode-icons:file-type-image',
-      png: 'i-vscode-icons:file-type-image',
-      gif: 'i-vscode-icons:file-type-image',
-      bmp: 'i-vscode-icons:file-type-image',
     })
 
-    // 图标
+
     const fileIcon = computed(() => {
-      // 从文件名中提取文件类型
-      const fileExtension = props.fileName.split('.').pop()?.toLowerCase()
+      const fileExtension = fileName.value.split('.').pop()?.toLowerCase()
       return fileTypeIconMap.value[fileExtension as any]
     })
 
     const removeFile = () => {
-      // 模拟移除文件
-      // 若针对多文件 list 删除，则需要对 list 进行 splice 操作，这里仅模拟删除，实际删除需要根据文件 list 索引进行删除
-      window.$ModalMessage.success('模拟数据，移除成功！')
       emit('remove')
     }
 
     return {
+      isImage,
+      previewImageUrl,
+      fileName,
       statusList,
       currentStatus,
       fileTypeIconMap,
@@ -866,11 +924,23 @@ const UploadWrapperItem = defineComponent({
           ></div>
         </div>
         <div class="size-30">
-          <div class={[
-            this.fileIcon,
-            'size-full opacity-80',
-          ]}
-          ></div>
+          {
+            this.isImage
+              ? (
+                  <img
+                  src={this.previewImageUrl}
+                  class="size-full object-contain"
+                />
+                )
+              : (
+                  <div
+                    class={[
+                      this.fileIcon,
+                      'size-full opacity-80',
+                    ]}
+                  ></div>
+                )
+          }
         </div>
         <div
           flex="1 ~ col gap-2"
@@ -1354,15 +1424,18 @@ const UploadWrapperItem = defineComponent({
                     'rounded-10px p-16',
                   ]"
                 >
-                  <!-- 如果支持多文件，则你需要维护一个文件 list, 在此处 v-for循环组件即可 -->
-                  <!-- 若仅支持一个文件，则不需要循环，仅需要展示一个 UploadWrapperItem 组件，多次上传时每次覆盖旧的文件即可 -->
-                  <!-- 你还需要处理复制粘贴（记得过滤非法文件）、手动拖拽文件到 input 框中的逻辑，进而每个文件对应到一个 UploadWrapperItem -->
-                  <div class="upload-wrapper-list">
-                    <!-- 以下是测试数据，目前仅接收一个文件名，你可能还需要接收文件流，进而在 UploadWrapperItem 内部触发解析的接口 -->
-                    <UploadWrapperItem fileName="报告问答.pdf" @remove="() => {}" />
-                    <UploadWrapperItem fileName="报告问答.docx" @remove="() => {}" />
-                    <UploadWrapperItem fileName="这是数据表名称数据表名称.xlsx" @remove="() => {}" />
-                    <UploadWrapperItem fileName="某某某某某某某某某某某某某某图片.png" @remove="() => {}" />
+                  <div
+                    v-if="pendingUploadFileInfoList.length"
+                    class="upload-wrapper-list"
+                  >
+                    <UploadWrapperItem
+                      v-for="(pendingUploadFileInfo, index) in pendingUploadFileInfoList"
+                      :key="index"
+                      :fileInfo="pendingUploadFileInfo"
+                      @remove="() => {
+                        pendingUploadFileInfoList.splice(index, 1)
+                      }"
+                    />
                   </div>
 
                   <n-input
@@ -1388,31 +1461,10 @@ const UploadWrapperItem = defineComponent({
                     >
                       <n-dropdown
                         :options="options"
-                        @select="handleSelect"
                       >
-                        <n-icon size="30">
-                          <svg
-                            t="1729566080604"
-                            class="icon"
-                            viewBox="0 0 1024 1024"
-                            version="1.1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            p-id="38910"
-                            width="64"
-                            height="64"
-                          >
-                            <path
-                              d="M856.448 606.72v191.744a31.552 31.552 0 0 1-31.488 31.488H194.624a31.552 31.552 0 0 1-31.488-31.488V606.72a31.488 31.488 0 1 1 62.976 0v160.256h567.36V606.72a31.488 31.488 0 1 1 62.976 0zM359.872 381.248c-8.192 0-10.56-5.184-5.376-11.392L500.48 193.152a11.776 11.776 0 0 1 18.752 0l145.856 176.704c5.184 6.272 2.752 11.392-5.376 11.392H359.872z"
-                              fill="#838384"
-                              p-id="38911"
-                            />
-                            <path
-                              d="M540.288 637.248a30.464 30.464 0 1 1-61.056 0V342.656a30.464 30.464 0 1 1 61.056 0v294.592z"
-                              fill="#838384"
-                              p-id="38912"
-                            />
-                          </svg>
-                        </n-icon>
+                        <div class="rounded-5 p-5 hover:bg-info/18 transition-all-300">
+                          <div class="text-18 c-info i-mingcute:attachment-line cursor-pointer"></div>
+                        </div>
                       </n-dropdown>
                       <!-- 隐藏的文件上传按钮 -->
                       <n-upload
@@ -1739,5 +1791,6 @@ const UploadWrapperItem = defineComponent({
 
 .upload-wrapper-list {
   --at-apply: flex flex-wrap gap-10 items-center;
+  --at-apply: pb-12;
 }
 </style>
