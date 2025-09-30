@@ -3,7 +3,7 @@ version: '3.8'
 services:
   chat-web:
 #    image: apconw/chat-vue3-mvp:1.1.5
-    image: crpi-7xkxsdc0iki61l0q.cn-hangzhou.personal.cr.aliyuncs.com/apconw/chat-vue3-mvp:1.1.7
+    image: crpi-7xkxsdc0iki61l0q.cn-hangzhou.personal.cr.aliyuncs.com/apconw/chat-vue3-mvp:1.1.8
     container_name: chat-vue3-mvp
     environment:
       - TZ=Asia/Shanghai
@@ -31,7 +31,7 @@ services:
 
   chat-service:
 #    image: apconw/sanic-web:1.1.5
-    image: crpi-7xkxsdc0iki61l0q.cn-hangzhou.personal.cr.aliyuncs.com/apconw/sanic-web:1.1.7
+    image: crpi-7xkxsdc0iki61l0q.cn-hangzhou.personal.cr.aliyuncs.com/apconw/sanic-web:1.1.8
     container_name: sanic-web
     environment:
       - MYSQL_HOST=host.docker.internal
