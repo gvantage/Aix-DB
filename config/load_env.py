@@ -8,6 +8,12 @@ def load_env():
     """
     加载日志配置文件
     """
+    log_dir = "logs"
+    try:
+        os.makedirs(log_dir, exist_ok=True)
+    except Exception as e:
+        raise
+
     with open("config/logging.conf", encoding="utf-8") as f:
         logging.config.fileConfig(f)
 
