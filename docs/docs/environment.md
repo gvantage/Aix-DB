@@ -25,14 +25,21 @@
 ```angular2html
 git clone https://github.com/apconw/sanic-web.git
 ```
+### **2. 复制配置文件**
+> 进入docker目录，复制.env.template文件为.env
+```bash
+cd docker 
+cp .env.template .env 
+```
 
-### **2. 执行部署脚本**
+### **3. 执行部署脚本**
+> 执行部署脚本报错请查看当前目录下**deploy.log**报错信息
 ```angular2html
 cd docker
 ./deploy.sh
 ```
 
-### **3. 中间件配置**
+### **4. 中间件配置**
 #### 🌲 Mino
 > 下面chat-service/gpt-vis-api服务都依赖Minio服务
 
@@ -64,7 +71,7 @@ cd docker
     - **VIS_REQUEST_SERVER**环境变量配置默认为**gpt-vis-api**服务地址本
     - 本地启动不需要修改如果是服务器部署**host.docker.internal**需要修改为实际IP地址
     - 安装完成后创建一个工具组并复制访问地址先保存一下
-    - 后面配置**MCP_HUB_DATABASE_QA_GROUP_URL**变量时从这里取值
+    - 复制访问**ID**用于后面步骤配置**MCP_HUB_DATABASE_QA_GROUP_URL**变量时从这里取值
 ```angular2html
 npx -y -y @antv/mcp-server-chart
 
@@ -76,13 +83,13 @@ VIS_REQUEST_SERVER: http://host.docker.internal:3100/generate
 - 创建组
 ![image](images/antv-group.png)
 
-- 获取访问链接
+- 复制访问**ID**
 ![image](images/antv-group-url.png)
 
 
 - **12306火车票查询工具**
     - 安装完成后创建一个工具组并复制访问地址先保存一下
-    - 后面配置**MCP_HUB_COMMON_QA_GROUP_URL**变量时从这里取值
+    - 复制访问**ID**用于后面步骤配置**MCP_HUB_COMMON_QA_GROUP_URL**变量时从这里取值
 ```angular2html
 npx -y 12306-mcp
 ```
@@ -92,6 +99,6 @@ npx -y 12306-mcp
 - 创建组
 ![image](images/12306-group.png)
 
-- 获取访问链接
+- 复制访问**ID**
 ![image](images/12306-group-url.png)
 
