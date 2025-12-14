@@ -9,7 +9,7 @@ import os
 import re
 import time
 from functools import lru_cache
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 
 import faiss
 import jieba
@@ -25,6 +25,7 @@ from sqlalchemy.sql.expression import text
 
 from agent.text2sql.state.agent_state import AgentState, ExecutionResult
 from model.db_connection_pool import get_db_pool
+from model.datasource_models import Datasource
 
 # 日志配置
 logger = logging.getLogger(__name__)
@@ -217,6 +218,42 @@ class DatabaseService:
             }
         json_str = json.dumps(fingerprint_data, sort_keys=True, ensure_ascii=False)
         return hashlib.md5(json_str.encode("utf-8")).hexdigest()
+
+    @staticmethod
+    def _get_table_relation_from_db(allowed_table_names: List[str]) -> List[Dict[str, Any]]:
+        """
+        从数据源表中获取表关系（TableRelationship 保存的节点/边），并按当前候选表名过滤。
+        """
+        try:
+            with db_pool.get_session() as session:
+                ds = (
+                    session.query(Datasource)
+                    .filter(Datasource.table_relation != None)  # noqa: E711
+                    .order_by(Datasource.id.desc())
+                    .first()
+                )
+                if not ds or not ds.table_relation:
+                    return []
+
+                cells = ds.table_relation
+                nodes = [c for c in cells if c.get("shape") != "edge"]
+                edges = [c for c in cells if c.get("shape") == "edge"]
+
+                # 以节点 label（表名）过滤
+                allowed_ids = {n.get("id") for n in nodes if n.get("label") in allowed_table_names}
+                if allowed_ids:
+                    nodes = [n for n in nodes if n.get("id") in allowed_ids]
+                    edges = [
+                        e
+                        for e in edges
+                        if str(e.get("source", {}).get("cell")) in {str(i) for i in allowed_ids}
+                        or str(e.get("target", {}).get("cell")) in {str(i) for i in allowed_ids}
+                    ]
+
+                return [*nodes, *edges] if nodes or edges else []
+        except Exception as e:
+            logger.warning(f"⚠️ 获取表关系失败，已忽略: {e}")
+            return []
 
     def _load_vector_index(self, table_info: Dict[str, Dict]) -> bool:
         """
@@ -459,42 +496,28 @@ class DatabaseService:
                 return []
 
             logger.info(f"🔁 调用重排模型 {RERANK_MODEL_NAME} 进行重排序...")
-            
+
             # 构建请求数据
             payload = {
                 "model": RERANK_MODEL_NAME,
-                "input": {
-                    "query": query,
-                    "documents": documents
-                },
-                "parameters": {
-                    "top_n": len(documents),
-                    "return_documents": False
-                }
+                "input": {"query": query, "documents": documents},
+                "parameters": {"top_n": len(documents), "return_documents": False},
             }
-            
+
             # 设置请求头
-            headers = {
-                "Authorization": f"Bearer {RERANK_MODEL_API_KEY}",
-                "Content-Type": "application/json"
-            }
-            
+            headers = {"Authorization": f"Bearer {RERANK_MODEL_API_KEY}", "Content-Type": "application/json"}
+
             # 调用重排 API
-            response = requests.post(
-                RERANK_MODEL_BASE_URL,
-                headers=headers,
-                json=payload,
-                timeout=30
-            )
-            
+            response = requests.post(RERANK_MODEL_BASE_URL, headers=headers, json=payload, timeout=30)
+
             # 检查响应状态
             if response.status_code != 200:
                 logger.warning(f"⚠️ Rerank API 调用失败: {response.status_code} - {response.text}")
                 return [(name, 1.0) for name in candidate_tables.keys()]
-            
+
             # 解析响应
             result_data = response.json()
-            
+
             if "output" in result_data and "results" in result_data["output"]:
                 results = []
                 for item in result_data["output"]["results"]:
@@ -502,7 +525,7 @@ class DatabaseService:
                     score = item["relevance_score"]
                     table_name = next(name for name, text in name_to_text.items() if text == documents[idx])
                     results.append((table_name, score))
-                
+
                 results.sort(key=lambda x: x[1], reverse=True)
                 logger.info("✅ Rerank 完成")
                 return results
@@ -592,6 +615,8 @@ class DatabaseService:
                 )
 
             state["db_info"] = filtered_info
+            # 注入表关系（来自数据源保存的 TableRelationship）
+            state["table_relationship"] = self._get_table_relation_from_db(list(filtered_info.keys()))
             logger.info(f"✅ 最终筛选出 {len(filtered_info)} 个相关表: {list(filtered_info.keys())}")
 
         except Exception as e:

@@ -14,6 +14,12 @@ class SysCodeEnum(Enum):
 
     c_9999 = (9999, "系统异常", "系统异常")
 
+    # 数据源管理相关状态码
+    SUCCESS = (200, "成功", "操作成功")
+    PARAM_ERROR = (400, "参数错误", "请求参数错误")
+    DATA_NOT_FOUND = (404, "数据不存在", "请求的数据不存在")
+    SYSTEM_ERROR = (500, "系统错误", "系统内部错误")
+
 
 class DiFyAppEnum(Enum):
     """

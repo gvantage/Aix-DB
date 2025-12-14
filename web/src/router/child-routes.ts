@@ -40,6 +40,18 @@ const childrenRoutes: Array<RouteRecordRaw> = [
     component: () => import('@/views/mcp/MCPClient.vue'),
     meta: { requiresAuth: true }, // 标记需要认证
   },
+  {
+    path: 'datasource',
+    name: 'DatasourceManager',
+    component: () => import('@/views/DatasourceManager.vue'),
+    meta: { requiresAuth: true }, // 标记需要认证
+  },
+  {
+    path: 'datasource/table/:dsId/:dsName',
+    name: 'DatasourceTableList',
+    component: () => import('@/views/DatasourceTableList.vue'),
+    meta: { requiresAuth: true }, // 标记需要认证
+  },
 ]
 
 export default childrenRoutes

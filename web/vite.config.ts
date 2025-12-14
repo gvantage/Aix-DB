@@ -48,7 +48,7 @@ export default defineConfig(({ mode }) => {
           target: 'http://localhost:3300',
           ws: true,
           rewrite: (path) => path.replace(/^\/messages/, 'messages'),
-        }
+        },
       },
     },
     plugins: [

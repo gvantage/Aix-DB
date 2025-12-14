@@ -896,7 +896,10 @@ const pendingUploadFileInfoList = ref([])
               </template>
             </n-input>
           </div>
-          <div flex="1 ~ col" class="scrollable-table-container">
+          <div
+            flex="1 ~ col"
+            class="scrollable-table-container"
+          >
             <n-data-table
               ref="tableRef"
               class="custom-table"
@@ -1002,7 +1005,10 @@ const pendingUploadFileInfoList = ref([])
                 :ref="(el) => setMarkdownPreview(item.uuid, item.role, el)"
                 class="mb-4"
               >
-                <div v-if="item.role === 'user'" class="flex flex-col items-end space-y-2 w-full">
+                <div
+                  v-if="item.role === 'user'"
+                  class="flex flex-col items-end space-y-2 w-full"
+                >
                   <!-- 用户消息 -->
                   <div
                     :style="{
@@ -1081,20 +1087,20 @@ const pendingUploadFileInfoList = ref([])
                   <MarkdownPreview
                     :reader="item.reader"
                     :model="defaultLLMTypeName"
-                    :isInit="isInit"
-                    :isView="isView"
-                    :qaType="`${item.qa_type}`"
+                    :is-init="isInit"
+                    :is-view="isView"
+                    :qa-type="`${item.qa_type}`"
                     :chart-id="`${index}devID${generateRandomSuffix()}`"
-                    :parentScollBottomMethod="scrollToBottom"
+                    :parent-scoll-bottom-method="scrollToBottom"
                     @failed="() => onFailedReader(index)"
                     @completed="() => onCompletedReader(index)"
                     @chartready="() => onChartReady(index + 1)"
-                    @recycleQa="() => onRecycleQa(index)"
-                    @praiseFeadBack="() => onPraiseFeadBack(index)"
-                    @belittleFeedback="
+                    @recycle-qa="() => onRecycleQa(index)"
+                    @praise-fead-back="() => onPraiseFeadBack(index)"
+                    @belittle-feedback="
                       () => onBelittleFeedback(index)
                     "
-                    @beginRead="() => onBeginRead(index)"
+                    @begin-read="() => onBeginRead(index)"
                   />
                 </div>
               </div>
@@ -1174,7 +1180,20 @@ const pendingUploadFileInfoList = ref([])
                   >
                     <template #icon>
                       <n-icon size="19">
-                        <svg t="1754035667476" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="50983" width="60" height="60"><path d="M512 102.6c110.7 0 215 12.3 293.9 34.7 35.8 10.2 65 22.1 84.5 34.7 18.6 12 21.3 19.7 21.6 20.6-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.7-293.9 34.7s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6 0.2-0.9 3-8.6 21.6-20.6 19.5-12.5 48.7-24.5 84.5-34.7 78.9-22.4 183.2-34.7 293.9-34.7m0-40c-243 0-440 58.2-440 130s197 130 440 130 440-58.2 440-130-197-130-440-130zM112 190.4H72v641h40v-641z m840-0.3h-40v641h40v-641zM912 831v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.6-293.9 34.6s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.1z m0-210.5v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7C727 698.6 622.7 711 512 711s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.2z m0-221.5v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.7-293.9 34.7s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.2z" fill="" p-id="50984" /></svg>
+                        <svg
+                          t="1754035667476"
+                          class="icon"
+                          viewBox="0 0 1024 1024"
+                          version="1.1"
+                          xmlns="http://www.w3.org/2000/svg"
+                          p-id="50983"
+                          width="60"
+                          height="60"
+                        ><path
+                          d="M512 102.6c110.7 0 215 12.3 293.9 34.7 35.8 10.2 65 22.1 84.5 34.7 18.6 12 21.3 19.7 21.6 20.6-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.7-293.9 34.7s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6 0.2-0.9 3-8.6 21.6-20.6 19.5-12.5 48.7-24.5 84.5-34.7 78.9-22.4 183.2-34.7 293.9-34.7m0-40c-243 0-440 58.2-440 130s197 130 440 130 440-58.2 440-130-197-130-440-130zM112 190.4H72v641h40v-641z m840-0.3h-40v641h40v-641zM912 831v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.6-293.9 34.6s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.1z m0-210.5v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7C727 698.6 622.7 711 512 711s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.2z m0-221.5v0.5c-0.2 0.9-3 8.6-21.6 20.6-19.5 12.5-48.7 24.5-84.5 34.7-78.9 22.3-183.2 34.7-293.9 34.7s-215-12.3-293.9-34.7c-35.8-10.2-65-22.1-84.5-34.7-18.6-12-21.3-19.7-21.6-20.6v-0.3l-40 0.3v0.1c0 71.8 197 130 440 130s440-58.2 440-130v-0.4l-40-0.2z"
+                          fill=""
+                          p-id="50984"
+                        /></svg>
                       </n-icon>
                     </template>
                     数据问答
@@ -1310,7 +1329,11 @@ const pendingUploadFileInfoList = ref([])
                       <n-dropdown
                         :options="fileUploadRef?.options || []"
                       >
-                        <div flex="~ items-center justify-center" class="rounded-50% p-7 hover:bg-primary/5 transition-all-300 bg-primary/1" b="~ solid primary/20">
+                        <div
+                          flex="~ items-center justify-center"
+                          class="rounded-50% p-7 hover:bg-primary/5 transition-all-300 bg-primary/1"
+                          b="~ solid primary/20"
+                        >
                           <div class="text-20  i-uil:upload cursor-pointer"></div>
                         </div>
                         <!-- <n-icon size="30">

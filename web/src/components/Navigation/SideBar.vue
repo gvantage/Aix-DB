@@ -164,6 +164,36 @@ const handleLogout = () => {
     router.replace('/login')
   }, 500)
 }
+
+// 头像菜单选项
+const avatarMenuOptions = [
+  {
+    label: '数据源管理',
+    key: 'dataSource',
+    icon: () => <div class="i-material-symbols:database-outline text-16"></div>,
+  },
+  {
+    label: '退出登录',
+    key: 'logout',
+    icon: () => <div class="i-material-symbols:logout text-16"></div>,
+  },
+]
+
+// 处理菜单项选择
+const handleMenuSelect = (key: string) => {
+  switch (key) {
+    case 'dataSource':
+      router.push({
+        name: 'DatasourceManager',
+      })
+      break
+    case 'logout':
+      handleLogout()
+      break
+    default:
+      break
+  }
+}
 </script>
 
 <template>
@@ -198,25 +228,18 @@ const handleLogout = () => {
       </SideBarItem>
     </div>
 
-    <n-popover
+    <n-dropdown
       trigger="hover"
       placement="right-start"
+      :options="avatarMenuOptions"
+      @select="handleMenuSelect"
     >
-      <template #trigger>
-        <SideBarItem
-          fill
-        >
-          <div class="size-35 i-my-svg:avatar"></div>
-        </SideBarItem>
-      </template>
-      <n-button
-        quaternary
-        strong
-        @click="handleLogout"
+      <SideBarItem
+        fill
       >
-        退出登录
-      </n-button>
-    </n-popover>
+        <div class="size-35 i-my-svg:avatar"></div>
+      </SideBarItem>
+    </n-dropdown>
   </section>
 </template>
 

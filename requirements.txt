@@ -146,6 +146,10 @@ pybase64==1.4.2
 pycparser==2.23
 pycryptodome==3.23.0
 pydantic==2.12.4
+psycopg2-binary>=2.9.9
+oracledb>=2.0.0
+pymssql>=2.2.11
+clickhouse-driver>=0.2.7
 pydantic-core==2.41.5
 pydantic-settings==2.11.0
 pygments==2.19.2

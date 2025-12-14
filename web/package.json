@@ -27,6 +27,7 @@
     "stylelint:fix": "stylelint --fix .scss, .vue ./src"
   },
   "dependencies": {
+    "@antv/x6": "^2.18.1",
     "@modelcontextprotocol/sdk": "^1.8.0",
     "@types/three": "^0.181.0",
     "@vueuse/core": "^10.10.0",

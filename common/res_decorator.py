@@ -2,6 +2,7 @@ import json
 import logging
 import traceback
 from datetime import date, datetime
+from decimal import Decimal
 from functools import wraps
 
 from sanic import response
@@ -24,6 +25,9 @@ class CustomJSONEncoder(json.JSONEncoder):
         if isinstance(obj, date):
             # 处理 date 类型
             return obj.strftime("%Y-%m-%d")
+        elif isinstance(obj, Decimal):
+            # 将 Decimal 转换为 float 或字符串
+            return float(obj)  # 或者 str(obj) 保留精度
         elif isinstance(obj, datetime):
             # 处理 datetime 类型
             return obj.strftime("%Y-%m-%d %H:%M:%S")
@@ -64,7 +68,9 @@ def async_json_resp(func):
             }
             res = response.json(body, dumps=CustomJSONEncoder().encode)
 
-            logging.info(f"Request Path: {path},Method: {method}, Params: {params}, JSON Body: {json_body}, Response: {body}")
+            logging.info(
+                f"Request Path: {path},Method: {method}, Params: {params}, JSON Body: {json_body}, Response: {body}"
+            )
 
             return res
 
@@ -77,7 +83,9 @@ def async_json_resp(func):
 
             res = response.json(body, dumps=CustomJSONEncoder().encode)
 
-            logging.info(f"Request Path: {path}, Method: {method},Params: {params}, JSON Body: {json_body}, Response: {body}")
+            logging.info(
+                f"Request Path: {path}, Method: {method},Params: {params}, JSON Body: {json_body}, Response: {body}"
+            )
             return res
 
         except Exception as e:
@@ -88,7 +96,9 @@ def async_json_resp(func):
             }
             res = response.json(body, dumps=CustomJSONEncoder().encode)
 
-            logging.info(f"Request Path: {path}, Method: {method},Params: {params}, JSON Body: {json_body}, Response: {body}")
+            logging.info(
+                f"Request Path: {path}, Method: {method},Params: {params}, JSON Body: {json_body}, Response: {body}"
+            )
 
             traceback.print_exception(e)
             return res
