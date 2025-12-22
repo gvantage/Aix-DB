@@ -5,15 +5,14 @@
 import json
 import logging
 import os
-from typing import List, Optional, Dict, Any
 from datetime import datetime
+from typing import List, Optional, Dict, Any
 
-from sqlalchemy.orm import Session
-from sqlalchemy import and_
 from py2neo import Graph
+from sqlalchemy import and_
+from sqlalchemy.orm import Session
 
 from model.datasource_models import Datasource, DatasourceTable, DatasourceField
-from model.db_connection_pool import get_db_pool
 
 logger = logging.getLogger(__name__)
 
@@ -25,6 +24,7 @@ class DatasourceService:
     def get_datasource_list(session: Session, user_id: Optional[int] = None) -> List[Datasource]:
         """获取数据源列表"""
         query = session.query(Datasource)
+
         if user_id:
             query = query.filter(Datasource.create_by == user_id)
         return query.order_by(Datasource.create_time.desc()).all()

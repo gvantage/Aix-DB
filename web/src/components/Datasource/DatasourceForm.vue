@@ -160,7 +160,10 @@ const testConnection = async () => {
     return
   }
   await formRef.value.validate((errors) => {
-    if (errors) {}
+    if (errors) {
+      window.$ModalMessage.error('请检查表单信息')
+      return false // 阻止表单提交
+    }
   })
 
   testing.value = true

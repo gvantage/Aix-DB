@@ -18,7 +18,14 @@ const fetchDatasourceList = async () => {
   loading.value = true
   try {
     const url = new URL(`${location.origin}/sanic/datasource/list`)
-    const response = await fetch(url)
+    const userStore = useUserStore()
+    const token = userStore.getUserToken()
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
@@ -278,11 +285,11 @@ onMounted(() => {
 
   .datasource-card {
     cursor: pointer;
-    background: rgba(240, 249, 255, 0.6);
+    background: rgb(240 249 255 / 60%);
     transition: background 0.3s ease;
 
     &:hover {
-      background: rgba(240, 249, 255, 0.9);
+      background: rgb(240 249 255 / 90%);
     }
 
     :deep(.n-card__content) {

@@ -81,7 +81,7 @@ class ClaudeSDKAgent:
                 formatted_query = f"{query_text}\n\n参考资料内容如下：\n{file_as_markdown}"
 
             # 使用 session_id 作为线程标识，便于上层对话隔离
-            _ = session_id if session_id else "default_thread"
+            chat_id = session_id if session_id else "default_thread"
             query_params = {"prompt": formatted_query, "options": self.options}
 
             async for message in query(**query_params):

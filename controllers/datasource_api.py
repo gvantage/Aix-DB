@@ -13,6 +13,7 @@ from model.db_connection_pool import get_db_pool
 from common.res_decorator import async_json_resp
 from common.exception import MyException
 from constants.code_enum import SysCodeEnum
+from services.user_service import get_user_info
 
 logger = logging.getLogger(__name__)
 
@@ -29,9 +30,9 @@ async def get_datasource_list(req: request.Request):
     try:
         db_pool = get_db_pool()
         with db_pool.get_session() as session:
-            # TODO: 从请求中获取用户ID
-            user_id = req.ctx.get("user_id") if hasattr(req.ctx, "get") else None
-            datasources = DatasourceService.get_datasource_list(session, user_id)
+
+            user_info = await get_user_info(req)
+            datasources = DatasourceService.get_datasource_list(session, user_info["id"])
 
             result = []
             for ds in datasources:
