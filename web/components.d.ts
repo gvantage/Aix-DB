@@ -10,7 +10,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     404: typeof import('./src/components/404.vue')['default']
     ClipBoard: typeof import('./src/components/ClipBoard/index.vue')['default']
-    DatasourceForm: typeof import('./src/components/Datasource/DatasourceForm.vue')['default']
     IconFont: typeof import('./src/components/IconFont/index.vue')['default']
     IconFontQatypeIcon: typeof import('./src/components/IconFont/QatypeIcon.vue')['default']
     IconifyIcon: typeof import('./src/components/IconifyIcon/index.vue')['default']
@@ -28,7 +27,6 @@ declare module 'vue' {
     NavigationNavSideBar: typeof import('./src/components/Navigation/NavSideBar.vue')['default']
     NavigationSideBar: typeof import('./src/components/Navigation/SideBar.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
-    NButtonGroup: typeof import('naive-ui')['NButtonGroup']
     NCard: typeof import('naive-ui')['NCard']
     NCheckbox: typeof import('naive-ui')['NCheckbox']
     NCheckboxGroup: typeof import('naive-ui')['NCheckboxGroup']
@@ -61,7 +59,6 @@ declare module 'vue' {
     NRadioGroup: typeof import('naive-ui')['NRadioGroup']
     NResult: typeof import('naive-ui')['NResult']
     NSelect: typeof import('naive-ui')['NSelect']
-    NSkeleton: typeof import('naive-ui')['NSkeleton']
     NSpace: typeof import('naive-ui')['NSpace']
     NSpin: typeof import('naive-ui')['NSpin']
     NSplit: typeof import('naive-ui')['NSplit']

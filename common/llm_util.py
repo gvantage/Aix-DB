@@ -15,8 +15,8 @@ def get_llm(temperature=None):
     if not model_type:
         raise ValueError("Environment variable MODEL_TYPE is not set or is empty.")
 
-    if not model_api_key:
-        raise ValueError("Environment variable MODEL_API_KEY is required.")
+    # if not model_api_key:
+    #     raise ValueError("Environment variable MODEL_API_KEY is required.")
 
     try:
         if temperature is not None:
@@ -32,7 +32,6 @@ def get_llm(temperature=None):
             temperature=temperature,
             base_url=model_base_url,
             api_key=model_api_key,
-            extra_body={"enable_thinking": False},
         ),
         "qwen": lambda: ChatTongyi(
             model=model_name,

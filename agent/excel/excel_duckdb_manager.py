@@ -43,8 +43,8 @@ class ExcelDuckDBManager:
             # 安装并加载必要的扩展
             # self._connection.execute("INSTALL httpfs")
             # self._connection.execute("LOAD httpfs")
-
-            logger.info("DuckDB 连接创建完成，已加载 httpfs 扩展")
+            #
+            # logger.info("DuckDB 连接创建完成，已加载 httpfs 扩展")
 
         return self._connection
 
