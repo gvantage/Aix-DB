@@ -485,3 +485,37 @@ class QueryGuidedReportResponse(BaseResponse):
     """查询引导报告响应"""
 
     data: Dict[str, List[Dict[str, str]]] = Field(description="报告列表")
+
+
+# ==================== AI模型相关模型 ====================
+class AiModelItem(BaseModel):
+    name: str = Field(description="模型名称")
+    model_type: int = Field(default=1, description="模型类型")
+    base_model: str = Field(description="基础模型")
+    supplier: int = Field(default=1, description="供应商")
+    protocol: int = Field(default=1, description="协议")
+    default_model: bool = Field(False, description="是否默认")
+
+class AiModelConfigItem(BaseModel):
+    key: str = Field(description="配置Key")
+    val: Any = Field(description="配置Value")
+    name: Optional[str] = Field(None, description="配置名称")
+
+class AiModelCreator(AiModelItem):
+    api_domain: str = Field(description="API域名")
+    api_key: str = Field(description="API Key")
+    config_list: List[AiModelConfigItem] = Field(default=[], description="额外配置列表")
+
+class AiModelEditor(AiModelCreator):
+    id: int = Field(description="模型ID")
+
+class AiModelGridItem(AiModelItem):
+    id: int = Field(description="模型ID")
+    create_time: int = Field(description="创建时间")
+
+class AiModelListResponse(BaseResponse):
+    data: List[AiModelGridItem] = Field(description="模型列表")
+
+class AiModelDetailResponse(BaseResponse):
+    data: AiModelEditor = Field(description="模型详情")
+

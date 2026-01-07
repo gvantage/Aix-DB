@@ -126,3 +126,33 @@ COMMENT ON COLUMN t_user_qa_record.to4_answer IS '业务数据';
 COMMENT ON COLUMN t_user_qa_record.qa_type IS '问答类型';
 COMMENT ON COLUMN t_user_qa_record.file_key IS '文件minio/key';
 COMMENT ON COLUMN t_user_qa_record.create_time IS '创建时间';
+
+-- t_ai_model definition
+DROP TABLE IF EXISTS t_ai_model CASCADE;
+CREATE TABLE t_ai_model (
+  id BIGSERIAL PRIMARY KEY,
+  supplier INTEGER NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  model_type INTEGER NOT NULL,
+  base_model VARCHAR(255) NOT NULL,
+  default_model BOOLEAN DEFAULT FALSE NOT NULL,
+  api_key VARCHAR(255),
+  api_domain VARCHAR(255) NOT NULL,
+  protocol INTEGER DEFAULT 1 NOT NULL,
+  config TEXT,
+  status INTEGER DEFAULT 1 NOT NULL,
+  create_time BIGINT DEFAULT 0
+);
+
+COMMENT ON TABLE t_ai_model IS 'AI模型配置表';
+COMMENT ON COLUMN t_ai_model.supplier IS '供应商: 1:OpenAI, 2:Azure, 3:Ollama, 4:vLLM, 5:DeepSeek, 6:Qwen, 7:Moonshot, 8:ZhipuAI, 9:Other';
+COMMENT ON COLUMN t_ai_model.name IS '模型名称';
+COMMENT ON COLUMN t_ai_model.model_type IS '模型类型: 1:LLM, 2:Embedding, 3:Rerank';
+COMMENT ON COLUMN t_ai_model.base_model IS '基础模型';
+COMMENT ON COLUMN t_ai_model.default_model IS '是否默认';
+COMMENT ON COLUMN t_ai_model.api_key IS 'API Key';
+COMMENT ON COLUMN t_ai_model.api_domain IS 'API Domain';
+COMMENT ON COLUMN t_ai_model.protocol IS '协议: 1:OpenAI, 2:Ollama';
+COMMENT ON COLUMN t_ai_model.config IS '配置JSON';
+COMMENT ON COLUMN t_ai_model.status IS '状态: 1:正常';
+COMMENT ON COLUMN t_ai_model.create_time IS '创建时间';

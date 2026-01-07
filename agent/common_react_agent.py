@@ -35,9 +35,6 @@ class CommonReactAgent:
 
     def __init__(self):
 
-        # 初始化LLM
-        self.llm = get_llm()
-
         # 是否启用链路追踪
         self.ENABLE_TRACING = os.getenv("LANGFUSE_TRACING_ENABLED", "true").lower() == "true"
 
@@ -118,7 +115,7 @@ class CommonReactAgent:
         try:
             t02_answer_data = []
 
-            tools = await self.client.get_tools()
+            tools = []  # await self.client.get_tools()
 
             # 使用用户会话ID作为thread_id，如果未提供则使用默认值
             thread_id = session_id if session_id else "default_thread"
@@ -238,8 +235,9 @@ class CommonReactAgent:
             """
             )
 
+            llm = get_llm()
             agent = create_agent(
-                model=self.llm,
+                model=llm,
                 tools=tools,
                 system_prompt=system_message.content,
                 checkpointer=self.checkpointer,  # 使用全局checkpointer
@@ -247,7 +245,7 @@ class CommonReactAgent:
                     log_before_model,
                     # 开启上下文总结压缩
                     SummarizationMiddleware(
-                        self.llm,
+                        llm,
                         max_tokens_before_summary=4000,
                         messages_to_keep=20,
                     ),

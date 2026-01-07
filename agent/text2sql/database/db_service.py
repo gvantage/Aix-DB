@@ -24,6 +24,7 @@ from sqlalchemy.sql.expression import text
 
 from agent.text2sql.state.agent_state import AgentState, ExecutionResult
 from model.db_connection_pool import get_db_pool
+from model.db_models import TAiModel
 
 # 日志配置
 logger = logging.getLogger(__name__)
@@ -41,41 +42,57 @@ INDEX_FILE = os.path.join(VECTOR_INDEX_DIR, "schema.index")
 METADATA_FILE = os.path.join(VECTOR_INDEX_DIR, "metadata.json")
 
 # 嵌入模型配置
-EMBEDDING_MODEL_NAME = os.getenv("EMBEDDING_MODEL_NAME")
-EMBEDDING_MODEL_API_KEY = os.getenv("EMBEDDING_MODEL_API_KEY")
-EMBEDDING_MODEL_BASE_URL = os.getenv("EMBEDDING_MODEL_BASE_URL")
+def get_embedding_model_config():
+    with db_pool.get_session() as session:
+        # model_type: 2 -> Embedding
+        model = session.query(TAiModel).filter(
+            TAiModel.model_type == 2,
+            TAiModel.default_model == True
+        ).first()
+        
+        if not model:
+            # Fallback or raise error?
+            # Trying to find ANY embedding model if default not set
+            model = session.query(TAiModel).filter(TAiModel.model_type == 2).first()
+        
+        if not model:
+            raise ValueError("未配置嵌入模型 (Embedding Model)")
+            
+        return {
+            "name": model.base_model,
+            "api_key": model.api_key,
+            "base_url": model.api_domain
+        }
 
 # 重排模型配置
-RERANK_MODEL_NAME = os.getenv("RERANK_MODEL_NAME")
-RERANK_MODEL_API_KEY = os.getenv("RERANK_MODEL_API_KEY")
-RERANK_MODEL_BASE_URL = os.getenv("RERANK_MODEL_BASE_URL")
+def get_rerank_model_config():
+    with db_pool.get_session() as session:
+        # model_type: 3 -> Rerank
+        model = session.query(TAiModel).filter(
+            TAiModel.model_type == 3,
+            TAiModel.default_model == True
+        ).first()
+        
+        if not model:
+            # Fallback
+            model = session.query(TAiModel).filter(TAiModel.model_type == 3).first()
+            
+        if not model:
+            return None
+            
+        return {
+            "name": model.base_model,
+            "api_key": model.api_key,
+            "base_url": model.api_domain
+        }
 
-# 初始化嵌入模型客户端
-# if not EMBEDDING_MODEL_API_KEY:
-#     raise ValueError("环境变量 EMBEDDING_MODEL_API_KEY 未设置，无法初始化嵌入模型客户端")
-embedding_client = OpenAI(api_key=EMBEDDING_MODEL_API_KEY, base_url=EMBEDDING_MODEL_BASE_URL)
-
-# 重排模型不需要单独的客户端，直接使用 requests 调用
-# if not RERANK_MODEL_API_KEY or not RERANK_MODEL_BASE_URL:
-#     logger.warning("⚠️ 重排模型配置不完整，重排功能将被禁用")
-
+# 全局变量占位，实际使用时动态获取或在 init 中初始化
+# 但为了保持兼容性，这里我们使用 lazy initialization 或者 property
 
 class DatabaseService:
     """
     支持混合检索（BM25 + 向量）与索引持久化的数据库服务。
     提供表结构检索、SQL 执行、错误修正 SQL 执行等功能。
-
-    核心执行流程：
-    1. 初始化阶段：建立数据库连接池，配置检索参数
-    2. 表结构检索：通过混合检索获取与用户查询最相关的表结构
-       - 获取所有表结构信息
-       - 构建文档文本用于检索
-       - 初始化向量索引（加载或重建）
-       - BM25 关键词匹配检索
-       - 向量相似度检索
-       - RRF 融合两种检索结果
-       - 使用 DashScope 重排序器优化排序
-    3. SQL 执行：执行查询语句并返回结果
     """
 
     def __init__(self):
@@ -86,17 +103,37 @@ class DatabaseService:
         self._tokenized_corpus: List[List[str]] = []
         self._index_initialized: bool = False
         self.USE_RERANKER: bool = True  # 是否启用重排序器
+        
+        # Initialize clients lazily or now
+        try:
+            emb_config = get_embedding_model_config()
+            self.embedding_model_name = emb_config["name"]
+            self.embedding_client = OpenAI(
+                api_key=emb_config["api_key"] or "empty", 
+                base_url=emb_config["base_url"]
+            )
+        except Exception as e:
+            logger.error(f"初始化嵌入模型失败: {e}")
+            self.embedding_client = None
+            
+        try:
+            rerank_config = get_rerank_model_config()
+            if rerank_config:
+                self.rerank_model_name = rerank_config["name"]
+                self.rerank_api_key = rerank_config["api_key"]
+                self.rerank_base_url = rerank_config["base_url"]
+                self.USE_RERANKER = True
+            else:
+                self.USE_RERANKER = False
+                logger.warning("未配置重排模型，重排功能将被禁用")
+        except Exception as e:
+            logger.error(f"初始化重排模型失败: {e}")
+            self.USE_RERANKER = False
 
     @staticmethod
     def _tokenize_text(text_str: str) -> List[str]:
         """
         对中文/英文文本进行分词，过滤标点符号。
-
-        Args:
-            text_str (str): 输入文本
-
-        Returns:
-            List[str]: 分词后的 token 列表
         """
         filtered_text = re.sub(r"[^\u4e00-\u9fa5a-zA-Z0-9]", " ", text_str)
         tokens = jieba.lcut(filtered_text, cut_all=False)
@@ -105,12 +142,6 @@ class DatabaseService:
     def _get_table_comment(self, table_name: str) -> str:
         """
         从 information_schema 中获取指定表的注释。
-
-        Args:
-            table_name (str): 表名
-
-        Returns:
-            str: 表注释，若无则返回空字符串
         """
         try:
             query = text(
@@ -133,13 +164,6 @@ class DatabaseService:
     def _build_document(table_name: str, table_info: dict) -> str:
         """
         构建用于检索的文档文本（表名 + 注释 + 字段名 + 字段注释）。
-
-        Args:
-            table_name (str): 表名
-            table_info (dict): 包含列、外键、注释等信息的字典
-
-        Returns:
-            str: 拼接后的文档文本
         """
         parts = [table_name]
         if table_info.get("table_comment"):
@@ -154,9 +178,6 @@ class DatabaseService:
     def _fetch_all_table_info(self) -> Dict[str, Dict]:
         """
         获取数据库中所有表的结构信息（带 LRU 缓存）。
-
-        Returns:
-            Dict[str, Dict]: 表名 → 表结构信息的字典
         """
         start_time = time.time()
         inspector = inspect(self._engine)
@@ -196,12 +217,6 @@ class DatabaseService:
     def _generate_schema_fingerprint(table_info: Dict[str, Dict]) -> str:
         """
         生成 schema 的指纹（MD5 哈希），用于检测变更。
-
-        Args:
-            table_info (Dict[str, Dict]): 表结构信息
-
-        Returns:
-            str: MD5 指纹
         """
         fingerprint_data = {}
         for table_name, info in table_info.items():
@@ -217,12 +232,6 @@ class DatabaseService:
     def _load_vector_index(self, table_info: Dict[str, Dict]) -> bool:
         """
         从磁盘加载 FAISS 向量索引和元数据。
-
-        Args:
-            table_info (Dict[str, Dict]): 当前表结构
-
-        Returns:
-            bool: 是否加载成功
         """
         if not (os.path.exists(INDEX_FILE) and os.path.exists(METADATA_FILE)):
             logger.info("❌ 向量索引文件不存在，将重建")
@@ -251,9 +260,6 @@ class DatabaseService:
     def _save_vector_index(self, table_info: Dict[str, Dict]):
         """
         将 FAISS 索引和元数据保存到磁盘。
-
-        Args:
-            table_info (Dict[str, Dict]): 当前表结构
         """
         if self._faiss_index is None:
             return
@@ -271,23 +277,20 @@ class DatabaseService:
 
         logger.info(f"✅ 向量索引已保存至: {INDEX_FILE}")
 
-    @staticmethod
-    def _create_embeddings_with_dashscope(texts: List[str]) -> np.ndarray:
+    def _create_embeddings_with_dashscope(self, texts: List[str]) -> np.ndarray:
         """
         使用 DashScope API 生成文本嵌入向量。
-
-        Args:
-            texts (List[str]): 输入文本列表
-
-        Returns:
-            np.ndarray: 嵌入向量数组
         """
-        logger.info("🌐 调用 DashScope 文本嵌入 API...")
+        if not self.embedding_client:
+             logger.error("❌ 嵌入模型未初始化")
+             return np.array([])
+             
+        logger.info(f"🌐 调用嵌入模型 {self.embedding_model_name}...")
         start_time = time.time()
         embeddings = []
         for doc in texts:
             try:
-                response = embedding_client.embeddings.create(model=EMBEDDING_MODEL_NAME, input=doc)
+                response = self.embedding_client.embeddings.create(model=self.embedding_model_name, input=doc)
                 embeddings.append(response.data[0].embedding)
             except Exception as e:
                 logger.error(f"❌ 嵌入生成失败 ({doc[:30]}...): {e}")
@@ -301,9 +304,6 @@ class DatabaseService:
     def _initialize_vector_index(self, table_info: Dict[str, Dict]):
         """
         初始化 FAISS 向量索引：加载或重建。
-
-        Args:
-            table_info (Dict[str, Dict]): 表结构信息
         """
         if self._index_initialized:
             return
@@ -323,6 +323,10 @@ class DatabaseService:
 
         # 生成嵌入
         embeddings = self._create_embeddings_with_dashscope(self._corpus)
+        
+        if embeddings.size == 0:
+             logger.error("❌ 无法生成嵌入，索引构建失败")
+             return
 
         # 初始化 FAISS 索引
         dimension = embeddings.shape[1]
@@ -339,29 +343,13 @@ class DatabaseService:
     def _retrieve_by_vector(self, query: str, top_k: int = 10) -> List[int]:
         """
         使用向量相似度检索最相关的表。
-
-        该方法通过调用 DashScope 的文本嵌入模型，将用户查询转换为向量，
-        并使用 FAISS 向量索引搜索与之最相似的 top_k 个表结构文档。
-
-        Faiss（Facebook AI Similarity Search）是由 Meta (Facebook) 开发的一个高效的相似性搜索库
-        faiss-gpu/faiss-cpu 两个版本
-
-        数据映射关系说明：
-        - 构建映射：在索引初始化时，按照相同顺序维护 _table_names（表名列表）和 _corpus（文档列表）
-        - 向量检索：FAISS 返回相似文档在 _corpus 中的索引位置
-        - 索引转换：通过 _table_names[index] 将索引位置转换为具体的表名
-        - 结果使用：使用这些表名从原始表信息中提取详细结构
-
-        Args:
-            query (str): 用户输入的自然语言查询，例如："查找最近一周的订单信息"
-            top_k (int): 需要返回的最相似表的数量，默认值为 10
-
-        Returns:
-            List[int]: 与用户查询最相似的表在 corpus 中的索引列表，
-                       按照相似度从高到低排序
         """
+        if not self.embedding_client or not self._faiss_index:
+             logger.error("❌ 向量检索服务不可用")
+             return []
+             
         try:
-            response = embedding_client.embeddings.create(model=EMBEDDING_MODEL_NAME, input=query)
+            response = self.embedding_client.embeddings.create(model=self.embedding_model_name, input=query)
             query_vec = np.array([response.data[0].embedding]).astype("float32")
             faiss.normalize_L2(query_vec)
             _, indices = self._faiss_index.search(query_vec, top_k)
@@ -373,13 +361,6 @@ class DatabaseService:
     def _retrieve_by_bm25(self, table_info: Dict[str, Dict], user_query: str) -> List[int]:
         """
         使用 BM25 算法进行关键词匹配检索。
-
-        Args:
-            table_info (Dict[str, Dict]): 表结构
-            user_query (str): 用户查询
-
-        Returns:
-            List[int]: 按相关性排序的索引列表
         """
         if not user_query or not table_info:
             return list(range(len(table_info)))
@@ -411,14 +392,6 @@ class DatabaseService:
     def _rrf_fusion(bm25_indices: List[int], vector_indices: List[int], k: int = 60) -> List[int]:
         """
         使用 RRF（Reciprocal Rank Fusion）融合两种检索结果。
-
-        Args:
-            bm25_indices (List[int]): BM25 排序索引
-            vector_indices (List[int]): 向量检索排序索引
-            k (int): RRF 常数
-
-        Returns:
-            List[int]: 融合后排序的索引列表
         """
         scores = {}
         for rank, idx in enumerate(bm25_indices):
@@ -431,13 +404,6 @@ class DatabaseService:
     def _rerank_with_dashscope(self, query: str, candidate_tables: Dict[str, Dict]) -> List[Tuple[str, float]]:
         """
         使用 DashScope 重排 API 对候选表进行重排序。
-
-        Args:
-            query (str): 用户查询
-            candidate_tables (Dict[str, Dict]): 候选表及其信息
-
-        Returns:
-            List[Tuple[str, float]]: (表名, 相关性分数) 列表，按分数降序
         """
         if not self.USE_RERANKER:
             logger.debug("⏭️ Reranker 已禁用或配置不完整，跳过重排序")
@@ -454,13 +420,13 @@ class DatabaseService:
             if not documents:
                 return []
 
-            logger.info(f"🔁 调用重排模型 {RERANK_MODEL_NAME} 进行重排序...")
+            logger.info(f"🔁 调用重排模型 {self.rerank_model_name} 进行重排序...")
 
             # 根据API类型选择不同的请求结构
-            if "aliyuncs" in RERANK_MODEL_BASE_URL or "Qwen" in RERANK_MODEL_NAME:
+            if "aliyuncs" in self.rerank_base_url or "Qwen" in self.rerank_model_name:
                 # 阿里云 DashScope 格式
                 payload = {
-                    "model": RERANK_MODEL_NAME,
+                    "model": self.rerank_model_name,
                     "input": {"query": query, "documents": documents},
                     "parameters": {"top_n": len(documents), "return_documents": False},
                 }
@@ -469,10 +435,10 @@ class DatabaseService:
                 payload = {"query": query, "documents": documents}
 
             # 设置请求头
-            headers = {"Authorization": f"Bearer {RERANK_MODEL_API_KEY}", "Content-Type": "application/json"}
+            headers = {"Authorization": f"Bearer {self.rerank_api_key}", "Content-Type": "application/json"}
 
             # 调用重排 API
-            response = requests.post(RERANK_MODEL_BASE_URL, headers=headers, json=payload, timeout=30)
+            response = requests.post(self.rerank_base_url, headers=headers, json=payload, timeout=30)
 
             # 检查响应状态
             if response.status_code != 200:
@@ -483,7 +449,7 @@ class DatabaseService:
             result_data = response.json()
 
             # 根据API类型解析响应
-            if "aliyuncs" in RERANK_MODEL_BASE_URL or "Qwen" in RERANK_MODEL_NAME:
+            if "aliyuncs" in self.rerank_base_url or "Qwen" in self.rerank_model_name:
                 # 阿里云格式响应
                 if "output" in result_data and "results" in result_data["output"]:
                     results = []
@@ -539,12 +505,6 @@ class DatabaseService:
     def get_table_schema(self, state: AgentState) -> AgentState:
         """
         根据用户查询，通过混合检索筛选出最相关的数据库表结构。
-
-        Args:
-            state (AgentState): 当前状态，包含 user_query
-
-        Returns:
-            AgentState: 更新后的状态，包含 db_info
         """
         try:
             logger.info("🔍 开始获取数据库表 schema 信息")
@@ -624,12 +584,6 @@ class DatabaseService:
     def execute_sql(state: AgentState) -> AgentState:
         """
         执行生成的 SQL 语句。
-
-        Args:
-            state (AgentState): 包含 generated_sql 的状态
-
-        Returns:
-            AgentState: 更新执行结果
         """
         generated_sql = state.get("generated_sql", "").strip()
         if not generated_sql:
@@ -657,12 +611,6 @@ class DatabaseService:
     def execute_correction_sql(state: AgentState) -> AgentState:
         """
         执行修正后的 SQL 语句。
-
-        Args:
-            state (AgentState): 包含 correction_result 的状态
-
-        Returns:
-            AgentState: 更新执行结果
         """
         correction_result = state.get("correction_result")
         if not correction_result or not hasattr(correction_result, "corrected_sql_query"):

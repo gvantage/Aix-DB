@@ -33,9 +33,6 @@ class DeepAgent:
 
     def __init__(self):
 
-        # 初始化LLM
-        self.llm = get_llm()
-
         # 全局checkpointer用于持久化所有用户的对话状态
         self.checkpointer = InMemorySaver()
 
@@ -125,7 +122,7 @@ class DeepAgent:
                 tools=self.tools,  # 可用工具列表
                 system_prompt=self.CORE_INSTRUCTIONS,  # 系统提示词
                 subagents=[self.researcher, self.analyst],
-                model=self.llm,
+                model=get_llm(),
                 backend=self.checkpointer,
             ).with_config({"recursion_limit": self.RECURSION_LIMIT})
 
