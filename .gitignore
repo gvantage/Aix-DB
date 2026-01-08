@@ -37,3 +37,32 @@ CLAUDE.md
 test/
 examples/
 .langgraph_api/
+
+# 确保新添加的源代码文件被追踪
+# 注意：! 规则用于取消之前的忽略规则，确保这些文件类型总是被追踪
+# 前端源代码文件 - 确保这些文件类型不会被忽略
+!web/src/
+!web/src/**/*.vue
+!web/src/**/*.ts
+!web/src/**/*.tsx
+!web/src/**/*.js
+!web/src/**/*.jsx
+!web/src/**/*.scss
+!web/src/**/*.css
+!web/src/**/*.json
+
+# 后端源代码文件 - 确保这些文件类型不会被忽略
+!controllers/
+!controllers/**/*.py
+!services/
+!services/**/*.py
+!agent/
+!agent/**/*.py
+!common/
+!common/**/*.py
+!model/
+!model/**/*.py
+!config/
+!config/**/*.py
+!constants/
+!constants/**/*.py
