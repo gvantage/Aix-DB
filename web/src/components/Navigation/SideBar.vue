@@ -114,7 +114,16 @@ const handleSidebarMenuSelect = (key: string) => {
   router.push({ name: key })
 }
 
-const sidebarItems = ref([
+interface SidebarItemType {
+  label: string
+  key: string
+  renderIcon: () => any
+  onClick?: () => void
+  children?: { label: string; key: string }[]
+  props: Record<string, any>
+}
+
+const sidebarItems = ref<SidebarItemType[]>([
   {
     label: '数据源',
     key: 'DatasourceManager',
@@ -143,18 +152,15 @@ const sidebarItems = ref([
   },
   {
     label: '权限配置',
-    key: 'PermissionConfigGroup',
+    key: 'PermissionConfig',
     renderIcon() {
       return (
         <div class="i-material-symbols:lock-outline text-24"></div>
       )
     },
-    children: [
-      {
-        label: '数据权限',
-        key: 'PermissionConfig',
-      }
-    ],
+    onClick() {
+      router.push({ name: 'PermissionConfig' })
+    },
     props: {},
   },
   {

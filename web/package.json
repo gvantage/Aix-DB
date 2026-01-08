@@ -47,6 +47,7 @@
     "uuid": "^9.0.1",
     "vfile": "^6.0.1",
     "vue": "^3.5.13",
+    "vue-i18n": "^11.2.8",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {

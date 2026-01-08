@@ -74,3 +74,40 @@ class TAiModel(Base):
     config: Mapped[Optional[str]] = mapped_column(Text, comment="配置JSON")
     status: Mapped[int] = mapped_column(Integer, default=1, nullable=False, comment="状态: 1:正常")
     create_time: Mapped[int] = mapped_column(BigInteger, default=0, comment="创建时间")
+
+
+class TDsRules(Base):
+    __tablename__ = "t_ds_rules"
+    __table_args__ = {"comment": "权限规则组"}
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    name: Mapped[str] = mapped_column(String(128), nullable=False, comment="规则名称")
+    description: Mapped[Optional[str]] = mapped_column(String(512), comment="描述")
+    permission_list: Mapped[Optional[str]] = mapped_column(Text, comment="权限ID列表(JSON)")
+    user_list: Mapped[Optional[str]] = mapped_column(Text, comment="用户ID列表(JSON)")
+    white_list_user: Mapped[Optional[str]] = mapped_column(Text, comment="白名单用户")
+    enable: Mapped[Optional[bool]] = mapped_column(Boolean, default=True, comment="是否启用")
+    create_time: Mapped[Optional[datetime.datetime]] = mapped_column(
+        TIMESTAMP, server_default=text("CURRENT_TIMESTAMP"), comment="创建时间"
+    )
+    oid: Mapped[Optional[int]] = mapped_column(BigInteger, comment="OID")
+
+
+class TDsPermission(Base):
+    __tablename__ = "t_ds_permission"
+    __table_args__ = {"comment": "数据权限详情"}
+
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    name: Mapped[Optional[str]] = mapped_column(String(128), comment="权限名称")
+    type: Mapped[str] = mapped_column(String(64), nullable=False, comment="权限类型: row, column")
+    ds_id: Mapped[Optional[int]] = mapped_column(BigInteger, comment="数据源ID")
+    table_id: Mapped[Optional[int]] = mapped_column(BigInteger, comment="表ID")
+    expression_tree: Mapped[Optional[str]] = mapped_column(Text, comment="行权限表达式树(JSON)")
+    permissions: Mapped[Optional[str]] = mapped_column(Text, comment="列权限配置(JSON)")
+    white_list_user: Mapped[Optional[str]] = mapped_column(Text, comment="白名单用户")
+    enable: Mapped[Optional[bool]] = mapped_column(Boolean, default=True, comment="是否启用")
+    create_time: Mapped[Optional[datetime.datetime]] = mapped_column(
+        TIMESTAMP, server_default=text("CURRENT_TIMESTAMP"), comment="创建时间"
+    )
+    auth_target_type: Mapped[Optional[str]] = mapped_column(String(128), comment="授权目标类型")
+    auth_target_id: Mapped[Optional[int]] = mapped_column(BigInteger, comment="授权目标ID")
