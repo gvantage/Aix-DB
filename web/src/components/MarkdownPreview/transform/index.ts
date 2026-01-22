@@ -87,7 +87,6 @@ export const transformStreamValue: Record<
         const json = JSON.parse(content.trim())
         // 检查是否是进度信息（需要同时有 step 和 stepName）
         if (json && json.type === 'step_progress' && json.step && json.stepName && json.status && json.progressId) {
-          console.log('Transform standard 识别到进度数据:', json)
           return {
             progress: json,
           }

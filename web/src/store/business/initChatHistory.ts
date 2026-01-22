@@ -49,7 +49,7 @@ const processSingleResponse = (res) => {
                   break
               }
             } catch (e) {
-              console.log('Error processing chunk:', e)
+              // 处理 chunk 时出错，忽略继续处理
             }
           },
           flush: (controller: TransformStreamDefaultController) => {
@@ -215,7 +215,6 @@ export const fetchConversationHistory = async function fetchConversationHistory(
                   chat_id_str = record[key]
                   break
                 case 'file_key':
-                  // console.log(record[key])
                   if (record[key]) {
                     file_key_json = JSON.parse(record[key])
                   }
@@ -234,7 +233,7 @@ export const fetchConversationHistory = async function fetchConversationHistory(
                       },
                     })
                   } catch (e) {
-                    console.log(e)
+                    // 解析数据时出错，忽略继续处理
                   }
                   break
                 case 'to4_answer':
@@ -269,7 +268,7 @@ export const fetchConversationHistory = async function fetchConversationHistory(
                   chartData = parsedData.data
                 }
               } catch (e) {
-                console.log('Error parsing t04_answer chart data:', e)
+                // 解析图表数据时出错，忽略继续处理
               }
             }
 
@@ -323,11 +322,9 @@ export const fetchConversationHistory = async function fetchConversationHistory(
           totalCount: data.data?.total_count ?? records.length,
         }
       }
-    } else {
-      console.log('Request failed with status:', res.status)
     }
   } catch (error) {
-    console.log('An error occurred while querying QA records:', error)
+    // 查询 QA 记录时出错，忽略
   }
 }
 

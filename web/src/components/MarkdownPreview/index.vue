@@ -236,7 +236,6 @@ const readTextStream = async () => {
         showText()
       }
     } catch (error) {
-      console.log('渲染失败信息', error)
       readIsOver.value = true
       emit('failed', error)
       resetStatus()

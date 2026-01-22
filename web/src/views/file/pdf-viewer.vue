@@ -37,7 +37,6 @@ onMounted(() => {
     + `&content_pos=${encodeURIComponent(
       JSON.stringify(props.dcsInfo.content_pos),
     )}`
-  console.log('pdfUrl===>', pdfUrl.value)
 
   nextTick(() => {
     isRender.value = true

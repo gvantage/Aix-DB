@@ -230,7 +230,6 @@ const avatarMenuOptions = computed(() => {
 
 // 处理菜单项选择
 const handleMenuSelect = (key: string) => {
-  console.log('Dropdown clicked, role:', userStore.role)
   switch (key) {
     case 'systemSettings':
       router.push({
@@ -315,7 +314,6 @@ const handleMenuSelect = (key: string) => {
         placement="right-start"
         :options="avatarMenuOptions"
         @select="handleMenuSelect"
-        @click="() => console.log('Dropdown clicked, role:', userStore.role)"
       >
         <SideBarItem
           fill

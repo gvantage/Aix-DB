@@ -249,7 +249,7 @@ const filterTypeChange = () => {
   initEnumOptions()
 }
 const initEnumOptions = () => {
-  console.info('initEnumOptions')
+  // 初始化枚举选项
 }
 
 const selectItem = (id: any) => {

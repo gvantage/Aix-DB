@@ -128,11 +128,9 @@ const handleSelect = async (key, index) => {
   switch (key) {
     // 抽取功能
     case 'abstract':
-      console.log(`Editing item at index ${index}`)
       startExtraction(index)
       break
     case 'edit':
-      console.log(`Editing item at index ${index}`)
       // 编辑项目的逻辑
       break
     case 'delete':
@@ -140,7 +138,7 @@ const handleSelect = async (key, index) => {
       await query_demand_records()
       break
     default:
-      console.log(`Selected option not handled: ${key}`)
+      // 未处理的选项
   }
 }
 

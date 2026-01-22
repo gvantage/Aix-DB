@@ -10,7 +10,7 @@
  
 const currentPage = ref(2)
 const handleChangePage = (n: number) => {
-  console.log('nnnn', n)
+  // 处理页码变化
 }
  
  */

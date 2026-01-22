@@ -295,7 +295,6 @@ const currentRenderIndex = ref(0)
 // 图表子组件渲染完毕
 const onChartReady = (index) => {
   if (index < conversationItems.value.length) {
-    // console.log('onChartReady', index)
     currentRenderIndex.value = index
     stylizingLoading.value = false
   }
@@ -400,16 +399,10 @@ const contentLoadingStates = ref<boolean[]>([])
 watch(
   () => visibleConversationItems.value.length,
   (newLength, oldLength) => {
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:400',message:'visibleConversationItems length changed',data:{oldLength,newLength,currentContentLoadingStatesLength:contentLoadingStates.value.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-    // #endregion
     // 当 visibleConversationItems 长度变化时，扩展 contentLoadingStates
     while (contentLoadingStates.value.length < newLength) {
       contentLoadingStates.value.push(false)
     }
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:407',message:'after extending contentLoadingStates',data:{newLength,contentLoadingStatesLength:contentLoadingStates.value.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'E'})}).catch(()=>{});
-    // #endregion
   },
   { immediate: true }
 )
@@ -422,10 +415,6 @@ const progressDisplayStates = ref<Record<number, boolean>>({})
 // 只有当内容真正开始渲染时（hasProgress=true），才隐藏 SVG
 // 但是，如果后端推送了步骤信息，我们不应该隐藏 SVG，而是继续显示 SVG 和步骤信息
 const onProgressDisplayChange = (index: number, hasProgress: boolean) => {
-  // #region agent log
-  fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:421',message:'onProgressDisplayChange',data:{index,hasProgress,previousValue:progressDisplayStates.value[index],contentLoadingState:contentLoadingStates.value[index],hasStepProgress:!!getStepProgressForIndex(index)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'F'})}).catch(()=>{});
-  // #endregion
-  
   // 如果后端推送了步骤信息，不要隐藏 SVG（继续显示 SVG 和步骤信息）
   // 只有当没有步骤信息且内容开始渲染时，才隐藏 SVG
   const hasStepProgress = !!getStepProgressForIndex(index)
@@ -452,13 +441,7 @@ watch(
     condition: contentLoadingStates.value[idx] && !progressDisplayStates.value[idx],
   })),
   (newStates) => {
-    // #region agent log
-    newStates.forEach(state => {
-      if (state.role === 'assistant') {
-        fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:427',message:'assistant state changed',data:state,timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'G'})}).catch(()=>{});
-      }
-    });
-    // #endregion
+    // 监控状态变化（用于调试，已移除调试日志）
   },
   { deep: true }
 )
@@ -810,25 +793,13 @@ const handleCreateStylized = async (
     const assistantIndex = conversationItems.value.length - 1
     currentRenderIndex.value = assistantIndex
 
-    // #region agent log
-    fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:767',message:'assistant message added',data:{assistantIndex,uuid:uuid_str,conversationItemsLength:conversationItems.value.length,currentRenderIndex:currentRenderIndex.value,visibleItemsLength:visibleConversationItems.value.length,contentLoadingStatesLength:contentLoadingStates.value.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-    // #endregion
-
     // 确保 SVG 加载图标显示（所有问答类型默认都显示）
     // 使用 nextTick 等待 computed 更新
     nextTick(() => {
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:771',message:'nextTick after assistant added',data:{assistantIndex,uuid:uuid_str,visibleItemsLength:visibleConversationItems.value.length,visibleItemsUuids:visibleConversationItems.value.map(v=>v.uuid),contentLoadingStatesLength:contentLoadingStates.value.length},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'A'})}).catch(()=>{});
-      // #endregion
-      
       // visibleConversationItems 是 computed，现在已经更新了
       // 找到新添加的 assistant 消息在 visibleConversationItems 中的索引
       // 必须同时匹配 uuid 和 role === 'assistant'，因为用户消息和 assistant 消息可能有相同的 uuid
       const visibleIndex = visibleConversationItems.value.findIndex(vi => vi.uuid === uuid_str && vi.role === 'assistant')
-      
-      // #region agent log
-      fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:788',message:'found visibleIndex',data:{visibleIndex,assistantIndex,uuid:uuid_str,visibleItemsLength:visibleConversationItems.value.length,visibleItems:visibleConversationItems.value.map((v,i)=>({index:i,uuid:v.uuid,role:v.role}))},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-      // #endregion
       
       if (visibleIndex >= 0) {
         // 确保数组长度足够
@@ -839,14 +810,6 @@ const handleCreateStylized = async (
         contentLoadingStates.value[visibleIndex] = true
         // 确保 progressDisplayStates 为 false，这样 SVG 才会显示
         progressDisplayStates.value[visibleIndex] = false
-        
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:782',message:'set loading states',data:{visibleIndex,contentLoadingState:contentLoadingStates.value[visibleIndex],progressDisplayState:progressDisplayStates.value[visibleIndex],contentLoadingStatesLength:contentLoadingStates.value.length,allContentLoadingStates:contentLoadingStates.value.map((v,i)=>`${i}:${v}`).slice(0,10)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'C'})}).catch(()=>{});
-        // #endregion
-      } else {
-        // #region agent log
-        fetch('http://127.0.0.1:7242/ingest/bf011677-871d-4e99-b2e7-1188661bef28',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'index.vue:788',message:'visibleIndex not found',data:{assistantIndex,uuid:uuid_str,visibleItemsLength:visibleConversationItems.value.length,visibleItemsUuids:visibleConversationItems.value.map(v=>v.uuid)},timestamp:Date.now(),sessionId:'debug-session',runId:'run1',hypothesisId:'B'})}).catch(()=>{});
-        // #endregion
       }
     })
 

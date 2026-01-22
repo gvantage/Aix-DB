@@ -158,7 +158,6 @@ service.interceptors.response.use(
       }
     } else {
       // 某些特定的接口 failed 需要跳转
-      console.log(error)
       return {
         data: {},
         error: 5000,
