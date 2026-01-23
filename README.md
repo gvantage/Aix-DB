@@ -23,7 +23,7 @@
   <a href="./README.md">简体中文</a> | <a href="./README_en.md">English</a>
 </p>
 
----
+
 
 Aix-DB 基于 **LangChain/LangGraph** 框架，结合 **MCP Skills** 多智能体协作架构，实现自然语言到数据洞察的端到端转换。
 
