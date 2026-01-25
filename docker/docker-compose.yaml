@@ -20,9 +20,9 @@ services:
       # PostgreSQL
       - "15432:5432"
       # MinIO API
-      - "19000:9000"
+      - "9000:9000"
       # MinIO Console
-      - "19001:9001"
+      - "9001:9001"
 
     volumes:
       # PostgreSQL 数据目录
