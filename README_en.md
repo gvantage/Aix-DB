@@ -35,10 +35,20 @@ Aix-DB is built on the **LangChain/LangGraph** framework, combined with **MCP Sk
 
 ## Demo Video
 
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/462f4e2e-86e0-4d2a-8b78-5d6ca390c03c" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px; width: 80%;">
-  </video>
-</p>
+<table align="center">
+  <tr>
+    <th>🎯 Skill Mode</th>
+    <th>💬 Standard Mode</th>
+  </tr>
+  <tr>
+    <td>
+      <video src="https://github.com/user-attachments/assets/a1d45aba-e798-4454-a5cd-af5d3ae5661c" controls="controls" muted="muted" style="max-height:320px; min-height: 150px;"></video>
+    </td>
+    <td>
+      <video src="https://github.com/user-attachments/assets/462f4e2e-86e0-4d2a-8b78-5d6ca390c03c" controls="controls" muted="muted" style="max-height:320px; min-height: 150px;"></video>
+    </td>
+  </tr>
+</table>
 
 ---
 
