@@ -155,18 +155,40 @@ docker-compose up -d
 
 ### Local Development
 
+**① Clone the Repository**
 ```bash
-# Clone the repository
 git clone https://github.com/apconw/Aix-DB.git
 cd Aix-DB
+```
 
-# Install dependencies (requires Python 3.11)
+**② Start Middleware Dependencies** (PostgreSQL, MinIO, etc.)
+```bash
+cd docker
+docker-compose up -d
+```
+
+**③ Configure Environment Variables**
+
+Edit `.env.dev` in the project root to set database connection, MinIO address, etc. (default config works out of the box)
+
+**④ Install Python Dependencies** (requires Python 3.11)
+```bash
+# Option 1: pip
 pip install -r requirements.txt
 
-# Start backend service
-python serv.py
+# Option 2: uv (recommended, faster)
+uv venv --python 3.11
+source .venv/bin/activate
+uv sync
+```
 
-# Start frontend dev server (in another terminal)
+**⑤ Start Backend Service**
+```bash
+python serv.py
+```
+
+**⑥ Start Frontend Dev Server** (in another terminal)
+```bash
 cd web
 npm install
 npm run dev

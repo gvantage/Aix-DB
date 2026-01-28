@@ -151,18 +151,40 @@ docker-compose up -d
 
 ### 本地开发
 
+**① 克隆项目**
 ```bash
-# 克隆项目
 git clone https://github.com/apconw/Aix-DB.git
 cd Aix-DB
+```
 
-# 安装依赖 (需要 Python 3.11)
+**② 启动依赖中间件**（PostgreSQL、MinIO 等）
+```bash
+cd docker
+docker-compose up -d
+```
+
+**③ 配置环境变量**
+
+编辑项目根目录下的 `.env.dev`，按需修改数据库连接、MinIO 地址等配置（默认配置可直接使用）
+
+**④ 安装 Python 依赖**（需要 Python 3.11）
+```bash
+# 方式一：pip
 pip install -r requirements.txt
 
-# 启动后端服务
-python serv.py
+# 方式二：uv（推荐，更快）
+uv venv --python 3.11
+source .venv/bin/activate
+uv sync
+```
 
-# 启动前端开发服务器 (另开终端)
+**⑤ 启动后端服务**
+```bash
+python serv.py
+```
+
+**⑥ 启动前端开发服务器**（另开终端）
+```bash
 cd web
 npm install
 npm run dev
