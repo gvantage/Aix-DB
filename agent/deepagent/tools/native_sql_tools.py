@@ -21,6 +21,7 @@ from common.datasource_util import (
 )
 from model.db_connection_pool import get_db_pool
 from model.datasource_models import DatasourceTable, DatasourceField
+from model import Datasource
 
 from .tool_call_manager import (
     get_tool_call_manager,
@@ -456,3 +457,199 @@ def sql_db_query_checker(query: str) -> str:
         return f"SQL 语法警告: {', '.join(issues)}"
     
     return "✅ SQL 查询语法检查通过，可以执行。"
+
+
+def _get_table_relationships_from_datasource(table_names: Optional[list] = None) -> list:
+    """
+    从 Datasource.table_relation 获取表关系信息
+    
+    复用 text2sql 链路中 db_service.py 的 supplement_related_tables 逻辑
+    
+    Args:
+        table_names: 可选的表名列表，用于过滤只返回相关的关系
+        
+    Returns:
+        关系字符串列表，格式如 ["t_orders.customer_id = t_customers.id", ...]
+    """
+    datasource_id, _, _ = _get_datasource_info()
+    if not datasource_id:
+        return []
+    
+    db_pool = get_db_pool()
+    
+    try:
+        with db_pool.get_session() as session:
+            # 获取数据源的表关系配置
+            datasource = session.query(Datasource).filter(
+                Datasource.id == datasource_id
+            ).first()
+            
+            if not datasource or not datasource.table_relation:
+                return []
+            
+            relations = datasource.table_relation
+            if not isinstance(relations, list):
+                return []
+            
+            # 解析节点和边
+            table_nodes = [
+                r for r in relations if r.get("shape") in ("er-rect", "rect")
+            ]
+            edges = [r for r in relations if r.get("shape") == "edge"]
+            
+            if not edges:
+                return []
+            
+            # 查询该数据源下所有表，构建 id <-> name 映射
+            all_tables = session.query(DatasourceTable).filter(
+                DatasourceTable.ds_id == datasource_id
+            ).all()
+            
+            if not all_tables:
+                return []
+            
+            table_id_to_name = {table.id: table.table_name for table in all_tables}
+            
+            # 构建 node 映射，便于通过 (cell, port) 找到字段名
+            node_by_id = {str(n.get("id")): n for n in table_nodes if n.get("id") is not None}
+            
+            def _get_field_name(cell_id: str, port_id: str) -> str:
+                """从关系图节点或 DatasourceField 中解析字段名"""
+                # 1) 从前端关系图的 ports 中取
+                node = node_by_id.get(cell_id)
+                if node:
+                    ports = (node.get("ports") or {}).get("items") or []
+                    for p in ports:
+                        if str(p.get("id")) == str(port_id):
+                            return (
+                                p.get("attrs", {})
+                                .get("portNameLabel", {})
+                                .get("text", "")
+                                .strip()
+                            )
+                # 2) 兜底：从 DatasourceField.id 读取
+                try:
+                    if port_id and str(port_id).isdigit():
+                        field = session.query(DatasourceField).filter(
+                            DatasourceField.id == int(port_id)
+                        ).first()
+                        if field and field.field_name:
+                            return field.field_name.strip()
+                except Exception:
+                    pass
+                return ""
+            
+            # 如果指定了表名，转换为集合用于过滤
+            filter_table_set = set(table_names) if table_names else None
+            
+            # 解析关系
+            result = []
+            for edge in edges:
+                source = edge.get("source", {}) or {}
+                target = edge.get("target", {}) or {}
+                source_id = str(source.get("cell", "")) if source.get("cell") is not None else ""
+                target_id = str(target.get("cell", "")) if target.get("cell") is not None else ""
+                source_port = str(source.get("port", "")) if source.get("port") is not None else ""
+                target_port = str(target.get("port", "")) if target.get("port") is not None else ""
+                
+                # cell id -> 表名
+                try:
+                    s_tid = int(source_id) if source_id and source_id.isdigit() else None
+                    t_tid = int(target_id) if target_id and target_id.isdigit() else None
+                except ValueError:
+                    s_tid = t_tid = None
+                
+                s_table = table_id_to_name.get(s_tid) if s_tid is not None else None
+                t_table = table_id_to_name.get(t_tid) if t_tid is not None else None
+                
+                if not s_table or not t_table:
+                    continue
+                
+                # 如果指定了表名过滤，检查是否包含
+                if filter_table_set:
+                    if s_table not in filter_table_set and t_table not in filter_table_set:
+                        continue
+                
+                # 获取字段名
+                s_field = _get_field_name(source_id, source_port)
+                t_field = _get_field_name(target_id, target_port)
+                
+                if not s_field or not t_field:
+                    continue
+                
+                fk_str = f"{s_table}.{s_field} = {t_table}.{t_field}"
+                if fk_str not in result:
+                    result.append(fk_str)
+            
+            return result
+            
+    except Exception as e:
+        logger.error(f"获取表关系失败: {e}", exc_info=True)
+        return []
+
+
+@tool
+def sql_db_table_relationship(table_names: str = "") -> str:
+    """
+    获取指定表之间的关系信息（外键/关联关系）。
+    
+    使用此工具了解表之间如何关联，以便正确编写 JOIN 查询。
+    
+    Args:
+        table_names: 逗号分隔的表名列表，如 "t_orders, t_customers, t_products"。
+                    如果为空，则返回所有已配置的表关系。
+    
+    Returns:
+        表之间的关系信息，格式如：
+        - t_orders.customer_id = t_customers.id
+        - t_order_details.product_id = t_products.id
+    """
+    datasource_id, _, _ = _get_datasource_info()
+    if not datasource_id:
+        return "错误: 未设置数据源信息"
+    
+    # 检查是否允许调用
+    allowed, reason = _check_tool_call("sql_db_table_relationship")
+    if not allowed:
+        return reason
+    
+    try:
+        # 解析表名（支持逗号分隔的多个表名）
+        table_list = None
+        if table_names and table_names.strip():
+            table_list = [t.strip() for t in table_names.split(",") if t.strip()]
+        
+        # 获取表关系
+        relationships = _get_table_relationships_from_datasource(table_list)
+        
+        _record_tool_call("sql_db_table_relationship", True)
+        
+        if not relationships:
+            if table_list:
+                return (
+                    f"未找到表 {', '.join(table_list)} 之间的关系配置。\n\n"
+                    "可能的原因：\n"
+                    "1. 这些表之间没有配置外键/关联关系\n"
+                    "2. 可以尝试通过列名推断关系（如 customer_id 可能关联 customers.id）\n\n"
+                    "提示：可以查看表架构中的列名来推断可能的关联关系。"
+                )
+            else:
+                return (
+                    "当前数据源未配置任何表关系。\n\n"
+                    "提示：可以通过表架构中的外键列（如 xxx_id）推断可能的关联关系。"
+                )
+        
+        # 格式化输出
+        result_lines = ["表之间的关系如下：\n"]
+        for rel in relationships:
+            result_lines.append(f"  • {rel}")
+        
+        result_lines.append("\n✅ 表关系已获取完成。")
+        result_lines.append("请使用以上关系信息编写正确的 JOIN 语句。")
+        
+        return "\n".join(result_lines)
+        
+    except Exception as e:
+        _record_tool_call("sql_db_table_relationship", False)
+        logger.error(f"获取表关系失败: {e}", exc_info=True)
+        return f"获取表关系失败: {str(e)[:100]}"

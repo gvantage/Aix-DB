@@ -30,6 +30,7 @@ from agent.deepagent.tools.native_sql_tools import (
     sql_db_query,
     sql_db_query_checker,
     sql_db_schema,
+    sql_db_table_relationship,
 )
 from agent.deepagent.tools.tool_call_manager import (
     get_tool_call_manager,
@@ -278,6 +279,7 @@ class DeepAgent:
                     sql_db_schema,
                     sql_db_query,
                     sql_db_query_checker,
+                    sql_db_table_relationship,
                 ]
 
         # 添加报告上传工具
