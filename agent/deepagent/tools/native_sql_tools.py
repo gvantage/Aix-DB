@@ -1,63 +1,90 @@
 """
 原生驱动数据源的 SQL 工具
 用于支持 starrocks、doris 等使用原生驱动的数据源
+
+重构说明：
+- 使用会话级工具调用管理器替代全局变量
+- 解决多会话间状态污染问题
+- 增强循环检测和早期终止机制
 """
 
-import json
+import asyncio
 import logging
-from typing import List, Optional
+import re
+from typing import Optional
 
 from langchain_core.tools import tool
 
 from common.datasource_util import (
-    DB,
-    ConnectType,
     DatasourceConfigUtil,
     DatasourceConnectionUtil,
 )
 from model.db_connection_pool import get_db_pool
 from model.datasource_models import DatasourceTable, DatasourceField
 
+from .tool_call_manager import (
+    get_tool_call_manager,
+)
+
 logger = logging.getLogger(__name__)
 
-# 全局变量存储数据源信息（在创建 agent 时设置）
-_native_datasource_id: Optional[int] = None
-_native_datasource_type: Optional[str] = None
-_native_datasource_config: Optional[str] = None
-
-# 记录最近执行的查询，用于检测重复查询（每个数据源独立记录）
-_recent_queries: dict = {}  # {datasource_id: [query1, query2, ...]}
-_MAX_RECENT_QUERIES = 10  # 记录最近10条查询
-
-# 记录工具调用次数，防止死循环（每个数据源独立记录）
-_tool_call_counts: dict = {}  # {datasource_id: {"sql_db_query": count, "sql_db_schema": count, ...}}
-_MAX_TOOL_CALLS_PER_TYPE = 20  # 每个工具类型最多调用20次
+# 数据源信息存储（使用模块级全局变量，因为 langchain 工具在不同上下文中执行）
+# 注意：这在单用户单会话场景下是安全的
+from dataclasses import dataclass
 
 
-def set_native_datasource_info(datasource_id: int, datasource_type: str, datasource_config: str):
+@dataclass
+class DatasourceInfo:
+    """数据源信息"""
+    datasource_id: Optional[int] = None
+    datasource_type: Optional[str] = None
+    datasource_config: Optional[str] = None
+    session_id: Optional[str] = None  # 添加会话ID
+
+
+# 模块级全局变量
+_current_datasource: DatasourceInfo = DatasourceInfo()
+
+
+def set_native_datasource_info(
+    datasource_id: int, 
+    datasource_type: str, 
+    datasource_config: str,
+    session_id: Optional[str] = None
+):
     """设置原生数据源信息"""
-    global _native_datasource_id, _native_datasource_type, _native_datasource_config
-    _native_datasource_id = datasource_id
-    _native_datasource_type = datasource_type
-    _native_datasource_config = datasource_config
-    
-    # 初始化该数据源的查询记录
-    if datasource_id not in _recent_queries:
-        _recent_queries[datasource_id] = []
-    
-    # 初始化该数据源的工具调用计数
-    if datasource_id not in _tool_call_counts:
-        _tool_call_counts[datasource_id] = {
-            "sql_db_query": 0,
-            "sql_db_schema": 0,
-            "sql_db_list_tables": 0,
-            "sql_db_query_checker": 0,
-        }
+    global _current_datasource
+    _current_datasource = DatasourceInfo(
+        datasource_id=datasource_id,
+        datasource_type=datasource_type,
+        datasource_config=datasource_config,
+        session_id=session_id or f"datasource_{datasource_id}",
+    )
+    logger.info(f"设置数据源信息: ID={datasource_id}, Type={datasource_type}, Session={_current_datasource.session_id}")
+
+
+def _get_datasource_info() -> tuple[Optional[int], Optional[str], Optional[str]]:
+    """获取当前数据源信息"""
+    return (
+        _current_datasource.datasource_id, 
+        _current_datasource.datasource_type, 
+        _current_datasource.datasource_config
+    )
+
+
+def _get_session_id() -> str:
+    """获取当前会话ID"""
+    if _current_datasource.session_id:
+        return _current_datasource.session_id
+    if _current_datasource.datasource_id:
+        return f"datasource_{_current_datasource.datasource_id}"
+    return "default"
 
 
 def _get_table_info_from_metadata() -> dict:
     """从元数据表获取表结构信息"""
-    if not _native_datasource_id:
+    datasource_id, _, _ = _get_datasource_info()
+    if not datasource_id:
         return {}
     
     db_pool = get_db_pool()
@@ -67,14 +94,14 @@ def _get_table_info_from_metadata() -> dict:
         with db_pool.get_session() as session:
             # 获取该数据源下所有已勾选的表
             tables = session.query(DatasourceTable).filter(
-                DatasourceTable.ds_id == _native_datasource_id,
+                DatasourceTable.ds_id == datasource_id,
                 DatasourceTable.checked == True
             ).all()
             
             # 获取所有表的字段
             table_ids = [t.id for t in tables]
             fields = session.query(DatasourceField).filter(
-                DatasourceField.ds_id == _native_datasource_id,
+                DatasourceField.ds_id == datasource_id,
                 DatasourceField.table_id.in_(table_ids),
                 DatasourceField.checked == True
             ).all()
@@ -110,31 +137,64 @@ def _get_table_info_from_metadata() -> dict:
     return table_info
 
 
+def _check_tool_call(tool_name: str, query: Optional[str] = None) -> tuple[bool, str]:
+    """
+    检查工具调用是否允许
+    
+    Returns:
+        tuple[bool, str]: (是否允许, 如果不允许则返回原因)
+    """
+    session_id = _get_session_id()
+    manager = get_tool_call_manager()
+    return manager.check_before_call(session_id, tool_name, query)
+
+
+def _record_tool_call(tool_name: str, success: bool, query: Optional[str] = None) -> None:
+    """记录工具调用"""
+    session_id = _get_session_id()
+    manager = get_tool_call_manager()
+    manager.record_call(session_id, tool_name, success, query)
+    logger.debug(f"记录工具调用: tool={tool_name}, success={success}, session={session_id}")
+
+
 @tool
 def sql_db_list_tables() -> str:
     """列出数据库中的所有表名。"""
-    if not _native_datasource_id:
+    datasource_id, _, _ = _get_datasource_info()
+    if not datasource_id:
         return "错误: 未设置数据源信息"
     
-    # 检查调用次数限制
-    if _native_datasource_id in _tool_call_counts:
-        count = _tool_call_counts[_native_datasource_id].get("sql_db_list_tables", 0)
-        if count >= _MAX_TOOL_CALLS_PER_TYPE:
-            logger.warning(f"sql_db_list_tables 调用次数已达上限 ({_MAX_TOOL_CALLS_PER_TYPE})，可能陷入循环")
-            return (
-                "⚠️ 警告: 表列表已多次查询。"
-                "如果之前已返回表列表，请直接使用已获取的信息，无需重复查询。"
-                "如需查看特定表的结构，请使用 sql_db_schema 工具。"
-            )
-        _tool_call_counts[_native_datasource_id]["sql_db_list_tables"] = count + 1
+    # 检查是否允许调用
+    allowed, reason = _check_tool_call("sql_db_list_tables")
+    if not allowed:
+        return reason
     
-    table_info = _get_table_info_from_metadata()
-    table_names = list(table_info.keys())
-    
-    if not table_names:
-        return "数据库中没有表"
-    
-    return f"数据库中有以下表: {', '.join(table_names)}"
+    try:
+        table_info = _get_table_info_from_metadata()
+        table_names = list(table_info.keys())
+        
+        if not table_names:
+            _record_tool_call("sql_db_list_tables", True)
+            return "数据库中没有表"
+        
+        _record_tool_call("sql_db_list_tables", True)
+        
+        # 格式化输出，包含表注释
+        result_lines = ["数据库中有以下表：\n"]
+        for table_name in table_names:
+            comment = table_info[table_name].get("table_comment", "")
+            if comment:
+                result_lines.append(f"- {table_name}: {comment}")
+            else:
+                result_lines.append(f"- {table_name}")
+        
+        result_lines.append("\n✅ 表列表已获取完成。如需查看表结构，请使用 sql_db_schema 工具。")
+        return "\n".join(result_lines)
+        
+    except Exception as e:
+        _record_tool_call("sql_db_list_tables", False)
+        logger.error(f"列出表失败: {e}", exc_info=True)
+        return f"列出表失败: {str(e)[:100]}"
 
 
 @tool
@@ -145,54 +205,58 @@ def sql_db_schema(table_names: str) -> str:
     Args:
         table_names: 表名，可以是单个表名或多个表名（用逗号分隔）
     """
-    if not _native_datasource_id:
+    datasource_id, _, _ = _get_datasource_info()
+    if not datasource_id:
         return "错误: 未设置数据源信息"
     
-    # 检查调用次数限制
-    if _native_datasource_id in _tool_call_counts:
-        count = _tool_call_counts[_native_datasource_id].get("sql_db_schema", 0)
-        if count >= _MAX_TOOL_CALLS_PER_TYPE:
-            logger.warning(f"sql_db_schema 调用次数已达上限 ({_MAX_TOOL_CALLS_PER_TYPE})，可能陷入循环")
-            return (
-                "⚠️ 警告: 表架构已多次查询。"
-                "如果之前已返回表架构信息，请直接使用已获取的信息，无需重复查询。"
-                "请基于已获取的架构信息编写 SQL 查询。"
-            )
-        _tool_call_counts[_native_datasource_id]["sql_db_schema"] = count + 1
+    # 检查是否允许调用
+    allowed, reason = _check_tool_call("sql_db_schema")
+    if not allowed:
+        return reason
     
-    table_info = _get_table_info_from_metadata()
-    
-    # 解析表名（支持逗号分隔的多个表名）
-    if isinstance(table_names, str):
-        table_list = [t.strip() for t in table_names.split(",")]
-    else:
-        table_list = [table_names]
-    
-    schema_parts = []
-    for table_name in table_list:
-        if table_name not in table_info:
-            schema_parts.append(f"表 '{table_name}' 不存在")
-            continue
+    try:
+        table_info = _get_table_info_from_metadata()
         
-        info = table_info[table_name]
-        columns = info.get("columns", {})
-        table_comment = info.get("table_comment", "")
+        # 解析表名（支持逗号分隔的多个表名）
+        if isinstance(table_names, str):
+            table_list = [t.strip() for t in table_names.split(",")]
+        else:
+            table_list = [table_names]
         
-        schema_text = f"\n表 '{table_name}':"
-        if table_comment:
-            schema_text += f"\n注释: {table_comment}"
+        schema_parts = []
+        for table_name in table_list:
+            if table_name not in table_info:
+                schema_parts.append(f"表 '{table_name}' 不存在")
+                continue
+            
+            info = table_info[table_name]
+            columns = info.get("columns", {})
+            table_comment = info.get("table_comment", "")
+            
+            schema_text = f"\n表 '{table_name}':"
+            if table_comment:
+                schema_text += f"\n注释: {table_comment}"
+            
+            schema_text += "\n列:"
+            for col_name, col_info in columns.items():
+                col_type = col_info.get("type", "")
+                col_comment = col_info.get("comment", "")
+                schema_text += f"\n  - {col_name} ({col_type})"
+                if col_comment:
+                    schema_text += f" - {col_comment}"
+            
+            schema_parts.append(schema_text)
         
-        schema_text += "\n列:"
-        for col_name, col_info in columns.items():
-            col_type = col_info.get("type", "")
-            col_comment = col_info.get("comment", "")
-            schema_text += f"\n  - {col_name} ({col_type})"
-            if col_comment:
-                schema_text += f" - {col_comment}"
+        _record_tool_call("sql_db_schema", True)
         
-        schema_parts.append(schema_text)
-    
-    return "\n".join(schema_parts) if schema_parts else "未找到表信息"
+        result = "\n".join(schema_parts) if schema_parts else "未找到表信息"
+        result += "\n\n✅ 表架构已获取完成。请基于此信息编写 SQL 查询，无需重复获取架构。"
+        return result
+        
+    except Exception as e:
+        _record_tool_call("sql_db_schema", False)
+        logger.error(f"获取表架构失败: {e}", exc_info=True)
+        return f"获取表架构失败: {str(e)[:100]}"
 
 
 @tool
@@ -204,7 +268,9 @@ def sql_db_query(query: str) -> str:
     Args:
         query: 要执行的 SQL 查询语句
     """
-    if not _native_datasource_id or not _native_datasource_type or not _native_datasource_config:
+    datasource_id, datasource_type, datasource_config = _get_datasource_info()
+    
+    if not datasource_id or not datasource_type or not datasource_config:
         return "错误: 未设置数据源信息"
     
     # 安全检查：只允许 SELECT 查询
@@ -217,66 +283,24 @@ def sql_db_query(query: str) -> str:
     if not query_upper.startswith("SELECT"):
         return "错误: 只允许执行 SELECT 查询"
     
-    # 规范化 SQL 查询（去除多余空白，用于比较）
-    normalized_query = " ".join(query.split()).upper()
+    # 检查是否允许调用（包含重复查询检测）
+    allowed, reason = _check_tool_call("sql_db_query", query)
+    if not allowed:
+        return reason
     
-    # 检测重复查询
-    if _native_datasource_id and _native_datasource_id in _recent_queries:
-        recent_queries = _recent_queries[_native_datasource_id]
-        normalized_recent = [" ".join(q.split()).upper() for q in recent_queries]
-        
-        if normalized_query in normalized_recent:
-            # 找到重复查询，返回明确的提示
-            logger.warning(f"检测到重复查询，已跳过执行:\n{query[:200]}...")
-            return (
-                "⚠️ **重复查询检测**: 此查询刚刚已执行过，无需重复执行。\n\n"
-                "**查询已成功完成，结果已在上方显示。**\n\n"
-                "**请停止重复执行相同查询。**\n"
-                "如果需要对结果进行进一步分析，请：\n"
-                "1. 直接基于已获取的结果进行分析\n"
-                "2. 或提出新的查询需求\n"
-                "3. 或说明您想要的具体分析目标"
-            )
-    
-    # 检查调用次数限制
-    if _native_datasource_id in _tool_call_counts:
-        count = _tool_call_counts[_native_datasource_id].get("sql_db_query", 0)
-        if count >= _MAX_TOOL_CALLS_PER_TYPE:
-            logger.warning(f"sql_db_query 调用次数已达上限 ({_MAX_TOOL_CALLS_PER_TYPE})，可能陷入循环")
-            return (
-                "⚠️ **警告: SQL 查询调用次数已达上限。**\n\n"
-                "可能的原因：\n"
-                "1. 反复执行相同的查询\n"
-                "2. 查询持续失败并重试\n"
-                "3. Agent 陷入循环\n\n"
-                "**建议：**\n"
-                "1. 检查之前的查询结果，可能已经包含所需信息\n"
-                "2. 如果查询失败，请仔细分析错误信息，不要盲目重试\n"
-                "3. 考虑简化查询或分步骤执行\n"
-                "4. 如果问题持续，请重新描述您的需求"
-            )
-        _tool_call_counts[_native_datasource_id]["sql_db_query"] = count + 1
-    
-    # 记录执行的 SQL（用于调试）- 记录完整 SQL
-    logger.info(f"执行 SQL 查询（数据源类型: {_native_datasource_type}，调用次数: {_tool_call_counts.get(_native_datasource_id, {}).get('sql_db_query', 0)}）:\n{query}")
+    logger.info(f"执行 SQL 查询（数据源类型: {datasource_type}）:\n{query[:500]}")
     
     try:
         # 解密配置
-        config = DatasourceConfigUtil.decrypt_config(_native_datasource_config)
+        config = DatasourceConfigUtil.decrypt_config(datasource_config)
         
-        # 执行查询
+        # 执行查询（添加超时控制）
         result_data = DatasourceConnectionUtil.execute_query(
-            _native_datasource_type, config, query
+            datasource_type, config, query
         )
         
-        # 记录成功执行的查询
-        if _native_datasource_id:
-            if _native_datasource_id not in _recent_queries:
-                _recent_queries[_native_datasource_id] = []
-            _recent_queries[_native_datasource_id].append(query)
-            # 只保留最近 N 条查询
-            if len(_recent_queries[_native_datasource_id]) > _MAX_RECENT_QUERIES:
-                _recent_queries[_native_datasource_id].pop(0)
+        # 记录成功的调用
+        _record_tool_call("sql_db_query", True, query)
         
         if not result_data:
             return "✅ 查询成功执行，但没有返回数据。"
@@ -287,107 +311,98 @@ def sql_db_query(query: str) -> str:
         
         # 构建结果字符串
         if len(result_data) > max_rows:
-            result_str = f"✅ 查询成功执行，返回 {len(result_data)} 行数据（仅显示前 {max_rows} 行）:\n\n"
+            result_str = f"✅ 查询成功，返回 {len(result_data)} 行数据（显示前 {max_rows} 行）:\n\n"
         else:
-            result_str = f"✅ 查询成功执行，返回 {len(result_data)} 行数据:\n\n"
+            result_str = f"✅ 查询成功，返回 {len(result_data)} 行数据:\n\n"
         
-        # 格式化表格式输出
+        # 格式化表格输出
         if result_rows:
-            # 获取列名
             columns = list(result_rows[0].keys())
             
-            # 计算每列的最大宽度
+            # 计算每列的最大宽度（限制最大宽度避免过宽）
             col_widths = {}
             for col in columns:
-                col_widths[col] = max(len(str(col)), max(len(str(row.get(col, ""))) for row in result_rows))
+                col_widths[col] = min(
+                    max(len(str(col)), max(len(str(row.get(col, ""))[:50]) for row in result_rows)),
+                    50
+                )
             
             # 构建表头
             header = " | ".join(str(col).ljust(col_widths[col]) for col in columns)
-            separator = "-" * len(header)
+            separator = "-" * min(len(header), 200)
             result_str += header + "\n" + separator + "\n"
             
             # 构建数据行
             for row in result_rows:
-                row_str = " | ".join(str(row.get(col, "")).ljust(col_widths[col]) for col in columns)
+                row_str = " | ".join(
+                    str(row.get(col, ""))[:50].ljust(col_widths[col]) 
+                    for col in columns
+                )
                 result_str += row_str + "\n"
         
-        # 添加明确的完成提示
-        result_str += "\n✅ 查询已完成。如需进一步分析，请说明您的需求。"
-        
+        result_str += "\n✅ 查询已完成。请基于以上结果进行分析，无需重复执行相同查询。"
         return result_str
         
     except Exception as e:
+        _record_tool_call("sql_db_query", False, query)
         error_msg = str(e)
         
         # 针对 StarRocks/Doris 的特殊错误处理
-        if _native_datasource_type in ("starrocks", "doris"):
-            # 检查是否是列无法解析的错误
-            if "cannot be resolved" in error_msg.lower():
-                # 提取具体的列名信息
-                import re
-                column_match = re.search(r"Column\s+['`]([^'`]+)['`]", error_msg, re.IGNORECASE)
-                column_name = column_match.group(1) if column_match else "未知列"
-                
-                # 分析 SQL，提取表别名信息
-                table_aliases = set()
-                alias_pattern = r"FROM\s+[`]?(\w+)[`]?\s+(\w+)|JOIN\s+[`]?(\w+)[`]?\s+(\w+)"
-                matches = re.findall(alias_pattern, query, re.IGNORECASE)
-                for match in matches:
-                    if match[1]:  # FROM 子句的别名
-                        table_aliases.add(match[1])
-                    if match[3]:  # JOIN 子句的别名
-                        table_aliases.add(match[3])
-                
-                # 检查列名中使用的表别名
-                column_alias_match = re.search(r"['`](\w+)['`]\s*\.\s*['`](\w+)['`]", column_name)
-                if column_alias_match:
-                    used_alias = column_alias_match.group(1)
-                    used_column = column_alias_match.group(2)
-                    
-                    if used_alias not in table_aliases:
-                        concise_error = (
-                            f"SQL 执行失败: 表别名 '{used_alias}' 未在 FROM/JOIN 子句中定义。\n"
-                            f"当前 SQL 中定义的表别名: {', '.join(sorted(table_aliases)) if table_aliases else '无'}。\n"
-                            f"**请检查 JOIN 语句是否正确。**\n"
-                            f"如果之前已使用 sql_db_schema 查看过表结构，请直接使用已获取的信息，无需重复查询。"
-                        )
-                    else:
-                        concise_error = (
-                            f"SQL 执行失败: 列 '{used_column}' 在表 '{used_alias}' 中不存在。\n"
-                            f"**请检查列名是否正确。**\n"
-                            f"如果之前已使用 sql_db_schema 查看过表结构，请直接使用已获取的信息，无需重复查询。"
-                        )
-                else:
-                    concise_error = (
-                        f"SQL 执行失败: 列 '{column_name}' 无法解析。\n"
-                        f"**请检查：**\n"
-                        f"1) 表别名是否正确定义\n"
-                        f"2) 列名是否存在\n"
-                        f"3) JOIN 语句是否正确\n\n"
-                        f"**如果之前已使用 sql_db_schema 查看过表结构，请直接使用已获取的信息，无需重复查询。**"
-                    )
-                
-                logger.error(f"SQL 查询失败: {error_msg}\n执行的完整 SQL:\n{query}", exc_info=True)
-                return concise_error
-            
-            # 检查是否是表不存在的错误
-            elif "table" in error_msg.lower() and ("doesn't exist" in error_msg.lower() or "not exist" in error_msg.lower()):
-                concise_error = (
-                    f"SQL 执行失败: 表不存在。\n"
-                    f"**请检查表名是否正确。**\n"
-                    f"如果之前已使用 sql_db_list_tables 查看过表列表，请直接使用已获取的信息，无需重复查询。"
-                )
-                logger.error(f"SQL 查询失败: {error_msg}\n执行的完整 SQL:\n{query}", exc_info=True)
+        if datasource_type in ("starrocks", "doris"):
+            concise_error = _handle_starrocks_error(error_msg, query)
+            if concise_error:
+                logger.error(f"SQL 查询失败: {error_msg[:200]}")
                 return concise_error
         
         # 通用错误处理：返回简洁的错误信息
-        # 限制错误信息长度，避免 Agent 陷入循环
         if len(error_msg) > 200:
             error_msg = error_msg[:200] + "..."
         
-        concise_error = f"SQL 执行失败: {error_msg}"
-        logger.error(f"SQL 查询失败: {error_msg}\n执行的完整 SQL:\n{query}", exc_info=True)
-        return concise_error
+        logger.error(f"SQL 查询失败: {error_msg}")
+        return (
+            f"SQL 执行失败: {error_msg}\n\n"
+            "请检查 SQL 语法和表结构是否正确。"
+            "如果之前已获取表架构，请直接使用已有信息，无需重复查询。"
+        )
+
+
+def _handle_starrocks_error(error_msg: str, query: str) -> Optional[str]:
+    """处理 StarRocks/Doris 特殊错误"""
+    error_lower = error_msg.lower()
+    
+    # 检查列无法解析的错误
+    if "cannot be resolved" in error_lower:
+        column_match = re.search(r"Column\s+['`]([^'`]+)['`]", error_msg, re.IGNORECASE)
+        column_name = column_match.group(1) if column_match else "未知列"
+        
+        # 分析 SQL，提取表别名信息
+        table_aliases = set()
+        alias_pattern = r"FROM\s+[`]?(\w+)[`]?\s+(\w+)|JOIN\s+[`]?(\w+)[`]?\s+(\w+)"
+        matches = re.findall(alias_pattern, query, re.IGNORECASE)
+        for match in matches:
+            if match[1]:
+                table_aliases.add(match[1])
+            if match[3]:
+                table_aliases.add(match[3])
+        
+        return (
+            f"SQL 执行失败: 列 '{column_name}' 无法解析。\n"
+            f"已定义的表别名: {', '.join(sorted(table_aliases)) if table_aliases else '无'}\n\n"
+            "请检查：\n"
+            "1. 表别名是否正确定义\n"
+            "2. 列名是否存在于对应的表中\n"
+            "3. JOIN 语句是否正确\n\n"
+            "请使用已获取的表架构信息修正 SQL，无需重复查询架构。"
+        )
+    
+    # 检查表不存在的错误
+    if "table" in error_lower and ("doesn't exist" in error_lower or "not exist" in error_lower):
+        return (
+            "SQL 执行失败: 表不存在。\n\n"
+            "请检查表名是否正确，可使用 sql_db_list_tables 查看可用表列表。"
+        )
+    
+    return None
 
 
 @tool
@@ -399,23 +414,45 @@ def sql_db_query_checker(query: str) -> str:
     Args:
         query: 要检查的 SQL 查询语句
     """
+    # 检查是否允许调用
+    allowed, reason = _check_tool_call("sql_db_query_checker")
+    if not allowed:
+        return reason
+    
     query_upper = query.strip().upper()
     
     # 基本语法检查
     if not query_upper:
+        _record_tool_call("sql_db_query_checker", False)
         return "错误: SQL 查询为空"
     
     # 检查是否包含禁止的操作
     forbidden_keywords = ["INSERT", "UPDATE", "DELETE", "DROP", "ALTER", "TRUNCATE", "CREATE"]
     for keyword in forbidden_keywords:
         if keyword in query_upper:
+            _record_tool_call("sql_db_query_checker", False)
             return f"错误: 不允许执行 {keyword} 操作，只允许 SELECT 查询"
     
     if not query_upper.startswith("SELECT"):
+        _record_tool_call("sql_db_query_checker", False)
         return "错误: 只允许执行 SELECT 查询"
     
     # 基本结构检查
+    issues = []
     if "FROM" not in query_upper:
-        return "警告: SQL 查询缺少 FROM 子句"
+        issues.append("缺少 FROM 子句")
     
-    return "SQL 查询语法检查通过"
+    # 检查括号匹配
+    if query.count("(") != query.count(")"):
+        issues.append("括号不匹配")
+    
+    # 检查引号匹配
+    if query.count("'") % 2 != 0:
+        issues.append("单引号不匹配")
+    
+    _record_tool_call("sql_db_query_checker", True)
+    
+    if issues:
+        return f"SQL 语法警告: {', '.join(issues)}"
+    
+    return "✅ SQL 查询语法检查通过，可以执行。"
