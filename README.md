@@ -229,7 +229,7 @@ npm run dev
     <td align="center"><b>微信公众号</b></td>
   </tr>
   <tr>
-    <td align="center"><img src="./docs/docs/images/wchat_account.jpg" alt="微信公众号" width="180"/></td>
+    <td align="center"><img src="./docs/docs/images/qrcode.jpg" alt="微信公众号" width="180"/></td>
   </tr>
 </table>
 
