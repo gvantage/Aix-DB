@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/apconw/Aix-DB">
+  <a href="https://bgithub.xyz/apconw/Aix-DB">
     <img src="./docs/docs/images/logo.svg" alt="Aix-DB" width="160"/>
   </a>
 </p>
@@ -13,9 +13,9 @@
 
 
 <p align="center">
-  <a href="https://github.com/apconw/Aix-DB/releases"><img src="https://img.shields.io/github/v/release/apconw/Aix-DB" alt="Release Version" /></a>
-  <a href="https://github.com/apconw/Aix-DB/stargazers"><img src="https://img.shields.io/github/stars/apconw/Aix-DB?style=flat" alt="GitHub Stars" /></a>
-  <a href="https://github.com/apconw/Aix-DB/blob/master/LICENSE"><img src="https://img.shields.io/github/license/apconw/Aix-DB" alt="License" /></a>
+  <a href="https://bgithub.xyz/apconw/Aix-DB/releases"><img src="https://img.shields.io/github/v/release/apconw/Aix-DB" alt="Release Version" /></a>
+  <a href="https://bgithub.xyz/apconw/Aix-DB/stargazers"><img src="https://img.shields.io/github/stars/apconw/Aix-DB?style=flat" alt="GitHub Stars" /></a>
+  <a href="https://bgithub.xyz/apconw/Aix-DB/blob/master/LICENSE"><img src="https://img.shields.io/github/license/apconw/Aix-DB" alt="License" /></a>
   <a href="https://hub.docker.com/r/apcon/aix-db"><img src="https://img.shields.io/docker/pulls/apcon/aix-db" alt="Docker Pulls" /></a>
 </p>
 
@@ -41,10 +41,10 @@ Aix-DB 基于 **LangChain/LangGraph** 框架，结合 **MCP Skills** 多智能�
   </tr>
   <tr>
     <td>
-      <video src="https://github.com/user-attachments/assets/a1d45aba-e798-4454-a5cd-af5d3ae5661c" controls="controls" muted="muted" style="max-height:320px; min-height: 150px;"></video>
+      <video src="https://bgithub.xyz/user-attachments/assets/a1d45aba-e798-4454-a5cd-af5d3ae5661c" controls="controls" muted="muted" style="max-height:320px; min-height: 150px;"></video>
     </td>
     <td>
-      <video src="https://github.com/user-attachments/assets/462f4e2e-86e0-4d2a-8b78-5d6ca390c03c" controls="controls" muted="muted" style="max-height:320px; min-height: 150px;"></video>
+      <video src="https://bgithub.xyz/user-attachments/assets/462f4e2e-86e0-4d2a-8b78-5d6ca390c03c" controls="controls" muted="muted" style="max-height:320px; min-height: 150px;"></video>
     </td>
   </tr>
 </table>
@@ -180,7 +180,8 @@ uv sync
 
 **⑤ 启动后端服务**
 ```bash
-python serv.py
+# Windows PowerShell 专属命令：设置环境变量+运行脚本，一行执行  增加字符兼容性，解决有些机器错误问题。
+$env:PYTHONUTF8=1; python serv.py
 ```
 
 **⑥ 启动前端开发服务器**（另开终端）
