@@ -136,6 +136,10 @@ docker run -d \
   -e SERVER_HOST=0.0.0.0 \
   -e SERVER_PORT=8088 \
   -e SERVER_WORKERS=2 \
+  -e LANGFUSE_TRACING_ENABLED=false \
+  -e LANGFUSE_SECRET_KEY= \
+  -e LANGFUSE_PUBLIC_KEY= \
+  -e LANGFUSE_BASE_URL= \
   -p 18080:80 \
   -p 18088:8088 \
   -p 15432:5432 \
