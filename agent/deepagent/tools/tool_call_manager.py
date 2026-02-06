@@ -62,13 +62,13 @@ class ToolCallManager:
     - 提供调用限制和早期终止机制
     """
 
-    # 配置参数
-    MAX_CALLS_PER_TOOL = 50  # 每个工具最大调用次数
-    MAX_TOTAL_CALLS = 100  # 总调用次数上限
-    MAX_CONSECUTIVE_SAME_TOOL = 30  # 连续调用同一工具的最大次数
-    MAX_CONSECUTIVE_FAILURES = 10  # 连续失败的最大次数
-    PATTERN_DETECTION_WINDOW = 10  # 模式检测窗口大小
-    SESSION_TIMEOUT = 30 * 60  # 会话超时时间（30分钟）
+    # 配置参数 - 收紧阈值，防止 agent 在循环中浪费过多时间
+    MAX_CALLS_PER_TOOL = 30  # 每个工具最大调用次数（原50→30）
+    MAX_TOTAL_CALLS = 60  # 总调用次数上限（原100→60）
+    MAX_CONSECUTIVE_SAME_TOOL = 15  # 连续调用同一工具的最大次数（原30→15）
+    MAX_CONSECUTIVE_FAILURES = 5  # 连续失败的最大次数（原10→5）
+    PATTERN_DETECTION_WINDOW = 8  # 模式检测窗口大小（原10→8，更早发现循环）
+    SESSION_TIMEOUT = 20 * 60  # 会话超时时间（原30→20分钟，与 TASK_TIMEOUT 对齐）
 
     def __init__(self):
         self._sessions: Dict[str, SessionContext] = {}

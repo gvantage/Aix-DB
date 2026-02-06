@@ -68,20 +68,22 @@ class DeepAgent:
     # 递归限制说明：
     # - 子代理（subagent/task）也会消耗递归次数
     # - 报告生成等复杂任务可能需要较多步骤
-    # - 设置为 60 是一个平衡点：足够完成复杂任务，同时防止无限循环
-    DEFAULT_RECURSION_LIMIT = 400
+    # - 设置为 150 是一个平衡点：足够完成复杂任务，同时防止无限循环
+    DEFAULT_RECURSION_LIMIT = 150
 
-    # LLM 超时配置（秒）
-    DEFAULT_LLM_TIMEOUT = 5 * 60  # 5 分钟，单次 LLM 调用超时
+    # LLM 超时配置（秒）- 与 llm_util.py 的 DEFAULT_LLM_TIMEOUT 保持一致
+    # 公网大模型（如 DeepSeek、Qwen）在高峰期可能需要较长时间
+    DEFAULT_LLM_TIMEOUT = 10 * 60  # 10 分钟，单次 LLM 调用超时
 
     # 流式响应超时（秒）- 如果长时间没有新消息，则认为可能卡住
-    STREAM_IDLE_TIMEOUT = 3 * 60  # 3 分钟无新消息
+    # 注意：reasoning/thinking 模型在思考阶段不输出 token，需要更宽松的超时
+    STREAM_IDLE_TIMEOUT = 5 * 60  # 5 分钟无新消息（兼容深度思考模型）
 
-    # 总任务超时（秒）
+    # 总任务超时（秒）- 与前端 fetch timeout (18分钟) 和 Nginx proxy_read_timeout (1080s) 对齐
     TASK_TIMEOUT = 15 * 60  # 15 分钟
 
     # 最大消息数量（防止上下文过长）
-    MAX_MESSAGES = 100
+    MAX_MESSAGES = 80
 
     def __init__(self):
         # 全局 checkpointer 用于持久化所有用户的对话状态
@@ -410,8 +412,20 @@ class DeepAgent:
                     timeout=self.TASK_TIMEOUT,
                 )
             except asyncio.TimeoutError:
-                logger.error(f"任务 {task_id} 总超时 ({self.TASK_TIMEOUT}秒)")
-                await self._handle_timeout(response, "任务执行时间过长")
+                elapsed = time.time() - task_context.get("start_time", 0)
+                stats = self.tool_manager.get_stats(effective_session_id)
+                logger.error(
+                    f"任务 {task_id} 总超时 ({self.TASK_TIMEOUT}秒) - "
+                    f"实际耗时: {elapsed:.0f}秒, "
+                    f"工具调用: {stats.get('total_calls', 0)}次, "
+                    f"失败: {stats.get('failed_calls', 0)}次"
+                )
+                await self._handle_timeout(
+                    response,
+                    f"任务执行时间超过上限（{self.TASK_TIMEOUT // 60} 分钟）",
+                    elapsed_total=elapsed,
+                    tool_stats=stats,
+                )
 
         except asyncio.CancelledError:
             is_user_cancelled = self._is_task_cancelled(task_id)
@@ -570,9 +584,22 @@ class DeepAgent:
                         break
 
                 # 检查空闲超时
-                if current_time - last_message_time > self.STREAM_IDLE_TIMEOUT:
-                    logger.warning(f"流式响应空闲超时 ({self.STREAM_IDLE_TIMEOUT}秒)")
-                    await self._handle_timeout(response, "长时间无响应")
+                idle_duration = current_time - last_message_time
+                if idle_duration > self.STREAM_IDLE_TIMEOUT:
+                    elapsed_total = current_time - start_time
+                    stats = self.tool_manager.get_stats(effective_session_id) if effective_session_id else {}
+                    logger.warning(
+                        f"流式响应空闲超时 ({self.STREAM_IDLE_TIMEOUT}秒) - "
+                        f"空闲时长: {idle_duration:.0f}秒, 总运行: {elapsed_total:.0f}秒, "
+                        f"消息数: {message_count}, token数: {token_count}, "
+                        f"工具调用: {stats.get('total_calls', 0)}次"
+                    )
+                    await self._handle_timeout(
+                        response,
+                        f"长时间无响应（空闲 {idle_duration:.0f} 秒）",
+                        elapsed_total=elapsed_total,
+                        tool_stats=stats,
+                    )
                     break
 
                 # 处理 messages 模式 - token 级别流式输出
@@ -822,18 +849,40 @@ class DeepAgent:
                 return False
             raise
 
-    async def _handle_timeout(self, response, reason: str):
-        """处理超时"""
+    async def _handle_timeout(
+        self,
+        response,
+        reason: str,
+        elapsed_total: float = 0,
+        tool_stats: dict = None,
+    ):
+        """处理超时，提供详细的诊断信息"""
+        # 构建诊断信息
+        diag_parts = []
+        if elapsed_total > 0:
+            diag_parts.append(f"- 总运行时间: {elapsed_total:.0f} 秒")
+        if tool_stats:
+            total_calls = tool_stats.get("total_calls", 0)
+            failed_calls = tool_stats.get("failed_calls", 0)
+            diag_parts.append(f"- 工具调用: {total_calls} 次（失败 {failed_calls} 次）")
+            if tool_stats.get("consecutive_failures", 0) > 3:
+                diag_parts.append(f"- ⚠ 连续失败: {tool_stats['consecutive_failures']} 次")
+
+        diag_section = ""
+        if diag_parts:
+            diag_section = "\n\n**诊断信息**：\n" + "\n".join(diag_parts)
+
         timeout_msg = (
             f"\n> ⚠️ **执行超时**: {reason}\n\n"
-            "可能的原因：\n"
-            "- 查询过于复杂\n"
-            "- 数据量较大\n"
+            "**可能的原因**：\n"
+            "- 大模型 API 响应缓慢（公网模型高峰期延迟较大）\n"
+            "- 查询过于复杂，智能体循环调用工具\n"
             "- 网络连接不稳定\n\n"
-            "建议：\n"
-            "- 简化查询条件\n"
-            "- 分步骤执行\n"
+            "**建议**：\n"
+            "- 简化查询条件，分步骤执行\n"
+            "- 检查大模型 API 服务状态\n"
             "- 稍后重试"
+            f"{diag_section}"
         )
         await self._safe_write(
             response, timeout_msg, "error", DataTypeEnum.ANSWER.value[0]
@@ -841,30 +890,73 @@ class DeepAgent:
         await self._safe_write(response, "", "end", DataTypeEnum.STREAM_END.value[0])
 
     async def _handle_stream_error(self, response, e: Exception):
-        """处理流式响应错误"""
+        """处理流式响应错误，区分公网大模型超时和系统内部错误"""
         error_type = type(e).__name__
-        error_msg = str(e).lower()
+        error_msg_str = str(e).lower()
 
         is_timeout = (
-            "timeout" in error_msg
-            or "timed out" in error_msg
+            "timeout" in error_msg_str
+            or "timed out" in error_msg_str
             or error_type in ["TimeoutError", "asyncio.TimeoutError"]
+        )
+
+        is_rate_limit = (
+            "rate_limit" in error_msg_str
+            or "rate limit" in error_msg_str
+            or "429" in error_msg_str
+            or "too many requests" in error_msg_str
+        )
+
+        is_api_error = (
+            "api" in error_msg_str
+            or "401" in error_msg_str
+            or "403" in error_msg_str
+            or "502" in error_msg_str
+            or "503" in error_msg_str
+            or "service unavailable" in error_msg_str
+            or "internal server error" in error_msg_str
         )
 
         if is_timeout:
             logger.error(f"LLM 调用超时: {error_type}: {e}", exc_info=True)
-            await self._handle_timeout(response, "LLM 响应超时")
+            await self._handle_timeout(response, "大模型 API 响应超时，可能是公网模型服务繁忙")
+        elif is_rate_limit:
+            logger.error(f"LLM 限流: {error_type}: {e}", exc_info=True)
+            error_content = (
+                "\n> ⚠️ **大模型 API 限流**\n\n"
+                "当前模型服务请求量过大，请稍后重试。\n"
+                "如频繁出现此问题，建议联系管理员调整 API 配额。"
+            )
+            await self._safe_write(
+                response, error_content, "error", DataTypeEnum.ANSWER.value[0]
+            )
+            await self._safe_write(
+                response, "", "end", DataTypeEnum.STREAM_END.value[0]
+            )
+        elif is_api_error:
+            logger.error(f"LLM API 错误: {error_type}: {e}", exc_info=True)
+            error_content = (
+                f"\n> ❌ **大模型 API 错误**\n\n"
+                f"错误信息: {str(e)[:200]}\n\n"
+                "请检查模型服务配置是否正确（API Key、服务地址等），或稍后重试。"
+            )
+            await self._safe_write(
+                response, error_content, "error", DataTypeEnum.ANSWER.value[0]
+            )
+            await self._safe_write(
+                response, "", "end", DataTypeEnum.STREAM_END.value[0]
+            )
         else:
             logger.error(f"Agent 流式响应异常: {error_type}: {e}", exc_info=True)
             try:
-                error_msg = (
+                error_content = (
                     f"\n> ❌ **处理异常**\n\n"
                     f"错误类型: {error_type}\n"
                     f"错误信息: {str(e)[:200]}\n\n"
                     "请稍后重试，如问题持续存在请联系管理员。"
                 )
                 await self._safe_write(
-                    response, error_msg, "error", DataTypeEnum.ANSWER.value[0]
+                    response, error_content, "error", DataTypeEnum.ANSWER.value[0]
                 )
                 await self._safe_write(
                     response, "", "end", DataTypeEnum.STREAM_END.value[0]
