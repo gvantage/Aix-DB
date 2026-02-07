@@ -542,6 +542,25 @@ class DeepAgent:
 
         logger.info(f"开始流式响应处理（混合模式） - 任务ID: {task_id}, 查询: {query[:100]}")
 
+        # SSE 心跳：防止代理/浏览器因长时间无数据而断开连接
+        heartbeat_task = None
+        heartbeat_stop = asyncio.Event()
+
+        async def _heartbeat_loop():
+            """每隔 15 秒发送 SSE 注释保活"""
+            while not heartbeat_stop.is_set():
+                try:
+                    await asyncio.wait_for(heartbeat_stop.wait(), timeout=15)
+                    break  # stop 事件已触发
+                except asyncio.TimeoutError:
+                    # 15 秒没有停止信号，发送心跳
+                    try:
+                        await response.write(": heartbeat\n\n")
+                    except Exception:
+                        break  # 写失败说明连接已断开
+
+        heartbeat_task = asyncio.create_task(_heartbeat_loop())
+
         try:
             async for mode, chunk in agent.astream(**stream_args):
                 current_time = time.time()
@@ -733,10 +752,7 @@ class DeepAgent:
         except asyncio.CancelledError:
             is_user_cancelled = self._is_task_cancelled(task_id)
             logger.info(f"任务 {task_id} 流被取消")
-            try:
-                await self._handle_task_cancellation(response, is_user_cancelled)
-            except Exception as e:
-                logger.error(f"处理取消异常时出错: {e}", exc_info=True)
+            connection_closed = True  # 标记连接已关闭，避免 finally 中重复发送
             raise
         except Exception as e:
             if self._is_connection_error(e):
@@ -745,6 +761,15 @@ class DeepAgent:
             else:
                 await self._handle_stream_error(response, e)
         finally:
+            # 停止心跳
+            heartbeat_stop.set()
+            if heartbeat_task and not heartbeat_task.done():
+                heartbeat_task.cancel()
+                try:
+                    await heartbeat_task
+                except (asyncio.CancelledError, Exception):
+                    pass
+
             # 保存最后的缓冲内容
             if current_content_buffer:
                 t02_answer_data.append(current_content_buffer)
@@ -756,6 +781,15 @@ class DeepAgent:
                 f"消息数: {message_count}, token数: {token_count}, "
                 f"连接状态: {'已断开' if connection_closed else '正常'}"
             )
+
+            # 发送流结束标记（确保前端能正确结束等待状态）
+            if not connection_closed and not self._is_task_cancelled(task_id):
+                try:
+                    await self._safe_write(
+                        response, "", "end", DataTypeEnum.STREAM_END.value[0]
+                    )
+                except Exception as e:
+                    logger.warning(f"发送 STREAM_END 失败: {e}")
 
             # 保存记录
             if not self._is_task_cancelled(task_id):
