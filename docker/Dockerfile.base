@@ -34,9 +34,16 @@ RUN pnpm run build && \
     find . -name "*.md" -not -path "./dist/*" -delete 2>/dev/null || true
 
 # ============ 阶段2: 构建 Python 依赖 ============
+# 从 uv 官方多架构镜像获取正确架构的 uv 二进制
+# 解决 Mac M1 上通过 QEMU 模拟 amd64 时 pipx install uv 获取错误架构的问题
+FROM ghcr.io/astral-sh/uv:0.8.0 AS uv-bin
+
 FROM python:3.11-slim-bookworm AS backend-builder
 
 WORKDIR /aix-db
+
+# 从官方镜像复制 uv 二进制（buildx 会自动为目标架构拉取对应的镜像）
+COPY --from=uv-bin /uv /usr/local/bin/uv
 
 # 设置镜像源和 PATH
 ENV PIP_INDEX_URL="https://mirrors.aliyun.com/pypi/simple" \
@@ -51,8 +58,6 @@ ENV PIP_INDEX_URL="https://mirrors.aliyun.com/pypi/simple" \
 COPY pyproject.toml uv.lock* requirements.txt* ./
 
 # 安装系统依赖和 Python 依赖
-# 注意：使用 uv pip install -r pyproject.toml 而非 uv sync，
-# 避免 uv.lock 在 QEMU 模拟跨平台构建时依赖安装静默失败
 RUN set -eux; \
     apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -62,11 +67,9 @@ RUN set -eux; \
     libpq-dev \
     libffi-dev \
     && \
-    pip install --no-cache-dir --no-compile pipx && \
-    pipx install "uv==0.8.0" && \
     uv venv --clear && \
     . .venv/bin/activate && \
-    uv pip install --no-cache -r pyproject.toml \
+    uv sync --frozen --no-cache --no-install-project \
         --index-url https://mirrors.aliyun.com/pypi/simple && \
     # 验证关键依赖安装成功（跨平台构建时可能静默失败）
     python -c "import sanic; print(f'sanic {sanic.__version__} installed')" && \
@@ -78,7 +81,7 @@ RUN set -eux; \
     apt-get purge -y gcc g++ python3-dev libpq-dev libffi-dev && \
     apt-get autoremove -y --purge && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/.cache /root/.local/bin/uv
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /root/.cache /usr/local/bin/uv
 
 # ============ 阶段3: 基础运行镜像 ============
 FROM python:3.11-slim-bookworm
