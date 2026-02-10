@@ -51,6 +51,8 @@ ENV PIP_INDEX_URL="https://mirrors.aliyun.com/pypi/simple" \
 COPY pyproject.toml uv.lock* requirements.txt* ./
 
 # 安装系统依赖和 Python 依赖
+# 注意：使用 uv pip install -r pyproject.toml 而非 uv sync，
+# 避免 uv.lock 在 QEMU 模拟跨平台构建时依赖安装静默失败
 RUN set -eux; \
     apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -64,7 +66,10 @@ RUN set -eux; \
     pipx install "uv==0.8.0" && \
     uv venv --clear && \
     . .venv/bin/activate && \
-    uv sync --no-cache --index-url https://mirrors.aliyun.com/pypi/simple --extra-index-url "" && \
+    uv pip install --no-cache -r pyproject.toml \
+        --index-url https://mirrors.aliyun.com/pypi/simple && \
+    # 验证关键依赖安装成功（跨平台构建时可能静默失败）
+    python -c "import sanic; print(f'sanic {sanic.__version__} installed')" && \
     # 只进行安全的清理（保留所有元数据和 entry points）
     find .venv -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true && \
     find .venv -type f -name "*.pyc" -delete && \
