@@ -2447,6 +2447,7 @@ const handleHistoryClick = async (item: any) => {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
 // ============================================
 // 设计系统变量 - 与 default-page.vue 保持一致
 // ============================================
@@ -2489,6 +2490,9 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   font-family: $font-family-base;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // Firefox 滚动条样式（置于嵌套规则之前，避免 mixed-decls 警告）
+  scrollbar-width: thin;
+  scrollbar-color: rgba(138, 138, 138, 0.2) transparent;
 
   * {
     font-family: $font-family-base;
@@ -2512,10 +2516,6 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
       background: rgba(138, 138, 138, 0.4);
     }
   }
-
-  // Firefox 滚动条样式
-  scrollbar-width: thin;
-  scrollbar-color: rgba(138, 138, 138, 0.2) transparent;
 }
 
 .new-chat-btn {
@@ -2552,7 +2552,7 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
 
   &:hover {
-    background-color: darken($bg-subtle, 2%);
+    background-color: color.adjust($bg-subtle, $lightness: -2%);
   }
 }
 
@@ -2667,7 +2667,7 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     border-radius: 3px;
 
     &:hover {
-      background: darken($border-color, 15%);
+      background: color.adjust($border-color, $lightness: -15%);
     }
   }
 }
@@ -2699,7 +2699,7 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
       background: $border-color;
 
       &:hover {
-        background: darken($border-color, 15%);
+        background: color.adjust($border-color, $lightness: -15%);
       }
     }
   }
@@ -2819,7 +2819,7 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
 
   &:hover {
-    background-color: darken($bg-subtle, 3%);
+    background-color: color.adjust($bg-subtle, $lightness: -3%);
     color: $text-primary;
     border-color: $border-color;
 
@@ -3015,11 +3015,11 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: lighten($primary-color, 30%);
+  background: color.adjust($primary-color, $lightness: 30%);
   border-radius: 3px;
 
   &:hover {
-    background: lighten($primary-color, 20%);
+    background: color.adjust($primary-color, $lightness: 20%);
   }
 }
 
@@ -3202,7 +3202,7 @@ $shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     border-radius: 3px;
 
     &:hover {
-      background-color: darken($border-color, 15%);
+      background-color: color.adjust($border-color, $lightness: -15%);
     }
   }
 }
