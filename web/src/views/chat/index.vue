@@ -67,6 +67,11 @@ const hasMoreConversationHistory = computed(
 // 新增：专门用于控制转场动画的Key，避免因 currentConversationChatId 变化（如追加消息时）导致组件重载
 const chatTransitionKey = ref('chat-list')
 
+// 技能中心：跳转独立页面
+function handleSkillCenterClick() {
+  router.push({ name: 'SkillCenter' })
+}
+
 // 管理对话
 const isModalOpen = ref(false)
 function openModal() {
@@ -1803,9 +1808,10 @@ const handleHistoryClick = async (item: any) => {
 
             <div
               class="my-space flex items-center gap-2 text-[#6A6A6A] hover:text-[#7E6BF2] cursor-pointer text-[14px] font-normal transition-colors history-item-text"
+              @click="handleSkillCenterClick"
             >
-              <div class="i-hugeicons:folder-01 text-18"></div>
-              <span>我的空间</span>
+              <div class="i-hugeicons:magic-wand-01 text-18"></div>
+              <span>技能中心</span>
             </div>
           </div>
         </div>
